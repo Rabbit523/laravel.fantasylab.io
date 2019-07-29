@@ -1,187 +1,185 @@
 /* ************************************************************************* */
+
 /* ------------------------- Importing google fonts ------------------------ */
+
 /* ************************************************************************* */
+
 /* **** Lato Font **** */
+
 @font-face {
   font-family: 'Lato';
   font-style: italic;
   font-weight: 400;
-  src: local("Lato Italic"), local("Lato-Italic"), url("../fonts/vendor/google-fonts/lato/lato-latin-italic-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Lato Italic"), local("Lato-Italic"), url(/fonts/lato-latin-italic-400.woff2?b45e52f342dc29c8553f51a99f924871) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
   font-family: 'Lato';
   font-style: italic;
   font-weight: 700;
-  src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url("../fonts/vendor/google-fonts/lato/lato-latin-italic-700.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Lato Bold Italic"), local("Lato-BoldItalic"), url(/fonts/lato-latin-italic-700.woff2?b4c4170ea2742df9c6ed6735e65f2120) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 400;
-  src: local("Lato Regular"), local("Lato-Regular"), url("../fonts/vendor/google-fonts/lato/lato-latin-normal-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Lato Regular"), local("Lato-Regular"), url(/fonts/lato-latin-normal-400.woff2?f1a4a058fbba1e35a406188ae7eddaf8) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 700;
-  src: local("Lato Bold"), local("Lato-Bold"), url("../fonts/vendor/google-fonts/lato/lato-latin-normal-700.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Lato Bold"), local("Lato-Bold"), url(/fonts/lato-latin-normal-700.woff2?7fbbfd1610770d594aef639cfefdd0b0) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 /* **** Montserrat **** */
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 300;
-  src: local("Montserrat Light"), local("Montserrat-Light"), url("../fonts/vendor/google-fonts/Montserrat/Montserrat-latin-normal-300.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Montserrat Light"), local("Montserrat-Light"), url(/fonts/Montserrat-latin-normal-300.woff2?0594021081873b515fca552d67e24528) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 400;
-  src: local("Montserrat Regular"), local("Montserrat-Regular"), url("../fonts/vendor/google-fonts/Montserrat/Montserrat-latin-normal-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Montserrat Regular"), local("Montserrat-Regular"), url(/fonts/Montserrat-latin-normal-400.woff2?3cec7b57a4690278f391eb27f4e12e88) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
   font-family: 'Montserrat';
   font-style: normal;
   font-weight: 600;
-  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url("../fonts/vendor/google-fonts/Montserrat/Montserrat-latin-normal-600.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Montserrat SemiBold"), local("Montserrat-SemiBold"), url(/fonts/Montserrat-latin-normal-600.woff2?01f2b99178701f558ebc81cfa650cd49) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 /* **** Montserrat **** */
+
 @font-face {
   font-family: 'Open Sans';
   font-style: normal;
   font-weight: 400;
-  src: local("Open Sans Regular"), local("OpenSans-Regular"), url("../fonts/vendor/google-fonts/Open-sans/Open-sans-latin-italic-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+  src: local("Open Sans Regular"), local("OpenSans-Regular"), url(/fonts/Open-sans-latin-italic-400.woff2?cffb686d7d2f4682df8342bd4d276e09) format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
 @font-face {
-  font-family: 'Open Sans';
-  font-style: italic;
-  font-weight: 600;
-  src: local("Open Sans SemiBold Italic"), local("OpenSans-SemiBoldItalic"), url("../fonts/vendor/google-fonts/Open-sans/Open-sans-latin-italic-600.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-/* **** Raleway **** */
-@font-face {
-  font-family: 'Raleway';
-  font-style: italic;
-  font-weight: 400;
-  src: local("Raleway Italic"), local("Raleway-Italic"), url("../fonts/vendor/google-fonts/Raleway/Raleway-latin-italic-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-@font-face {
-  font-family: 'Raleway';
+  font-family: 'Gotham Book';
+  src: url(/fonts/Gotham-Book.eot?3e077b58b8ae367b93056e35c3a61df2) format("embedded-opentype"), url(/fonts/Gotham-Book.woff?1afe0a8aa6e3459080fcabe62050b3e9) format("woff"), url(/fonts/Gotham-Book.ttf?d044a4bf155bf00e3533b5b4c2b892bc) format("truetype"), url(/fonts/Gotham-Book.svg?5c23a69e60a9fcc8d9bae826f1e0da21) format("svg");
+  font-weight: normal;
   font-style: normal;
-  font-weight: 300;
-  src: local("Raleway Light"), local("Raleway-Light"), url("../fonts/vendor/google-fonts/Raleway/Raleway-latin-normal-300.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+}
+
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Gotham Medium';
+  src: url(/fonts/Gotham-Medium.eot?adc4354cbbb8141ca5bdbd6cdaa5d443) format("embedded-opentype"), url(/fonts/Gotham-Medium.otf?982ce17d7ddd10e11f0fdec9214fa9fc) format("opentype"), url(/fonts/Gotham-Medium.woff?4b22c998c63cc9cf343f1cf6713404f9) format("woff"), url(/fonts/Gotham-Medium.ttf?ff0075c4410632484f89be9b2850abaf) format("truetype"), url(/fonts/Gotham-Medium.svg?c727ac8d0192d902f9a598c4a696c197) format("svg");
+  font-weight: normal;
   font-style: normal;
-  font-weight: 400;
-  src: local("Raleway"), local("Raleway-Regular"), url("../fonts/vendor/google-fonts/Raleway/Raleway-latin-normal-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+}
+
 @font-face {
-  font-family: 'Raleway';
+  font-family: 'Gotham Bold';
+  src: url(/fonts/Gotham-Bold.eot?a4e3583fbc53980dfebf4dc489b774d1) format("embedded-opentype"), url(/fonts/Gotham-Bold.otf?722c5f898bbca8b2eb3fce0287688326) format("opentype"), url(/fonts/Gotham-Bold.woff?361bdb76dec13d3ff12baf2c95c1c36d) format("woff"), url(/fonts/Gotham-Bold.ttf?ea4745b02597c68f1e77a6d99c4fa1d5) format("truetype"), url(/fonts/Gotham-Bold.svg?36a715a2b43d8dfc45fbb7f22acf3c4e) format("svg");
+  font-weight: bold;
   font-style: normal;
-  font-weight: 600;
-  src: local("Raleway SemiBold"), local("Raleway-SemiBold"), url("../fonts/vendor/google-fonts/Raleway/Raleway-latin-normal-600.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-/* **** Work Sans **** */
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 400;
-  src: local("Work Sans"), local("WorkSans-Regular"), url("../fonts/vendor/google-fonts/Work-sans/Work-sans-latin-normal-400.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 500;
-  src: local("Work Sans Medium"), local("WorkSans-Medium"), url("../fonts/vendor/google-fonts/Work-sans/Work-sans-latin-normal-500.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
-@font-face {
-  font-family: 'Work Sans';
-  font-style: normal;
-  font-weight: 600;
-  src: local("Work Sans SemiBold"), local("WorkSans-SemiBold"), url("../fonts/vendor/google-fonts/Work-sans/Work-sans-latin-normal-600.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215; }
+}
+
 /* ************************************************************************* */
+
 /* ------------------------- Defining Constants ---------------------------- */
+
 /* ************************************************************************* */
+
 /* ************************************************************************* */
+
 /* ---------------------------- Theme Design ------------------------------- */
+
 /* ************************************************************************* */
-/* line 162, ../../resources/assets/sass/app.scss */
+
 h1 {
   font-size: 54px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 167, ../../resources/assets/sass/app.scss */
 h2 {
   font-size: 36px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 172, ../../resources/assets/sass/app.scss */
 h3 {
   font-size: 24px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 177, ../../resources/assets/sass/app.scss */
 h4 {
   font-size: 18px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 182, ../../resources/assets/sass/app.scss */
 h5 {
   font-size: 16px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 187, ../../resources/assets/sass/app.scss */
 h6 {
   font-size: 16px;
   font-family: "Gotham Bold";
-  font-weight: bold; }
+  font-weight: bold;
+}
 
-/* line 192, ../../resources/assets/sass/app.scss */
 p {
   font-size: 16px;
-  font-family: "Gotham Book"; }
+  font-family: "Gotham Book";
+}
 
-/* line 196, ../../resources/assets/sass/app.scss */
 .custom-col-1 {
-  width: 10% !important; }
+  width: 10% !important;
+}
 
-/* line 199, ../../resources/assets/sass/app.scss */
 .custom-col-2 {
-  width: 20% !important; }
+  width: 20% !important;
+}
 
-/* line 202, ../../resources/assets/sass/app.scss */
 .custom-col-3 {
-  width: 30% !important; }
+  width: 30% !important;
+}
 
-/* line 205, ../../resources/assets/sass/app.scss */
 .custom-col-4 {
-  width: 40% !important; }
+  width: 40% !important;
+}
 
-/* line 208, ../../resources/assets/sass/app.scss */
 .custom-col-6 {
-  width: 60% !important; }
+  width: 60% !important;
+}
 
-/* line 211, ../../resources/assets/sass/app.scss */
 .custom-col-7 {
-  width: 70% !important; }
+  width: 70% !important;
+}
 
-/* line 214, ../../resources/assets/sass/app.scss */
 .custom-col-8 {
-  width: 80% !important; }
+  width: 80% !important;
+}
 
-/* line 217, ../../resources/assets/sass/app.scss */
 .ReactTable .rt-td {
-  text-transform: uppercase; }
+  text-transform: uppercase;
+}
 
-/* line 220, ../../resources/assets/sass/app.scss */
 .login {
   background: transparent !important;
   color: #9aa2bf !important;
@@ -189,30 +187,36 @@ p {
   line-height: normal !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important; }
+  font-size: 16px !important;
+}
 
-/* line 230, ../../resources/assets/sass/app.scss */
 .primary-button {
   line-height: normal !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#7d3ef5), to(#7126fe)) !important;
   background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%) !important;
   border-radius: 5px;
   color: #fff !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important; }
-  /* line 238, ../../resources/assets/sass/app.scss */
-  .primary-button:hover {
-    background: linear-gradient(to bottom, #7630f9 0%, #5710de 100%) !important;
-    box-shadow: 5px 5px 30px rgba(130, 63, 255, 0.5) !important; }
-  /* line 242, ../../resources/assets/sass/app.scss */
-  .primary-button:active {
-    background: linear-gradient(to bottom, #6e29f0 0%, #4e08d1 100%) !important; }
+  font-size: 16px !important;
+}
 
-/* line 246, ../../resources/assets/sass/app.scss */
+.primary-button:hover {
+  background: -webkit-gradient(linear, left top, left bottom, from(#7630f9), to(#5710de)) !important;
+  background: linear-gradient(to bottom, #7630f9 0%, #5710de 100%) !important;
+  -webkit-box-shadow: 5px 5px 30px rgba(130, 63, 255, 0.5) !important;
+          box-shadow: 5px 5px 30px rgba(130, 63, 255, 0.5) !important;
+}
+
+.primary-button:active {
+  background: -webkit-gradient(linear, left top, left bottom, from(#6e29f0), to(#4e08d1)) !important;
+  background: linear-gradient(to bottom, #6e29f0 0%, #4e08d1 100%) !important;
+}
+
 .register {
-  padding-top: 17px; }
+  padding-top: 17px;
+}
 
-/* line 249, ../../resources/assets/sass/app.scss */
 .secondary-button {
   line-height: normal !important;
   background: #010e29 !important;
@@ -221,29 +225,32 @@ p {
   color: #fff !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important; }
-  /* line 258, ../../resources/assets/sass/app.scss */
-  .secondary-button:hover {
-    border: 2px solid #465489 !important; }
-  /* line 261, ../../resources/assets/sass/app.scss */
-  .secondary-button:active {
-    border: 2px solid #fff !important; }
+  font-size: 16px !important;
+}
 
-/* line 265, ../../resources/assets/sass/app.scss */
+.secondary-button:hover {
+  border: 2px solid #465489 !important;
+}
+
+.secondary-button:active {
+  border: 2px solid #fff !important;
+}
+
 .third-button {
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29)) !important;
   background: linear-gradient(to bottom, #09133a 0%, #070e29 100%) !important;
   border-radius: 5px;
   color: #fff !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important; }
+  font-size: 16px !important;
+}
 
-/* line 274, ../../resources/assets/sass/app.scss */
 .item.hover {
   background: #060d26 !important;
-  border: none !important; }
+  border: none !important;
+}
 
-/* line 279, ../../resources/assets/sass/app.scss */
 .nav-color {
   color: #9aa2bf !important;
   margin: 0 !important;
@@ -255,539 +262,756 @@ p {
   font-size: 16px;
   position: inherit !important;
   margin-right: 10px !important;
-  height: 100%; }
-  /* line 292, ../../resources/assets/sass/app.scss */
-  .nav-color.services.hover {
-    border-bottom: 2px solid #8341ff !important;
-    color: #8341ff !important; }
-  /* line 296, ../../resources/assets/sass/app.scss */
-  .nav-color.services.active {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
-  /* line 302, ../../resources/assets/sass/app.scss */
-  .nav-color.portfolio.hover {
-    border-bottom: 2px solid #f84db8 !important;
-    color: #f84db8 !important; }
-  /* line 306, ../../resources/assets/sass/app.scss */
-  .nav-color.portfolio.active {
-    border-bottom: 2px solid #f49d43 !important;
-    color: #f49d43 !important; }
-  /* line 312, ../../resources/assets/sass/app.scss */
-  .nav-color.features.hover {
-    border-bottom: 2px solid #f49d43 !important;
-    color: #f49d43 !important; }
-  /* line 316, ../../resources/assets/sass/app.scss */
-  .nav-color.features.active {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
-  /* line 322, ../../resources/assets/sass/app.scss */
-  .nav-color.about.hover {
-    border-bottom: 2px solid #f3dc17 !important;
-    color: #f3dc17 !important; }
-  /* line 326, ../../resources/assets/sass/app.scss */
-  .nav-color.about.active {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
-  /* line 332, ../../resources/assets/sass/app.scss */
-  .nav-color.blog.hover {
-    border-bottom: 2px solid #94d544 !important;
-    color: #94d544 !important; }
-  /* line 336, ../../resources/assets/sass/app.scss */
-  .nav-color.blog.active {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
-  /* line 342, ../../resources/assets/sass/app.scss */
-  .nav-color.contact.hover {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
-  /* line 346, ../../resources/assets/sass/app.scss */
-  .nav-color.contact.active {
-    border-bottom: 2px solid #3e75db !important;
-    color: #3e75db !important; }
+  height: 100%;
+}
 
-/* line 352, ../../resources/assets/sass/app.scss */
+.nav-color.services.hover {
+  border-bottom: 2px solid #8341ff !important;
+  color: #8341ff !important;
+}
+
+.nav-color.services.active {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
+.nav-color.portfolio.hover {
+  border-bottom: 2px solid #f84db8 !important;
+  color: #f84db8 !important;
+}
+
+.nav-color.portfolio.active {
+  border-bottom: 2px solid #f49d43 !important;
+  color: #f49d43 !important;
+}
+
+.nav-color.features.hover {
+  border-bottom: 2px solid #f49d43 !important;
+  color: #f49d43 !important;
+}
+
+.nav-color.features.active {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
+.nav-color.about.hover {
+  border-bottom: 2px solid #f3dc17 !important;
+  color: #f3dc17 !important;
+}
+
+.nav-color.about.active {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
+.nav-color.blog.hover {
+  border-bottom: 2px solid #94d544 !important;
+  color: #94d544 !important;
+}
+
+.nav-color.blog.active {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
+.nav-color.contact.hover {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
+.nav-color.contact.active {
+  border-bottom: 2px solid #3e75db !important;
+  color: #3e75db !important;
+}
+
 .page {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  padding-top: 60px; }
-  /* line 356, ../../resources/assets/sass/app.scss */
-  .page .admin-sidebar {
-    position: relative !important;
-    background: #070a2b !important;
-    width: 190px !important;
-    height: auto !important; }
-  /* line 362, ../../resources/assets/sass/app.scss */
-  .page main {
-    flex: 1;
-    width: 100%; }
-    /* line 365, ../../resources/assets/sass/app.scss */
-    .page main .divide {
-      background-image: url("/images/divide-back.png") !important;
-      height: 160px;
-      width: 100%;
-      background-size: cover !important; }
-    /* line 371, ../../resources/assets/sass/app.scss */
-    .page main .main-footer {
-      min-height: 350px;
-      height: auto;
-      width: 100%;
-      background-size: cover !important; }
-      /* line 376, ../../resources/assets/sass/app.scss */
-      .page main .main-footer .main-footer-description {
-        display: inline-block;
-        margin-top: 100px;
-        width: 50%;
-        color: #fff; }
-        /* line 381, ../../resources/assets/sass/app.scss */
-        .page main .main-footer .main-footer-description .register {
-          padding-left: 55px;
-          padding-right: 55px; }
-        /* line 385, ../../resources/assets/sass/app.scss */
-        .page main .main-footer .main-footer-description .item-link {
-          text-decoration: underline; }
-        /* line 388, ../../resources/assets/sass/app.scss */
-        .page main .main-footer .main-footer-description p {
-          font-size: 13px; }
-    /* line 393, ../../resources/assets/sass/app.scss */
-    .page main .service-item {
-      padding: 20px 20px 30px 20px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      text-align: left; }
-      /* line 401, ../../resources/assets/sass/app.scss */
-      .page main .service-item .item-hover-back {
-        background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-        width: 100%;
-        height: 100%; }
-      /* line 406, ../../resources/assets/sass/app.scss */
-      .page main .service-item .avatar-item {
-        border-radius: 50%;
-        border: 2px solid #202c5a;
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        margin-bottom: 80px; }
-        /* line 413, ../../resources/assets/sass/app.scss */
-        .page main .service-item .avatar-item img {
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          margin-left: 8px;
-          margin-top: 8px; }
-        /* line 420, ../../resources/assets/sass/app.scss */
-        .page main .service-item .avatar-item i {
-          position: absolute;
-          right: 20px;
-          font-size: 15px;
-          font-weight: 100; }
-      /* line 427, ../../resources/assets/sass/app.scss */
-      .page main .service-item .text-item {
-        display: flex;
-        align-items: flex-end;
-        flex: 1; }
-        /* line 431, ../../resources/assets/sass/app.scss */
-        .page main .service-item .text-item p {
-          font-size: 16px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff; }
-      /* line 438, ../../resources/assets/sass/app.scss */
-      .page main .service-item .description {
-        display: none;
-        padding-top: 5px;
-        text-align: left; }
-        /* line 442, ../../resources/assets/sass/app.scss */
-        .page main .service-item .description p {
-          font-size: 13px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff;
-          font-weight: 100; }
-    /* line 451, ../../resources/assets/sass/app.scss */
-    .page main .badge-item {
-      background: transparent;
-      height: 100%;
-      display: flex;
-      flex-direction: column; }
-      /* line 456, ../../resources/assets/sass/app.scss */
-      .page main .badge-item .badge {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        margin-bottom: 20px;
-        position: relative; }
-        /* line 462, ../../resources/assets/sass/app.scss */
-        .page main .badge-item .badge img {
-          width: 50px;
-          height: 50px; }
-        /* line 466, ../../resources/assets/sass/app.scss */
-        .page main .badge-item .badge p {
-          position: absolute;
-          top: 0;
-          margin-left: 19px;
-          margin-top: 10px; }
-      /* line 473, ../../resources/assets/sass/app.scss */
-      .page main .badge-item .badge-title {
-        display: flex;
-        align-items: flex-end;
-        flex: 1; }
-        /* line 477, ../../resources/assets/sass/app.scss */
-        .page main .badge-item .badge-title p {
-          font-size: 16px;
-          font-family: "Gotham Bold";
-          font-weight: bold;
-          white-space: pre-wrap;
-          color: #fff; }
-      /* line 485, ../../resources/assets/sass/app.scss */
-      .page main .badge-item .badge-description {
-        padding-top: 5px; }
-        /* line 487, ../../resources/assets/sass/app.scss */
-        .page main .badge-item .badge-description p {
-          font-size: 12px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #747b96;
-          font-weight: 100; }
-    /* line 496, ../../resources/assets/sass/app.scss */
-    .page main .portfolio-item {
-      padding: 20px 20px 20px 20px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px; }
-      /* line 503, ../../resources/assets/sass/app.scss */
-      .page main .portfolio-item .portfolio {
-        padding: 90px;
-        margin: auto;
-        display: flex;
-        justify-content: center; }
-        /* line 508, ../../resources/assets/sass/app.scss */
-        .page main .portfolio-item .portfolio img {
-          width: auto;
-          height: auto;
-          position: absolute;
-          top: 0;
-          margin-top: 100px; }
-      /* line 516, ../../resources/assets/sass/app.scss */
-      .page main .portfolio-item .portfolio-text {
-        display: flex;
-        align-items: flex-start;
-        flex: 1;
-        margin-top: 130px;
-        flex-direction: column; }
-        /* line 522, ../../resources/assets/sass/app.scss */
-        .page main .portfolio-item .portfolio-text p {
-          font-size: 16px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff;
-          margin: 0; }
-          /* line 528, ../../resources/assets/sass/app.scss */
-          .page main .portfolio-item .portfolio-text p.portfolio-des {
-            color: #8341ff;
-            font-size: 12px;
-            font-family: "Gotham Book"; }
-    /* line 536, ../../resources/assets/sass/app.scss */
-    .page main .review-item {
-      padding: 20px 80px 30px 80px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-      margin-right: 5px;
-      border-radius: 5px; }
-      /* line 541, ../../resources/assets/sass/app.scss */
-      .page main .review-item .review-avatar {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-bottom: 15px; }
-        /* line 546, ../../resources/assets/sass/app.scss */
-        .page main .review-item .review-avatar img {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%; }
-        /* line 551, ../../resources/assets/sass/app.scss */
-        .page main .review-item .review-avatar .icon-quote-right {
-          border: 1px solid #202c5a;
-          background: #070e29;
-          border-radius: 50%;
-          width: 30px;
-          height: 30px;
-          position: absolute;
-          margin-left: 20px;
-          margin-top: 15px; }
-          /* line 560, ../../resources/assets/sass/app.scss */
-          .page main .review-item .review-avatar .icon-quote-right i {
-            margin-left: 6px;
-            margin-top: 8px;
-            color: #7436e9; }
-      /* line 567, ../../resources/assets/sass/app.scss */
-      .page main .review-item .review-text-section {
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-        justify-content: center; }
-        /* line 573, ../../resources/assets/sass/app.scss */
-        .page main .review-item .review-text-section .name {
-          color: #7436e9; }
-        /* line 576, ../../resources/assets/sass/app.scss */
-        .page main .review-item .review-text-section .description {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          height: 94px;
-          width: 100%;
-          display: -webkit-box;
-          -webkit-line-clamp: 8;
-          -webkit-box-orient: vertical;
-          font-family: "Gotham Book";
-          font-size: 16px; }
-        /* line 587, ../../resources/assets/sass/app.scss */
-        .page main .review-item .review-text-section hr {
-          width: 115px;
-          margin-bottom: 20px;
-          margin-top: 20px;
-          border: 1px solid #7436e9; }
-    /* line 596, ../../resources/assets/sass/app.scss */
-    .page main .alice-carousel .alice-carousel__dots {
-      text-align: left !important; }
-      /* line 598, ../../resources/assets/sass/app.scss */
-      .page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item {
-        background-color: #fff !important; }
-      /* line 601, ../../resources/assets/sass/app.scss */
-      .page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item:hover, .page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item.__active {
-        background-color: #7436e9 !important; }
-    /* line 605, ../../resources/assets/sass/app.scss */
-    .page main .alice-carousel .alice-carousel__prev-btn {
-      display: none; }
-    /* line 608, ../../resources/assets/sass/app.scss */
-    .page main .alice-carousel .alice-carousel__next-btn {
-      display: none; }
-    /* line 612, ../../resources/assets/sass/app.scss */
-    .page main .news-item {
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      cursor: pointer; }
-      /* line 619, ../../resources/assets/sass/app.scss */
-      .page main .news-item:hover {
-        border-bottom: 2px solid #7436e9; }
-        /* line 622, ../../resources/assets/sass/app.scss */
-        .page main .news-item:hover .news-content .news-icon-arrow {
-          display: inline; }
-      /* line 628, ../../resources/assets/sass/app.scss */
-      .page main .news-item .figure img {
-        width: 100%;
-        max-height: 161px; }
-      /* line 633, ../../resources/assets/sass/app.scss */
-      .page main .news-item .news-content {
-        padding: 30px 20px 20px 20px;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: flex-end;
-        position: relative;
-        display: flex;
-        -webkit-box-align: end;
-        -ms-flex-align: end;
-        align-items: flex-start;
-        -webkit-box-flex: 1;
-        -ms-flex: 1;
-        flex-direction: column;
-        flex: 1; }
-        /* line 650, ../../resources/assets/sass/app.scss */
-        .page main .news-item .news-content p {
-          font-size: 14px; }
-          /* line 652, ../../resources/assets/sass/app.scss */
-          .page main .news-item .news-content p.title {
-            font-weight: bold;
-            font-family: "Gotham Bold";
-            font-size: 18px;
-            margin: 0; }
-          /* line 658, ../../resources/assets/sass/app.scss */
-          .page main .news-item .news-content p.category {
-            color: #b2b4bd; }
-          /* line 661, ../../resources/assets/sass/app.scss */
-          .page main .news-item .news-content p.normal {
-            color: #515976; }
-        /* line 665, ../../resources/assets/sass/app.scss */
-        .page main .news-item .news-content .news-icon-arrow {
-          display: none;
-          position: absolute;
-          right: 20px;
-          bottom: 20px; }
-          /* line 670, ../../resources/assets/sass/app.scss */
-          .page main .news-item .news-content .news-icon-arrow i {
-            color: #7436e9; }
-    /* line 676, ../../resources/assets/sass/app.scss */
-    .page main .guide-card {
-      padding: 40px 20px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      align-items: center; }
-      /* line 684, ../../resources/assets/sass/app.scss */
-      .page main .guide-card.service {
-        padding: 20px; }
-      /* line 688, ../../resources/assets/sass/app.scss */
-      .page main .guide-card .avatar img {
-        width: 100%;
-        height: auto; }
-      /* line 693, ../../resources/assets/sass/app.scss */
-      .page main .guide-card .title {
-        display: flex;
-        align-items: flex-end;
-        flex: 1; }
-        /* line 697, ../../resources/assets/sass/app.scss */
-        .page main .guide-card .title p {
-          font-size: 16px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff; }
-      /* line 704, ../../resources/assets/sass/app.scss */
-      .page main .guide-card .description {
-        padding-top: 5px;
-        text-align: center; }
-        /* line 707, ../../resources/assets/sass/app.scss */
-        .page main .guide-card .description p {
-          font-size: 13px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #949dbf;
-          font-weight: 100; }
-    /* line 716, ../../resources/assets/sass/app.scss */
-    .page main .text-card {
-      padding: 40px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      align-items: center; }
-      /* line 724, ../../resources/assets/sass/app.scss */
-      .page main .text-card .title {
-        display: flex;
-        align-items: flex-end;
-        flex: 1; }
-        /* line 728, ../../resources/assets/sass/app.scss */
-        .page main .text-card .title p {
-          font-size: 16px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff; }
-      /* line 735, ../../resources/assets/sass/app.scss */
-      .page main .text-card .description {
-        padding-top: 5px;
-        text-align: center; }
-        /* line 738, ../../resources/assets/sass/app.scss */
-        .page main .text-card .description p {
-          font-size: 13px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #949dbf;
-          font-weight: 100; }
-    /* line 747, ../../resources/assets/sass/app.scss */
-    .page main .headquater-card {
-      padding: 25px;
-      background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      border-radius: 5px;
-      align-items: center; }
-      /* line 755, ../../resources/assets/sass/app.scss */
-      .page main .headquater-card .avatar {
-        display: inline-block;
-        width: 50px;
-        height: 50px;
-        margin-bottom: 20px; }
-        /* line 760, ../../resources/assets/sass/app.scss */
-        .page main .headquater-card .avatar img {
-          width: 50px;
-          height: 50px; }
-      /* line 765, ../../resources/assets/sass/app.scss */
-      .page main .headquater-card .title {
-        display: flex;
-        align-items: flex-end;
-        flex: 1; }
-        /* line 769, ../../resources/assets/sass/app.scss */
-        .page main .headquater-card .title p {
-          font-size: 16px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #fff; }
-      /* line 776, ../../resources/assets/sass/app.scss */
-      .page main .headquater-card .description {
-        padding-top: 5px;
-        padding-bottom: 25px;
-        text-align: center; }
-        /* line 780, ../../resources/assets/sass/app.scss */
-        .page main .headquater-card .description p {
-          font-size: 13px;
-          font-family: "Gotham Book";
-          white-space: pre-wrap;
-          color: #949dbf;
-          font-weight: 100; }
-      /* line 788, ../../resources/assets/sass/app.scss */
-      .page main .headquater-card .headquater-button {
-        padding: 10px 18px;
-        font-size: 15px !important; }
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding-top: 60px;
+}
+
+.page .admin-sidebar {
+  position: relative !important;
+  background: #070a2b !important;
+  width: 190px !important;
+  height: auto !important;
+}
+
+.page main {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  width: 100%;
+}
+
+.page main .divide {
+  background-image: url("/images/divide-back.png") !important;
+  height: 160px;
+  width: 100%;
+  background-size: cover !important;
+}
+
+.page main .main-footer {
+  min-height: 350px;
+  height: auto;
+  width: 100%;
+  background-size: cover !important;
+}
+
+.page main .main-footer .main-footer-description {
+  display: inline-block;
+  margin-top: 100px;
+  width: 50%;
+  color: #fff;
+}
+
+.page main .main-footer .main-footer-description .register {
+  padding-left: 55px;
+  padding-right: 55px;
+}
+
+.page main .main-footer .main-footer-description .item-link {
+  text-decoration: underline;
+}
+
+.page main .main-footer .main-footer-description p {
+  font-size: 13px;
+}
+
+.page main .service-item {
+  padding: 20px 20px 30px 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  text-align: left;
+}
+
+.page main .service-item .item-hover-back {
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  width: 100%;
+  height: 100%;
+}
+
+.page main .service-item .avatar-item {
+  border-radius: 50%;
+  border: 2px solid #202c5a;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 80px;
+}
+
+.page main .service-item .avatar-item img {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: 8px;
+  margin-top: 8px;
+}
+
+.page main .service-item .avatar-item i {
+  position: absolute;
+  right: 20px;
+  font-size: 15px;
+  font-weight: 100;
+}
+
+.page main .service-item .text-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page main .service-item .text-item p {
+  font-size: 16px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.page main .service-item .description {
+  display: none;
+  padding-top: 5px;
+  text-align: left;
+}
+
+.page main .service-item .description p {
+  font-size: 13px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+  font-weight: 100;
+}
+
+.page main .badge-item {
+  background: transparent;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page main .badge-item .badge {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.page main .badge-item .badge img {
+  width: 50px;
+  height: 50px;
+}
+
+.page main .badge-item .badge p {
+  position: absolute;
+  top: 0;
+  margin-left: 19px;
+  margin-top: 10px;
+}
+
+.page main .badge-item .badge-title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page main .badge-item .badge-title p {
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  font-weight: bold;
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.page main .badge-item .badge-description {
+  padding-top: 5px;
+}
+
+.page main .badge-item .badge-description p {
+  font-size: 12px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #747b96;
+  font-weight: 100;
+}
+
+.page main .portfolio-item {
+  padding: 20px 20px 20px 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+}
+
+.page main .portfolio-item .portfolio {
+  padding: 90px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page main .portfolio-item .portfolio img {
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  margin-top: 100px;
+}
+
+.page main .portfolio-item .portfolio-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-top: 130px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page main .portfolio-item .portfolio-text p {
+  font-size: 16px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+  margin: 0;
+}
+
+.page main .portfolio-item .portfolio-text p.portfolio-des {
+  color: #8341ff;
+  font-size: 12px;
+  font-family: "Gotham Book";
+}
+
+.page main .review-item {
+  padding: 20px 80px 30px 80px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  margin-right: 5px;
+  border-radius: 5px;
+}
+
+.page main .review-item .review-avatar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 15px;
+}
+
+.page main .review-item .review-avatar img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+
+.page main .review-item .review-avatar .icon-quote-right {
+  border: 1px solid #202c5a;
+  background: #070e29;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 15px;
+}
+
+.page main .review-item .review-avatar .icon-quote-right i {
+  margin-left: 6px;
+  margin-top: 8px;
+  color: #7436e9;
+}
+
+.page main .review-item .review-text-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.page main .review-item .review-text-section .name {
+  color: #7436e9;
+}
+
+.page main .review-item .review-text-section .description {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 94px;
+  width: 100%;
+  display: -webkit-box;
+  -webkit-line-clamp: 8;
+  -webkit-box-orient: vertical;
+  font-family: "Gotham Book";
+  font-size: 16px;
+}
+
+.page main .review-item .review-text-section hr {
+  width: 115px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  border: 1px solid #7436e9;
+}
+
+.page main .alice-carousel .alice-carousel__dots {
+  text-align: left !important;
+}
+
+.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item {
+  background-color: #fff !important;
+}
+
+.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item:hover,
+.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item.__active {
+  background-color: #7436e9 !important;
+}
+
+.page main .alice-carousel .alice-carousel__prev-btn {
+  display: none;
+}
+
+.page main .alice-carousel .alice-carousel__next-btn {
+  display: none;
+}
+
+.page main .news-item {
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.page main .news-item:hover {
+  border-bottom: 2px solid #7436e9;
+}
+
+.page main .news-item:hover .news-content .news-icon-arrow {
+  display: inline;
+}
+
+.page main .news-item .figure img {
+  width: 100%;
+  max-height: 161px;
+}
+
+.page main .news-item .news-content {
+  padding: 30px 20px 20px 20px;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: flex-end;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+  -ms-flex-align: end;
+  align-items: flex-start;
+  -webkit-box-flex: 1;
+  -ms-flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  flex: 1;
+}
+
+.page main .news-item .news-content p {
+  font-size: 14px;
+}
+
+.page main .news-item .news-content p.title {
+  font-weight: bold;
+  font-family: "Gotham Bold";
+  font-size: 18px;
+  margin: 0;
+}
+
+.page main .news-item .news-content p.category {
+  color: #b2b4bd;
+}
+
+.page main .news-item .news-content p.normal {
+  color: #515976;
+}
+
+.page main .news-item .news-content .news-icon-arrow {
+  display: none;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+.page main .news-item .news-content .news-icon-arrow i {
+  color: #7436e9;
+}
+
+.page main .guide-card {
+  padding: 40px 20px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page main .guide-card.service {
+  padding: 20px;
+}
+
+.page main .guide-card .avatar img {
+  width: 100%;
+  height: auto;
+}
+
+.page main .guide-card .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page main .guide-card .title p {
+  font-size: 16px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.page main .guide-card .description {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.page main .guide-card .description p {
+  font-size: 13px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #949dbf;
+  font-weight: 100;
+}
+
+.page main .text-card {
+  padding: 40px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page main .text-card .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page main .text-card .title p {
+  font-size: 16px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.page main .text-card .description {
+  padding-top: 5px;
+  text-align: center;
+}
+
+.page main .text-card .description p {
+  font-size: 13px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #949dbf;
+  font-weight: 100;
+}
+
+.page main .headquater-card {
+  padding: 25px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29));
+  background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.page main .headquater-card .avatar {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
+.page main .headquater-card .avatar img {
+  width: 50px;
+  height: 50px;
+}
+
+.page main .headquater-card .title {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.page main .headquater-card .title p {
+  font-size: 16px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #fff;
+}
+
+.page main .headquater-card .description {
+  padding-top: 5px;
+  padding-bottom: 25px;
+  text-align: center;
+}
+
+.page main .headquater-card .description p {
+  font-size: 13px;
+  font-family: "Gotham Book";
+  white-space: pre-wrap;
+  color: #949dbf;
+  font-weight: 100;
+}
+
+.page main .headquater-card .headquater-button {
+  padding: 10px 18px;
+  font-size: 15px !important;
+}
 
 @media (min-width: 320px) {
-  /* line 796, ../../resources/assets/sass/app.scss */
   .segment.mobile-navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     z-index: +1;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15) !important;
     position: absolute;
-    width: 100%; }
-    /* line 802, ../../resources/assets/sass/app.scss */
-    .segment.mobile-navbar .logo img {
-      width: 20px !important;
-      margin-bottom: -5px !important;
-      margin-left: -5px !important; }
-    /* line 807, ../../resources/assets/sass/app.scss */
-    .segment.mobile-navbar .menu {
-      background: transparent !important; }
-      /* line 809, ../../resources/assets/sass/app.scss */
-      .segment.mobile-navbar .menu .right.menu > .item:last-child {
-        border: 1px solid #fff; }
-        /* line 811, ../../resources/assets/sass/app.scss */
-        .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition {
-          position: absolute;
-          top: 44px;
-          width: 100vw;
-          right: -135%;
-          background-color: rgba(255, 255, 255, 0.99) !important;
-          z-index: 299;
-          overflow: visible;
-          box-shadow: 5px 0 10px 2px black;
-          text-align: center; }
-          /* line 821, ../../resources/assets/sass/app.scss */
-          .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .ui.divider {
-            margin: 0 !important; }
-          /* line 824, ../../resources/assets/sass/app.scss */
-          .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .item {
-            color: #404040 !important;
-            display: inline-block;
-            text-transform: uppercase;
-            font-size: 1.1em !important;
-            line-height: 2.5em;
-            letter-spacing: 0.2em; }
-          /* line 832, ../../resources/assets/sass/app.scss */
-          .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .item.active {
-            border-bottom: 4px solid #00b5ad;
-            border-radius: 0; }
+    width: 100%;
+  }
 
-  /* line 842, ../../resources/assets/sass/app.scss */
+  .segment.mobile-navbar .logo img {
+    width: 20px !important;
+    margin-bottom: -5px !important;
+    margin-left: -5px !important;
+  }
+
+  .segment.mobile-navbar .menu {
+    background: transparent !important;
+  }
+
+  .segment.mobile-navbar .menu .right.menu > .item:last-child {
+    border: 1px solid #fff;
+  }
+
+  .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition {
+    position: absolute;
+    top: 44px;
+    width: 100vw;
+    right: -135%;
+    background-color: rgba(255, 255, 255, 0.99) !important;
+    z-index: 299;
+    overflow: visible;
+    -webkit-box-shadow: 5px 0 10px 2px black;
+            box-shadow: 5px 0 10px 2px black;
+    text-align: center;
+  }
+
+  .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .ui.divider {
+    margin: 0 !important;
+  }
+
+  .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .item {
+    color: #404040 !important;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.1em !important;
+    line-height: 2.5em;
+    letter-spacing: 0.2em;
+  }
+
+  .segment.mobile-navbar .menu .right.menu > .item:last-child .menu.transition .item.active {
+    border-bottom: 4px solid #00b5ad;
+    border-radius: 0;
+  }
+
   .home-header {
     height: auto;
     background-color: #000;
@@ -795,74 +1019,87 @@ p {
     background-size: cover !important;
     position: relative !important;
     width: 100%;
-    top: 0; }
-    /* line 851, ../../resources/assets/sass/app.scss */
-    .home-header .main-heading {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 600;
-      font-size: 1.8em !important;
-      letter-spacing: -1px;
-      margin-top: 3.3em !important;
-      margin-bottom: 0; }
-    /* line 860, ../../resources/assets/sass/app.scss */
-    .home-header .sub-heading {
-      font-family: "Montserrat", sans-serif;
-      font-size: 1.1em !important;
-      margin-top: 0.4em !important;
-      font-weight: 300; }
-    /* line 866, ../../resources/assets/sass/app.scss */
-    .home-header .free-signup-button {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 300;
-      font-size: 0.7em !important;
-      padding: 1.5em;
-      margin-bottom: 2em;
-      margin-top: 1em; }
-      /* line 873, ../../resources/assets/sass/app.scss */
-      .home-header .free-signup-button a {
-        color: #fff !important; }
+    top: 0;
+  }
 
-  /* line 880, ../../resources/assets/sass/app.scss */
+  .home-header .main-heading {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 600;
+    font-size: 1.8em !important;
+    letter-spacing: -1px;
+    margin-top: 3.3em !important;
+    margin-bottom: 0;
+  }
+
+  .home-header .sub-heading {
+    font-family: "Montserrat", sans-serif;
+    font-size: 1.1em !important;
+    margin-top: 0.4em !important;
+    font-weight: 300;
+  }
+
+  .home-header .free-signup-button {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 300;
+    font-size: 0.7em !important;
+    padding: 1.5em;
+    margin-bottom: 2em;
+    margin-top: 1em;
+  }
+
+  .home-header .free-signup-button a {
+    color: #fff !important;
+  }
+
   .course-tour {
-    padding: 4em 1em 7em 1em; }
-    /* line 882, ../../resources/assets/sass/app.scss */
-    .course-tour h3.header {
-      font-family: "Raleway", sans-serif;
-      font-weight: 500;
-      color: #404040;
-      font-size: 1.8em !important; }
-    /* line 889, ../../resources/assets/sass/app.scss */
-    .course-tour p {
-      font-family: "Montserrat", sans-serif;
-      color: #6a7173;
-      font-weight: 300;
-      font-size: 1.2em !important; }
+    padding: 4em 1em 7em 1em;
+  }
 
-  /* line 897, ../../resources/assets/sass/app.scss */
+  .course-tour h3.header {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    color: #404040;
+    font-size: 1.8em !important;
+  }
+
+  .course-tour p {
+    font-family: "Montserrat", sans-serif;
+    color: #6a7173;
+    font-weight: 300;
+    font-size: 1.2em !important;
+  }
+
   .page-header {
     min-height: 182px !important;
     background-color: #000;
     background-size: 100% !important;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center; }
-    /* line 904, ../../resources/assets/sass/app.scss */
-    .page-header .header {
-      font-family: "Raleway", sans-serif;
-      font-weight: 600;
-      margin-top: 2.6em !important;
-      letter-spacing: 0.3em;
-      text-transform: uppercase; }
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
 
-  /* line 912, ../../resources/assets/sass/app.scss */
+  .page-header .header {
+    font-family: "Raleway", sans-serif;
+    font-weight: 600;
+    margin-top: 2.6em !important;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+  }
+
   .login-page {
     height: 100%;
     margin-top: 3em !important;
     margin-bottom: 5em !important;
     padding: 1em !important;
-    margin-right: 0 !important; }
+    margin-right: 0 !important;
+  }
 
-  /* line 920, ../../resources/assets/sass/app.scss */
   .form .custom-error {
     font-weight: 300;
     margin: 1em !important;
@@ -870,1002 +1107,1320 @@ p {
     font-size: 0.85em !important;
     text-align: left;
     margin-left: 0 !important;
-    color: #e71f1f !important; }
+    color: #e71f1f !important;
+  }
 
-  /* line 930, ../../resources/assets/sass/app.scss */
   .page-loader {
     border: none !important;
-    box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
     background: rgba(255, 255, 255, 0.9) !important;
     position: absolute !important;
     width: 100%;
-    height: 100%; }
-    /* line 937, ../../resources/assets/sass/app.scss */
-    .page-loader .text.loader {
-      background: #fff !important;
-      /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
-      width: 250px !important;
-      height: 115px !important;
-      border: 1px solid #eee;
-      border-radius: 10px;
-      line-height: 3em; }
-    /* line 946, ../../resources/assets/sass/app.scss */
-    .page-loader .ui.large.loader:before, .page-loader .ui.large.loader:after {
-      margin: 1em 0em 0em -1.71428571rem !important; }
+    height: 100%;
+  }
 
-  /* line 950, ../../resources/assets/sass/app.scss */
+  .page-loader .text.loader {
+    background: #fff !important;
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); */
+    width: 250px !important;
+    height: 115px !important;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    line-height: 3em;
+  }
+
+  .page-loader .ui.large.loader:before,
+  .page-loader .ui.large.loader:after {
+    margin: 1em 0em 0em -1.71428571rem !important;
+  }
+
   .footer {
     background: #070a2b !important;
     color: #656b88;
     font-size: 16px;
-    font-family: "Gotham Book"; }
-    /* line 955, ../../resources/assets/sass/app.scss */
-    .footer img {
-      width: 20px !important; }
-    /* line 958, ../../resources/assets/sass/app.scss */
-    .footer .footer-title {
-      padding-bottom: 20px;
-      font-weight: bold;
-      font-size: 18px;
-      font-family: "Gotham Bold"; }
-      /* line 963, ../../resources/assets/sass/app.scss */
-      .footer .footer-title.service {
-        color: #5a2db6; }
-      /* line 966, ../../resources/assets/sass/app.scss */
-      .footer .footer-title.platform {
-        color: #cf409d; }
-      /* line 969, ../../resources/assets/sass/app.scss */
-      .footer .footer-title.company {
-        color: #4f7335; }
-      /* line 972, ../../resources/assets/sass/app.scss */
-      .footer .footer-title.started {
-        color: #f49d43; }
-      /* line 975, ../../resources/assets/sass/app.scss */
-      .footer .footer-title.legal {
-        color: #c0ae1e; }
-    /* line 980, ../../resources/assets/sass/app.scss */
-    .footer .footer-item .item-link {
-      color: #656b88 !important;
-      margin-bottom: 15px;
-      display: block; } }
-@media (min-width: 383px) {
-  /* line 990, ../../resources/assets/sass/app.scss */
-  .segment.navbar {
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
+    font-family: "Gotham Book";
+  }
 
-  /* line 994, ../../resources/assets/sass/app.scss */
+  .footer img {
+    width: 20px !important;
+  }
+
+  .footer .footer-title {
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Gotham Bold";
+  }
+
+  .footer .footer-title.service {
+    color: #5a2db6;
+  }
+
+  .footer .footer-title.platform {
+    color: #cf409d;
+  }
+
+  .footer .footer-title.company {
+    color: #4f7335;
+  }
+
+  .footer .footer-title.started {
+    color: #f49d43;
+  }
+
+  .footer .footer-title.legal {
+    color: #c0ae1e;
+  }
+
+  .footer .footer-item .item-link {
+    color: #656b88 !important;
+    margin-bottom: 15px;
+    display: block;
+  }
+}
+
+@media (min-width: 383px) {
+  .segment.navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
+
   .home-header .main-heading {
     font-size: 2.2em !important;
-    margin-top: 2.3em !important; }
-  /* line 999, ../../resources/assets/sass/app.scss */
+    margin-top: 2.3em !important;
+  }
+
   .home-header .sub-heading {
     font-size: 1.2em !important;
-    margin-top: 0.2em !important; }
-  /* line 1003, ../../resources/assets/sass/app.scss */
-  .home-header .free-signup-button {
-    font-size: 0.8em !important; } }
-@media (min-width: 551px) {
-  /* line 1010, ../../resources/assets/sass/app.scss */
-  .segment.navbar {
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
+    margin-top: 0.2em !important;
+  }
 
-  /* line 1014, ../../resources/assets/sass/app.scss */
+  .home-header .free-signup-button {
+    font-size: 0.8em !important;
+  }
+}
+
+@media (min-width: 551px) {
+  .segment.navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
+
   .home-header .main-heading {
-    font-size: 2.7em !important; }
-  /* line 1018, ../../resources/assets/sass/app.scss */
+    font-size: 2.7em !important;
+  }
+
   .home-header .sub-heading {
     font-size: 1.4em !important;
-    padding: 0 7%; }
-  /* line 1022, ../../resources/assets/sass/app.scss */
-  .home-header .free-signup-button {
-    font-size: 0.8em !important; } }
-@media (min-width: 620px) {
-  /* line 1030, ../../resources/assets/sass/app.scss */
-  .segment.navbar {
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
+    padding: 0 7%;
+  }
 
-  /* line 1034, ../../resources/assets/sass/app.scss */
-  .home-header .main-heading {
-    font-size: 3.0em !important; }
-  /* line 1038, ../../resources/assets/sass/app.scss */
-  .home-header .sub-heading {
-    font-size: 1.5em !important; }
-  /* line 1041, ../../resources/assets/sass/app.scss */
   .home-header .free-signup-button {
-    font-size: 0.9em !important; } }
+    font-size: 0.8em !important;
+  }
+}
+
+@media (min-width: 620px) {
+  .segment.navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
+
+  .home-header .main-heading {
+    font-size: 3.0em !important;
+  }
+
+  .home-header .sub-heading {
+    font-size: 1.5em !important;
+  }
+
+  .home-header .free-signup-button {
+    font-size: 0.9em !important;
+  }
+}
+
 @media (min-width: 769px) {
-  /* line 1049, ../../resources/assets/sass/app.scss */
   .segment.navbar {
     background: #000 !important;
     z-index: +1;
     position: absolute;
     width: 100%;
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
-    /* line 1055, ../../resources/assets/sass/app.scss */
-    .segment.navbar .custom-box {
-      position: absolute;
-      left: 0px;
-      right: 0px;
-      top: 100%;
-      background: #070e28 !important;
-      box-shadow: 0 4px 10px 0px #010107;
-      display: flex;
-      padding: 10px 0; }
-    /* line 1065, ../../resources/assets/sass/app.scss */
-    .segment.navbar .menu {
-      border: none !important;
-      width: 100% !important; }
-      /* line 1068, ../../resources/assets/sass/app.scss */
-      .segment.navbar .menu.right-menu-width {
-        width: auto !important; }
-      /* line 1071, ../../resources/assets/sass/app.scss */
-      .segment.navbar .menu .custom-row {
-        justify-content: space-between; }
-        /* line 1073, ../../resources/assets/sass/app.scss */
-        .segment.navbar .menu .custom-row .custom-dropdown {
-          color: #fff;
-          padding: 0;
-          width: 15.8% !important; }
-          /* line 1077, ../../resources/assets/sass/app.scss */
-          .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item {
-            padding: 10px 10px 20px 10px;
-            background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            border-radius: 5px; }
-            /* line 1084, ../../resources/assets/sass/app.scss */
-            .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item {
-              border-radius: 50%;
-              border: 2px solid #202c5a;
-              display: inline-block;
-              width: 40px;
-              height: 40px;
-              margin-bottom: 40px; }
-              /* line 1091, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item .icon-right-arrow {
-                position: absolute;
-                right: 5px;
-                font-size: 10px;
-                font-weight: 100;
-                display: none; }
-              /* line 1098, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item img {
-                width: 23px;
-                height: 23px;
-                position: absolute;
-                margin-left: 6px;
-                margin-top: 8px; }
-            /* line 1106, ../../resources/assets/sass/app.scss */
-            .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item {
-              display: flex;
-              align-items: flex-end;
-              flex: 1; }
-              /* line 1110, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-                font-size: 16px;
-                font-family: "Gotham Book";
-                white-space: pre-wrap;
-                color: #fff; }
-            /* line 1117, ../../resources/assets/sass/app.scss */
-            .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description {
-              display: none;
-              padding-top: 5px; }
-              /* line 1120, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-                font-size: 13px;
-                font-family: "Gotham Book";
-                white-space: pre-wrap;
-                color: #fff;
-                font-weight: 100; }
-            /* line 1129, ../../resources/assets/sass/app.scss */
-            .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item.mobile:hover {
-              background-image: url("../images/theme/mobile-back.png") !important;
-              box-shadow: 8px 10px 25px 10px #101535; }
-            /* line 1134, ../../resources/assets/sass/app.scss */
-            .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover {
-              cursor: pointer; }
-              /* line 1136, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item {
-                margin-bottom: 5px; }
-                /* line 1138, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item .icon-right-arrow {
-                  display: block; }
-                /* line 1141, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.desktop {
-                  border-color: #7436e9;
-                  color: #7436e9; }
-                /* line 1145, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.mobile {
-                  border-color: #f34cb5;
-                  color: #f34cb5; }
-                /* line 1149, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.ui {
-                  border-color: #f3a864;
-                  color: #f3a864; }
-                /* line 1153, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.branding {
-                  border-color: #e4cb0d;
-                  color: #e4cb0d; }
-                /* line 1157, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.illustration {
-                  border-color: #90ce41;
-                  color: #90ce41; }
-                /* line 1161, ../../resources/assets/sass/app.scss */
-                .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.marketing {
-                  border-color: #285596;
-                  color: #285596; }
-              /* line 1166, ../../resources/assets/sass/app.scss */
-              .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .description {
-                display: block; }
-      /* line 1173, ../../resources/assets/sass/app.scss */
-      .segment.navbar .menu .text {
-        margin: 0 !important;
-        border: none !important;
-        line-height: normal !important;
-        font-family: "Gotham Bold";
-        font-weight: bold !important;
-        font-size: 16px;
-        padding-top: 3px; }
-    /* line 1183, ../../resources/assets/sass/app.scss */
-    .segment.navbar .logo img {
-      width: 40px !important;
-      margin-bottom: 8px !important; }
-    /* line 1187, ../../resources/assets/sass/app.scss */
-    .segment.navbar .or {
-      top: 12% !important; }
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
 
-  /* line 1191, ../../resources/assets/sass/app.scss */
+  .segment.navbar .custom-box {
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    top: 100%;
+    background: #070e28 !important;
+    -webkit-box-shadow: 0 4px 10px 0px #010107;
+            box-shadow: 0 4px 10px 0px #010107;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 10px 0;
+  }
+
+  .segment.navbar .menu {
+    border: none !important;
+    width: 100% !important;
+  }
+
+  .segment.navbar .menu.right-menu-width {
+    width: auto !important;
+  }
+
+  .segment.navbar .menu .custom-row {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown {
+    color: #fff;
+    padding: 0;
+    width: 15.8% !important;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item {
+    padding: 10px 10px 20px 10px;
+    background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
+    background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    border-radius: 5px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item {
+    border-radius: 50%;
+    border: 2px solid #202c5a;
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    margin-bottom: 40px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item .icon-right-arrow {
+    position: absolute;
+    right: 5px;
+    font-size: 10px;
+    font-weight: 100;
+    display: none;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item img {
+    width: 23px;
+    height: 23px;
+    position: absolute;
+    margin-left: 6px;
+    margin-top: 8px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 16px;
+    font-family: "Gotham Book";
+    white-space: pre-wrap;
+    color: #fff;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description {
+    display: none;
+    padding-top: 5px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 13px;
+    font-family: "Gotham Book";
+    white-space: pre-wrap;
+    color: #fff;
+    font-weight: 100;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item.mobile:hover {
+    background-image: url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
+    -webkit-box-shadow: 8px 10px 25px 10px #101535;
+            box-shadow: 8px 10px 25px 10px #101535;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover {
+    cursor: pointer;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item {
+    margin-bottom: 5px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item .icon-right-arrow {
+    display: block;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.desktop {
+    border-color: #7436e9;
+    color: #7436e9;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.mobile {
+    border-color: #f34cb5;
+    color: #f34cb5;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.ui {
+    border-color: #f3a864;
+    color: #f3a864;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.branding {
+    border-color: #e4cb0d;
+    color: #e4cb0d;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.illustration {
+    border-color: #90ce41;
+    color: #90ce41;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item.marketing {
+    border-color: #285596;
+    color: #285596;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .description {
+    display: block;
+  }
+
+  .segment.navbar .menu .text {
+    margin: 0 !important;
+    border: none !important;
+    line-height: normal !important;
+    font-family: "Gotham Bold";
+    font-weight: bold !important;
+    font-size: 16px;
+    padding-top: 3px;
+  }
+
+  .segment.navbar .logo img {
+    width: 40px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .segment.navbar .or {
+    top: 12% !important;
+  }
+
   .home-page {
     min-height: 100vh;
-    background: #03051b; }
-    /* line 1194, ../../resources/assets/sass/app.scss */
-    .home-page .homepage-header {
-      min-height: 550px;
-      height: auto;
-      width: 100%;
-      background-size: cover; }
-      /* line 1199, ../../resources/assets/sass/app.scss */
-      .home-page .homepage-header .homepage-header-description {
-        display: inline-block;
-        margin-top: 60px;
-        width: 50%;
-        color: #fff; }
-        /* line 1204, ../../resources/assets/sass/app.scss */
-        .home-page .homepage-header .homepage-header-description .normal {
-          color: #747b96; }
-        /* line 1207, ../../resources/assets/sass/app.scss */
-        .home-page .homepage-header .homepage-header-description h1 {
-          padding: 0;
-          margin: 0; }
-        /* line 1211, ../../resources/assets/sass/app.scss */
-        .home-page .homepage-header .homepage-header-description .title {
-          margin: 0;
-          padding: 0;
-          font-size: 18px;
-          font-weight: bold;
-          font-family: "Gotham Bold"; }
-        /* line 1219, ../../resources/assets/sass/app.scss */
-        .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-          padding: 15px 70px 15px 70px; }
-    /* line 1225, ../../resources/assets/sass/app.scss */
-    .home-page .custom-row {
-      justify-content: space-between; }
-      /* line 1227, ../../resources/assets/sass/app.scss */
-      .home-page .custom-row .custom-column {
-        padding-left: 5px;
-        padding-right: 5px; }
-        /* line 1230, ../../resources/assets/sass/app.scss */
-        .home-page .custom-row .custom-column:first-child {
-          padding-left: 0; }
-        /* line 1233, ../../resources/assets/sass/app.scss */
-        .home-page .custom-row .custom-column:last-child {
-          padding-right: 0; }
-    /* line 1238, ../../resources/assets/sass/app.scss */
-    .home-page .home-section {
-      color: #fff;
-      margin-top: 90px; }
-      /* line 1241, ../../resources/assets/sass/app.scss */
-      .home-page .home-section .service-item-observer {
-        height: 100%; }
-      /* line 1244, ../../resources/assets/sass/app.scss */
-      .home-page .home-section .home-review {
-        margin-bottom: 20px; }
-      /* line 1247, ../../resources/assets/sass/app.scss */
-      .home-page .home-section .alice-carousel {
-        margin-left: 167px; }
-      /* line 1250, ../../resources/assets/sass/app.scss */
-      .home-page .home-section .alice-carousel_prev_btn {
-        position: absolute;
-        top: 135px;
-        left: 110px;
-        border-radius: 50%;
-        border: none;
-        width: 30px;
-        height: 30px;
-        cursor: pointer; }
-        /* line 1259, ../../resources/assets/sass/app.scss */
-        .home-page .home-section .alice-carousel_prev_btn i {
-          color: #7436e9;
-          padding-left: 3px; }
-      /* line 1264, ../../resources/assets/sass/app.scss */
-      .home-page .home-section .alice-carousel_next_btn {
-        position: absolute;
-        top: 175px;
-        left: 110px;
-        border-radius: 50%;
-        border: none;
-        width: 30px;
-        height: 30px;
-        cursor: pointer; }
-        /* line 1273, ../../resources/assets/sass/app.scss */
-        .home-page .home-section .alice-carousel_next_btn i {
-          color: #7436e9;
-          padding-left: 3px; }
-    /* line 1279, ../../resources/assets/sass/app.scss */
-    .home-page .home-estimation {
-      color: #fff;
-      margin-top: 90px; }
-      /* line 1282, ../../resources/assets/sass/app.scss */
-      .home-page .home-estimation .home-estimation-description {
-        margin-bottom: 40px; }
-        /* line 1284, ../../resources/assets/sass/app.scss */
-        .home-page .home-estimation .home-estimation-description h3 {
-          margin: 0; }
-        /* line 1287, ../../resources/assets/sass/app.scss */
-        .home-page .home-estimation .home-estimation-description p {
-          padding: 0;
-          color: #747b96; }
-      /* line 1292, ../../resources/assets/sass/app.scss */
-      .home-page .home-estimation .home-button-group {
-        margin-top: 40px; }
-        /* line 1294, ../../resources/assets/sass/app.scss */
-        .home-page .home-estimation .home-button-group .button {
-          padding-left: 40px;
-          padding-right: 40px; }
+    background: #03051b;
+  }
 
-  /* line 1301, ../../resources/assets/sass/app.scss */
+  .home-page .homepage-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .home-page .homepage-header .homepage-header-description {
+    display: inline-block;
+    margin-top: 60px;
+    width: 50%;
+    color: #fff;
+  }
+
+  .home-page .homepage-header .homepage-header-description .normal {
+    color: #747b96;
+  }
+
+  .home-page .homepage-header .homepage-header-description h1 {
+    padding: 0;
+    margin: 0;
+  }
+
+  .home-page .homepage-header .homepage-header-description .title {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+  }
+
+  .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 70px 15px 70px;
+  }
+
+  .home-page .custom-row {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .home-page .custom-row .custom-column {
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+
+  .home-page .custom-row .custom-column:first-child {
+    padding-left: 0;
+  }
+
+  .home-page .custom-row .custom-column:last-child {
+    padding-right: 0;
+  }
+
+  .home-page .home-section {
+    color: #fff;
+    margin-top: 90px;
+  }
+
+  .home-page .home-section .service-item-observer {
+    height: 100%;
+  }
+
+  .home-page .home-section .home-review {
+    margin-bottom: 20px;
+  }
+
+  .home-page .home-section .alice-carousel {
+    margin-left: 167px;
+    max-width: 1180px;
+  }
+
+  .home-page .home-section .alice-carousel_prev_btn {
+    position: absolute;
+    top: 135px;
+    left: 110px;
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .home-page .home-section .alice-carousel_prev_btn i {
+    color: #7436e9;
+    padding-left: 3px;
+  }
+
+  .home-page .home-section .alice-carousel_next_btn {
+    position: absolute;
+    top: 175px;
+    left: 110px;
+    border-radius: 50%;
+    border: none;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+
+  .home-page .home-section .alice-carousel_next_btn i {
+    color: #7436e9;
+    padding-left: 3px;
+  }
+
+  .home-page .home-estimation {
+    color: #fff;
+    margin-top: 90px;
+  }
+
+  .home-page .home-estimation .home-estimation-description {
+    margin-bottom: 40px;
+  }
+
+  .home-page .home-estimation .home-estimation-description h3 {
+    margin: 0;
+  }
+
+  .home-page .home-estimation .home-estimation-description p {
+    padding: 0;
+    color: #747b96;
+  }
+
+  .home-page .home-estimation .home-button-group {
+    margin-top: 40px;
+  }
+
+  .home-page .home-estimation .home-button-group .button {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+
   .portfolio-page {
     min-height: 100vh;
-    background: #03051b; }
-    /* line 1304, ../../resources/assets/sass/app.scss */
-    .portfolio-page .portfolio-header {
-      min-height: 550px;
-      height: auto;
-      width: 100%;
-      background-size: cover; }
-      /* line 1309, ../../resources/assets/sass/app.scss */
-      .portfolio-page .portfolio-header .header-gradient {
-        width: 100%;
-        height: 550px;
-        background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.7), rgba(3, 5, 28, 0.9)) !important; }
-        /* line 1313, ../../resources/assets/sass/app.scss */
-        .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
-          text-align: center;
-          color: #fff;
-          padding: 100px 150px 100px 150px; }
-          /* line 1317, ../../resources/assets/sass/app.scss */
-          .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
-            padding-bottom: 50px; }
-            /* line 1319, ../../resources/assets/sass/app.scss */
-            .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-              color: #949dbf;
-              font-size: 18px; }
-          /* line 1324, ../../resources/assets/sass/app.scss */
-          .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-            display: flex;
-            justify-content: center;
-            align-items: center; }
-            /* line 1328, ../../resources/assets/sass/app.scss */
-            .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
-              padding-left: 30px;
-              padding-right: 30px; }
-              /* line 1331, ../../resources/assets/sass/app.scss */
-              .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
-                width: 50px;
-                height: 50px; }
-              /* line 1335, ../../resources/assets/sass/app.scss */
-              .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-                font-size: 18px; }
-    /* line 1343, ../../resources/assets/sass/app.scss */
-    .portfolio-page .portfolio-studios {
-      text-align: center;
-      color: #fff;
-      margin-top: -50px; }
+    background: #03051b;
+  }
 
-  /* line 1349, ../../resources/assets/sass/app.scss */
+  .portfolio-page .portfolio-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient {
+    width: 100%;
+    height: 550px;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.7)), to(rgba(3, 5, 28, 0.9))) !important;
+    background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.7), rgba(3, 5, 28, 0.9)) !important;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+    text-align: center;
+    color: #fff;
+    padding: 100px 150px 100px 150px;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
+    padding-bottom: 50px;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    color: #949dbf;
+    font-size: 18px;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 18px;
+  }
+
+  .portfolio-page .portfolio-studios {
+    text-align: center;
+    color: #fff;
+    margin-top: -50px;
+  }
+
   .about-page {
     min-height: 100vh;
-    background: #03051b; }
-    /* line 1352, ../../resources/assets/sass/app.scss */
-    .about-page .about-header {
-      min-height: 550px;
-      height: auto;
-      width: 100%;
-      background-size: cover; }
-      /* line 1357, ../../resources/assets/sass/app.scss */
-      .about-page .about-header .header-gradient {
-        width: 100%;
-        height: 650px;
-        background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)) !important; }
-        /* line 1361, ../../resources/assets/sass/app.scss */
-        .about-page .about-header .header-gradient .header-description {
-          text-align: center;
-          color: #fff;
-          padding-top: 100px;
-          padding-bottom: 85px; }
-          /* line 1366, ../../resources/assets/sass/app.scss */
-          .about-page .about-header .header-gradient .header-description .header-text {
-            padding-bottom: 50px;
-            padding-left: 10px;
-            padding-right: 10px; }
-            /* line 1370, ../../resources/assets/sass/app.scss */
-            .about-page .about-header .header-gradient .header-description .header-text p {
-              color: #949dbf;
-              font-size: 18px; }
-          /* line 1375, ../../resources/assets/sass/app.scss */
-          .about-page .about-header .header-gradient .header-description .counter-box {
-            display: flex;
-            justify-content: space-between; }
-            /* line 1379, ../../resources/assets/sass/app.scss */
-            .about-page .about-header .header-gradient .header-description .counter-box .box p {
-              color: #949dbf; }
-        /* line 1386, ../../resources/assets/sass/app.scss */
-        .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
-          height: 100%; }
-    /* line 1392, ../../resources/assets/sass/app.scss */
-    .about-page .about-section {
-      color: #fff;
-      padding-top: 80px;
-      text-align: center; }
-      /* line 1396, ../../resources/assets/sass/app.scss */
-      .about-page .about-section .text-card-observer {
-        margin-top: 20px; }
-      /* line 1399, ../../resources/assets/sass/app.scss */
-      .about-page .about-section .service-item-observer {
-        height: 100%;
-        margin-top: 20px; }
-        /* line 1404, ../../resources/assets/sass/app.scss */
-        .about-page .about-section .service-item-observer .service-item .avatar-item img {
-          left: 36px; }
+    background: #03051b;
+  }
 
-  /* line 1412, ../../resources/assets/sass/app.scss */
+  .about-page .about-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .about-page .about-header .header-gradient {
+    width: 100%;
+    height: 650px;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
+    background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)) !important;
+  }
+
+  .about-page .about-header .header-gradient .header-description {
+    text-align: center;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 85px;
+  }
+
+  .about-page .about-header .header-gradient .header-description .header-text {
+    padding-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .about-page .about-header .header-gradient .header-description .header-text p {
+    color: #949dbf;
+    font-size: 18px;
+  }
+
+  .about-page .about-header .header-gradient .header-description .counter-box {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .about-page .about-header .header-gradient .header-description .counter-box .box p {
+    color: #949dbf;
+  }
+
+  .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
+    height: 100%;
+  }
+
+  .about-page .about-section {
+    color: #fff;
+    padding-top: 80px;
+    text-align: center;
+  }
+
+  .about-page .about-section .text-card-observer {
+    margin-top: 20px;
+  }
+
+  .about-page .about-section .service-item-observer {
+    height: 100%;
+    margin-top: 20px;
+  }
+
+  .about-page .about-section .service-item-observer .service-item .avatar-item img {
+    left: 36px;
+  }
+
   .features-page {
     min-height: 100vh;
-    background: #03051b; }
+    background: #03051b;
+  }
 
-  /* line 1416, ../../resources/assets/sass/app.scss */
   .blog-page {
     min-height: 100vh;
-    background: #03051b; }
+    background: #03051b;
+  }
 
-  /* line 1420, ../../resources/assets/sass/app.scss */
   .contact-page {
     min-height: 100vh;
-    background: #03051b; }
-    /* line 1423, ../../resources/assets/sass/app.scss */
-    .contact-page .contact-header {
-      min-height: 550px;
-      height: auto;
-      width: 100%;
-      background-size: cover; }
-      /* line 1428, ../../resources/assets/sass/app.scss */
-      .contact-page .contact-header .header-gradient {
-        width: 100%;
-        height: 750px;
-        background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important; }
-        /* line 1432, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-header .header-gradient .header-description {
-          text-align: center;
-          color: #fff;
-          padding-top: 100px;
-          padding-bottom: 45px; }
-          /* line 1437, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-header .header-gradient .header-description .header-text {
-            padding-bottom: 50px;
-            padding-left: 200px;
-            padding-right: 200px; }
-            /* line 1441, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-header .header-gradient .header-description .header-text p {
-              color: #949dbf;
-              font-size: 18px; }
-        /* line 1449, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
-          padding-left: 0; }
-        /* line 1452, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-header .header-gradient .custom-row .custom-column:last-child {
-          padding-right: 0; }
-    /* line 1459, ../../resources/assets/sass/app.scss */
-    .contact-page .contact-section {
-      margin-top: -100px; }
-      /* line 1462, ../../resources/assets/sass/app.scss */
-      .contact-page .contact-section .message-form .segment {
-        background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
-        padding: 20px;
-        border-radius: 5px; }
-        /* line 1466, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .form-group {
-          display: flex;
-          justify-content: space-between;
-          position: relative; }
-          /* line 1470, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-section .message-form .segment .form-group .field {
-            flex: 1;
-            margin-left: 20px;
-            margin-right: 20px;
-            margin-bottom: 25px; }
-            /* line 1475, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .form-group .field:first-child {
-              margin-left: 0; }
-            /* line 1478, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .form-group .field:last-child {
-              margin-right: 0; }
-          /* line 1482, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-section .message-form .segment .form-group .phone-form {
-            text-align: left;
-            margin-bottom: 10px;
-            margin-left: 20px;
-            margin-right: 0px;
-            flex: 1; }
-            /* line 1488, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .form-group .phone-form svg {
-              color: #8341ff;
-              width: 20px; }
-            /* line 1492, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .form-group .phone-form .react-phone-number-input__phone {
-              background: #050a20 !important;
-              border: 2px solid #202c5a;
-              padding: 12px;
-              color: #fff !important;
-              margin-top: 10px;
-              padding-top: 20px;
-              padding-bottom: 20px; }
-          /* line 1502, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-section .message-form .segment .form-group .custom-error {
-            position: absolute;
-            bottom: -10px;
-            padding: 0; }
-        /* line 1508, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment label {
-          color: #9aa2bf !important;
-          font-weight: bold;
-          font-family: "Gotham Bold";
-          font-size: 16px; }
-        /* line 1516, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .field.error label:after {
-          content: "*";
-          color: #e71f1f;
-          padding-left: 3px; }
-        /* line 1521, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .field.error input {
-          border-color: #8341ff !important; }
-        /* line 1525, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .field label {
-          text-align: left;
-          padding-bottom: 10px; }
-        /* line 1529, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .field input {
-          background: #050a20 !important;
-          border: 2px solid #202c5a;
-          padding: 12px;
-          color: #202c5a; }
-        /* line 1536, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment textarea {
-          background: #050a20 !important;
-          border: 2px solid #202c5a;
-          padding: 12px;
-          color: #202c5a; }
-        /* line 1542, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .privacy-section {
-          padding-top: 10px;
-          padding-bottom: 10px;
-          margin-top: 10px;
-          margin-bottom: 10px;
-          display: flex;
-          flex-direction: row;
-          align-items: flex-start; }
-          /* line 1550, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-section .message-form .segment .privacy-section.checkbox_border {
-            border: 1px solid #8341ff; }
-          /* line 1553, ../../resources/assets/sass/app.scss */
-          .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-            margin-left: 5px;
-            margin-top: -2px; }
-            /* line 1556, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .privacy-section .terms-section span {
-              color: #9aa2bf !important; }
-            /* line 1559, ../../resources/assets/sass/app.scss */
-            .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-              color: #3e75db;
-              font-weight: bold;
-              font-family: "Gotham Bold";
-              font-size: 16px;
-              display: inline-block; }
-        /* line 1568, ../../resources/assets/sass/app.scss */
-        .contact-page .contact-section .message-form .segment .primary-button {
-          width: 50%; }
+    background: #03051b;
+  }
 
-  /* line 1575, ../../resources/assets/sass/app.scss */
+  .contact-page .contact-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .contact-page .contact-header .header-gradient {
+    width: 100%;
+    height: 750px;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
+    background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+  }
+
+  .contact-page .contact-header .header-gradient .header-description {
+    text-align: center;
+    color: #fff;
+    padding-top: 100px;
+    padding-bottom: 45px;
+  }
+
+  .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-bottom: 50px;
+    padding-left: 200px;
+    padding-right: 200px;
+  }
+
+  .contact-page .contact-header .header-gradient .header-description .header-text p {
+    color: #949dbf;
+    font-size: 18px;
+  }
+
+  .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
+    padding-left: 0;
+  }
+
+  .contact-page .contact-header .header-gradient .custom-row .custom-column:last-child {
+    padding-right: 0;
+  }
+
+  .contact-page .contact-section {
+    margin-top: -100px;
+  }
+
+  .contact-page .contact-section .message-form .segment {
+    background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29));
+    background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: relative;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .field {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 25px;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .field:first-child {
+    margin-left: 0;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .field:last-child {
+    margin-right: 0;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .phone-form {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left: 20px;
+    margin-right: 0px;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .phone-form svg {
+    color: #8341ff;
+    width: 20px;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .phone-form .react-phone-number-input__phone {
+    background: #050a20 !important;
+    border: 2px solid #202c5a;
+    padding: 12px;
+    color: #fff !important;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .contact-page .contact-section .message-form .segment .form-group .custom-error {
+    position: absolute;
+    bottom: -10px;
+    padding: 0;
+  }
+
+  .contact-page .contact-section .message-form .segment label {
+    color: #9aa2bf !important;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+  }
+
+  .contact-page .contact-section .message-form .segment .field.error label:after {
+    content: "*";
+    color: #e71f1f;
+    padding-left: 3px;
+  }
+
+  .contact-page .contact-section .message-form .segment .field.error input {
+    border-color: #8341ff !important;
+  }
+
+  .contact-page .contact-section .message-form .segment .field label {
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  .contact-page .contact-section .message-form .segment .field input {
+    background: #050a20 !important;
+    border: 2px solid #202c5a;
+    padding: 12px;
+    color: #202c5a;
+  }
+
+  .contact-page .contact-section .message-form .segment textarea {
+    background: #050a20 !important;
+    border: 2px solid #202c5a;
+    padding: 12px;
+    color: #202c5a;
+  }
+
+  .contact-page .contact-section .message-form .segment .privacy-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  .contact-page .contact-section .message-form .segment .privacy-section.checkbox_border {
+    border: 1px solid #8341ff;
+  }
+
+  .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-left: 5px;
+    margin-top: -2px;
+  }
+
+  .contact-page .contact-section .message-form .segment .privacy-section .terms-section span {
+    color: #9aa2bf !important;
+  }
+
+  .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    color: #3e75db;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .contact-page .contact-section .message-form .segment .primary-button {
+    width: 50%;
+  }
+
   .service-page {
     min-height: 100vh;
-    background: #03051b; }
-    /* line 1578, ../../resources/assets/sass/app.scss */
-    .service-page .service-header {
-      min-height: 550px;
-      height: auto;
-      width: 100%;
-      background-size: cover; }
-      /* line 1583, ../../resources/assets/sass/app.scss */
-      .service-page .service-header .header-gradient {
-        width: 100%;
-        height: 800px;
-        background: linear-gradient(to right bottom, rgba(5, 20, 68, 0.6), rgba(3, 5, 28, 0.7)) !important; }
-        /* line 1587, ../../resources/assets/sass/app.scss */
-        .service-page .service-header .header-gradient .header-description {
-          text-align: center;
-          color: #fff;
-          padding-top: 100px; }
-          /* line 1591, ../../resources/assets/sass/app.scss */
-          .service-page .service-header .header-gradient .header-description .header-text {
-            padding-bottom: 50px;
-            padding-left: 210px;
-            padding-right: 210px; }
-            /* line 1595, ../../resources/assets/sass/app.scss */
-            .service-page .service-header .header-gradient .header-description .header-text p {
-              color: #949dbf;
-              font-size: 18px; }
-        /* line 1601, ../../resources/assets/sass/app.scss */
-        .service-page .service-header .header-gradient .figures {
-          display: flex;
-          justify-content: center;
-          align-items: center; }
-          /* line 1605, ../../resources/assets/sass/app.scss */
-          .service-page .service-header .header-gradient .figures .figure {
-            padding-left: 30px;
-            padding-right: 30px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center; }
-            /* line 1612, ../../resources/assets/sass/app.scss */
-            .service-page .service-header .header-gradient .figures .figure img {
-              width: 50px;
-              height: 50px; }
-            /* line 1616, ../../resources/assets/sass/app.scss */
-            .service-page .service-header .header-gradient .figures .figure p {
-              font-size: 18px;
-              color: #c6c8d0;
-              padding-top: 20px; }
-        /* line 1623, ../../resources/assets/sass/app.scss */
-        .service-page .service-header .header-gradient .starter-group {
-          margin-top: 90px;
-          color: #fff;
-          text-align: center; }
-          /* line 1627, ../../resources/assets/sass/app.scss */
-          .service-page .service-header .header-gradient .starter-group .service-item-observer {
-            height: 100%; }
-            /* line 1631, ../../resources/assets/sass/app.scss */
-            .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
-              left: 36px; }
-    /* line 1640, ../../resources/assets/sass/app.scss */
-    .service-page .service-section {
-      color: #fff;
-      text-align: center; }
-      /* line 1643, ../../resources/assets/sass/app.scss */
-      .service-page .service-section.review {
-        min-height: 100vh; }
-      /* line 1646, ../../resources/assets/sass/app.scss */
-      .service-page .service-section .service-review {
-        padding-top: 180px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        justify-content: space-between; }
-        /* line 1653, ../../resources/assets/sass/app.scss */
-        .service-page .service-section .service-review h2 {
-          margin-top: 0; }
-        /* line 1656, ../../resources/assets/sass/app.scss */
-        .service-page .service-section .service-review .avatar {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%; }
-          /* line 1660, ../../resources/assets/sass/app.scss */
-          .service-page .service-section .service-review .avatar img {
-            width: 100%;
-            height: auto;
-            border-radius: 50%; }
-    /* line 1668, ../../resources/assets/sass/app.scss */
-    .service-page .service-estimation {
-      color: #fff;
-      margin-top: 90px; }
-      /* line 1671, ../../resources/assets/sass/app.scss */
-      .service-page .service-estimation .service-estimation-description {
-        margin-bottom: 40px;
-        text-align: center; }
-        /* line 1674, ../../resources/assets/sass/app.scss */
-        .service-page .service-estimation .service-estimation-description h3 {
-          margin: 0; }
-        /* line 1677, ../../resources/assets/sass/app.scss */
-        .service-page .service-estimation .service-estimation-description p {
-          padding: 0;
-          color: #747b96; }
+    background: #03051b;
+  }
 
-  /* line 1684, ../../resources/assets/sass/app.scss */
+  .service-page .service-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .service-page .service-header .header-gradient {
+    width: 100%;
+    height: 800px;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(5, 20, 68, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
+    background: linear-gradient(to right bottom, rgba(5, 20, 68, 0.6), rgba(3, 5, 28, 0.7)) !important;
+  }
+
+  .service-page .service-header .header-gradient .header-description {
+    text-align: center;
+    color: #fff;
+    padding-top: 100px;
+  }
+
+  .service-page .service-header .header-gradient .header-description .header-text {
+    padding-bottom: 50px;
+    padding-left: 210px;
+    padding-right: 210px;
+  }
+
+  .service-page .service-header .header-gradient .header-description .header-text p {
+    color: #949dbf;
+    font-size: 18px;
+  }
+
+  .service-page .service-header .header-gradient .figures {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+
+  .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 30px;
+    padding-right: 30px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+  }
+
+  .service-page .service-header .header-gradient .figures .figure img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 18px;
+    color: #c6c8d0;
+    padding-top: 20px;
+  }
+
+  .service-page .service-header .header-gradient .starter-group {
+    margin-top: 90px;
+    color: #fff;
+    text-align: center;
+  }
+
+  .service-page .service-header .header-gradient .starter-group .service-item-observer {
+    height: 100%;
+  }
+
+  .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
+    left: 36px;
+  }
+
+  .service-page .service-section {
+    color: #fff;
+    text-align: center;
+  }
+
+  .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .service-page .service-section .service-review {
+    padding-top: 180px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .service-page .service-section .service-review h2 {
+    margin-top: 0;
+  }
+
+  .service-page .service-section .service-review .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+
+  .service-page .service-section .service-review .avatar img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
+  }
+
+  .service-page .service-estimation {
+    color: #fff;
+    margin-top: 90px;
+  }
+
+  .service-page .service-estimation .service-estimation-description {
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .service-page .service-estimation .service-estimation-description h3 {
+    margin: 0;
+  }
+
+  .service-page .service-estimation .service-estimation-description p {
+    padding: 0;
+    color: #747b96;
+  }
+
   .login-page {
     min-height: 110vh;
     background: #03051b;
     margin: 0 !important;
-    padding: 0 !important; }
-    /* line 1689, ../../resources/assets/sass/app.scss */
-    .login-page.register {
-      min-height: 150vh; }
-    /* line 1692, ../../resources/assets/sass/app.scss */
-    .login-page .login_title {
-      text-align: center;
-      margin-bottom: 40px; }
-      /* line 1695, ../../resources/assets/sass/app.scss */
-      .login-page .login_title h2 {
-        margin: 0;
-        color: #fff; }
-      /* line 1699, ../../resources/assets/sass/app.scss */
-      .login-page .login_title h3 {
-        margin: 0;
-        color: #3e75db; }
-    /* line 1704, ../../resources/assets/sass/app.scss */
-    .login-page .login-form {
-      background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-      padding: 20px;
-      border-radius: 5px; }
-      /* line 1708, ../../resources/assets/sass/app.scss */
-      .login-page .login-form.register {
-        margin-left: 50px;
-        margin-right: 50px; }
-        /* line 1711, ../../resources/assets/sass/app.scss */
-        .login-page .login-form.register input {
-          color: #fff !important; }
-      /* line 1715, ../../resources/assets/sass/app.scss */
-      .login-page .login-form .segment {
-        background: transparent;
-        border: none; }
-        /* line 1718, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment label {
-          color: #9aa2bf !important;
-          font-weight: bold;
-          font-family: "Gotham Bold";
-          font-size: 16px; }
-        /* line 1726, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .field.error label:after {
-          content: "*";
-          color: #e71f1f;
-          padding-left: 3px; }
-        /* line 1731, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .field.error input {
-          border-color: #8341ff !important; }
-        /* line 1735, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .field label {
-          text-align: left;
-          padding-bottom: 10px; }
-        /* line 1739, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .field input {
-          background: #050a20 !important;
-          border: 2px solid #202c5a;
-          padding: 12px;
-          color: #202c5a; }
-        /* line 1746, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .remember-section {
-          padding-top: 10px;
-          padding-bottom: 10px;
-          display: flex;
-          justify-content: space-between; }
-          /* line 1751, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .remember-section a {
-            color: #3e75db;
-            font-weight: bold;
-            font-family: "Gotham Bold";
-            font-size: 16px; }
-        /* line 1758, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .privacy-section {
-          padding-top: 10px;
-          padding-bottom: 10px;
-          margin-top: 10px;
-          margin-bottom: 10px;
-          display: flex;
-          flex-direction: column;
-          align-items: flex-start; }
-          /* line 1766, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .privacy-section.checkbox_border {
-            border: 1px solid #8341ff; }
-          /* line 1769, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .privacy-section .terms-section {
-            margin-left: 30px; }
-            /* line 1771, ../../resources/assets/sass/app.scss */
-            .login-page .login-form .segment .privacy-section .terms-section span {
-              color: #9aa2bf !important; }
-            /* line 1774, ../../resources/assets/sass/app.scss */
-            .login-page .login-form .segment .privacy-section .terms-section a {
-              color: #3e75db;
-              font-weight: bold;
-              font-family: "Gotham Bold";
-              font-size: 16px;
-              display: inline-block; }
-        /* line 1783, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .google-button {
-          width: 100%;
-          margin-top: 10px;
-          color: #363b52;
-          padding-top: 15px;
-          padding-bottom: 15px;
-          background: #fff;
-          font-weight: bold;
-          font-family: "Gotham Bold";
-          font-size: 16px; }
-          /* line 1793, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .google-button img {
-            width: 20px;
-            position: absolute;
-            left: 30px;
-            margin-top: -3px; }
-        /* line 1800, ../../resources/assets/sass/app.scss */
-        .login-page .login-form .segment .phone-form {
-          text-align: left;
-          margin-bottom: 10px; }
-          /* line 1803, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .phone-form svg {
-            color: #8341ff;
-            width: 20px; }
-          /* line 1807, ../../resources/assets/sass/app.scss */
-          .login-page .login-form .segment .phone-form .react-phone-number-input__phone {
-            background: #050a20 !important;
-            border: 2px solid #202c5a;
-            padding: 12px;
-            color: #fff !important;
-            margin-top: 10px;
-            padding-top: 20px;
-            padding-bottom: 20px; }
+    padding: 0 !important;
+  }
 
-  /* line 1820, ../../resources/assets/sass/app.scss */
-  .admin-pages {
-    min-height: 110vh; }
-    /* line 1825, ../../resources/assets/sass/app.scss */
-    .admin-pages .list .item .content p {
-      cursor: pointer;
-      color: #4183C4 !important;
-      text-align: left;
-      text-transform: uppercase;
-      font-size: 18px;
-      font-family: "Gotham Bold";
-      padding-bottom: 10px;
-      font-weight: bold;
-      padding: 0; }
+  .login-page.register {
+    min-height: 150vh;
+  }
 
-  /* line 1840, ../../resources/assets/sass/app.scss */
-  .admin-page {
-    min-height: 110vh; }
-    /* line 1842, ../../resources/assets/sass/app.scss */
-    .admin-page.home {
-      min-height: 150vh; }
-      /* line 1846, ../../resources/assets/sass/app.scss */
-      .admin-page.home .ui.card textarea {
-        min-height: 150px; }
-    /* line 1853, ../../resources/assets/sass/app.scss */
-    .admin-page .ui.card {
-      width: 100%; }
-      /* line 1855, ../../resources/assets/sass/app.scss */
-      .admin-page .ui.card .content {
-        text-align: left; }
-        /* line 1857, ../../resources/assets/sass/app.scss */
-        .admin-page .ui.card .content .admin-form-group {
-          display: flex;
-          justify-content: space-between;
-          flex-direction: column; }
-          /* line 1861, ../../resources/assets/sass/app.scss */
-          .admin-page .ui.card .content .admin-form-group .flex-form {
-            display: flex;
+  .login-page .login_title {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .login-page .login_title h2 {
+    margin: 0;
+    color: #fff;
+  }
+
+  .login-page .login_title h3 {
+    margin: 0;
+    color: #3e75db;
+  }
+
+  .login-page .login-form {
+    background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
+    background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+    padding: 20px;
+    border-radius: 5px;
+  }
+
+  .login-page .login-form.register {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .login-page .login-form.register input {
+    color: #fff !important;
+  }
+
+  .login-page .login-form .segment {
+    background: transparent;
+    border: none;
+  }
+
+  .login-page .login-form .segment label {
+    color: #9aa2bf !important;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+  }
+
+  .login-page .login-form .segment .field.error label:after {
+    content: "*";
+    color: #e71f1f;
+    padding-left: 3px;
+  }
+
+  .login-page .login-form .segment .field.error input {
+    border-color: #8341ff !important;
+  }
+
+  .login-page .login-form .segment .field label {
+    text-align: left;
+    padding-bottom: 10px;
+  }
+
+  .login-page .login-form .segment .field input {
+    background: #050a20 !important;
+    border: 2px solid #202c5a;
+    padding: 12px;
+    color: #202c5a;
+  }
+
+  .login-page .login-form .segment .remember-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
             justify-content: space-between;
-            flex-direction: row; }
-            /* line 1865, ../../resources/assets/sass/app.scss */
-            .admin-page .ui.card .content .admin-form-group .flex-form .input-form {
-              flex: 1; }
-        /* line 1870, ../../resources/assets/sass/app.scss */
-        .admin-page .ui.card .content input {
-          margin-bottom: 10px; }
-        /* line 1873, ../../resources/assets/sass/app.scss */
-        .admin-page .ui.card .content textarea {
-          min-height: 110px;
-          margin-bottom: 10px; }
-        /* line 1877, ../../resources/assets/sass/app.scss */
-        .admin-page .ui.card .content .save-btn {
-          width: 100%; } }
-@media (min-width: 992px) {
-  /* line 1887, ../../resources/assets/sass/app.scss */
-  .segment.navbar {
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
-    /* line 1889, ../../resources/assets/sass/app.scss */
-    .segment.navbar .or {
-      top: 11% !important; }
+  }
 
-  /* line 1894, ../../resources/assets/sass/app.scss */
+  .login-page .login-form .segment .remember-section a {
+    color: #3e75db;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+  }
+
+  .login-page .login-form .segment .privacy-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+  }
+
+  .login-page .login-form .segment .privacy-section.checkbox_border {
+    border: 1px solid #8341ff;
+  }
+
+  .login-page .login-form .segment .privacy-section .terms-section {
+    margin-left: 30px;
+  }
+
+  .login-page .login-form .segment .privacy-section .terms-section span {
+    color: #9aa2bf !important;
+  }
+
+  .login-page .login-form .segment .privacy-section .terms-section a {
+    color: #3e75db;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+    display: inline-block;
+  }
+
+  .login-page .login-form .segment .google-button {
+    width: 100%;
+    margin-top: 10px;
+    color: #363b52;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    background: #fff;
+    font-weight: bold;
+    font-family: "Gotham Bold";
+    font-size: 16px;
+  }
+
+  .login-page .login-form .segment .google-button img {
+    width: 20px;
+    position: absolute;
+    left: 30px;
+    margin-top: -3px;
+  }
+
+  .login-page .login-form .segment .phone-form {
+    text-align: left;
+    margin-bottom: 10px;
+  }
+
+  .login-page .login-form .segment .phone-form svg {
+    color: #8341ff;
+    width: 20px;
+  }
+
+  .login-page .login-form .segment .phone-form .react-phone-number-input__phone {
+    background: #050a20 !important;
+    border: 2px solid #202c5a;
+    padding: 12px;
+    color: #fff !important;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .admin-pages {
+    min-height: 110vh;
+  }
+
+  .admin-pages .list .item .content p {
+    cursor: pointer;
+    color: #4183C4 !important;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 18px;
+    font-family: "Gotham Bold";
+    padding-bottom: 10px;
+    font-weight: bold;
+    padding: 0;
+  }
+
+  .admin-page {
+    min-height: 110vh;
+  }
+
+  .admin-page.home {
+    min-height: 150vh;
+  }
+
+  .admin-page.home .ui.card textarea {
+    min-height: 150px;
+  }
+
+  .admin-page .ui.card {
+    width: 100%;
+  }
+
+  .admin-page .ui.card .content {
+    text-align: left;
+  }
+
+  .admin-page .ui.card .content .admin-form-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+
+  .admin-page .ui.card .content .admin-form-group .flex-form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .admin-page .ui.card .content .admin-form-group .flex-form .input-form {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+
+  .admin-page .ui.card .content input {
+    margin-bottom: 10px;
+  }
+
+  .admin-page .ui.card .content textarea {
+    min-height: 110px;
+    margin-bottom: 10px;
+  }
+
+  .admin-page .ui.card .content .save-btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 992px) {
+  .segment.navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
+
+  .segment.navbar .or {
+    top: 11% !important;
+  }
+
   .home-header .pretitle {
     font-size: 1.2em !important;
-    margin-top: 11em !important; }
-  /* line 1898, ../../resources/assets/sass/app.scss */
+    margin-top: 11em !important;
+  }
+
   .home-header .main-heading {
     font-size: 4em !important;
-    margin-top: 0.2em !important; }
-  /* line 1903, ../../resources/assets/sass/app.scss */
+    margin-top: 0.2em !important;
+  }
+
   .home-header .sub-heading {
     font-size: 1.7em !important;
-    padding: 0; }
-  /* line 1907, ../../resources/assets/sass/app.scss */
-  .home-header .free-signup-button {
-    margin-bottom: 7em; } }
-@media (min-width: 1057px) {
-  /* line 1917, ../../resources/assets/sass/app.scss */
-  .segment.navbar .item.logo {
-    padding: 0px 10px 0px 0px !important; }
+    padding: 0;
+  }
 
-  /* line 1922, ../../resources/assets/sass/app.scss */
+  .home-header .free-signup-button {
+    margin-bottom: 7em;
+  }
+}
+
+@media (min-width: 1057px) {
+  .segment.navbar .item.logo {
+    padding: 0px 10px 0px 0px !important;
+  }
+
   .nav-color {
     font-size: 12px;
-    padding: 18px 8px 18px 8px !important; }
+    padding: 18px 8px 18px 8px !important;
+  }
 
-  /* line 1926, ../../resources/assets/sass/app.scss */
   .login {
-    font-size: 12px !important; }
+    font-size: 12px !important;
+  }
 
-  /* line 1929, ../../resources/assets/sass/app.scss */
   .primary-button {
-    font-size: 12px !important; }
+    font-size: 12px !important;
+  }
 
-  /* line 1934, ../../resources/assets/sass/app.scss */
   .page main .divide {
-    height: 110px; } }
-@media (min-width: 1224px) {
-  /* line 1942, ../../resources/assets/sass/app.scss */
-  .segment.navbar {
-    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important; }
+    height: 110px;
+  }
+}
 
-  /* line 1946, ../../resources/assets/sass/app.scss */
+@media (min-width: 1224px) {
+  .segment.navbar {
+    background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
+    background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
+  }
+
   .home-header .pretitle {
     font-size: 1.3em !important;
-    margin-top: 11em !important; }
-  /* line 1950, ../../resources/assets/sass/app.scss */
+    margin-top: 11em !important;
+  }
+
   .home-header .main-heading {
     font-size: 4.3em !important;
-    margin-top: 0.2em !important; }
-  /* line 1955, ../../resources/assets/sass/app.scss */
-  .home-header .sub-heading {
-    font-size: 1.8em !important; }
-  /* line 1958, ../../resources/assets/sass/app.scss */
-  .home-header .free-signup-button {
-    margin-bottom: 8em; } }
-@media (min-width: 1366px) {
-  /* line 2004, ../../resources/assets/sass/app.scss */
-  .page main .divide {
-    height: 150px; } }
-@media (min-width: 1762px) {
-  /* line 2016, ../../resources/assets/sass/app.scss */
-  .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 120px; }
-  /* line 2024, ../../resources/assets/sass/app.scss */
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 210px; }
-  /* line 2030, ../../resources/assets/sass/app.scss */
-  .page main .divide {
-    height: 190px; } }
-@media (min-width: 1920px) {
-  /* line 2042, ../../resources/assets/sass/app.scss */
-  .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 120px; }
-  /* line 2049, ../../resources/assets/sass/app.scss */
-  .page main .service-page .service-section.review {
-    min-height: 80vh; }
-    /* line 2051, ../../resources/assets/sass/app.scss */
-    .page main .service-page .service-section.review .service-review {
-      padding-top: 270px; }
-  /* line 2057, ../../resources/assets/sass/app.scss */
-  .page main .divide {
-    height: 210px; } }
+    margin-top: 0.2em !important;
+  }
 
-/*# sourceMappingURL=app.css.map */
+  .home-header .sub-heading {
+    font-size: 1.8em !important;
+  }
+
+  .home-header .free-signup-button {
+    margin-bottom: 8em;
+  }
+}
+
+@media (min-width: 1366px) {
+  .page main .divide {
+    height: 150px;
+  }
+}
+
+@media (min-width: 1762px) {
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 120px;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 210px;
+  }
+
+  .page main .divide {
+    height: 190px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 120px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 80vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 270px;
+  }
+
+  .page main .divide {
+    height: 210px;
+  }
+}
+
