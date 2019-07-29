@@ -164,7 +164,7 @@ class Page extends React.Component {
                             <Menu.Menu position='right' className='right-menu-width'>
                                 {this.props.isAuthenticated
                                     ? 
-                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown' style={{paddingTop: 22, color: '#9aa2bf'}}>
+                                    <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown'>
                                         <Dropdown.Menu className='bounceIn animated'>
                                             <Dropdown.Item
                                                 text={'Signed in as ' + this.props.userName}

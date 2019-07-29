@@ -333,7 +333,7 @@ p {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding-top: 60px;
+  padding-top: 58px;
 }
 
 .page .admin-sidebar {
@@ -1271,6 +1271,12 @@ p {
 
   .segment.navbar .menu.right-menu-width {
     width: auto !important;
+  }
+
+  .segment.navbar .menu.right-menu-width .user-dropdown {
+    padding-top: 18px;
+    padding-bottom: 18px;
+    color: #9aa2bf;
   }
 
   .segment.navbar .menu .custom-row {

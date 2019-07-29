@@ -318,7 +318,7 @@ p {
 .page {
   display: flex;
   flex-direction: row;
-  padding-top: 60px;
+  padding-top: 58px;
   .admin-sidebar {
     position: relative !important;
     background: #070a2b !important;
@@ -1033,6 +1033,11 @@ p {
       width: 100% !important;
       &.right-menu-width {
         width: auto !important;
+        .user-dropdown {
+          padding-top: 18px;
+          padding-bottom: 18px;
+          color: #9aa2bf;
+        }
       }
       .custom-row {
         justify-content: space-between;
