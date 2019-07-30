@@ -190,7 +190,7 @@ p {
   line-height: normal !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   
 }
 .primary-button {
@@ -200,7 +200,7 @@ p {
   color: #fff !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
-  font-size: 16px !important;
+  font-size: 14px !important;
   &:hover {
     background: linear-gradient(to bottom, #7630f9 0%, #5710de 100%) !important;
     box-shadow: 5px 5px 30px rgba(130,63,255, 0.5) !important;
@@ -250,14 +250,13 @@ p {
   line-height: normal !important;
   font-family: "Gotham Bold";
   font-weight: bold !important;
-  font-size: 16px;
+  font-size: 14px;
   position: inherit !important;
   margin-right: 10px !important;
   height: 100%;
   &.services {
     &.hover {
       border-bottom: 2px solid #8341ff !important;
-      color: #8341ff !important;
     }
     &.active {
       border-bottom: 2px solid #3e75db !important;
@@ -267,31 +266,25 @@ p {
   &.portfolio {
     &.hover {
       border-bottom: 2px solid #f84db8 !important;
-      color: #f84db8 !important;
     }
     &.active {
       border-bottom: 2px solid #f49d43 !important;
-      color: #f49d43 !important;
     }
   }
   &.features {
     &.hover {
       border-bottom: 2px solid #f49d43 !important;
-      color: #f49d43 !important;
     }
     &.active {
       border-bottom: 2px solid #3e75db !important;
-      color: #3e75db !important;
     }
   }
   &.about {
     &.hover {
       border-bottom: 2px solid #f3dc17 !important;
-      color: #f3dc17 !important;
     }
     &.active {
       border-bottom: 2px solid #3e75db !important;
-      color: #3e75db !important;
     }
   }
   &.blog {
@@ -301,7 +294,6 @@ p {
     }
     &.active {
       border-bottom: 2px solid #3e75db !important;
-      color: #3e75db !important;
     }
   }
   &.contact {
@@ -311,7 +303,6 @@ p {
     }
     &.active {
       border-bottom: 2px solid #3e75db !important;
-      color: #3e75db !important;
     }
   }
 }
@@ -971,7 +962,119 @@ p {
     }
   }
 }
-
+@media (min-width: 414px) {
+  .home-page {
+    min-height: 100vh;
+    background: #03051b;
+    .homepage-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .homepage-header-description {
+        display: inline-block;
+        margin-top: 60px;
+        width: 50%;
+        color: #fff;
+        .normal {
+          color: #747b96;
+        }
+        h1 {
+          padding: 0;
+          margin: 0;
+        }
+        .title {
+          margin: 0;
+          padding: 0;
+          font-size: 18px;
+          font-weight: bold;
+          font-family: "Gotham Bold";
+        }
+        .homepage-header-buttons {
+          .register {
+            padding: 15px 70px 15px 70px;
+          }
+        }
+      }
+    }
+    .custom-row {
+      justify-content: space-between;
+      .custom-column {
+        padding-left: 5px;
+        padding-right: 5px;
+        &:first-child {
+          padding-left: 0;          
+        }
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+    .home-section {
+      color: #fff;
+      margin-top: 90px;
+      .service-item-observer {
+        height: 100%;
+      }
+      .home-review {
+        margin-bottom: 20px;
+      }
+      .alice-carousel {
+        margin-left: 167px;
+        max-width: 1180px;
+      }
+      .alice-carousel_prev_btn {
+        position: absolute;
+        top: 135px;
+        left: 110px;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        i {
+          color: #7436e9;
+          padding-left: 3px;
+        }
+      }
+      .alice-carousel_next_btn {
+        position: absolute;
+        top: 175px;
+        left: 110px;
+        border-radius: 50%;
+        border: none;
+        width: 30px;
+        height: 30px;
+        cursor: pointer;
+        i {
+          color: #7436e9;
+          padding-left: 3px;
+        }
+      }
+    }
+    .home-estimation {
+      color: #fff;
+      margin-top: 90px;
+      .home-estimation-description {
+        margin-bottom: 40px;
+        h3 {
+          margin: 0;
+        }
+        p {
+          padding: 0;
+          color: #747b96;
+        }
+      }
+      .home-button-group {
+        margin-top: 40px;
+        .button {
+          padding-left: 40px;
+          padding-right: 40px;
+        }
+      }
+    }
+  }
+}
 @media (min-width: 551px) {
   .segment.navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -1885,6 +1988,12 @@ p {
 
 @media (min-width: 1057px) {
   .segment.navbar {
+    .menu {
+      .text {
+        font-size: 14px;
+        padding-top: 6px;
+      }
+    }
     .item {
       &.logo {
         padding: 0px 10px 0px 0px !important;
@@ -1892,15 +2001,12 @@ p {
     }
   }
   .nav-color {
-    font-size: 12px;
+    font-size: 14px;
     padding: 18px 8px 18px 8px !important;
-  }
-  .login {
-    font-size: 12px !important;
-  }
-  .primary-button {
-    font-size: 12px !important;
-  }
+    &:hover {
+      color: #fff !important;
+    }
+  }  
   .page {
     main {
       .divide {

@@ -72,9 +72,9 @@ class Footer extends React.Component {
                                         <p>Legal</p>
                                     </div>
                                     <div className='footer-item'>
-                                        <p>Privacy</p>
+                                        <Link to='/privacy' className='item-link'>Privacy</Link>
                                         <p>Security</p>
-                                        <p>Terms</p>
+                                        <Link to='/terms' className='item-link'>Terms</Link>
                                         <p>Confidentiality</p>
                                     </div>
                                 </Grid.Column>

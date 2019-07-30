@@ -27,6 +27,8 @@ import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
 import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
 import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
 import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
+import Terms from '../pages/terms'
+import Privacy from '../pages/privacy'
 const routes = [
     {
         path: '/',
@@ -129,6 +131,18 @@ const routes = [
         exact: true,
         auth: false,
         component: Contact
+    },
+    {
+        path: '/privacy',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/terms',
+        exact: true,
+        auth: false,
+        component: Terms
     },
     {
         path: '/admin/dashboard',
