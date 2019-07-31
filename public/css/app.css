@@ -467,7 +467,7 @@ p {
           flex-direction: column;
 }
 
-.page main .badge-item .badge {
+.page main .badge-item .badge-img {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -475,12 +475,12 @@ p {
   position: relative;
 }
 
-.page main .badge-item .badge img {
+.page main .badge-item .badge-img img {
   width: 50px;
   height: 50px;
 }
 
-.page main .badge-item .badge p {
+.page main .badge-item .badge-img p {
   position: absolute;
   top: 0;
   margin-left: 19px;
@@ -1131,6 +1131,7 @@ p {
     color: #656b88;
     font-size: 16px;
     font-family: "Gotham Book";
+    min-height: 65vh;
   }
 
   .footer img {
@@ -2213,6 +2214,7 @@ p {
   .privacy-page .privacy-section .side-nav .item i {
     float: right;
     color: #fff;
+    border: none;
   }
 
   .privacy-page .privacy-section .side-nav .item:hover {
@@ -2395,6 +2397,10 @@ p {
 
   .admin-pages {
     min-height: 110vh;
+  }
+
+  .admin-pages .list .item {
+    text-decoration: none;
   }
 
   .admin-pages .list .item .content p {

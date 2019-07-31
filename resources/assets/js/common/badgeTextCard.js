@@ -13,7 +13,7 @@ class BadgeTextCard extends React.Component {
     render() {
         return (
             <div className='badge-item' style={this.props.from?serviceStyle:{}}>
-                <div className='badge'>
+                <div className='badge-img'>
                     <img src={`${ this.props.url}`} />
                     <p>{this.props.number}</p>
                 </div>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 class Page extends React.Component {
@@ -40,7 +41,7 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, data, isPrivacy, isSecurity, isTerms, isConfident} = this.state;
+        const { isLoaded, data, privacy, isPrivacy, isSecurity, isTerms, isConfident} = this.state;
         return (
             <div className='privacy-page'>
                 {isLoaded ?
@@ -56,16 +57,16 @@ class Page extends React.Component {
                                     <p onClick={this.isConfidentSelected.bind(this)} className={isConfident?"item active":"item"}>Confidently {isConfident && <Icon name="caret right"></Icon>}</p>
                                 </Grid.Column>
                                 {isPrivacy && <Grid.Column computer={13} className='custom-column'>
-                                    
+                                    {ReactHtmlParser(data.privacy)}
                                 </Grid.Column>}
                                 {isSecurity && <Grid.Column computer={13} className='custom-column'>
-                                    
+                                    {ReactHtmlParser(data.security)}
                                 </Grid.Column>}
                                 {isTerms && <Grid.Column computer={13} className='custom-column'>
-                                    
+                                    {ReactHtmlParser(data.terms)}
                                 </Grid.Column>}
                                 {isConfident && <Grid.Column computer={13} className='custom-column'>
-                                    
+                                    {ReactHtmlParser(data.confident)}
                                 </Grid.Column>}
                             </Grid>
                         </Container>
