@@ -1766,6 +1766,167 @@ p {
     margin-top: -50px;
   }
 
+  .singlePortfolio-page {
+    min-height: 100vh;
+    background: #03051b;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header {
+    min-height: 550px;
+    height: auto;
+    width: 100%;
+    background-size: cover;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient {
+    width: 100%;
+    height: 610px;
+    background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
+    background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+    text-align: center;
+    color: #fff;
+    padding-bottom: 40px;
+    padding-top: 60px;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+    padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+    color: #949dbf;
+    font-size: 18px;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+    padding-left: 100px;
+    padding-right: 100px;
+    position: relative;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+    width: 100%;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+    width: 130px;
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:first-child {
+    padding-left: 0;
+  }
+
+  .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:last-child {
+    padding-right: 0;
+  }
+
+  .singlePortfolio-page .portfolio-section {
+    margin-top: 60px;
+    text-align: center;
+    color: #fff;
+    position: relative;
+  }
+
+  .singlePortfolio-page .portfolio-section.review {
+    height: 130px;
+    margin-top: 120px;
+  }
+
+  .singlePortfolio-page .portfolio-section.review .review-item {
+    position: absolute;
+    width: 280px;
+    top: -100px;
+    left: 40%;
+    padding: 30px 20px 40px 20px;
+  }
+
+  .singlePortfolio-page .portfolio-section.review .review-item .review-text-section h3 {
+    color: #5771d6;
+    padding-bottom: 10px;
+  }
+
+  .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
+    font-size: 12px;
+  }
+
+  .singlePortfolio-page .portfolio-section.review .review-item .review-personal p {
+    font-size: 12px;
+  }
+
+  .singlePortfolio-page .portfolio-section.review .review-item .review-personal .name {
+    color: #7436e9;
+    font-family: "Gotham Bold";
+  }
+
+  .singlePortfolio-page .portfolio-section.scope {
+    margin-top: 200px;
+  }
+
+  .singlePortfolio-page .portfolio-section .main_description {
+    text-align: left;
+  }
+
+  .singlePortfolio-page .portfolio-section .main_description p {
+    color: #949dbf;
+    font-size: 12px;
+  }
+
+  .singlePortfolio-page .portfolio-section .main_description p.sub_title {
+    color: #fff;
+  }
+
+  .singlePortfolio-page .portfolio-section .main_description .sub_descriptions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+    border-radius: 50%;
+    background: #070e29;
+    border: 1px solid #202c5a;
+    width: 57px;
+    height: 32px;
+    margin-right: 10px;
+    padding-left: 11px;
+    padding-top: 5px;
+    color: #fff;
+  }
+
+  .singlePortfolio-page .portfolio-section .subImage {
+    margin-bottom: 50px;
+  }
+
+  .singlePortfolio-page .portfolio-section .subImage img {
+    width: 100%;
+  }
+
+  .singlePortfolio-page .portfolio-section .subImage p {
+    text-align: left;
+    font-size: 12px;
+  }
+
+  .singlePortfolio-page .portfolio-section .service {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .singlePortfolio-page .portfolio-section .service-item-observer {
+    height: 100%;
+  }
+
   .about-page {
     min-height: 100vh;
     background: #03051b;

@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import PageMetaTag from '../../common/pageMetaTag'
 import PageFooter from '../../common/pageFooter'
 import PortfolioCard from '../../common/portfolioCard'
@@ -54,10 +55,10 @@ class Page extends React.Component {
                                 <h2>Case studios</h2>
                                 <Grid padded='horizontally'>
                                     <Grid.Row columns={3} className='custom-row'>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'avollon' } }}>
                                             <PortfolioCard from={data.portfolios.avollon.from} title={data.portfolios.avollon.title} description={data.portfolios.avollon.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'maora' } }}>
                                             <PortfolioCard from={data.portfolios.maora.from} title={data.portfolios.maora.title} description={data.portfolios.maora.description}/>
                                         </Grid.Column>
                                         <Grid.Column className='custom-column'>

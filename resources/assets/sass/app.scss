@@ -1422,6 +1422,141 @@ p {
       margin-top: -50px;
     }
   }
+  .singlePortfolio-page {
+    min-height: 100vh;
+    background: #03051b;
+    .singlePortfolio-header {
+      min-height: 550px;
+      height: auto;
+      width: 100%;
+      background-size: cover;
+      .header-gradient {
+        width: 100%;
+        height: 610px;
+        background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+        .header-description {
+          text-align: center;
+          color: #fff;
+          padding-bottom: 40px;
+          padding-top: 60px;
+          .header-text {
+            padding-bottom: 50px;
+            padding-left: 100px;
+            padding-right: 100px;
+            p {
+              color: #949dbf;
+              font-size: 18px;
+            }
+          }
+        }
+        .image-group {
+          padding-left: 100px;
+          padding-right: 100px;
+          position: relative;
+          img {
+            width: 100%;
+            &.sub-img {
+              width: 130px;
+              position: absolute;
+              bottom: -20px;
+              right: 0;
+            }
+          }
+        }
+        .custom-row {
+          .custom-column {
+            &:first-child {
+              padding-left: 0;
+            }
+            &:last-child {
+              padding-right: 0;
+            }
+          }
+        }
+      }
+    }
+    .portfolio-section {
+      margin-top: 60px;
+      text-align: center;
+      color: #fff;
+      position: relative;
+      &.review {
+        height: 130px;
+        margin-top: 120px;
+        .review-item {
+          position: absolute;
+          width: 280px;
+          top: -100px;
+          left: 40%;
+          padding: 30px 20px 40px 20px;
+          .review-text-section {
+            h3 {
+              color: #5771d6;
+              padding-bottom: 10px;
+            }
+            .description {
+              font-size: 12px;
+            }
+          }
+          .review-personal {
+            p {
+              font-size: 12px;
+            }
+            .name {
+              color: #7436e9;
+              font-family: "Gotham Bold";
+            }
+          }
+        }
+      }
+      &.scope {
+        margin-top: 200px;
+      }
+      .main_description {
+        text-align: left;
+        p {
+          &.sub_title {
+            color: #fff;
+          }
+          color: #949dbf;
+          font-size: 12px;
+        }
+        .sub_descriptions {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 20px;
+          .round_number {
+            border-radius: 50%;
+            background: #070e29;
+            border: 1px solid #202c5a;
+            width: 57px;
+            height: 32px;
+            margin-right: 10px;
+            padding-left: 11px;
+            padding-top: 5px;
+            color: #fff;
+          }
+        }
+      }
+      .subImage {
+        margin-bottom: 50px;
+        img {
+          width: 100%;
+        }
+        p {
+          text-align: left;
+          font-size: 12px;
+        }
+      }
+      .service {
+        padding-left: 100px;
+        padding-right: 100px;
+      }
+      .service-item-observer {
+        height: 100%;
+      }
+    }
+  }
   .about-page {
     min-height: 100vh;
     background: #03051b;

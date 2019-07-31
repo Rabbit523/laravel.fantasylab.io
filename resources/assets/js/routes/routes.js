@@ -12,6 +12,7 @@ import ServiceBranding from '../pages/services/branding'
 import ServiceIllustration from '../pages/services/illustration'
 import ServiceMarketing from '../pages/services/marketing'
 import Portfolio from '../pages/portfolio'
+import SinglePortfolio from '../pages/singlePortfolio'
 import Features from '../pages/features'
 import About from '../pages/about'
 import Blog from '../pages/blog'
@@ -108,6 +109,12 @@ const routes = [
         exact: true,
         auth: false,
         component: Portfolio
+    },
+    {
+        path: '/single-portfolio',
+        exact: true,
+        auth: false,
+        component: SinglePortfolio
     },
     {
         path: '/features',
