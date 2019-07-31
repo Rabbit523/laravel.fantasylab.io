@@ -24,7 +24,7 @@ class Portfolio extends Model
      * @var array
      */
 
-    protected $fillable = ['id', 'title', 'description', 'avatar', 'meta_title', 'meta_description', 'data'];
+    protected $fillable = ['id', 'title', 'description', 'avatar', 'meta_title', 'meta_description', 'data', 'type'];
 
     /**
      * The attributes that should be hidden for arrays.

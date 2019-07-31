@@ -408,6 +408,68 @@ class PagesController extends Controller
         return response()->json($portfolios);
     }
 
+    public function createPortfolio(Request $request) {
+        $data = [
+            "title" => $request->data['title'],
+            "description" => $request->data['description'],
+            "type" => $request->data['type'],
+            "avatar" => $request->data['avatar']
+        ];
+        $uploads_dir = "./assets/uploads/";
+        if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
+            $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
+        } else {
+            $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+        }
+        $base_code = base64_decode($img);
+        $name = $request->data['type'] .'_avatar.png';
+        $file = $uploads_dir . $name;
+        if(File::exists($file)) {
+            File::delete($file);
+        }
+        file_put_contents($file, $base_code); // create image file into $upload_dir
+        $url = url("/assets/uploads") ."/" . $name;
+        $arr = explode("/", $url);
+        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+        $data['avatar'] = $path;
+        Portfolio::Create($data);
+        $data = Portfolio::get();
+        return response()->json($data);
+    }
+
+    public function updatePortfolio(Request $request) {
+        $data = Portfolio::where('id', $request->id)->first();
+        $data->title = $request->data['title'];
+        $data->description = $request->data['description'];
+        $data->type = $request->data['type'];
+        if ($data->avatar != $request->data['avatar']) {
+            $uploads_dir = "./assets/uploads/";
+            if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['type'] .'_avatar.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['avatar'] = $path;
+        }
+        $data->save();
+    }
+
+    public function deletePortfolio(Request $request) {
+        Portfolio::where('id', $request->id)->delete();
+        $data = Portfolio::get();
+        return response()->json($data);
+    }
+
     public function getReviews() {
         $reviews = Review::get();
         return response()->json($reviews);
@@ -421,6 +483,23 @@ class PagesController extends Controller
             "job" => $request->data['job'],
             "avatar" => $request->data['avatar']
         ];
+        $uploads_dir = "./assets/uploads/";
+        if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
+            $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
+        } else {
+            $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+        }
+        $base_code = base64_decode($img);
+        $name = $request->data['name'] .'_avatar.png';
+        $file = $uploads_dir . $name;
+        if(File::exists($file)) {
+            File::delete($file);
+        }
+        file_put_contents($file, $base_code); // create image file into $upload_dir
+        $url = url("/assets/uploads") ."/" . $name;
+        $arr = explode("/", $url);
+        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+        $data['avatar'] = $path;
         Review::Create($data);
         $reviews = Review::get();
         return response()->json($reviews);
@@ -432,6 +511,25 @@ class PagesController extends Controller
         $review->description = $request->data['description'];
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
+        if ($review->avatar != $request->data['avatar']) {
+            $uploads_dir = "./assets/uploads/";
+            if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['name'] .'_avatar.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $review['avatar'] = $path;
+        }
         $review->save();
     }
 

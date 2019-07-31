@@ -79,15 +79,17 @@ class Page extends React.Component {
     // Create a review
     onCreate(e, type) {
         const { reviews } = this.state;
-        this.setState({ isLoaded: false });
-        Http.post('/api/admin/create-review', { data: reviews[type-1], id: type})
-        .then(
-            res => {
-                this.setState({ isLoaded: true, reviews: res.data });
-            }
-        ).catch(err => {
-            console.error(err);
-        });
+        if (review[type-1].title.trim() == "" && review[type-1].description.trim() == "" && review[type-1].type.trim() == "" && review[type-1].avatar.trim() == "") {
+            this.setState({ isLoaded: false });
+            Http.post('/api/admin/create-review', { data: reviews[type-1], id: type})
+            .then(
+                res => {
+                    this.setState({ isLoaded: true, reviews: res.data });
+                }
+            ).catch(err => {
+                console.error(err);
+            });
+        }
     }
     // Add review item
     onAdd (e) {
@@ -111,7 +113,6 @@ class Page extends React.Component {
     }
     // Delete review item
     onDelete (e, type) {
-        const { reviews } = this.state;
         if (confirm("Are you sure to remove this review?")) {
             this.setState({ isLoaded: false });
             Http.post('/api/admin/delete-review', { id: type })
