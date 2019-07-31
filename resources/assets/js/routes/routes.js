@@ -16,6 +16,8 @@ import Features from '../pages/features'
 import About from '../pages/about'
 import Blog from '../pages/blog'
 import Contact from '../pages/contact'
+import Terms from '../pages/terms'
+import Privacy from '../pages/privacy'
 import AdminPages from '../pages/admin/adminPages'
 import AdminHome from '../pages/admin/single-pages/home'
 import AdminPortfolio from '../pages/admin/single-pages/portfolio'
@@ -27,8 +29,7 @@ import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
 import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
 import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
 import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
-import Terms from '../pages/terms'
-import Privacy from '../pages/privacy'
+import AdminPrivacy from '../pages/admin/single-pages/privacy'
 const routes = [
     {
         path: '/',
@@ -251,6 +252,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminServiceMarket
+    },
+    {
+        path: '/admin/single-page/privacy',
+        exact: true,
+        admin: true,
+        component: AdminPrivacy
     },
     {
         path: '',

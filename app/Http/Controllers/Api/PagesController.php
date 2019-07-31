@@ -382,6 +382,22 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             }
+        } else if ($request->name == "privacy") {
+            $service_type = $request->type;
+            if ($service_type == "header") {
+                $data->meta_title = $request_data['meta_title'];
+                $data->meta_description = $request_data['meta_description'];
+            } else if ($service_type == "privacy") {
+                $data->privacy = $request->data;
+            } else if ($service_type == "security") {
+                $data->security = $request->data;
+            } else if ($service_type == "terms") {
+                $data->terms = $request->data;
+            } else if ($service_type == "confident") {
+                $data->confident = $request->data;
+            }
+            $page->data = json_encode($data);
+            $page->save();
         }
         return response()->json('update success');
     }
