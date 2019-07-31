@@ -2191,6 +2191,38 @@ p {
     color: #747b96;
   }
 
+  .privacy-page {
+    min-height: 100vh;
+    background: #03051b;
+  }
+
+  .privacy-page .privacy-section {
+    padding-top: 100px;
+    min-height: 80vh;
+  }
+
+  .privacy-page .privacy-section .side-nav h3 {
+    color: #29356e;
+  }
+
+  .privacy-page .privacy-section .side-nav .item {
+    cursor: pointer;
+    color: #4f546e;
+  }
+
+  .privacy-page .privacy-section .side-nav .item i {
+    float: right;
+    color: #fff;
+  }
+
+  .privacy-page .privacy-section .side-nav .item:hover {
+    color: #fff;
+  }
+
+  .privacy-page .privacy-section .side-nav .item.active {
+    color: #fff;
+  }
+
   .login-page {
     min-height: 110vh;
     background: #03051b;

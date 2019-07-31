@@ -1756,6 +1756,33 @@ p {
       }
     }
   }
+  .privacy-page {
+    min-height: 100vh;
+    background: #03051b;
+    .privacy-section {
+      padding-top: 100px;
+      min-height: 80vh;
+      .side-nav {
+        h3 {
+          color: #29356e;
+        }
+        .item {
+          cursor: pointer;
+          color: #4f546e;
+          i {
+            float: right;
+            color: #fff;
+          }
+          &:hover {
+            color: #fff;
+          }
+          &.active {
+            color: #fff;
+          }
+        }
+      }
+    }
+  }
   .login-page {
     min-height: 110vh;
     background: #03051b;
