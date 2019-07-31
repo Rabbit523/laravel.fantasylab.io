@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container, Dimmer, Segment, Loader, List } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, List } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Http from '../../../Http'
 class Page extends React.Component {
@@ -9,9 +9,6 @@ class Page extends React.Component {
             list: [],
             isLoaded: false
         }
-        this.columns = [
-            { Header: 'Name', accessor: 'page_name' }, { Header: 'Updated Date', accessor: 'updated_at' }
-        ]
     }
 
     componentDidMount() {
@@ -30,10 +27,10 @@ class Page extends React.Component {
             <div className='admin-pages'>
             {isLoaded ?
                 <Segment vertical textAlign='center'>
-                    <Container className='custom-col-6'>
-                        <List selection divided relaxed>
-                            {list.map(function (item, i) {
-                                return (
+                    <Grid padded='horizontally'>
+                        <Grid.Column width={8}>
+                            <List selection divided relaxed>
+                                {list.map((item, i) => (
                                     <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
                                         <List.Icon name='github' size='large' verticalAlign='middle' />
                                         <List.Content>
@@ -41,10 +38,26 @@ class Page extends React.Component {
                                             <List.Description>Updated at {item.updated_at}</List.Description>
                                         </List.Content>
                                     </List.Item>
-                                )
-                            })}
-                        </List>
-                    </Container>
+                                ))}
+                            </List>
+                        </Grid.Column>
+                        <Grid.Column width={8}>
+                            <List selection divided relaxed>
+                                <List.Item as={Link} to={`/admin/portfolios`}>
+                                    <List.Icon name='github' size='large' verticalAlign='middle' />
+                                    <List.Content>
+                                        <List.Header><p>Portfolios</p></List.Header>
+                                    </List.Content>
+                                </List.Item>
+                                <List.Item as={Link} to={`/admin/reviews`}>
+                                    <List.Icon name='github' size='large' verticalAlign='middle' />
+                                    <List.Content>
+                                        <List.Header><p>Reviews</p></List.Header>
+                                    </List.Content>
+                                </List.Item>
+                            </List>
+                        </Grid.Column>
+                    </Grid>
                  </Segment>
                 :
                 <Segment className='page-loader'>

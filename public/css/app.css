@@ -2478,6 +2478,7 @@ p {
     font-weight: bold;
     font-family: "Gotham Bold";
     font-size: 16px;
+    padding-top: 7px;
   }
 
   .login-page .login-form .segment .privacy-section {

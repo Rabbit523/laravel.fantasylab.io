@@ -5,7 +5,8 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\Page;
-
+use App\Models\Portfolio;
+use App\Models\Review;
 use File;
 class PagesController extends Controller
 {
@@ -400,5 +401,43 @@ class PagesController extends Controller
             $page->save();
         }
         return response()->json('update success');
+    }
+
+    public function getPortfolios() {
+        $portfolios = Portfolio::get();
+        return response()->json($portfolios);
+    }
+
+    public function getReviews() {
+        $reviews = Review::get();
+        return response()->json($reviews);
+    }
+
+    public function createReview(Request $request) {
+        $data = [
+            "title" => $request->data['title'],
+            "description" => $request->data['description'],
+            "name" => $request->data['name'],
+            "job" => $request->data['job'],
+            "avatar" => $request->data['avatar']
+        ];
+        Review::Create($data);
+        $reviews = Review::get();
+        return response()->json($reviews);
+    }
+
+    public function updateReview(Request $request) {
+        $review = Review::where('id', $request->id)->first();
+        $review->title = $request->data['title'];
+        $review->description = $request->data['description'];
+        $review->name = $request->data['name'];
+        $review->job = $request->data['job'];
+        $review->save();
+    }
+
+    public function deleteReview(Request $request) {
+        Review::where('id', $request->id)->delete();
+        $reviews = Review::get();
+        return response()->json($reviews);
     }
 }

@@ -31,6 +31,10 @@ import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
 import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
 import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
 import AdminPrivacy from '../pages/admin/single-pages/privacy'
+import AdminPortfolios from '../pages/admin/adminPortfolios'
+import AdminReviews from '../pages/admin/adminReviews'
+import AdminSinglePortfolio from '../pages/admin/single-pages/singlePortfolio'
+
 const routes = [
     {
         path: '/',
@@ -201,6 +205,18 @@ const routes = [
         component: Dashboard
     },
     {
+        path: '/admin/portfolios',
+        exact: true,
+        admin: true,
+        component: AdminPortfolios
+    },
+    {
+        path: '/admin/reviews',
+        exact: true,
+        admin: true,
+        component: AdminReviews
+    },
+    {
         path: '/admin/single-page/home',
         exact: true,
         admin: true,
@@ -211,6 +227,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminPortfolio
+    },
+    {
+        path: '/admin/single-page/single_portfolio',
+        exact: true,
+        admin: true,
+        component: AdminSinglePortfolio
     },
     {
         path: '/admin/single-page/about',

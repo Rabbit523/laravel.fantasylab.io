@@ -21,6 +21,7 @@ class Page extends React.Component {
             }
         ).catch(err => {
             console.error(err);
+            this.setState({ isLoaded: true });
         });
     }
 
@@ -103,15 +104,11 @@ class Page extends React.Component {
                                 <h3>Scope of the project</h3>
                                 <Grid padded='horizontally'>
                                     <Grid.Row className='custom-row' columns={3}>
-                                        {data.services.map((item, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    <Grid.Column className='custom-column'>
-                                                        <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
-                                                    </Grid.Column>
-                                                </React.Fragment>
-                                            )
-                                        })}
+                                        {data.services.map((item, index) => (
+                                            <Grid.Column className='custom-column' key={index}>
+                                                <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                            </Grid.Column>
+                                        ))}
                                     </Grid.Row>
                                 </Grid>
                             </Container>
