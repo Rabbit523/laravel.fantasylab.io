@@ -166,16 +166,14 @@ class Page extends React.Component {
                                                     </Form.Field>
                                                 </Form>
                                                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                    {Object.keys(list.icon_urls).map((key, index) => {
-                                                        return (
-                                                            <Form key={index}>
-                                                                <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.icon_urls[key].text} onChange={(val)=>ref.handleChange(val, key)} />
-                                                                <Form.Field>
-                                                                    <input accept='image/*' type='file' id='input-file' className='icon-file' onChange={(e) => ref.onAvatarChange(key, e)}/>
-                                                                </Form.Field>
-                                                            </Form>
-                                                        )
-                                                    })}
+                                                    {Object.keys(list.icon_urls).map((key, index) => (
+                                                        <Form key={index}>
+                                                            <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.icon_urls[key].text} onChange={(val)=>ref.handleChange(val, key)} />
+                                                            <Form.Field>
+                                                                <input accept='image/*' type='file' id='input-file' className='icon-file' onChange={(e) => ref.onAvatarChange(key, e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                    ))}
                                                 </div>
                                                 <label className='ui floated button save-btn' onClick={this.updateHeader.bind(this)}> Save </label>
                                             </Card.Description>

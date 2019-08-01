@@ -2641,6 +2641,10 @@ p {
   .admin-page .ui.card .content .save-btn {
     width: 100%;
   }
+
+  .admin-page .ui.card .content a.save-btn {
+    padding-top: 10px;
+  }
 }
 
 @media (min-width: 992px) {

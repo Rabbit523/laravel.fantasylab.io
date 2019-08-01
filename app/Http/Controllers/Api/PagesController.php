@@ -8,6 +8,8 @@ use App\Models\Page;
 use App\Models\Portfolio;
 use App\Models\Review;
 use File;
+use function GuzzleHttp\json_decode;
+
 class PagesController extends Controller
 {
     /**
@@ -408,6 +410,11 @@ class PagesController extends Controller
         return response()->json($portfolios);
     }
 
+    public function getPortfolioPage(Request $request) {
+        $data = Portfolio::where('type', $request->type)->first();
+        return response()->json($data);
+    }
+
     public function createPortfolio(Request $request) {
         $data = [
             "title" => $request->data['title'],
@@ -462,6 +469,171 @@ class PagesController extends Controller
             $data['avatar'] = $path;
         }
         $data->save();
+    }
+
+    public function updatePortfolioPage(Request $request) {
+        $data = Portfolio::where('id', $request->id)->first();
+        $list = json_decode($data->data);
+        $request_data = $request->data;
+        $uploads_dir = "./assets/uploads/";
+        if ($request->type == "header") {
+            $data->meta_title = $request->meta_title;
+            $data->meta_description = $request->meta_description;
+            if ($list->header_back_url != $request_data['header_back_url']) {
+                if (strpos($request_data['header_back_url'], 'data:image/jpeg;base64') !== false) {
+                    $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_back_url']);
+                } else {
+                    $img = str_replace('data:image/png;base64,', '', $request_data['header_back_url']);
+                }
+                $base_code = base64_decode($img);
+                $name = $data->type .'page_header_back.png';
+                $file = $uploads_dir . $name;
+                if(File::exists($file)) {
+                    File::delete($file);
+                }
+                file_put_contents($file, $base_code); // create image file into $upload_dir
+                $url = url("/assets/uploads") ."/" . $name;
+                $arr = explode("/", $url);
+                $request_data['header_back_url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            }
+            if ($list->footer_back_url != $request_data['footer_back_url']) {
+                if (strpos($request_data['footer_back_url'], 'data:image/jpeg;base64') !== false) {
+                    $img = str_replace('data:image/jpeg;base64,', '', $request_data['footer_back_url']);
+                } else {
+                    $img = str_replace('data:image/png;base64,', '', $request_data['footer_back_url']);
+                }
+                $base_code = base64_decode($img);
+                $name = $data->type .'page_footer_back.png';
+                $file = $uploads_dir . $name;
+                if(File::exists($file)) {
+                    File::delete($file);
+                }
+                file_put_contents($file, $base_code); // create image file into $upload_dir
+                $url = url("/assets/uploads") ."/" . $name;
+                $arr = explode("/", $url);
+                $request_data['footer_back_url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            }
+            foreach($list->header_sub_images as $key=> $item) {
+                if ($item != $request_data['header_sub_images'][$key]) {
+                    if (strpos($request_data['header_sub_images'][$key], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_sub_images'][$key]);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['header_sub_images'][$key]);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'maora_header'.$key.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $request_data['header_sub_images'][$key] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                }
+            }
+            foreach($list->sub_images as $key=> $item) {
+                if ($item->url != $request_data['sub_images'][$key]['url']) {
+                    if (strpos($request_data['sub_images'][$key]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '',$request_data['sub_images'][$key]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['sub_images'][$key]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'maora'.$key.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $request_data['sub_images'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                }
+            }
+            $data->data = json_encode($request_data);
+            $data->save();
+        } else if ($request->type == "description") {
+            $data->data = json_encode($request_data);
+            $data->save();
+        } else if ($request->type == "service") {
+            foreach($list->services as $key => $item) {
+                if ($item->url != $request_data['services'][$key]['url']) {
+                    if (strpos($request_data['services'][$key]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['services'][$key]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request_data['services'][$key]['type'] .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $request_data['services'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                }
+                if ($item->backimage != $request_data['services'][$key]['backimage']) {
+                    if (strpos($request_data['services'][$key]['backimage'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['services'][$key]['backimage']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['backimage']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request_data['services'][$key]['type'] .'_back.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $request_data['services'][$key]['backimage'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                }
+            }
+            $data->data = json_encode($request_data);
+            $data->save();
+        } else if ($request->type == "review") {
+            if ($list->review->avatar != $request_data['review']['avatar']) {
+                if (strpos($request_data['review']['avatar'], 'data:image/jpeg;base64') !== false) {
+                    $img = str_replace('data:image/jpeg;base64,', '', $request_data['review']['avatar']);
+                } else {
+                    $img = str_replace('data:image/png;base64,', '', $request_data['review']['avatar']);
+                }
+                $base_code = base64_decode($img);
+                $name = $data->type .'_avatar.png';
+                $file = $uploads_dir . $name;
+                if(File::exists($file)) {
+                    File::delete($file);
+                }
+                file_put_contents($file, $base_code); // create image file into $upload_dir
+                $url = url("/assets/uploads") ."/" . $name;
+                $arr = explode("/", $url);
+                $request_data['review']['avatar'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            }
+            if ($list->review->back_url != $request_data['review']['back_url']) {
+                if (strpos($request_data['review']['back_url'], 'data:image/jpeg;base64') !== false) {
+                    $img = str_replace('data:image/jpeg;base64,', '', $request_data['review']['back_url']);
+                } else {
+                    $img = str_replace('data:image/png;base64,', '', $request_data['review']['back_url']);
+                }
+                $base_code = base64_decode($img);
+                $name = $data->type .'3.png';
+                $file = $uploads_dir . $name;
+                if(File::exists($file)) {
+                    File::delete($file);
+                }
+                file_put_contents($file, $base_code); // create image file into $upload_dir
+                $url = url("/assets/uploads") ."/" . $name;
+                $arr = explode("/", $url);
+                $request_data['review']['back_url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            }
+            $data->data = json_encode($request_data);
+            $data->save();
+        }
+        return response()->json('success');
     }
 
     public function deletePortfolio(Request $request) {

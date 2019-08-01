@@ -8,32 +8,110 @@ class Page extends React.Component {
         super(props);
         this.state = {
             list: [],
-            portfolios: {},            
+            data: [],
             isLoaded: false,
             accordion: false,
             activeKey: []            
         }
+        this.handleChange = this.handleChange.bind(this);
         this.onAvatarChange = this.onAvatarChange.bind(this);
         this.onCollapseChange = this.onCollapseChange.bind(this);
     }
 
     componentDidMount() {
-        const { pagename } = this.props.location.state;
-        Http.post('/api/front/get-page', { name: pagename})
+        const { type, page } = this.props.location.state;
+        Http.post('/api/admin/get-portfolio-page', { type: page})
         .then(
             res => {
-                var list = JSON.parse(res.data.data);
-                var portfolios = {};
-                Object.keys(list).map((key, index) =>{
-                    if (key == 'portfolios') {
-                        portfolios = list[key];
-                    }
-                });
-                this.setState({ 
-                    isLoaded: true, 
-                    list,
-                    portfolios
-                });
+                if (type != "create_page") {
+                    var list = JSON.parse(res.data.data);
+                    this.setState({ isLoaded: true, list, data: res.data });
+                } else {
+                    var list = {
+                        footer_back_url: "",
+                        header_back_url: "",
+                        header_description: "example",
+                        title: "example",
+                        header_sub_images: [
+                            "example",
+                            "example"
+                        ],
+                        main_description: [
+                            {
+                                title: "example",
+                                text: "example",
+                                sub: [
+                                    "example",
+                                    "example",
+                                    "example"
+                                ]
+                            },
+                            {
+                                title: "example",
+                                text: "example",
+                                sub: [
+                                    "example",
+                                    "example",
+                                    "example"
+                                ]
+                            },
+                            {
+                                title: "example",
+                                text: "example",
+                                sub: [
+                                    "example",
+                                    "example",
+                                    "example"
+                                ]
+                            }
+                        ],
+                        review: {
+                            avatar: "",
+                            back_url: "",
+                            description: "",
+                            job: "",
+                            name: "",
+                            title: ""
+                        },
+                        services: [
+                            {
+                                backimage: "",
+                                color: "",
+                                description: "",
+                                title: "",
+                                type: "",
+                                url: ""
+                            },
+                            {
+                                backimage: "",
+                                color: "",
+                                description: "",
+                                title: "",
+                                type: "",
+                                url: ""
+                            },
+                            {
+                                backimage: "",
+                                color: "",
+                                description: "",
+                                title: "",
+                                type: "",
+                                url: ""
+                            }
+                        ],
+                        sub_images: [
+                            {
+                                url: "",
+                                text: ""
+                            },
+                            {
+                                url: "",
+                                text: ""
+                            }
+                        ]
+                    };
+                    this.setState({ isLoaded: true, list, data: res.data });
+                }
             }
         ).catch(err => {
             console.error(err);
@@ -41,16 +119,15 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { list } = this.state;
+        var { data, list } = this.state;
         const ref = this;
-
         switch (type) {
             case 'meta_title':
-                list.meta_title = event.target.value;
-                return this.setState({ list });
+                data.meta_title = event.target.value;
+                return this.setState({ data });
             case 'meta_description':
-                list.meta_description = event.target.value;
-                return this.setState({ list });
+                data.meta_description = event.target.value;
+                return this.setState({ data });
             case 'title':
                 list.title = event.target.value;
                 return this.setState({ list });
@@ -59,49 +136,118 @@ class Page extends React.Component {
                 return this.setState({ list });
         }
 
-        Object.keys(list['icon_urls']).map((key, index) =>{
-            if (key == type) {
-                list['icon_urls'][key].text = event.target.value;
+        list.main_description.map((item, index) =>{
+            if (type.includes('subtext')) {
+                var key = type.charAt(type.length-1);
+                item.sub[key] = event.target.value;
+                ref.setState({ list });
+            } else if(type.includes('sub_title')) {
+                item['title'] = event.target.value;
+                ref.setState({ list });
+            } else if (type.includes('sub_description')) {
+                item['text'] = event.target.value;
                 ref.setState({ list });
             }
         });
+
+        if (type.includes('subimage')) {
+            var key = type.charAt(type.length-1);
+            list.sub_images[key].text = event.target.value;
+            ref.setState({ list });
+        }
+
+        list.services.map((item, index) => {
+            var sub_key = type.split('_')[1];
+            if (item.type == type.split('_')[0]) {
+                item[sub_key] = event.target.value;
+                ref.setState({ list });
+            }
+        });
+
+        if (type.includes('review')) {
+            var sub_key = type.split('_')[1];
+            list.review[sub_key] = event.target.value;
+            this.setState({ list });
+        }
     }
 
+    // Upload Images
     onAvatarChange(type, e){
-        var infile = document.getElementById('input-file');
-        var { list } = this.state;
+        var { list } = this.state;       
         const ref = this;
-        if (infile.files && infile.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                if (type == 'header') { list.header_url = e.target.result; ref.setState({ list }); } 
-            }
-            reader.readAsDataURL(infile.files[0]);
-        }
 
-        var footer_file = document.getElementById('footer-file');
-        if (footer_file.files && footer_file.files[0]) {
-            var reader = new FileReader();
-            reader.onload = new FileReader();
-            reader.onload = function (e) {
-                if (type == 'footer') { list.footer_url = e.target.result; ref.setState({ list }); }
-            }
-            reader.readAsDataURL(footer_file.files[0]);
-        }
-
-        var icon_file = document.getElementsByClassName('icon-file');
-        Object.keys(icon_file).map((key, index) => {
-            if (icon_file[index].files && icon_file[index].files[0]) {
+        var headerfiles = document.getElementsByClassName('header-file');
+        Object.keys(headerfiles).map((key, index) => {
+            if (headerfiles[index].files && headerfiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    Object.keys(list['icon_urls']).map((key, i) => {
-                        if (key == type) {
-                            list['icon_urls'][type].path = e.target.result;
+                    if (type == "header") {
+                        list.header_back_url = e.target.result;
+                        ref.setState({ list });
+                    } else {
+                        list.footer_back_url = e.target.result;
+                        ref.setState({ list });
+                    }
+                }
+                reader.readAsDataURL(headerfiles[index].files[0]);
+            }
+        });
+
+        var headerSubfiles = document.getElementsByClassName('header-subImg-file');
+        Object.keys(headerSubfiles).map((key, index) => {
+            if (headerSubfiles[index].files && headerSubfiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    list.header_sub_images[type] = e.target.result;
+                    ref.setState({ list });
+                }
+                reader.readAsDataURL(headerSubfiles[index].files[0]);
+            }
+        });
+
+        var Subfiles = document.getElementsByClassName('sub-file');
+        Object.keys(Subfiles).map((key, index) => {
+            if (Subfiles[index].files && Subfiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    list.sub_images[type].url = e.target.result;
+                    ref.setState({ list });
+                }
+                reader.readAsDataURL(Subfiles[index].files[0]);
+            }
+        });
+
+        var Servicefiles = document.getElementsByClassName('service_avatar');
+        Object.keys(Servicefiles).map((key, index) => {
+            if (Servicefiles[index].files && Servicefiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[1];                    
+                    list.services.map((item, i) => {
+                        if (item.type == type.split('_')[0]) {
+                            item[sub_key] = e.target.result;
                             ref.setState({ list });
                         }
                     });
                 }
-                reader.readAsDataURL(icon_file[index].files[0]);
+                reader.readAsDataURL(Servicefiles[index].files[0]);
+            }
+        });
+
+        var Reviewfiles = document.getElementsByClassName('review_img');
+        Object.keys(Reviewfiles).map((key, index) => {
+            if (Reviewfiles[index].files && Reviewfiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    if (type == "avatar") {
+                        list.review.avatar = e.target.result;
+                        ref.setState({ list });
+                    } else {
+                        list.review.back_url = e.target.result;
+                        ref.setState({ list });
+                    }
+                }
+                reader.readAsDataURL(Reviewfiles[index].files[0]);
             }
         });
     }
@@ -109,11 +255,51 @@ class Page extends React.Component {
     onCollapseChange(activeKey) {
         this.setState({ activeKey });
     }
+    
     // Update header section
     updateHeader() {
-        var { list } = this.state;
+        const { list, data } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', { name: 'portfolio', data: JSON.stringify(list), type: 'header'})
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, meta_title: data.meta_title, meta_description: data.meta_description, type: 'header'})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    // Update sub descriptions
+    updateSubDescription(e, type) {
+        const { list, data } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'description'})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    // Update services
+    onUpdateService (e, type) {
+        const { list, data } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'service'})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    // Update review section
+    onUpdateReview(e) {
+        const { list, data } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'review'})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -125,9 +311,9 @@ class Page extends React.Component {
     // Update portfolio section
     onDeletePortfolio (e, type) {
         console.log(type);
-    }    
+    }
     render() {
-        const { isLoaded, list, portfolios, activeKey, accordion } = this.state;
+        const { isLoaded, list, data, activeKey, accordion } = this.state;
         const ref = this;
         return (
             <div className='admin-page'>
@@ -135,74 +321,180 @@ class Page extends React.Component {
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded='vertically'>
-                            <Grid.Row columns={2} className='custom-row'>
-                                <Grid.Column className='custom-column'>
-                                    <Card className='header-section'>
-                                        <Card.Content>
-                                            <Card.Header>Header Section</Card.Header>
-                                        </Card.Content>
-                                        <Card.Content>
-                                            <Card.Description>
-                                                <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
-                                                <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
-                                                <Form.Input fluid label='Title' name='title' placeholder='Header title' className='input-form' value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
-                                                <Form>
-                                                    <label>Description</label>
-                                                    <TextArea
-                                                        placeholder='Tell us more'
-                                                        value={list.description}
-                                                        onChange={(val) => this.handleChange(val, 'description')}
-                                                    />
-                                                </Form>
+                            <Grid.Column className='custom-column' width={8}>
+                                <Card className='header-section'>
+                                    <Card.Content>
+                                        <Card.Header>Header Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={data.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
+                                            <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={data.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
+                                            <Form.Input fluid label='Title' name='title' placeholder='Header title' className='input-form' value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
+                                            <Form>
+                                                <label>Description</label>
+                                                <TextArea
+                                                    placeholder='Tell us more'
+                                                    value={list.description}
+                                                    onChange={(val) => this.handleChange(val, 'description')}
+                                                />
+                                            </Form>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
                                                 <Form>
                                                     <label>Header Image</label>
                                                     <Form.Field>
-                                                        <input accept='image/*' type='file' id='input-file' onChange={(e) => this.onAvatarChange('header', e)}/>
+                                                        <input accept='image/*' type='file' className='header-file' onChange={(e) => this.onAvatarChange('header', e)}/>
                                                     </Form.Field>
                                                 </Form>
                                                 <Form>
                                                     <label>Footer Image</label>
                                                     <Form.Field>
-                                                        <input accept='image/*' type='file' id='footer-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
+                                                        <input accept='image/*' type='file' className='header-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
                                                     </Form.Field>
                                                 </Form>
-                                                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                                                    {Object.keys(list.icon_urls).map((key, index) => {
-                                                        return (
-                                                            <Form key={index}>
-                                                                <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.icon_urls[key].text} onChange={(val)=>ref.handleChange(val, key)} />
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                <Form>
+                                                    <label>Header Sub Image1</label>
+                                                    <Form.Field>
+                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange(0, e)}/>
+                                                    </Form.Field>
+                                                </Form>
+                                                <Form>
+                                                    <label>Header Sub Image2</label>
+                                                    <Form.Field>
+                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange(1, e)}/>
+                                                    </Form.Field>
+                                                </Form>
+                                            </div>
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                {Object.keys(list.sub_images).map((key, index) => (
+                                                    <Form key={index}>
+                                                        <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.sub_images[key].text} onChange={(val)=>ref.handleChange(val, 'subimage_text'+key)} />
+                                                        <Form.Field>
+                                                            <input accept='image/*' type='file' className='sub-file' onChange={(e) => ref.onAvatarChange(key, e)}/>
+                                                        </Form.Field>
+                                                    </Form>
+                                                ))}
+                                            </div>
+                                            <label className='ui floated button save-btn' onClick={this.updateHeader.bind(this)}> Save </label>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column className='custom-column' width={8}>
+                                <Card className='header-section'>
+                                    <Card.Content>
+                                        <Card.Header>Sub Description Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            {list.main_description.map((item, i) => (
+                                                <div className="description-group" key={i}>
+                                                    <Form.Input fluid label='Title' name='sub_title' placeholder='title' className='input-form' value={item.title} onChange={(val) => this.handleChange(val, 'sub_title'+i)} />
+                                                    <Form>
+                                                        <label>Description</label>
+                                                        <TextArea
+                                                            placeholder='Tell us more'
+                                                            value={item.text}
+                                                            onChange={(val) => this.handleChange(val, 'sub_description'+i)}
+                                                        />
+                                                    </Form>
+                                                    {Object.keys(item.sub).map((key, index) => (
+                                                        <Form key={index}>
+                                                            <Form.Input fluid label='Text' name='text' placeholder='text' className='input-form' value={item.sub[index]} onChange={(val)=>ref.handleChange(val, 'subtext'+index)} />
+                                                        </Form>
+                                                    ))}
+                                                </div>)
+                                            )}
+                                            <label className='ui floated button save-btn' onClick={this.updateSubDescription.bind(this)}> Save </label>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column className='custom-column' width={8}>
+                                <Card className='header-section'>
+                                    <Card.Content>
+                                        <Card.Header>Services Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
+                                                {list.services.map((item, i) => (
+                                                    <Panel header={item.title} key={i}>
+                                                        <Form.Input 
+                                                            fluid 
+                                                            label='Title' 
+                                                            placeholder='title' 
+                                                            className='input-form' 
+                                                            value={item.title} 
+                                                            onChange={(e) => ref.handleChange(e, item.type+'_title')} />
+                                                        <Form.Input 
+                                                            fluid 
+                                                            label='Description' 
+                                                            placeholder='description' 
+                                                            className='input-form' 
+                                                            value={item.description} 
+                                                            onChange={(e) => ref.handleChange(e, item.type+'_description')} />
+                                                        <Form.Input 
+                                                            fluid 
+                                                            label='Color' 
+                                                            placeholder='color' 
+                                                            className='input-form' 
+                                                            value={item.color} 
+                                                            onChange={(e)=> ref.handleChange(e, item.type+'_color')} />
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
+                                                            <Form>
+                                                                <label>Avatar Image</label>
                                                                 <Form.Field>
-                                                                    <input accept='image/*' type='file' id='input-file' className='icon-file' onChange={(e) => ref.onAvatarChange(key, e)}/>
+                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange(item.type+'_url', e)}/>
                                                                 </Form.Field>
                                                             </Form>
-                                                        )
-                                                    })}
-                                                </div>
-                                                <label className='ui floated button save-btn' onClick={this.updateHeader.bind(this)}> Save </label>
-                                            </Card.Description>
-                                        </Card.Content>
-                                    </Card>
-                                </Grid.Column>
-                                <Grid.Column className='custom-column'>
-                                    <Card className='header-section'>
-                                        <Card.Content>
-                                            <Card.Header>Portfolio Section</Card.Header>
-                                        </Card.Content>
-                                        <Card.Content>
-                                            <Card.Description>
-                                                {Object.keys(portfolios).map((key, i) => {
-                                                    return (
-                                                        <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                                            <p style={{ textTransform: 'uppercase', margin: 0 }}>{key}</p>
-                                                            <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
+                                                            <Form>
+                                                                <label>Background Image</label>
+                                                                <Form.Field>
+                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange(item.type+'_backimage', e)}/>
+                                                                </Form.Field>
+                                                            </Form>
                                                         </div>
-                                                    )
-                                                })}
-                                            </Card.Description>
-                                        </Card.Content>
-                                    </Card>
-                                </Grid.Column>
-                            </Grid.Row>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, item.type)}> Save </label>
+                                                    </Panel>
+                                                ))}
+                                            </Collapse>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column className='custom-column' width={8}>
+                                <Card className='header-section'>
+                                    <Card.Content>
+                                        <Card.Header>Review Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Form.Input fluid label='title' name='review_title' placeholder='title' className='input-form' value={list.review.title} onChange={(val)=>ref.handleChange(val, 'review_title')} />
+                                            <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={list.review.name} onChange={(val)=>ref.handleChange(val, 'review_name')} />
+                                            <Form.Input fluid label='Job' name='Job' placeholder='job' className='input-form' value={list.review.job} onChange={(val)=>ref.handleChange(val, 'review_job')} />
+                                            <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={list.review.description} onChange={(val)=>ref.handleChange(val, 'review_description')} />
+                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
+                                                <Form>
+                                                    <label>Avatar Upload</label>
+                                                    <Form.Field>
+                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('avatar', e)}/>
+                                                    </Form.Field>
+                                                </Form>
+                                                <Form>
+                                                    <label>Background Image Upload</label>
+                                                    <Form.Field>
+                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('back_url', e)}/>
+                                                    </Form.Field>
+                                                </Form>
+                                            </div>
+                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateReview(e)}> Save </label>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
                         </Grid>
                     </Container>
                  </Segment>

@@ -2118,6 +2118,11 @@ p {
           .save-btn {
             width: 100%;
           }
+          a {
+            &.save-btn {
+              padding-top: 10px;
+            }
+          }
         }
       }
     }

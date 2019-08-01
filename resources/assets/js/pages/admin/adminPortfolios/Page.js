@@ -1,5 +1,6 @@
 import React from 'react'
-import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form } from 'semantic-ui-react'
+import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, Label } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import Collapse, { Panel } from 'rc-collapse';
 import 'rc-collapse/assets/index.css';
 import Http from '../../../Http'
@@ -20,7 +21,6 @@ class Page extends React.Component {
         Http.get('/api/front/get-portfolios')
         .then(
             res => {
-                console.log(res.data);
                 this.setState({ 
                     isLoaded: true, 
                     portfolios: res.data
@@ -156,9 +156,11 @@ class Page extends React.Component {
                                                         </Form>
                                                         <div style={{display: 'flex'}}>
                                                             {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, portfolios[key].id)}> Save </label>}
-                                                            {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> Delete </label> }
+                                                            {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> Delete </label>}
                                                             {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, portfolios[key].id)}> Create </label>}
                                                             {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, portfolios[key].id)}> Cancel </label>}
+                                                            {!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ type: 'create_page', page: `${portfolios[key].type}` }}}> Create CMS </Label> }
+                                                            {portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ type: 'edit_page', page: `${portfolios[key].type}` }}}> Edit CMS </Label> }
                                                         </div>
                                                     </Panel>
                                                 ))}
