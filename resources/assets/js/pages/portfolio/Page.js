@@ -35,7 +35,7 @@ class Page extends React.Component {
                                 <Container className='custom-col-6'>
                                     <div className='portfolio-header-description'>
                                         <div className='portfolio-header-text'>
-                                            <h1>{data.title}</h1>
+                                            <h2>{data.title}</h2>
                                             <p>{data.description}</p>
                                         </div>
                                         <div className='portfolio-header-figure'>
@@ -52,7 +52,7 @@ class Page extends React.Component {
                         </div>
                         <div className='portfolio-studios'>
                             <Container className='custom-col-6'>
-                                <h2>Case studios</h2>
+                                <h3>Case studios</h3>
                                 <Grid padded='horizontally'>
                                     <Grid.Row columns={3} className='custom-row'>
                                         <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'avollon' } }}>
@@ -61,29 +61,29 @@ class Page extends React.Component {
                                         <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'maora' } }}>
                                             <PortfolioCard from={data.portfolios.maora.from} title={data.portfolios.maora.title} description={data.portfolios.maora.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'osg' } }}>
                                             <PortfolioCard from={data.portfolios.osg.from} title={data.portfolios.osg.title} description={data.portfolios.osg.description}/>
                                         </Grid.Column>
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className='custom-row'>
+                                    <Grid.Row columns={3} className='custom-row' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'attitude' } }}>
                                         <Grid.Column className='custom-column'>
                                             <PortfolioCard from={data.portfolios.attitude.from} title={data.portfolios.attitude.title} description={data.portfolios.attitude.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'proguiden' } }}>
                                             <PortfolioCard from={data.portfolios.proguiden.from} title={data.portfolios.proguiden.title} description={data.portfolios.proguiden.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'apotek' } }}>
                                             <PortfolioCard from={data.portfolios.apotek.from} title={data.portfolios.apotek.title} description={data.portfolios.apotek.description}/>
                                         </Grid.Column>
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className='custom-row'>
+                                    <Grid.Row columns={3} className='custom-row' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'insurance' } }}>
                                         <Grid.Column className='custom-column'>
                                             <PortfolioCard from={data.portfolios.insurance.from} title={data.portfolios.insurance.title} description={data.portfolios.insurance.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'consulting' } }}>
                                             <PortfolioCard from={data.portfolios.consulting.from} title={data.portfolios.consulting.title} description={data.portfolios.consulting.description}/>
                                         </Grid.Column>
-                                        <Grid.Column className='custom-column'>
+                                        <Grid.Column className='custom-column' as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: 'ibobil' } }}>
                                             <PortfolioCard from={data.portfolios.ibobil.from} title={data.portfolios.ibobil.title} description={data.portfolios.ibobil.description}/>
                                         </Grid.Column>
                                     </Grid.Row>

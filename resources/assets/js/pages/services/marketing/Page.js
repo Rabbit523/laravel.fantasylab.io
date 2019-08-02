@@ -37,7 +37,7 @@ class Page extends React.Component {
                                 <Container className='custom-col-6'>
                                     <div className='header-description'>
                                         <div className='header-text'>
-                                            <h1>{data.title}</h1>
+                                            <h2>{data.title}</h2>
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
@@ -54,33 +54,29 @@ class Page extends React.Component {
                                 </Container>
                                 <div className='starter-group'>
                                     <Container className='custom-col-6'>
-                                        <h2>Let's start. What do you need?</h2>
-                                        <Container className='custom-col-6'>
+                                        <h3>Let's start. What do you need?</h3>
+                                        <Container className='custom-col-8'>
                                             <Grid padded='horizontally'>
-                                                <Grid.Row columns={3} className='custom-row'>
-                                                    {data.starting.map(function(item, i) {
-                                                        return (
-                                                            <React.Fragment  key={i}>
-                                                                {i<3 && 
-                                                                    <Grid.Column className='custom-column' key={i}>
-                                                                        <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
-                                                                    </Grid.Column>}
-                                                            </React.Fragment>
-                                                        )
-                                                    })}
+                                                <Grid.Row columns={3}>
+                                                    {data.starting.map((item, i) => (
+                                                        <React.Fragment key={i}>
+                                                            {i<3 && 
+                                                                <Grid.Column key={i}>
+                                                                    <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                                </Grid.Column>}
+                                                        </React.Fragment>
+                                                    ))}
                                                 </Grid.Row>
                                                 {data.starting.length > 3 && 
-                                                <Grid.Row className='custom-row' columns={3}>
-                                                    {data.starting.map(function(item, i) {
-                                                        return (
-                                                            <React.Fragment  key={i}>
-                                                                {i>=3 && 
-                                                                    <Grid.Column className='custom-column' key={i}>
-                                                                        <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
-                                                                    </Grid.Column>}
-                                                            </React.Fragment>
-                                                        )
-                                                    })}
+                                                <Grid.Row columns={3}>
+                                                    {data.starting.map((item, i) => (
+                                                        <React.Fragment key={i}>
+                                                            {i>=3 && 
+                                                                <Grid.Column key={i}>
+                                                                    <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                                </Grid.Column>}
+                                                        </React.Fragment>
+                                                    ))}
                                                 </Grid.Row>}
                                             </Grid>
                                         </Container>
@@ -94,7 +90,7 @@ class Page extends React.Component {
                                 <Container className='custom-col-4'>
                                     <div className='service-review'>
                                         <p>CASE STUDY</p>
-                                        <h2>{data.study.title}</h2>
+                                        <h3>{data.study.title}</h3>
                                         <p>'{data.study.description}'</p>
                                         <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
@@ -108,30 +104,26 @@ class Page extends React.Component {
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-8'>
                                     <Grid padded='horizontally'>
-                                        <Grid.Row className='custom-row' columns={4}>
-                                            {data.technologies.map((item, i) => {
-                                                return (
-                                                    <React.Fragment key={i}>
-                                                        {i<4 && 
-                                                            <Grid.Column className='custom-column'>
-                                                                <GuideCard from='service_ui' avatar={item.icon} title={item.lang} description={item.text}/>
-                                                            </Grid.Column>}
-                                                    </React.Fragment>
-                                                )
-                                            })}
+                                        <Grid.Row columns={4}>
+                                            {data.technologies.map((item, i) => (                                                
+                                                <React.Fragment key={i}>
+                                                    {i<4 && 
+                                                        <Grid.Column>
+                                                            <GuideCard from='service_ui' avatar={item.icon} title={item.lang} description={item.text}/>
+                                                        </Grid.Column>}
+                                                </React.Fragment>
+                                            ))}
                                         </Grid.Row>
                                         {data.technologies.length > 4 && 
-                                        <Grid.Row className='custom-row' columns={4}>
-                                            {data.technologies.map((item, i) => {
-                                                return (
-                                                    <React.Fragment key={i}>
-                                                        {i>=4 && 
-                                                            <Grid.Column className='custom-column'>
-                                                                <GuideCard from='service_ui' avatar={item.icon} title={item.lang} description={item.text}/>
-                                                            </Grid.Column>}
-                                                    </React.Fragment>
-                                                )
-                                            })}
+                                        <Grid.Row columns={4}>
+                                            {data.technologies.map((item, i) => (
+                                                <React.Fragment key={i}>
+                                                    {i>=4 && 
+                                                        <Grid.Column>
+                                                            <GuideCard from='service_ui' avatar={item.icon} title={item.lang} description={item.text}/>
+                                                        </Grid.Column>}
+                                                </React.Fragment>
+                                            ))}
                                         </Grid.Row>}
                                     </Grid>
                                 </Container>
@@ -144,29 +136,25 @@ class Page extends React.Component {
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
                                 <Grid padded='horizontally'>
-                                    <Grid.Row columns={3} className='custom-row'>
-                                        {data.estimation.map((item, i) => {
-                                            return (
-                                                <React.Fragment key={i}>
-                                                    {i<3 && 
-                                                        <Grid.Column className='custom-column'>
-                                                            <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
-                                                        </Grid.Column>}
-                                                </React.Fragment>
-                                            )
-                                        })}
+                                    <Grid.Row columns={3}>
+                                        {data.estimation.map((item, i) => (
+                                            <React.Fragment key={i}>
+                                                {i<3 && 
+                                                    <Grid.Column>
+                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                    </Grid.Column>}
+                                            </React.Fragment>
+                                        ))}
                                     </Grid.Row>
-                                    <Grid.Row columns={3} className='custom-row'>
-                                        {data.estimation.map((item, i) => {
-                                            return (
-                                                <React.Fragment key={i}>
-                                                    {i>=3 && 
-                                                        <Grid.Column className='custom-column'>
-                                                            <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
-                                                        </Grid.Column>}
-                                                </React.Fragment>
-                                            )
-                                        })}
+                                    <Grid.Row columns={3}>
+                                        {data.estimation.map((item, i) => (
+                                            <React.Fragment key={i}>
+                                                {i>=3 && 
+                                                    <Grid.Column>
+                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                    </Grid.Column>}
+                                            </React.Fragment>
+                                        ))}
                                     </Grid.Row>
                                 </Grid>
                             </Container>

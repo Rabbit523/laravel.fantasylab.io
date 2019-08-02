@@ -134,14 +134,14 @@ class Page extends React.Component {
                                 <Container className='custom-col-6'>
                                     <div className='header-description'>
                                         <div className='header-text'>
-                                            <h1>{data.title}</h1>
+                                            <h2>{data.title}</h2>
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
                                     <Grid padded='horizontally' style={{paddingTop: 50}}>
-                                        <Grid.Row columns={4} className='custom-row'>
+                                        <Grid.Row columns={4}>
                                             {data.headquarters.map((item, i) => (
-                                                <Grid.Column className='custom-column' key={i}>
+                                                <Grid.Column key={i}>
                                                     <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
                                                 </Grid.Column>
                                             ))}

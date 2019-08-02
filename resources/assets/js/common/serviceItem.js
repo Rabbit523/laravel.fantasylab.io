@@ -20,12 +20,6 @@ class ServiceItem extends React.Component {
 
     render() {
         const item_hover = {
-            backgroundImage: this.props.backimage?`url(${ this.props.backimage})`:'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
-            backgroundSize: 'cover',
-            borderBottom: '2px solid ' + this.props.color,
-            cursor: 'pointer'
-        };
-        const item_service_hover = {
             backgroundImage: this.props.backimage?`linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url(${ this.props.backimage})`:'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
             backgroundSize: 'cover',
             borderBottom: '2px solid ' + this.props.color,
@@ -34,7 +28,7 @@ class ServiceItem extends React.Component {
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
-                    <div className='service-item' style={isHovering?this.props.from?item_service_hover:item_hover:{}}>
+                    <div className='service-item' style={isHovering?item_hover:{}}>
                         <div className='avatar-item' style={isHovering?this.state.avatar_hover:{}}>
                             <img src={`${ this.props.url}`} />
                             {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow'/>:'':''}

@@ -37,7 +37,7 @@ class Page extends React.Component {
                                 <Container className="custom-col-6">
                                     <div className="header-description">
                                         <div className="header-text">
-                                            <h1>{data.title}</h1>
+                                            <h2>{data.title}</h2>
                                             <p>{data.description}</p>
                                         </div>
                                         <Container className="custom-col-6">
