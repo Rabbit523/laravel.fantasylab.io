@@ -475,10 +475,10 @@ $WorkSans: 'Work Sans', sans-serif;
     flex: 1;
     width: 100%;
     .divide {
-      background-image: url('/images/divide-back.png') 50% 50%;
+      background-image: url('/images/divide-back.png');
       height: 160px;
       width: 100%;
-      // background-size: cover !important;
+      background-size: cover !important;
     }
     .main-footer {
       min-height: 350px;
@@ -522,6 +522,9 @@ $WorkSans: 'Work Sans', sans-serif;
         width: 50px;
         height: 50px;
         margin-bottom: 100px;
+        @media (max-width: 320px) {
+          margin-bottom: 50px;
+        }
         img {
           width: 30px;
           height: 30px;
@@ -869,6 +872,13 @@ $WorkSans: 'Work Sans', sans-serif;
         .description {
           p {
             font-size: 12px;
+          }
+        }
+      }
+      @media (max-width: 320px) {
+        .title {
+          p {
+            font-size: 13px;
           }
         }
       }
@@ -1342,122 +1352,120 @@ $WorkSans: 'Work Sans', sans-serif;
       .contact-section {
         margin-top: -100px;
         .message-form {
-          .segment {
-            background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
-            padding: 20px;
-            border-radius: 5px;
-            .form-group {
-              display: flex;
-              justify-content: space-between;
-              position: relative;
-              .field {
-                flex: 1;
-                margin-left: 20px;
-                margin-right: 20px;
-                margin-bottom: 25px;
-                &:first-child {
-                  margin-left: 0;
-                }
-                &:last-child {
-                  margin-right: 0;
-                }
-              }
-              .phone-form {
-                text-align: left;
-                margin-bottom: 10px;
-                margin-left: 20px;
-                margin-right: 0px;
-                flex: 1;
-                svg {
-                  color: #8341ff;
-                  width: 20px;        
-                }
-                .react-phone-number-input__phone {
-                  background: #050a20 !important;
-                  border: 2px solid #202c5a;
-                  padding: 12px;
-                  color: #fff !important;
-                  margin-top: 10px;
-                  padding-top: 20px;
-                  padding-bottom: 20px;
-                }
-              }
-              .custom-error {
-                position: absolute;
-                bottom: -10px;
-                padding: 0;
-              }
-            }
-            label {
-              color: #9aa2bf !important;
-              font-family: "Gotham Book";
-              font-size: 16px;
-            }
+          background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
+          padding: 20px;
+          border-radius: 5px;
+          .form-group {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
             .field {
-              &.error {
-                label:after {
-                  content: "*";
-                  color: #e71f1f;
-                  padding-left: 3px;
-                }
-                input {
-                  border-color: #8341ff !important;
-                }
+              flex: 1;
+              margin-left: 20px;
+              margin-right: 20px;
+              margin-bottom: 25px;
+              &:first-child {
+                margin-left: 0;
               }
-              label {
-                text-align: left;
-                padding-bottom: 10px;
+              &:last-child {
+                margin-right: 0;
               }
-              input {
+            }
+            .phone-form {
+              text-align: left;
+              margin-bottom: 10px;
+              margin-left: 20px;
+              margin-right: 0px;
+              flex: 1;
+              svg {
+                color: #8341ff;
+                width: 20px;        
+              }
+              .react-phone-number-input__phone {
                 background: #050a20 !important;
                 border: 2px solid #202c5a;
                 padding: 12px;
-                color: #202c5a;
+                color: #fff !important;
+                margin-top: 10px;
+                padding-top: 20px;
+                padding-bottom: 20px;
               }
             }
-            textarea {
+            .custom-error {
+              position: absolute;
+              bottom: -10px;
+              padding: 0;
+            }
+          }
+          label {
+            color: #9aa2bf !important;
+            font-family: "Gotham Book";
+            font-size: 16px;
+          }
+          .field {
+            &.error {
+              label:after {
+                content: "*";
+                color: #e71f1f;
+                padding-left: 3px;
+              }
+              input {
+                border-color: #8341ff !important;
+              }
+            }
+            label {
+              text-align: left;
+              padding-bottom: 10px;
+            }
+            input {
               background: #050a20 !important;
               border: 2px solid #202c5a;
               padding: 12px;
               color: #202c5a;
             }
-            .privacy-section {
-              padding-top: 10px;
-              padding-bottom: 10px;
-              margin-top: 10px;
-              margin-bottom: 10px;
-              display: flex;
-              flex-direction: row;
-              align-items: flex-start;
-              &.checkbox_border {
-                border: 1px solid #8341ff;
-              }
-              .checkbox {
-                label {
-                  &:before {
-                    background: #050a20 !important;
-                    border: 2px solid #202c5a;
-                  }
-                }
-              }
-              .terms-section {
-                margin-left: 5px;
-                margin-top: -2px;
-                span {
-                  color: #9aa2bf !important
-                }
-                a {
-                  color: #3e75db;
-                  font-weight: bold;
-                  font-family: "Gotham Bold";
-                  font-size: 16px;
-                  display: inline-block;
+          }
+          textarea {
+            background: #050a20 !important;
+            border: 2px solid #202c5a;
+            padding: 12px;
+            color: #202c5a;
+          }
+          .privacy-section {
+            padding-top: 10px;
+            padding-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            &.checkbox_border {
+              border: 1px solid #8341ff;
+            }
+            .checkbox {
+              label {
+                &:before {
+                  background: #050a20 !important;
+                  border: 2px solid #202c5a;
                 }
               }
             }
-            .primary-button {
-              width: 50%;
+            .terms-section {
+              margin-left: 5px;
+              margin-top: -2px;
+              span {
+                color: #9aa2bf !important
+              }
+              a {
+                color: #3e75db;
+                font-weight: bold;
+                font-family: "Gotham Bold";
+                font-size: 16px;
+                display: inline-block;
+              }
             }
+          }
+          .primary-button {
+            width: 50%;
           }
         }
       }
@@ -2059,16 +2067,20 @@ $WorkSans: 'Work Sans', sans-serif;
         }
         .contact-section {
           .message-form {
-            .segment {
-              label {
-                font-size: 12px;
+            label {
+              font-size: 12px;
+            }
+            .phone-form {
+              .react-phone-number-input__phone {
+                margin-top: 7px !important;
+                padding: 18px 8px !important;
               }
-              .privacy-section {
-                .terms-section {
-                  margin-top: 10px;
-                  a {
-                    font-size: 12px;
-                  }
+            }
+            .privacy-section {
+              .terms-section {
+                margin-top: 10px;
+                a {
+                  font-size: 12px;
                 }
               }
             }
@@ -2120,6 +2132,11 @@ $WorkSans: 'Work Sans', sans-serif;
         .service-section {
           &.review {
             min-height: 100vh;
+            background-size: cover;
+            max-width: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            background: url(/images/illustration-dev-back.png) center center / 100% 100% no-repeat;
             .service-review {
               padding-top: 170px;
               .third-button {
@@ -4019,7 +4036,7 @@ $WorkSans: 'Work Sans', sans-serif;
       margin: 0 !important;
       padding: 0 !important;
       display: inline-block !important;
-      margin-left: 130px !important;
+      margin-left: 120px !important;
       .primary-button {
         padding: 7px;
         font-size: 10px !important;
@@ -4090,6 +4107,8 @@ $WorkSans: 'Work Sans', sans-serif;
       .right.menu {
         margin-left: 0!important;
         .item:last-child {
+          border: 1px solid #fff;
+          margin-left: 10px;
           .menu.transition {
             background: #070e29 !important;
             position: absolute;
@@ -4100,6 +4119,7 @@ $WorkSans: 'Work Sans', sans-serif;
             overflow: visible;
             text-align: left;
             .item {
+              border: none;
               color: #747b96 !important;
               display: inline-block;
               text-transform: capitalize;
@@ -4121,6 +4141,9 @@ $WorkSans: 'Work Sans', sans-serif;
   .page {
     padding-top: 50px;
     main {
+      .divide {
+        height: 34px;
+      }
       .home-page {
         .homepage-header {
           min-height: 290px;
@@ -4167,8 +4190,279 @@ $WorkSans: 'Work Sans', sans-serif;
         .main-footer {
           display: none;
         }
-        .divide {
-          height: 120px;
+      }
+      .portfolio-page {
+        .portfolio-header {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          .header-gradient {
+            height: 300px;
+            .portfolio-header-description {
+              padding: 50px 0px 0px 0px;
+              .portfolio-header-text {
+                padding-bottom: 40px;
+                p {
+                  font-size: 14px;
+                }
+              }
+              .portfolio-header-figure {
+                margin: 0px 10px 0px 10px;
+                .figure {
+                  padding: 0px 10px 0px 10px;
+                  img {
+                    width: 40px;
+                    height: auto;
+                  }
+                  p {
+                    font-size: 14px !important;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .portfolio-studios {
+          margin-top: 110px;
+          margin-bottom: 150px;
+        }
+        .main-footer {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          .main-footer-description {
+            width: 100%;
+            margin-top: -220px;
+            h3 {
+              font-size: 22px;
+            }
+            .primary-button {
+              padding: 15px 72px;
+            }
+          }
+        }
+      }
+      .about-page {
+        .about-header {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          .header-gradient {
+            height: 300px;
+            .header-description {
+              padding-bottom: 25px;
+              .header-text {
+                h2 {
+                  font-size: 30px;
+                }
+                p {
+                  font-size: 13px;
+                }
+              }
+              .counter-box {
+                flex-direction: column;
+                .box {
+                  margin-bottom: 20px;
+                  h4 {
+                    margin-bottom: 5px;
+                    font-size: 30px;
+                  }
+                }
+              }
+            }
+          }
+        }
+        .about-section:nth-of-type(2) {
+          margin-top: 1150px;
+          .mobile {
+            margin-top: 0;
+          }
+        }
+        .about-section:nth-of-type(5) {
+          margin-top: 750px;
+          .alice-carousel {
+            margin-left: 0;
+            .alice-carousel__stage-item {
+              width: 100% !important;
+            }
+            .alice-carousel__dots {
+              text-align: center !important;
+            }
+          }
+          .alice-carousel_prev_btn, .alice-carousel_next_btn {
+            display: none;
+          }
+        }
+        .about-section {
+          .headquarters {
+            min-height: 290px;
+            height: 290px;
+            width: 100%;
+            background-size: cover;
+            max-width: 100%;
+            background-position: center center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
+      .contact-page {
+        .contact-header {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          .header-gradient {
+            height: 300px;
+            .header-description {
+              .header-text {
+                padding: 0;
+                h2 {
+                  font-size: 30px;
+                }
+              }
+            }
+          }
+        }
+        .contact-section {
+          margin-top: 730px;
+          .message-form {
+            .form-group {
+              flex-direction: column;
+              .field {
+                margin-left: 0;
+                margin-right: 0;
+              }
+              .custom-error {
+                bottom: 90px;
+              }
+            }
+            .privacy-section {
+              flex-direction: column;
+              .checkbox {
+                margin-bottom: 0px;
+              }
+              .terms-section {
+                margin: 0;
+                padding-left: 22px;
+              }
+            }
+            .primary-button {
+              width: 100%;
+            }
+          }
+        }
+      }
+      .service-page {
+        .service-header {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          .header-gradient {
+            height: 300px;
+            .custom-col-6 {
+              width: 100% !important;
+              margin: 0 !important;
+              padding: 0;
+            }
+            .header-description {
+              .header-text {
+                padding: 0;
+              }
+            }
+            .figures {
+              padding-top: 50px;
+              .figure {
+                padding-left: 6px;
+                padding-right: 6px;
+                p {
+                  font-size: 10px;
+                }
+              }
+            }
+            .starter-group {
+              .service-item-observer {
+                .service-item{
+                  .avatar-item {
+                    img {
+                      left: 33px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .service-section {
+          &.review {
+            min-height: 700px;
+            width: 100%;
+            background-size: cover;
+            background-position: unset;
+            background-repeat: no-repeat;
+            margin-top: 860px;
+            .service-review {
+              padding-top: 110px;
+            }
+          }
+          &.mobile {
+            margin-top: 900px;
+          }
+          &.branding {
+            margin-top: 1400px;
+          }
+          &.tech {
+            .custom-col-8 {
+              width: 100% !important;
+              margin: 0 !important;
+              padding: 0;
+            }
+            .guide-card-observer {
+              .guide-card {
+                .avatar {
+                  width: 60px !important;
+                }
+              }
+            }
+          }
+        }
+        .main-footer {
+          min-height: 290px;
+          height: 290px;
+          width: 100%;
+          background-size: cover;
+          max-width: 100%;
+          background-position: center center;
+          background-repeat: no-repeat;
+          margin-top: 150px;
+          .main-footer-description {
+            width: 100%;
+            margin-top: -220px;
+            h3 {
+              font-size: 22px;
+            }
+            .primary-button {
+              padding: 15px 72px;
+            }
+          }
         }
       }
     }

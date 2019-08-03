@@ -138,84 +138,41 @@ class Page extends React.Component {
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
-                                    <Grid padded='horizontally' style={{paddingTop: 50}}>
-                                        <Grid.Row columns={4}>
-                                            {data.headquarters.map((item, i) => (
-                                                <Grid.Column key={i}>
-                                                    <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
-                                                </Grid.Column>
-                                            ))}
-                                        </Grid.Row>
+                                    <Grid style={{paddingTop: 50}}>
+                                        {data.headquarters.map((item, i) => (
+                                            <Grid.Column mobile={16} tablet={8} computer={4} key={i}>
+                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
+                                            </Grid.Column>
+                                        ))}
                                     </Grid>
                                 </Container>
                             </div>
                         </div>
                         <div className='contact-section'>
                             <Container className='custom-col-6'>
-                                <Form size='large' className='message-form'>
-                                    <Segment stacked>
-                                        <div className='form-group'>
-                                            <Form.Input
-                                                fluid
-                                                label='Name'
-                                                name='name'
-                                                placeholder='Name'
-                                                onChange={(val) => this.handleChange(val, 'name')}
-                                                error={errors.has('name')}
-                                            />
-                                            {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
-                                                {errors.first('name')}
-                                            </Header>}
-                                            <Form.Input
-                                                fluid
-                                                label='Company Name'
-                                                name='company'
-                                                placeholder='Your company'
-                                                onChange={(val) => this.handleChange(val, 'company')}
-                                            />
+                                <Form className='message-form'>
+                                    <div className="form-group">
+                                        <Form.Input label='Name' name='name' placeholder='Name' onChange={(val) => this.handleChange(val, 'name')}  error={errors.has('name')} />
+                                        {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')}</Header>}
+                                        <Form.Input label='Company Name' name='company' placeholder='Your company' onChange={(val) => this.handleChange(val, 'company')} />
+                                    </div>
+                                    <div className="form-group">
+                                        <Form.Input label='Work email' name='email' placeholder='E-mail address' className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
+                                        {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')}</Header>}
+                                        <div className='phone-form'>
+                                            <label>Phone</label>
+                                            <PhoneInput placeholder='Your phone number' value={phone} flags={flags} onChange={ phone => this.setState({ phone }) }  error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
                                         </div>
-                                        <div className='form-group'>
-                                            <Form.Input
-                                                fluid
-                                                label='Work email'
-                                                name='email'
-                                                placeholder='E-mail address'
-                                                className='input-form'
-                                                onChange={(val) => this.handleChange(val, 'email')}
-                                                error={errors.has('email')}
-                                            />
-                                            {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-                                                {errors.first('email')}
-                                            </Header>}
-                                            <div className='phone-form'>
-                                                <label>Phone</label>
-                                                <PhoneInput
-                                                    placeholder='Your phone number'
-                                                    value={phone}
-                                                    flags={flags}
-                                                    onChange={ phone => this.setState({ phone }) } 
-                                                    error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
-                                            </div>
+                                    </div>
+                                    <Form.Field label='What can we help you with?' name='message' placeholder='Write your message' control='textarea'  rows='5' onChange={(val)=>this.handleChange(val, 'message')} />
+                                    {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')}</Header>}
+                                    <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
+                                        <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
+                                        <div className='terms-section'>
+                                            <Link to='/privacy-policy' replace>Privacy Policy</Link>
                                         </div>
-                                        <Form.Field 
-                                            label='What can we help you with?' 
-                                            name='message'
-                                            placeholder='Write your message'
-                                            control='textarea' 
-                                            rows='5'
-                                            onChange={(val)=>this.handleChange(val, 'message')}
-                                        />
-                                        {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>
-                                            {errors.first('message')}
-                                        </Header>}
-                                        <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
-                                            <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
-                                            <div className='terms-section'>
-                                                <Link to='/privacy-policy' replace>Privacy Policy</Link>
-                                            </div>
-                                        </div>
-                                        <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Send message</Button>
-                                    </Segment>
+                                    </div>
+                                    <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Send message</Button>
                                 </Form>
                             </Container>
                         </div>

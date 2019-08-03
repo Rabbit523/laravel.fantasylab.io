@@ -6,6 +6,7 @@ import TextCard from '../../common/textCard'
 import ServiceItem from '../../common/serviceItem'
 import HeadquaterItem from '../../common/headQuaterItem'
 import NewsCard from '../../common/newsCard'
+import Gallery from '../../common/carousel'
 import Http from '../../Http'
 class Page extends React.Component {
     constructor(props) {
@@ -42,32 +43,22 @@ class Page extends React.Component {
                                         </div>
                                         <Container className="custom-col-6">
                                             <div className="counter-box">
-                                                {
-                                                    data.counters.map(function(item, i) {
-                                                        return (
-                                                            <div className="box" key={i}>
-                                                                <h4>{item.number}</h4>
-                                                                <p>{item.text}</p>
-                                                            </div>
-                                                        )
-                                                    })
-                                                }
+                                                {data.counters.map((item, i) => (
+                                                    <div className="box" key={i}>
+                                                        <h4>{item.number}</h4>
+                                                        <p>{item.text}</p>
+                                                    </div>
+                                                ))}
                                             </div>
                                         </Container>
                                     </div>
                                     <div className="guide-tags">
-                                        <Grid padded="horizontally">
-                                            <Grid.Row className="custom-row" columns={data.guides.length}>
-                                            {
-                                                data.guides.map(function(item, i) {
-                                                    return (
-                                                        <Grid.Column key={i} className="custom-column">
-                                                            <GuideCard avatar={item.avatar} title={item.title} description={item.description}/>
-                                                        </Grid.Column>
-                                                    )
-                                                })
-                                            }
-                                            </Grid.Row>
+                                        <Grid columns={4}>
+                                            {data.guides.map((item, index) => (
+                                                <Grid.Column className="box" mobile={16} tablet={8} computer={4} key={index}>
+                                                    <GuideCard avatar={item.avatar} title={item.title} description={item.description}/>
+                                                </Grid.Column>
+                                            ))}
                                         </Grid>
                                     </div>
                                 </Container>
@@ -76,15 +67,15 @@ class Page extends React.Component {
                         <div className="about-section">
                             <Container className="custom-col-6">
                                 <h3>{data.values.title}</h3>
-                                <Grid padded="horizontally">
-                                    <Grid.Column width={8}>
+                                <Grid>
+                                    <Grid.Column mobile={16} tablet={16} computer={8}>
                                         {data.values.data.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 {i < 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}
                                             </React.Fragment>
                                         ))}
                                     </Grid.Column>
-                                    <Grid.Column width={8} style={{marginTop: 20}}>
+                                    <Grid.Column mobile={16} tablet={16} computer={8} style={{marginTop: 20}}>
                                         {data.values.data.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 {i >= 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}
@@ -97,29 +88,19 @@ class Page extends React.Component {
                         <div className="about-section">
                             <Container className="custom-col-6">
                                 <h3>{data.services.title}</h3>
-                                <Grid padded="horizontally">
-                                    <Grid.Row columns={2} className="custom-row">
-                                        {data.services.data.map((item, i) => (
-                                            <React.Fragment key={i}>
-                                                {i<2 && 
-                                                    <Grid.Column className="custom-column">
-                                                        <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
-                                                    </Grid.Column>
-                                                }
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
-                                    <Grid.Row columns={4} className="custom-row">
-                                        {data.services.data.map((item, i) => (
-                                            <React.Fragment key={i}>
-                                                {i>=2 && 
-                                                    <Grid.Column className="custom-column">
-                                                        <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
-                                                    </Grid.Column>
-                                                }
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
+                                <Grid>
+                                    {data.services.data.map((item, i) => (
+                                        <React.Fragment key={i}>
+                                            {i<2 && 
+                                                <Grid.Column mobile={16} tablet={8} computer={8}>
+                                                    <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                                </Grid.Column>}
+                                            {i>=2 && 
+                                                <Grid.Column mobile={16} tablet={8} computer={4}>
+                                                    <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                                </Grid.Column>}
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </div>
@@ -127,15 +108,13 @@ class Page extends React.Component {
                             <Container className="custom-col-6">
                                 <h3>{data.headquarters.title}</h3>
                                 <p>{data.headquarters.description}</p>
-                                <div style={{backgroundImage: `url(${ data.headquarters.backimage})`, backgroundSize: 'cover'}}>
-                                    <Grid padded="horizontally" style={{paddingTop: 100}}>
-                                        <Grid.Row columns={4} className="custom-row">
-                                            {data.headquarters.data.map((item, i) => (
-                                                <Grid.Column className="custom-column" key={i}>
-                                                    <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
-                                                </Grid.Column>
-                                            ))}
-                                        </Grid.Row>
+                                <div className="headquarters" style={{backgroundImage: `url(${ data.headquarters.backimage})`, backgroundSize: 'cover'}}>
+                                    <Grid style={{paddingTop: 100}}>
+                                        {data.headquarters.data.map((item, i) => (
+                                            <Grid.Column  mobile={16} tablet={8} computer={4} key={i}>
+                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
+                                            </Grid.Column>
+                                        ))}
                                     </Grid>
                                 </div>
                             </Container>
@@ -144,18 +123,17 @@ class Page extends React.Component {
                             <section className="home-section">
                                 <Container className="custom-col-6">
                                     <h3>{data.news.title}</h3>
-                                    <Grid padded="horizontally">
-                                        <Grid.Row columns={3} className="custom-row">
-                                            {
-                                                data.news.data.map(function (item, i) {
-                                                    return (
-                                                        <Grid.Column key={i} className="custom-column">
-                                                            <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
-                                                        </Grid.Column>
-                                                    )
-                                                })
-                                            }
-                                        </Grid.Row>
+                                    <Grid columns={3}>
+                                        {data.news.data.map((item, i) => (
+                                            <Grid.Column key={i} only="computer">
+                                                <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
+                                            </Grid.Column>
+                                        ))}
+                                    </Grid>
+                                    <Grid>
+                                        <Grid.Column only="mobile">
+                                            <Gallery type="news" items={data.news.data} />
+                                        </Grid.Column>
                                     </Grid>
                                 </Container>
                             </section>

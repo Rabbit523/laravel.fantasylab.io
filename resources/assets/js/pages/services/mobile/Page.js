@@ -56,14 +56,17 @@ class Page extends React.Component {
                                     <Container className='custom-col-6'>
                                         <h3>Let's start. What do you need?</h3>
                                         <Container className='custom-col-8'>
-                                            <Grid padded='horizontally'>
-                                                <Grid.Row columns={3}>
-                                                    {data.starting.map((item, i) => (
-                                                        <Grid.Column key={i}>
+                                            <Grid columns={3}>
+                                                {data.starting.map((item, i) => (
+                                                    <React.Fragment key={i}>
+                                                        <Grid.Column mobile={16} tablet={8} only="mobile">
                                                             <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
-                                                    ))}
-                                                </Grid.Row>
+                                                        <Grid.Column only="computer">
+                                                            <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                        </Grid.Column>
+                                                    </React.Fragment>
+                                                ))}
                                             </Grid>
                                         </Container>
                                         <Button className='primary-button' style={{marginTop: 20}}>Craft Enterprise <Icon name='arrow right'></Icon></Button>
@@ -71,7 +74,7 @@ class Page extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='service-section review' style={{ background: `url(${data.study.backimage}) no-repeat center`, backgroundSize: '100% 100%' }}>
+                        <div className='service-section review mobile' style={{ backgroundImage: `url(${data.study.backimage})` }}>
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-4'>
                                     <div className='service-review'>
@@ -85,31 +88,18 @@ class Page extends React.Component {
                                 </Container>
                             </Container>
                         </div>
-                        <div className='service-section'>
+                        <div className='service-section tech'>
                             <h3>Technologies we excel at</h3>
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-8'>
-                                    <Grid padded='horizontally'>
-                                        <Grid.Row columns={4}>
-                                            {data.technologies.map((item, i) => (
-                                                <React.Fragment  key={i}>
-                                                    {i<4 && 
-                                                        <Grid.Column>
-                                                            <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
-                                                        </Grid.Column>}
-                                                </React.Fragment>
-                                            ))}
-                                        </Grid.Row>
-                                        <Grid.Row columns={4}>
-                                            {data.technologies.map((item, i) => (
-                                                <React.Fragment  key={i}>
-                                                    {i>=4 && 
-                                                        <Grid.Column>
-                                                            <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
-                                                        </Grid.Column>}
-                                                </React.Fragment>
-                                            ))}
-                                        </Grid.Row>
+                                    <Grid>
+                                        {data.technologies.map((item, i) => (
+                                            <React.Fragment key={i}>
+                                                <Grid.Column mobile={8} tablet={8} computer={4}>
+                                                    <GuideCard from='service_web' avatar={item.icon} title={item.lang} description={item.text}/>
+                                                </Grid.Column>
+                                            </React.Fragment>
+                                        ))}
                                     </Grid>
                                 </Container>
                             </Container>
@@ -120,27 +110,17 @@ class Page extends React.Component {
                                     <h3>Estimation. Proposal. Delivery.</h3>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row columns={3}>
-                                        {data.estimation.map((item, i) => (
-                                            <React.Fragment key={i}>
-                                                {i<3 && 
-                                                    <Grid.Column>
-                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
-                                                    </Grid.Column>}
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
-                                    <Grid.Row columns={3}>
-                                        {data.estimation.map((item, i) => (
-                                            <React.Fragment key={i}>
-                                                {i>=3 && 
-                                                    <Grid.Column>
-                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
-                                                    </Grid.Column>}
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
+                                <Grid columns={3}>
+                                    {data.estimation.map((item, i) => (
+                                        <React.Fragment key={i}>
+                                            <Grid.Column mobile={16} only="mobile">
+                                                <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                            </Grid.Column>
+                                            <Grid.Column only="computer">
+                                                <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                            </Grid.Column>
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </div>

@@ -83,32 +83,12 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {Object.keys(data.badges).map((key, index) => (
                                         <React.Fragment key={index}>
-                                            {index<3 &&
-                                                <React.Fragment>
-                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                    </Grid.Column>
-                                                    <Grid.Column only="computer">
-                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                    </Grid.Column>
-                                                </React.Fragment>
-                                            }
-                                        </React.Fragment>
-                                    ))}
-                                </Grid>
-                                <Grid columns={3}>
-                                    {Object.keys(data.badges).map((key, index) => (
-                                        <React.Fragment key={index}>
-                                            {index>=3 &&
-                                                <React.Fragment>
-                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                    </Grid.Column>
-                                                    <Grid.Column only="computer">
-                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                    </Grid.Column>
-                                                </React.Fragment>
-                                            }
+                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                                <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                            </Grid.Column>
+                                            <Grid.Column only="computer">
+                                                <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                            </Grid.Column>
                                         </React.Fragment>
                                     ))}
                                 </Grid>
@@ -124,32 +104,12 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>
-                                            {index<3 && 
-                                                <React.Fragment>
-                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>
-                                                    <Grid.Column only="computer">
-                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>
-                                                </React.Fragment>
-                                            }
-                                        </React.Fragment>
-                                    ))}
-                                </Grid>
-                                <Grid columns={3}>
-                                    {Object.keys(data.portfolios).map((key, index) => (
-                                        <React.Fragment key={index}>
-                                            {index>=3 && 
-                                                <React.Fragment>
-                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>
-                                                    <Grid.Column only="computer">
-                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>
-                                                </React.Fragment>
-                                            }
+                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                            </Grid.Column>
+                                            <Grid.Column only="computer">
+                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                            </Grid.Column>
                                         </React.Fragment>
                                     ))}
                                 </Grid>

@@ -52,42 +52,42 @@ class Page extends React.Component {
                                             <div style={{display: 'flex', flexDirection: 'column'}}>
                                                 <Dropdown text='Services' className="services">
                                                     <Dropdown.Menu className="sub-menu">
-                                                        <div className='custom-dropdown-item'>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-web'>
                                                             <div className='avatar-item desktop'>
                                                                 <img src={require('../../../images/theme/desktop.png')} />
                                                             </div>
                                                             <p>Web Development</p>
-                                                        </div>
-                                                        <div className='custom-dropdown-item'>
+                                                        </Segment>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-mobile'>
                                                             <div className='avatar-item mobile'>
                                                                 <img src={require('../../../images/theme/mobile.png')} />
                                                             </div>
                                                             <p>Mobile Development</p>
-                                                        </div>
-                                                        <div className='custom-dropdown-item'>
+                                                        </Segment>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-ui'>
                                                             <div className='avatar-item ui'>
                                                                 <img src={require('../../../images/theme/ui.png')} />
                                                             </div>
                                                             <p>UI & UX Design</p>
-                                                        </div>
-                                                        <div className='custom-dropdown-item'>
+                                                        </Segment>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-branding'>
                                                             <div className='avatar-item branding'>
                                                                 <img src={require('../../../images/theme/branding.png')} />
                                                             </div>
                                                             <p>Branding</p>
-                                                        </div>
-                                                        <div className='custom-dropdown-item'>
+                                                        </Segment>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-illustration'>
                                                             <div className='avatar-item illustration'>
                                                                 <img src={require('../../../images/theme/illustration.png')} />
                                                             </div>
                                                             <p>Illustration</p>
-                                                        </div>
-                                                        <div className='custom-dropdown-item'>
+                                                        </Segment>
+                                                        <Segment className='custom-dropdown-item' as={Link} to='/service-marketing'>
                                                             <div className='avatar-item marketing'>
                                                                 <img src={require('../../../images/theme/marketing.png')} />
                                                             </div>
                                                             <p>Marketing</p>
-                                                        </div>
+                                                        </Segment>
                                                     </Dropdown.Menu>
                                                 </Dropdown>
                                                 <Dropdown.Item as={NavLink} to='/portfolio' text='Portfolio'/>
