@@ -4007,50 +4007,119 @@ $WorkSans: 'Work Sans', sans-serif;
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     z-index: +1;
-    border-bottom: 1px solid rgba(255, 255, 255, .15) !important;
     position: absolute;
     width: 100%;
+    border-radius: 0;
     .logo img {
       width: 20px !important;
       margin-bottom: -5px !important;
       margin-left: -5px !important;
     }
+    .mobile-register {
+      margin: 0 !important;
+      padding: 0 !important;
+      display: inline-block !important;
+      margin-left: 130px !important;
+      .primary-button {
+        padding: 7px;
+        font-size: 10px !important;
+      }
+    }
     .menu {
-      background: transparent !important;
-      .right.menu > .item:last-child {
-        border: 1px solid #fff;
-        .menu.transition {
-          position: absolute;
-          top: 44px;
-          width: 100vw;
-          right: -135%;
-          background-color: rgba(255, 255, 255, .99) !important;
-          z-index: 299;
-          overflow: visible;
-          box-shadow: 5px 0 10px 2px rgba(0, 0, 0, 1);
-          text-align: center;
-          .ui.divider {
-            margin: 0 !important;
-          }
-          .item {
-            color: $darkFont1 !important;
+      .dropdown.services {
+        .text {
+          padding: 10px 0px 10px 11px;
+          font-size: 12px !important;
+          font-family: "Gotham Bold";
+        }
+      }      
+      &.sub-menu {
+        position: initial !important;
+        margin: 0 !important;
+        padding-bottom: 10px;
+        border-radius: 0 !important;
+        border: none;
+        box-shadow: none;
+        .custom-dropdown-item {
+          background: #070e29 !important;
+          height: 100%;
+          display: flex;
+          flex-direction: row;
+          border-radius: 0px;
+          padding: 5px 5px 5px 10px;
+          .avatar-item {
+            border-radius: 50%;
+            border: 2px solid #202c5a;
             display: inline-block;
-            text-transform: uppercase;
-            font-size: 1.1em !important;
-            line-height: 2.5em;
-            letter-spacing: 0.2em;
+            width: 30px;
+            height: 30px;
+            img {
+              width: 17px;
+              height: 17px;
+              position: absolute;
+              margin-left: 5px;
+              margin-top: 5px;
+            }
+            &.desktop {
+              border-color: #7436e9;
+            }
+            &.mobile {
+              border-color: #f34cb5;
+            }
+            &.ui {
+              border-color: #f3a864;
+            }
+            &.branding {
+              border-color: #e4cb0d;
+            }
+            &.illustration {
+              border-color: #90ce41;
+            }
+            &.marketing {
+              border-color: #285596;
+            }
           }
-          .item.active {
-            border-bottom: 4px solid $tealColor;
-            border-radius: 0;
+          p {
+            font-size: 12px;
+            font-family: "Gotham Bold";
+            color: #747b96 !important;
+            padding: 7px 0px 0px 10px;
           }
-
+        }
+      }
+      .right.menu {
+        margin-left: 0!important;
+        .item:last-child {
+          .menu.transition {
+            background: #070e29 !important;
+            position: absolute;
+            top: 32px;
+            width: 320px;
+            left: -287px;
+            z-index: 299;
+            overflow: visible;
+            text-align: left;
+            .item {
+              color: #747b96 !important;
+              display: inline-block;
+              text-transform: capitalize;
+              font-size: 12px !important;
+              width: 100%;
+              font-family: "Gotham Bold";
+              &:active {
+                color: #fff !important;
+              }
+              &:hover {
+                color: #fff !important;
+              }
+            }
+          }
         }
       }
     }
   }
   .page {
-    padding-top: 52px;
+    padding-top: 50px;
     main {
       .home-page {
         .homepage-header {
