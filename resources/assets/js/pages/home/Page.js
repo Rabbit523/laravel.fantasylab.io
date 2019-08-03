@@ -58,31 +58,19 @@ class Page extends React.Component {
                         <section className='home-section'>
                             <Container className='custom-col-6'>
                                 <h3>Services</h3>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row columns={2}>
-                                        {Object.keys(data.services).map((key, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    {index<2 && 
-                                                        <Grid.Column>
-                                                            <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
-                                                    </Grid.Column>}                                                        
-                                                </React.Fragment>
-                                            )
-                                        })}
-                                    </Grid.Row>
-                                    <Grid.Row columns={4}>
-                                        {Object.keys(data.services).map((key, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    {index>=2 && 
-                                                        <Grid.Column>
-                                                            <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
-                                                        </Grid.Column>}
-                                                </React.Fragment>
-                                            )
-                                        })}
-                                    </Grid.Row>
+                                <Grid>
+                                    {Object.keys(data.services).map((key, index) => (
+                                        <React.Fragment key={index}>
+                                            {index<2 && 
+                                                <Grid.Column mobile={16} tablet={8} computer={8}>
+                                                    <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                            </Grid.Column>}
+                                            {index>=2 && 
+                                                    <Grid.Column mobile={16} tablet={8} computer={4}>
+                                                        <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                    </Grid.Column>}
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </section>
@@ -92,27 +80,37 @@ class Page extends React.Component {
                                     <h3>Estimation. Proposal. Delivery.</h3>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row columns={3}>
-                                        {Object.keys(data.badges).map((key, index) => (
-                                            <React.Fragment key={index}>
-                                                {index<3 && 
-                                                    <Grid.Column>
+                                <Grid columns={3}>
+                                    {Object.keys(data.badges).map((key, index) => (
+                                        <React.Fragment key={index}>
+                                            {index<3 &&
+                                                <React.Fragment>
+                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
                                                         <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                </Grid.Column>}
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
-                                    <Grid.Row columns={3}>
-                                        {Object.keys(data.badges).map((key, index) => (
-                                            <React.Fragment key={index}>
-                                                {index>=3 && 
-                                                    <Grid.Column>
+                                                    </Grid.Column>
+                                                    <Grid.Column only="computer">
                                                         <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
-                                                </Grid.Column>}
-                                            </React.Fragment>
-                                        ))}
-                                    </Grid.Row>
+                                                    </Grid.Column>
+                                                </React.Fragment>
+                                            }
+                                        </React.Fragment>
+                                    ))}
+                                </Grid>
+                                <Grid columns={3}>
+                                    {Object.keys(data.badges).map((key, index) => (
+                                        <React.Fragment key={index}>
+                                            {index>=3 &&
+                                                <React.Fragment>
+                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    </Grid.Column>
+                                                    <Grid.Column only="computer">
+                                                        <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    </Grid.Column>
+                                                </React.Fragment>
+                                            }
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                                 <div className='home-button-group'>
                                     <Button as={Link} to='/register' replace compact className='primary-button'>Craft Enterprise</Button>
@@ -123,31 +121,37 @@ class Page extends React.Component {
                         <section className='home-section'>
                             <Container className='custom-col-6'>
                                 <h3>Portfolio</h3>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row columns={3}>
-                                        {Object.keys(data.portfolios).map((key, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    {index<3 && 
-                                                        <Grid.Column>
-                                                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>}
+                                <Grid columns={3}>
+                                    {Object.keys(data.portfolios).map((key, index) => (
+                                        <React.Fragment key={index}>
+                                            {index<3 && 
+                                                <React.Fragment>
+                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>
+                                                    <Grid.Column only="computer">
+                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>
                                                 </React.Fragment>
-                                            )
-                                        })}
-                                    </Grid.Row>
-                                    <Grid.Row columns={3}>
-                                        {Object.keys(data.portfolios).map((key, index) => {
-                                            return (
-                                                <React.Fragment key={index}>
-                                                    {index>=3 && 
-                                                        <Grid.Column>
-                                                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
-                                                    </Grid.Column>}
+                                            }
+                                        </React.Fragment>
+                                    ))}
+                                </Grid>
+                                <Grid columns={3}>
+                                    {Object.keys(data.portfolios).map((key, index) => (
+                                        <React.Fragment key={index}>
+                                            {index>=3 && 
+                                                <React.Fragment>
+                                                    <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>
+                                                    <Grid.Column only="computer">
+                                                        <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                    </Grid.Column>
                                                 </React.Fragment>
-                                            )
-                                        })}
-                                    </Grid.Row>
+                                            }
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </section>
@@ -157,24 +161,23 @@ class Page extends React.Component {
                                 <p>The scrum Framework and an Agile mindset is paramount.</p>
                             </Container>
                             <Container className='custom-col-8'>
-                                <Gallery items={data.carousels} />
+                                <Gallery type="review" items={data.carousels} />
                             </Container>
                         </section>
                         <section className='home-section'>
                             <Container className='custom-col-6'>
                                 <h3>Latest News</h3>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row columns={3}>
-                                        {
-                                            data.news.map(function(item, i) {
-                                                return (
-                                                    <Grid.Column key={i}>
-                                                        <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
-                                                    </Grid.Column>
-                                                )
-                                            })
-                                        }
-                                    </Grid.Row>
+                                <Grid columns={3}>
+                                    {data.news.map((item, i) => (
+                                        <Grid.Column key={i} only="computer">
+                                            <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
+                                        </Grid.Column>
+                                    ))}
+                                </Grid>
+                                <Grid>
+                                    <Grid.Column only="mobile">
+                                        <Gallery type="news" items={data.news} />
+                                    </Grid.Column>
                                 </Grid>
                             </Container>
                         </section>

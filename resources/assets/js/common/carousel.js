@@ -22,8 +22,20 @@ class Gallery extends React.Component {
                         <hr/>
                         <p>{i.job}</p>
                     </div>
-                </div>
-                )
+                </div>)
+            ),
+            newsItems: this.props.items.map((i) => (
+                <div key={i} className='news-item'>
+                    <div className='figure'>
+                        <img src={`${ i.url}`} />
+                    </div>
+                    <div className='news-content'>
+                        <p className='title'>{i.title}</p>
+                        <p className='normal'>{i.description}</p>
+                        <p className='category'>By {i.author} in {i.type}</p>
+                        <p className='normal'>{i.time} <span>&middot;</span> {i.read} read <span className='news-icon-arrow'><Icon name='arrow right'/></span></p>
+                    </div>
+                </div>)
             ),
             responsive: {
                 0: { items: 3 }
@@ -41,11 +53,11 @@ class Gallery extends React.Component {
     }
 
     render() {
-        const { galleryItems, responsive, currentIndex } = this.state
+        const { galleryItems, newsItems, responsive, currentIndex } = this.state
         return (
             <div style={{position: 'relative'}}>
                 <AliceCarousel
-                    items={galleryItems}
+                    items={this.props.type=='news'?newsItems:galleryItems}
                     responsive={responsive}
                     autoPlayInterval={2000}
                     autoPlayDirection='rtl'
@@ -63,6 +75,7 @@ class Gallery extends React.Component {
     }
 }
 Gallery.propTypes = {
-    items: PropTypes.array.isRequired
+    items: PropTypes.array.isRequired,
+    type: PropTypes.string
 };
 export default Gallery;

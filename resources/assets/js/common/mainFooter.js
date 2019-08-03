@@ -13,8 +13,7 @@ class Footer extends React.Component {
     render() {
         return (
             <div className='footer'>
-                <Responsive style={{ margin: 0, borderRadius: '0', padding: 0 }}
-                    minWidth={769}>
+                <Responsive style={{ margin: 0, borderRadius: '0', padding: 0 }}>
                     <Container className='custom-col-6'>
                         <Grid className='foobar' stackable>
                             <Grid.Row style={{ paddingBottom: 50, paddingTop: 30 }} columns={5}>

@@ -135,10 +135,6 @@
   width: 80% !important;
 }
 
-.ReactTable .rt-td {
-  text-transform: uppercase;
-}
-
 .login {
   background: transparent !important;
   color: #9aa2bf !important;
@@ -542,10 +538,9 @@
 }
 
 .page main .divide {
-  background-image: url("/images/divide-back.png") !important;
+  background-image: url("/images/divide-back.png") 50% 50%;
   height: 160px;
   width: 100%;
-  background-size: cover !important;
 }
 
 .page main .main-footer {
@@ -618,6 +613,12 @@
 @media (max-width: 1366px) {
   .page main .service-item .avatar-item img {
     margin-left: 5px;
+  }
+}
+
+@media (max-width: 320px) {
+  .page main .service-item .avatar-item img {
+    margin-left: 8px;
   }
 }
 
@@ -1274,7 +1275,7 @@
 
 .page main .home-page .home-section {
   color: #fff;
-  margin-top: 90px;
+  margin-top: 110px;
 }
 
 .page main .home-page .home-section .service-item-observer {
@@ -1324,7 +1325,7 @@
 
 .page main .home-page .home-estimation {
   color: #fff;
-  margin-top: 90px;
+  margin-top: 110px;
 }
 
 .page main .home-page .home-estimation .home-estimation-description {
@@ -2556,1133 +2557,1418 @@
     padding: 15px 85px;
     margin-bottom: 10px;
   }
+
+  .footer {
+    background: #070a2b !important;
+    color: #656b88;
+    font-size: 16px;
+    font-family: "Gotham Book";
+    min-height: 65vh;
+  }
+
+  .footer img {
+    width: 20px !important;
+  }
+
+  .footer .footer-title {
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Gotham Bold";
+  }
+
+  .footer .footer-title.service {
+    color: #5a2db6;
+  }
+
+  .footer .footer-title.platform {
+    color: #cf409d;
+  }
+
+  .footer .footer-title.company {
+    color: #4f7335;
+  }
+
+  .footer .footer-title.started {
+    color: #f49d43;
+  }
+
+  .footer .footer-title.legal {
+    color: #c0ae1e;
+  }
+
+  .footer .footer-item .item-link {
+    color: #656b88 !important;
+    margin-bottom: 15px;
+    display: block;
+  }
 }
 
 @media (max-width: 1224px) {
-  .home-header .pretitle {
-    font-size: 1.3em !important;
-    margin-top: 11em !important;
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
   }
 
-  .home-header .main-heading {
-    font-size: 4.3em !important;
-    margin-top: 0.2em !important;
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
   }
 
-  .home-header .sub-heading {
-    font-size: 1.8em !important;
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
   }
 
-  .home-header .free-signup-button {
-    margin-bottom: 8em;
-  }
-}
-
-@media (max-width: 1057px) {
-  .segment.navbar .menu .text {
-    font-size: 14px;
-    padding-top: 6px;
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
   }
 
-  .segment.navbar .item.logo {
-    padding: 0px 10px 0px 0px !important;
-  }
-
-  .nav-color {
-    font-size: 14px;
-    padding: 18px 8px 18px 8px !important;
-  }
-
-  .nav-color:hover {
-    color: #fff !important;
+  .page p {
+    font-size: 12px;
   }
 
   .page main .divide {
-    height: 110px;
+    height: 150px;
   }
-}
 
-@media (max-width: 769px) {
-  .home-page {
-    min-height: 100vh;
-    background: #03051b;
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
   }
 
-  .home-page .homepage-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
   }
 
-  .home-page .homepage-header .homepage-header-description {
-    display: inline-block;
-    margin-top: 60px;
-    width: 50%;
-    color: #fff;
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
-  .home-page .homepage-header .homepage-header-description .normal {
-    color: #747b96;
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
   }
 
-  .home-page .homepage-header .homepage-header-description h1 {
-    padding: 0;
-    margin: 0;
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
   }
 
-  .home-page .homepage-header .homepage-header-description .title {
-    margin: 0;
-    padding: 0;
-    font-size: 18px;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-  }
-
-  .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 70px 15px 70px;
-  }
-
-  .home-page .custom-row {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .home-page .custom-row .custom-column {
-    padding-left: 5px;
-    padding-right: 5px;
-  }
-
-  .home-page .custom-row .custom-column:first-child {
-    padding-left: 0;
-  }
-
-  .home-page .custom-row .custom-column:last-child {
-    padding-right: 0;
-  }
-
-  .home-page .home-section {
-    color: #fff;
-    margin-top: 90px;
-  }
-
-  .home-page .home-section .service-item-observer {
-    height: 100%;
-  }
-
-  .home-page .home-section .home-review {
-    margin-bottom: 20px;
-  }
-
-  .home-page .home-section .alice-carousel {
-    margin-left: 167px;
-    max-width: 1180px;
-  }
-
-  .home-page .home-section .alice-carousel_prev_btn {
-    position: absolute;
-    top: 135px;
-    left: 110px;
-    border-radius: 50%;
-    border: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-
-  .home-page .home-section .alice-carousel_prev_btn i {
-    color: #7436e9;
-    padding-left: 3px;
-  }
-
-  .home-page .home-section .alice-carousel_next_btn {
-    position: absolute;
-    top: 175px;
-    left: 110px;
-    border-radius: 50%;
-    border: none;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-  }
-
-  .home-page .home-section .alice-carousel_next_btn i {
-    color: #7436e9;
-    padding-left: 3px;
-  }
-
-  .home-page .home-estimation {
-    color: #fff;
-    margin-top: 90px;
-  }
-
-  .home-page .home-estimation .home-estimation-description {
-    margin-bottom: 40px;
-  }
-
-  .home-page .home-estimation .home-estimation-description h3 {
-    margin: 0;
-  }
-
-  .home-page .home-estimation .home-estimation-description p {
-    padding: 0;
-    color: #747b96;
-  }
-
-  .home-page .home-estimation .home-button-group {
-    margin-top: 40px;
-  }
-
-  .home-page .home-estimation .home-button-group .button {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-
-  .portfolio-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .portfolio-page .portfolio-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient {
-    width: 100%;
-    height: 550px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.7)), to(rgba(3, 5, 28, 0.9))) !important;
-    background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.7), rgba(3, 5, 28, 0.9)) !important;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
-    text-align: center;
-    color: #fff;
-    padding: 100px 150px 100px 150px;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
-    padding-bottom: 50px;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    color: #949dbf;
-    font-size: 18px;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
-    padding-left: 30px;
-    padding-right: 30px;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 18px;
-  }
-
-  .portfolio-page .portfolio-studios {
-    text-align: center;
-    color: #fff;
-    margin-top: -50px;
-  }
-
-  .singlePortfolio-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient {
-    width: 100%;
-    height: 610px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
-    background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
-    text-align: center;
-    color: #fff;
-    padding-bottom: 40px;
-    padding-top: 60px;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
-    padding-bottom: 50px;
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
-    color: #949dbf;
-    font-size: 18px;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
-    padding-left: 100px;
-    padding-right: 100px;
-    position: relative;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
-    width: 100%;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
-    width: 130px;
-    position: absolute;
-    bottom: -20px;
-    right: 0;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:first-child {
-    padding-left: 0;
-  }
-
-  .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:last-child {
-    padding-right: 0;
-  }
-
-  .singlePortfolio-page .portfolio-section {
-    margin-top: 60px;
-    text-align: center;
-    color: #fff;
-    position: relative;
-  }
-
-  .singlePortfolio-page .portfolio-section.review {
-    height: 130px;
-    margin-top: 120px;
-  }
-
-  .singlePortfolio-page .portfolio-section.review .review-item {
-    position: absolute;
-    width: 280px;
-    top: -100px;
-    left: 40%;
-    padding: 30px 20px 40px 20px;
-  }
-
-  .singlePortfolio-page .portfolio-section.review .review-item .review-text-section h3 {
-    color: #5771d6;
-    padding-bottom: 10px;
-  }
-
-  .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
-    font-size: 12px;
-  }
-
-  .singlePortfolio-page .portfolio-section.review .review-item .review-personal p {
-    font-size: 12px;
-  }
-
-  .singlePortfolio-page .portfolio-section.review .review-item .review-personal .name {
-    color: #7436e9;
-    font-family: "Gotham Bold";
-  }
-
-  .singlePortfolio-page .portfolio-section.scope {
-    margin-top: 200px;
-  }
-
-  .singlePortfolio-page .portfolio-section .main_description {
-    text-align: left;
-  }
-
-  .singlePortfolio-page .portfolio-section .main_description p {
-    color: #949dbf;
-    font-size: 12px;
-  }
-
-  .singlePortfolio-page .portfolio-section .main_description p.sub_title {
-    color: #fff;
-  }
-
-  .singlePortfolio-page .portfolio-section .main_description .sub_descriptions {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    margin-bottom: 20px;
-  }
-
-  .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
-    border-radius: 50%;
-    background: #070e29;
-    border: 1px solid #202c5a;
-    width: 57px;
-    height: 32px;
-    margin-right: 10px;
-    padding-left: 11px;
-    padding-top: 5px;
-    color: #fff;
-  }
-
-  .singlePortfolio-page .portfolio-section .subImage {
-    margin-bottom: 50px;
-  }
-
-  .singlePortfolio-page .portfolio-section .subImage img {
-    width: 100%;
-  }
-
-  .singlePortfolio-page .portfolio-section .subImage p {
-    text-align: left;
-    font-size: 12px;
-  }
-
-  .singlePortfolio-page .portfolio-section .service {
-    padding-left: 100px;
-    padding-right: 100px;
-  }
-
-  .singlePortfolio-page .portfolio-section .service-item-observer {
-    height: 100%;
-  }
-
-  .about-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .about-page .about-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
-  }
-
-  .about-page .about-header .header-gradient {
-    width: 100%;
-    height: 650px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
-    background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)) !important;
-  }
-
-  .about-page .about-header .header-gradient .header-description {
-    text-align: center;
-    color: #fff;
-    padding-top: 100px;
-    padding-bottom: 85px;
-  }
-
-  .about-page .about-header .header-gradient .header-description .header-text {
-    padding-bottom: 50px;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .about-page .about-header .header-gradient .header-description .header-text p {
-    color: #949dbf;
-    font-size: 18px;
-  }
-
-  .about-page .about-header .header-gradient .header-description .counter-box {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .about-page .about-header .header-gradient .header-description .counter-box .box p {
-    color: #949dbf;
-  }
-
-  .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
-    height: 100%;
-  }
-
-  .about-page .about-section {
-    color: #fff;
-    padding-top: 80px;
-    text-align: center;
-  }
-
-  .about-page .about-section .text-card-observer {
-    margin-top: 20px;
-  }
-
-  .about-page .about-section .service-item-observer {
-    height: 100%;
-    margin-top: 20px;
-  }
-
-  .about-page .about-section .service-item-observer .service-item .avatar-item img {
-    left: 36px;
-  }
-
-  .features-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .blog-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .contact-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .contact-page .contact-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
-  }
-
-  .contact-page .contact-header .header-gradient {
-    width: 100%;
-    height: 750px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
-    background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
-  }
-
-  .contact-page .contact-header .header-gradient .header-description {
-    text-align: center;
-    color: #fff;
-    padding-top: 100px;
-    padding-bottom: 45px;
-  }
-
-  .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-bottom: 50px;
-    padding-left: 200px;
-    padding-right: 200px;
-  }
-
-  .contact-page .contact-header .header-gradient .header-description .header-text p {
-    color: #949dbf;
-    font-size: 18px;
-  }
-
-  .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
-    padding-left: 0;
-  }
-
-  .contact-page .contact-header .header-gradient .custom-row .custom-column:last-child {
-    padding-right: 0;
-  }
-
-  .contact-page .contact-section {
-    margin-top: -100px;
-  }
-
-  .contact-page .contact-section .message-form .segment {
-    background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29));
-    background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
-    padding: 20px;
-    border-radius: 5px;
-  }
-
-  .contact-page .contact-section .message-form .segment .form-group {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    position: relative;
-  }
-
-  .contact-page .contact-section .message-form .segment .form-group .field {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-    margin-left: 20px;
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
     margin-right: 20px;
-    margin-bottom: 25px;
   }
 
-  .contact-page .contact-section .message-form .segment .form-group .field:first-child {
-    margin-left: 0;
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
   }
 
-  .contact-page .contact-section .message-form .segment .form-group .field:last-child {
-    margin-right: 0;
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
   }
 
-  .contact-page .contact-section .message-form .segment .form-group .phone-form {
-    text-align: left;
-    margin-bottom: 10px;
-    margin-left: 20px;
-    margin-right: 0px;
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
-  }
-
-  .contact-page .contact-section .message-form .segment .form-group .phone-form svg {
-    color: #8341ff;
-    width: 20px;
-  }
-
-  .contact-page .contact-section .message-form .segment .form-group .phone-form .react-phone-number-input__phone {
-    background: #050a20 !important;
-    border: 2px solid #202c5a;
-    padding: 12px;
-    color: #fff !important;
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .contact-page .contact-section .message-form .segment .form-group .custom-error {
-    position: absolute;
-    bottom: -10px;
-    padding: 0;
-  }
-
-  .contact-page .contact-section .message-form .segment label {
-    color: #9aa2bf !important;
-    font-weight: bold;
-    font-family: "Gotham Bold";
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
     font-size: 16px;
   }
 
-  .contact-page .contact-section .message-form .segment .field.error label:after {
-    content: "*";
-    color: #e71f1f;
-    padding-left: 3px;
-  }
-
-  .contact-page .contact-section .message-form .segment .field.error input {
-    border-color: #8341ff !important;
-  }
-
-  .contact-page .contact-section .message-form .segment .field label {
-    text-align: left;
-    padding-bottom: 10px;
-  }
-
-  .contact-page .contact-section .message-form .segment .field input {
-    background: #050a20 !important;
-    border: 2px solid #202c5a;
-    padding: 12px;
-    color: #202c5a;
-  }
-
-  .contact-page .contact-section .message-form .segment textarea {
-    background: #050a20 !important;
-    border: 2px solid #202c5a;
-    padding: 12px;
-    color: #202c5a;
-  }
-
-  .contact-page .contact-section .message-form .segment .privacy-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-
-  .contact-page .contact-section .message-form .segment .privacy-section.checkbox_border {
-    border: 1px solid #8341ff;
-  }
-
-  .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-left: 5px;
-    margin-top: -2px;
-  }
-
-  .contact-page .contact-section .message-form .segment .privacy-section .terms-section span {
-    color: #9aa2bf !important;
-  }
-
-  .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    color: #3e75db;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-    font-size: 16px;
-    display: inline-block;
-  }
-
-  .contact-page .contact-section .message-form .segment .primary-button {
-    width: 50%;
-  }
-
-  .service-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .service-page .service-header {
-    min-height: 550px;
-    height: auto;
-    width: 100%;
-    background-size: cover;
-  }
-
-  .service-page .service-header .header-gradient {
-    width: 100%;
-    height: 800px;
-    background: -webkit-gradient(linear, left top, right bottom, from(rgba(5, 20, 68, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
-    background: linear-gradient(to right bottom, rgba(5, 20, 68, 0.6), rgba(3, 5, 28, 0.7)) !important;
-  }
-
-  .service-page .service-header .header-gradient .header-description {
-    text-align: center;
-    color: #fff;
-    padding-top: 100px;
-  }
-
-  .service-page .service-header .header-gradient .header-description .header-text {
-    padding-bottom: 50px;
-    padding-left: 210px;
-    padding-right: 210px;
-  }
-
-  .service-page .service-header .header-gradient .header-description .header-text p {
-    color: #949dbf;
-    font-size: 18px;
-  }
-
-  .service-page .service-header .header-gradient .figures {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
-
-  .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 30px;
-    padding-right: 30px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    text-align: center;
-  }
-
-  .service-page .service-header .header-gradient .figures .figure img {
-    width: 50px;
-    height: 50px;
-  }
-
-  .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 18px;
-    color: #c6c8d0;
-    padding-top: 20px;
-  }
-
-  .service-page .service-header .header-gradient .starter-group {
-    margin-top: 90px;
-    color: #fff;
-    text-align: center;
-  }
-
-  .service-page .service-header .header-gradient .starter-group .service-item-observer {
-    height: 100%;
-  }
-
-  .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
-    left: 36px;
-  }
-
-  .service-page .service-section {
-    color: #fff;
-    text-align: center;
-  }
-
-  .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .service-page .service-section .service-review {
-    padding-top: 180px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    text-align: center;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .service-page .service-section .service-review h2 {
-    margin-top: 0;
-  }
-
-  .service-page .service-section .service-review .avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-  }
-
-  .service-page .service-section .service-review .avatar img {
-    width: 100%;
-    height: auto;
-    border-radius: 50%;
-  }
-
-  .service-page .service-estimation {
-    color: #fff;
-    margin-top: 90px;
-  }
-
-  .service-page .service-estimation .service-estimation-description {
-    margin-bottom: 40px;
-    text-align: center;
-  }
-
-  .service-page .service-estimation .service-estimation-description h3 {
-    margin: 0;
-  }
-
-  .service-page .service-estimation .service-estimation-description p {
-    padding: 0;
-    color: #747b96;
-  }
-
-  .privacy-page {
-    min-height: 100vh;
-    background: #03051b;
-  }
-
-  .privacy-page .privacy-section {
-    padding-top: 100px;
-    min-height: 80vh;
-  }
-
-  .privacy-page .privacy-section .side-nav h3 {
-    color: #29356e;
-  }
-
-  .privacy-page .privacy-section .side-nav .item {
-    cursor: pointer;
-    color: #4f546e;
-  }
-
-  .privacy-page .privacy-section .side-nav .item i {
-    float: right;
-    color: #fff;
-    border: none;
-  }
-
-  .privacy-page .privacy-section .side-nav .item:hover {
-    color: #fff;
-  }
-
-  .privacy-page .privacy-section .side-nav .item.active {
-    color: #fff;
-  }
-
-  .login-page {
-    min-height: 110vh;
-    background: #03051b;
-    margin: 0 !important;
-    padding: 0 !important;
-  }
-
-  .login-page.register {
-    min-height: 150vh;
-  }
-
-  .login-page .login_title {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .login-page .login_title h2 {
-    margin: 0;
-    color: #fff;
-  }
-
-  .login-page .login_title h3 {
-    margin: 0;
-    color: #3e75db;
-  }
-
-  .login-page .login-form {
-    background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
-    background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-    padding: 20px;
-    border-radius: 5px;
-  }
-
-  .login-page .login-form.register {
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .login-page .login-form.register input {
-    color: #fff !important;
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
   }
 
-  .login-page .login-form .segment {
-    background: transparent;
-    border: none;
-  }
-
-  .login-page .login-form .segment label {
-    color: #9aa2bf !important;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-    font-size: 16px;
-  }
-
-  .login-page .login-form .segment .field.error label:after {
-    content: "*";
-    color: #e71f1f;
-    padding-left: 3px;
-  }
-
-  .login-page .login-form .segment .field.error input {
-    border-color: #8341ff !important;
-  }
-
-  .login-page .login-form .segment .field label {
-    text-align: left;
-    padding-bottom: 10px;
-  }
-
-  .login-page .login-form .segment .field input {
-    background: #050a20 !important;
-    border: 2px solid #202c5a;
-    padding: 12px;
-    color: #202c5a;
-  }
-
-  .login-page .login-form .segment .remember-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .login-page .login-form .segment .remember-section a {
-    color: #3e75db;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-    font-size: 16px;
-    padding-top: 7px;
-  }
-
-  .login-page .login-form .segment .privacy-section {
-    padding-top: 10px;
-    padding-bottom: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
-
-  .login-page .login-form .segment .privacy-section.checkbox_border {
-    border: 1px solid #8341ff;
-  }
-
-  .login-page .login-form .segment .privacy-section .terms-section {
-    margin-left: 30px;
-  }
-
-  .login-page .login-form .segment .privacy-section .terms-section span {
-    color: #9aa2bf !important;
-  }
-
-  .login-page .login-form .segment .privacy-section .terms-section a {
-    color: #3e75db;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-    font-size: 16px;
-    display: inline-block;
-  }
-
-  .login-page .login-form .segment .google-button {
-    width: 100%;
-    margin-top: 10px;
-    color: #363b52;
-    padding-top: 15px;
-    padding-bottom: 15px;
-    background: #fff;
-    font-weight: bold;
-    font-family: "Gotham Bold";
-    font-size: 16px;
-  }
-
-  .login-page .login-form .segment .google-button img {
-    width: 20px;
-    position: absolute;
-    left: 30px;
-    margin-top: -3px;
-  }
-
-  .login-page .login-form .segment .phone-form {
-    text-align: left;
-    margin-bottom: 10px;
-  }
-
-  .login-page .login-form .segment .phone-form svg {
-    color: #8341ff;
-    width: 20px;
-  }
-
-  .login-page .login-form .segment .phone-form .react-phone-number-input__phone {
-    background: #050a20 !important;
-    border: 2px solid #202c5a;
-    padding: 12px;
-    color: #fff !important;
-    margin-top: 10px;
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-
-  .admin-pages {
-    min-height: 110vh;
-  }
-
-  .admin-pages .list .item {
+  .page main .portfolio-page .portfolio-studios a {
     text-decoration: none;
   }
 
-  .admin-pages .list .item .content p {
-    cursor: pointer;
-    color: #4183C4 !important;
-    text-align: left;
-    text-transform: uppercase;
-    font-size: 18px;
-    font-family: "Gotham Bold";
-    padding-bottom: 10px;
-    font-weight: bold;
-    padding: 0;
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
   }
 
-  .admin-page {
-    min-height: 110vh;
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
   }
 
-  .admin-page.home {
-    min-height: 150vh;
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
   }
 
-  .admin-page.home .ui.card textarea {
-    min-height: 150px;
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .admin-page .ui.card {
-    width: 100%;
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
   }
 
-  .admin-page .ui.card .content {
-    text-align: left;
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
   }
 
-  .admin-page .ui.card .content .admin-form-group {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
   }
 
-  .admin-page .ui.card .content .admin-form-group .flex-form {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
   }
 
-  .admin-page .ui.card .content .admin-form-group .flex-form .input-form {
-    -webkit-box-flex: 1;
-        -ms-flex: 1;
-            flex: 1;
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
   }
 
-  .admin-page .ui.card .content input {
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 1057px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
     margin-bottom: 10px;
   }
 
-  .admin-page .ui.card .content textarea {
-    min-height: 110px;
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 992px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
     margin-bottom: 10px;
   }
 
-  .admin-page .ui.card .content .save-btn {
-    width: 100%;
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
   }
 
-  .admin-page .ui.card .content a.save-btn {
-    padding-top: 10px;
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 769px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 620px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 551px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 383px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 414px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .grid .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 170px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
   }
 }
 
@@ -3757,12 +4043,54 @@
   }
 
   .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 300px;
+    margin-top: 250px;
     width: 100%;
   }
 
-  .page main .home-page .home-section:first-child {
-    margin-top: 400px;
+  .page main .home-page .home-section {
+    margin-top: 90px;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 0;
+  }
+
+  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+    width: 100% !important;
+  }
+
+  .page main .home-page .home-section .alice-carousel .alice-carousel__dots {
+    text-align: center !important;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    display: none;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    width: 100%;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    margin-bottom: 20px;
+  }
+
+  .page main .home-page .home-section:nth-of-type(1) {
+    margin-top: 380px;
+  }
+
+  .page main .home-page .main-footer {
+    display: none;
+  }
+
+  .page main .home-page .divide {
+    height: 120px;
+  }
+
+  .footer h5 {
+    font-size: 10px;
+    margin-bottom: 10px;
   }
 }
 
