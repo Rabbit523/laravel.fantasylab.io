@@ -2144,6 +2144,18 @@ $WorkSans: 'Work Sans', sans-serif;
               }
             }
           }
+          &.branding {
+            margin-top: 180px;
+          }
+          &.tech {
+            .guide-card-observer {
+              .guide-card {
+                .avatar {
+                  width: 50px !important;
+                }
+              }
+            }
+          }
         }
       }
       .main-footer {
@@ -4413,12 +4425,17 @@ $WorkSans: 'Work Sans', sans-serif;
         }
         .service-section {
           &.review {
-            min-height: 700px;
+            min-height: 580px;
             width: 100%;
             background-size: cover;
             background-position: unset;
             background-repeat: no-repeat;
             margin-top: 860px;
+            .custom-col-4 {
+              width: 100% !important;
+              margin: 0 !important;
+              padding: 0;
+            }
             .service-review {
               padding-top: 110px;
             }
@@ -4438,7 +4455,7 @@ $WorkSans: 'Work Sans', sans-serif;
             .guide-card-observer {
               .guide-card {
                 .avatar {
-                  width: 60px !important;
+                  width: 50px !important;
                 }
               }
             }

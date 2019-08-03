@@ -2576,6 +2576,14 @@
     font-size: 12px !important;
   }
 
+  .page main .service-page .service-section.branding {
+    margin-top: 180px;
+  }
+
+  .page main .service-page .service-section.tech .guide-card-observer .guide-card .avatar {
+    width: 50px !important;
+  }
+
   .page main .main-footer .main-footer-description .register {
     padding: 15px 85px;
     margin-bottom: 10px;
@@ -4455,12 +4463,18 @@
   }
 
   .page main .service-page .service-section.review {
-    min-height: 700px;
+    min-height: 580px;
     width: 100%;
     background-size: cover;
     background-position: unset;
     background-repeat: no-repeat;
     margin-top: 860px;
+  }
+
+  .page main .service-page .service-section.review .custom-col-4 {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
   }
 
   .page main .service-page .service-section.review .service-review {
@@ -4482,7 +4496,7 @@
   }
 
   .page main .service-page .service-section.tech .guide-card-observer .guide-card .avatar {
-    width: 60px !important;
+    width: 50px !important;
   }
 
   .page main .service-page .main-footer {
