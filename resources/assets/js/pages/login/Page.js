@@ -123,7 +123,7 @@ class Page extends React.Component {
                 </Segment>
 
                 <Grid textAlign='center' verticalAlign='middle' className='login-page'>
-                    <Grid.Column style={{ maxWidth: '450px' }}>
+                    <Grid.Column className="login-responsive">
                         <div className='login_title'>
                             <h2>Sign into FantasyLab</h2>                            
                             <Link to='/register' replace><h3>or create a free FantasyLab account</h3></Link>

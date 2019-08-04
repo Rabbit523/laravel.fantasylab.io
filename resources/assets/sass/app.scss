@@ -1616,131 +1616,137 @@ $WorkSans: 'Work Sans', sans-serif;
       padding: 0 !important;
       &.register {
         min-height: 150vh;
-      }
-      .login_title {
-        text-align: center;
-        margin-bottom: 40px;
-        h2 {
-          margin: 0;
-          color: #fff;
-        }
-        h3 {
-          margin: 0;
-          color: #3e75db;
+        .login-responsive {
+          max-width: 550px;
         }
       }
-      .login-form {
-        background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
-        padding: 20px;
-        border-radius: 5px;
-        &.register {
-          margin-left: 50px;
-          margin-right: 50px;
-          input {
-            color: #fff !important;
+      .login-responsive {
+        max-width: 450px;
+        .login_title {
+          text-align: center;
+          margin-bottom: 40px;
+          h2 {
+            margin: 0;
+            color: #fff;
+          }
+          h3 {
+            margin: 0;
+            color: #3e75db;
           }
         }
-        .segment {
-          background: transparent;
-          border: none;
-          label {
-            color: #9aa2bf !important;
-            font-weight: bold;
-            font-family: "Gotham Bold";
-            font-size: 16px;
-          }
-          .field {
-            &.error {
-              label:after {
-                content: "*";
-                color: #e71f1f;
-                padding-left: 3px;
-              }
-              input {
-                border-color: #8341ff !important;
-              }
-            }
-            label {
-              text-align: left;
-              padding-bottom: 10px;
-            }
+        .login-form {
+          background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+          padding: 20px;
+          border-radius: 5px;
+          &.register {
+            margin-left: 50px;
+            margin-right: 50px;
             input {
-              background: #050a20 !important;
-              border: 2px solid #202c5a;
-              padding: 12px;
-              color: #202c5a;
+              color: #fff !important;
             }
           }
-          .remember-section {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            display: flex;
-            justify-content: space-between;
-            a {
-              color: #3e75db;
+          .segment {
+            background: transparent;
+            border: none;
+            label {
+              color: #9aa2bf !important;
               font-weight: bold;
               font-family: "Gotham Bold";
               font-size: 16px;
-              padding-top: 7px;
             }
-          }
-          .privacy-section {
-            padding-top: 10px;
-            padding-bottom: 10px;
-            margin-top: 10px;
-            margin-bottom: 10px;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            &.checkbox_border {
-              border: 1px solid #8341ff;
-            }
-            .terms-section {
-              margin-left: 30px;
-              span {
-                color: #9aa2bf !important
+            .field {
+              &.error {
+                label:after {
+                  content: "*";
+                  color: #e71f1f;
+                  padding-left: 3px;
+                }
+                input {
+                  border-color: #8341ff !important;
+                }
               }
+              label {
+                text-align: left;
+                padding-bottom: 10px;
+              }
+              input {
+                background: #050a20 !important;
+                border: 2px solid #202c5a;
+                padding: 12px;
+                color: #202c5a;
+              }
+            }
+            .remember-section {
+              padding-top: 10px;
+              padding-bottom: 10px;
+              display: flex;
+              justify-content: space-between;
               a {
                 color: #3e75db;
                 font-weight: bold;
                 font-family: "Gotham Bold";
                 font-size: 16px;
-                display: inline-block;
+                padding-top: 7px;
               }
             }
-          }
-          .google-button {
-            width: 100%;
-            margin-top: 10px;
-            color: #363b52;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            background: #fff;
-            font-weight: bold;
-            font-family: "Gotham Bold";
-            font-size: 16px;      
-            img {
-              width: 20px;
-              position: absolute;
-              left: 30px;
-              margin-top: -3px;
-            }
-          }
-          .phone-form {
-            text-align: left;
-            margin-bottom: 10px;
-            svg {
-              color: #8341ff;
-              width: 20px;        
-            }
-            .react-phone-number-input__phone {
-              background: #050a20 !important;
-              border: 2px solid #202c5a;
-              padding: 12px;
-              color: #fff !important;
+            .privacy-section {
+              padding-top: 10px;
+              padding-bottom: 10px;
               margin-top: 10px;
-              padding-top: 20px;
-              padding-bottom: 20px;
+              margin-bottom: 10px;
+              display: flex;
+              flex-direction: column;
+              align-items: flex-start;
+              &.checkbox_border {
+                border: 1px solid #8341ff;
+              }
+              .terms-section {
+                margin-left: 30px;
+                span {
+                  color: #9aa2bf !important
+                }
+                a {
+                  color: #3e75db;
+                  font-weight: bold;
+                  font-family: "Gotham Bold";
+                  font-size: 16px;
+                  display: inline-block;
+                }
+              }
+            }
+            .google-button {
+              width: 100%;
+              margin-top: 10px;
+              color: #363b52;
+              padding-top: 15px;
+              padding-bottom: 15px;
+              background: #fff;
+              font-weight: bold;
+              font-family: "Gotham Bold";
+              font-size: 16px;      
+              img {
+                width: 20px;
+                position: absolute;
+                left: 30px;
+                margin-top: -3px;
+              }
+            }
+            .phone-form {
+              text-align: left;
+              margin-bottom: 10px;
+              svg {
+                color: #8341ff;
+                width: 20px;        
+              }
+              .react-phone-number-input__phone {
+                background: #050a20 !important;
+                border: 2px solid #202c5a;
+                padding: 12px;
+                color: #fff !important;
+                margin-top: 10px;
+                padding-top: 20px;
+                padding-bottom: 20px;
+              }
             }
           }
         }
@@ -4481,6 +4487,73 @@ $WorkSans: 'Work Sans', sans-serif;
             }
           }
         }
+      }
+      .login-page {
+        &.register {
+          padding-top: 50px !important;
+          .login-responsive {
+            max-width: 320px;
+            .login_title {
+              h2 {
+                font-size: 29px !important;
+              }
+              h3 {
+                padding: 0px 30px 0px 30px;
+              }
+            }
+          }  
+        }
+        .login-responsive {
+          max-width: 300px;
+          .login_title {
+            h2 {
+              font-size: 30px !important;
+            }
+            h3 {
+              font-size: 17px !important;
+              padding: 0px 35px 0px 35px;
+            }
+          }
+          .login-form {
+            &.register {
+              margin-left: 0px;
+              margin-right: 0px;
+            }
+            .segment {
+              .field {
+                label {
+                  font-size: 14px;
+                }
+              }
+              .remember-section {
+                flex-direction: column;
+                font-size: 14px;
+                .checkbox, a {
+                  text-align: left;
+                }
+              }
+              .privacy-section {
+                font-size: 14px;
+                .checkbox {
+                  label {
+                    font-size: 14px;
+                    text-align: left;
+                  }
+                }
+                .terms-section {
+                  margin-left: 26px;
+                  text-align: left;
+                  a {
+                    font-size: 14px;
+                  }
+                }
+              }
+              .primary-button, .google {
+                font-size: 14px;
+              }
+            }
+          }
+        }        
       }
     }
   }

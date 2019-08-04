@@ -2062,72 +2062,80 @@
   min-height: 150vh;
 }
 
-.page main .login-page .login_title {
+.page main .login-page.register .login-responsive {
+  max-width: 550px;
+}
+
+.page main .login-page .login-responsive {
+  max-width: 450px;
+}
+
+.page main .login-page .login-responsive .login_title {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.page main .login-page .login_title h2 {
+.page main .login-page .login-responsive .login_title h2 {
   margin: 0;
   color: #fff;
 }
 
-.page main .login-page .login_title h3 {
+.page main .login-page .login-responsive .login_title h3 {
   margin: 0;
   color: #3e75db;
 }
 
-.page main .login-page .login-form {
+.page main .login-page .login-responsive .login-form {
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   padding: 20px;
   border-radius: 5px;
 }
 
-.page main .login-page .login-form.register {
+.page main .login-page .login-responsive .login-form.register {
   margin-left: 50px;
   margin-right: 50px;
 }
 
-.page main .login-page .login-form.register input {
+.page main .login-page .login-responsive .login-form.register input {
   color: #fff !important;
 }
 
-.page main .login-page .login-form .segment {
+.page main .login-page .login-responsive .login-form .segment {
   background: transparent;
   border: none;
 }
 
-.page main .login-page .login-form .segment label {
+.page main .login-page .login-responsive .login-form .segment label {
   color: #9aa2bf !important;
   font-weight: bold;
   font-family: "Gotham Bold";
   font-size: 16px;
 }
 
-.page main .login-page .login-form .segment .field.error label:after {
+.page main .login-page .login-responsive .login-form .segment .field.error label:after {
   content: "*";
   color: #e71f1f;
   padding-left: 3px;
 }
 
-.page main .login-page .login-form .segment .field.error input {
+.page main .login-page .login-responsive .login-form .segment .field.error input {
   border-color: #8341ff !important;
 }
 
-.page main .login-page .login-form .segment .field label {
+.page main .login-page .login-responsive .login-form .segment .field label {
   text-align: left;
   padding-bottom: 10px;
 }
 
-.page main .login-page .login-form .segment .field input {
+.page main .login-page .login-responsive .login-form .segment .field input {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
   color: #202c5a;
 }
 
-.page main .login-page .login-form .segment .remember-section {
+.page main .login-page .login-responsive .login-form .segment .remember-section {
   padding-top: 10px;
   padding-bottom: 10px;
   display: -webkit-box;
@@ -2138,7 +2146,7 @@
           justify-content: space-between;
 }
 
-.page main .login-page .login-form .segment .remember-section a {
+.page main .login-page .login-responsive .login-form .segment .remember-section a {
   color: #3e75db;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2146,7 +2154,7 @@
   padding-top: 7px;
 }
 
-.page main .login-page .login-form .segment .privacy-section {
+.page main .login-page .login-responsive .login-form .segment .privacy-section {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -2163,19 +2171,19 @@
           align-items: flex-start;
 }
 
-.page main .login-page .login-form .segment .privacy-section.checkbox_border {
+.page main .login-page .login-responsive .login-form .segment .privacy-section.checkbox_border {
   border: 1px solid #8341ff;
 }
 
-.page main .login-page .login-form .segment .privacy-section .terms-section {
+.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
   margin-left: 30px;
 }
 
-.page main .login-page .login-form .segment .privacy-section .terms-section span {
+.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section span {
   color: #9aa2bf !important;
 }
 
-.page main .login-page .login-form .segment .privacy-section .terms-section a {
+.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
   color: #3e75db;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2183,7 +2191,7 @@
   display: inline-block;
 }
 
-.page main .login-page .login-form .segment .google-button {
+.page main .login-page .login-responsive .login-form .segment .google-button {
   width: 100%;
   margin-top: 10px;
   color: #363b52;
@@ -2195,24 +2203,24 @@
   font-size: 16px;
 }
 
-.page main .login-page .login-form .segment .google-button img {
+.page main .login-page .login-responsive .login-form .segment .google-button img {
   width: 20px;
   position: absolute;
   left: 30px;
   margin-top: -3px;
 }
 
-.page main .login-page .login-form .segment .phone-form {
+.page main .login-page .login-responsive .login-form .segment .phone-form {
   text-align: left;
   margin-bottom: 10px;
 }
 
-.page main .login-page .login-form .segment .phone-form svg {
+.page main .login-page .login-responsive .login-form .segment .phone-form svg {
   color: #8341ff;
   width: 20px;
 }
 
-.page main .login-page .login-form .segment .phone-form .react-phone-number-input__phone {
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -4521,6 +4529,80 @@
 
   .page main .service-page .main-footer .main-footer-description .primary-button {
     padding: 15px 72px;
+  }
+
+  .page main .login-page.register {
+    padding-top: 50px !important;
+  }
+
+  .page main .login-page.register .login-responsive {
+    max-width: 320px;
+  }
+
+  .page main .login-page.register .login-responsive .login_title h2 {
+    font-size: 29px !important;
+  }
+
+  .page main .login-page.register .login-responsive .login_title h3 {
+    padding: 0px 30px 0px 30px;
+  }
+
+  .page main .login-page .login-responsive {
+    max-width: 300px;
+  }
+
+  .page main .login-page .login-responsive .login_title h2 {
+    font-size: 30px !important;
+  }
+
+  .page main .login-page .login-responsive .login_title h3 {
+    font-size: 17px !important;
+    padding: 0px 35px 0px 35px;
+  }
+
+  .page main .login-page .login-responsive .login-form.register {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .field label {
+    font-size: 14px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    font-size: 14px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox,
+  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+    text-align: left;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section {
+    font-size: 14px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
+    margin-left: 26px;
+    text-align: left;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
+    font-size: 14px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .primary-button,
+  .page main .login-page .login-responsive .login-form .segment .google {
+    font-size: 14px;
   }
 
   .footer h5 {

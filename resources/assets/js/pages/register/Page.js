@@ -170,10 +170,10 @@ class Page extends React.Component {
                 </Segment>
 
                 <Grid textAlign='center' verticalAlign='middle' className='login-page register' >
-                    <Grid.Column style={{maxWidth: '550px'}}>
+                    <Grid.Column className="login-responsive">
                         <div className='login_title'>
                             <h2>Create a FantasyLab account</h2>
-                            <Link to='/register' replace><h3>or sign in into your account</h3></Link>
+                            <Link to='/login' replace><h3>or sign in into your account</h3></Link>
                         </div>
                         {this.state.responseError.isError && <Message negative>
                             <Message.Content>
