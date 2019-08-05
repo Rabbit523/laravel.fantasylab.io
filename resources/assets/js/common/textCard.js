@@ -15,7 +15,7 @@ class TextCard extends React.Component {
         return (
             <ReactHoverObserver className='text-card-observer'>
                 {({ isHovering }) => (
-                    <div className='text-card' style={isHovering?this.hoverStyle:{}}>
+                    <div className='text-card' style={this.hoverStyle}>
                         <div className='title'>
                             <p>{this.props.title}</p>
                         </div>

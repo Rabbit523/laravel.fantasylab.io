@@ -365,7 +365,7 @@ $WorkSans: 'Work Sans', sans-serif;
           }
           &.mobile {
             &:hover {
-              background-image: url('../images/theme/mobile-back.png') !important;
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url('../images/theme/mobile-back.png') !important;
               box-shadow: 8px 10px 25px 10px #101535;
             }
           }
@@ -578,7 +578,7 @@ $WorkSans: 'Work Sans', sans-serif;
           font-size: 13px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
-          color: #949dbf;
+          color: #9da6c7;
           font-weight: 100;
           @media (min-width: 1366px) {
             font-size: 10px;
@@ -916,7 +916,7 @@ $WorkSans: 'Work Sans', sans-serif;
         text-align: center;
         p {
           font-size: 16px;
-          font-family: "Gotham Book";
+          font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
         }
@@ -925,10 +925,10 @@ $WorkSans: 'Work Sans', sans-serif;
         padding-top: 5px;
         text-align: center;
         p {
-          font-size: 13px;
+          font-size: 12px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
-          color: #949dbf;
+          color: #9da6c7;
           font-weight: 100;
         }
       }
@@ -952,9 +952,11 @@ $WorkSans: 'Work Sans', sans-serif;
             font-size: 14px;
           }
         }
+      }
+      @media (min-width: 1920px) {
         .description {
           p {
-            font-size: 12px;
+            font-size: 16px;
           }
         }
       }
@@ -973,9 +975,12 @@ $WorkSans: 'Work Sans', sans-serif;
         flex: 1;
         p {
           font-size: 16px;
-          font-family: "Gotham Book";
+          font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
+          @media (min-width: 1920px) {
+            font-size: 26px;
+          }
         }
       }
       .description {
@@ -985,7 +990,7 @@ $WorkSans: 'Work Sans', sans-serif;
           font-size: 13px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
-          color: #949dbf;
+          color: #9da6c7;
           font-weight: 100;
         }
       }
@@ -997,6 +1002,13 @@ $WorkSans: 'Work Sans', sans-serif;
       }
       @media (min-width: 414px) {
         padding: 60px;
+      }
+      @media (min-width: 1920px) {
+        .description {
+          p {
+            font-size: 16px;
+          }
+        }
       }
     }
     .headquater-card {
@@ -1023,11 +1035,14 @@ $WorkSans: 'Work Sans', sans-serif;
         flex: 1;
         p {
           font-size: 16px;
-          font-family: "Gotham Book";
+          font-family: "Gotham Bold";
           white-space: pre-wrap;
-          color: #fff;
+          color: #9da6c7;
           @media (min-width: 1366px) {
             font-size: 14px;
+          }
+          @media (min-width: 1920px) {
+            font-size: 16px;
           }
         }
       }
@@ -1049,10 +1064,16 @@ $WorkSans: 'Work Sans', sans-serif;
         }
         p {
           font-size: 13px;
-          font-family: "Gotham Book";
+          font-family: "Gotham Bold";
           white-space: pre-wrap;
-          color: #949dbf;
+          color: #9da6c7;
           font-weight: 100;
+          @media (min-width: 1366px) {
+            font-size: 12px;
+          }
+          @media (min-width: 1920px) {
+            font-size: 14px;
+          }
         }
       }
       .headquater-button {
@@ -1182,7 +1203,7 @@ $WorkSans: 'Work Sans', sans-serif;
             .portfolio-header-text {
               padding-bottom: 50px;
               p {
-                color: #949dbf;
+                color: #9da6c7;
                 font-size: 18px;
               }
             }
@@ -1233,7 +1254,7 @@ $WorkSans: 'Work Sans', sans-serif;
               padding-left: 100px;
               padding-right: 100px;
               p {
-                color: #949dbf;
+                color: #9da6c7;
                 font-size: 18px;
               }
             }
@@ -1297,7 +1318,7 @@ $WorkSans: 'Work Sans', sans-serif;
             &.sub_title {
               color: #fff;
             }
-            color: #949dbf;
+            color: #9da6c7;
             font-size: 12px;
           }
           .sub_descriptions {
@@ -1343,6 +1364,7 @@ $WorkSans: 'Work Sans', sans-serif;
     .about-page {
       min-height: 100vh;
       background: #03051b;
+      color: #fff;
       .about-header {
         min-height: 550px;
         height: auto;
@@ -1362,7 +1384,7 @@ $WorkSans: 'Work Sans', sans-serif;
               padding-left: 10px;
               padding-right: 10px;
               p {
-                color: #949dbf;
+                color: #9da6c7;
                 font-size: 18px;
               }
             }
@@ -1371,7 +1393,7 @@ $WorkSans: 'Work Sans', sans-serif;
               justify-content: space-between;
               .box {
                 p {
-                  color: #949dbf;
+                  color: #9da6c7;
                 }
               }
             }
@@ -1384,9 +1406,13 @@ $WorkSans: 'Work Sans', sans-serif;
         }
       }
       .about-section {
-        color: #fff;
         padding-top: 80px;
         text-align: center;
+        &.headquarter {
+          h3, p {
+            color: #9da6c7;
+          }
+        }
         .text-card-observer {
           margin-top: 20px;
         }
@@ -1426,7 +1452,7 @@ $WorkSans: 'Work Sans', sans-serif;
               padding-left: 200px;
               padding-right: 200px;
               p {
-                color: #949dbf;
+                color: #9da6c7;
                 font-size: 18px;
               }
             }
@@ -1485,6 +1511,9 @@ $WorkSans: 'Work Sans', sans-serif;
                 padding-top: 20px;
                 padding-bottom: 20px;
               }
+              .react-phone-number-input__error {
+                font-family: "Gotham Bold";
+              }
               .react-phone-number-input__country-select-arrow {
                 margin-left: 1.3em;
               }
@@ -1493,10 +1522,11 @@ $WorkSans: 'Work Sans', sans-serif;
               position: absolute;
               bottom: -10px;
               padding: 0;
+              font-family: "Gotham Bold";
             }
           }
           label {
-            color: #9aa2bf !important;
+            color: #656c8b !important;
             font-family: "Gotham Book";
             font-size: 16px;
           }
@@ -1507,7 +1537,15 @@ $WorkSans: 'Work Sans', sans-serif;
                 color: #e71f1f;
                 padding-left: 3px;
               }
+              ::placeholder {
+                input {
+                  border-color: #fff !important;  
+                }
+              }
               input {
+                &:hover {
+                  border-color: #465489 !important;
+                }
                 border-color: #8341ff !important;
               }
             }
@@ -1543,7 +1581,7 @@ $WorkSans: 'Work Sans', sans-serif;
               label {
                 &:before {
                   background: #050a20 !important;
-                  border: 2px solid #202c5a;
+                  border: 2px solid #656c8b;
                 }
               }
             }
@@ -1589,7 +1627,7 @@ $WorkSans: 'Work Sans', sans-serif;
               padding-left: 210px;
               padding-right: 210px;
               p {
-                color: #949dbf;
+                color: #9da6c7;
                 font-size: 18px;
               }
             }
@@ -1613,6 +1651,7 @@ $WorkSans: 'Work Sans', sans-serif;
                 font-size: 18px;
                 color: #c6c8d0;
                 padding-top: 20px;
+                font-family: "Gotham Bold";
               }
             }
           }
@@ -1747,7 +1786,7 @@ $WorkSans: 'Work Sans', sans-serif;
             background: transparent;
             border: none;
             label {
-              color: #9aa2bf !important;
+              color: #656c8b !important;
               font-weight: bold;
               font-family: "Gotham Bold";
               font-size: 16px;
@@ -1769,16 +1808,28 @@ $WorkSans: 'Work Sans', sans-serif;
               }
               input {
                 background: #050a20 !important;
-                border: 2px solid #202c5a;
+                border: 2px solid #656c8b;
                 padding: 12px;
                 color: #202c5a;
               }
+            }
+            .custom-error {
+              text-align: left;
+              font-family: "Gotham Bold";
             }
             .remember-section {
               padding-top: 10px;
               padding-bottom: 10px;
               display: flex;
               justify-content: space-between;
+              .checkbox {
+                label {
+                  &:before {
+                    background: #050a20 !important;
+                    border: 2px solid #656c8b;
+                  }
+                }
+              }
               a {
                 color: #3e75db;
                 font-weight: bold;
@@ -1797,6 +1848,14 @@ $WorkSans: 'Work Sans', sans-serif;
               align-items: flex-start;
               &.checkbox_border {
                 border: 1px solid #8341ff;
+              }
+              .checkbox {
+                label {
+                  &:before {
+                    background: #050a20 !important;
+                    border: 2px solid #656c8b;
+                  }
+                }
               }
               .terms-section {
                 margin-left: 30px;
@@ -2487,11 +2546,6 @@ $WorkSans: 'Work Sans', sans-serif;
                 .service_mobile {
                   width: 60px !important;
                 }
-                .description {
-                  p {
-                    font-size: 12px;
-                  }
-                }
               }
             }
           }
@@ -3085,6 +3139,9 @@ $WorkSans: 'Work Sans', sans-serif;
                 }
               }
             }
+            .primary-button {
+              width: 50%;
+            }
           }
         }
       }
@@ -3232,6 +3289,9 @@ $WorkSans: 'Work Sans', sans-serif;
       .custom-row {
         .custom-dropdown {
           .custom-dropdown-item {
+            .avatar-item {
+              margin-bottom: 100px;
+            }
             .text-item {
               p {
                 font-size: 12px;
@@ -3252,7 +3312,7 @@ $WorkSans: 'Work Sans', sans-serif;
       font-size: 16px;
     }
     h3 {
-      font-size: 24px;
+      font-size: 36px;
     }
     main {
       .divide {
@@ -3496,6 +3556,11 @@ $WorkSans: 'Work Sans', sans-serif;
                 }
               }
             }
+            .primary-button {
+              font-size: 18px !important;
+              width: 30%;
+              padding: 20px 70px 20px 70px;
+            }
           }
         }
       }
@@ -3535,7 +3600,7 @@ $WorkSans: 'Work Sans', sans-serif;
                 padding-left: 16px;
                 padding-right: 16px;
                 p {
-                  font-size: 12px;
+                  font-size: 16px;
                 }
               }
             }
@@ -3573,7 +3638,7 @@ $WorkSans: 'Work Sans', sans-serif;
               margin: inherit !important;
             }
             .service-review {
-              padding-top: 200px;
+              padding-top: 400px;
               .third-button {
                 font-size: 12px !important;
               }
@@ -3597,15 +3662,9 @@ $WorkSans: 'Work Sans', sans-serif;
         }
       }
       .login-page {
-        min-height: 110vh;
+        min-height: 70vh;
         &.register {
-          min-height: 150vh;
-          .login-responsive {
-            max-width: 450px;
-          }  
-        }
-        .login-responsive {
-          max-width: 450px;
+          min-height: 90vh;
         }
       }
     }

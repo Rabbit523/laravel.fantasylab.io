@@ -104,7 +104,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </div>
-                        <div className="about-section">
+                        <div className="about-section headquarter">
                             <Container className="custom-col-6">
                                 <h3>{data.headquarters.title}</h3>
                                 <p>{data.headquarters.description}</p>

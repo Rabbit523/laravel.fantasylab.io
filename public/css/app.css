@@ -401,7 +401,8 @@
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item.mobile:hover {
-  background-image: url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
+  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.6)), to(rgba(3, 5, 28, 0.7))), url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
   -webkit-box-shadow: 8px 10px 25px 10px #101535;
           box-shadow: 8px 10px 25px 10px #101535;
 }
@@ -691,7 +692,7 @@
   font-size: 13px;
   font-family: "Gotham Book";
   white-space: pre-wrap;
-  color: #949dbf;
+  color: #9da6c7;
   font-weight: 100;
 }
 
@@ -1169,7 +1170,7 @@
 
 .page main .guide-card .title p {
   font-size: 16px;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
@@ -1180,10 +1181,10 @@
 }
 
 .page main .guide-card .description p {
-  font-size: 13px;
+  font-size: 12px;
   font-family: "Gotham Book";
   white-space: pre-wrap;
-  color: #949dbf;
+  color: #9da6c7;
   font-weight: 100;
 }
 
@@ -1213,9 +1214,11 @@
   .page main .guide-card .title p {
     font-size: 14px;
   }
+}
 
+@media (min-width: 1920px) {
   .page main .guide-card .description p {
-    font-size: 12px;
+    font-size: 16px;
   }
 }
 
@@ -1251,9 +1254,15 @@
 
 .page main .text-card .title p {
   font-size: 16px;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
+}
+
+@media (min-width: 1920px) {
+  .page main .text-card .title p {
+    font-size: 26px;
+  }
 }
 
 .page main .text-card .description {
@@ -1265,7 +1274,7 @@
   font-size: 13px;
   font-family: "Gotham Book";
   white-space: pre-wrap;
-  color: #949dbf;
+  color: #9da6c7;
   font-weight: 100;
 }
 
@@ -1284,6 +1293,12 @@
 @media (min-width: 414px) {
   .page main .text-card {
     padding: 60px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .text-card .description p {
+    font-size: 16px;
   }
 }
 
@@ -1331,14 +1346,20 @@
 
 .page main .headquater-card .title p {
   font-size: 16px;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
-  color: #fff;
+  color: #9da6c7;
 }
 
 @media (min-width: 1366px) {
   .page main .headquater-card .title p {
     font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .headquater-card .title p {
+    font-size: 16px;
   }
 }
 
@@ -1371,10 +1392,22 @@
 
 .page main .headquater-card .description p {
   font-size: 13px;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
-  color: #949dbf;
+  color: #9da6c7;
   font-weight: 100;
+}
+
+@media (min-width: 1366px) {
+  .page main .headquater-card .description p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .headquater-card .description p {
+    font-size: 14px;
+  }
 }
 
 .page main .headquater-card .headquater-button {
@@ -1538,7 +1571,7 @@
 }
 
 .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 18px;
 }
 
@@ -1607,7 +1640,7 @@
 }
 
 .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 18px;
 }
 
@@ -1675,7 +1708,7 @@
 }
 
 .page main .singlePortfolio-page .portfolio-section .main_description p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 12px;
 }
 
@@ -1735,6 +1768,7 @@
 .page main .about-page {
   min-height: 100vh;
   background: #03051b;
+  color: #fff;
 }
 
 .page main .about-page .about-header {
@@ -1765,7 +1799,7 @@
 }
 
 .page main .about-page .about-header .header-gradient .header-description .header-text p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 18px;
 }
 
@@ -1779,7 +1813,7 @@
 }
 
 .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
-  color: #949dbf;
+  color: #9da6c7;
 }
 
 .page main .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
@@ -1787,9 +1821,13 @@
 }
 
 .page main .about-page .about-section {
-  color: #fff;
   padding-top: 80px;
   text-align: center;
+}
+
+.page main .about-page .about-section.headquarter h3,
+.page main .about-page .about-section.headquarter p {
+  color: #9da6c7;
 }
 
 .page main .about-page .about-section .text-card-observer {
@@ -1844,7 +1882,7 @@
 }
 
 .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 18px;
 }
 
@@ -1923,6 +1961,10 @@
   padding-bottom: 20px;
 }
 
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
+  font-family: "Gotham Bold";
+}
+
 .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
   margin-left: 1.3em;
 }
@@ -1931,10 +1973,11 @@
   position: absolute;
   bottom: -10px;
   padding: 0;
+  font-family: "Gotham Bold";
 }
 
 .page main .contact-page .contact-section .message-form label {
-  color: #9aa2bf !important;
+  color: #656c8b !important;
   font-family: "Gotham Book";
   font-size: 16px;
 }
@@ -1945,8 +1988,28 @@
   padding-left: 3px;
 }
 
+.page main .contact-page .contact-section .message-form .field.error ::-webkit-input-placeholder input {
+  border-color: #fff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field.error ::-moz-placeholder input {
+  border-color: #fff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field.error ::-ms-input-placeholder input {
+  border-color: #fff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field.error ::placeholder input {
+  border-color: #fff !important;
+}
+
 .page main .contact-page .contact-section .message-form .field.error input {
   border-color: #8341ff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field.error input:hover {
+  border-color: #465489 !important;
 }
 
 .page main .contact-page .contact-section .message-form .field label {
@@ -1991,7 +2054,7 @@
 
 .page main .contact-page .contact-section .message-form .privacy-section .checkbox label:before {
   background: #050a20 !important;
-  border: 2px solid #202c5a;
+  border: 2px solid #656c8b;
 }
 
 .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
@@ -2047,7 +2110,7 @@
 }
 
 .page main .service-page .service-header .header-gradient .header-description .header-text p {
-  color: #949dbf;
+  color: #9da6c7;
   font-size: 18px;
 }
 
@@ -2088,6 +2151,7 @@
   font-size: 18px;
   color: #c6c8d0;
   padding-top: 20px;
+  font-family: "Gotham Bold";
 }
 
 .page main .service-page .service-header .header-gradient .starter-group {
@@ -2257,7 +2321,7 @@
 }
 
 .page main .login-page .login-responsive .login-form .segment label {
-  color: #9aa2bf !important;
+  color: #656c8b !important;
   font-weight: bold;
   font-family: "Gotham Bold";
   font-size: 16px;
@@ -2280,9 +2344,14 @@
 
 .page main .login-page .login-responsive .login-form .segment .field input {
   background: #050a20 !important;
-  border: 2px solid #202c5a;
+  border: 2px solid #656c8b;
   padding: 12px;
   color: #202c5a;
+}
+
+.page main .login-page .login-responsive .login-form .segment .custom-error {
+  text-align: left;
+  font-family: "Gotham Bold";
 }
 
 .page main .login-page .login-responsive .login-form .segment .remember-section {
@@ -2294,6 +2363,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:before {
+  background: #050a20 !important;
+  border: 2px solid #656c8b;
 }
 
 .page main .login-page .login-responsive .login-form .segment .remember-section a {
@@ -2323,6 +2397,11 @@
 
 .page main .login-page .login-responsive .login-form .segment .privacy-section.checkbox_border {
   border: 1px solid #8341ff;
+}
+
+.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:before {
+  background: #050a20 !important;
+  border: 2px solid #656c8b;
 }
 
 .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
@@ -3138,10 +3217,6 @@
     width: 60px !important;
   }
 
-  .page main .service-page .service-section.tech .custom-col-8 .guide-card .description p {
-    font-size: 12px;
-  }
-
   .page main .service-page .service-estimation .service-estimation-description h3,
   .page main .service-page .service-estimation .service-estimation-description p {
     text-align: left;
@@ -3659,6 +3734,10 @@
     font-size: 12px;
   }
 
+  .page main .contact-page .contact-section .message-form .primary-button {
+    width: 50%;
+  }
+
   .page main .service-page .service-header {
     height: 660px;
   }
@@ -3795,6 +3874,10 @@
     font-size: 14px;
   }
 
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item {
+    margin-bottom: 100px;
+  }
+
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
     font-size: 12px;
   }
@@ -3808,7 +3891,7 @@
   }
 
   .page h3 {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .page main .divide {
@@ -4082,6 +4165,12 @@
     font-size: 12px;
   }
 
+  .page main .contact-page .contact-section .message-form .primary-button {
+    font-size: 18px !important;
+    width: 30%;
+    padding: 20px 70px 20px 70px;
+  }
+
   .page main .service-page .service-header {
     height: 660px;
   }
@@ -4121,7 +4210,7 @@
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
+    font-size: 16px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4153,7 +4242,7 @@
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 200px;
+    padding-top: 400px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
@@ -4174,19 +4263,11 @@
   }
 
   .page main .login-page {
-    min-height: 110vh;
+    min-height: 70vh;
   }
 
   .page main .login-page.register {
-    min-height: 150vh;
-  }
-
-  .page main .login-page.register .login-responsive {
-    max-width: 450px;
-  }
-
-  .page main .login-page .login-responsive {
-    max-width: 450px;
+    min-height: 90vh;
   }
 
   .footer {

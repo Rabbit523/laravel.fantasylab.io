@@ -4,7 +4,7 @@
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import { Button, Container, Dropdown, Divider, Icon, Menu, Responsive, Grid, Segment } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Icon, Menu, Responsive, Grid, Segment } from 'semantic-ui-react';
 import * as actions from '../../store/actions'
 
 class Page extends React.Component {
@@ -115,7 +115,7 @@ class Page extends React.Component {
                                     <Menu.Item as={Link} to='/' className='logo' replace style={{margin: 0, padding: 0, paddingRight: 20}}>
                                         <img src={require('../../../images/theme/logo.png')} /></Menu.Item>
                                     <Dropdown text='Services' className='collapsible-menu nav-color services'>
-                                        <Dropdown.Menu className='bounceIn animated custom-col-6'>
+                                        <Dropdown.Menu className='custom-col-6'>
                                             <div className='custom-box'>
                                                 <Container className='custom-col-6'>
                                                     <Grid padded='horizontally'>
@@ -206,7 +206,7 @@ class Page extends React.Component {
                                 {this.props.isAuthenticated
                                     ? 
                                     <Dropdown text={this.props.userName} pointing='top right' className='user-dropdown'>
-                                        <Dropdown.Menu className='bounceIn animated'>
+                                        <Dropdown.Menu>
                                             <Dropdown.Item
                                                 text={'Signed in as ' + this.props.userName}
                                                 disabled key='user' />
