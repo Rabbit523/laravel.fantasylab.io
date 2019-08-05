@@ -35,10 +35,10 @@ class Footer extends React.Component {
                                         <p>Platform</p>
                                     </div>
                                     <div className='footer-item'>
-                                        <p>Creatives</p>
+                                        <Link to='/features' className='item-link'>Creatives</Link>
                                         <Link to='/features' className='item-link'>Features</Link>
                                         <Link to='/portfolio' className='item-link'>Portfolio</Link>
-                                        <p>Pricing</p>
+                                        <Link to='/portfolio' className='item-link'>Pricing</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -50,8 +50,8 @@ class Footer extends React.Component {
                                         <Link to='/about' className='item-link'>About us</Link>
                                         <Link to='/blog' className='item-link'>Blog</Link>
                                         <Link to='/contact' className='item-link'>Contact</Link>
-                                        <p>Facebook</p>
-                                        <p>Instagram</p>
+                                        <Link to='/blog' className='item-link'>Facebook</Link>
+                                        <Link to='/contact' className='item-link'>Instagram</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -59,11 +59,11 @@ class Footer extends React.Component {
                                         <p>Get Started</p>
                                     </div>
                                     <div className='footer-item'>
-                                        <p>Start a project</p>
+                                        <Link to='/login' className='item-link'>Start a project</Link>
                                         <Link to='/login' className='item-link'>Log in</Link>
                                         <Link to='/register' className='item-link'>Sign up</Link>
-                                        <p>Apply as Designer</p>
-                                        <p>Apply as Developer</p>
+                                        <Link to='/login' className='item-link'>Apply as Designer</Link>
+                                        <Link to='/register' className='item-link'>Apply as Developer</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -72,9 +72,9 @@ class Footer extends React.Component {
                                     </div>
                                     <div className='footer-item'>
                                         <Link to='/privacy' className='item-link'>Privacy</Link>
-                                        <p>Security</p>
+                                        <Link to='/privacy' className='item-link'>Security</Link>
                                         <Link to='/terms' className='item-link'>Terms</Link>
-                                        <p>Confidentiality</p>
+                                        <Link to='/terms' className='item-link'>Confidentiality</Link>
                                     </div>
                                 </Grid.Column>
                             </Grid.Row>
@@ -83,7 +83,7 @@ class Footer extends React.Component {
                                     <img src={require('../../images/theme/logo.png')} alt='infoTiq' />
                                 </Grid.Column>
                                 <Grid.Column textAlign='right'>
-                                    <h5>© + TM 2019 FantasyLab AS, NO 914 798 493 MVA</h5>
+                                    <h5>© + TM 2019 FantasyLab AS, NO 922 982 376 MVA</h5>
                                 </Grid.Column>
                             </Grid.Row>
                         </Grid>

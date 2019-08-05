@@ -5,6 +5,10 @@ const serviceStyle = {
     alignItems: 'center',
     textAlign: 'center'
 };
+const homeStyle = {
+    alignItems: 'left',
+    textAlign: 'left'
+};
 class BadgeTextCard extends React.Component {
     constructor(props) {
         super(props);
@@ -12,7 +16,7 @@ class BadgeTextCard extends React.Component {
 
     render() {
         return (
-            <div className='badge-item' style={this.props.from?serviceStyle:{}}>
+            <div className='badge-item' style={this.props.from=="service"?serviceStyle:homeStyle}>
                 <div className='badge-img'>
                     <img src={`${ this.props.url}`} />
                     <p>{this.props.number}</p>

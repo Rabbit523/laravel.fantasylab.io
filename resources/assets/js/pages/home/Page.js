@@ -84,10 +84,10 @@ class Page extends React.Component {
                                     {Object.keys(data.badges).map((key, index) => (
                                         <React.Fragment key={index}>
                                             <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
                                             </Grid.Column>
                                             <Grid.Column only="computer">
-                                                <BadgeTextCard url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
                                             </Grid.Column>
                                         </React.Fragment>
                                     ))}
@@ -105,10 +105,10 @@ class Page extends React.Component {
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>
                                             <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
                                             <Grid.Column only="computer">
-                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} />
+                                                <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
                                         </React.Fragment>
                                     ))}
