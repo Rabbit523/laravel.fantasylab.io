@@ -496,7 +496,7 @@ $WorkSans: 'Work Sans', sans-serif;
           margin-bottom: 1em;
         }
         .item-link {
-          text-decoration: underline;
+          text-decoration: none;
         }
         p {
           font-size: 13px;
@@ -2027,6 +2027,7 @@ $WorkSans: 'Work Sans', sans-serif;
       color: #9da6c7 !important;
       margin-bottom: 15px;
       display: block;
+      text-decoration: none;
       &:hover {
         color: #fff !important;
       }
@@ -3116,6 +3117,9 @@ $WorkSans: 'Work Sans', sans-serif;
         .contact-section {
           margin-top: 0px;
           .message-form {
+            .form-group {
+              flex-direction: row;
+            }
             .privacy-section {
               flex-direction: row;
               .terms-section {

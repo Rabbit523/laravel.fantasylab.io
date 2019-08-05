@@ -566,7 +566,7 @@
 }
 
 .page main .main-footer .main-footer-description .item-link {
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .page main .main-footer .main-footer-description p {
@@ -2604,6 +2604,7 @@
   color: #9da6c7 !important;
   margin-bottom: 15px;
   display: block;
+  text-decoration: none;
 }
 
 .footer .footer-item .item-link:hover {
@@ -3704,6 +3705,13 @@
 
   .page main .contact-page .contact-section {
     margin-top: 0px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section {
