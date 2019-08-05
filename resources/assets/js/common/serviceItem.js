@@ -12,8 +12,7 @@ class ServiceItem extends React.Component {
             },
             avatar_hover: {
                 borderColor: this.props.color,
-                color: this.props.color,
-                marginBottom: 30
+                color: this.props.color
             }
         };
     }
