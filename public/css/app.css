@@ -603,9 +603,15 @@
   margin-bottom: 100px;
 }
 
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .page main .service-item .avatar-item {
     margin-bottom: 50px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .page main .service-item .avatar-item {
+    margin-bottom: 100px;
   }
 }
 
@@ -617,13 +623,19 @@
   margin-top: 8px;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 320px) {
   .page main .service-item .avatar-item img {
-    margin-left: 5px;
+    margin-left: 8px;
   }
 }
 
-@media (max-width: 320px) {
+@media (min-width: 375px) {
+  .page main .service-item .avatar-item img {
+    margin-left: 9px;
+  }
+}
+
+@media (min-width: 1366px) {
   .page main .service-item .avatar-item img {
     margin-left: 8px;
   }
@@ -655,7 +667,7 @@
   color: #fff;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .service-item .text-item p {
     font-size: 14px;
     font-weight: bold;
@@ -676,7 +688,7 @@
   font-weight: 100;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .service-item .description p {
     font-size: 10px;
   }
@@ -692,6 +704,24 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+@media (min-width: 320px) {
+  .page main .badge-item {
+    -webkit-box-align: normal !important;
+        -ms-flex-align: normal !important;
+            align-items: normal !important;
+    text-align: left !important;
+  }
+}
+
+@media (min-width: 1366px) {
+  .page main .badge-item {
+    -webkit-box-align: center !important;
+        -ms-flex-align: center !important;
+            align-items: center !important;
+    text-align: center !important;
+  }
 }
 
 .page main .badge-item .badge-img {
@@ -714,7 +744,7 @@
   margin-top: 10px;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .badge-item .badge-img p {
     margin-top: 15px;
   }
@@ -809,7 +839,7 @@
   margin: 0;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .portfolio-item .portfolio-text p {
     font-size: 14px;
   }
@@ -821,7 +851,7 @@
   font-family: "Gotham Book";
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .portfolio-item .portfolio-text p.portfolio-des {
     font-size: 11px;
   }
@@ -904,7 +934,7 @@
   font-size: 16px;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .review-item .review-text-section .description {
     font-size: 14px;
   }
@@ -917,7 +947,7 @@
   border: 1px solid #7436e9;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .review-item {
     padding: 20px 40px 30px 40px;
   }
@@ -1015,7 +1045,7 @@
   color: #515976;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .news-item .news-content p.title {
     font-size: 15px;
   }
@@ -1059,9 +1089,26 @@
   padding: 20px;
 }
 
+.page main .guide-card .avatar {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 20px;
+}
+
 .page main .guide-card .avatar img {
   width: 100%;
   height: auto;
+}
+
+.page main .guide-card .avatar.service_web {
+  width: 80px;
+  height: 80px;
+}
+
+.page main .guide-card .avatar.service_mobile {
+  widows: 60px;
+  height: 80px;
 }
 
 .page main .guide-card .title {
@@ -1097,7 +1144,25 @@
   font-weight: 100;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 320px) {
+  .page main .guide-card .title p {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page main .guide-card {
+    padding: 30px 60px;
+  }
+}
+
+@media (min-width: 414px) {
+  .page main .guide-card {
+    padding: 30px 70px;
+  }
+}
+
+@media (min-width: 1366px) {
   .page main .guide-card {
     padding: 30px 20px;
   }
@@ -1108,12 +1173,6 @@
 
   .page main .guide-card .description p {
     font-size: 12px;
-  }
-}
-
-@media (max-width: 320px) {
-  .page main .guide-card .title p {
-    font-size: 13px;
   }
 }
 
@@ -1167,6 +1226,24 @@
   font-weight: 100;
 }
 
+@media (min-width: 320px) {
+  .page main .text-card {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page main .text-card {
+    padding: 40px;
+  }
+}
+
+@media (min-width: 414px) {
+  .page main .text-card {
+    padding: 60px;
+  }
+}
+
 .page main .headquater-card {
   padding: 25px;
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29));
@@ -1216,7 +1293,7 @@
   color: #fff;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .headquater-card .title p {
     font-size: 14px;
   }
@@ -1226,6 +1303,27 @@
   padding-top: 5px;
   padding-bottom: 25px;
   text-align: center;
+}
+
+@media (min-width: 320px) {
+  .page main .headquater-card .description {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page main .headquater-card .description {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .page main .headquater-card .description {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
 }
 
 .page main .headquater-card .description p {
@@ -1240,7 +1338,7 @@
   padding: 10px 18px;
 }
 
-@media (max-width: 1366px) {
+@media (min-width: 1366px) {
   .page main .headquater-card .headquater-button {
     font-size: 10px !important;
   }
@@ -1483,14 +1581,6 @@
   right: 0;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:first-child {
-  padding-left: 0;
-}
-
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .custom-row .custom-column:last-child {
-  padding-right: 0;
-}
-
 .page main .singlePortfolio-page .portfolio-section {
   margin-top: 60px;
   text-align: center;
@@ -1588,6 +1678,11 @@
 
 .page main .singlePortfolio-page .portfolio-section .service-item-observer {
   height: 100%;
+}
+
+.page main .singlePortfolio-page .alert-notice {
+  text-align: center;
+  padding-top: 270px;
 }
 
 .page main .about-page {
@@ -1733,6 +1828,10 @@
       -ms-flex-pack: justify;
           justify-content: space-between;
   position: relative;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .page main .contact-page .contact-section .message-form .form-group .field {
@@ -1775,6 +1874,10 @@
   margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
+  margin-left: 1.3em;
 }
 
 .page main .contact-page .contact-section .message-form .form-group .custom-error {
@@ -2377,1641 +2480,7 @@
   display: block;
 }
 
-@media (max-width: 1920px) {
-  .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 120px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 80vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 270px;
-  }
-
-  .page main .divide {
-    height: 210px;
-  }
-}
-
-@media (max-width: 1762px) {
-  .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 120px;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 210px;
-  }
-
-  .page main .divide {
-    height: 190px;
-  }
-}
-
-@media (max-width: 1366px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
-    margin-top: 7px !important;
-    padding: 18px 8px !important;
-  }
-
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-    background-size: cover;
-    max-width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .service-page .service-section.branding {
-    margin-top: 180px;
-  }
-
-  .page main .service-page .service-section.tech .guide-card-observer .guide-card .avatar {
-    width: 50px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-
-  .footer {
-    background: #070a2b !important;
-    color: #656b88;
-    font-size: 16px;
-    font-family: "Gotham Book";
-    min-height: 65vh;
-  }
-
-  .footer img {
-    width: 20px !important;
-  }
-
-  .footer .footer-title {
-    padding-bottom: 20px;
-    font-weight: bold;
-    font-size: 18px;
-    font-family: "Gotham Bold";
-  }
-
-  .footer .footer-title.service {
-    color: #5a2db6;
-  }
-
-  .footer .footer-title.platform {
-    color: #cf409d;
-  }
-
-  .footer .footer-title.company {
-    color: #4f7335;
-  }
-
-  .footer .footer-title.started {
-    color: #f49d43;
-  }
-
-  .footer .footer-title.legal {
-    color: #c0ae1e;
-  }
-
-  .footer .footer-item .item-link {
-    color: #656b88 !important;
-    margin-bottom: 15px;
-    display: block;
-  }
-}
-
-@media (max-width: 1224px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 1057px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 992px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 769px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 620px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 551px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 383px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 414px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page main .divide {
-    height: 150px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .grid .row {
-    margin-left: -10px;
-    margin-right: -10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
-  }
-
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 80px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
-    margin-left: 50px;
-    margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
-    padding-left: 180px;
-    padding-right: 180px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section {
-    margin-top: 10px;
-  }
-
-  .page main .contact-page .contact-section .message-form .segment .privacy-section .terms-section a {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient {
-    height: 700px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
-    margin-top: 70px;
-  }
-
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section.review {
-    min-height: 100vh;
-  }
-
-  .page main .service-page .service-section.review .service-review {
-    padding-top: 170px;
-  }
-
-  .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
-  }
-
-  .page main .main-footer .main-footer-description .register {
-    padding: 15px 85px;
-    margin-bottom: 10px;
-  }
-}
-
-@media (max-width: 320px) {
+@media (min-width: 320px) {
   .segment.mobile-navbar {
     background: -webkit-gradient(linear, left top, left bottom, from(#0a1332), to(#070e29)) !important;
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -4158,8 +2627,40 @@
     padding-top: 50px;
   }
 
+  .page p {
+    font-size: 12px;
+  }
+
+  .page h3 {
+    font-size: 20px;
+  }
+
   .page main .divide {
     height: 34px;
+  }
+
+  .page main .main-footer {
+    min-height: 290px;
+    height: 290px;
+    width: 100%;
+    background-size: cover;
+    max-width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin-top: 120px;
+  }
+
+  .page main .main-footer .main-footer-description {
+    width: 100%;
+    margin-top: -220px;
+  }
+
+  .page main .main-footer .main-footer-description h3 {
+    font-size: 22px;
+  }
+
+  .page main .main-footer .main-footer-description .primary-button {
+    padding: 15px 72px;
   }
 
   .page main .home-page .homepage-header {
@@ -4176,6 +2677,14 @@
   .page main .home-page .homepage-header .homepage-header-description {
     margin-top: 250px;
     width: 100%;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description h2 {
+    font-size: 30px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .normal {
+    font-size: 10px;
   }
 
   .page main .home-page .home-section {
@@ -4208,7 +2717,7 @@
   }
 
   .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 380px;
+    margin-top: 330px;
   }
 
   .page main .home-page .main-footer {
@@ -4263,27 +2772,50 @@
     margin-bottom: 150px;
   }
 
-  .page main .portfolio-page .main-footer {
-    min-height: 290px;
-    height: 290px;
-    width: 100%;
-    background-size: cover;
-    max-width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
+  .page main .singlePortfolio-page .singlePortfolio-header {
+    min-height: 370px;
+    height: 370px;
   }
 
-  .page main .portfolio-page .main-footer .main-footer-description {
-    width: 100%;
-    margin-top: -220px;
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+    height: 400px;
   }
 
-  .page main .portfolio-page .main-footer .main-footer-description h3 {
-    font-size: 22px;
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
   }
 
-  .page main .portfolio-page .main-footer .main-footer-description .primary-button {
-    padding: 15px 72px;
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
+    font-size: 30px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+    font-size: 15px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+    width: 85%;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+    width: 50px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    width: 260px;
+    left: 30px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .service {
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .page main .about-page .about-header {
@@ -4302,6 +2834,10 @@
 
   .page main .about-page .about-header .header-gradient .header-description {
     padding-bottom: 25px;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text {
+    padding-bottom: 100px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text h2 {
@@ -4329,7 +2865,7 @@
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 1150px;
+    margin-top: 1220px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) .mobile {
@@ -4337,7 +2873,7 @@
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
-    margin-top: 750px;
+    margin-top: 800px;
   }
 
   .page main .about-page .about-section:nth-of-type(5) .alice-carousel {
@@ -4389,8 +2925,16 @@
     font-size: 30px;
   }
 
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
   .page main .contact-page .contact-section {
-    margin-top: 730px;
+    margin-top: 1060px;
+  }
+
+  .page main .contact-page .contact-section .message-form label {
+    font-size: 14px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group {
@@ -4398,6 +2942,10 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .phone-form {
+    margin-left: 0px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group .field {
@@ -4422,7 +2970,11 @@
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin: 0;
-    padding-left: 22px;
+    padding-left: 25px;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+    font-size: 14px;
   }
 
   .page main .contact-page .contact-section .message-form .primary-button {
@@ -4443,7 +2995,8 @@
     height: 300px;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 {
+  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6,
+  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
     width: 100% !important;
     margin: 0 !important;
     padding: 0;
@@ -4453,8 +3006,19 @@
     padding: 0;
   }
 
+  .page main .service-page .service-header .header-gradient .header-description .header-text h2 {
+    font-size: 30px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
   .page main .service-page .service-header .header-gradient .figures {
     padding-top: 50px;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure {
@@ -4464,6 +3028,10 @@
 
   .page main .service-page .service-header .header-gradient .figures .figure p {
     font-size: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient .starter-group h3 {
+    text-align: left;
   }
 
   .page main .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
@@ -4489,12 +3057,24 @@
     padding-top: 110px;
   }
 
+  .page main .service-page .service-section.review .service-review h3 {
+    text-align: center;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
   .page main .service-page .service-section.mobile {
     margin-top: 900px;
   }
 
   .page main .service-page .service-section.branding {
-    margin-top: 1400px;
+    margin-top: 1460px;
+  }
+
+  .page main .service-page .service-section.tech {
+    text-align: left;
   }
 
   .page main .service-page .service-section.tech .custom-col-8 {
@@ -4503,32 +3083,17 @@
     padding: 0;
   }
 
-  .page main .service-page .service-section.tech .guide-card-observer .guide-card .avatar {
-    width: 50px !important;
+  .page main .service-page .service-section.tech .custom-col-8 .guide-card .service_mobile {
+    width: 60px !important;
   }
 
-  .page main .service-page .main-footer {
-    min-height: 290px;
-    height: 290px;
-    width: 100%;
-    background-size: cover;
-    max-width: 100%;
-    background-position: center center;
-    background-repeat: no-repeat;
-    margin-top: 150px;
+  .page main .service-page .service-section.tech .custom-col-8 .guide-card .description p {
+    font-size: 12px;
   }
 
-  .page main .service-page .main-footer .main-footer-description {
-    width: 100%;
-    margin-top: -220px;
-  }
-
-  .page main .service-page .main-footer .main-footer-description h3 {
-    font-size: 22px;
-  }
-
-  .page main .service-page .main-footer .main-footer-description .primary-button {
-    padding: 15px 72px;
+  .page main .service-page .service-estimation .service-estimation-description h3,
+  .page main .service-page .service-estimation .service-estimation-description p {
+    text-align: left;
   }
 
   .page main .login-page.register {
@@ -4558,6 +3123,7 @@
   .page main .login-page .login-responsive .login_title h3 {
     font-size: 17px !important;
     padding: 0px 35px 0px 35px;
+    text-align: center;
   }
 
   .page main .login-page .login-responsive .login-form.register {
@@ -4577,9 +3143,10 @@
     font-size: 14px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox,
+  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label,
   .page main .login-page .login-responsive .login-form .segment .remember-section a {
     text-align: left;
+    font-size: 14px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .privacy-section {
@@ -4608,6 +3175,603 @@
   .footer h5 {
     font-size: 10px;
     margin-bottom: 10px;
+    text-align: left;
+  }
+}
+
+@media (min-width: 360px) {
+  .segment.mobile-navbar .mobile-register {
+    margin-left: 150px !important;
+  }
+
+  .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
+    width: 360px;
+    left: -314px;
+  }
+
+  .page main .divide {
+    height: 40px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+    width: 90%;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_title {
+    padding-top: 20px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
+    padding-left: 15px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    width: 300px;
+    left: 30px;
+  }
+}
+
+@media (min-width: 375px) {
+  .segment.mobile-navbar .mobile-register {
+    margin-left: 170px !important;
+  }
+
+  .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
+    width: 375px;
+    left: -334px;
+  }
+
+  .page main .home-page .home-section:nth-of-type(1) {
+    margin-top: 330px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin: 0px 15px 0px 15px;
+  }
+
+  .page main .about-page .about-section:nth-of-type(2) {
+    margin-top: 1140px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_title {
+    padding-top: 50px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
+    padding-left: 17px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    width: 315px;
+    left: 30px;
+    padding: 50px 40px 50px 40px;
+  }
+
+  .page main .login-page {
+    min-height: 80vh;
+  }
+
+  .page main .login-page.register {
+    min-height: 120vh;
+  }
+
+  .page main .divide {
+    height: 41px;
+  }
+}
+
+@media (min-width: 414px) {
+  .segment.mobile-navbar .mobile-register {
+    margin-left: 210px !important;
+  }
+
+  .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
+    width: 414px;
+    left: -374px;
+  }
+
+  .page main .divide {
+    height: 46px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description h2 {
+    font-size: 32px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .normal {
+    font-size: 12px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin: 0px 35px 0px 35px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_title {
+    padding-top: 50px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
+    padding-left: 17px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    width: 355px;
+    left: 30px;
+    padding: 50px 40px 50px 40px;
+  }
+
+  .page main .login-page.register {
+    min-height: 150vh;
+  }
+
+  .page main .login-page.register .login-responsive {
+    max-width: 400px;
+  }
+
+  .page main .login-page .login-responsive {
+    max-width: 370px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .segment.navbar .nav-color {
+    padding: 22px 8px 22px 8px !important;
+  }
+
+  .segment.navbar .nav-color .text {
+    padding-top: 0px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 12px;
+  }
+
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
+    font-size: 9px;
+  }
+
+  .page p {
+    font-size: 12px;
+  }
+
+  .page h3 {
+    font-size: 24px;
+  }
+
+  .page main .divide {
+    height: 150px;
+  }
+
+  .page main .main-footer {
+    min-height: 350px;
+    height: auto;
+    width: 100%;
+    background-size: cover !important;
+    margin-top: 50px;
+  }
+
+  .page main .main-footer .main-footer-description {
+    display: inline-block;
+    margin-top: 100px;
+    width: 50%;
+    color: #fff;
+  }
+
+  .page main .main-footer .main-footer-description .register {
+    padding: 15px 85px;
+    margin-bottom: 10px;
+  }
+
+  .page main .main-footer .main-footer-description .item-link {
+    text-decoration: underline;
+  }
+
+  .page main .main-footer .main-footer-description p {
+    font-size: 13px;
+  }
+
+  .page main .main-footer .main-footer-description h3 {
+    text-align: left;
+  }
+
+  .page main .home-page .homepage-header {
+    height: 560px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 110px;
+    width: 50%;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description h2 {
+    font-size: 36px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 16px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+    padding: 15px 55px 15px 55px;
+    font-size: 12px !important;
+    margin-bottom: 10px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+    width: auto;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    padding: 10px 15px;
+    margin-right: 20px;
+  }
+
+  .page main .home-page .home-section:nth-of-type(1) {
+    margin-top: 0;
+  }
+
+  .page main .home-page .home-section .alice-carousel {
+    margin-left: 135px;
+  }
+
+  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+    width: 349.729px !important;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn,
+  .page main .home-page .home-section .alice-carousel_next_btn {
+    left: 80px;
+    display: block;
+  }
+
+  .page main .portfolio-page .portfolio-header {
+    height: 550px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient {
+    height: 550px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+    padding: 100px 150px 100px 150px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 16px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
+    font-size: 16px !important;
+  }
+
+  .page main .portfolio-page .portfolio-studios {
+    margin-top: -50px;
+    margin-bottom: 0px;
+  }
+
+  .page main .portfolio-page .portfolio-studios a {
+    text-decoration: none;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header {
+    min-height: 550px;
+    height: 550px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+    height: 610px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+    padding-bottom: 50px;
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
+    font-size: 36px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+    font-size: 18px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+    padding-left: 100px;
+    padding-right: 100px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+    width: 100%;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+    width: 130px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    width: 280px;
+    left: 40%;
+    padding: 30px 20px 40px 20px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .service {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .page main .singlePortfolio-page .alert-notice {
+    padding-top: 320px;
+  }
+
+  .page main .about-page .about-header {
+    height: 530px;
+  }
+
+  .page main .about-page .about-header .header-gradient {
+    height: 580px;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .counter-box {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .about-page .about-section:nth-of-type(2) {
+    margin-top: 0px;
+  }
+
+  .page main .about-page .about-section:nth-of-type(5) {
+    margin-top: 30px;
+  }
+
+  .page main .contact-page .contact-header {
+    height: 560px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient {
+    height: 600px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+    padding-left: 180px;
+    padding-right: 180px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+    font-size: 14px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+    padding-left: 0;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+    padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section {
+    margin-top: 0px;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+    padding-left: 5px;
+  }
+
+  .page main .contact-page .contact-section .message-form label {
+    font-size: 12px;
+  }
+
+  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
+    margin-top: 7px !important;
+    padding: 18px 8px !important;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+    margin-top: 10px;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header {
+    height: 660px;
+  }
+
+  .page main .service-page .service-header .header-gradient {
+    height: 700px;
+  }
+
+  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
+    width: 60% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
+    width: 80% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient .starter-group h3 {
+    text-align: center;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page main .service-page .service-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+    font-size: 13px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 100vh;
+    background-size: cover;
+    max-width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
+    margin-top: 50px;
+  }
+
+  .page main .service-page .service-section.review .custom-col-4 {
+    width: 40% !important;
+    margin: inherit !important;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 200px;
+  }
+
+  .page main .service-page .service-section.review .service-review .third-button {
+    font-size: 12px !important;
+  }
+
+  .page main .service-page .service-section.branding {
+    margin-top: 240px;
+  }
+
+  .page main .service-page .service-section.tech h3 {
+    text-align: center;
+  }
+
+  .page main .service-page .service-estimation .service-estimation-description h3,
+  .page main .service-page .service-estimation .service-estimation-description p {
+    text-align: center;
+  }
+
+  .page main .login-page {
+    min-height: 110vh;
+  }
+
+  .page main .login-page.register {
+    min-height: 150vh;
+  }
+
+  .page main .login-page.register .login-responsive {
+    max-width: 450px;
+  }
+
+  .page main .login-page .login-responsive {
+    max-width: 450px;
+  }
+
+  .footer {
+    background: #070a2b !important;
+    color: #656b88;
+    font-size: 16px;
+    font-family: "Gotham Book";
+    min-height: 65vh;
+  }
+
+  .footer img {
+    width: 20px !important;
+  }
+
+  .footer .footer-title {
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 18px;
+    font-family: "Gotham Bold";
+  }
+
+  .footer .footer-title.service {
+    color: #5a2db6;
+  }
+
+  .footer .footer-title.platform {
+    color: #cf409d;
+  }
+
+  .footer .footer-title.company {
+    color: #4f7335;
+  }
+
+  .footer .footer-title.started {
+    color: #f49d43;
+  }
+
+  .footer .footer-title.legal {
+    color: #c0ae1e;
+  }
+
+  .footer .footer-item .item-link {
+    color: #656b88 !important;
+    margin-bottom: 15px;
+    display: block;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 120px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 80vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 270px;
+  }
+
+  .page main .divide {
+    height: 210px;
   }
 }
 

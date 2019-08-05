@@ -8,16 +8,21 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            isExisted: false,
         };
     }
 
     componentDidMount() {
         const { pagename } = this.props.location.state;
-        Http.post('api/front/get-page', { name: pagename + '_page' })
+        Http.post('api/front/get-portfolio-page', { type: pagename })
         .then(
             res => {
-                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                if (res.data.data) {
+                    this.setState({ isLoaded: true, isExisted: true, data: JSON.parse(res.data.data) });
+                } else {
+                    this.setState({ isLoaded: true, isExisted: false });
+                }
             }
         ).catch(err => {
             console.error(err);
@@ -26,10 +31,10 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, data } = this.state;
+        const { isLoaded, isExisted, data } = this.state;
         return (
             <div className='singlePortfolio-page'>
-                {isLoaded ?
+                {isLoaded?isExisted?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className='singlePortfolio-header' style={{ backgroundImage: `url(${data.header_back_url})` }}>
@@ -37,7 +42,7 @@ class Page extends React.Component {
                                 <Container className='custom-col-6'>
                                     <div className='header-description'>
                                         <div className='header-text'>
-                                            <h1>{data.title}</h1>
+                                            <h2>{data.title}</h2>
                                             <p>{data.header_description}</p>
                                         </div>
                                     </div>
@@ -50,10 +55,10 @@ class Page extends React.Component {
                         </div>
                         <section className='portfolio-section'>
                             <Container className='custom-col-6'>
-                                <Grid padded="horizontally">
-                                    <Grid.Row className="custom-row" columns={3}>
-                                        {data.main_description.map((item, index) => (
-                                            <Grid.Column className="custom-column main_description" key={index}>
+                                <Grid columns={3}>
+                                    {data.main_description.map((item, index) => (
+                                        <React.Fragment key={index}>
+                                            <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
                                                 <p className="sub_title">{item.title}</p>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
@@ -63,8 +68,18 @@ class Page extends React.Component {
                                                     </div>
                                                 ))}
                                             </Grid.Column>
-                                        ))}
-                                    </Grid.Row>
+                                            <Grid.Column only="computer" className="main_description">
+                                                <p className="sub_title">{item.title}</p>
+                                                <p className="sub_text">{item.text}</p>
+                                                {Object.keys(item.sub).map((key, i) => (
+                                                    <div className="sub_descriptions" key={i}>
+                                                        <div className="round_number">{i+1}</div>
+                                                        <p>{item.sub[key]}</p>
+                                                    </div>
+                                                ))}
+                                            </Grid.Column>
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </section>
@@ -102,14 +117,17 @@ class Page extends React.Component {
                         <section className='portfolio-section scope'>
                             <Container className='custom-col-6 service'>
                                 <h3>Scope of the project</h3>
-                                <Grid padded='horizontally'>
-                                    <Grid.Row className='custom-row' columns={3}>
-                                        {data.services.map((item, index) => (
-                                            <Grid.Column className='custom-column' key={index}>
+                                <Grid columns={3}>
+                                    {data.services.map((item, index) => (
+                                        <React.Fragment key={index}>
+                                            <Grid.Column mobile={16} tablet={8} only="mobile">
                                                 <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                             </Grid.Column>
-                                        ))}
-                                    </Grid.Row>
+                                            <Grid.Column only="computer">
+                                                <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                            </Grid.Column>
+                                        </React.Fragment>
+                                    ))}
                                 </Grid>
                             </Container>
                         </section>
@@ -117,6 +135,10 @@ class Page extends React.Component {
                         <div className='divide'></div>
                     </React.Fragment>
                     :
+                    <React.Fragment>
+                        <h1 className="alert-notice">Page is not ready yet.</h1>
+                    </React.Fragment>
+                    :                    
                     <Segment className='page-loader'>
                         <Dimmer active inverted>
                             <Loader size='large'>Loading...</Loader>

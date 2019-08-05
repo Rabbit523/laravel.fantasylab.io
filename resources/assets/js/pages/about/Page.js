@@ -44,7 +44,7 @@ class Page extends React.Component {
                                         <Container className="custom-col-6">
                                             <div className="counter-box">
                                                 {data.counters.map((item, i) => (
-                                                    <div className="box" key={i}>
+                                                    <div className="box" mobile={16} tablet={8} computer={4}key={i}>
                                                         <h4>{item.number}</h4>
                                                         <p>{item.text}</p>
                                                     </div>

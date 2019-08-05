@@ -30,6 +30,7 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    });
    Route::post('/front/get-page', 'Api\PagesController@getPage');
    Route::get('/front/get-portfolios', 'Api\PagesController@getPortfolios');
+   Route::post('/front/get-portfolio-page', 'Api\PagesController@getPortfolioPage');
    Route::post('/admin/get-portfolio-page', 'Api\PagesController@getPortfolioPage');
    Route::post('/admin/create-portfolio', 'Api\PagesController@createPortfolio');
    Route::post('/admin/update-portfolio', 'Api\PagesController@updatePortfolio');

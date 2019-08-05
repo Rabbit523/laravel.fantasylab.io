@@ -88,8 +88,8 @@ class Page extends React.Component {
                             </Container>
                         </div>
                         <div className='service-section tech'>
-                            <h3>Technologies we excel at</h3>
                             <Container className='custom-col-6'>
+                                <h3>Technologies we excel at</h3>
                                 <Container className='custom-col-8'>
                                     <Grid>
                                         {data.technologies.map((item, i) => (

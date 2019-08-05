@@ -89,14 +89,14 @@ class Page extends React.Component {
                             </Container>
                         </div>
                         <div className='service-section tech' style={data.technologies.length > 4 ? null : {minHeight: '30vh'}}>
-                            <h3>Technologies we excel at</h3>
                             <Container className='custom-col-6'>
+                                <h3>Technologies we excel at</h3>
                                 <Container className='custom-col-8'>
                                     <Grid>
                                         {data.technologies.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 <Grid.Column mobile={8} tablet={8} computer={4}>
-                                                    <GuideCard from='service_web' avatar={item.icon} title={item.lang} description={item.text}/>
+                                                    <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
                                                 </Grid.Column>
                                             </React.Fragment>
                                         ))}
