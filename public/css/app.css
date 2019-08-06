@@ -829,6 +829,12 @@
   left: 40px;
 }
 
+@media (min-width: 1920px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 100px;
+  }
+}
+
 .page main .portfolio-item .portfolio .hover-texts {
   width: 100%;
 }
@@ -3903,7 +3909,7 @@
   }
 
   .page main .divide {
-    height: 213px;
+    height: 211px;
   }
 
   .page main .main-footer {
@@ -3990,7 +3996,7 @@
   }
 
   .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 503.729px !important;
+    width: 497.464px !important;
   }
 
   .page main .home-page .home-section .alice-carousel_prev_btn,
@@ -4143,6 +4149,14 @@
 
   .page main .contact-page .contact-section {
     margin-top: 0px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .field {
+    margin-right: 15px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
+    padding-left: 15px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section {

@@ -146,7 +146,7 @@ $WorkSans: 'Work Sans', sans-serif;
 .custom-col-8 {
   width: 80% !important;
 }
-
+//define buttons
 .login {
   background: transparent !important;
   color:#9aa2bf !important;
@@ -199,7 +199,7 @@ $WorkSans: 'Work Sans', sans-serif;
   font-weight: bold !important;
   font-size: 16px !important;
 }
-
+//define navbar
 .segment.navbar {
   background: $primary-color-transparent !important;
   z-index: +1;
@@ -426,7 +426,7 @@ $WorkSans: 'Work Sans', sans-serif;
     top: 12% !important;
   }
 }
-
+//components style in page
 .page {
   display: flex;
   flex-direction: row;
@@ -674,6 +674,9 @@ $WorkSans: 'Work Sans', sans-serif;
             position: absolute;
             top: 0;
             left: 40px;
+            @media (min-width: 1920px) {
+              left: 100px;
+            }
           } 
         }
         .hover-texts {
@@ -1991,7 +1994,7 @@ $WorkSans: 'Work Sans', sans-serif;
     }
   }
 }
-
+// footer style
 .footer {
   background: #070a2b !important;
   color: #9da6c7;
@@ -3320,7 +3323,7 @@ $WorkSans: 'Work Sans', sans-serif;
     }
     main {
       .divide {
-        height: 213px;
+        height: 211px;
       }
       .main-footer {
         min-height: 350px;
@@ -3395,7 +3398,7 @@ $WorkSans: 'Work Sans', sans-serif;
           .alice-carousel {
             margin-left: 192px;
             .alice-carousel__stage-item {
-              width: 503.729px !important;
+              width: 497.464px !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
@@ -3537,6 +3540,16 @@ $WorkSans: 'Work Sans', sans-serif;
         .contact-section {
           margin-top: 0px;
           .message-form {
+            .form-group {
+              .field {
+                margin-right: 15px;
+              }
+              .phone-form {
+                .react-phone-number-input__error {
+                  padding-left: 15px;
+                }
+              }
+            }
             .privacy-section {
               flex-direction: row;
               .terms-section {
