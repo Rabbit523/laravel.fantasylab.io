@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Icon } from 'semantic-ui-react'
+import ReactHoverObserver from 'react-hover-observer';
 class NewsCard extends React.Component {
     constructor(props) {
         super(props);
@@ -8,17 +9,21 @@ class NewsCard extends React.Component {
 
     render() {
         return (
-            <div className='news-item'>
-                <div className='figure'>
-                    <img src={`${ this.props.url}`} />
-                </div>
-                <div className='news-content'>
-                    <p className='title'>{this.props.title}</p>
-                    <p className='normal'>{this.props.description}</p>
-                    <p className='category'>By {this.props.author} in {this.props.type}</p>
-                    <p className='normal'>{this.props.time} <span>&middot;</span> {this.props.read} read <span className='news-icon-arrow'><Icon name='arrow right'/></span></p>
-                </div>
-            </div>
+            <ReactHoverObserver>
+                {({ isHovering }) => (
+                    <div className='news-item'>
+                        <div className='figure'>
+                            <img src={`${ this.props.url}`} />
+                        </div>
+                        <div className='news-content'>
+                            <p className='title'>{this.props.title}</p>
+                            {isHovering&&this.props.description&& <p className='normal'>{this.props.description}</p>}
+                            <p className='category'>By {this.props.author} in {this.props.type}</p>
+                            <p className='normal'>{this.props.time} <span>&middot;</span> {this.props.read} read <span className='news-icon-arrow'><Icon name='arrow right'/></span></p>
+                        </div>
+                    </div>
+                )}
+            </ReactHoverObserver>
         );
     }
 }

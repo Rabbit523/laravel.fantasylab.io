@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
@@ -50,7 +50,7 @@ class Page extends React.Component {
                                     <div className='homepage-header-buttons'>
                                         <Button as={Link} to='/register' replace compact
                                             className='register primary-button'>Craft Enterprise</Button>
-                                        <p>Existing user?<Link to='/login' className='item-link'>Log in to FantasyLab</Link></p>
+                                        <p>Existing user? <Link to='/login' className='item-link'>Log in to FantasyLab</Link>.</p>
                                     </div>
                                 </div>
                             </Container>
@@ -62,11 +62,11 @@ class Page extends React.Component {
                                     {Object.keys(data.services).map((key, index) => (
                                         <React.Fragment key={index}>
                                             {index<2 && 
-                                                <Grid.Column mobile={16} tablet={8} computer={8}>
+                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={`/service-${key}`}>
                                                     <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                             </Grid.Column>}
                                             {index>=2 && 
-                                                    <Grid.Column mobile={16} tablet={8} computer={4}>
+                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={`/service-${key}`}>
                                                         <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                                     </Grid.Column>}
                                         </React.Fragment>

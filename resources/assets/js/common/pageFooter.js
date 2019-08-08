@@ -19,7 +19,7 @@ class PageFooter extends React.Component {
                         <h3>Let's elevate the world.</h3>
                         <Button as={Link} to='/register' replace compact
                             className='register primary-button'>Craft Enterprise</Button>
-                        <p>Existing user?<Link to='/login' className='item-link'>Log in to FantasyLab</Link></p>
+                        <p>Existing user? <Link to='/login' className='item-link'>Log in to FantasyLab</Link>.</p>
                     </div>
                 </Container>
             </div>

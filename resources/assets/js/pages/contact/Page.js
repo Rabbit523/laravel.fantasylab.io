@@ -12,13 +12,14 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.validator = new ReeValidate({
-            name: 'required|min:3',
+            name: 'required|min:2',
             email: 'required|email',
             message: 'required'
         });
         this.state = {
             isLoaded: false,
             errors: this.validator.errors,
+            phoneError: true,
             message: {
                 name: '',
                 email: '',
@@ -46,32 +47,54 @@ class Page extends React.Component {
         });
     }
 
-    handleChange(event, type) {
-        const name = event.target.name;
-        const value = event.target.value;
-        const { errors } = this.validator;
-        
-        if (name != 'company') {
-            this.validator.validate(name, value)
-            .then(() => {
-                this.setState({ errors })
-            });
-        }
-
-        var {message} = this.state;
-        switch (type) {
-            case 'name':
-                message.name = event.target.value;
-                return this.setState({ message });
-            case 'company':
-                message.company = event.target.value;
-                return this.setState({ message });
-            case 'email':
-                message.email = event.target.value;
-                return this.setState({ message });
-            case 'message':
-                message.message = event.target.value;
-                return this.setState({ message });
+    handleChange(phone, type) {
+        if (type != "phone") {
+            const name = event.target.name;
+            const value = event.target.value;
+            const { errors } = this.validator;
+            
+            if (name != 'company') {
+                this.validator.validate(name, value)
+                .then(() => {
+                    if (errors.items.length == 0) {
+                        this.setState({ errors })
+                        $('input[name='+ type + ']').addClass('success');
+                        if (type == "message") {
+                            $('textarea[name='+ type + ']').addClass('success');
+                        }
+                    } else {
+                        this.setState({ errors })
+                        $('input[name='+ type + ']').removeClass('success');
+                        if (type == "message") {
+                            $('textarea[name='+ type + ']').removeClass('success');
+                        }
+                    }
+                });
+            }
+    
+            var {message} = this.state;
+            switch (type) {
+                case 'name':
+                    message.name = event.target.value;
+                    return this.setState({ message });
+                case 'company':
+                    message.company = event.target.value;
+                    return this.setState({ message });
+                case 'email':
+                    message.email = event.target.value;
+                    return this.setState({ message });
+                case 'message':
+                    message.message = event.target.value;
+                    return this.setState({ message });
+            }
+        } else {
+            var {message} = this.state;
+            if (isValidPhoneNumber(phone)) {
+                message.phone = phone;
+                this.setState({ phone, message, phoneError: false });                
+            } else {
+                this.setState({ phone, phoneError: true });
+            }
         }
     }
 
@@ -80,29 +103,16 @@ class Page extends React.Component {
     }
 
     handleSubmit(event) {
-        const { message, phone, checked } = this.state;
+        const { message, checked } = this.state;
         this.validator.validateAll(message)
             .then(success => {
                 if (success) {
                     // Manually verify the password confirmation fields
-                    if (isValidPhoneNumber(phone)) {
-                        if (checked) {
-                            this.setState({
-                                isLoading: true
-                            });
-                            message.phone = phone;
-                            this.submit(message);
-                        } else {
-                            this.setState({ checkbox_border: !this.state.checkbox_border });
-                        }
-                    }
-                    else{
-                        const responseError = {
-                            isError: true,
-                            code: 401,
-                            text: "Oops! Phone number doesn't exit!"
-                        };
-                        this.setState({ responseError });
+                    if (checked) {
+                        this.setState({ isLoading: true });
+                        this.submit(message);
+                    } else {
+                        this.setState({ checkbox_border: !this.state.checkbox_border });
                     }
                 } else {
                     const { errors } = this.validator;
@@ -123,7 +133,7 @@ class Page extends React.Component {
         console.log(data);
     }
     render() {
-        const { isLoaded, data, errors, phone, checkbox_border } = this.state;
+        const { isLoaded, data, errors, phone, phoneError, checkbox_border } = this.state;
         return (
             <div className='contact-page'>
                 {isLoaded ?
@@ -134,7 +144,7 @@ class Page extends React.Component {
                                 <Container className='custom-col-6'>
                                     <div className='header-description'>
                                         <div className='header-text'>
-                                            <h2>{data.title}</h2>
+                                            <h1>{data.title}</h1>
                                             <p>{data.description}</p>
                                         </div>
                                     </div>
@@ -161,15 +171,15 @@ class Page extends React.Component {
                                         {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')}</Header>}
                                         <div className='phone-form'>
                                             <label>Phone</label>
-                                            <PhoneInput placeholder='Your phone number' value={phone} flags={flags} onChange={ phone => this.setState({ phone }) }  error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
+                                            <PhoneInput placeholder='Your phone number' className={phoneError?'':'success'} value={phone} flags={flags} onChange={ (phone) => this.handleChange(phone, 'phone') }  error={ phone && (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number')}/>
                                         </div>
                                     </div>
-                                    <Form.Field label='What can we help you with?' name='message' placeholder='Write your message' control='textarea'  rows='5' onChange={(val)=>this.handleChange(val, 'message')} />
+                                    <Form.Field label='What can we help you with?' name='message' placeholder='Write your message' control='textarea'  rows='5' error={errors.has('message')} onChange={(val)=>this.handleChange(val, 'message')} />
                                     {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')}</Header>}
                                     <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
                                         <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
                                         <div className='terms-section'>
-                                            <Link to='/privacy-policy' replace>Privacy Policy</Link>
+                                            <Link to='/privacy' replace>Privacy Policy</Link>
                                         </div>
                                     </div>
                                     <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Send message</Button>

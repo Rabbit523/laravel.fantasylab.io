@@ -135,6 +135,10 @@
   width: 80% !important;
 }
 
+body {
+  background-color: #03051b !important;
+}
+
 .login {
   background: transparent !important;
   color: #9aa2bf !important;
@@ -212,7 +216,7 @@
 .segment.navbar .nav-color {
   color: #9aa2bf !important;
   margin: 0 !important;
-  padding: 22px 12px 22px 12px !important;
+  padding: 22px 12px 22px 0px !important;
   border: none !important;
   line-height: normal !important;
   font-family: "Gotham Bold";
@@ -231,8 +235,8 @@
 }
 
 .segment.navbar .nav-color.services.active {
-  border-bottom: 2px solid #3e75db !important;
-  color: #3e75db !important;
+  border-bottom: 2px solid #8341ff !important;
+  color: #8341ff !important;
 }
 
 .segment.navbar .nav-color.portfolio.hover {
@@ -240,8 +244,8 @@
 }
 
 .segment.navbar .nav-color.portfolio.active {
-  border-bottom: 2px solid #f49d43 !important;
-  color: #f49d43 !important;
+  border-bottom: 2px solid #f84db8 !important;
+  color: #f84db8 !important;
 }
 
 .segment.navbar .nav-color.features.hover {
@@ -249,8 +253,8 @@
 }
 
 .segment.navbar .nav-color.features.active {
-  border-bottom: 2px solid #3e75db !important;
-  color: #3e75db !important;
+  border-bottom: 2px solid #f49d43 !important;
+  color: #f49d43 !important;
 }
 
 .segment.navbar .nav-color.about.hover {
@@ -258,8 +262,8 @@
 }
 
 .segment.navbar .nav-color.about.active {
-  border-bottom: 2px solid #3e75db !important;
-  color: #3e75db !important;
+  border-bottom: 2px solid #f3dc17 !important;
+  color: #f3dc17 !important;
 }
 
 .segment.navbar .nav-color.blog.hover {
@@ -267,7 +271,7 @@
 }
 
 .segment.navbar .nav-color.blog.active {
-  border-bottom: 2px solid #3e75db !important;
+  border-bottom: 2px solid #94d544 !important;
   color: #94d544 !important;
 }
 
@@ -459,7 +463,6 @@
   line-height: normal !important;
   font-family: "Gotham Bold";
   font-weight: bold !important;
-  font-size: 16px;
   padding-top: 3px;
 }
 
@@ -484,7 +487,7 @@
 }
 
 .page h1 {
-  font-size: 54px;
+  font-size: 48px;
   font-family: "Gotham Bold";
   font-weight: bold;
 }
@@ -587,6 +590,12 @@
           flex-direction: column;
   border-radius: 5px;
   text-align: left;
+  border-bottom: 2px solid #09133a;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  overflow: hidden;
+  height: 240px;
 }
 
 .page main .service-item .item-hover-back {
@@ -596,6 +605,13 @@
   height: 100%;
 }
 
+.page main .service-item i {
+  position: absolute;
+  right: 30px;
+  font-size: 15px;
+  font-weight: 100;
+}
+
 .page main .service-item .avatar-item {
   border-radius: 50%;
   border: 2px solid #202c5a;
@@ -603,6 +619,7 @@
   width: 50px;
   height: 50px;
   margin-bottom: 100px;
+  position: absolute;
 }
 
 @media (min-width: 320px) {
@@ -620,7 +637,6 @@
 .page main .service-item .avatar-item img {
   width: 30px;
   height: 30px;
-  position: absolute;
   margin-left: 8px;
   margin-top: 8px;
 }
@@ -643,13 +659,6 @@
   }
 }
 
-.page main .service-item .avatar-item i {
-  position: absolute;
-  right: 20px;
-  font-size: 15px;
-  font-weight: 100;
-}
-
 .page main .service-item .text-item {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -663,7 +672,7 @@
 }
 
 .page main .service-item .text-item p {
-  font-size: 16px;
+  font-size: 20px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
@@ -671,7 +680,7 @@
 
 @media (min-width: 1366px) {
   .page main .service-item .text-item p {
-    font-size: 14px;
+    font-size: 20px;
     font-weight: bold;
   }
 }
@@ -698,7 +707,7 @@
 
 @media (min-width: 1366px) {
   .page main .service-item .description p {
-    font-size: 10px;
+    font-size: 16px;
   }
 }
 
@@ -720,6 +729,12 @@
   }
 }
 
+@media (min-width: 1366px) {
+  .page main .badge-item {
+    text-align: center !important;
+  }
+}
+
 .page main .badge-item .badge-img {
   display: inline-block;
   width: 50px;
@@ -737,6 +752,7 @@
   position: absolute;
   top: 0;
   margin-left: 19px;
+  font-family: "Gotham Bold";
   margin-top: 10px;
 }
 
@@ -761,6 +777,7 @@
 .page main .badge-item .badge-title p {
   font-size: 16px;
   white-space: pre-wrap;
+  font-family: "Gotham Bold";
   color: #fff;
 }
 
@@ -791,7 +808,7 @@
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28));
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   min-height: 220px;
-  height: 220px;
+  height: 300px;
   width: 100%;
   max-width: 100%;
   background-position: center center;
@@ -814,8 +831,8 @@
 }
 
 .page main .portfolio-item .portfolio .avatar {
-  margin-top: 60px;
-  margin-bottom: 80px;
+  margin-top: 110px;
+  margin-bottom: 50px;
   position: relative;
   width: 100%;
   height: auto;
@@ -852,10 +869,14 @@
 
 .page main .portfolio-item .portfolio .hover-texts p.hover-title {
   color: #fff;
+  font-size: 20px;
+  font-family: "Gotham Bold";
+  margin-bottom: 0;
 }
 
 .page main .portfolio-item .portfolio .hover-texts p.hover-des {
   color: #8341ff;
+  font-family: "Gotham Bold";
 }
 
 .page main .portfolio-item .portfolio-text {
@@ -868,44 +889,32 @@
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-top: 130px;
+  margin-top: 200px;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
 }
 
-.page main .portfolio-item .portfolio-text p {
-  font-size: 16px;
-  font-family: "Gotham Book";
+.page main .portfolio-item .portfolio-text h3 {
+  font-size: 20px;
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
   margin: 0;
 }
 
-@media (min-width: 1366px) {
-  .page main .portfolio-item .portfolio-text p {
-    font-size: 14px;
-  }
-}
-
-.page main .portfolio-item .portfolio-text p.portfolio-des {
+.page main .portfolio-item .portfolio-text .portfolio-des {
   color: #8341ff;
-  font-size: 12px;
-  font-family: "Gotham Book";
-}
-
-@media (min-width: 1366px) {
-  .page main .portfolio-item .portfolio-text p.portfolio-des {
-    font-size: 11px;
-  }
+  font-size: 16px;
+  font-family: "Gotham Bold";
 }
 
 .page main .review-item {
   padding: 20px 80px 30px 80px;
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-  margin-right: 5px;
+  margin-right: 1rem;
   border-radius: 5px;
 }
 
@@ -984,12 +993,6 @@
   color: #fff;
 }
 
-@media (min-width: 1366px) {
-  .page main .review-item .review-text-section .description {
-    font-size: 14px;
-  }
-}
-
 .page main .review-item .review-text-section hr {
   width: 115px;
   margin-bottom: 20px;
@@ -1036,6 +1039,12 @@
       -ms-flex-direction: column;
           flex-direction: column;
   border-radius: 5px;
+  border-bottom: 2px solid #070e28;
+  height: 340px;
+  overflow: hidden;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   cursor: pointer;
 }
 
@@ -1089,6 +1098,7 @@
 
 .page main .news-item .news-content p.category {
   color: #fff;
+  margin-top: 15px;
 }
 
 .page main .news-item .news-content p.normal {
@@ -1097,12 +1107,15 @@
 
 @media (min-width: 1366px) {
   .page main .news-item .news-content p.title {
-    font-size: 15px;
+    font-size: 20px;
   }
 
-  .page main .news-item .news-content p.normal,
   .page main .news-item .news-content p.category {
-    font-size: 11px;
+    font-size: 14px;
+  }
+
+  .page main .news-item .news-content p.normal {
+    font-size: 16px;
   }
 }
 
@@ -1133,6 +1146,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  border-bottom: 2px solid #03051c;
 }
 
 .page main .guide-card.service {
@@ -1218,7 +1232,7 @@
   }
 
   .page main .guide-card .title p {
-    font-size: 14px;
+    font-size: 20px;
   }
 }
 
@@ -1309,7 +1323,7 @@
 }
 
 .page main .headquater-card {
-  padding: 25px;
+  padding: 60px 25px;
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e29));
   background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
   height: 100%;
@@ -1350,22 +1364,22 @@
           flex: 1;
 }
 
-.page main .headquater-card .title p {
+.page main .headquater-card .title h3 {
   font-size: 16px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
-  color: #9da6c7;
+  color: #fff;
 }
 
 @media (min-width: 1366px) {
-  .page main .headquater-card .title p {
+  .page main .headquater-card .title h3 {
     font-size: 14px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .headquater-card .title p {
-    font-size: 16px;
+  .page main .headquater-card .title h3 {
+    font-size: 20px;
   }
 }
 
@@ -1398,7 +1412,7 @@
 
 .page main .headquater-card .description p {
   font-size: 13px;
-  font-family: "Gotham Bold";
+  font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
   font-weight: 100;
@@ -1412,18 +1426,12 @@
 
 @media (min-width: 1920px) {
   .page main .headquater-card .description p {
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
 .page main .headquater-card .headquater-button {
   padding: 10px 18px;
-}
-
-@media (min-width: 1366px) {
-  .page main .headquater-card .headquater-button {
-    font-size: 10px !important;
-  }
 }
 
 .page main .home-page {
@@ -1472,6 +1480,10 @@
   margin-top: 110px;
 }
 
+.page main .home-page .home-section a {
+  text-decoration: none;
+}
+
 .page main .home-page .home-section .service-item-observer {
   height: 100%;
 }
@@ -1482,6 +1494,8 @@
 
 .page main .home-page .home-section .home-review p {
   color: #9aa2bf;
+  font-size: 18px;
+  font-family: "Gotham Book";
 }
 
 .page main .home-page .home-section .alice-carousel {
@@ -1522,7 +1536,7 @@
 
 .page main .home-page .home-estimation {
   color: #fff;
-  margin-top: 110px;
+  margin-top: 200px;
 }
 
 .page main .home-page .home-estimation .home-estimation-description {
@@ -1535,7 +1549,8 @@
 
 .page main .home-page .home-estimation .home-estimation-description p {
   padding: 0;
-  color: #747b96;
+  color: #9aa2bf;
+  font-size: 18px;
 }
 
 .page main .home-page .home-estimation .home-button-group {
@@ -1562,8 +1577,8 @@
 .page main .portfolio-page .portfolio-header .header-gradient {
   width: 100%;
   height: 550px;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.7)), to(rgba(3, 5, 28, 0.9))) !important;
-  background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.7), rgba(3, 5, 28, 0.9)) !important;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(3, 5, 28, 0.5)), to(#03051c)) !important;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
@@ -1787,15 +1802,15 @@
 .page main .about-page .about-header .header-gradient {
   width: 100%;
   height: 650px;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
-  background: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)) !important;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(3, 5, 28, 0.5)), to(#03051c)) !important;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page main .about-page .about-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
-  padding-top: 100px;
-  padding-bottom: 85px;
+  padding-top: 150px;
+  padding-bottom: 150px;
 }
 
 .page main .about-page .about-header .header-gradient .header-description .header-text {
@@ -1827,13 +1842,18 @@
 }
 
 .page main .about-page .about-section {
-  padding-top: 80px;
+  padding-top: 200px;
   text-align: center;
 }
 
-.page main .about-page .about-section.headquarter h3,
+.page main .about-page .about-section.headquarter h3 {
+  color: #fff;
+}
+
 .page main .about-page .about-section.headquarter p {
   color: #9da6c7;
+  font-size: 16px;
+  font-family: "Gotham Book";
 }
 
 .page main .about-page .about-section .text-card-observer {
@@ -1861,7 +1881,7 @@
 }
 
 .page main .contact-page .contact-header {
-  min-height: 550px;
+  min-height: 885px;
   height: auto;
   width: 100%;
   background-size: cover;
@@ -1869,15 +1889,15 @@
 
 .page main .contact-page .contact-header .header-gradient {
   width: 100%;
-  height: 750px;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
-  background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+  height: 885px;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(3, 5, 28, 0.5)), to(#03051c)) !important;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page main .contact-page .contact-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
-  padding-top: 100px;
+  padding-top: 150px;
   padding-bottom: 45px;
 }
 
@@ -1957,18 +1977,41 @@
   width: 20px;
 }
 
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
+  border-color: #94d544 !important;
+}
+
 .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
   color: #fff !important;
   margin-top: 10px;
+  font-size: 16px;
+  font-family: "Gotham Bold";
   padding-top: 20px;
   padding-bottom: 20px;
 }
 
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:hover {
+  border-color: #465489 !important;
+}
+
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:focus,
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:active {
+  border-color: #8341ff !important;
+}
+
+.page main .contact-page .contact-section .message-form .form-group .phone-form input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
 .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
   font-family: "Gotham Bold";
+}
+
+.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__input--invalid {
+  border-color: #e71f1f;
 }
 
 .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
@@ -1994,47 +2037,67 @@
   padding-left: 3px;
 }
 
-.page main .contact-page .contact-section .message-form .field.error ::-webkit-input-placeholder input {
-  border-color: #fff !important;
-}
-
-.page main .contact-page .contact-section .message-form .field.error ::-moz-placeholder input {
-  border-color: #fff !important;
-}
-
-.page main .contact-page .contact-section .message-form .field.error ::-ms-input-placeholder input {
-  border-color: #fff !important;
-}
-
-.page main .contact-page .contact-section .message-form .field.error ::placeholder input {
-  border-color: #fff !important;
-}
-
-.page main .contact-page .contact-section .message-form .field.error input {
-  border-color: #8341ff !important;
-}
-
-.page main .contact-page .contact-section .message-form .field.error input:hover {
-  border-color: #465489 !important;
+.page main .contact-page .contact-section .message-form .field.error input,
+.page main .contact-page .contact-section .message-form .field.error textarea {
+  border-color: #a71f1f !important;
 }
 
 .page main .contact-page .contact-section .message-form .field label {
   text-align: left;
   padding-bottom: 10px;
+  font-family: "Gotham Bold";
 }
 
 .page main .contact-page .contact-section .message-form .field input {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
-  color: #202c5a;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  color: #fff;
 }
 
-.page main .contact-page .contact-section .message-form textarea {
+.page main .contact-page .contact-section .message-form .field input.success {
+  border-color: #94d544 !important;
+}
+
+.page main .contact-page .contact-section .message-form .field input:hover {
+  border-color: #465489 !important;
+}
+
+.page main .contact-page .contact-section .message-form .field input:focus,
+.page main .contact-page .contact-section .message-form .field input:active {
+  border-color: #8341ff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.page main .contact-page .contact-section .message-form .field textarea {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
-  color: #202c5a;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+}
+
+.page main .contact-page .contact-section .message-form .field textarea.success {
+  border-color: #94d544 !important;
+}
+
+.page main .contact-page .contact-section .message-form .field textarea:hover {
+  border-color: #465489 !important;
+}
+
+.page main .contact-page .contact-section .message-form .field textarea:focus,
+.page main .contact-page .contact-section .message-form .field textarea:active {
+  border-color: #8341ff !important;
+}
+
+.page main .contact-page .contact-section .message-form .field textarea:focus::-webkit-input-placeholder {
+  color: #fff;
 }
 
 .page main .contact-page .contact-section .message-form .privacy-section {
@@ -2054,13 +2117,26 @@
           align-items: flex-start;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section.checkbox_border {
-  border: 1px solid #8341ff;
+.page main .contact-page .contact-section .message-form .privacy-section .checkbox:hover label:before {
+  border-color: #465489 !important;
 }
 
 .page main .contact-page .contact-section .message-form .privacy-section .checkbox label:before {
   background: #050a20 !important;
-  border: 2px solid #656c8b;
+  border: 2px solid #202c5a;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+}
+
+.page main .contact-page .contact-section .message-form .privacy-section .checkbox label:after {
+  background: #8341ff !important;
+  color: #fff;
+  font-size: 17px;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
 }
 
 .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
@@ -2098,15 +2174,15 @@
 
 .page main .service-page .service-header .header-gradient {
   width: 100%;
-  height: 800px;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(5, 20, 68, 0.6)), to(rgba(3, 5, 28, 0.7))) !important;
-  background: linear-gradient(to right bottom, rgba(5, 20, 68, 0.6), rgba(3, 5, 28, 0.7)) !important;
+  height: 885px;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(3, 5, 28, 0.5)), to(#03051c)) !important;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page main .service-page .service-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
-  padding-top: 100px;
+  padding-top: 150px;
 }
 
 .page main .service-page .service-header .header-gradient .header-description .header-text {
@@ -2155,7 +2231,7 @@
 
 .page main .service-page .service-header .header-gradient .figures .figure p {
   font-size: 18px;
-  color: #c6c8d0;
+  color: #fff;
   padding-top: 20px;
   font-family: "Gotham Bold";
 }
@@ -2177,6 +2253,8 @@
 .page main .service-page .service-section {
   color: #fff;
   text-align: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
 }
 
 .page main .service-page .service-section.review {
@@ -2235,7 +2313,7 @@
 
 .page main .service-page .service-estimation .service-estimation-description p {
   padding: 0;
-  color: #747b96;
+  color: #9aa2bf;
 }
 
 .page main .privacy-page {
@@ -2331,6 +2409,8 @@
   font-weight: bold;
   font-family: "Gotham Bold";
   font-size: 16px;
+  margin-bottom: 0;
+  padding-top: 10px;
 }
 
 .page main .login-page .login-responsive .login-form .segment .field.error label:after {
@@ -2340,19 +2420,34 @@
 }
 
 .page main .login-page .login-responsive .login-form .segment .field.error input {
-  border-color: #8341ff !important;
+  border-color: #e71f1f !important;
 }
 
 .page main .login-page .login-responsive .login-form .segment .field label {
   text-align: left;
-  padding-bottom: 10px;
+  padding-top: 10px;
 }
 
 .page main .login-page .login-responsive .login-form .segment .field input {
   background: #050a20 !important;
-  border: 2px solid #656c8b;
+  border: 2px solid #202c5a;
   padding: 12px;
-  color: #202c5a;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+}
+
+.page main .login-page .login-responsive .login-form .segment .field input:hover {
+  border-color: #465489 !important;
+}
+
+.page main .login-page .login-responsive .login-form .segment .field input:focus,
+.page main .login-page .login-responsive .login-form .segment .field input:active {
+  border-color: #8341ff !important;
+}
+
+.page main .login-page .login-responsive .login-form .segment .field input:focus::-webkit-input-placeholder {
+  color: #fff;
 }
 
 .page main .login-page .login-responsive .login-form .segment .custom-error {
@@ -2371,9 +2466,26 @@
           justify-content: space-between;
 }
 
+.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox:hover label:before {
+  border-color: #465489 !important;
+}
+
 .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:before {
   background: #050a20 !important;
-  border: 2px solid #656c8b;
+  border: 2px solid #202c5a;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+}
+
+.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:after {
+  background: #8341ff !important;
+  color: #fff;
+  font-size: 17px;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
 }
 
 .page main .login-page .login-responsive .login-form .segment .remember-section a {
@@ -2401,13 +2513,26 @@
           align-items: flex-start;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section.checkbox_border {
-  border: 1px solid #8341ff;
+.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox:hover label:before {
+  border-color: #465489 !important;
 }
 
 .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:before {
   background: #050a20 !important;
-  border: 2px solid #656c8b;
+  border: 2px solid #202c5a;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+}
+
+.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:after {
+  background: #8341ff !important;
+  color: #fff;
+  font-size: 17px;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
 }
 
 .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
@@ -2463,6 +2588,31 @@
   margin-top: 10px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:hover {
+  border-color: #465489 !important;
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:focus,
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:active {
+  border-color: #8341ff !important;
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__error {
+  font-family: "Gotham Bold";
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__input--invalid {
+  border-color: #e71f1f;
+}
+
+.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__country-select-arrow {
+  margin-left: 1.3em;
 }
 
 .page main .admin-pages {
@@ -2801,8 +2951,8 @@
   }
 
   .page main .home-page .homepage-header {
-    min-height: 290px;
-    height: 290px;
+    min-height: 600px;
+    height: 600px;
     width: 100%;
     background-size: cover;
     max-width: 100%;
@@ -2812,8 +2962,7 @@
   }
 
   .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 250px;
-    width: 100%;
+    margin-top: 170px;
   }
 
   .page main .home-page .homepage-header .homepage-header-description h2 {
@@ -2825,7 +2974,7 @@
   }
 
   .page main .home-page .home-section {
-    margin-top: 90px;
+    margin-top: 200px;
   }
 
   .page main .home-page .home-section .alice-carousel {
@@ -2855,10 +3004,6 @@
 
   .page main .home-page .home-section:nth-of-type(1) {
     margin-top: 330px;
-  }
-
-  .page main .home-page .main-footer {
-    display: none;
   }
 
   .page main .portfolio-page .portfolio-header {
@@ -2901,7 +3046,7 @@
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 14px !important;
+    font-size: 14px;
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -2974,7 +3119,7 @@
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text {
-    padding-bottom: 100px;
+    padding-bottom: 150px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text h2 {
@@ -3031,8 +3176,8 @@
   }
 
   .page main .about-page .about-section .headquarters {
-    min-height: 290px;
-    height: 290px;
+    min-height: 445px;
+    height: 445px;
     width: 100%;
     background-size: cover;
     max-width: 100%;
@@ -3265,7 +3410,7 @@
   }
 
   .page main .login-page .login-responsive .login-form .segment .field label {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .remember-section {
@@ -3280,6 +3425,7 @@
   .page main .login-page .login-responsive .login-form .segment .remember-section a {
     text-align: left;
     font-size: 14px;
+    padding-top: 15px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .privacy-section {
@@ -3289,10 +3435,12 @@
   .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
     font-size: 14px;
     text-align: left;
+    padding-left: 40px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
-    margin-left: 26px;
+    margin-left: 40px;
+    line-height: 0;
     text-align: left;
   }
 
@@ -3300,9 +3448,13 @@
     font-size: 14px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .primary-button,
+  .page main .login-page .login-responsive .login-form .segment .primary-button {
+    font-size: 16px !important;
+    margin-top: 30px;
+  }
+
   .page main .login-page .login-responsive .login-form .segment .google {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .footer h5 {
@@ -3355,7 +3507,7 @@
   }
 
   .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 330px;
+    margin-top: 0px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -3486,6 +3638,7 @@
   .page main .main-footer .main-footer-description {
     display: inline-block;
     margin-top: 100px;
+    padding-top: 100px;
     width: 50%;
     color: #fff;
   }
@@ -3580,7 +3733,7 @@
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -3588,8 +3741,9 @@
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 16px;
+    font-family: "Gotham Bold";
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -3676,7 +3830,7 @@
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
-    margin-top: 30px;
+    padding-bottom: 150px;
   }
 
   .page main .contact-page .contact-header {
@@ -3737,7 +3891,7 @@
 
   .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
     margin-top: 7px !important;
-    padding: 18px 8px !important;
+    padding: 12px 8px !important;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
@@ -3838,9 +3992,13 @@
     text-align: center;
   }
 
-  .page main .service-page .service-estimation .service-estimation-description h3,
+  .page main .service-page .service-estimation .service-estimation-description h3 {
+    text-align: center;
+  }
+
   .page main .service-page .service-estimation .service-estimation-description p {
     text-align: center;
+    font-size: 20px;
   }
 
   .page main .login-page {
@@ -3869,7 +4027,7 @@
 
   .footer h5 {
     text-align: right;
-    font-size: 14px;
+    font-size: 16px;
     margin-bottom: 0px;
     margin-top: 5px;
   }
@@ -3893,11 +4051,12 @@
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
+    font-size: 14px;
+    font-family: "Gotham Bold";
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
+    font-size: 12px;
   }
 
   .page p {
@@ -3913,7 +4072,7 @@
   }
 
   .page main .main-footer {
-    min-height: 350px;
+    min-height: 550px;
     height: auto;
     width: 100%;
     background-size: cover !important;
@@ -3937,19 +4096,20 @@
   }
 
   .page main .main-footer .main-footer-description p {
-    font-size: 13px;
+    font-size: 16px;
   }
 
   .page main .main-footer .main-footer-description h3 {
     text-align: left;
+    font-size: 36px;
   }
 
   .page main .home-page .homepage-header {
-    height: 560px;
+    height: 785px;
   }
 
   .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 110px;
+    margin-top: 180px;
     width: 50%;
   }
 
@@ -3968,6 +4128,10 @@
   .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
     padding: 20px 70px 20px 70px;
     font-size: 18px !important;
+  }
+
+  .page main .home-page .home-estimation .badge-item .badge-description {
+    text-align: left;
   }
 
   .page main .home-page .home-estimation .home-button-group .button {
@@ -3996,7 +4160,7 @@
   }
 
   .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 497.464px !important;
+    width: 373.464px !important;
   }
 
   .page main .home-page .home-section .alice-carousel_prev_btn,
@@ -4006,19 +4170,19 @@
   }
 
   .page main .portfolio-page .portfolio-header {
-    height: 550px;
+    height: 885px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient {
-    height: 550px;
+    height: 885px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
-    padding: 100px 150px 100px 150px;
+    padding: 150px 150px 100px 150px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -4026,12 +4190,12 @@
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure p {
-    font-size: 16px !important;
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 16px;
   }
 
   .page main .portfolio-page .portfolio-studios {
-    margin-top: -50px;
+    margin-top: -350px;
     margin-bottom: 0px;
   }
 
@@ -4091,11 +4255,11 @@
   }
 
   .page main .about-page .about-header {
-    height: 530px;
+    height: 885px;
   }
 
   .page main .about-page .about-header .header-gradient {
-    height: 580px;
+    height: 885px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .counter-box {
@@ -4106,11 +4270,12 @@
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
     margin-top: 0px;
+    padding-top: 0;
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
@@ -4118,11 +4283,11 @@
   }
 
   .page main .contact-page .contact-header {
-    height: 560px;
+    height: 885px;
   }
 
   .page main .contact-page .contact-header .header-gradient {
-    height: 600px;
+    height: 885px;
   }
 
   .page main .contact-page .contact-header .header-gradient .header-description .header-text {
@@ -4131,7 +4296,7 @@
   }
 
   .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
+    font-size: 20px;
   }
 
   .page main .contact-page .contact-header .header-gradient .row {
@@ -4148,7 +4313,8 @@
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 0px;
+    margin-top: -180px;
+    margin-bottom: 150px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group .field {
@@ -4157,6 +4323,10 @@
 
   .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
     padding-left: 15px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .custom-error {
+    bottom: 0;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section {
@@ -4171,12 +4341,18 @@
   }
 
   .page main .contact-page .contact-section .message-form label {
-    font-size: 12px;
+    font-size: 16px;
+    font-family: "Gotham Bold";
   }
 
   .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
     margin-top: 7px !important;
-    padding: 18px 8px !important;
+    padding: 22px 8px !important;
+  }
+
+  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
+    padding-left: 40px;
+    padding-top: 5px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
@@ -4184,21 +4360,24 @@
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
-    font-size: 12px;
+    font-size: 16px;
+    padding-top: 3px;
   }
 
   .page main .contact-page .contact-section .message-form .primary-button {
     font-size: 18px !important;
     width: 30%;
     padding: 20px 70px 20px 70px;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
 
   .page main .service-page .service-header {
-    height: 660px;
+    height: 885px;
   }
 
   .page main .service-page .service-header .header-gradient {
-    height: 700px;
+    height: 885px;
   }
 
   .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
@@ -4219,7 +4398,7 @@
   }
 
   .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
+    font-size: 20px;
   }
 
   .page main .service-page .service-header .header-gradient .starter-group h3 {
@@ -4245,7 +4424,7 @@
   }
 
   .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
+    font-size: 20px;
   }
 
   .page main .service-page .service-section.review {
@@ -4255,7 +4434,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-    margin-top: 50px;
+    margin-top: 100px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
@@ -4264,7 +4443,7 @@
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 400px;
+    padding-top: 220px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
@@ -4272,7 +4451,7 @@
   }
 
   .page main .service-page .service-section.branding {
-    margin-top: 240px;
+    margin-top: 300px;
   }
 
   .page main .service-page .service-section.tech h3 {
@@ -4285,16 +4464,40 @@
   }
 
   .page main .login-page {
-    min-height: 70vh;
+    min-height: 95vh;
   }
 
   .page main .login-page.register {
     min-height: 90vh;
   }
 
+  .page main .login-page .login-responsive .login-form .segment .remember-section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
+    padding-top: 4px;
+    padding-left: 40px;
+    font-size: 16px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+    font-size: 16px;
+    padding-top: 11px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+    padding-top: 0px;
+    font-size: 16px;
+  }
+
   .footer {
     font-size: 16px;
-    min-height: 37vh;
+    min-height: 60vh;
+    padding-top: 100px;
   }
 
   .footer .footer-title {

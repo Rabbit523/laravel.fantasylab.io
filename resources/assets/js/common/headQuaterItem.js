@@ -14,7 +14,7 @@ class HeadquaterItem extends React.Component {
                     <img src={`${ this.props.avatar}`} />
                 </div>
                 <div className="title">
-                    <p>{this.props.title}</p>
+                    <h3>{this.props.title}</h3>
                 </div>
                 <div className="description">
                     <p>{this.props.description}</p>

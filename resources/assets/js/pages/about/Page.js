@@ -38,7 +38,7 @@ class Page extends React.Component {
                                 <Container className="custom-col-6">
                                     <div className="header-description">
                                         <div className="header-text">
-                                            <h2>{data.title}</h2>
+                                            <h1>{data.title}</h1>
                                             <p>{data.description}</p>
                                         </div>
                                         <Container className="custom-col-6">
@@ -109,7 +109,7 @@ class Page extends React.Component {
                                 <h3>{data.headquarters.title}</h3>
                                 <p>{data.headquarters.description}</p>
                                 <div className="headquarters" style={{backgroundImage: `url(${ data.headquarters.backimage})`, backgroundSize: 'cover'}}>
-                                    <Grid style={{paddingTop: 100}}>
+                                    <Grid style={{paddingTop: 200}}>
                                         {data.headquarters.data.map((item, i) => (
                                             <Grid.Column  mobile={16} tablet={8} computer={4} key={i}>
                                                 <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />

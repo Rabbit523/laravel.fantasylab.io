@@ -13,6 +13,9 @@ class ServiceItem extends React.Component {
             avatar_hover: {
                 borderColor: this.props.color,
                 color: this.props.color
+            },
+            arrow_color : {
+                color: this.props.color
             }
         };
     }
@@ -24,18 +27,19 @@ class ServiceItem extends React.Component {
             borderBottom: '2px solid ' + this.props.color,
             cursor: 'pointer'
         };
+        const { des_hover, avatar_hover, arrow_color } = this.state;
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
                     <div className='service-item' style={isHovering?item_hover:{}}>
-                        <div className='avatar-item' style={isHovering?this.state.avatar_hover:{}}>
+                        {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow' style={arrow_color}/>:'':''}
+                        <div className='avatar-item' style={isHovering?avatar_hover:{}}>
                             <img src={`${ this.props.url}`} />
-                            {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow'/>:'':''}
                         </div>
                         <div className='text-item'>
                             <p>{this.props.title}</p>
                         </div>
-                        {this.props.description && <div className='description' style={isHovering?this.state.des_hover:{}}>
+                        {this.props.description && <div className='description' style={isHovering?des_hover:{}}>
                             <p>{this.props.description}</p>
                         </div>}
                     </div>
