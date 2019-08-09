@@ -19,7 +19,7 @@ class Footer extends React.Component {
                             <Grid.Row style={{ paddingBottom: 50, paddingTop: 30 }} columns={5}>
                                 <Grid.Column>
                                     <div className='footer-title service'>
-                                        <p>Services</p>
+                                        <h4>Services</h4>
                                     </div>
                                     <div className='footer-item'>
                                         <Link to='/service-web' className='item-link'>Web Development</Link>
@@ -32,7 +32,7 @@ class Footer extends React.Component {
                                 </Grid.Column>
                                 <Grid.Column>
                                     <div className='footer-title platform'>
-                                        <p>Platform</p>
+                                        <h4>Platform</h4>
                                     </div>
                                     <div className='footer-item'>
                                         <Link to='/features' className='item-link'>Creatives</Link>
@@ -43,10 +43,10 @@ class Footer extends React.Component {
                                 </Grid.Column>
                                 <Grid.Column>
                                     <div className='footer-title company'>
-                                        <p>Company</p>
+                                        <h4>Company</h4>
                                     </div>
                                     <div className='footer-item'>
-                                        <p></p>
+                                        <h4></h4>
                                         <Link to='/about' className='item-link'>About us</Link>
                                         <Link to='/blog' className='item-link'>Blog</Link>
                                         <Link to='/contact' className='item-link'>Contact</Link>
@@ -56,7 +56,7 @@ class Footer extends React.Component {
                                 </Grid.Column>
                                 <Grid.Column>
                                     <div className='footer-title started'>
-                                        <p>Get Started</p>
+                                        <h4>Get Started</h4>
                                     </div>
                                     <div className='footer-item'>
                                         <Link to='/login' className='item-link'>Start a project</Link>
@@ -68,7 +68,7 @@ class Footer extends React.Component {
                                 </Grid.Column>
                                 <Grid.Column>
                                     <div className='footer-title legal'>
-                                        <p>Legal</p>
+                                        <h4>Legal</h4>
                                     </div>
                                     <div className='footer-item'>
                                         <Link to='/privacy' className='item-link'>Privacy</Link>

@@ -3731,8 +3731,8 @@ body {
 
   .page main .main-footer .main-footer-description {
     display: inline-block;
-    margin-top: 100px;
-    padding-top: 100px;
+    margin-top: 90px;
+    padding-top: 0px;
     width: 50%;
     color: #fff;
   }
@@ -4123,7 +4123,16 @@ body {
   }
 
   .footer {
-    min-height: 66vh;
+    min-height: 50vh;
+    padding-top: 50px;
+  }
+
+  .footer .footer-title h4 {
+    font-size: 14px;
+  }
+
+  .footer .footer-item .item-link {
+    font-size: 12px;
   }
 
   .footer img {
@@ -4132,7 +4141,7 @@ body {
 
   .footer h5 {
     text-align: right;
-    font-size: 16px;
+    font-size: 12px;
     margin-bottom: 0px;
     margin-top: 5px;
   }
@@ -5038,6 +5047,14 @@ body {
     font-size: 16px;
     min-height: 60vh;
     padding-top: 100px;
+  }
+
+  .footer .footer-title h4 {
+    font-size: 18px;
+  }
+
+  .footer .footer-item .item-link {
+    font-size: 16px;
   }
 
   .footer .footer-title {

@@ -3108,8 +3108,8 @@ body {
         margin-top: 50px;
         .main-footer-description {
           display: inline-block;
-          margin-top: 100px;
-          padding-top: 100px;
+          margin-top: 90px;
+          padding-top: 0px;
           width: 50%;
           color: #fff;
           .register {
@@ -3477,13 +3477,24 @@ body {
     }
   }
   .footer {
-    min-height: 66vh;
+    min-height: 50vh;
+    padding-top: 50px;
+    .footer-title {
+      h4 {
+        font-size: 14px;
+      }
+    }
+    .footer-item {
+      .item-link {
+        font-size: 12px;
+      }
+    }
     img {
       width: 30px !important;
     }
     h5 {
       text-align: right;
-      font-size: 16px;
+      font-size: 12px;
       margin-bottom: 0px;
       margin-top: 5px;
     }
@@ -4375,6 +4386,16 @@ body {
     font-size: 16px;
     min-height: 60vh;
     padding-top: 100px;
+    .footer-title {
+      h4 {
+        font-size: 18px;
+      }
+    }
+    .footer-item {
+      .item-link {
+        font-size: 16px;
+      }
+    }
     .footer-title {
       font-size: 18px;
     }
