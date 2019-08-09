@@ -52,7 +52,7 @@ class Page extends React.Component {
                         </div>
                         <div className='portfolio-studios'>
                             <Container className='custom-col-6'>
-                                <h3>Case studios</h3>
+                                <h2>Case Studies</h2>
                                 <Grid columns={3}>
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>

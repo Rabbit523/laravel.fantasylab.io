@@ -4748,6 +4748,10 @@ body {
     margin-bottom: 0px;
   }
 
+  .page main .portfolio-page .portfolio-studios h2 {
+    font-size: 36px;
+  }
+
   .page main .portfolio-page .portfolio-studios a {
     text-decoration: none;
   }
