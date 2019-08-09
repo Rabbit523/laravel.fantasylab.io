@@ -37,7 +37,7 @@ class ServiceItem extends React.Component {
                             <img src={`${ this.props.url}`} />
                         </div>
                         <div className='text-item'>
-                            <p>{this.props.title}</p>
+                            <h3>{this.props.title}</h3>
                         </div>
                         {this.props.description && <div className='description' style={isHovering?des_hover:{}}>
                             <p>{this.props.description}</p>

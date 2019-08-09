@@ -22,7 +22,7 @@ class BadgeTextCard extends React.Component {
                     <p>{this.props.number}</p>
                 </div>
                 <div className='badge-title'>
-                    <p>{this.props.title}</p>
+                    <h3>{this.props.title}</h3>
                 </div>
                 <div className='badge-description'>
                     <p>{this.props.description}</p>

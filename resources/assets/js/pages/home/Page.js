@@ -57,7 +57,7 @@ class Page extends React.Component {
                         </div>
                         <section className='home-section'>
                             <Container className='custom-col-6'>
-                                <h3>Services</h3>
+                                <h2>Services</h2>
                                 <Grid>
                                     {Object.keys(data.services).map((key, index) => (
                                         <React.Fragment key={index}>
@@ -77,7 +77,7 @@ class Page extends React.Component {
                         <section className='home-estimation'>
                             <Container className='custom-col-6'>
                                 <div className='home-estimation-description'>
-                                    <h3>Estimation. Proposal. Delivery.</h3>
+                                    <h2>Estimation. Proposal. Delivery.</h2>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
                                 <Grid columns={3}>
@@ -100,7 +100,7 @@ class Page extends React.Component {
                         </section>
                         <section className='home-section'>
                             <Container className='custom-col-6'>
-                                <h3>Portfolio</h3>
+                                <h2>Portfolio</h2>
                                 <Grid columns={3}>
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>
@@ -117,7 +117,7 @@ class Page extends React.Component {
                         </section>
                         <section className='home-section'>
                             <Container className='custom-col-6 home-review'>
-                                <h3>Choose excellence, always.</h3>
+                                <h2>Choose excellence, always.</h2>
                                 <p>The scrum Framework and an Agile mindset is paramount.</p>
                             </Container>
                             <Container className='custom-col-8'>
@@ -126,7 +126,7 @@ class Page extends React.Component {
                         </section>
                         <section className='home-section'>
                             <Container className='custom-col-6'>
-                                <h3>Latest News</h3>
+                                <h2>Latest News</h2>
                                 <Grid columns={3}>
                                     {data.news.map((item, i) => (
                                         <Grid.Column key={i} only="computer">
