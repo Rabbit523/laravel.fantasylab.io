@@ -1023,6 +1023,13 @@ body {
   margin-top: 15px;
 }
 
+@media (min-width: 1366px) {
+  .page main .review-item .review-avatar .icon-quote-right {
+    margin-left: 50px;
+    margin-top: 35px;
+  }
+}
+
 .page main .review-item .review-avatar .icon-quote-right i {
   margin-left: 6px;
   margin-top: 8px;
@@ -4256,17 +4263,22 @@ body {
   }
 
   .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
+    margin-left: 160px;
   }
 
   .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 349.729px !important;
+    width: 365.667px !important;
   }
 
   .page main .home-page .home-section .alice-carousel_prev_btn,
   .page main .home-page .home-section .alice-carousel_next_btn {
     left: 80px;
     display: block;
+  }
+
+  .page main .home-page .home-section .alice-carousel_prev_btn i,
+  .page main .home-page .home-section .alice-carousel_next_btn i {
+    padding-left: 0;
   }
 
   .page main .portfolio-page .portfolio-header {
