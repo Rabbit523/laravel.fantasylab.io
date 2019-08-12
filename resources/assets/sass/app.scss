@@ -807,6 +807,10 @@ body {
           position: absolute;
           margin-left: 20px;
           margin-top: 15px;
+          @media (min-width: 1366px) {
+            margin-left: 50px;
+            margin-top: 35px;
+          }
           i {
             margin-left: 6px;
             margin-top: 8px;
@@ -3726,14 +3730,17 @@ body {
             height: 100%;
           }
           .alice-carousel {
-            margin-left: 135px;
+            margin-left: 160px;
             .alice-carousel__stage-item {
-              width: 349.729px !important;
+              width: 365.667px !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
             left: 80px;
             display: block;
+            i {
+              padding-left: 0;
+            }
           }
         }
       }

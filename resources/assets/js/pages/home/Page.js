@@ -120,7 +120,7 @@ class Page extends React.Component {
                                 <h2>Choose excellence, always.</h2>
                                 <p>The scrum Framework and an Agile mindset is paramount.</p>
                             </Container>
-                            <Container className='custom-col-8'>
+                            <Container>
                                 <Gallery type="review" items={data.carousels} />
                             </Container>
                         </section>

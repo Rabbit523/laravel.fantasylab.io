@@ -20,7 +20,7 @@ class Main extends React.Component {
     }
     return (
       (this.props.isAdmin && this.props.isAuthenticated) ? (
-        <div>
+        <React.Fragment>
           <Navigation />
           <div className="page">
             {is_dashboard && <AdminSidebar />}
@@ -29,9 +29,9 @@ class Main extends React.Component {
             </main>
           </div>
           <Footer />
-        </div>
+        </React.Fragment>
       ) : (
-          <div>
+          <React.Fragment>
             <Navigation />
             <div className="page">
               <main className="fadeIn animated">
@@ -39,7 +39,7 @@ class Main extends React.Component {
               </main>
             </div>
             {is_footer && <Footer />}
-          </div>
+          </React.Fragment>
         )
     );
   }
