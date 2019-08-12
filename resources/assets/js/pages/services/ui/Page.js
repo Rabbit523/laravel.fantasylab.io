@@ -53,7 +53,7 @@ class Page extends React.Component {
                                 </Container>
                                 <div className='starter-group'>
                                     <Container className='custom-col-6'>
-                                        <h3>Let's start. What do you need?</h3>
+                                        <h2>Let's start. What do you need?</h2>
                                         <Container className='custom-col-8'>
                                             <Grid columns={3}>
                                                 {data.starting.map((item, i) => (
@@ -76,8 +76,8 @@ class Page extends React.Component {
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-4'>
                                     <div className='service-review'>
-                                        <p>CASE STUDY</p>
-                                        <h3>{data.study.title}</h3>
+                                        <p className="case_text">CASE STUDY</p>
+                                        <h2>{data.study.title}</h2>
                                         <p>'{data.study.description}'</p>
                                         <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
@@ -88,7 +88,7 @@ class Page extends React.Component {
                         </div>
                         <div className='service-section tech' style={data.technologies.length > 4 ? null : {minHeight: '30vh'}}>
                             <Container className='custom-col-6'>
-                                <h3>Technologies we excel at</h3>
+                                <h2>Technologies we excel at</h2>
                                 <Container className='custom-col-8'>
                                     <Grid>
                                         {data.technologies.map((item, i) => (
@@ -105,7 +105,7 @@ class Page extends React.Component {
                         <div className='service-estimation'>
                             <Container className='custom-col-6'>
                                 <div className='service-estimation-description'>
-                                    <h3>Estimation. Proposal. Delivery.</h3>
+                                    <h2>Estimation. Proposal. Delivery.</h2>
                                     <p>Don't get a goat. Get a quote.</p>
                                 </div>
                                 <Grid columns={3}>

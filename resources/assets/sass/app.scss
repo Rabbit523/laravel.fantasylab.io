@@ -750,17 +750,36 @@ body {
         flex: 1;
         margin-top: 200px;
         flex-direction: column;
+        text-align: left;
+        @media (min-width: 1280px) {
+          margin-top: 150px;
+        }
+        @media (min-width: 1920px) {
+          margin-top: 200px;
+        }
         h3 {
           font-size: 20px;
           font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
           margin: 0;
+          @media (min-width: 1280px) {
+            font-size: 14px;
+          }
+          @media (min-width: 1920px) {
+            font-size: 20px;
+          }
         }
         .portfolio-des {
           color: #8341ff;
           font-size: 16px;
           font-family: "Gotham Bold";
+          @media (min-width: 1280px) {
+            font-size: 12px;
+          }
+          @media (min-width: 1920px) {
+            font-size: 16px;
+          }
         }        
       }
     }
@@ -892,6 +911,7 @@ body {
         flex: 1;
         p {
           font-size: 14px;
+          text-align: left;
           &.title {
             font-weight: bold;
             font-family: "Gotham Bold";
@@ -980,7 +1000,7 @@ body {
         align-items: flex-end;
         flex: 1;
         text-align: center;
-        p {
+        h3 {
           font-size: 16px;
           font-family: "Gotham Bold";
           white-space: pre-wrap;
@@ -1000,7 +1020,7 @@ body {
       }
       @media (min-width: 320px) {
         .title {
-          p {
+          h3 {
             font-size: 13px;
           }
         }
@@ -1011,15 +1031,33 @@ body {
       @media (min-width: 414px) {
         padding: 30px 70px;
       }
+      @media (min-width: 1280px) {
+        padding: 20px;
+        .title {
+          h3 {
+            font-size: 14px;
+          }
+        }
+        .description {
+          p {
+            font-size: 12px;
+          }
+        }
+      }
       @media (min-width: 1366px) {
         padding: 30px 20px;
         .title {
-          p {
+          h3 {
             font-size: 20px;
           }
         }
       }
       @media (min-width: 1920px) {
+        .title {
+          h3 {
+            font-size: 18px;
+          }
+        }
         .description {
           p {
             font-size: 16px;
@@ -1039,11 +1077,14 @@ body {
         display: flex;
         align-items: flex-end;
         flex: 1;
-        p {
+        h3 {
           font-size: 16px;
           font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
+          @media (min-width: 1280px) {
+            font-size: 18px;
+          }
           @media (min-width: 1920px) {
             font-size: 26px;
           }
@@ -1058,6 +1099,9 @@ body {
           white-space: pre-wrap;
           color: #9da6c7;
           font-weight: 100;
+          @media (min-width: 1280px) {
+            font-size: 12px;
+          }
         }
       }
       @media (min-width: 320px) {
@@ -1104,46 +1148,63 @@ body {
           font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
-          @media (min-width: 1366px) {
-            font-size: 14px;
-          }
-          @media (min-width: 1920px) {
-            font-size: 20px;
-          }
         }
       }
       .description {
         padding-top: 5px;
         padding-bottom: 25px;
         text-align: center;
-        @media (min-width: 320px) {
-          padding-left: 40px;
-          padding-right: 40px;
-        }
-        @media (min-width: 375px) {
-          padding-left: 70px;
-          padding-right: 70px;
-        }
-        @media (min-width: 1366px) {
-          padding-left: 0px;
-          padding-right: 0px;
-        }
         p {
           font-size: 13px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
           color: #9da6c7;
           font-weight: 100;
-          @media (min-width: 1366px) {
-            font-size: 12px;
-          }
-          @media (min-width: 1920px) {
-            font-size: 16px;
-          }
         }
       }
       .headquater-button {
         padding: 10px 18px;
+      }
+      @media (min-width: 320px) {
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+      @media (min-width: 375px) {
+        padding-left: 70px;
+        padding-right: 70px;
+      }
+      @media (min-width: 1280px) {
+        padding: 30px 15px;
+        .title {
+          h3 {
+            font-size: 18px;
+          }
+        }
+        .description {
+          p {
+            font-size: 12px !important;
+          }
+        }
+        .headquater-button {
+          padding: 10px;
+        }
+      }
+      @media (min-width: 1366px) {
+        padding-left: 0px;
+        padding-right: 0px;
+      }
+      @media (min-width: 1920px) {
+        padding: 30px 40px;
+        .title {
+          h3 {
+            font-size: 20px;
+          }
+        }
+        .description {
+          p {
+            font-size: 16px !important;
+          }
+        }
       }
     }
     .home-page {
@@ -1478,13 +1539,16 @@ body {
         padding-top: 200px;
         text-align: center;
         &.headquarter {
-          h3 {
-            color: #fff;
-          }
-          p {
-            color: #9da6c7;
-            font-size: 16px;
-            font-family: "Gotham Book";
+          .headquater-item {
+            padding-top: 200px;
+            h3 {
+              color: #fff;
+            }
+            p {
+              color: #9da6c7;
+              font-size: 16px;
+              font-family: "Gotham Book";
+            }
           }
         }
         .text-card-observer {
@@ -3201,8 +3265,11 @@ body {
             .portfolio-header-description {
               padding: 100px 150px 100px 150px;
               .portfolio-header-text {
+                h1 {
+                  font-size: 36px;
+                }
                 p {
-                  font-size: 20px;
+                  font-size: 18px;
                 }
               }
               .portfolio-header-figure {
@@ -3221,6 +3288,9 @@ body {
         .portfolio-studios {
           margin-top: -50px;
           margin-bottom: 0px;
+          h2 {
+            font-size: 24px;
+          }
           a {
             text-decoration: none;
           }
@@ -3280,21 +3350,51 @@ body {
           .header-gradient {
             height: 580px;
             .header-description {
+              .header-text {
+                h1 {
+                  font-size: 36px;
+                }
+                p {
+                  font-size: 18px;
+                }
+              }
               .counter-box {
                 flex-direction: row;
-              }
-              .header-text {
+                h4 {
+                  font-size: 24px;
+                }
                 p {
-                  font-size: 14px;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .about-section {
+          h2 {
+            font-size: 24px;
+          }
+          .sub_title{
+            font-size: 16px;
+            color: #9da6c7;
+          }
+          &.headquarter {
+            .headquarters {
+              height: 330px;
+              .headquater-item {
+                padding-top: 130px;
+                p {
+                  font-size: 18px;
                 }
               }
             }
           }
         }
         .about-section:nth-of-type(2) {
-          margin-top: 0px;
+          margin-top: 100px;
         }
         .about-section:nth-of-type(5) {
+          margin-top: 0px;
           padding-bottom: 150px;
         }
       }
@@ -3382,14 +3482,18 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
+                h1 {
+                  font-size: 36px;
+                }
                 p {
-                  font-size: 12px;
+                  font-size: 18px;
                 }
               }
             }
             .starter-group {
-              h3 {
+              h2 {
                 text-align: center;
+                font-size: 24px;
               }
             }
             .figures {
@@ -3397,7 +3501,7 @@ body {
                 padding-left: 16px;
                 padding-right: 16px;
                 p {
-                  font-size: 12px;
+                  font-size: 18px;
                 }
               }
             }
@@ -3422,6 +3526,10 @@ body {
           }
         }
         .service-section {
+          h2 {
+            font-size: 24px;
+            text-align: center;
+          }
           &.review {
             min-height: 100vh;
             background-size: cover;
@@ -3436,8 +3544,15 @@ body {
             }
             .service-review {
               padding-top: 200px;
+              p {
+                font-size: 14px;
+                &.case_text {
+                  font-size: 10px;
+                }
+              }
               .third-button {
-                font-size: 12px !important;
+                font-size: 14px !important;
+                padding: 15px 50px 15px 50px !important;
               }
             }
           }
@@ -3457,7 +3572,7 @@ body {
             }
             p {
               text-align: center;
-              font-size: 20px;
+              font-size: 16px;
             }
           }
         }
@@ -4066,6 +4181,9 @@ body {
             .portfolio-header-description {
               padding: 150px 150px 100px 150px;
               .portfolio-header-text {
+                h1 {
+                  font-size: 48px;
+                }
                 p {
                   font-size: 20px;
                 }
@@ -4073,11 +4191,6 @@ body {
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
-                .figure {
-                  p {
-                    font-size: 16px;
-                  }
-                }
               }
             }
           }
@@ -4087,9 +4200,6 @@ body {
           margin-bottom: 0px;
           h2 {
             font-size: 36px;
-          }
-          a {
-            text-decoration: none;
           }
         }
       }
@@ -4143,27 +4253,57 @@ body {
       }
       .about-page {
         .about-header {
-          height: 885px;
+          height: 530px;
           .header-gradient {
-            height: 885px;
+            height: 580px;
             .header-description {
-              .counter-box {
-                flex-direction: row;
-              }
               .header-text {
+                h1 {
+                  font-size: 48px;
+                }
                 p {
                   font-size: 20px;
+                }
+              }
+              .counter-box {
+                .box {
+                  h4 {
+                    font-size: 30px;
+                  }
+                  p {
+                    font-size: 16px;
+                  } 
+                }
+              }
+            }
+          }
+        }
+        .about-section {
+          h2 {
+            font-size: 36px;
+          }
+          .sub_title{
+            font-size: 26px;
+            color: #9da6c7;
+          }
+          &.headquarter {
+            .headquarters {
+              height: 330px;
+              .headquater-item {
+                padding-top: 130px;
+                p {
+                  font-size: 18px;
                 }
               }
             }
           }
         }
         .about-section:nth-of-type(2) {
-          margin-top: 0px;
-          padding-top: 0;
+          margin-top: 100px;
         }
         .about-section:nth-of-type(5) {
-          margin-top: 30px;
+          margin-top: 0px;
+          padding-bottom: 150px;
         }
       }
       .contact-page {
@@ -4273,14 +4413,21 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
+                h1 {
+                  font-size: 48px;
+                }
                 p {
                   font-size: 20px;
                 }
               }
             }
             .starter-group {
-              h3 {
-                text-align: center;
+              h2 {
+                font-size: 36px;
+              }
+              .third-button {
+                font-size: 18px;
+                padding: 20px 70px 20px 70px;
               }
             }
             .figures {
@@ -4288,7 +4435,7 @@ body {
                 padding-left: 16px;
                 padding-right: 16px;
                 p {
-                  font-size: 16px;
+                  font-size: 20px;
                 }
               }
             }
@@ -4313,6 +4460,9 @@ body {
           }
         }
         .service-section {
+          h2 {
+            font-size: 36px;
+          }
           &.review {
             min-height: 100vh;
             background-size: cover;
@@ -4327,24 +4477,26 @@ body {
             }
             .service-review {
               padding-top: 220px;
-              .third-button {
-                font-size: 12px !important;
+              p {
+                font-size: 18px;
+                &.case_text {
+                  font-size: 14px;
+                }
               }
-            }
-          }
-          &.branding {
-            margin-top: 300px;
-          }
-          &.tech {
-            h3 {
-              text-align: center;
+              .third-button {
+                font-size: 18px !important;
+                padding: 15px 50px 5px 50px;
+              }
             }
           }
         }
         .service-estimation {
           .service-estimation-description {
-            h3, p {
-              text-align: center;
+            h3 {
+              font-size: 20px;
+            }
+            p{
+              font-size: 20px;
             }
           }
         }

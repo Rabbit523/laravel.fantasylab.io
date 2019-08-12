@@ -66,7 +66,7 @@ class Page extends React.Component {
                         </div>
                         <div className="about-section">
                             <Container className="custom-col-6">
-                                <h3>{data.values.title}</h3>
+                                <h2>{data.values.title}</h2>
                                 <Grid>
                                     <Grid.Column mobile={16} tablet={16} computer={8}>
                                         {data.values.data.map((item, i) => (
@@ -87,7 +87,7 @@ class Page extends React.Component {
                         </div>
                         <div className="about-section">
                             <Container className="custom-col-6">
-                                <h3>{data.services.title}</h3>
+                                <h2>{data.services.title}</h2>
                                 <Grid>
                                     {data.services.data.map((item, i) => (
                                         <React.Fragment key={i}>
@@ -106,10 +106,10 @@ class Page extends React.Component {
                         </div>
                         <div className="about-section headquarter">
                             <Container className="custom-col-6">
-                                <h3>{data.headquarters.title}</h3>
-                                <p>{data.headquarters.description}</p>
+                                <h2>{data.headquarters.title}</h2>
+                                <p className="sub_title">{data.headquarters.description}</p>
                                 <div className="headquarters" style={{backgroundImage: `url(${ data.headquarters.backimage})`, backgroundSize: 'cover'}}>
-                                    <Grid style={{paddingTop: 200}}>
+                                    <Grid className="headquater-item">
                                         {data.headquarters.data.map((item, i) => (
                                             <Grid.Column  mobile={16} tablet={8} computer={4} key={i}>
                                                 <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
@@ -122,7 +122,7 @@ class Page extends React.Component {
                         <div className="about-section">
                             <section className="home-section">
                                 <Container className="custom-col-6">
-                                    <h3>{data.news.title}</h3>
+                                    <h2>{data.news.title}</h2>
                                     <Grid columns={3}>
                                         {data.news.data.map((item, i) => (
                                             <Grid.Column key={i} only="computer">

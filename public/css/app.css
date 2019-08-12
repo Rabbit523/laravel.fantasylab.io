@@ -969,6 +969,19 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+  text-align: left;
+}
+
+@media (min-width: 1280px) {
+  .page main .portfolio-item .portfolio-text {
+    margin-top: 150px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .portfolio-item .portfolio-text {
+    margin-top: 200px;
+  }
 }
 
 .page main .portfolio-item .portfolio-text h3 {
@@ -979,10 +992,34 @@ body {
   margin: 0;
 }
 
+@media (min-width: 1280px) {
+  .page main .portfolio-item .portfolio-text h3 {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .portfolio-item .portfolio-text h3 {
+    font-size: 20px;
+  }
+}
+
 .page main .portfolio-item .portfolio-text .portfolio-des {
   color: #8341ff;
   font-size: 16px;
   font-family: "Gotham Bold";
+}
+
+@media (min-width: 1280px) {
+  .page main .portfolio-item .portfolio-text .portfolio-des {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .portfolio-item .portfolio-text .portfolio-des {
+    font-size: 16px;
+  }
 }
 
 .page main .review-item {
@@ -1162,6 +1199,7 @@ body {
 
 .page main .news-item .news-content p {
   font-size: 14px;
+  text-align: left;
 }
 
 .page main .news-item .news-content p.title {
@@ -1289,7 +1327,7 @@ body {
   text-align: center;
 }
 
-.page main .guide-card .title p {
+.page main .guide-card .title h3 {
   font-size: 16px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
@@ -1310,7 +1348,7 @@ body {
 }
 
 @media (min-width: 320px) {
-  .page main .guide-card .title p {
+  .page main .guide-card .title h3 {
     font-size: 13px;
   }
 }
@@ -1327,17 +1365,35 @@ body {
   }
 }
 
+@media (min-width: 1280px) {
+  .page main .guide-card {
+    padding: 20px;
+  }
+
+  .page main .guide-card .title h3 {
+    font-size: 14px;
+  }
+
+  .page main .guide-card .description p {
+    font-size: 12px;
+  }
+}
+
 @media (min-width: 1366px) {
   .page main .guide-card {
     padding: 30px 20px;
   }
 
-  .page main .guide-card .title p {
+  .page main .guide-card .title h3 {
     font-size: 20px;
   }
 }
 
 @media (min-width: 1920px) {
+  .page main .guide-card .title h3 {
+    font-size: 18px;
+  }
+
   .page main .guide-card .description p {
     font-size: 16px;
   }
@@ -1373,15 +1429,21 @@ body {
           flex: 1;
 }
 
-.page main .text-card .title p {
+.page main .text-card .title h3 {
   font-size: 16px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
 
+@media (min-width: 1280px) {
+  .page main .text-card .title h3 {
+    font-size: 18px;
+  }
+}
+
 @media (min-width: 1920px) {
-  .page main .text-card .title p {
+  .page main .text-card .title h3 {
     font-size: 26px;
   }
 }
@@ -1397,6 +1459,12 @@ body {
   white-space: pre-wrap;
   color: #9da6c7;
   font-weight: 100;
+}
+
+@media (min-width: 1280px) {
+  .page main .text-card .description p {
+    font-size: 12px;
+  }
 }
 
 @media (min-width: 320px) {
@@ -1472,43 +1540,10 @@ body {
   color: #fff;
 }
 
-@media (min-width: 1366px) {
-  .page main .headquater-card .title h3 {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page main .headquater-card .title h3 {
-    font-size: 20px;
-  }
-}
-
 .page main .headquater-card .description {
   padding-top: 5px;
   padding-bottom: 25px;
   text-align: center;
-}
-
-@media (min-width: 320px) {
-  .page main .headquater-card .description {
-    padding-left: 40px;
-    padding-right: 40px;
-  }
-}
-
-@media (min-width: 375px) {
-  .page main .headquater-card .description {
-    padding-left: 70px;
-    padding-right: 70px;
-  }
-}
-
-@media (min-width: 1366px) {
-  .page main .headquater-card .description {
-    padding-left: 0px;
-    padding-right: 0px;
-  }
 }
 
 .page main .headquater-card .description p {
@@ -1519,20 +1554,61 @@ body {
   font-weight: 100;
 }
 
-@media (min-width: 1366px) {
+.page main .headquater-card .headquater-button {
+  padding: 10px 18px;
+}
+
+@media (min-width: 320px) {
+  .page main .headquater-card {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page main .headquater-card {
+    padding-left: 70px;
+    padding-right: 70px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page main .headquater-card {
+    padding: 30px 15px;
+  }
+
+  .page main .headquater-card .title h3 {
+    font-size: 18px;
+  }
+
   .page main .headquater-card .description p {
-    font-size: 12px;
+    font-size: 12px !important;
+  }
+
+  .page main .headquater-card .headquater-button {
+    padding: 10px;
+  }
+}
+
+@media (min-width: 1366px) {
+  .page main .headquater-card {
+    padding-left: 0px;
+    padding-right: 0px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .headquater-card .description p {
-    font-size: 16px;
+  .page main .headquater-card {
+    padding: 30px 40px;
   }
-}
 
-.page main .headquater-card .headquater-button {
-  padding: 10px 18px;
+  .page main .headquater-card .title h3 {
+    font-size: 20px;
+  }
+
+  .page main .headquater-card .description p {
+    font-size: 16px !important;
+  }
 }
 
 .page main .home-page {
@@ -1947,11 +2023,15 @@ body {
   text-align: center;
 }
 
-.page main .about-page .about-section.headquarter h3 {
+.page main .about-page .about-section.headquarter .headquater-item {
+  padding-top: 200px;
+}
+
+.page main .about-page .about-section.headquarter .headquater-item h3 {
   color: #fff;
 }
 
-.page main .about-page .about-section.headquarter p {
+.page main .about-page .about-section.headquarter .headquater-item p {
   color: #9da6c7;
   font-size: 16px;
   font-family: "Gotham Book";
@@ -3837,8 +3917,12 @@ body {
     padding: 100px 150px 100px 150px;
   }
 
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h1 {
+    font-size: 36px;
+  }
+
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 20px;
+    font-size: 18px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -3854,6 +3938,10 @@ body {
   .page main .portfolio-page .portfolio-studios {
     margin-top: -50px;
     margin-bottom: 0px;
+  }
+
+  .page main .portfolio-page .portfolio-studios h2 {
+    font-size: 24px;
   }
 
   .page main .portfolio-page .portfolio-studios a {
@@ -3919,6 +4007,14 @@ body {
     height: 580px;
   }
 
+  .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
+    font-size: 36px;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+    font-size: 18px;
+  }
+
   .page main .about-page .about-header .header-gradient .header-description .counter-box {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -3926,15 +4022,41 @@ body {
             flex-direction: row;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
+  .page main .about-page .about-header .header-gradient .header-description .counter-box h4 {
+    font-size: 24px;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .counter-box p {
+    font-size: 12px;
+  }
+
+  .page main .about-page .about-section h2 {
+    font-size: 24px;
+  }
+
+  .page main .about-page .about-section .sub_title {
+    font-size: 16px;
+    color: #9da6c7;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters {
+    height: 330px;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters .headquater-item {
+    padding-top: 130px;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters .headquater-item p {
+    font-size: 18px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 0px;
+    margin-top: 100px;
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
+    margin-top: 0px;
     padding-bottom: 150px;
   }
 
@@ -4036,12 +4158,17 @@ body {
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
+  .page main .service-page .service-header .header-gradient .header-description .header-text h1 {
+    font-size: 36px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group h3 {
+  .page main .service-page .service-header .header-gradient .header-description .header-text p {
+    font-size: 18px;
+  }
+
+  .page main .service-page .service-header .header-gradient .starter-group h2 {
     text-align: center;
+    font-size: 24px;
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure {
@@ -4050,7 +4177,7 @@ body {
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
+    font-size: 18px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4064,6 +4191,11 @@ body {
 
   .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
     font-size: 13px;
+  }
+
+  .page main .service-page .service-section h2 {
+    font-size: 24px;
+    text-align: center;
   }
 
   .page main .service-page .service-section.review {
@@ -4085,8 +4217,17 @@ body {
     padding-top: 200px;
   }
 
+  .page main .service-page .service-section.review .service-review p {
+    font-size: 14px;
+  }
+
+  .page main .service-page .service-section.review .service-review p.case_text {
+    font-size: 10px;
+  }
+
   .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
+    font-size: 14px !important;
+    padding: 15px 50px 15px 50px !important;
   }
 
   .page main .service-page .service-section.branding {
@@ -4103,7 +4244,7 @@ body {
 
   .page main .service-page .service-estimation .service-estimation-description p {
     text-align: center;
-    font-size: 20px;
+    font-size: 16px;
   }
 
   .page main .login-page {
@@ -4730,6 +4871,10 @@ body {
     padding: 150px 150px 100px 150px;
   }
 
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h1 {
+    font-size: 48px;
+  }
+
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
     font-size: 20px;
   }
@@ -4739,10 +4884,6 @@ body {
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 16px;
-  }
-
   .page main .portfolio-page .portfolio-studios {
     margin-top: -350px;
     margin-bottom: 0px;
@@ -4750,10 +4891,6 @@ body {
 
   .page main .portfolio-page .portfolio-studios h2 {
     font-size: 36px;
-  }
-
-  .page main .portfolio-page .portfolio-studios a {
-    text-decoration: none;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header {
@@ -4808,31 +4945,57 @@ body {
   }
 
   .page main .about-page .about-header {
-    height: 885px;
+    height: 530px;
   }
 
   .page main .about-page .about-header .header-gradient {
-    height: 885px;
+    height: 580px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
+  .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
+    font-size: 48px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text p {
     font-size: 20px;
   }
 
+  .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
+    font-size: 30px;
+  }
+
+  .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
+    font-size: 16px;
+  }
+
+  .page main .about-page .about-section h2 {
+    font-size: 36px;
+  }
+
+  .page main .about-page .about-section .sub_title {
+    font-size: 26px;
+    color: #9da6c7;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters {
+    height: 330px;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters .headquater-item {
+    padding-top: 130px;
+  }
+
+  .page main .about-page .about-section.headquarter .headquarters .headquater-item p {
+    font-size: 18px;
+  }
+
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 0px;
-    padding-top: 0;
+    margin-top: 100px;
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
-    margin-top: 30px;
+    margin-top: 0px;
+    padding-bottom: 150px;
   }
 
   .page main .contact-page .contact-header {
@@ -4950,12 +5113,21 @@ body {
     padding-right: 150px;
   }
 
+  .page main .service-page .service-header .header-gradient .header-description .header-text h1 {
+    font-size: 48px;
+  }
+
   .page main .service-page .service-header .header-gradient .header-description .header-text p {
     font-size: 20px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group h3 {
-    text-align: center;
+  .page main .service-page .service-header .header-gradient .starter-group h2 {
+    font-size: 36px;
+  }
+
+  .page main .service-page .service-header .header-gradient .starter-group .third-button {
+    font-size: 18px;
+    padding: 20px 70px 20px 70px;
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure {
@@ -4964,7 +5136,7 @@ body {
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 16px;
+    font-size: 20px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4978,6 +5150,10 @@ body {
 
   .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
     font-size: 20px;
+  }
+
+  .page main .service-page .service-section h2 {
+    font-size: 36px;
   }
 
   .page main .service-page .service-section.review {
@@ -4999,21 +5175,25 @@ body {
     padding-top: 220px;
   }
 
+  .page main .service-page .service-section.review .service-review p {
+    font-size: 18px;
+  }
+
+  .page main .service-page .service-section.review .service-review p.case_text {
+    font-size: 14px;
+  }
+
   .page main .service-page .service-section.review .service-review .third-button {
-    font-size: 12px !important;
+    font-size: 18px !important;
+    padding: 15px 50px 5px 50px;
   }
 
-  .page main .service-page .service-section.branding {
-    margin-top: 300px;
+  .page main .service-page .service-estimation .service-estimation-description h3 {
+    font-size: 20px;
   }
 
-  .page main .service-page .service-section.tech h3 {
-    text-align: center;
-  }
-
-  .page main .service-page .service-estimation .service-estimation-description h3,
   .page main .service-page .service-estimation .service-estimation-description p {
-    text-align: center;
+    font-size: 20px;
   }
 
   .page main .login-page {
