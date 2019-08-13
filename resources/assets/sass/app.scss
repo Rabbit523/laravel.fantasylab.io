@@ -466,9 +466,6 @@ body {
         .item-link {
           text-decoration: none;
         }
-        p {
-          font-size: 13px;
-        }
       }
     }
     .service-item {
@@ -972,7 +969,6 @@ body {
         align-items: flex-end;
         flex: 1;
         h3 {
-          font-size: 16px;
           font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
@@ -988,14 +984,10 @@ body {
         padding-top: 5px;
         text-align: center;
         p {
-          font-size: 13px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
           color: #9da6c7;
           font-weight: 100;
-          @media (min-width: 1280px) {
-            font-size: 12px;
-          }
         }
       }
       @media (min-width: 320px) {
@@ -1006,13 +998,6 @@ body {
       }
       @media (min-width: 414px) {
         padding: 60px;
-      }
-      @media (min-width: 1920px) {
-        .description {
-          p {
-            font-size: 16px;
-          }
-        }
       }
     }
     .headquater-card {
@@ -1313,7 +1298,7 @@ body {
                 padding-bottom: 10px;
               }
               .description {
-                font-size: 12px;
+                font-family: "Gotham Bold";
               }
             }
             .review-personal {
@@ -1338,7 +1323,6 @@ body {
               font-family: 'Gotham Bold';
             }
             color: #9da6c7;
-            font-size: 12px;
           }
           .sub_descriptions {
             display: flex;
@@ -1763,8 +1747,8 @@ body {
       .service-section {
         color: #fff;
         text-align: center;
-        padding-top: 100px;
-        padding-bottom: 100px;
+        padding-top: 50px;
+        padding-bottom: 50px;
         &.review {
           min-height: 100vh;
         }
@@ -2000,7 +1984,8 @@ body {
               .terms-section {
                 margin-left: 30px;
                 span {
-                  color: #9aa2bf !important
+                  color: #656c8b !important
+                  
                 }
                 a {
                   color: #3e75db;
@@ -2020,7 +2005,8 @@ body {
               background: #fff;
               font-weight: bold;
               font-family: "Gotham Bold";
-              font-size: 16px;      
+              font-size: 16px;
+              padding-left: 32px;
               img {
                 width: 20px;
                 position: absolute;
@@ -2447,12 +2433,6 @@ body {
                 padding-bottom: 0px;
                 padding-left: 0px;
                 padding-right: 0px;
-                h2 {
-                  font-size: 30px;
-                }
-                p {
-                  font-size: 15px;
-                }
               }
             }
             .image-group {
@@ -2473,6 +2453,9 @@ body {
               width: 260px;
               left: 30px;
             }
+          }
+          .main_description:nth-of-type(1) {
+            margin-top: 100px;
           }
           .service {
             padding-left: 15px;
@@ -2517,7 +2500,8 @@ body {
           }
         }
         .about-section:nth-of-type(5) {
-          margin-top: 1000px;
+          margin-top: 1250px;
+          margin-bottom: 100px;
           .alice-carousel {
             margin-left: 0;
             .alice-carousel__stage-item {
@@ -2533,13 +2517,15 @@ body {
         }
         .about-section {
           .headquarters {
-            min-height: 445px;
-            height: 445px;
+            min-height: 150px;
+            height: 150px;
             width: 100%;
-            background-size: cover;
             max-width: 100%;
             background-position: center center;
             background-repeat: no-repeat;
+            .headquater-item {
+              padding-top: 60px;
+            }
           }
         }
       }
@@ -2558,17 +2544,15 @@ body {
               .header-text {
                 padding: 0;
                 h2 {
-                  font-size: 30px;
-                }
-                p {
-                  font-size: 14px;
+                  line-height: 1.4285em;
                 }
               }
             }
           }
         }
         .contact-section {
-          margin-top: 1300px;
+          margin-top: 1505px;
+          margin-bottom: 100px;
           .message-form {
             label {
               font-size: 14px;
@@ -2666,14 +2650,14 @@ body {
             background-size: cover;
             background-position: unset;
             background-repeat: no-repeat;
-            margin-top: 1360px;
+            margin-top: 1330px;
             .custom-col-4 {
               width: 100% !important;
               margin: 0 !important;
               padding: 0;
             }
             .service-review {
-              padding-top: 0px;
+              padding-top: 20px;
               h3 {
                 text-align: center;
               }
@@ -2683,10 +2667,13 @@ body {
             }
           }
           &.mobile {
-            margin-top: 1300px;
+            margin-top: 1370px;
           }
           &.branding {
-            margin-top: 1460px;
+            margin-top: 2100px;
+          }
+          &.illustration {
+            margin-top: 1350px;
           }
           &.tech {
             text-align: left;
@@ -2744,9 +2731,12 @@ body {
               .remember-section {
                 flex-direction: column;
                 font-size: 14px;
-                .checkbox label, a {
-                  text-align: left;
-                  font-size: 14px;
+                text-align: left;
+                .checkbox label {
+                  padding-top: 3px;
+                  padding-left: 40px;
+                }
+                a {
                   padding-top: 15px;
                 }
               }
@@ -2757,12 +2747,18 @@ body {
                     font-size: 14px;
                     text-align: left;
                     padding-left: 40px;
+                    padding-top: 3px;
                   }
                 }
                 .terms-section {
                   margin-left: 40px;
                   line-height: 0;
                   text-align: left;
+                  font-size: 14px;
+                  position: relative;
+                  top: -19px;
+                  right: -92px;
+                  font-family: "Gotham Bold";
                   a {
                     font-size: 14px;
                   }
@@ -2838,6 +2834,11 @@ body {
           }
         }
       }
+      .contact-page {
+        .contact-section {
+          margin-top: 1480px;
+        }
+      }
     }
   }
 }
@@ -2876,10 +2877,18 @@ body {
           margin-top: 1360px;
         }
       }
+      .contact-page {
+        .contact-section {
+          margin-top: 1455px;
+        }
+      }
       .singlePortfolio-page {
         .portfolio-section {
           .sub_title {
             padding-top: 50px;
+          }
+          .main_description:nth-of-type(1) {
+            margin-top: 0;
           }
           .sub_descriptions {
             .round_number {
@@ -2929,6 +2938,14 @@ body {
       .divide {
         height: 46px;
       }
+      .home-page {
+        .homepage-header {
+          height: 300px; 
+          .homepage-header-description {
+            margin-top: 280px;
+          }
+        }
+      }
       .portfolio-page {
         .portfolio-header {
           .header-gradient {
@@ -2956,6 +2973,13 @@ body {
               left: 30px;
               padding: 50px 40px 50px 40px;
             }
+          }
+        }
+      }
+      .service-page {
+        .service-section {         
+          &.illustration {
+            margin-top: 1350px;
           }
         }
       }
@@ -3447,6 +3471,11 @@ body {
                 .checkbox {
                   label {
                     padding-top: 0px;
+                  }
+                }
+                .terms-section {
+                  a:nth-of-type(2) {
+                    padding-top: 0;
                   }
                 }
               }
@@ -4012,7 +4041,7 @@ body {
               .review-text-section {
                 .description {
                   height: 100%;
-                  font-size: 16px;
+                  font-size: 18px;
                 }
               }
             }

@@ -19,7 +19,6 @@ class Page extends React.Component {
         .then(
             res => {
                 if (res.data.data) {
-                    console.log(JSON.parse(res.data.data));
                     this.setState({ isLoaded: true, isExisted: true, data: JSON.parse(res.data.data) });
                 } else {
                     this.setState({ isLoaded: true, isExisted: false });
@@ -61,7 +60,7 @@ class Page extends React.Component {
                                     {data.main_description.map((item, index) => (
                                         <React.Fragment key={index}>
                                             <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
-                                                <p className="sub_title">{item.title}</p>
+                                                <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
                                                     <div className="sub_descriptions" key={i}>
@@ -71,7 +70,7 @@ class Page extends React.Component {
                                                 ))}
                                             </Grid.Column>
                                             <Grid.Column only="computer" className="main_description">
-                                                <p className="sub_title">{item.title}</p>
+                                                <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
                                                     <div className="sub_descriptions" key={i}>

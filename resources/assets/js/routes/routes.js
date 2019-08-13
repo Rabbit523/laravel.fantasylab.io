@@ -73,7 +73,7 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/service-web',
+        path: '/service-desktop',
         exact: true,
         auth: false,
         component: ServiceWeb

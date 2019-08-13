@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import {isMobile} from 'react-device-detect'
 import PageMetaTag from '../../common/pageMetaTag'
 import GuideCard from '../../common/guideCard'
 import TextCard from '../../common/textCard'
@@ -76,7 +77,7 @@ class Page extends React.Component {
                                             </React.Fragment>
                                         ))}
                                     </Grid.Column>
-                                    <Grid.Column mobile={16} tablet={16} computer={8} style={{marginTop: 20}}>
+                                    <Grid.Column mobile={16} tablet={16} computer={8} style={isMobile?{marginTop: -20}:{marginTop: 20}}>
                                         {data.values.data.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 {i >= 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}

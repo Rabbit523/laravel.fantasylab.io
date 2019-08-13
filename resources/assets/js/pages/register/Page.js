@@ -253,7 +253,7 @@ class Page extends React.Component {
                                 <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
                                     <Checkbox onClick={this.handleCheckBoxClick} label='By creating an account, I agree to our ' />
                                     <div className='terms-section'>
-                                        <Link to='/terms-service' replace>Terms of Service</Link> <span>and</span> <Link to='/privacy-policy' replace>Privacy Policy</Link>
+                                        <Link to='/terms-service' replace>Terms</Link> <span>and</span> <Link to='/privacy-policy' replace>Privacy</Link>
                                     </div>
                                 </div>
                                 <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Create account</Button>
