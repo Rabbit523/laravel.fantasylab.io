@@ -105,6 +105,24 @@ class PagesController extends Controller
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                     $request_data['header_url'] = $path;
                 } 
+                if ($data->header->footer_url != $request_data['mobile_header']) {
+                    if (strpos($request_data['mobile_header'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['mobile_header']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['mobile_header']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'_mobile_header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code);
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['mobile_header'] = $path;
+                }
                 if ($data->header->footer_url != $request_data['footer_url']) {
                     if (strpos($request_data['footer_url'], 'data:image/jpeg;base64') !== false) {
                         $img = str_replace('data:image/jpeg;base64,', '', $request_data['footer_url']);

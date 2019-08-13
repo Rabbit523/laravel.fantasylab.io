@@ -120,16 +120,31 @@ class Page extends React.Component {
     }
 
     onAvatarChange(type, e){
-        var infile = document.getElementById('input-file');
         var { header, services, badges, carousels, news } = this.state;
+        var infile = document.getElementById('input-file');
         const ref = this;
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
                 if (type == 'header') { header.header_url = e.target.result; ref.setState({ header }); } 
                 else if (type == 'footer') { header.footer_url = e.target.result; ref.setState({ header }); }
+                else if (type == 'mobile_header') { 
+                    console.log(e.target.result);
+                    header.mobile_header = e.target.result; 
+                    ref.setState({ header });
+                }
             }
             reader.readAsDataURL(infile.files[0]);
+        }
+        //upload mobile header image
+        var mobilefile = document.getElementById('mobile-file');
+        if (mobilefile.files && mobilefile.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                header.mobile_header = e.target.result; 
+                ref.setState({ header });
+            }
+            reader.readAsDataURL(mobilefile.files[0]);
         }
         // upload service images
         var files = document.getElementsByClassName('service_avatar');
@@ -343,6 +358,12 @@ class Page extends React.Component {
                                                     <label>Header Image</label>
                                                     <Form.Field>
                                                         <input accept='image/*' type='file' id='input-file' onChange={(e) => this.onAvatarChange('header', e)}/>
+                                                    </Form.Field>
+                                                </Form>
+                                                <Form>
+                                                    <label>Header Mobile Image</label>
+                                                    <Form.Field>
+                                                        <input accept='image/*' type='file' id='mobile-file' onChange={(e) => this.onAvatarChange('mobile_header', e)}/>
                                                     </Form.Field>
                                                 </Form>
                                                 <Form>

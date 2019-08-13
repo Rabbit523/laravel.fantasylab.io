@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Container, Grid, Dimmer, Segment, Loader, Image } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import {isMobile} from 'react-device-detect'
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
@@ -36,7 +37,7 @@ class Page extends React.Component {
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.header.meta_title} meta_description={data.header.meta_description}/>
-                        <div className='homepage-header' style={{ backgroundImage: `url(${data.header.header_url})` }}>
+                        <div className='homepage-header' style={{ backgroundImage: `url(${isMobile?data.header.mobile_header:data.header.header_url})` }}>
                             <Container className='custom-col-6'>
                                 <div className='homepage-header-description'>
                                     <h1>{data.header.header_title}</h1>

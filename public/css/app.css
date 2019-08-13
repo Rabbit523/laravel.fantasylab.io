@@ -4078,6 +4078,26 @@ body {
     max-width: 450px;
   }
 
+  .page main .login-page .login-responsive .login-form .segment .remember-section {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
+    padding-top: 4px;
+    padding-left: 40px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+    padding-top: 11px;
+  }
+
+  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+    padding-top: 0px;
+  }
+
   .footer {
     min-height: 50vh;
     padding-top: 50px;
@@ -4862,26 +4882,15 @@ body {
     min-height: 90vh;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-  }
-
   .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
-    padding-top: 4px;
-    padding-left: 40px;
     font-size: 16px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .remember-section a {
     font-size: 16px;
-    padding-top: 11px;
   }
 
   .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
-    padding-top: 0px;
     font-size: 16px;
   }
 

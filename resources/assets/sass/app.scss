@@ -3416,6 +3416,29 @@ body {
         }
         .login-responsive {
           max-width: 450px;
+          .login-form {
+            .segment {
+              .remember-section {
+                flex-direction: row;
+                .checkbox {
+                  label {
+                    padding-top: 4px;
+                    padding-left: 40px;
+                  }
+                }
+                a {
+                  padding-top: 11px;
+                }
+              }
+              .privacy-section {
+                .checkbox {
+                  label {
+                    padding-top: 0px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -4191,23 +4214,18 @@ body {
           .login-form {
             .segment {
               .remember-section {
-                flex-direction: row;
                 .checkbox {
                   label {
-                    padding-top: 4px;
-                    padding-left: 40px;
                     font-size: 16px;
                   }
                 }
                 a {
                   font-size: 16px;
-                  padding-top: 11px;
                 }
               }
               .privacy-section {
                 .checkbox {
                   label {
-                    padding-top: 0px;
                     font-size: 16px;
                   }
                 }
