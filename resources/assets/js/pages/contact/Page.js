@@ -41,6 +41,7 @@ class Page extends React.Component {
         .then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                window.scrollTo(0, 0);
             }
         ).catch(err => {
             console.error(err);
@@ -145,7 +146,7 @@ class Page extends React.Component {
                                     <div className='header-description'>
                                         <div className='header-text'>
                                             <h1>{data.title}</h1>
-                                            <p>{data.description}</p>
+                                            <h2>{data.description}</h2>
                                         </div>
                                     </div>
                                     <Grid style={{paddingTop: 50}}>

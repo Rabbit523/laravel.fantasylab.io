@@ -166,7 +166,7 @@ body {
   border-radius: 5px;
   color: #fff !important;
   font-family: "Gotham Bold" !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
   &:hover {
     background: linear-gradient(to bottom, #7630f9 0%, #5710de 100%) !important;
     box-shadow: 5px 5px 30px rgba(130,63,255, 0.5) !important;
@@ -433,40 +433,6 @@ body {
   display: flex;
   flex-direction: row;
   padding-top: 63px;
-  h1 {
-    font-size: 48px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  h2 {
-    font-size: 36px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  h3 {
-    font-size: 24px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  h4 {
-    font-size: 18px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  h5 {
-    font-size: 16px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  h6 {
-    font-size: 16px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
-  }
-  p {
-    font-size: 16px;
-    font-family: "Gotham Book";
-  }
   .admin-sidebar {
     position: relative !important;
     background: #070a2b !important;
@@ -569,17 +535,8 @@ body {
         align-items: flex-end;
         flex: 1;
         h3 {
-          font-size: 20px;
-          font-family: "Gotham Bold";
-          font-weight: bold;
           white-space: pre-wrap;
-          color: #fff;        
-          @media (min-width: 1280px) {
-            font-size: 14px;
-          }
-          @media (min-width: 1366px) {
-            font-size: 20px;
-          }
+          color: #fff;
         }
       }
       .description {
@@ -587,17 +544,8 @@ body {
         padding-top: 5px;
         text-align: left;
         p {
-          font-size: 13px;
-          font-family: "Gotham Book";
           white-space: pre-wrap;
           color: #9da6c7;
-          font-weight: 100;
-          @media (min-width: 1280px) {
-            font-size: 12px;
-          }
-          @media (min-width: 1366px) {
-            font-size: 16px;
-          }
         }
       }
     }
@@ -606,12 +554,6 @@ body {
       height: 100%;
       display: flex;
       flex-direction: column;
-      @media (min-width: 320px) {
-        text-align: left !important;
-      }
-      @media (min-width: 1366px) {
-        text-align: center !important;
-      }
       .badge-img {
         display: inline-block;
         width: 50px;
@@ -637,33 +579,16 @@ body {
         display: flex;
         align-items: flex-end;
         flex: 1;
-        h3 {
-          font-size: 16px;
-          white-space: pre-wrap;
-          font-family: "Gotham Bold";
+        h3 {          
+          white-space: pre-wrap;          
           color: #fff;
-          @media (min-width: 1280px) {
-            font-size: 14px;
-          }
-          @media (min-width: 1920px) {
-            font-size: 20px;
-          }
         }
       }
       .badge-description {
         padding-top: 5px;
-        p {
-          font-size: 12px;
-          font-family: "Gotham Book";
+        p {          
           white-space: pre-wrap;
           color: #9aa2bf;
-          font-weight: 100;
-          @media (min-width: 1280px) {
-            font-size: 12px;
-          }
-          @media (min-width: 1920px) {
-            font-size: 16px;
-          }
         }
       }
     }
@@ -699,7 +624,16 @@ body {
             height: auto;
             position: absolute;
             top: 0;
-            left: 40px;
+            left: 50px;
+            @media (min-width: 360px) {
+              left: 65px;
+            }
+            @media (min-width: 375px) {
+              left: 80px;
+            }
+            @media (min-width: 414px) {
+              left: 100px;
+            }
             @media (min-width: 1280px) {
               top: -30px;
               left: 30px;
@@ -784,7 +718,7 @@ body {
       }
     }
     .review-item {
-      padding: 20px 80px 30px 80px;
+      padding: 30px;
       background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
       margin-right: 1rem;
       border-radius: 5px;
@@ -807,10 +741,6 @@ body {
           position: absolute;
           margin-left: 20px;
           margin-top: 15px;
-          @media (min-width: 1366px) {
-            margin-left: 50px;
-            margin-top: 35px;
-          }
           i {
             margin-left: 6px;
             margin-top: 8px;
@@ -825,16 +755,15 @@ body {
         align-items: center;
         justify-content: center;
         p {
-          font-family: "Gotham Bold";
           color: #9aa2bf;
           &.name {
             color: #7436e9;
+            font-family: "Gotham Bold";
           }
         }
-        .description {
+        h3 {
           overflow: hidden;
           text-overflow: ellipsis;
-          height: 94px;
           width: 100%;
           display: -webkit-box;
           -webkit-line-clamp: 8;
@@ -1005,8 +934,6 @@ body {
         flex: 1;
         text-align: center;
         h3 {
-          font-size: 16px;
-          font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
         }
@@ -1015,18 +942,8 @@ body {
         padding-top: 5px;
         text-align: center;
         p {
-          font-size: 12px;
-          font-family: "Gotham Book";
           white-space: pre-wrap;
           color: #9da6c7;
-          font-weight: 100;
-        }
-      }
-      @media (min-width: 320px) {
-        .title {
-          h3 {
-            font-size: 13px;
-          }
         }
       }
       @media (min-width: 375px) {
@@ -1037,36 +954,9 @@ body {
       }
       @media (min-width: 1280px) {
         padding: 20px;
-        .title {
-          h3 {
-            font-size: 14px;
-          }
-        }
-        .description {
-          p {
-            font-size: 12px;
-          }
-        }
       }
       @media (min-width: 1366px) {
-        padding: 30px 20px;
-        .title {
-          h3 {
-            font-size: 20px;
-          }
-        }
-      }
-      @media (min-width: 1920px) {
-        .title {
-          h3 {
-            font-size: 18px;
-          }
-        }
-        .description {
-          p {
-            font-size: 16px;
-          }
-        }
+        padding: 30px 20px;        
       }
     }
     .text-card {
@@ -1222,7 +1112,7 @@ body {
         .homepage-header-description {
           display: inline-block;
           margin-top: 60px;
-          width: 50%;
+          width: 100%;
           color: #fff;
           .normal {
             color: #9aa2bf;
@@ -1240,7 +1130,7 @@ body {
           }
           .homepage-header-buttons {
             .register {
-              padding: 15px 70px 15px 70px;
+              padding: 15px 60px 15px 60px;
               margin-bottom: 1em;
             }
           }
@@ -1259,8 +1149,6 @@ body {
           margin-bottom: 20px;
           p {
             color: #9aa2bf;
-            font-size: 18px;
-            font-family: "Gotham Book";
           }
         }
         .alice-carousel {
@@ -1306,7 +1194,6 @@ body {
           p {
             padding: 0;
             color: #9aa2bf;
-            font-size: 18px;
           }
         }
         .home-button-group {
@@ -1377,7 +1264,7 @@ body {
         .header-gradient {
           width: 100%;
           height: 610px;
-          background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+          background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
           .header-description {
             text-align: center;
             color: #fff;
@@ -1451,6 +1338,7 @@ body {
           p {
             &.sub_title {
               color: #fff;
+              font-family: 'Gotham Bold';
             }
             color: #9da6c7;
             font-size: 12px;
@@ -1593,9 +1481,10 @@ body {
               padding-bottom: 50px;
               padding-left: 200px;
               padding-right: 200px;
-              p {
+              h2 {
                 color: #9da6c7;
                 font-size: 18px;
+                font-family: 'Gotham Book';
               }
             }
           }
@@ -1690,7 +1579,7 @@ body {
           }
           label {
             color: #656c8b !important;
-            font-family: "Gotham Book";
+            font-family: "Gotham Bold";
             font-size: 16px;
           }
           .field {
@@ -1829,7 +1718,6 @@ body {
               padding-right: 210px;
               p {
                 color: #9da6c7;
-                font-size: 18px;
               }
             }
           }
@@ -2426,11 +2314,24 @@ body {
   }
   .page {
     padding-top: 50px;
-    p {
-      font-size: 12px;
+    h1 {
+      font-size: 32px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 26px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
     }
     h3 {
-      font-size: 20px;
+      font-size: 18px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
     }
     main {
       .divide {
@@ -2444,7 +2345,7 @@ body {
         max-width: 100%;
         background-position: center center;
         background-repeat: no-repeat;
-        margin-top: 120px;
+        margin-top: 250px;
         .main-footer-description {
           width: 100%;
           margin-top: -220px;
@@ -2452,14 +2353,14 @@ body {
             font-size: 22px;
           }
           .primary-button {
-            padding: 15px 72px;
+            padding: 15px 60px;
           }
         }
       }
       .home-page {
         .homepage-header {
-          min-height: 600px;
-          height: 600px;
+          min-height: 250px;
+          height: 250px;
           width: 100%;
           background-size: cover;
           max-width: 100%;
@@ -2467,12 +2368,9 @@ body {
           background-repeat: no-repeat;
           background-image: url(/images/home-header-mobile.png);
           .homepage-header-description {
-            margin-top: 170px;
-            h2 {
-              font-size: 30px;
-            }
-            .normal {
-              font-size: 10px;
+            margin-top: 240px;
+            .title {
+              font-size: 18px;
             }
           }
         }
@@ -2502,7 +2400,7 @@ body {
           }
         }
         .home-section:nth-of-type(1) {
-          margin-top: 330px;
+          margin-top: 650px;
         }
       }
       .portfolio-page {
@@ -2604,12 +2502,6 @@ body {
               padding-bottom: 25px;
               .header-text {
                 padding-bottom: 150px;
-                h2 {
-                  font-size: 30px;
-                }
-                p {
-                  font-size: 13px;
-                }
               }
               .counter-box {
                 flex-direction: column;
@@ -2740,12 +2632,6 @@ body {
             .header-description {
               .header-text {
                 padding: 0;
-                h2 {
-                  font-size: 30px;
-                }
-                p {
-                  font-size: 14px;
-                }
               }
             }
             .figures {
@@ -2755,7 +2641,7 @@ body {
                 padding-left: 6px;
                 padding-right: 6px;
                 p {
-                  font-size: 10px;
+                  font-size: 16px;
                 }
               }
             }
@@ -2777,19 +2663,19 @@ body {
         }
         .service-section {
           &.review {
-            min-height: 580px;
+            min-height: 650px;
             width: 100%;
             background-size: cover;
             background-position: unset;
             background-repeat: no-repeat;
-            margin-top: 860px;
+            margin-top: 1360px;
             .custom-col-4 {
               width: 100% !important;
               margin: 0 !important;
               padding: 0;
             }
             .service-review {
-              padding-top: 110px;
+              padding-top: 0px;
               h3 {
                 text-align: center;
               }
@@ -2815,13 +2701,6 @@ body {
                   width: 60px !important;
                 }
               }
-            }
-          }
-        }
-        .service-estimation {
-          .service-estimation-description {
-            h3, p {
-              text-align: left;
             }
           }
         }
@@ -2983,11 +2862,6 @@ body {
   }
   .page {
     main {
-      .home-page {
-        .home-section:nth-of-type(1) {
-          margin-top: 0px;
-        }
-      }
       .portfolio-page {
         .portfolio-header {
           .header-gradient {
@@ -3057,18 +2931,6 @@ body {
       .divide {
         height: 46px;
       }
-      .home-page {
-        .homepage-header {
-          .homepage-header-description {
-            h2 {
-              font-size: 32px;
-            }
-            .normal {
-              font-size: 12px;
-            }
-          }
-        }        
-      }
       .portfolio-page {
         .portfolio-header {
           .header-gradient {
@@ -3114,6 +2976,7 @@ body {
   }
 }
 
+//tablet
 @media (min-width: 551px) {
   
 }
@@ -3133,18 +2996,22 @@ body {
 @media (min-width: 1057px) {
  
 }
-
-
+//desktop
 @media (min-width: 1280px) {
   .segment.navbar {
     .nav-color {
-      font-size: 13px;
+      font-size: 12px;
       padding: 22px 8px 22px 8px !important;
       .text {
-        padding-top: 0px;
+        padding-top: 2px;
       }
     }
     .menu {
+      .ui.buttons {
+        a {
+          font-size: 12px !important;
+        }
+      }
       .custom-row {
         .custom-dropdown {
           .custom-dropdown-item {
@@ -3164,6 +3031,25 @@ body {
     }
   }
   .page {
+    h1 {
+      font-size: 48px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 36px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 20px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+    }
     main {
       .divide {
         height: 140px;
@@ -3201,15 +3087,6 @@ body {
           .homepage-header-description {
             margin-top: 110px;
             width: 50%;
-            h2 {
-              font-size: 36px;
-            }
-            .title {
-              font-size: 16px;
-            }
-            .normal {
-              font-size: 12px;
-            }
             .homepage-header-buttons {
               .register {
                 padding: 15px 70px 15px 70px;
@@ -3220,14 +3097,6 @@ body {
           }
         }
         .home-estimation {
-          h2 {
-            font-size: 24px;
-          }
-          .home-estimation-description {
-            p {
-              font-size: 14px;
-            }
-          }
           .home-button-group {
             .button {
               font-size: 14px !important;
@@ -3240,19 +3109,16 @@ body {
           }
         }
         .home-section:nth-of-type(1) {
-          margin-top: 0;
+          margin-top: 200px;
         }
         .home-section {
-          h2 {
-            font-size: 24px;
-          }
           .portfolio-item-observer {
             height: 100%;
           }
           .alice-carousel {
-            margin-left: 135px;
+            margin-left: 175px;
             .alice-carousel__stage-item {
-              width: 331.333px !important;
+              width: 367.333px !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
@@ -3307,6 +3173,8 @@ body {
           .header-gradient {
             height: 610px;
             .header-description {
+              padding-top: 150px;
+              padding-bottom: 0;
               .header-text {
                 padding-bottom: 50px;
                 padding-left: 100px;
@@ -3332,11 +3200,15 @@ body {
           }
         }
         .portfolio-section {
+          &:nth-of-type(1) {
+            margin-top: 100px;
+          }
           &.review {
+            margin-top: 200px;
             .review-item {
-              width: 280px;
-              left: 40%;
-              padding: 30px 20px 40px 20px;
+              width: 350px;
+              left: 35%;
+              padding: 30px 30px 40px 30px;
             }
           }
           .service {
@@ -3364,11 +3236,14 @@ body {
               }
               .counter-box {
                 flex-direction: row;
-                h4 {
-                  font-size: 24px;
-                }
-                p {
-                  font-size: 12px;
+                .box {
+                  h4 {
+                    font-size: 24px;
+                    font-family: "Gotham Bold";
+                  }
+                  p {
+                    font-size: 12px;
+                  }
                 }
               }
             }
@@ -3411,56 +3286,56 @@ body {
               .header-text {
                 padding-left: 180px;
                 padding-right: 180px;
-                p {
-                  font-size: 14px;
+                h1 {
+                  font-size: 36px;
                 }
-              }
-            }
-            .row {
-              margin-left: 0;
-              margin-right: 0;
-              .column {
-                &:first-child {
-                  padding-left: 0;                                  
-                }
-                &:last-child {
-                  padding-right: 0;
+                h2 {
+                  font-size: 18px;
                 }
               }
             }
           }
         }
         .contact-section {
-          margin-top: 0px;
+          margin-top: 65px;
+          margin-bottom: 100px;
           .message-form {
+            label, input {
+              font-size: 14px;
+            }
             .form-group {
               flex-direction: row;
+              .field {
+                margin-left: 15px;
+                margin-right: 15px;
+              }
+              .phone-form {
+                .react-phone-number-input__phone {
+                  font-size: 14px;
+                  margin-top: 8px;
+                }
+              }
             }
             .privacy-section {
               flex-direction: row;
-              .terms-section {
-                padding-left: 5px;
+              .checkbox {
+                label {
+                  padding-left: 40px;
+                  padding-top: 5px;
+                }
               }
-            }
-            label {
-              font-size: 12px;
-            }
-            .phone-form {
-              .react-phone-number-input__phone {
-                margin-top: 7px !important;
-                padding: 12px 8px !important;
-              }
-            }
-            .privacy-section {
               .terms-section {
                 margin-top: 10px;
+                padding-left: 5px;
                 a {
                   font-size: 12px;
+                  padding-top: 5px;
                 }
               }
             }
             .primary-button {
               width: 50%;
+              font-size: 16px;
             }
           }
         }
@@ -3486,27 +3361,17 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
-                h1 {
-                  font-size: 36px;
-                }
-                p {
-                  font-size: 18px;
-                }
               }
             }
             .starter-group {
               h2 {
                 text-align: center;
-                font-size: 24px;
               }
             }
             .figures {
               .figure {
                 padding-left: 16px;
                 padding-right: 16px;
-                p {
-                  font-size: 18px;
-                }
               }
             }
             &.mobile {
@@ -3518,22 +3383,11 @@ body {
               }
               .starter-group {
                 margin-top: 70px;
-                .service-item {
-                  .text-item {
-                    p {
-                      font-size: 13px;
-                    }
-                  }
-                }
               }
             }
           }
         }
         .service-section {
-          h2 {
-            font-size: 24px;
-            text-align: center;
-          }
           &.review {
             min-height: 100vh;
             background-size: cover;
@@ -3541,9 +3395,9 @@ body {
             background-position: center center;
             background-repeat: no-repeat;
             background: url(/images/illustration-dev-back.png) center center / 100% 100% no-repeat;
-            margin-top: 50px;
+            margin-top: 220px;
             .custom-col-4 {
-              width: 40% !important;
+              width: 50% !important;
               margin: inherit !important;
             }
             .service-review {
@@ -3564,7 +3418,7 @@ body {
             margin-top: 240px;
           }
           &.tech {
-            h3 {
+            h2 {
               text-align: center;
             }
           }
@@ -3605,7 +3459,7 @@ body {
     }
     .footer-item {
       .item-link {
-        font-size: 12px;
+        font-size: 13px;
       }
     }
     img {
@@ -3613,7 +3467,7 @@ body {
     }
     h5 {
       text-align: right;
-      font-size: 12px;
+      font-size: 13px;
       margin-bottom: 0px;
       margin-top: 5px;
     }
@@ -3624,9 +3478,6 @@ body {
   .segment.navbar {
     .nav-color {
       padding: 22px 8px 22px 8px !important;
-      .text {
-        padding-top: 0px;
-      }
     }
     .menu {
       .custom-row {
@@ -3648,12 +3499,6 @@ body {
     }
   }
   .page {
-    p {
-      font-size: 12px;
-    }
-    h3 {
-      font-size: 24px;
-    }
     main {
       .divide {
         height: 150px;
@@ -3686,49 +3531,7 @@ body {
         }
       }
       .home-page {
-        .homepage-header {
-          height: 560px;
-          .homepage-header-description {
-            margin-top: 110px;
-            width: 50%;
-            h2 {
-              font-size: 36px;
-            }
-            .title {
-              font-size: 16px;
-            }
-            .homepage-header-buttons {
-              .register {
-                padding: 15px 55px 15px 55px;
-                font-size: 12px !important;
-                margin-bottom: 10px;
-              }
-            }
-          }
-        }
-        .home-estimation {
-          .home-button-group {
-            .button {
-              font-size: 14px !important;
-              width: auto;
-              &.secondary-button {
-                padding-left: 25px;
-                padding-right: 25px;
-              }
-              &.primary-button {
-                padding: 10px 15px;
-                margin-right: 20px;
-              }
-            }
-          }
-        }
-        .home-section:nth-of-type(1) {
-          margin-top: 0;
-        }
         .home-section {
-          .portfolio-item-observer {
-            height: 100%;
-          }
           .alice-carousel {
             margin-left: 160px;
             .alice-carousel__stage-item {
@@ -3933,9 +3736,6 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
-                p {
-                  font-size: 12px;
-                }
               }
             }
             .starter-group {
@@ -3947,9 +3747,6 @@ body {
               .figure {
                 padding-left: 16px;
                 padding-right: 16px;
-                p {
-                  font-size: 12px;
-                }
               }
             }
             &.mobile {
@@ -3980,7 +3777,7 @@ body {
             background-position: center center;
             background-repeat: no-repeat;
             background: url(/images/illustration-dev-back.png) center center / 100% 100% no-repeat;
-            margin-top: 50px;
+            margin-top: 160px;
             .custom-col-4 {
               width: 40% !important;
               margin: inherit !important;
@@ -4028,15 +3825,9 @@ body {
     }
   }
   .footer {
-    min-height: 66vh;
+    min-height: 53vh;
     img {
       width: 30px !important;
-    }
-    h5 {
-      text-align: right;
-      font-size: 16px;
-      margin-bottom: 0px;
-      margin-top: 5px;
     }
   }
 }
@@ -4113,41 +3904,18 @@ body {
       }
       .home-page {
         .homepage-header {
-          height: 785px;
+          height: 780px;
           .homepage-header-description {
-            margin-top: 180px;
-            width: 50%;
-            h2 {
-              font-size: 54px;
-            }
-            .title {
-              font-size: 24px;
-            }
-            .normal {
-              font-size: 16px;
-            }
-            .homepage-header-buttons {
-              .register {
-                padding: 20px 70px 20px 70px;
-                font-size: 18px !important;
-              }
+            margin-top: 200px;
+            width: 45%;
+          }
+          .homepage-header-buttons {
+            .register {
+              margin-top: 10px;
             }
           }
         }
-        .home-estimation {
-          h2 {
-            font-size: 36px;
-          }
-          .home-estimation-description {
-            p {
-              font-size: 18px;
-            }
-          }
-          .badge-item {
-            .badge-description {
-              text-align: left;
-            }
-          }
+        .home-estimation {          
           .home-button-group {
             .button {
               font-size: 18px !important;
@@ -4165,17 +3933,14 @@ body {
           margin-top: 35px;
         }
         .home-section {
-          h2 {
-            font-size: 36px;
-          }
           .alice-carousel {
-            margin-left: 192px;
+            margin-left: 0px;
             .alice-carousel__stage-item {
-              width: 373.464px !important;
+              width: 366.464px !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
-            left: 120px;
+            left: -100px;
             display: block;
           }
         }
@@ -4191,13 +3956,18 @@ body {
                 h1 {
                   font-size: 48px;
                 }
-                p {
+                h2 {
                   font-size: 20px;
                 }
               }
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
+                .figure {
+                  p {
+                    font-size: 20px;
+                  }
+                }
               }
             }
           }
@@ -4222,10 +3992,10 @@ body {
                 padding-left: 100px;
                 padding-right: 100px;
                 h2 {
-                  font-size: 36px;
+                  font-size: 48px;
                 }
                 p {
-                  font-size: 18px;
+                  font-size: 20px;
                 }
               }
             }
@@ -4242,16 +4012,36 @@ body {
           }
         }
         .portfolio-section {
+          &:nth-of-type(1) {
+            margin-top: 400px;
+          }
           &.review {
             .review-item {
-              width: 280px;
+              width: 400px;
               left: 40%;
-              padding: 30px 20px 40px 20px;
+              padding: 50px;
+              .review-text-section {
+                .description {
+                  height: 100%;
+                  font-size: 16px;
+                }
+              }
             }
+          }
+          &.scope {
+            margin-top: 300px;
           }
           .service {
             padding-left: 15px;
             padding-right: 15px;
+          }
+          .main_description {
+            p {
+              font-size: 16px;
+              &.sub_title {
+                font-size: 20px;
+              }
+            }
           }
         }
         .alert-notice {
@@ -4322,20 +4112,11 @@ body {
               .header-text {
                 padding-left: 180px;
                 padding-right: 180px;
-                p {
+                h1 {
+                  font-size: 48px;
+                }
+                h2 {
                   font-size: 20px;
-                }
-              }
-            }
-            .row {
-              margin-left: 0;
-              margin-right: 0;
-              .column {
-                &:first-child {
-                  padding-left: 0;                                  
-                }
-                &:last-child {
-                  padding-right: 0;
                 }
               }
             }
@@ -4345,6 +4126,10 @@ body {
           margin-top: -180px;
           margin-bottom: 150px;
           .message-form {
+            label, input {
+              font-size: 16px;
+              font-family: "Gotham Bold";
+            }
             .form-group {
               .field {
                 margin-right: 15px;
@@ -4357,17 +4142,7 @@ body {
               .custom-error {
                 bottom: 0;
               }
-            }
-            .privacy-section {
-              flex-direction: row;
-              .terms-section {
-                padding-left: 5px;
-              }
-            }
-            label {
-              font-size: 16px;
-              font-family: "Gotham Bold";
-            }
+            }            
             .phone-form {
               .react-phone-number-input__phone {
                 margin-top: 7px !important;
@@ -4375,14 +4150,10 @@ body {
               }
             }
             .privacy-section {
-              .checkbox {
-                label {
-                  padding-left: 40px;
-                  padding-top: 5px;
-                }
-              }
+              flex-direction: row;
               .terms-section {
                 margin-top: 10px;
+                padding-left: 5px;
                 a {
                   font-size: 16px;
                   padding-top: 3px;
@@ -4563,6 +4334,7 @@ body {
     }
     h5 {
       text-align: right;
+      font-size: 16px;
     }
   }
 }

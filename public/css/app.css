@@ -156,7 +156,7 @@ body {
   border-radius: 5px;
   color: #fff !important;
   font-family: "Gotham Bold" !important;
-  font-size: 14px !important;
+  font-size: 16px !important;
 }
 
 .primary-button:hover {
@@ -486,47 +486,6 @@ body {
   padding-top: 63px;
 }
 
-.page h1 {
-  font-size: 48px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page h2 {
-  font-size: 36px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page h3 {
-  font-size: 24px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page h4 {
-  font-size: 18px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page h5 {
-  font-size: 16px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page h6 {
-  font-size: 16px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
-}
-
-.page p {
-  font-size: 16px;
-  font-family: "Gotham Book";
-}
-
 .page .admin-sidebar {
   position: relative !important;
   background: #070a2b !important;
@@ -684,23 +643,8 @@ body {
 }
 
 .page main .service-item .text-item h3 {
-  font-size: 20px;
-  font-family: "Gotham Bold";
-  font-weight: bold;
   white-space: pre-wrap;
   color: #fff;
-}
-
-@media (min-width: 1280px) {
-  .page main .service-item .text-item h3 {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1366px) {
-  .page main .service-item .text-item h3 {
-    font-size: 20px;
-  }
 }
 
 .page main .service-item .description {
@@ -710,23 +654,8 @@ body {
 }
 
 .page main .service-item .description p {
-  font-size: 13px;
-  font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
-  font-weight: 100;
-}
-
-@media (min-width: 1280px) {
-  .page main .service-item .description p {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 1366px) {
-  .page main .service-item .description p {
-    font-size: 16px;
-  }
 }
 
 .page main .badge-item {
@@ -739,18 +668,6 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-}
-
-@media (min-width: 320px) {
-  .page main .badge-item {
-    text-align: left !important;
-  }
-}
-
-@media (min-width: 1366px) {
-  .page main .badge-item {
-    text-align: center !important;
-  }
 }
 
 .page main .badge-item .badge-img {
@@ -793,22 +710,8 @@ body {
 }
 
 .page main .badge-item .badge-title h3 {
-  font-size: 16px;
   white-space: pre-wrap;
-  font-family: "Gotham Bold";
   color: #fff;
-}
-
-@media (min-width: 1280px) {
-  .page main .badge-item .badge-title h3 {
-    font-size: 14px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page main .badge-item .badge-title h3 {
-    font-size: 20px;
-  }
 }
 
 .page main .badge-item .badge-description {
@@ -816,23 +719,8 @@ body {
 }
 
 .page main .badge-item .badge-description p {
-  font-size: 12px;
-  font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9aa2bf;
-  font-weight: 100;
-}
-
-@media (min-width: 1280px) {
-  .page main .badge-item .badge-description p {
-    font-size: 12px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page main .badge-item .badge-description p {
-    font-size: 16px;
-  }
 }
 
 .page main .portfolio-item {
@@ -887,7 +775,25 @@ body {
   height: auto;
   position: absolute;
   top: 0;
-  left: 40px;
+  left: 50px;
+}
+
+@media (min-width: 360px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 65px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 80px;
+  }
+}
+
+@media (min-width: 414px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 100px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -1023,7 +929,7 @@ body {
 }
 
 .page main .review-item {
-  padding: 20px 80px 30px 80px;
+  padding: 30px;
   background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   margin-right: 1rem;
@@ -1060,13 +966,6 @@ body {
   margin-top: 15px;
 }
 
-@media (min-width: 1366px) {
-  .page main .review-item .review-avatar .icon-quote-right {
-    margin-left: 50px;
-    margin-top: 35px;
-  }
-}
-
 .page main .review-item .review-avatar .icon-quote-right i {
   margin-left: 6px;
   margin-top: 8px;
@@ -1091,18 +990,17 @@ body {
 }
 
 .page main .review-item .review-text-section p {
-  font-family: "Gotham Bold";
   color: #9aa2bf;
 }
 
 .page main .review-item .review-text-section p.name {
   color: #7436e9;
+  font-family: "Gotham Bold";
 }
 
-.page main .review-item .review-text-section .description {
+.page main .review-item .review-text-section h3 {
   overflow: hidden;
   text-overflow: ellipsis;
-  height: 94px;
   width: 100%;
   display: -webkit-box;
   -webkit-line-clamp: 8;
@@ -1335,8 +1233,6 @@ body {
 }
 
 .page main .guide-card .title h3 {
-  font-size: 16px;
-  font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
@@ -1347,17 +1243,8 @@ body {
 }
 
 .page main .guide-card .description p {
-  font-size: 12px;
-  font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
-  font-weight: 100;
-}
-
-@media (min-width: 320px) {
-  .page main .guide-card .title h3 {
-    font-size: 13px;
-  }
 }
 
 @media (min-width: 375px) {
@@ -1376,33 +1263,11 @@ body {
   .page main .guide-card {
     padding: 20px;
   }
-
-  .page main .guide-card .title h3 {
-    font-size: 14px;
-  }
-
-  .page main .guide-card .description p {
-    font-size: 12px;
-  }
 }
 
 @media (min-width: 1366px) {
   .page main .guide-card {
     padding: 30px 20px;
-  }
-
-  .page main .guide-card .title h3 {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page main .guide-card .title h3 {
-    font-size: 18px;
-  }
-
-  .page main .guide-card .description p {
-    font-size: 16px;
   }
 }
 
@@ -1633,7 +1498,7 @@ body {
 .page main .home-page .homepage-header .homepage-header-description {
   display: inline-block;
   margin-top: 60px;
-  width: 50%;
+  width: 100%;
   color: #fff;
 }
 
@@ -1655,7 +1520,7 @@ body {
 }
 
 .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-  padding: 15px 70px 15px 70px;
+  padding: 15px 60px 15px 60px;
   margin-bottom: 1em;
 }
 
@@ -1678,8 +1543,6 @@ body {
 
 .page main .home-page .home-section .home-review p {
   color: #9aa2bf;
-  font-size: 18px;
-  font-family: "Gotham Book";
 }
 
 .page main .home-page .home-section .alice-carousel {
@@ -1734,7 +1597,6 @@ body {
 .page main .home-page .home-estimation .home-estimation-description p {
   padding: 0;
   color: #9aa2bf;
-  font-size: 18px;
 }
 
 .page main .home-page .home-estimation .home-button-group {
@@ -1827,8 +1689,8 @@ body {
 .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
   width: 100%;
   height: 610px;
-  background: -webkit-gradient(linear, left top, right bottom, from(rgba(56, 85, 181, 0.8)), to(rgba(1, 2, 19, 0.9))) !important;
-  background: linear-gradient(to right bottom, rgba(56, 85, 181, 0.8), rgba(1, 2, 19, 0.9)) !important;
+  background: -webkit-gradient(linear, left top, right bottom, from(rgba(3, 5, 28, 0.5)), to(#03051c)) !important;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
@@ -1919,6 +1781,7 @@ body {
 
 .page main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
   color: #fff;
+  font-family: 'Gotham Bold';
 }
 
 .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions {
@@ -2095,9 +1958,10 @@ body {
   padding-right: 200px;
 }
 
-.page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+.page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
   color: #9da6c7;
   font-size: 18px;
+  font-family: 'Gotham Book';
 }
 
 .page main .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
@@ -2215,7 +2079,7 @@ body {
 
 .page main .contact-page .contact-section .message-form label {
   color: #656c8b !important;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   font-size: 16px;
 }
 
@@ -2381,7 +2245,6 @@ body {
 
 .page main .service-page .service-header .header-gradient .header-description .header-text p {
   color: #9da6c7;
-  font-size: 18px;
 }
 
 .page main .service-page .service-header .header-gradient .figures {
@@ -3102,12 +2965,27 @@ body {
     padding-top: 50px;
   }
 
-  .page p {
-    font-size: 12px;
+  .page h1 {
+    font-size: 32px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h2 {
+    font-size: 26px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
   }
 
   .page h3 {
-    font-size: 20px;
+    font-size: 18px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page p {
+    font-size: 16px;
+    font-family: "Gotham Book";
   }
 
   .page main .divide {
@@ -3122,7 +3000,7 @@ body {
     max-width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
-    margin-top: 120px;
+    margin-top: 250px;
   }
 
   .page main .main-footer .main-footer-description {
@@ -3135,12 +3013,12 @@ body {
   }
 
   .page main .main-footer .main-footer-description .primary-button {
-    padding: 15px 72px;
+    padding: 15px 60px;
   }
 
   .page main .home-page .homepage-header {
-    min-height: 600px;
-    height: 600px;
+    min-height: 250px;
+    height: 250px;
     width: 100%;
     background-size: cover;
     max-width: 100%;
@@ -3150,15 +3028,11 @@ body {
   }
 
   .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 170px;
+    margin-top: 240px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description h2 {
-    font-size: 30px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .normal {
-    font-size: 10px;
+  .page main .home-page .homepage-header .homepage-header-description .title {
+    font-size: 18px;
   }
 
   .page main .home-page .home-section {
@@ -3191,7 +3065,7 @@ body {
   }
 
   .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 330px;
+    margin-top: 650px;
   }
 
   .page main .portfolio-page .portfolio-header {
@@ -3308,14 +3182,6 @@ body {
 
   .page main .about-page .about-header .header-gradient .header-description .header-text {
     padding-bottom: 150px;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text h2 {
-    font-size: 30px;
-  }
-
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 13px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .counter-box {
@@ -3476,14 +3342,6 @@ body {
     padding: 0;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text h2 {
-    font-size: 30px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
   .page main .service-page .service-header .header-gradient .figures {
     padding-top: 50px;
     -webkit-box-align: start;
@@ -3497,7 +3355,7 @@ body {
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 10px;
+    font-size: 16px;
   }
 
   .page main .service-page .service-header .header-gradient .starter-group h3 {
@@ -3509,12 +3367,12 @@ body {
   }
 
   .page main .service-page .service-section.review {
-    min-height: 580px;
+    min-height: 650px;
     width: 100%;
     background-size: cover;
     background-position: unset;
     background-repeat: no-repeat;
-    margin-top: 860px;
+    margin-top: 1360px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
@@ -3524,7 +3382,7 @@ body {
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 110px;
+    padding-top: 0px;
   }
 
   .page main .service-page .service-section.review .service-review h3 {
@@ -3555,11 +3413,6 @@ body {
 
   .page main .service-page .service-section.tech .custom-col-8 .guide-card .service_mobile {
     width: 60px !important;
-  }
-
-  .page main .service-page .service-estimation .service-estimation-description h3,
-  .page main .service-page .service-estimation .service-estimation-description p {
-    text-align: left;
   }
 
   .page main .login-page.register {
@@ -3694,10 +3547,6 @@ body {
     left: -334px;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 0px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 15px 0px 15px;
   }
@@ -3747,14 +3596,6 @@ body {
     height: 46px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description h2 {
-    font-size: 32px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .normal {
-    font-size: 12px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 35px 0px 35px;
   }
@@ -3788,12 +3629,16 @@ body {
 
 @media (min-width: 1280px) {
   .segment.navbar .nav-color {
-    font-size: 13px;
+    font-size: 12px;
     padding: 22px 8px 22px 8px !important;
   }
 
   .segment.navbar .nav-color .text {
-    padding-top: 0px;
+    padding-top: 2px;
+  }
+
+  .segment.navbar .menu .ui.buttons a {
+    font-size: 12px !important;
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
@@ -3802,6 +3647,29 @@ body {
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
     font-size: 9px;
+  }
+
+  .page h1 {
+    font-size: 48px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h2 {
+    font-size: 36px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h3 {
+    font-size: 20px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page p {
+    font-size: 16px;
+    font-family: "Gotham Book";
   }
 
   .page main .divide {
@@ -3850,30 +3718,10 @@ body {
     width: 50%;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description h2 {
-    font-size: 36px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .normal {
-    font-size: 12px;
-  }
-
   .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
     padding: 15px 70px 15px 70px;
     font-size: 14px !important;
     margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation h2 {
-    font-size: 24px;
-  }
-
-  .page main .home-page .home-estimation .home-estimation-description p {
-    font-size: 14px;
   }
 
   .page main .home-page .home-estimation .home-button-group .button {
@@ -3887,11 +3735,7 @@ body {
   }
 
   .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 0;
-  }
-
-  .page main .home-page .home-section h2 {
-    font-size: 24px;
+    margin-top: 200px;
   }
 
   .page main .home-page .home-section .portfolio-item-observer {
@@ -3899,11 +3743,11 @@ body {
   }
 
   .page main .home-page .home-section .alice-carousel {
-    margin-left: 135px;
+    margin-left: 175px;
   }
 
   .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 331.333px !important;
+    width: 367.333px !important;
   }
 
   .page main .home-page .home-section .alice-carousel_prev_btn,
@@ -3964,6 +3808,11 @@ body {
     height: 610px;
   }
 
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+    padding-top: 150px;
+    padding-bottom: 0;
+  }
+
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 50px;
     padding-left: 100px;
@@ -3991,10 +3840,18 @@ body {
     width: 130px;
   }
 
+  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+    margin-top: 100px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review {
+    margin-top: 200px;
+  }
+
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
-    width: 280px;
-    left: 40%;
-    padding: 30px 20px 40px 20px;
+    width: 350px;
+    left: 35%;
+    padding: 30px 30px 40px 30px;
   }
 
   .page main .singlePortfolio-page .portfolio-section .service {
@@ -4029,11 +3886,12 @@ body {
             flex-direction: row;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box h4 {
+  .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
     font-size: 24px;
+    font-family: "Gotham Bold";
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box p {
+  .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
     font-size: 12px;
   }
 
@@ -4080,25 +3938,22 @@ body {
     padding-right: 180px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
+    font-size: 36px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
+    font-size: 18px;
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 0px;
+    margin-top: 65px;
+    margin-bottom: 100px;
+  }
+
+  .page main .contact-page .contact-section .message-form label,
+  .page main .contact-page .contact-section .message-form input {
+    font-size: 14px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group {
@@ -4108,6 +3963,16 @@ body {
             flex-direction: row;
   }
 
+  .page main .contact-page .contact-section .message-form .form-group .field {
+    margin-left: 15px;
+    margin-right: 15px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
   .page main .contact-page .contact-section .message-form .privacy-section {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -4115,29 +3980,24 @@ body {
             flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
-    padding-left: 5px;
-  }
-
-  .page main .contact-page .contact-section .message-form label {
-    font-size: 12px;
-  }
-
-  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
-    margin-top: 7px !important;
-    padding: 12px 8px !important;
+  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
+    padding-left: 40px;
+    padding-top: 5px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin-top: 10px;
+    padding-left: 5px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 12px;
+    padding-top: 5px;
   }
 
   .page main .contact-page .contact-section .message-form .primary-button {
     width: 50%;
+    font-size: 16px;
   }
 
   .page main .service-page .service-header {
@@ -4165,26 +4025,13 @@ body {
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text h1 {
-    font-size: 36px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 18px;
-  }
-
   .page main .service-page .service-header .header-gradient .starter-group h2 {
     text-align: center;
-    font-size: 24px;
   }
 
   .page main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 18px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4196,15 +4043,6 @@ body {
     margin-top: 70px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 13px;
-  }
-
-  .page main .service-page .service-section h2 {
-    font-size: 24px;
-    text-align: center;
-  }
-
   .page main .service-page .service-section.review {
     min-height: 100vh;
     background-size: cover;
@@ -4212,11 +4050,11 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-    margin-top: 50px;
+    margin-top: 220px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
-    width: 40% !important;
+    width: 50% !important;
     margin: inherit !important;
   }
 
@@ -4241,7 +4079,7 @@ body {
     margin-top: 240px;
   }
 
-  .page main .service-page .service-section.tech h3 {
+  .page main .service-page .service-section.tech h2 {
     text-align: center;
   }
 
@@ -4280,7 +4118,7 @@ body {
   }
 
   .footer .footer-item .item-link {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .footer img {
@@ -4289,7 +4127,7 @@ body {
 
   .footer h5 {
     text-align: right;
-    font-size: 12px;
+    font-size: 13px;
     margin-bottom: 0px;
     margin-top: 5px;
   }
@@ -4300,24 +4138,12 @@ body {
     padding: 22px 8px 22px 8px !important;
   }
 
-  .segment.navbar .nav-color .text {
-    padding-top: 0px;
-  }
-
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
     font-size: 12px;
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
     font-size: 9px;
-  }
-
-  .page p {
-    font-size: 12px;
-  }
-
-  .page h3 {
-    font-size: 24px;
   }
 
   .page main .divide {
@@ -4355,52 +4181,6 @@ body {
 
   .page main .main-footer .main-footer-description h3 {
     text-align: left;
-  }
-
-  .page main .home-page .homepage-header {
-    height: 560px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 110px;
-    width: 50%;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description h2 {
-    font-size: 36px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 15px 55px 15px 55px;
-    font-size: 12px !important;
-    margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-    width: auto;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
-    padding-left: 25px;
-    padding-right: 25px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    padding: 10px 15px;
-    margin-right: 20px;
-  }
-
-  .page main .home-page .home-section:nth-of-type(1) {
-    margin-top: 0;
-  }
-
-  .page main .home-page .home-section .portfolio-item-observer {
-    height: 100%;
   }
 
   .page main .home-page .home-section .alice-carousel {
@@ -4633,10 +4413,6 @@ body {
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 12px;
-  }
-
   .page main .service-page .service-header .header-gradient .starter-group h3 {
     text-align: center;
   }
@@ -4644,10 +4420,6 @@ body {
   .page main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 12px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4670,7 +4442,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-    margin-top: 50px;
+    margin-top: 160px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
@@ -4720,18 +4492,11 @@ body {
   }
 
   .footer {
-    min-height: 66vh;
+    min-height: 53vh;
   }
 
   .footer img {
     width: 30px !important;
-  }
-
-  .footer h5 {
-    text-align: right;
-    font-size: 16px;
-    margin-bottom: 0px;
-    margin-top: 5px;
   }
 }
 
@@ -4799,41 +4564,16 @@ body {
   }
 
   .page main .home-page .homepage-header {
-    height: 785px;
+    height: 780px;
   }
 
   .page main .home-page .homepage-header .homepage-header-description {
-    margin-top: 180px;
-    width: 50%;
+    margin-top: 200px;
+    width: 45%;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description h2 {
-    font-size: 54px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .title {
-    font-size: 24px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .normal {
-    font-size: 16px;
-  }
-
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
-    padding: 20px 70px 20px 70px;
-    font-size: 18px !important;
-  }
-
-  .page main .home-page .home-estimation h2 {
-    font-size: 36px;
-  }
-
-  .page main .home-page .home-estimation .home-estimation-description p {
-    font-size: 18px;
-  }
-
-  .page main .home-page .home-estimation .badge-item .badge-description {
-    text-align: left;
+  .page main .home-page .homepage-header .homepage-header-buttons .register {
+    margin-top: 10px;
   }
 
   .page main .home-page .home-estimation .home-button-group .button {
@@ -4853,21 +4593,17 @@ body {
     margin-top: 35px;
   }
 
-  .page main .home-page .home-section h2 {
-    font-size: 36px;
-  }
-
   .page main .home-page .home-section .alice-carousel {
-    margin-left: 192px;
+    margin-left: 0px;
   }
 
   .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 373.464px !important;
+    width: 366.464px !important;
   }
 
   .page main .home-page .home-section .alice-carousel_prev_btn,
   .page main .home-page .home-section .alice-carousel_next_btn {
-    left: 120px;
+    left: -100px;
     display: block;
   }
 
@@ -4887,13 +4623,17 @@ body {
     font-size: 48px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h2 {
     font-size: 20px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 20px;
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -4921,11 +4661,11 @@ body {
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
-    font-size: 36px;
+    font-size: 48px;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
@@ -4941,15 +4681,36 @@ body {
     width: 130px;
   }
 
+  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+    margin-top: 400px;
+  }
+
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
-    width: 280px;
+    width: 400px;
     left: 40%;
-    padding: 30px 20px 40px 20px;
+    padding: 50px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
+    height: 100%;
+    font-size: 16px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.scope {
+    margin-top: 300px;
   }
 
   .page main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description p {
+    font-size: 16px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
+    font-size: 20px;
   }
 
   .page main .singlePortfolio-page .alert-notice {
@@ -5023,26 +4784,23 @@ body {
     padding-right: 180px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
+    font-size: 48px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
     font-size: 20px;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row {
-    margin-left: 0;
-    margin-right: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
-    padding-left: 0;
-  }
-
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
-    padding-right: 0;
   }
 
   .page main .contact-page .contact-section {
     margin-top: -180px;
     margin-bottom: 150px;
+  }
+
+  .page main .contact-page .contact-section .message-form label,
+  .page main .contact-page .contact-section .message-form input {
+    font-size: 16px;
+    font-family: "Gotham Bold";
   }
 
   .page main .contact-page .contact-section .message-form .form-group .field {
@@ -5057,6 +4815,11 @@ body {
     bottom: 0;
   }
 
+  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
+    margin-top: 7px !important;
+    padding: 22px 8px !important;
+  }
+
   .page main .contact-page .contact-section .message-form .privacy-section {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -5065,26 +4828,8 @@ body {
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
-    padding-left: 5px;
-  }
-
-  .page main .contact-page .contact-section .message-form label {
-    font-size: 16px;
-    font-family: "Gotham Bold";
-  }
-
-  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
-    margin-top: 7px !important;
-    padding: 22px 8px !important;
-  }
-
-  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
-    padding-left: 40px;
-    padding-top: 5px;
-  }
-
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin-top: 10px;
+    padding-left: 5px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
@@ -5259,6 +5004,7 @@ body {
 
   .footer h5 {
     text-align: right;
+    font-size: 16px;
   }
 }
 

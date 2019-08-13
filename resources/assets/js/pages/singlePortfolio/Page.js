@@ -19,10 +19,12 @@ class Page extends React.Component {
         .then(
             res => {
                 if (res.data.data) {
+                    console.log(JSON.parse(res.data.data));
                     this.setState({ isLoaded: true, isExisted: true, data: JSON.parse(res.data.data) });
                 } else {
                     this.setState({ isLoaded: true, isExisted: false });
                 }
+                window.scrollTo(0, 0);
             }
         ).catch(err => {
             console.error(err);
@@ -97,7 +99,7 @@ class Page extends React.Component {
                             <Container className="custom-col-6">
                                 <div className="review-item">
                                     <div className="review-text-section">
-                                        <h3>{data.review.title}</h3>
+                                        <img src={`${ data.logo_url }`} />
                                         <div className='description'>{data.review.description}</div>
                                         <hr/>
                                     </div>

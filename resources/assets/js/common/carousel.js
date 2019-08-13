@@ -18,8 +18,8 @@ class Gallery extends React.Component {
                         </div>
                     </div>
                     <div className='review-text-section'>
-                        <p className='name'>{i.name}</p>
-                        <div className='description'>{i.description}</div>
+                        <p className="name">{i.name}</p>
+                        <h3>{i.description}</h3>
                         <hr/>
                         <p>{i.job}</p>
                     </div>
@@ -31,7 +31,7 @@ class Gallery extends React.Component {
                         <img src={`${ i.url}`} />
                     </div>
                     <div className='news-content'>
-                        <p className='title'>{i.title}</p>
+                        <h3>{i.title}</h3>
                         <p className='normal'>{i.description}</p>
                         <p className='category'>By {i.author} in {i.type}</p>
                         <p className='normal'>{i.time} <span>&middot;</span> {i.read} read <span className='news-icon-arrow'><Icon name='arrow right'/></span></p>

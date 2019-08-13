@@ -22,6 +22,7 @@ class Page extends React.Component {
         Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                window.scrollTo(0, 0);
             }
         ).catch(err => {
             console.error(err);
@@ -38,7 +39,7 @@ class Page extends React.Component {
                         <div className='homepage-header' style={{ backgroundImage: `url(${data.header.header_url})` }}>
                             <Container className='custom-col-6'>
                                 <div className='homepage-header-description'>
-                                    <h2>{data.header.header_title}</h2>
+                                    <h1>{data.header.header_title}</h1>
                                     <p className='title'>{data.header.header_description_title}</p>
                                     {
                                         data.header.header_description.split('\n').map((item, i) => {
@@ -104,10 +105,10 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>
-                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet">
+                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: key } }}>
                                                 <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
-                                            <Grid.Column only="computer">
+                                            <Grid.Column only="computer" as={Link} to={{ pathname: '/single-portfolio', state:{ pagename: key } }}>
                                                 <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
                                         </React.Fragment>

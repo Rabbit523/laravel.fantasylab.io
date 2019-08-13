@@ -16,7 +16,7 @@ class PageFooter extends React.Component {
             <div className='main-footer' style={{backgroundImage: `url(${this.props.url})`}}>
                 <Container className='custom-col-6'>
                     <div className='main-footer-description'>
-                        <h3>Let's elevate the world.</h3>
+                        <h2>Let's elevate the world.</h2>
                         <Button as={Link} to='/register' replace compact
                             className='register primary-button'>Craft Enterprise</Button>
                         <p>Existing user? <Link to='/login' className='item-link'>Log in to FantasyLab</Link>.</p>
