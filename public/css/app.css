@@ -386,7 +386,7 @@ body {
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
   font-size: 16px;
-  font-family: "Gotham Book";
+  font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
@@ -1661,6 +1661,10 @@ body {
   height: 50px;
 }
 
+.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+  font-family: "Gotham Bold";
+}
+
 .page main .portfolio-page .portfolio-studios {
   text-align: center;
   color: #fff;
@@ -1883,6 +1887,10 @@ body {
 .page main .about-page .about-section {
   padding-top: 200px;
   text-align: center;
+}
+
+.page main .about-page .about-section.headquarter p {
+  color: #9da6c7;
 }
 
 .page main .about-page .about-section.headquarter .headquater-item {
@@ -3384,7 +3392,7 @@ body {
   }
 
   .page main .service-page .service-section.mobile {
-    margin-top: 900px;
+    margin-top: 1300px;
   }
 
   .page main .service-page .service-section.branding {
@@ -3542,7 +3550,7 @@ body {
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 1140px;
+    margin-top: 1360px;
   }
 
   .page main .singlePortfolio-page .portfolio-section .sub_title {
@@ -3751,9 +3759,17 @@ body {
     padding: 100px 150px 100px 150px;
   }
 
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+    font-size: 18px;
+  }
+
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
+  }
+
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 16px;
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -3859,10 +3875,6 @@ body {
 
   .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
     font-size: 12px;
-  }
-
-  .page main .about-page .about-section h2 {
-    font-size: 24px;
   }
 
   .page main .about-page .about-section .sub_title {
@@ -4479,7 +4491,7 @@ body {
 
 @media (min-width: 1920px) {
   .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
+    font-size: 14px;
   }
 
   .segment.navbar .nav-color .text {
@@ -4496,11 +4508,18 @@ body {
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
     font-size: 14px;
-    font-family: "Gotham Bold";
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
     font-size: 12px;
+  }
+
+  .segment.navbar .menu .ui.buttons a {
+    font-size: 14px !important;
+  }
+
+  .page p {
+    font-size: 18px;
   }
 
   .page main .divide {
@@ -4601,6 +4620,10 @@ body {
     margin-right: 50px;
   }
 
+  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+    font-size: 16px;
+  }
+
   .page main .portfolio-page .portfolio-studios {
     margin-top: -350px;
     margin-bottom: 0px;
@@ -4679,11 +4702,11 @@ body {
   }
 
   .page main .about-page .about-header {
-    height: 530px;
+    height: 835px;
   }
 
   .page main .about-page .about-header .header-gradient {
-    height: 580px;
+    height: 885px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
@@ -4724,7 +4747,7 @@ body {
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 100px;
+    margin-top: -100px;
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
@@ -4796,6 +4819,7 @@ body {
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 16px;
     padding-top: 3px;
+    padding-left: 0;
   }
 
   .page main .contact-page .contact-section .message-form .primary-button {
@@ -4866,7 +4890,15 @@ body {
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 350px;
+    padding-top: 300px;
+  }
+
+  .page main .service-page .service-section.review .service-review p {
+    font-size: 16px;
+  }
+
+  .page main .service-page .service-section.review .service-review p.case_text {
+    font-size: 16px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
