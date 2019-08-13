@@ -1406,7 +1406,6 @@ body {
 }
 
 .page main .headquater-card .title h3 {
-  font-size: 16px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
@@ -1419,7 +1418,6 @@ body {
 }
 
 .page main .headquater-card .description p {
-  font-size: 13px;
   font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
@@ -1639,7 +1637,6 @@ body {
 
 .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
   color: #9da6c7;
-  font-size: 18px;
 }
 
 .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -1662,10 +1659,6 @@ body {
 .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
   width: 50px;
   height: 50px;
-}
-
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-  font-size: 18px;
 }
 
 .page main .portfolio-page .portfolio-studios {
@@ -1868,7 +1861,6 @@ body {
 
 .page main .about-page .about-header .header-gradient .header-description .header-text p {
   color: #9da6c7;
-  font-size: 18px;
 }
 
 .page main .about-page .about-header .header-gradient .header-description .counter-box {
@@ -3090,10 +3082,6 @@ body {
     padding-bottom: 40px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 14px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 10px 0px 10px;
   }
@@ -3105,10 +3093,6 @@ body {
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
     width: 40px;
     height: auto;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 14px;
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -3196,12 +3180,13 @@ body {
   }
 
   .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
+    font-family: "Gotham Bold";
     margin-bottom: 5px;
     font-size: 30px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
-    margin-top: 1220px;
+    margin-top: 1500px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) .mobile {
@@ -3209,7 +3194,7 @@ body {
   }
 
   .page main .about-page .about-section:nth-of-type(5) {
-    margin-top: 800px;
+    margin-top: 1000px;
   }
 
   .page main .about-page .about-section:nth-of-type(5) .alice-carousel {
@@ -3266,7 +3251,7 @@ body {
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 1060px;
+    margin-top: 1300px;
   }
 
   .page main .contact-page .contact-section .message-form label {
@@ -3304,6 +3289,10 @@ body {
     margin-bottom: 0px;
   }
 
+  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
+    padding-left: 40px;
+  }
+
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin: 0;
     padding-left: 25px;
@@ -3311,6 +3300,7 @@ body {
 
   .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 14px;
+    padding-left: 14px;
   }
 
   .page main .contact-page .contact-section .message-form .primary-button {
@@ -3651,25 +3641,18 @@ body {
 
   .page h1 {
     font-size: 48px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
   }
 
   .page h2 {
     font-size: 36px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
   }
 
   .page h3 {
     font-size: 20px;
-    font-family: "Gotham Bold";
-    font-weight: bold;
   }
 
   .page p {
     font-size: 16px;
-    font-family: "Gotham Book";
   }
 
   .page main .divide {
@@ -3768,31 +3751,14 @@ body {
     padding: 100px 150px 100px 150px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h1 {
-    font-size: 36px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 18px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 16px;
-    font-family: "Gotham Bold";
-  }
-
   .page main .portfolio-page .portfolio-studios {
     margin-top: -50px;
     margin-bottom: 0px;
-  }
-
-  .page main .portfolio-page .portfolio-studios h2 {
-    font-size: 24px;
   }
 
   .page main .portfolio-page .portfolio-studios a {
@@ -3947,7 +3913,7 @@ body {
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 65px;
+    margin-top: 85px;
     margin-bottom: 100px;
   }
 
@@ -4076,7 +4042,11 @@ body {
   }
 
   .page main .service-page .service-section.branding {
-    margin-top: 240px;
+    margin-top: 400px;
+  }
+
+  .page main .service-page .service-section.branding .service-review {
+    padding-top: 280px;
   }
 
   .page main .service-page .service-section.tech h2 {
@@ -4161,7 +4131,7 @@ body {
   .page main .main-footer .main-footer-description {
     display: inline-block;
     margin-top: 100px;
-    padding-top: 100px;
+    padding-top: 0px;
     width: 50%;
     color: #fff;
   }
@@ -4214,18 +4184,9 @@ body {
     padding: 100px 150px 100px 150px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-    font-size: 20px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 16px;
-    font-family: "Gotham Bold";
   }
 
   .page main .portfolio-page .portfolio-studios {
@@ -4346,7 +4307,7 @@ body {
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 0px;
+    margin-top: 65px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group {
@@ -4436,30 +4397,26 @@ body {
   }
 
   .page main .service-page .service-section.review {
-    min-height: 100vh;
+    min-height: 120vh;
     background-size: cover;
     max-width: 100%;
     background-position: center center;
     background-repeat: no-repeat;
     background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-    margin-top: 160px;
+    margin-top: 200px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
-    width: 40% !important;
+    width: 50% !important;
     margin: inherit !important;
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 200px;
+    padding-top: 160px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
     font-size: 12px !important;
-  }
-
-  .page main .service-page .service-section.branding {
-    margin-top: 240px;
   }
 
   .page main .service-page .service-section.tech h3 {
@@ -4540,7 +4497,7 @@ body {
 
   .page main .main-footer .main-footer-description {
     display: inline-block;
-    margin-top: 100px;
+    margin-top: 160px;
     width: 50%;
     color: #fff;
   }
@@ -4619,30 +4576,14 @@ body {
     padding: 150px 150px 100px 150px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h1 {
-    font-size: 48px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text h2 {
-    font-size: 20px;
-  }
-
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
-    font-size: 20px;
-  }
-
   .page main .portfolio-page .portfolio-studios {
     margin-top: -350px;
     margin-bottom: 0px;
-  }
-
-  .page main .portfolio-page .portfolio-studios h2 {
-    font-size: 36px;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header {
@@ -4793,7 +4734,7 @@ body {
   }
 
   .page main .contact-page .contact-section {
-    margin-top: -180px;
+    margin-top: -250px;
     margin-bottom: 150px;
   }
 
@@ -4870,18 +4811,6 @@ body {
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text h1 {
-    font-size: 48px;
-  }
-
-  .page main .service-page .service-header .header-gradient .header-description .header-text p {
-    font-size: 20px;
-  }
-
-  .page main .service-page .service-header .header-gradient .starter-group h2 {
-    font-size: 36px;
-  }
-
   .page main .service-page .service-header .header-gradient .starter-group .third-button {
     font-size: 18px;
     padding: 20px 70px 20px 70px;
@@ -4890,10 +4819,6 @@ body {
   .page main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
-  }
-
-  .page main .service-page .service-header .header-gradient .figures .figure p {
-    font-size: 20px;
   }
 
   .page main .service-page .service-header .header-gradient.mobile .figures .figure {
@@ -4905,14 +4830,6 @@ body {
     margin-top: 70px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
-    font-size: 20px;
-  }
-
-  .page main .service-page .service-section h2 {
-    font-size: 36px;
-  }
-
   .page main .service-page .service-section.review {
     min-height: 100vh;
     background-size: cover;
@@ -4920,7 +4837,7 @@ body {
     background-position: center center;
     background-repeat: no-repeat;
     background: url(/images/illustration-dev-back.png) center center/100% 100% no-repeat;
-    margin-top: 100px;
+    margin-top: 180px;
   }
 
   .page main .service-page .service-section.review .custom-col-4 {
@@ -4929,28 +4846,12 @@ body {
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 220px;
-  }
-
-  .page main .service-page .service-section.review .service-review p {
-    font-size: 18px;
-  }
-
-  .page main .service-page .service-section.review .service-review p.case_text {
-    font-size: 14px;
+    padding-top: 350px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
     font-size: 18px !important;
     padding: 15px 50px 5px 50px;
-  }
-
-  .page main .service-page .service-estimation .service-estimation-description h3 {
-    font-size: 20px;
-  }
-
-  .page main .service-page .service-estimation .service-estimation-description p {
-    font-size: 20px;
   }
 
   .page main .login-page {

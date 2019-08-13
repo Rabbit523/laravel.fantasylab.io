@@ -1038,7 +1038,6 @@ body {
         align-items: flex-end;
         flex: 1;
         h3 {
-          font-size: 16px;
           font-family: "Gotham Bold";
           white-space: pre-wrap;
           color: #fff;
@@ -1049,7 +1048,6 @@ body {
         padding-bottom: 25px;
         text-align: center;
         p {
-          font-size: 13px;
           font-family: "Gotham Book";
           white-space: pre-wrap;
           color: #9da6c7;
@@ -1225,7 +1223,6 @@ body {
               padding-bottom: 50px;
               p {
                 color: #9da6c7;
-                font-size: 18px;
               }
             }
             .portfolio-header-figure {
@@ -1238,9 +1235,6 @@ body {
                 img {
                   width: 50px;
                   height: 50px;
-                }
-                p {
-                  font-size: 18px;
                 }
               }
             }
@@ -1407,7 +1401,6 @@ body {
               padding-right: 10px;
               p {
                 color: #9da6c7;
-                font-size: 18px;
               }
             }
             .counter-box {
@@ -2418,9 +2411,6 @@ body {
               padding: 50px 0px 0px 0px;
               .portfolio-header-text {
                 padding-bottom: 40px;
-                p {
-                  font-size: 14px;
-                }
               }
               .portfolio-header-figure {
                 margin: 0px 10px 0px 10px;
@@ -2429,9 +2419,6 @@ body {
                   img {
                     width: 40px;
                     height: auto;
-                  }
-                  p {
-                    font-size: 14px;
                   }
                 }
               }
@@ -2487,7 +2474,7 @@ body {
           }
         }
       }
-      .about-page {       
+      .about-page {
         .about-header {
           min-height: 290px;
           height: 290px;
@@ -2508,6 +2495,7 @@ body {
                 .box {
                   margin-bottom: 20px;
                   h4 {
+                    font-family: "Gotham Bold";
                     margin-bottom: 5px;
                     font-size: 30px;
                   }
@@ -2517,13 +2505,13 @@ body {
           }
         }
         .about-section:nth-of-type(2) {
-          margin-top: 1220px;
+          margin-top: 1500px;
           .mobile {
             margin-top: 0;
           }
         }
         .about-section:nth-of-type(5) {
-          margin-top: 800px;
+          margin-top: 1000px;
           .alice-carousel {
             margin-left: 0;
             .alice-carousel__stage-item {
@@ -2574,7 +2562,7 @@ body {
           }
         }
         .contact-section {
-          margin-top: 1060px;
+          margin-top: 1300px;
           .message-form {
             label {
               font-size: 14px;
@@ -2596,12 +2584,16 @@ body {
               flex-direction: column;
               .checkbox {
                 margin-bottom: 0px;
+                label {
+                  padding-left: 40px;
+                }
               }
               .terms-section {
                 margin: 0;
                 padding-left: 25px;
                 a {
                   font-size: 14px;
+                  padding-left: 14px;
                 }
               }
             }
@@ -3033,22 +3025,15 @@ body {
   .page {
     h1 {
       font-size: 48px;
-      font-family: "Gotham Bold";
-      font-weight: bold;
     }
     h2 {
       font-size: 36px;
-      font-family: "Gotham Bold";
-      font-weight: bold;
     }
     h3 {
       font-size: 20px;
-      font-family: "Gotham Bold";
-      font-weight: bold;
     }
     p {
       font-size: 16px;
-      font-family: "Gotham Book";
     }
     main {
       .divide {
@@ -3134,23 +3119,9 @@ body {
             height: 550px;
             .portfolio-header-description {
               padding: 100px 150px 100px 150px;
-              .portfolio-header-text {
-                h1 {
-                  font-size: 36px;
-                }
-                p {
-                  font-size: 18px;
-                }
-              }
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
-                .figure {
-                  p {
-                    font-size: 16px;
-                    font-family: "Gotham Bold";
-                  }
-                }
               }
             }
           }
@@ -3158,9 +3129,6 @@ body {
         .portfolio-studios {
           margin-top: -50px;
           margin-bottom: 0px;
-          h2 {
-            font-size: 24px;
-          }
           a {
             text-decoration: none;
           }
@@ -3297,7 +3265,7 @@ body {
           }
         }
         .contact-section {
-          margin-top: 65px;
+          margin-top: 85px;
           margin-bottom: 100px;
           .message-form {
             label, input {
@@ -3415,7 +3383,10 @@ body {
             }
           }
           &.branding {
-            margin-top: 240px;
+            margin-top: 400px;
+            .service-review {
+              padding-top: 280px;
+            }
           }
           &.tech {
             h2 {
@@ -3512,7 +3483,7 @@ body {
         .main-footer-description {
           display: inline-block;
           margin-top: 100px;
-          padding-top: 100px;
+          padding-top: 0px;
           width: 50%;
           color: #fff;
           .register {
@@ -3554,20 +3525,9 @@ body {
             height: 550px;
             .portfolio-header-description {
               padding: 100px 150px 100px 150px;
-              .portfolio-header-text {
-                p {
-                  font-size: 20px;
-                }
-              }
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
-                .figure {
-                  p {
-                    font-size: 16px;
-                    font-family: "Gotham Bold";
-                  }
-                }
               }
             }
           }
@@ -3681,7 +3641,7 @@ body {
           }
         }
         .contact-section {
-          margin-top: 0px;
+          margin-top: 65px;
           .message-form {
             .form-group {
               flex-direction: row;
@@ -3771,26 +3731,23 @@ body {
         }
         .service-section {
           &.review {
-            min-height: 100vh;
+            min-height: 120vh;
             background-size: cover;
             max-width: 100%;
             background-position: center center;
             background-repeat: no-repeat;
             background: url(/images/illustration-dev-back.png) center center / 100% 100% no-repeat;
-            margin-top: 160px;
+            margin-top: 200px;
             .custom-col-4 {
-              width: 40% !important;
+              width: 50% !important;
               margin: inherit !important;
             }
             .service-review {
-              padding-top: 200px;
+              padding-top: 160px;
               .third-button {
                 font-size: 12px !important;
               }
             }
-          }
-          &.branding {
-            margin-top: 240px;
           }
           &.tech {
             h3 {
@@ -3883,7 +3840,7 @@ body {
         margin-top: 50px;
         .main-footer-description {
           display: inline-block;
-          margin-top: 100px;
+          margin-top: 160px;
           width: 50%;
           color: #fff;
           .register {
@@ -3952,22 +3909,9 @@ body {
             height: 885px;
             .portfolio-header-description {
               padding: 150px 150px 100px 150px;
-              .portfolio-header-text {
-                h1 {
-                  font-size: 48px;
-                }
-                h2 {
-                  font-size: 20px;
-                }
-              }
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
-                .figure {
-                  p {
-                    font-size: 20px;
-                  }
-                }
               }
             }
           }
@@ -3975,9 +3919,6 @@ body {
         .portfolio-studios {
           margin-top: -350px;
           margin-bottom: 0px;
-          h2 {
-            font-size: 36px;
-          }
         }
       }
       .singlePortfolio-page {
@@ -4123,7 +4064,7 @@ body {
           }
         }
         .contact-section {
-          margin-top: -180px;
+          margin-top: -250px;
           margin-bottom: 150px;
           .message-form {
             label, input {
@@ -4191,18 +4132,9 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
-                h1 {
-                  font-size: 48px;
-                }
-                p {
-                  font-size: 20px;
-                }
               }
             }
             .starter-group {
-              h2 {
-                font-size: 36px;
-              }
               .third-button {
                 font-size: 18px;
                 padding: 20px 70px 20px 70px;
@@ -4212,9 +4144,6 @@ body {
               .figure {
                 padding-left: 16px;
                 padding-right: 16px;
-                p {
-                  font-size: 20px;
-                }
               }
             }
             &.mobile {
@@ -4226,21 +4155,11 @@ body {
               }
               .starter-group {
                 margin-top: 70px;
-                .service-item {
-                  .text-item {
-                    p {
-                      font-size: 20px;
-                    }
-                  }
-                }
               }
             }
           }
         }
         .service-section {
-          h2 {
-            font-size: 36px;
-          }
           &.review {
             min-height: 100vh;
             background-size: cover;
@@ -4248,33 +4167,17 @@ body {
             background-position: center center;
             background-repeat: no-repeat;
             background: url(/images/illustration-dev-back.png) center center / 100% 100% no-repeat;
-            margin-top: 100px;
+            margin-top: 180px;
             .custom-col-4 {
               width: 40% !important;
               margin: inherit !important;
             }
             .service-review {
-              padding-top: 220px;
-              p {
-                font-size: 18px;
-                &.case_text {
-                  font-size: 14px;
-                }
-              }
+              padding-top: 350px;
               .third-button {
                 font-size: 18px !important;
                 padding: 15px 50px 5px 50px;
               }
-            }
-          }
-        }
-        .service-estimation {
-          .service-estimation-description {
-            h3 {
-              font-size: 20px;
-            }
-            p{
-              font-size: 20px;
             }
           }
         }
