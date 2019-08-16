@@ -73,37 +73,37 @@ const routes = [
         component: ResetPassword
     },
     {
-        path: '/service-desktop',
+        path: '/web-development',
         exact: true,
         auth: false,
         component: ServiceWeb
     },
     {
-        path: '/service-mobile',
+        path: '/mobile-development',
         exact: true,
         auth: false,
         component: ServiceMobile
     },
     {
-        path: '/service-ui',
+        path: '/ui-ux-design',
         exact: true,
         auth: false,
         component: ServiceUI
     },
     {
-        path: '/service-branding',
+        path: '/branding',
         exact: true,
         auth: false,
         component: ServiceBranding
     },
     {
-        path: '/service-illustration',
+        path: '/illustration',
         exact: true,
         auth: false,
         component: ServiceIllustration
     },
     {
-        path: '/service-marketing',
+        path: '/marketing-material',
         exact: true,
         auth: false,
         component: ServiceMarketing

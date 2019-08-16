@@ -2811,7 +2811,7 @@ body {
   }
 
   .segment.mobile-navbar .logo img {
-    width: 20px !important;
+    width: 35px !important;
     margin-bottom: -5px !important;
     margin-left: -5px !important;
   }
@@ -2820,7 +2820,7 @@ body {
     margin: 0 !important;
     padding: 0 !important;
     display: inline-block !important;
-    margin-left: 120px !important;
+    margin-left: 110px !important;
   }
 
   .segment.mobile-navbar .mobile-register .primary-button {
@@ -2830,7 +2830,7 @@ body {
 
   .segment.mobile-navbar .menu .dropdown.services .text {
     padding: 10px 0px 10px 11px;
-    font-size: 12px !important;
+    font-size: 16px !important;
     font-family: "Gotham Bold";
   }
 
@@ -2910,8 +2910,11 @@ body {
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child {
-    border: 1px solid #fff;
     margin-left: 10px;
+  }
+
+  .segment.mobile-navbar .menu .right.menu .item:last-child .bars {
+    font-size: 2.5em;
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
@@ -2930,7 +2933,7 @@ body {
     color: #747b96 !important;
     display: inline-block;
     text-transform: capitalize;
-    font-size: 12px !important;
+    font-size: 16px !important;
     width: 100%;
     font-family: "Gotham Bold";
   }
@@ -3099,6 +3102,10 @@ body {
     height: 400px;
   }
 
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+    padding: 50px 0px 0px 0px;
+  }
+
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 0px;
     padding-left: 0px;
@@ -3148,6 +3155,7 @@ body {
 
   .page main .about-page .about-header .header-gradient .header-description {
     padding-bottom: 25px;
+    padding: 50px 0px 0px 0px;
   }
 
   .page main .about-page .about-header .header-gradient .header-description .header-text {
@@ -3226,6 +3234,10 @@ body {
 
   .page main .contact-page .contact-header .header-gradient {
     height: 300px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description {
+    padding: 50px 0px 0px 0px;
   }
 
   .page main .contact-page .contact-header .header-gradient .header-description .header-text {
@@ -3313,6 +3325,10 @@ body {
     width: 100% !important;
     margin: 0 !important;
     padding: 0;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description {
+    padding: 50px 0px 0px 0px;
   }
 
   .page main .service-page .service-header .header-gradient .header-description .header-text {
@@ -3497,7 +3513,7 @@ body {
 
 @media (min-width: 360px) {
   .segment.mobile-navbar .mobile-register {
-    margin-left: 150px !important;
+    margin-left: 137px !important;
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
@@ -3533,7 +3549,7 @@ body {
 
 @media (min-width: 375px) {
   .segment.mobile-navbar .mobile-register {
-    margin-left: 170px !important;
+    margin-left: 158px !important;
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
@@ -3550,7 +3566,7 @@ body {
   }
 
   .page main .contact-page .contact-section {
-    margin-top: 1455px;
+    margin-top: 1305px;
   }
 
   .page main .singlePortfolio-page .portfolio-section .sub_title {
@@ -3586,7 +3602,7 @@ body {
 
 @media (min-width: 414px) {
   .segment.mobile-navbar .mobile-register {
-    margin-left: 210px !important;
+    margin-left: 197px !important;
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
@@ -3622,6 +3638,10 @@ body {
     width: 355px;
     left: 30px;
     padding: 50px 40px 50px 40px;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 70px;
   }
 
   .page main .service-page .service-section.illustration {
@@ -3809,6 +3829,7 @@ body {
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
     padding-top: 150px;
     padding-bottom: 0;
+    padding: 100px 150px 100px 150px;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
@@ -3869,6 +3890,10 @@ body {
     height: 580px;
   }
 
+  .page main .about-page .about-header .header-gradient .header-description {
+    padding-top: 100px;
+  }
+
   .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
     font-size: 36px;
   }
@@ -3925,6 +3950,10 @@ body {
 
   .page main .contact-page .contact-header .header-gradient {
     height: 600px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description {
+    padding-top: 100px;
   }
 
   .page main .contact-page .contact-header .header-gradient .header-description .header-text {
@@ -4012,6 +4041,10 @@ body {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description {
+    padding-top: 100px;
   }
 
   .page main .service-page .service-header .header-gradient .header-description .header-text {
@@ -4230,10 +4263,6 @@ body {
 
   .page main .portfolio-page .portfolio-header .header-gradient {
     height: 550px;
-  }
-
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
-    padding: 100px 150px 100px 150px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -4658,6 +4687,10 @@ body {
     height: 610px;
   }
 
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+    padding-top: 150px;
+  }
+
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 50px;
     padding-left: 100px;
@@ -4729,6 +4762,10 @@ body {
     height: 885px;
   }
 
+  .page main .about-page .about-header .header-gradient .header-description {
+    padding-top: 150px;
+  }
+
   .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
     font-size: 48px;
   }
@@ -4781,6 +4818,10 @@ body {
 
   .page main .contact-page .contact-header .header-gradient {
     height: 885px;
+  }
+
+  .page main .contact-page .contact-header .header-gradient .header-description {
+    padding-top: 150px;
   }
 
   .page main .contact-page .contact-header .header-gradient .header-description .header-text {
@@ -4868,6 +4909,10 @@ body {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
+  }
+
+  .page main .service-page .service-header .header-gradient .header-description {
+    padding-top: 150px;
   }
 
   .page main .service-page .service-header .header-gradient .header-description .header-text {

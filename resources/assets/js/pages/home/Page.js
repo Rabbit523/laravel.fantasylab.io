@@ -64,11 +64,15 @@ class Page extends React.Component {
                                     {Object.keys(data.services).map((key, index) => (
                                         <React.Fragment key={index}>
                                             {index<2 && 
-                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={`/service-${key}`}>
+                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={
+                                                    (key.includes('mobile') || key.includes('web')) && `/${key}-development`
+                                                }>
                                                     <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                             </Grid.Column>}
                                             {index>=2 && 
-                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={`/service-${key}`}>
+                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={
+                                                        (key=='ui'?`/ui-ux-design`:key=='branding'?'branding':key=='illustration'?'illustration':'marketing-material')
+                                                    }>
                                                         <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                                     </Grid.Column>}
                                         </React.Fragment>

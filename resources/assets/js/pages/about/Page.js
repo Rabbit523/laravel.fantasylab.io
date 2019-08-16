@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import {isMobile} from 'react-device-detect'
+import { Link } from 'react-router-dom'
 import PageMetaTag from '../../common/pageMetaTag'
 import GuideCard from '../../common/guideCard'
 import TextCard from '../../common/textCard'
@@ -94,11 +95,15 @@ class Page extends React.Component {
                                     {data.services.data.map((item, i) => (
                                         <React.Fragment key={i}>
                                             {i<2 && 
-                                                <Grid.Column mobile={16} tablet={8} computer={8}>
+                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={
+                                                    (item.type.includes('mobile') || item.type.includes('web')) && `/${item.type}-development`
+                                                }>
                                                     <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                                 </Grid.Column>}
                                             {i>=2 && 
-                                                <Grid.Column mobile={16} tablet={8} computer={4}>
+                                                <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={
+                                                    (item.type=='ui'?`/ui-ux-design`:item.type=='branding'?'branding':item.type=='illustration'?'illustration':'marketing-material')
+                                                }>
                                                     <ServiceItem url={item.url} type={item.type} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                                 </Grid.Column>}
                                         </React.Fragment>

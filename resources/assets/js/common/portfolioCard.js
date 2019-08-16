@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactHoverObserver from 'react-hover-observer';
 import { Icon } from 'semantic-ui-react';
+import {isMobile} from 'react-device-detect'
 
 class PortfolioCard extends React.Component {
     constructor(props) {
@@ -18,13 +19,13 @@ class PortfolioCard extends React.Component {
         return (
             <ReactHoverObserver className='portfolio-item-observer'>
                 {({ isHovering }) => (
-                    <div className='portfolio-item' style={isHovering?item_hover:{}}>
+                    <div className='portfolio-item' style={isMobile?item_hover:isHovering?item_hover:{}}>
                         {this.props.from == 'home' ? 
                             <div className='portfolio'>
                                 <div className="avatar">
                                     <img src={`${ this.props.icon_url}`} />
                                 </div>
-                                {isHovering &&
+                                {(isMobile || isHovering) &&
                                     <div className="hover-texts">
                                         <Icon name='arrow right' className='icon-right-arrow'/>
                                         <p className='hover-title'>{this.props.title}</p>

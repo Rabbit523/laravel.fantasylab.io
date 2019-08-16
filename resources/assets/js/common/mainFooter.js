@@ -22,12 +22,12 @@ class Footer extends React.Component {
                                         <h4>Services</h4>
                                     </div>
                                     <div className='footer-item'>
-                                        <Link to='/service-web' className='item-link'>Web Development</Link>
-                                        <Link to='/service-mobile' className='item-link'>Mobile Development</Link>
-                                        <Link to='/service-ui' className='item-link'>UI/UX Design</Link>
-                                        <Link to='/service-branding' className='item-link'>Branding</Link>
-                                        <Link to='/service-illustration' className='item-link'>Illustration</Link>
-                                        <Link to='/service-marketing' className='item-link'>Marketing</Link>
+                                        <Link to='/web-development' className='item-link'>Web Development</Link>
+                                        <Link to='/mobile-development' className='item-link'>Mobile Development</Link>
+                                        <Link to='/ui-ux-design' className='item-link'>UI & UX Design</Link>
+                                        <Link to='/branding' className='item-link'>Branding</Link>
+                                        <Link to='/illustration' className='item-link'>Illustration</Link>
+                                        <Link to='/marketing-material' className='item-link'>Marketing</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>

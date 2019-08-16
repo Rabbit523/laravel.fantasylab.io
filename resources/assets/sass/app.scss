@@ -2187,7 +2187,7 @@ body {
     width: 100%;
     border-radius: 0;
     .logo img {
-      width: 20px !important;
+      width: 35px !important;
       margin-bottom: -5px !important;
       margin-left: -5px !important;
     }
@@ -2195,7 +2195,7 @@ body {
       margin: 0 !important;
       padding: 0 !important;
       display: inline-block !important;
-      margin-left: 120px !important;
+      margin-left: 110px !important;
       .primary-button {
         padding: 7px;
         font-size: 10px !important;
@@ -2205,7 +2205,7 @@ body {
       .dropdown.services {
         .text {
           padding: 10px 0px 10px 11px;
-          font-size: 12px !important;
+          font-size: 16px !important;
           font-family: "Gotham Bold";
         }
       }      
@@ -2266,8 +2266,10 @@ body {
       .right.menu {
         margin-left: 0!important;
         .item:last-child {
-          border: 1px solid #fff;
           margin-left: 10px;
+          .bars{
+            font-size: 2.5em;
+          }
           .menu.transition {
             background: #070e29 !important;
             position: absolute;
@@ -2282,7 +2284,7 @@ body {
               color: #747b96 !important;
               display: inline-block;
               text-transform: capitalize;
-              font-size: 12px !important;
+              font-size: 16px !important;
               width: 100%;
               font-family: "Gotham Bold";
               &:active {
@@ -2429,6 +2431,7 @@ body {
           .header-gradient {
             height: 400px;
             .header-description {
+              padding: 50px 0px 0px 0px;
               .header-text {
                 padding-bottom: 0px;
                 padding-left: 0px;
@@ -2476,6 +2479,7 @@ body {
             height: 300px;
             .header-description {
               padding-bottom: 25px;
+              padding: 50px 0px 0px 0px;
               .header-text {
                 padding-bottom: 150px;
               }
@@ -2541,6 +2545,7 @@ body {
           .header-gradient {
             height: 300px;
             .header-description {
+              padding: 50px 0px 0px 0px;
               .header-text {
                 padding: 0;
                 h2 {
@@ -2612,6 +2617,7 @@ body {
               }
             }
             .header-description {
+              padding: 50px 0px 0px 0px;
               .header-text {
                 padding: 0;
               }
@@ -2789,7 +2795,7 @@ body {
 @media (min-width: 360px) {
   .segment.mobile-navbar {
     .mobile-register {
-      margin-left: 150px !important;
+      margin-left: 137px !important;
     }
     .menu {
       .right.menu {
@@ -2846,7 +2852,7 @@ body {
 @media (min-width: 375px) {
   .segment.mobile-navbar {
     .mobile-register {
-      margin-left: 170px !important;
+      margin-left: 158px !important;
     }
     .menu {
       .right.menu {
@@ -2879,7 +2885,7 @@ body {
       }
       .contact-page {
         .contact-section {
-          margin-top: 1455px;
+          margin-top: 1305px;
         }
       }
       .singlePortfolio-page {
@@ -2920,7 +2926,7 @@ body {
 @media (min-width: 414px) {
   .segment.mobile-navbar {
     .mobile-register {
-      margin-left: 210px !important;
+      margin-left: 197px !important;
     }
     .menu {
       .right.menu {
@@ -2977,7 +2983,12 @@ body {
         }
       }
       .service-page {
-        .service-section {         
+        .service-section {
+          &.review {
+            .service-review {
+              padding-top: 70px;
+            }
+          }
           &.illustration {
             margin-top: 1350px;
           }
@@ -3183,6 +3194,7 @@ body {
             .header-description {
               padding-top: 150px;
               padding-bottom: 0;
+              padding: 100px 150px 100px 150px;
               .header-text {
                 padding-bottom: 50px;
                 padding-left: 100px;
@@ -3234,6 +3246,7 @@ body {
           .header-gradient {
             height: 580px;
             .header-description {
+              padding-top: 100px;
               .header-text {
                 h1 {
                   font-size: 36px;
@@ -3288,6 +3301,7 @@ body {
           .header-gradient {
             height: 600px;
             .header-description {
+              padding-top: 100px;
               .header-text {
                 padding-left: 180px;
                 padding-right: 180px;
@@ -3363,6 +3377,7 @@ body {
               }
             }
             .header-description {
+              padding-top: 100px;
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
@@ -3589,7 +3604,6 @@ body {
           .header-gradient {
             height: 550px;
             .portfolio-header-description {
-              padding: 100px 150px 100px 150px;
               .portfolio-header-figure {
                 margin-left: 50px;
                 margin-right: 50px;
@@ -4005,6 +4019,7 @@ body {
           .header-gradient {
             height: 610px;
             .header-description {
+              padding-top: 150px;
               .header-text {
                 padding-bottom: 50px;
                 padding-left: 100px;
@@ -4072,6 +4087,7 @@ body {
           .header-gradient {
             height: 885px;
             .header-description {
+              padding-top: 150px;
               .header-text {
                 h1 {
                   font-size: 48px;
@@ -4127,6 +4143,7 @@ body {
           .header-gradient {
             height: 885px;
             .header-description {
+              padding-top: 150px;
               .header-text {
                 padding-left: 180px;
                 padding-right: 180px;
@@ -4207,6 +4224,7 @@ body {
               }
             }
             .header-description {
+              padding-top: 150px;
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
