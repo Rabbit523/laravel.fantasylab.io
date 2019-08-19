@@ -113,7 +113,7 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {data.estimation.map((item, i) => (
                                         <React.Fragment key={i}>
-                                            <Grid.Column mobile={16} only="mobile">
+                                            <Grid.Column mobile={16} only="mobile tablet">
                                                 <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
                                             </Grid.Column>
                                             <Grid.Column only="computer">

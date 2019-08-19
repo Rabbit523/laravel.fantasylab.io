@@ -18,6 +18,7 @@ class Page extends React.Component {
         });
         this.state = {
             isLoaded: false,
+            isTablet: false,
             errors: this.validator.errors,
             phoneError: true,
             message: {
@@ -40,7 +41,11 @@ class Page extends React.Component {
         Http.post('api/front/get-page', { name: 'contact' })
         .then(
             res => {
-                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                if (window.innerWidth <= 1024) {
+                    this.setState({ isLoaded: true, isTablet: true, data: JSON.parse(res.data.data) });
+                } else {
+                    this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.data) });
+                }
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
@@ -134,7 +139,7 @@ class Page extends React.Component {
         console.log(data);
     }
     render() {
-        const { isLoaded, data, errors, phone, phoneError, checkbox_border } = this.state;
+        const { isLoaded, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
         return (
             <div className='contact-page'>
                 {isLoaded ?
@@ -151,7 +156,7 @@ class Page extends React.Component {
                                     </div>
                                     <Grid style={{paddingTop: 50}}>
                                         {data.headquarters.map((item, i) => (
-                                            <Grid.Column mobile={16} tablet={8} computer={4} key={i}>
+                                            <Grid.Column mobile={16} tablet={8} computer={isTablet?8:4} key={i}>
                                                 <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
                                             </Grid.Column>
                                         ))}

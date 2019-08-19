@@ -14,14 +14,19 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            isTablet: false,
         }
     }
 
     componentDidMount() {
         Http.post('api/front/get-page', { name: 'about' }).then(
             res => {
-                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                if (window.innerWidth <= 1024) {
+                    this.setState({ isLoaded: true, isTablet: true, data: JSON.parse(res.data.data) });
+                } else {
+                    this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.data) });
+                }
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
@@ -30,7 +35,7 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, data } = this.state;
+        const { isLoaded, isTablet, data } = this.state;
         return (
             <div className="about-page">
                 {isLoaded ?
@@ -58,7 +63,7 @@ class Page extends React.Component {
                                     <div className="guide-tags">
                                         <Grid columns={4}>
                                             {data.guides.map((item, index) => (
-                                                <Grid.Column className="box" mobile={16} tablet={8} computer={4} key={index}>
+                                                <Grid.Column className="box" mobile={16} tablet={8} computer={isTablet?8:4} key={index}>
                                                     <GuideCard avatar={item.avatar} title={item.title} description={item.description}/>
                                                 </Grid.Column>
                                             ))}
@@ -118,7 +123,7 @@ class Page extends React.Component {
                                 <div className="headquarters" style={{backgroundImage: `url(${ data.headquarters.backimage})`, backgroundSize: 'cover'}}>
                                     <Grid className="headquater-item">
                                         {data.headquarters.data.map((item, i) => (
-                                            <Grid.Column  mobile={16} tablet={8} computer={4} key={i}>
+                                            <Grid.Column mobile={16} tablet={8} computer={isTablet?8:4} key={i}>
                                                 <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
                                             </Grid.Column>
                                         ))}
@@ -138,7 +143,7 @@ class Page extends React.Component {
                                         ))}
                                     </Grid>
                                     <Grid>
-                                        <Grid.Column only="mobile">
+                                        <Grid.Column only="mobile tablet">
                                             <Gallery type="news" items={data.news.data} />
                                         </Grid.Column>
                                     </Grid>

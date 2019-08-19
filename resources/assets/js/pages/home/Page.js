@@ -141,7 +141,7 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                                 <Grid>
-                                    <Grid.Column only="mobile">
+                                    <Grid.Column only="tablet mobile">
                                         <Gallery type="news" items={data.news} />
                                     </Grid.Column>
                                 </Grid>

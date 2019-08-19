@@ -766,6 +766,18 @@ body {
   height: auto;
 }
 
+@media (min-width: 1280px) {
+  .page main .portfolio-item .portfolio .avatar {
+    margin-top: 90px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page main .portfolio-item .portfolio .avatar {
+    margin-top: 160px;
+  }
+}
+
 .page main .portfolio-item .portfolio .avatar img {
   width: auto;
   height: auto;
@@ -792,9 +804,21 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 80px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page main .portfolio-item .portfolio .avatar img {
+    left: 60px;
+  }
+}
+
 @media (min-width: 1280px) {
   .page main .portfolio-item .portfolio .avatar img {
-    top: -30px;
+    top: -10px;
     left: 30px;
   }
 }
@@ -872,6 +896,12 @@ body {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: left;
+}
+
+@media (min-width: 1024px) {
+  .page main .portfolio-item .portfolio-text {
+    margin-top: 190px;
+  }
 }
 
 @media (min-width: 1280px) {
@@ -2810,20 +2840,40 @@ body {
     border-radius: 0;
   }
 
-  .segment.mobile-navbar .logo img {
+  .segment.mobile-navbar .secondary.menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+
+  .segment.mobile-navbar .secondary.menu .logo {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+  }
+
+  .segment.mobile-navbar .secondary.menu .logo img {
     width: 35px !important;
     margin-bottom: -5px !important;
     margin-left: -5px !important;
   }
 
-  .segment.mobile-navbar .mobile-register {
+  .segment.mobile-navbar .secondary.menu .right-menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+
+  .segment.mobile-navbar .secondary.menu .right-menu .mobile-register {
     margin: 0 !important;
     padding: 0 !important;
     display: inline-block !important;
-    margin-left: 110px !important;
   }
 
-  .segment.mobile-navbar .mobile-register .primary-button {
+  .segment.mobile-navbar .secondary.menu .right-menu .mobile-register .primary-button {
     padding: 7px;
     font-size: 10px !important;
   }
@@ -2922,7 +2972,7 @@ body {
     position: absolute;
     top: 32px;
     width: 320px;
-    left: -287px;
+    left: -266px;
     z-index: 299;
     overflow: visible;
     text-align: left;
@@ -3512,13 +3562,9 @@ body {
 }
 
 @media (min-width: 360px) {
-  .segment.mobile-navbar .mobile-register {
-    margin-left: 137px !important;
-  }
-
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 360px;
-    left: -314px;
+    left: -306px;
   }
 
   .page main .divide {
@@ -3548,13 +3594,9 @@ body {
 }
 
 @media (min-width: 375px) {
-  .segment.mobile-navbar .mobile-register {
-    margin-left: 158px !important;
-  }
-
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 375px;
-    left: -334px;
+    left: -321px;
   }
 
   .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -3601,13 +3643,9 @@ body {
 }
 
 @media (min-width: 414px) {
-  .segment.mobile-navbar .mobile-register {
-    margin-left: 197px !important;
-  }
-
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 414px;
-    left: -374px;
+    left: -360px;
   }
 
   .page main .divide {
@@ -3661,7 +3699,259 @@ body {
   }
 }
 
+@media (min-width: 768px) {
+  .segment.mobile-navbar .menu .logo {
+    padding-left: 25px;
+  }
+
+  .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
+    width: 768px;
+    left: -715px;
+  }
+
+  .page {
+    padding-top: 68px;
+  }
+
+  .page h1 {
+    font-size: 32px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h2 {
+    font-size: 26px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h3 {
+    font-size: 22px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page p {
+    font-size: 16px;
+    font-family: "Gotham Book";
+  }
+
+  .page .custom-col-6 {
+    width: 723px !important;
+  }
+
+  .page main .divide {
+    height: 85px;
+  }
+
+  .page main .main-footer .main-footer-description {
+    margin-top: 100px;
+  }
+
+  .page main .home-page .homepage-header {
+    height: 590px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 600px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+    padding: 50px;
+  }
+
+  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+    width: 110px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+    margin-top: 200px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+    width: 50px;
+    height: 50px;
+    padding-left: 20px;
+    padding-top: 15px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    padding-top: 13px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    left: 200px;
+  }
+
+  .page main .service-page .service-section.review {
+    margin-top: 780px;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 140px;
+  }
+
+  .page main .service-page .service-section.mobile {
+    margin-top: 860px;
+  }
+
+  .page main .service-page .service-section.branding {
+    margin-top: 1090px;
+  }
+
+  .page main .service-page .service-section.illustration {
+    margin-top: 840px;
+  }
+
+  .page main .service-page .service-section.tech {
+    text-align: center;
+  }
+
+  .page main .about-page .about-section:nth-of-type(2) {
+    margin-top: 820px;
+  }
+
+  .page main .about-page .about-section:nth-of-type(5) {
+    margin-top: 650px;
+  }
+
+  .page main .about-page .about-section .headquarters {
+    height: 270px;
+  }
+
+  .page main .about-page .about-section .headquarters .headquater-item {
+    padding-top: 210px;
+  }
+
+  .page main .contact-page .contact-section {
+    margin-top: 610px;
+  }
+
+  .page main .login-page.register {
+    min-height: 80vh;
+  }
+
+  .footer {
+    min-height: 45vh;
+  }
+
+  .footer .custom-col-6 {
+    width: 693px !important;
+  }
+
+  .footer h5 {
+    text-align: right;
+  }
+}
+
+@media (min-width: 1024px) {
+  .segment.navbar .custom-col-6 {
+    width: 933px !important;
+  }
+
+  .page {
+    padding-top: 64px;
+  }
+
+  .page .custom-col-6 {
+    width: 933px !important;
+  }
+
+  .page h1 {
+    font-size: 40px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h2 {
+    font-size: 32px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page h3 {
+    font-size: 24px;
+    font-family: "Gotham Bold";
+    font-weight: bold;
+  }
+
+  .page p {
+    font-size: 16px;
+    font-family: "Gotham Book";
+  }
+
+  .page main .divide {
+    height: 112px;
+  }
+
+  .page main .home-page .homepage-header .homepage-header-description {
+    margin-top: 170px;
+    width: 49%;
+  }
+
+  .page main .home-page .home-section:nth-of-type(1) {
+    margin-top: 210px;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button {
+    font-size: 14px !important;
+    width: auto;
+    padding: 15px 40px 15px 40px !important;
+  }
+
+  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+    margin-right: 20px;
+  }
+
+  .page main .service-page .service-section.review {
+    margin-top: 500px;
+  }
+
+  .page main .service-page .service-section.branding {
+    margin-top: 800px;
+  }
+
+  .page main .service-page .service-section.marketing {
+    margin-top: 820px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+    margin-top: 350px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+    left: 330px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+    width: 70px;
+    height: 40px;
+    padding-left: 14px;
+    padding-top: 9px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    padding-top: 0;
+  }
+
+  .footer {
+    min-height: 40vh;
+  }
+
+  .footer .row {
+    margin: 0;
+  }
+
+  .footer .custom-col-6 {
+    width: 933px !important;
+  }
+}
+
 @media (min-width: 1280px) {
+  .segment.navbar .custom-col-6 {
+    width: 60% !important;
+  }
+
   .segment.navbar .nav-color {
     font-size: 12px;
     padding: 22px 8px 22px 8px !important;
@@ -3697,6 +3987,10 @@ body {
 
   .page p {
     font-size: 16px;
+  }
+
+  .page .custom-col-6 {
+    width: 60% !important;
   }
 
   .page main .divide {
@@ -3749,16 +4043,6 @@ body {
     padding: 15px 70px 15px 70px;
     font-size: 14px !important;
     margin-bottom: 10px;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button {
-    font-size: 14px !important;
-    width: auto;
-    padding: 15px 40px 15px 40px !important;
-  }
-
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
-    margin-right: 20px;
   }
 
   .page main .home-page .home-section:nth-of-type(1) {
@@ -3827,9 +4111,8 @@ body {
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
-    padding-top: 150px;
     padding-bottom: 0;
-    padding: 100px 150px 100px 150px;
+    padding: 100px 0px 100px 0px;
   }
 
   .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
@@ -3860,7 +4143,7 @@ body {
   }
 
   .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
-    margin-top: 100px;
+    margin-top: 210px;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review {
@@ -4071,7 +4354,7 @@ body {
   }
 
   .page main .service-page .service-section.review {
-    min-height: 100vh;
+    min-height: 80vh;
     background-size: cover;
     max-width: 100%;
     background-position: center center;
@@ -4086,7 +4369,7 @@ body {
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 200px;
+    padding-top: 210px;
   }
 
   .page main .service-page .service-section.review .service-review p {
@@ -4107,11 +4390,7 @@ body {
   }
 
   .page main .service-page .service-section.branding .service-review {
-    padding-top: 280px;
-  }
-
-  .page main .service-page .service-section.tech h2 {
-    text-align: center;
+    padding-top: 220px;
   }
 
   .page main .service-page .service-estimation .service-estimation-description h3 {
@@ -4166,6 +4445,10 @@ body {
   .footer {
     min-height: 50vh;
     padding-top: 50px;
+  }
+
+  .footer .custom-col-6 {
+    width: 60% !important;
   }
 
   .footer .footer-title h4 {
@@ -4530,7 +4813,7 @@ body {
   }
 
   .footer {
-    min-height: 53vh;
+    min-height: 73vh;
   }
 
   .footer img {
@@ -4719,7 +5002,7 @@ body {
   }
 
   .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
-    margin-top: 400px;
+    margin-top: 480px;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review .review-item {

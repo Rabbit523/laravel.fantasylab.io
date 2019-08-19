@@ -616,6 +616,12 @@ body {
           position: relative;
           width: 100%;
           height: auto;
+          @media (min-width: 1280px) {
+            margin-top: 90px;
+          }
+          @media (min-width: 1920px) {
+            margin-top: 160px;
+          }
           img {
             width: auto;
             height: auto;
@@ -631,8 +637,14 @@ body {
             @media (min-width: 414px) {
               left: 100px;
             }
+            @media (min-width: 768px) {
+              left: 80px;
+            }
+            @media (min-width: 1024px) {
+              left: 60px;
+            }
             @media (min-width: 1280px) {
-              top: -30px;
+              top: -10px;
               left: 30px;
             }
             @media (min-width: 1920px) {
@@ -682,6 +694,9 @@ body {
         margin-top: 200px;
         flex-direction: column;
         text-align: left;
+        @media (min-width: 1024px) {
+          margin-top: 190px;
+        }
         @media (min-width: 1280px) {
           margin-top: 150px;
         }
@@ -2186,19 +2201,28 @@ body {
     position: absolute;
     width: 100%;
     border-radius: 0;
-    .logo img {
-      width: 35px !important;
-      margin-bottom: -5px !important;
-      margin-left: -5px !important;
-    }
-    .mobile-register {
-      margin: 0 !important;
-      padding: 0 !important;
-      display: inline-block !important;
-      margin-left: 110px !important;
-      .primary-button {
-        padding: 7px;
-        font-size: 10px !important;
+    .secondary.menu {
+      display: flex;
+      justify-content: space-between;
+      .logo {
+        flex: 1;
+        img {
+          width: 35px !important;
+          margin-bottom: -5px !important;
+          margin-left: -5px !important;
+        }
+      }
+      .right-menu {
+        display: flex;
+        .mobile-register {
+          margin: 0 !important;
+          padding: 0 !important;
+          display: inline-block !important;
+          .primary-button {
+            padding: 7px;
+            font-size: 10px !important;
+          }
+        }
       }
     }
     .menu {
@@ -2275,7 +2299,7 @@ body {
             position: absolute;
             top: 32px;
             width: 320px;
-            left: -287px;
+            left: -266px;
             z-index: 299;
             overflow: visible;
             text-align: left;
@@ -2794,15 +2818,12 @@ body {
 
 @media (min-width: 360px) {
   .segment.mobile-navbar {
-    .mobile-register {
-      margin-left: 137px !important;
-    }
     .menu {
       .right.menu {
         .item:last-child {
           .menu.transition {
             width: 360px;
-            left: -314px;
+            left: -306px;
           }
         }
       }
@@ -2851,15 +2872,12 @@ body {
 
 @media (min-width: 375px) {
   .segment.mobile-navbar {
-    .mobile-register {
-      margin-left: 158px !important;
-    }
     .menu {
       .right.menu {
         .item:last-child {
           .menu.transition {
             width: 375px;
-            left: -334px;
+            left: -321px;
           }
         }
       }
@@ -2925,15 +2943,12 @@ body {
 
 @media (min-width: 414px) {
   .segment.mobile-navbar {
-    .mobile-register {
-      margin-left: 197px !important;
-    }
     .menu {
       .right.menu {
         .item:last-child {
           .menu.transition {
             width: 414px;
-            left: -374px;
+            left: -360px;
           }
         }
       }
@@ -3010,28 +3025,277 @@ body {
 }
 
 //tablet
-@media (min-width: 551px) {
-  
+@media (min-width: 768px) {
+  .segment.mobile-navbar {
+    .menu {
+      .logo {
+        padding-left: 25px;
+      }
+      .right.menu {
+        .item:last-child {
+          .menu.transition {
+            width: 768px;
+            left: -715px;
+          }
+        }
+      }
+    }
+  }
+  .page {
+    padding-top: 68px;
+    h1 {
+      font-size: 32px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 26px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 22px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+    }
+    .custom-col-6 {
+      width: 723px !important;
+    }
+    main {
+      .divide {
+        height: 85px;
+      }
+      .main-footer {
+        .main-footer-description {
+          margin-top: 100px;
+        }
+      }
+      .home-page {
+        .homepage-header {
+          height: 590px; 
+          .homepage-header-description {
+            margin-top: 600px;
+          }
+        }
+      }
+      .singlePortfolio-page {
+        .singlePortfolio-header {
+          .header-gradient {
+            .header-description {
+              padding: 50px;
+            }
+            .image-group {
+              img {
+                &.sub-img {
+                  width: 110px;
+                }
+              }
+            }
+          }
+        }
+        .portfolio-section:nth-of-type(1) {
+          margin-top: 200px;
+        }
+        .portfolio-section {
+          .main_description  {
+            .sub_descriptions {
+              .round_number {
+                width: 50px;
+                height: 50px;
+                padding-left: 20px;
+                padding-top: 15px;
+              }
+              p {
+                padding-top: 13px;
+              }
+            }
+          }
+          &.review {
+            .review-item {
+              left: 200px;
+            }
+          }
+        }
+      }
+      .service-page {
+        .service-section {
+          &.review {
+            margin-top: 780px;
+            .service-review {
+              padding-top: 140px;
+            }
+          }
+          &.mobile {
+            margin-top: 860px;
+          }
+          &.branding {
+            margin-top: 1090px;
+          }
+          &.illustration {
+            margin-top: 840px;
+          }
+          &.tech {
+            text-align: center;
+          }
+        }
+      }
+      .about-page {
+        .about-section:nth-of-type(2) {
+          margin-top: 820px;
+        }
+        .about-section:nth-of-type(5) {
+          margin-top: 650px;
+        }
+        .about-section {
+          .headquarters {
+            height: 270px;
+            .headquater-item {
+              padding-top: 210px;
+            }
+          }
+        }
+      }
+      .contact-page {
+        .contact-section {
+          margin-top: 610px;
+        }
+      }
+      .login-page {
+        &.register {
+          min-height: 80vh;
+        }
+      }
+    }
+  }
+  .footer {
+    min-height: 45vh;
+    .custom-col-6 {
+      width: 693px !important;
+    }
+    h5 {
+      text-align: right;
+    }
+  }
 }
 
-@media (min-width: 620px) {
-  
+@media (min-width: 1024px) {
+  .segment.navbar {
+    .custom-col-6 {
+      width: 933px !important;
+    }
+  }
+  .page {
+    padding-top: 64px;
+    .custom-col-6 {
+      width: 933px !important;
+    }
+    h1 {
+      font-size: 40px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 32px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    h3 {
+      font-size: 24px;
+      font-family: "Gotham Bold";
+      font-weight: bold;
+    }
+    p {
+      font-size: 16px;
+      font-family: "Gotham Book";
+    }
+    main {
+      .divide {
+        height: 112px;
+      }
+      .home-page {
+        .homepage-header {
+          .homepage-header-description {
+            margin-top: 170px;
+            width: 49%;
+          }
+        }
+        .home-section:nth-of-type(1) {
+          margin-top: 210px;
+        }
+        .home-estimation {
+          .home-button-group {
+            .button {
+              font-size: 14px !important;
+              width: auto;
+              padding: 15px 40px 15px 40px !important;
+              &.primary-button {
+                margin-right: 20px;
+              }
+            }
+          }
+        }
+      }
+      .service-page {
+        .service-section {
+          &.review {
+            margin-top: 500px;
+          }
+          &.branding {
+            margin-top: 800px;
+          }
+          &.marketing {
+            margin-top: 820px;
+          }
+        }
+      }
+      .singlePortfolio-page {
+        .portfolio-section:nth-of-type(1) {
+          margin-top: 350px;
+        }
+        .portfolio-section {
+          &.review {
+            .review-item {
+              left: 330px;
+            }
+          }
+          .main_description {
+            .sub_descriptions {
+              .round_number {
+                width: 70px;
+                height: 40px;
+                padding-left: 14px;
+                padding-top: 9px;
+              }
+              p {
+                padding-top: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .footer {
+    min-height: 40vh;
+    .row {
+      margin: 0;
+    }
+    .custom-col-6 {
+      width: 933px !important;
+    }
+  }
 }
 
-@media (min-width: 769px) {
-  
-}
-
-@media (min-width: 992px) {
-  
-}
-
-@media (min-width: 1057px) {
- 
-}
 //desktop
 @media (min-width: 1280px) {
   .segment.navbar {
+    .custom-col-6 {
+      width: 60% !important;
+    }
     .nav-color {
       font-size: 12px;
       padding: 22px 8px 22px 8px !important;
@@ -3076,6 +3340,9 @@ body {
     p {
       font-size: 16px;
     }
+    .custom-col-6 {
+      width: 60% !important;
+    }
     main {
       .divide {
         height: 140px;
@@ -3118,18 +3385,6 @@ body {
                 padding: 15px 70px 15px 70px;
                 font-size: 14px !important;
                 margin-bottom: 10px;
-              }
-            }
-          }
-        }
-        .home-estimation {
-          .home-button-group {
-            .button {
-              font-size: 14px !important;
-              width: auto;
-              padding: 15px 40px 15px 40px !important;
-              &.primary-button {
-                margin-right: 20px;
               }
             }
           }
@@ -3192,9 +3447,8 @@ body {
           .header-gradient {
             height: 610px;
             .header-description {
-              padding-top: 150px;
               padding-bottom: 0;
-              padding: 100px 150px 100px 150px;
+              padding: 100px 0px 100px 0px;
               .header-text {
                 padding-bottom: 50px;
                 padding-left: 100px;
@@ -3221,7 +3475,7 @@ body {
         }
         .portfolio-section {
           &:nth-of-type(1) {
-            margin-top: 100px;
+            margin-top: 210px;
           }
           &.review {
             margin-top: 200px;
@@ -3409,7 +3663,7 @@ body {
         }
         .service-section {
           &.review {
-            min-height: 100vh;
+            min-height: 80vh;
             background-size: cover;
             max-width: 100%;
             background-position: center center;
@@ -3421,7 +3675,7 @@ body {
               margin: inherit !important;
             }
             .service-review {
-              padding-top: 200px;
+              padding-top: 210px;
               p {
                 font-size: 14px;
                 &.case_text {
@@ -3437,12 +3691,7 @@ body {
           &.branding {
             margin-top: 400px;
             .service-review {
-              padding-top: 280px;
-            }
-          }
-          &.tech {
-            h2 {
-              text-align: center;
+              padding-top: 220px;
             }
           }
         }
@@ -3503,6 +3752,9 @@ body {
   .footer {
     min-height: 50vh;
     padding-top: 50px;
+    .custom-col-6 {
+      width: 60% !important;
+    }
     .footer-title {
       h4 {
         font-size: 14px;
@@ -3861,15 +4113,11 @@ body {
     }
   }
   .footer {
-    min-height: 53vh;
+    min-height: 73vh;
     img {
       width: 30px !important;
     }
   }
-}
-
-@media (min-width: 1762px) {
-  
 }
 
 @media (min-width: 1920px) {
@@ -4046,7 +4294,7 @@ body {
         }
         .portfolio-section {
           &:nth-of-type(1) {
-            margin-top: 400px;
+            margin-top: 480px;
           }
           &.review {
             .review-item {
