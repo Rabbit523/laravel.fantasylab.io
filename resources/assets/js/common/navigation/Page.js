@@ -123,7 +123,7 @@ class Page extends React.Component {
                                                     <Grid padded='horizontally'>
                                                         <Grid.Row columns={6} className='custom-row'>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/web-development'>
-                                                                <div className='custom-dropdown-item'>
+                                                                <div className='custom-dropdown-item desktop'>
                                                                     <div className='avatar-item desktop'>
                                                                         <img src={require('../../../images/theme/desktop.png')} />
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>
@@ -148,7 +148,7 @@ class Page extends React.Component {
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/ui-ux-design'>
-                                                                <div className='custom-dropdown-item'>
+                                                                <div className='custom-dropdown-item ui'>
                                                                     <div className='avatar-item ui'>
                                                                         <img src={require('../../../images/theme/ui.png')} />
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>
@@ -159,7 +159,7 @@ class Page extends React.Component {
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/branding'>
-                                                                <div className='custom-dropdown-item'>
+                                                                <div className='custom-dropdown-item branding'>
                                                                     <div className='avatar-item branding'>
                                                                         <img src={require('../../../images/theme/branding.png')} />
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>
@@ -170,7 +170,7 @@ class Page extends React.Component {
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/illustration'>
-                                                                <div className='custom-dropdown-item'>
+                                                                <div className='custom-dropdown-item illustration'>
                                                                     <div className='avatar-item illustration'>
                                                                         <img src={require('../../../images/theme/illustration.png')} />
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>
@@ -181,7 +181,7 @@ class Page extends React.Component {
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/marketing-material'>
-                                                                <div className='custom-dropdown-item'>
+                                                                <div className='custom-dropdown-item marketing'>
                                                                     <div className='avatar-item marketing'>
                                                                         <img src={require('../../../images/theme/marketing.png')} />
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>

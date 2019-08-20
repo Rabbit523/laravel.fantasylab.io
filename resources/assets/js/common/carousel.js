@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import AliceCarousel from 'react-alice-carousel'
 import { Icon } from 'semantic-ui-react'
 import 'react-alice-carousel/lib/alice-carousel.css'
-import {isMobile} from 'react-device-detect'
+import {isMobileOnly, isTablet} from 'react-device-detect'
 
 class Gallery extends React.Component {
     constructor(props) {
@@ -41,6 +41,9 @@ class Gallery extends React.Component {
             responsive_mobile: {
                 0: { items: 1 }
             },
+            responsive_tablet: {
+                0: { items: 2 }
+            },
             responsive_browser: {
                 0: { items: 3 }
             },
@@ -57,12 +60,12 @@ class Gallery extends React.Component {
     }
 
     render() {
-        const { galleryItems, newsItems, responsive_mobile, responsive_browser, currentIndex } = this.state
+        const { galleryItems, newsItems, responsive_mobile, responsive_browser, responsive_tablet, currentIndex } = this.state
         return (
             <div style={{position: 'relative'}}>
                 <AliceCarousel
                     items={this.props.type=='news'?newsItems:galleryItems}
-                    responsive={isMobile?responsive_mobile:responsive_browser}
+                    responsive={isMobileOnly?responsive_mobile:isTablet?responsive_tablet:responsive_browser}
                     autoPlayInterval={2000}
                     autoPlayDirection='rtl'
                     autoPlay={false}

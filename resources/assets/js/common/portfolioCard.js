@@ -28,7 +28,7 @@ class PortfolioCard extends React.Component {
                                 {(isMobile || isHovering) &&
                                     <div className="hover-texts">
                                         <Icon name='arrow right' className='icon-right-arrow'/>
-                                        <p className='hover-title'>{this.props.title}</p>
+                                        <h3 className='hover-title'>{this.props.title}</h3>
                                         <p className='hover-des'>{this.props.description}</p>
                                     </div>
                                 }

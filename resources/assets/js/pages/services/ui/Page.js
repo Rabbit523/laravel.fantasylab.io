@@ -34,7 +34,7 @@ class Page extends React.Component {
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <div className='service-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient mobile'>
-                                <Container className='custom-col-6'>
+                                <Container className='custom-col-6 text-group'>
                                     <div className='header-description'>
                                         <div className='header-text'>
                                             <h1>{data.title}</h1>
@@ -112,7 +112,7 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {data.estimation.map((item, i) => (
                                         <React.Fragment key={i}>
-                                            <Grid.Column mobile={16} only="mobile tablet">
+                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet">
                                                 <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
                                             </Grid.Column>
                                             <Grid.Column only="computer">

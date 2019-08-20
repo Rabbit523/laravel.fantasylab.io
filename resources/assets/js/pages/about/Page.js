@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
-import {isMobile} from 'react-device-detect'
+import {isMobileOnly} from 'react-device-detect'
 import { Link } from 'react-router-dom'
 import PageMetaTag from '../../common/pageMetaTag'
 import GuideCard from '../../common/guideCard'
@@ -52,7 +52,7 @@ class Page extends React.Component {
                                         <Container className="custom-col-6">
                                             <div className="counter-box">
                                                 {data.counters.map((item, i) => (
-                                                    <div className="box" mobile={16} tablet={8} computer={4}key={i}>
+                                                    <div className="box" mobile={isTablet?4:16} tablet={8} computer={4} key={i}>
                                                         <h4>{item.number}</h4>
                                                         <p>{item.text}</p>
                                                     </div>
@@ -76,14 +76,14 @@ class Page extends React.Component {
                             <Container className="custom-col-6">
                                 <h2>{data.values.title}</h2>
                                 <Grid>
-                                    <Grid.Column mobile={16} tablet={16} computer={8}>
+                                    <Grid.Column mobile={16} tablet={8} computer={8}>
                                         {data.values.data.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 {i < 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}
                                             </React.Fragment>
                                         ))}
                                     </Grid.Column>
-                                    <Grid.Column mobile={16} tablet={16} computer={8} style={isMobile?{marginTop: -20}:{marginTop: 20}}>
+                                    <Grid.Column mobile={16} tablet={8} computer={8} style={isMobileOnly?{marginTop: -20}:{marginTop: 20}}>
                                         {data.values.data.map((item, i) => (
                                             <React.Fragment key={i}>
                                                 {i >= 3 &&  <TextCard color={item.color} title={item.title} description={item.description} />}

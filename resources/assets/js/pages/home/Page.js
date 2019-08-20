@@ -15,14 +15,19 @@ class Page extends React.Component {
         super(props);
 
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            isTablet: false,
         };
     }
 
     componentDidMount() {
         Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
-                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                if (window.innerWidth < 1024) {
+                    this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.data) });
+                } else {
+                    this.setState({ isLoaded: true, isTablet: true, data: JSON.parse(res.data.data) });
+                }
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
@@ -31,13 +36,13 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, data } = this.state;
+        const { isLoaded, isTablet, data } = this.state;
         return (
             <div className='home-page'>
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.header.meta_title} meta_description={data.header.meta_description}/>
-                        <div className='homepage-header' style={{ backgroundImage: `url(${isMobile?data.header.mobile_header:data.header.header_url})` }}>
+                        <div className='homepage-header' style={{ backgroundImage: `url(${isMobile&&!isTablet?data.header.mobile_header:data.header.header_url})` }}>
                             <Container className='custom-col-6'>
                                 <div className='homepage-header-description'>
                                     <h1>{data.header.header_title}</h1>

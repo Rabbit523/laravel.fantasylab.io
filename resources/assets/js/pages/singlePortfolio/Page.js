@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import PageMetaTag from '../../common/pageMetaTag'
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
@@ -117,14 +118,18 @@ class Page extends React.Component {
                         </section>
                         <section className='portfolio-section scope'>
                             <Container className='custom-col-6 service'>
-                                <h3>Scope of the project</h3>
+                                <h2>Scope of the project</h2>
                                 <Grid columns={3}>
                                     {data.services.map((item, index) => (
                                         <React.Fragment key={index}>
-                                            <Grid.Column mobile={16} tablet={8} only="mobile">
+                                            <Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={
+                                                    item.type.includes('web')?`/${item.type}-development`:item.type=='ui'?`/ui-ux-design`:item.type=='branding'?'branding':item.type=='illustration'?'illustration':'marketing-material'
+                                                }>
                                                 <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                             </Grid.Column>
-                                            <Grid.Column only="computer">
+                                            <Grid.Column only="computer" as={Link} to={
+                                                    item.type.includes('web')?`/${item.type}-development`:item.type=='ui'?`/ui-ux-design`:item.type=='branding'?'branding':item.type=='illustration'?'illustration':'marketing-material'
+                                                }>
                                                 <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                             </Grid.Column>
                                         </React.Fragment>
