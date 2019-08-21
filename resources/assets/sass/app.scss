@@ -206,7 +206,8 @@ body {
 .segment.navbar {
   background: $primary-color-transparent !important;
   z-index: +1;
-  position: absolute;
+  position: fixed;
+  top: 0;
   width: 100%;
   background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
   .nav-color {
@@ -2216,7 +2217,8 @@ body {
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
     z-index: +1;
-    position: absolute;
+    position: fixed;
+    top: 0;
     width: 100%;
     border-radius: 0;
     .secondary.menu {
