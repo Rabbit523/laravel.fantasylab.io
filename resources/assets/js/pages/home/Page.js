@@ -1,7 +1,9 @@
 import React from 'react'
-import { Button, Container, Grid, Dimmer, Segment, Loader, Image } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import {isMobile} from 'react-device-detect'
+import Modal from 'react-modal';
+
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
 import BadgeTextCard from '../../common/badgeTextCard'
@@ -10,6 +12,18 @@ import Gallery from '../../common/carousel'
 import NewsCard from '../../common/newsCard'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+};
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -17,7 +31,9 @@ class Page extends React.Component {
         this.state = {
             isLoaded: false,
             isTablet: false,
+            isOpen: true,
         };
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
@@ -35,13 +51,31 @@ class Page extends React.Component {
         });
     }
 
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
     render() {
-        const { isLoaded, isTablet, data } = this.state;
+        const { isLoaded, isTablet, isOpen, data } = this.state;
+        Modal.setAppElement('#app')
         return (
             <div className='home-page'>
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.header.meta_title} meta_description={data.header.meta_description}/>
+                        <Modal
+                            isOpen={isOpen}
+                            onRequestClose={this.closeModal}
+                            style={customStyles}
+                            >
+                            <Button icon='close' onClick={this.closeModal}/>
+                            <h2>Hi,<br/>Visionary.</h2>
+                            <p>Our website is under development.</p>
+                            <div className="button-group">
+                                <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                                <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                            </div>
+                        </Modal>
                         <div className='homepage-header' style={{ backgroundImage: `url(${isMobile&&!isTablet?data.header.mobile_header:data.header.header_url})` }}>
                             <Container className='custom-col-6'>
                                 <div className='homepage-header-description'>

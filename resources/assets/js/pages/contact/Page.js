@@ -110,6 +110,9 @@ class Page extends React.Component {
 
     handleSubmit(event) {
         const { message, checked } = this.state;
+        if (!checked) {
+            this.setState({ checkbox_border: !this.state.checkbox_border });
+        }
         this.validator.validateAll(message)
             .then(success => {
                 if (success) {
@@ -136,7 +139,14 @@ class Page extends React.Component {
     }
 
     submit(data) {
-        console.log(data);
+        Http.post('/api/send-message', { data: data })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
     }
     render() {
         const { isLoaded, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
@@ -182,7 +192,7 @@ class Page extends React.Component {
                                     </div>
                                     <Form.Field label='What can we help you with?' name='message' placeholder='Write your message' control='textarea'  rows='5' error={errors.has('message')} onChange={(val)=>this.handleChange(val, 'message')} />
                                     {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')}</Header>}
-                                    <div className={checkbox_border?'privacy-section': 'privacy-section checkbox_border'}>
+                                    <div className={checkbox_border?'privacy-section': 'privacy-section error'}>
                                         <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
                                         <div className='terms-section'>
                                             <Link to='/privacy' replace>Privacy Policy</Link>

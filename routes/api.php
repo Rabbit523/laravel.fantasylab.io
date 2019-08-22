@@ -28,6 +28,7 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    Route::get('/hello',function(){
        return response()->json("Cool dude");
    });
+
    Route::post('/front/get-page', 'Api\PagesController@getPage');
    Route::get('/front/get-portfolios', 'Api\PagesController@getPortfolios');
    Route::post('/front/get-portfolio-page', 'Api\PagesController@getPortfolioPage');
@@ -44,4 +45,6 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
 
    Route::get('/admin/pages', 'Api\PagesController@getPages');
    Route::post('/admin/update-page', 'Api\PagesController@updatePage');   
+
+   Route::post('/send-message', 'Api\ApiController@sendMessage');
 });

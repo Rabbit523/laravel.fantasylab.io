@@ -204,6 +204,74 @@ body {
   font-size: 16px !important;
 }
 
+.ReactModal__Overlay {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.ReactModal__Overlay .ReactModal__Content {
+  padding: 20px !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(#09133a), to(#070e28)) !important;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  border: none !important;
+}
+
+.ReactModal__Overlay .ReactModal__Content h2 {
+  color: #fff;
+  font-family: "Gotham Bold";
+  margin-top: 0;
+}
+
+.ReactModal__Overlay .ReactModal__Content p {
+  color: #9aa2bf;
+  letter-spacing: 1.2px;
+  font-family: "Gotham Book";
+}
+
+.ReactModal__Overlay .ReactModal__Content .ui.button {
+  background: transparent;
+}
+
+.ReactModal__Overlay .ReactModal__Content .ui.button i {
+  color: #404567;
+  font-size: 25px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-shadow: none;
+}
+
+.ReactModal__Overlay .ReactModal__Content .button-group {
+  margin-top: 10px;
+}
+
+.ReactModal__Overlay .ReactModal__Content .button-group .ui.button {
+  font-size: 14px !important;
+  width: auto;
+  padding: 10px 30px 10px 30px !important;
+}
+
+@media (min-width: 320px) {
+  .ReactModal__Overlay .ReactModal__Content {
+    width: 300px;
+    height: 220px;
+  }
+
+  .ReactModal__Overlay .ReactModal__Content p {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 360px) {
+  .ReactModal__Overlay .ReactModal__Content {
+    width: 350px;
+  }
+
+  .ReactModal__Overlay .ReactModal__Content p {
+    font-size: 15px;
+  }
+}
+
 .segment.navbar {
   background: #000 !important;
   z-index: +1;
@@ -2205,6 +2273,10 @@ body {
           align-items: flex-start;
 }
 
+.page main .contact-page .contact-section .message-form .privacy-section.error .checkbox label:before {
+  border-color: red;
+}
+
 .page main .contact-page .contact-section .message-form .privacy-section .checkbox:hover label:before {
   border-color: #465489 !important;
 }
@@ -3350,7 +3422,7 @@ body {
   }
 
   .page main .contact-page .contact-section .message-form .form-group .custom-error {
-    bottom: 90px;
+    bottom: 96px;
   }
 
   .page main .contact-page .contact-section .message-form .privacy-section {
@@ -4039,6 +4111,10 @@ body {
 
   .page main .contact-page .contact-section {
     margin-top: 660px;
+  }
+
+  .page main .contact-page .contact-section .message-form .form-group .custom-error {
+    bottom: 0;
   }
 
   .page main .service-page .service-header {
@@ -4801,6 +4877,10 @@ body {
 
   .page main .contact-page .contact-header .header-gradient .row .column:last-child {
     padding-right: 0;
+  }
+
+  .page main .contact-page .contact-section {
+    margin-top: 35px;
   }
 
   .page main .contact-page .contact-section .message-form .form-group {

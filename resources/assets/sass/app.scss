@@ -202,6 +202,59 @@ body {
   font-weight: bold !important;
   font-size: 16px !important;
 }
+//define notice-modal
+.ReactModal__Overlay {
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.5) !important;
+  .ReactModal__Content {
+    padding: 20px !important;
+    background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+    border: none !important;
+    h2 {
+      color: #fff;
+      font-family: "Gotham Bold";
+      margin-top: 0;
+    }
+    p {
+      color: #9aa2bf;
+      letter-spacing: 1.2px;
+      font-family: "Gotham Book";
+    }
+    .ui.button {
+      background: transparent;
+      i {
+        color: #404567;
+        font-size: 25px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        text-shadow: none;
+      }
+    }
+    .button-group {
+      margin-top: 10px;
+      .ui.button {
+        font-size: 14px !important;
+        width: auto;
+        padding: 10px 30px 10px 30px !important;
+      }
+    }
+    @media (min-width: 320px) {
+      width: 300px;
+      height: 220px;
+      p {
+        font-size: 12px;
+      }
+    }
+    @media (min-width: 360px) {
+      width: 350px;
+      p {
+        font-size: 15px;
+      }
+    }
+  }
+}
+
 //define navbar
 .segment.navbar {
   background: $primary-color-transparent !important;
@@ -1664,6 +1717,15 @@ body {
             display: flex;
             flex-direction: row;
             align-items: flex-start;
+            &.error {
+              .checkbox {
+                label {
+                  &:before {
+                    border-color: red;
+                  }
+                }
+              }
+            }
             .checkbox {
               &:hover {
                 label {
@@ -2616,7 +2678,7 @@ body {
                 margin-right: 0;
               }
               .custom-error {
-                bottom: 90px;
+                bottom: 96px;
               }
             }
             .privacy-section {
@@ -3366,6 +3428,13 @@ body {
       .contact-page {
         .contact-section {
           margin-top: 660px;
+          .message-form {
+            .form-group {
+              .custom-error {
+                bottom: 0;
+              }
+            }
+          }
         }
       }
       .service-page {
@@ -4092,6 +4161,7 @@ body {
           }
         }
         .contact-section {
+          margin-top: 35px;
           .message-form {
             .form-group {
               flex-direction: row;
