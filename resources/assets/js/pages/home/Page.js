@@ -31,9 +31,10 @@ class Page extends React.Component {
         this.state = {
             isLoaded: false,
             isTablet: false,
-            isOpen: true,
+            isOpen: false
         };
         this.closeModal = this.closeModal.bind(this);
+        this.triggerModal = this.triggerModal.bind(this);
     }
 
     componentDidMount() {
@@ -53,6 +54,11 @@ class Page extends React.Component {
 
     closeModal() {
         this.setState({ isOpen: false });
+    }
+
+    triggerModal(event) {
+        event.preventDefault();
+        this.setState({ isOpen: true });
     }
 
     render() {
@@ -89,9 +95,9 @@ class Page extends React.Component {
                                         })
                                     }
                                     <div className='homepage-header-buttons'>
-                                        <Button as={Link} to='/register' replace compact
-                                            className='register primary-button'>Craft Enterprise</Button>
-                                        <p>Existing user? <Link to='/login' className='item-link'>Log in to FantasyLab</Link>.</p>
+                                        {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
+                                        <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
+                                        <p>Existing user? <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>Log in to FantasyLab</Link>.</p>
                                     </div>
                                 </div>
                             </Container>
@@ -138,8 +144,10 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                                 <div className='home-button-group'>
-                                    <Button as={Link} to='/register' replace compact className='primary-button'>Craft Enterprise</Button>
-                                    <Button as={Link} to='/login' replace compact className='secondary-button'>The Platform</Button>
+                                    {/* <Button as={Link} to='/register' replace compact className='primary-button'>Craft Enterprise</Button>
+                                    <Button as={Link} to='/login' replace compact className='secondary-button'>The Platform</Button> */}
+                                    <Button as={Link} to='/register' className='primary-button' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
+                                    <Button as={Link} to='/login' className='secondary-button' onClick={(event) => this.triggerModal(event)}>The Platform</Button>
                                 </div>
                             </Container>
                         </section>
@@ -174,13 +182,13 @@ class Page extends React.Component {
                                 <h2>Latest News</h2>
                                 <Grid columns={3}>
                                     {data.news.map((item, i) => (
-                                        <Grid.Column key={i} only="computer">
+                                        <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
                                             <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
                                         </Grid.Column>
                                     ))}
                                 </Grid>
                                 <Grid>
-                                    <Grid.Column only="tablet mobile">
+                                    <Grid.Column only="tablet mobile" onClick={(event) => this.triggerModal(event)}>
                                         <Gallery type="news" items={data.news} />
                                     </Grid.Column>
                                 </Grid>

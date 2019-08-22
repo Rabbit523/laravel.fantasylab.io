@@ -2,17 +2,60 @@
  * Created by Sumit-Yadav on 12-10-2017.
  */
 import React from 'react'
-import { Container, Grid, Responsive } from 'semantic-ui-react'
+import { Container, Grid, Responsive, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import Modal from 'react-modal';
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+};
 
 class Footer extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isOpen: false
+        }
+
+        this.closeModal = this.closeModal.bind(this);
+        this.triggerModal = this.triggerModal.bind(this);
+    }
+
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
+    triggerModal(event) {
+        event.preventDefault();
+        this.setState({ isOpen: true });
     }
 
     render() {
+        const { isOpen } = this.state;
+        Modal.setAppElement('#app')
         return (
             <div className='footer'>
+                 <Modal
+                    isOpen={isOpen}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    >
+                    <Button icon='close' onClick={this.closeModal}/>
+                    <h2>Hi,<br/>Visionary.</h2>
+                    <p>Our website is under development.</p>
+                    <div className="button-group">
+                        <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                        <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                    </div>
+                </Modal>
                 <Responsive style={{ margin: 0, borderRadius: '0', padding: 0 }}>
                     <Container className='custom-col-6'>
                         <Grid className='foobar' stackable>
@@ -35,10 +78,10 @@ class Footer extends React.Component {
                                         <h4>Platform</h4>
                                     </div>
                                     <div className='footer-item'>
-                                        <Link to='/features' className='item-link'>Creatives</Link>
-                                        <Link to='/features' className='item-link'>Features</Link>
+                                        <Link to='/features' className='item-link' onClick={(event) => this.triggerModal(event)}>Creatives</Link>
+                                        <Link to='/features' className='item-link' onClick={(event) => this.triggerModal(event)}>Features</Link>
                                         <Link to='/portfolio' className='item-link'>Portfolio</Link>
-                                        <Link to='/portfolio' className='item-link'>Pricing</Link>
+                                        <Link to='/portfolio' className='item-link' onClick={(event) => this.triggerModal(event)}>Pricing</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -48,10 +91,10 @@ class Footer extends React.Component {
                                     <div className='footer-item'>
                                         <h4></h4>
                                         <Link to='/about' className='item-link'>About us</Link>
-                                        <Link to='/blog' className='item-link'>Blog</Link>
+                                        <Link to='/blog' className='item-link' onClick={(event) => this.triggerModal(event)}>Blog</Link>
                                         <Link to='/contact' className='item-link'>Contact</Link>
-                                        <Link to='/blog' className='item-link'>Facebook</Link>
-                                        <Link to='/contact' className='item-link'>Instagram</Link>
+                                        <a href='https://www.facebook.com/fantasylab.io/' target="_blank" className='item-link'>Facebook</a>
+                                        <a href='https://www.instagram.com/fantasylab.io/' target="_blank" className='item-link'>Instagram</a>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>
@@ -59,11 +102,11 @@ class Footer extends React.Component {
                                         <h4>Get Started</h4>
                                     </div>
                                     <div className='footer-item'>
-                                        <Link to='/login' className='item-link'>Start a project</Link>
-                                        <Link to='/login' className='item-link'>Log in</Link>
-                                        <Link to='/register' className='item-link'>Sign up</Link>
-                                        <Link to='/login' className='item-link'>Apply as Designer</Link>
-                                        <Link to='/register' className='item-link'>Apply as Developer</Link>
+                                        <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Link>
+                                        <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>Log in</Link>
+                                        <Link to='/register' className='item-link' onClick={(event) => this.triggerModal(event)}>Sign up</Link>
+                                        <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>Apply as Designer</Link>
+                                        <Link to='/register' className='item-link' onClick={(event) => this.triggerModal(event)}>Apply as Developer</Link>
                                     </div>
                                 </Grid.Column>
                                 <Grid.Column>

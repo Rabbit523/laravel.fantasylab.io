@@ -3,19 +3,46 @@
  */
 import React from 'react'
 import { NavLink, Link } from 'react-router-dom'
+import Modal from 'react-modal';
 import PropTypes from 'prop-types'
 import { Button, Container, Dropdown, Icon, Menu, Responsive, Grid, Segment } from 'semantic-ui-react';
 import * as actions from '../../store/actions'
 
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+};
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            isOpen: false
+        };
+        this.closeModal = this.closeModal.bind(this);
+        this.triggerModal = this.triggerModal.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
 
     handleLogout() {
         event.preventDefault();
         this.props.dispatch(actions.authLogout());
+    }
+
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
+    triggerModal(event) {
+        event.preventDefault();
+        this.setState({ isOpen: true });
     }
 
     render() {
@@ -28,8 +55,23 @@ class Page extends React.Component {
         if (window.location.href.indexOf('admin') > 0) {
             is_dashboard = true;
         }
+        const { isOpen } = this.state;
+        Modal.setAppElement('#app')
         return (
             <React.Fragment>
+                <Modal
+                    isOpen={isOpen}
+                    onRequestClose={this.closeModal}
+                    style={customStyles}
+                    >
+                    <Button icon='close' onClick={this.closeModal}/>
+                    <h2>Hi,<br/>Visionary.</h2>
+                    <p>Our website is under development.</p>
+                    <div className="button-group">
+                        <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                        <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                    </div>
+                </Modal>
                 <Responsive as={Segment} inverted maxWidth={768} className='mobile-navbar'>
                     <Menu size='large' inverted secondary>
                         <Menu.Item as={Link} to='/' className='logo' replace>
@@ -221,11 +263,11 @@ class Page extends React.Component {
                                         </Dropdown.Menu>
                                     </Dropdown>
                                     : <Button.Group>
-                                        <Button as={Link} to='/login' replace positive compact
-                                            className='login'>Login</Button>
+                                        {/* <Button as={Link} to='/login' className='login'>Login</Button> */}
+                                        <Button as={Link} to='/login' className='login' onClick={(event) => this.triggerModal(event)}>Login</Button>
                                         <div className="register">
-                                        <Button as={Link} to='/register' replace compact
-                                            className='primary-button'>Craft Enterprise</Button>
+                                            {/* <Button as={Link} to='/register' className='primary-button'>Craft Enterprise</Button> */}
+                                            <Button as={Link} to='/register' className='primary-button' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
                                         </div>
                                     </Button.Group>
                                 }

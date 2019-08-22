@@ -1,17 +1,36 @@
 import React from 'react'
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
+import Modal from 'react-modal';
 import PageMetaTag from '../../../common/pageMetaTag'
 import Http from '../../../Http'
 import PageFooter from '../../../common/pageFooter'
 import ServiceItem from '../../../common/serviceItem'
 import GuideCard from '../../../common/guideCard'
 import BadgeTextCard from '../../../common/badgeTextCard'
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+};
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
-            isLoaded: false
+            isLoaded: false,
+            isOpen: false
         }
+
+        this.closeModal = this.closeModal.bind(this);
+        this.triggerModal = this.triggerModal.bind(this);
     }
     
     componentDidMount() {
@@ -26,13 +45,36 @@ class Page extends React.Component {
         });
     }
 
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
+    triggerModal(event) {
+        event.preventDefault();
+        this.setState({ isOpen: true });
+    }
+
     render() {
-        const { isLoaded, data } = this.state;
+        const { isLoaded,isOpen, data } = this.state;
+        Modal.setAppElement('#app')
         return (
             <div className='service-page'>
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                        <Modal
+                            isOpen={isOpen}
+                            onRequestClose={this.closeModal}
+                            style={customStyles}
+                            >
+                            <Button icon='close' onClick={this.closeModal}/>
+                            <h2>Hi,<br/>Visionary.</h2>
+                            <p>Our website is under development.</p>
+                            <div className="button-group">
+                                <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                                <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                            </div>
+                        </Modal>
                         <div className='service-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient'>
                                 <Container className='custom-col-6 text-group'>
@@ -60,10 +102,10 @@ class Page extends React.Component {
                                             <Grid columns={3}>
                                                 {data.starting.map((item, i) => (
                                                     <React.Fragment key={i}>
-                                                        <Grid.Column mobile={16} tablet={8} only="mobile">
+                                                        <Grid.Column mobile={16} tablet={8} only="mobile" onClick={(event) => this.triggerModal(event)}>
                                                             <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
-                                                        <Grid.Column only="computer">
+                                                        <Grid.Column only="computer" onClick={(event) => this.triggerModal(event)}>
                                                             <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
                                                     </React.Fragment>

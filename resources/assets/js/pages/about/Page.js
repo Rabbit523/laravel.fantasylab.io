@@ -1,7 +1,8 @@
 import React from 'react'
-import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Container, Grid, Dimmer, Segment, Loader, Button } from 'semantic-ui-react'
 import {isMobileOnly} from 'react-device-detect'
 import { Link } from 'react-router-dom'
+import Modal from 'react-modal';
 import PageMetaTag from '../../common/pageMetaTag'
 import GuideCard from '../../common/guideCard'
 import TextCard from '../../common/textCard'
@@ -10,13 +11,30 @@ import HeadquaterItem from '../../common/headQuaterItem'
 import NewsCard from '../../common/newsCard'
 import Gallery from '../../common/carousel'
 import Http from '../../Http'
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)'
+    }
+};
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isLoaded: false,
             isTablet: false,
+            isOpen: false
         }
+
+        this.closeModal = this.closeModal.bind(this);
+        this.triggerModal = this.triggerModal.bind(this);
     }
 
     componentDidMount() {
@@ -34,13 +52,35 @@ class Page extends React.Component {
         });
     }
 
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
+    triggerModal(event) {
+        event.preventDefault();
+        this.setState({ isOpen: true });
+    }
+
     render() {
-        const { isLoaded, isTablet, data } = this.state;
+        const { isLoaded, isTablet, isOpen, data } = this.state;
         return (
             <div className="about-page">
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                        <Modal
+                            isOpen={isOpen}
+                            onRequestClose={this.closeModal}
+                            style={customStyles}
+                            >
+                            <Button icon='close' onClick={this.closeModal}/>
+                            <h2>Hi,<br/>Visionary.</h2>
+                            <p>Our website is under development.</p>
+                            <div className="button-group">
+                                <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                                <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                            </div>
+                        </Modal>
                         <div className="about-header" style={{backgroundImage: `url(${data.header_url})`}}>
                             <div className="header-gradient">
                                 <Container className="custom-col-6">
@@ -63,7 +103,7 @@ class Page extends React.Component {
                                     <div className="guide-tags">
                                         <Grid columns={4}>
                                             {data.guides.map((item, index) => (
-                                                <Grid.Column className="box" mobile={16} tablet={8} computer={isTablet?8:4} key={index}>
+                                                <Grid.Column className="box" mobile={16} tablet={8} computer={isTablet?8:4} key={index} onClick={(event) => this.triggerModal(event)}>
                                                     <GuideCard avatar={item.avatar} title={item.title} description={item.description}/>
                                                 </Grid.Column>
                                             ))}
@@ -124,7 +164,7 @@ class Page extends React.Component {
                                     <Grid className="headquater-item">
                                         {data.headquarters.data.map((item, i) => (
                                             <Grid.Column mobile={16} tablet={8} computer={isTablet?8:4} key={i}>
-                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
+                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description}/>
                                             </Grid.Column>
                                         ))}
                                     </Grid>
@@ -137,13 +177,13 @@ class Page extends React.Component {
                                     <h2>{data.news.title}</h2>
                                     <Grid columns={3}>
                                         {data.news.data.map((item, i) => (
-                                            <Grid.Column key={i} only="computer">
+                                            <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
                                                 <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
                                             </Grid.Column>
                                         ))}
                                     </Grid>
                                     <Grid>
-                                        <Grid.Column only="mobile tablet">
+                                        <Grid.Column only="mobile tablet" onClick={(event) => this.triggerModal(event)}>
                                             <Gallery type="news" items={data.news.data} />
                                         </Grid.Column>
                                     </Grid>
