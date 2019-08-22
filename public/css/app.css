@@ -2509,7 +2509,7 @@ body {
 }
 
 .page main .login-page {
-  min-height: 110vh;
+  min-height: 120vh;
   background: #03051b;
   margin: 0 !important;
   padding: 0 !important;
@@ -3728,7 +3728,7 @@ body {
   }
 
   .page main .login-page {
-    min-height: 80vh;
+    min-height: 100vh;
   }
 
   .page main .login-page.register {
@@ -3737,6 +3737,12 @@ body {
 
   .page main .divide {
     height: 41px;
+  }
+}
+
+@media (min-width: 384px) {
+  .page main .login-page {
+    min-height: 110vh;
   }
 }
 
@@ -4031,6 +4037,10 @@ body {
 
   .page main .contact-page .contact-section {
     margin-top: 725px;
+  }
+
+  .page main .login-page {
+    min-height: 90px;
   }
 
   .page main .login-page.register {
@@ -4636,10 +4646,6 @@ body {
   .page main .service-page .service-estimation .service-estimation-description p {
     text-align: center;
     font-size: 16px;
-  }
-
-  .page main .login-page {
-    min-height: 70vh;
   }
 
   .page main .login-page.register {

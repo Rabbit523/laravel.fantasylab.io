@@ -1917,7 +1917,7 @@ body {
       }
     }
     .login-page {
-      min-height: 110vh;
+      min-height: 120vh;
       background: #03051b;
       margin: 0 !important;
       padding: 0 !important;
@@ -3011,13 +3011,23 @@ body {
         }
       }
       .login-page {
-        min-height: 80vh;
+        min-height: 100vh;
         &.register {
           min-height: 120vh;
         }
       }
       .divide {
         height: 41px;
+      }
+    }
+  }
+}
+
+@media (min-width: 384px) {
+  .page {
+    main {
+      .login-page {
+        min-height: 110vh;
       }
     }
   }
@@ -3349,6 +3359,7 @@ body {
         }
       }
       .login-page {
+        min-height: 90px;
         &.register {
           min-height: 80vh;
         }
@@ -3921,7 +3932,6 @@ body {
         }
       }
       .login-page {
-        min-height: 70vh;
         &.register {
           min-height: 102vh;
           .login-responsive {
