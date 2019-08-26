@@ -67,7 +67,7 @@ class HeadquaterItem extends React.Component {
                     { this.props.title=='Call us' && <a href={`tel:${ this.props.button}`} className="primary-button headquater-button">Call Us</a> }
                     { this.props.title=='Send email' && <a href='mailto:support@fantasylab.io' className="primary-button headquater-button">{this.props.button}</a> }
                     { this.props.title=='Live Chat' && <a href='https://www.google.com/maps/place/Selma+Ellefsens+Vei+2,+0581+Oslo/@59.9258526,10.8067645,17z/data=!3m1!4b1!4m5!3m4!1s0x46416fb461bfa19f:0x63b68cd75645a10d!8m2!3d59.9258499!4d10.8089532' className="primary-button headquater-button" target="_blank">View Map</a> }
-                    { this.props.title=='Get started' || this.props.title=='Start a Project' && <Button className="primary-button headquater-button" onClick={(event) => this.triggerModal(event)}>{this.props.button}</Button> }
+                    { (this.props.title=='Get started' || this.props.title=='Start a Project') && <Button className="primary-button headquater-button" onClick={(event) => this.triggerModal(event)}>{this.props.button}</Button> }
                 </div>
             </React.Fragment>
         )

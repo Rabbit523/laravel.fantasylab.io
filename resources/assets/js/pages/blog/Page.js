@@ -1,5 +1,6 @@
 import React from 'react'
-import { Header, Segment, Dimmer, Loader, Button, Link } from 'semantic-ui-react'
+import { Header, Segment, Dimmer, Loader, Button } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import Modal from 'react-modal';
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'

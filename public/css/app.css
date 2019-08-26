@@ -224,7 +224,6 @@ body {
 
 .ReactModal__Overlay .ReactModal__Content p {
   color: #9aa2bf;
-  letter-spacing: 1.2px;
   font-family: "Gotham Book";
 }
 
@@ -258,7 +257,7 @@ body {
   }
 
   .ReactModal__Overlay .ReactModal__Content p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 
@@ -268,7 +267,7 @@ body {
   }
 
   .ReactModal__Overlay .ReactModal__Content p {
-    font-size: 15px;
+    font-size: 16px;
   }
 }
 
@@ -616,6 +615,10 @@ body {
   background: #070a2b !important;
   width: 190px !important;
   height: auto !important;
+}
+
+.page .admin-sidebar .item {
+  font-size: 18px;
 }
 
 .page main {
@@ -2488,11 +2491,13 @@ body {
 
 .page main .privacy-page .privacy-section .side-nav h3 {
   color: #29356e;
+  font-family: "Gotham Bold";
 }
 
 .page main .privacy-page .privacy-section .side-nav .item {
   cursor: pointer;
-  color: #4f546e;
+  color: #9aa2bf;
+  font-family: "Gotham Bold";
 }
 
 .page main .privacy-page .privacy-section .side-nav .item i {
@@ -2798,6 +2803,7 @@ body {
 
 .page main .admin-page {
   min-height: 110vh;
+  padding-left: 30px;
 }
 
 .page main .admin-page.home {
@@ -2810,6 +2816,21 @@ body {
 
 .page main .admin-page .ui.card {
   width: 100%;
+}
+
+.page main .admin-page .ui.card .header {
+  font-size: 20px;
+}
+
+.page main .admin-page .ui.card label,
+.page main .admin-page .ui.card a {
+  font-size: 16px;
+}
+
+.page main .admin-page .ui.card input,
+.page main .admin-page .ui.card .rc-collapse-header,
+.page main .admin-page .ui.card textarea {
+  font-size: 14px;
 }
 
 .page main .admin-page .ui.card .content {
@@ -5098,8 +5119,9 @@ body {
     width: 45%;
   }
 
-  .page main .home-page .homepage-header .homepage-header-buttons .register {
+  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
     margin-top: 10px;
+    font-size: 18px !important;
   }
 
   .page main .home-page .home-estimation .home-button-group .button {
@@ -5268,16 +5290,16 @@ body {
   }
 
   .page main .about-page .about-section .sub_title {
-    font-size: 26px;
+    font-size: 20px;
     color: #9da6c7;
   }
 
   .page main .about-page .about-section.headquarter .headquarters {
-    height: 330px;
+    height: 510px;
   }
 
   .page main .about-page .about-section.headquarter .headquarters .headquater-item {
-    padding-top: 130px;
+    padding-top: 180px;
   }
 
   .page main .about-page .about-section.headquarter .headquarters .headquater-item p {

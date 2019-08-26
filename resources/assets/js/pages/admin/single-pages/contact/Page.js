@@ -8,17 +8,12 @@ class Page extends React.Component {
         super(props);
         this.state = {
             list: [],
-            services: {},
-            values: {},
-            headquarters: {},
-            guides: [],
-            counters: [],
-            news: {},
+            headquarters: [],
             isLoaded: false,
             accordion: false,
             activeKey: []            
         }
-        // this.onCollapseChange = this.onCollapseChange.bind(this);
+        this.onCollapseChange = this.onCollapseChange.bind(this);
     }
 
     componentDidMount() {
@@ -26,9 +21,17 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
+                var headquarters = [];
+                console.log(list);
+                Object.keys(list).map(function(key, index) {
+                    if (key == "headquarters") {
+                        headquarters = list[key];
+                    }
+                });
                 this.setState({ 
                     isLoaded: true, 
-                    list
+                    list,
+                    headquarters
                 });
             }
         ).catch(err => {
@@ -37,7 +40,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { list } = this.state;
+        var { list, headquarters } = this.state;
         var ref = this;
         switch (type) {
             case 'meta_title':
@@ -53,12 +56,25 @@ class Page extends React.Component {
                 list.description = event.target.value;
                 return this.setState({ list });
         }
+
+        headquarters.map(function (item, i) {
+            if (type.includes('headquarter') && type.includes(i)) {
+                if (type.includes('title')) {
+                    item.title = event.target.value;
+                    return ref.setState({ headquarters });
+                } else if (type.includes('description')) {
+                    item.description = event.target.value;
+                    return ref.setState({ headquarters });
+                }
+            }
+        });
     }
 
     onAvatarChange(type, e){
-        var infile = document.getElementById("input-file");
-        var { list } = this.state;
+        var { list, headquarters } = this.state;
         var ref = this;
+
+        var infile = document.getElementById("input-file");
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -66,8 +82,28 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(infile.files[0]);
         }
+
+        var headquarters_files = document.getElementsByClassName("headquarter_avatar");
+        Object.keys(headquarters_files).map((key, index) => {
+            if (headquarters_files[index].files && headquarters_files[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    headquarters.map((item, i) => {
+                        if (type.includes(i)) {
+                            item.avatar = e.target.result;
+                            ref.setState({ headquarters });
+                        }
+                    });
+                }
+                reader.readAsDataURL(headquarters_files[index].files[0]);
+            }
+        });
     }    
     
+    onCollapseChange(activeKey) {
+        this.setState({ activeKey });
+    }
+
     // Update header section
     updateHeader() {
         var { list } = this.state;
@@ -81,46 +117,92 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    
+    // Update guide items
+    onUpdateHeadquarterItem(e, type) {
+        var { headquarters , list } = this.state;
+        Object.keys(list).map((key, index) => {
+            if (key == 'headquarters') {
+                list[key] = headquarters;
+            }
+        });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { name: 'contact', data: JSON.stringify(headquarters[type]), type: 'headquarters', id: type })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+
     render() {
-        const { isLoaded, list } = this.state;
+        const { isLoaded, list, headquarters, accordion, activeKey } = this.state;
+        const ref = this;
         return (
             <div className="admin-page">
             {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Container>
-                        <Grid padded="vertically">
-                            <Grid.Row columns={2} className="custom-row">
-                                <Grid.Column className="custom-column">
-                                    <Card className="header-section">
-                                        <Card.Content>
-                                            <Card.Header>Header Section</Card.Header>
-                                        </Card.Content>
-                                        <Card.Content>
-                                            <Card.Description>
-                                                <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
-                                                <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
-                                                <Form.Input fluid label="Title" name='title' placeholder='Header title' className="input-form" value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
-                                                <Form>
-                                                    <label>Description</label>
-                                                    <TextArea
-                                                        placeholder='Tell us more'
-                                                        value={ list.description }
-                                                        onChange={ (val) => this.handleChange(val, 'description') }
-                                                    />
-                                                </Form>
-                                                <Form>
-                                                    <label>Header Image</label>
-                                                    <Form.Field>
-                                                        <input accept="image/*" type="file" id="input-file" onChange={(e) => this.onAvatarChange("header", e)}/>
-                                                    </Form.Field>
-                                                </Form>
-                                                <label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> Save </label>
-                                            </Card.Description>
-                                        </Card.Content>
-                                    </Card>
-                                </Grid.Column>
-                            </Grid.Row>
+                        <Grid>
+                            <Grid.Column computer={8}>
+                                <Card className="header-section">
+                                    <Card.Content>
+                                        <Card.Header>Header Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Form.Input fluid label='Meta Title' name='meta_title' placeholder='Meta title' className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
+                                            <Form.Input fluid label='Meta Description' name='meta_description' placeholder='Meta description' className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
+                                            <Form.Input fluid label="Title" name='title' placeholder='Header title' className="input-form" value={list.title} onChange={(val)=>this.handleChange(val, 'title')} />
+                                            <Form>
+                                                <label>Description</label>
+                                                <TextArea
+                                                    placeholder='Tell us more'
+                                                    value={ list.description }
+                                                    onChange={ (val) => this.handleChange(val, 'description') }
+                                                />
+                                            </Form>
+                                            <Form>
+                                                <label>Header Image</label>
+                                                <Form.Field>
+                                                    <input accept="image/*" type="file" id="input-file" onChange={(e) => this.onAvatarChange("header", e)}/>
+                                                </Form.Field>
+                                            </Form>
+                                            <label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> Save </label>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column computer={8}>
+                                <Card>
+                                    <Card.Content>
+                                        <Card.Header>headquarters Items</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
+                                                {headquarters.map((item, index) => (
+                                                    <Panel header={item.title} key={index}>
+                                                        <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, index+'_headquarter_title')} />
+                                                        <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, index +'_headquarter_description')} />
+                                                        <Form>
+                                                            <label>Avatar Image</label>
+                                                            <Form.Field>
+                                                                <input accept='image/*' type='file' className='headquarter_avatar' onChange={(e) => ref.onAvatarChange(index+'_avatar', e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                        <div style={{display: 'flex'}}>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquarterItem(e, index)}> Save </label>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteHeadquarterItem(e, index)}> Delete </label>
+                                                        </div>
+                                                    </Panel>
+                                                ))}
+                                            </Collapse>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
                         </Grid>
                     </Container>
                  </Segment>

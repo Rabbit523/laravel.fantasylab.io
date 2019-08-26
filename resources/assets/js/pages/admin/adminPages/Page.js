@@ -31,7 +31,7 @@ class Page extends React.Component {
                         <Grid.Column width={8}>
                             <List selection divided relaxed>
                                 {list.map((item, i) => (
-                                    <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
+                                    <List.Item key={i} as={Link} to={item.page_name.includes('privacy')?'/admin/legal':`/admin/single-page/${item.page_name}`}>
                                         <List.Icon name='github' size='large' verticalAlign='middle' />
                                         <List.Content>
                                             <List.Header><p>{item.page_name}</p></List.Header>
@@ -43,7 +43,7 @@ class Page extends React.Component {
                         </Grid.Column>
                         <Grid.Column width={8}>
                             <List selection divided relaxed>
-                                <List.Item as={Link} to={`/admin/portfolios`}>
+                                <List.Item as={Link} to={`/admin/portfolio`}>
                                     <List.Icon name='github' size='large' verticalAlign='middle' />
                                     <List.Content>
                                         <List.Header><p>Portfolios</p></List.Header>

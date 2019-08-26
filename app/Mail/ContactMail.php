@@ -11,7 +11,7 @@ class ContactMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $data;
+    public $name, $email, $description, $phone, $company;
     /**
      * Create a new message instance.
      *
@@ -19,7 +19,11 @@ class ContactMail extends Mailable
      */
     public function __construct($data)
     {
-        $this->data = $data;
+        $this->name = $data['data']['name'];
+        $this->email = $data['data']['email'];
+        $this->description = $data['data']['message'];
+        $this->phone = $data['data']['phone'];
+        $this->company = $data['data']['company'];
     }
 
     /**
@@ -29,8 +33,8 @@ class ContactMail extends Mailable
      */
     public function build()
     {   
-        return $this->view('email.contact-request', compact('data'))
-        ->from("fantasylab@accessoslo.no", "FantasyLab")
-        ->subject('Feedback for Additional Service of Executive Charter');
+        return $this->view('email.contact-request', compact('name', 'email', 'description', 'phone', 'company'))
+        ->from("no-reply@fantasylab.io", "FantasyLab")
+        ->subject('A new contact request by'.$this->name);
     }
 }

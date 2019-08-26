@@ -217,7 +217,6 @@ body {
     }
     p {
       color: #9aa2bf;
-      letter-spacing: 1.2px;
       font-family: "Gotham Book";
     }
     .ui.button {
@@ -243,13 +242,13 @@ body {
       width: 300px;
       height: 220px;
       p {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
     @media (min-width: 360px) {
       width: 350px;
       p {
-        font-size: 15px;
+        font-size: 16px;
       }
     }
   }
@@ -534,6 +533,9 @@ body {
     background: #070a2b !important;
     width: 190px !important;
     height: auto !important;
+    .item {
+      font-size: 18px;
+    }
   }
   main {
     flex: 1;
@@ -1898,10 +1900,12 @@ body {
         .side-nav {
           h3 {
             color: #29356e;
+            font-family: "Gotham Bold";
           }
           .item {
             cursor: pointer;
-            color: #4f546e;
+            color: #9aa2bf;
+            font-family: "Gotham Bold";
             i {
               float: right;
               color: #fff;
@@ -2173,6 +2177,7 @@ body {
     }
     .admin-page {
       min-height: 110vh;
+      padding-left: 30px;
       &.home {
         min-height: 150vh;
         .ui {
@@ -2186,6 +2191,15 @@ body {
       .ui {
         &.card {
           width: 100%;
+          .header {
+            font-size: 20px;
+          }
+          label, a {
+            font-size: 16px;
+          }
+          input, .rc-collapse-header, textarea {
+            font-size: 14px;
+          }
           .content {
             text-align: left;
             .admin-form-group {
@@ -4393,10 +4407,11 @@ body {
           .homepage-header-description {
             margin-top: 200px;
             width: 45%;
-          }
-          .homepage-header-buttons {
-            .register {
-              margin-top: 10px;
+            .homepage-header-buttons {
+              .register {
+                margin-top: 10px;
+                font-size: 18px !important;
+              }
             }
           }
         }
@@ -4556,14 +4571,14 @@ body {
             font-size: 36px;
           }
           .sub_title{
-            font-size: 26px;
+            font-size: 20px;
             color: #9da6c7;
           }
           &.headquarter {
             .headquarters {
-              height: 330px;
+              height: 510px;
               .headquater-item {
-                padding-top: 130px;
+                padding-top: 180px;
                 p {
                   font-size: 18px;
                 }

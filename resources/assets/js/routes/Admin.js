@@ -25,7 +25,6 @@ const AdminRoute = ({component: Component,isAuthenticated,isAdmin, ...rest}) => 
 );
 
 const mapStateToProps = (state) => {
-    console.log(state.Auth);
     return {
         isAuthenticated : state.Auth.isAuthenticated,
         isAdmin: state.Auth.isAdmin

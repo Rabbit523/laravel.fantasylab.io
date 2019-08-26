@@ -6,9 +6,10 @@ import Http from '../../Http'
 class Page extends React.Component {
     constructor(props) {
         super(props);
+
         this.state = {
             isLoaded: false,
-            isPrivacy: true,
+            isPrivacy: false,
             isSecurity: false,
             isTerms: false,
             isConfident: false
@@ -17,10 +18,19 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
+        const { pagename } = this.props.location.state;
         Http.post('api/front/get-page', { name: 'privacy' })
         .then(
             res => {
-                this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
+                if (pagename == "privacy") {
+                    this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
+                } else if(pagename == 'security') {
+                    this.setState({ isLoaded: true, isSecurity: true, data: JSON.parse(res.data.data) });
+                } else if (pagename == 'terms') {
+                    this.setState({ isLoaded: true, isTerms: true, data: JSON.parse(res.data.data) });
+                } else {
+                    this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
+                }
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
@@ -52,7 +62,7 @@ class Page extends React.Component {
                             <Grid padded='horizontally'>
                                 <Grid.Column computer={3} className='custom-column side-nav'>
                                     <h3>Legal</h3>
-                                    <p onClick={this.isPrivacySelected.bind(this)} className="item privacy active">Privacy {isPrivacy && <Icon name="caret right"></Icon>}</p>
+                                    <p onClick={this.isPrivacySelected.bind(this)} className={isPrivacy?"item active": "item"}>Privacy {isPrivacy && <Icon name="caret right"></Icon>}</p>
                                     <p onClick={this.isSecuritySelected.bind(this)} className={isSecurity?"item active": "item"}>Security {isSecurity && <Icon name="caret right"></Icon>}</p>
                                     <p onClick={this.isTermsSelected.bind(this)} className={isTerms?"item active":"item"}>Terms {isTerms && <Icon name="caret right"></Icon>}</p>
                                     <p onClick={this.isConfidentSelected.bind(this)} className={isConfident?"item active":"item"}>Confidently {isConfident && <Icon name="caret right"></Icon>}</p>

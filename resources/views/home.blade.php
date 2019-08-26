@@ -10,6 +10,15 @@
         <link rel="stylesheet" href="{{asset('css/all.css')}}">
         <link rel="stylesheet" href="{{asset('css/app.css')}}">
         <link rel="shortcut icon" type="image/png" href="{{ url('/images/logo.png') }}">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-146362132-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-146362132-1');
+        </script>
     </head>
     <body>
         <div id='app'></div>

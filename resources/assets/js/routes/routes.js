@@ -151,6 +151,24 @@ const routes = [
         component: Privacy
     },
     {
+        path: '/security',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/terms',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/confidentiality',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
         path: '/terms',
         exact: true,
         auth: false,
@@ -205,7 +223,7 @@ const routes = [
         component: Dashboard
     },
     {
-        path: '/admin/portfolios',
+        path: '/admin/portfolio',
         exact: true,
         admin: true,
         component: AdminPortfolios
@@ -247,43 +265,43 @@ const routes = [
         component: AdminContact
     },
     {
-        path: '/admin/single-page/serviceWeb',
+        path: '/admin/single-page/service-web',
         exact: true,
         admin: true,
         component: AdminServiceWeb
     },
     {
-        path: '/admin/single-page/serviceMobile',
+        path: '/admin/single-page/service-mobile',
         exact: true,
         admin: true,
         component: AdminServiceMobile
     },
     {
-        path: '/admin/single-page/serviceUI',
+        path: '/admin/single-page/service-ui',
         exact: true,
         admin: true,
         component: AdminServiceUI
     },
     {
-        path: '/admin/single-page/serviceBranding',
+        path: '/admin/single-page/service-branding',
         exact: true,
         admin: true,
         component: AdminServiceBranding
     },
     {
-        path: '/admin/single-page/serviceIllustration',
+        path: '/admin/single-page/service-illustration',
         exact: true,
         admin: true,
         component: AdminServiceIllustration
     },
     {
-        path: '/admin/single-page/serviceMarket',
+        path: '/admin/single-page/service-market',
         exact: true,
         admin: true,
         component: AdminServiceMarket
     },
     {
-        path: '/admin/single-page/privacy',
+        path: '/admin/legal',
         exact: true,
         admin: true,
         component: AdminPrivacy

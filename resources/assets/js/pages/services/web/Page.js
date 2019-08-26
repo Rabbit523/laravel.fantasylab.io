@@ -34,7 +34,7 @@ class Page extends React.Component {
     }
     
     componentDidMount() {
-        Http.post('api/front/get-page', { name: 'serviceWeb' })
+        Http.post('api/front/get-page', { name: 'service-web' })
         .then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
