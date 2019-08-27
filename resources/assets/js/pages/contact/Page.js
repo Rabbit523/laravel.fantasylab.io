@@ -29,6 +29,7 @@ class Page extends React.Component {
         });
         this.state = {
             isLoaded: false,
+            isLoading: false,
             isTablet: false,
             errors: this.validator.errors,
             phoneError: true,
@@ -156,17 +157,18 @@ class Page extends React.Component {
     }
 
     submit(data) {
+        this.setState({ isLoading: true });
         Http.post('/api/send-message', { data: data })
         .then(
             res => {
-                this.setState({ isLoaded: true, isOpen: true });
+                this.setState({ isLoaded: true, isOpen: true, isLoading: false });
             }
         ).catch(err => {
             console.error(err);
         });
     }
     render() {
-        const { isLoaded, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
+        const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
         return (
             <div className='contact-page'>
                 {isLoaded ?
@@ -228,7 +230,7 @@ class Page extends React.Component {
                                             <Link to='/privacy' replace>Privacy Policy</Link>
                                         </div>
                                     </div>
-                                    <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>Send message</Button>
+                                    <Button fluid size='large' className={isLoading?'primary-button loading':'primary-button'} onClick={this.handleSubmit}>Send message</Button>
                                 </Form>
                             </Container>
                         </div>
