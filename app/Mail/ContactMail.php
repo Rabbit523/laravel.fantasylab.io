@@ -35,6 +35,6 @@ class ContactMail extends Mailable
     {   
         return $this->view('email.contact-request', compact('name', 'email', 'description', 'phone', 'company'))
         ->from("no-reply@fantasylab.io", "FantasyLab")
-        ->subject('A new contact request by'.$this->name);
+        ->subject('A new contact request by '.$this->name);
     }
 }

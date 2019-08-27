@@ -12,7 +12,11 @@ use App\Mail\ContactMail;
 class ApiController extends Controller
 {
 	public function sendMessage(Request $request) {
-		Mail::to("support@fantasylab.io")->send(new ContactMail($request->all()));
-		return "success";
+		$mail = Mail::to("support@fantasylab.io")->send(new ContactMail($request->all()));
+		if ($mail) {
+			return "success";
+		} else {
+			return "false";
+		}
 	}
 }

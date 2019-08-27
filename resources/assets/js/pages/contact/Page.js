@@ -1,6 +1,7 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import Modal from 'react-modal';
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
 import ReeValidate from 'ree-validate'
 import 'react-phone-number-input/style.css'
@@ -8,6 +9,16 @@ import flags from 'react-phone-number-input/flags'
 import PageMetaTag from '../../common/pageMetaTag'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%'
+    }
+};
 class Page extends React.Component {
     constructor(props) {
         super(props);
@@ -30,11 +41,13 @@ class Page extends React.Component {
             },
             phone: '',
             checked: false,
-            checkbox_border: true
+            checkbox_border: true,
+            isOpen: true
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
@@ -138,23 +151,44 @@ class Page extends React.Component {
             });
     }
 
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+
     submit(data) {
         Http.post('/api/send-message', { data: data })
         .then(
             res => {
-                this.setState({ isLoaded: true });
+                if (res== "true") {
+                    this.setState({ isLoaded: true, isOpen: true });
+                } else {
+                    this.setState({ isLoaded: true, isOpen: false });
+                }
             }
         ).catch(err => {
             console.error(err);
         });
     }
     render() {
-        const { isLoaded, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
+        const { isLoaded, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
         return (
             <div className='contact-page'>
                 {isLoaded ?
                     <React.Fragment>
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                        <Modal
+                            isOpen={isOpen}
+                            onRequestClose={this.closeModal}
+                            style={customStyles}
+                            className="notice-modal"
+                            >
+                            <Button icon='close' onClick={this.closeModal}/>
+                            <h2>Thank you,<br/>Visionary.</h2>
+                            <p>We have received your request. We will get in touch within 24 hours.</p>
+                            <div className="button-group">
+                                <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                            </div>
+                        </Modal>
                         <div className='contact-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                             <div className='header-gradient'>
                                 <Container className='custom-col-6'>

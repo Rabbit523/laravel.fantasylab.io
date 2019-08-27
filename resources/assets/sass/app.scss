@@ -210,6 +210,50 @@ body {
     padding: 20px !important;
     background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
     border: none !important;
+    &.notice-modal {
+      .button-group {
+        float: right;
+      }
+      @media (min-width: 320px) {
+        transform: translate(3%, 120%);
+        width: 300px;
+        height: 220px;
+        p {
+          font-size: 14px;
+        }
+      }
+      @media (min-width: 360px) {
+        transform: translate(0%, 120%);
+        width: 360px;
+        height: 250px;
+        p {
+          font-size: 16px;
+        }
+      }
+      @media (min-width: 375px) {
+        transform: translate(2%, 120%);
+      }
+      @media (min-width: 414px) {
+        transform: translate(0%, 120%);
+      }
+      @media (min-width: 768px) {
+        transform: translate(40%, 160%);
+        width: 420px;
+        height: 250px;
+      }
+      @media (min-width: 1024px) {
+        transform: translate(70%, 160%);
+      }
+      @media (min-width: 1280px) {
+        transform: translate(110%, 100%);
+      }
+      @media (min-width: 1440px) {
+        transform: translate(120%, 150%);
+      }
+      @media (min-width: 1920px) {
+        transform: translate(180%, 170%);
+      }
+    }
     h2 {
       color: #fff;
       font-family: "Gotham Bold";
