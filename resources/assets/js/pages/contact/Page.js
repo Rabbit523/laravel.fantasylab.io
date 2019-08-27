@@ -123,23 +123,25 @@ class Page extends React.Component {
     }
 
     handleSubmit(event) {
-        const { message, checked } = this.state;
-        if (!checked) {
-            this.setState({ checkbox_border: !this.state.checkbox_border });
-        }
+        const { message, checked, checkbox_border } = this.state;
+        console.log(checked, checkbox_border);
+        
         this.validator.validateAll(message)
             .then(success => {
                 if (success) {
-                    // Manually verify the password confirmation fields
-                    if (checked) {
-                        this.setState({ isLoading: true });
-                        this.submit(message);
-                    } else {
+                    if (!checked) {
                         this.setState({ checkbox_border: !this.state.checkbox_border });
+                    } else {
+                        this.setState({ isLoaded: false, isLoading: true });
+                        this.submit(message);
                     }
                 } else {
                     const { errors } = this.validator;
                     const ref = this;
+
+                    if (!checked) {
+                        this.setState({ checkbox_border: !this.state.checkbox_border });
+                    }
                     Object.keys(message).map((key, item) => {
                         if (key != 'phone' && key != 'company') {
                             ref.validator.validate(key, message[key])
@@ -157,7 +159,6 @@ class Page extends React.Component {
     }
 
     submit(data) {
-        this.setState({ isLoading: true });
         Http.post('/api/send-message', { data: data })
         .then(
             res => {
