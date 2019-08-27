@@ -159,10 +159,8 @@ class Page extends React.Component {
         Http.post('/api/send-message', { data: data })
         .then(
             res => {
-                if (res== "true") {
+                if (res == "true") {
                     this.setState({ isLoaded: true, isOpen: true });
-                } else {
-                    this.setState({ isLoaded: true, isOpen: false });
                 }
             }
         ).catch(err => {
