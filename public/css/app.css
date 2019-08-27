@@ -2494,26 +2494,6 @@ body {
   font-family: "Gotham Bold";
 }
 
-.page main .privacy-page .privacy-section .side-nav .item {
-  cursor: pointer;
-  color: #9aa2bf;
-  font-family: "Gotham Bold";
-}
-
-.page main .privacy-page .privacy-section .side-nav .item i {
-  float: right;
-  color: #fff;
-  border: none;
-}
-
-.page main .privacy-page .privacy-section .side-nav .item:hover {
-  color: #fff;
-}
-
-.page main .privacy-page .privacy-section .side-nav .item.active {
-  color: #fff;
-}
-
 .page main .login-page {
   min-height: 120vh;
   background: #03051b;
@@ -2793,7 +2773,6 @@ body {
   cursor: pointer;
   color: #4183C4 !important;
   text-align: left;
-  text-transform: uppercase;
   font-size: 18px;
   font-family: "Gotham Bold";
   padding-bottom: 10px;
@@ -2896,6 +2875,39 @@ body {
 }
 
 .page main .page-loader .ui.inverted.dimmer .loader {
+  color: #fff;
+}
+
+.page main .side-nav {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.page main .side-nav a {
+  text-decoration: none;
+  cursor: pointer;
+  color: #9aa2bf;
+  font-family: "Gotham Bold";
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.page main .side-nav a i {
+  float: right;
+  color: #fff;
+  border: none;
+}
+
+.page main .side-nav a:hover {
+  color: #fff;
+}
+
+.page main .side-nav a.active {
   color: #fff;
 }
 
@@ -3554,6 +3566,7 @@ body {
 
   .page main .service-page .service-section.review .service-review .third-button {
     font-size: 12px !important;
+    text-decoration: none;
   }
 
   .page main .service-page .service-section.mobile {
@@ -4478,7 +4491,7 @@ body {
   }
 
   .page main .about-page .about-section.headquarter .headquarters .headquater-item p {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) {
@@ -5300,10 +5313,6 @@ body {
 
   .page main .about-page .about-section.headquarter .headquarters .headquater-item {
     padding-top: 180px;
-  }
-
-  .page main .about-page .about-section.headquarter .headquarters .headquater-item p {
-    font-size: 18px;
   }
 
   .page main .about-page .about-section:nth-of-type(2) {

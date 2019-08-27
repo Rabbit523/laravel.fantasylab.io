@@ -3,7 +3,6 @@ import Login from '../pages/login'
 import Register from '../pages/register'
 import ForgotPassword from '../pages/forgotPassword'
 import ResetPassword from '../pages/resetPassword'
-import Dashboard from '../pages/dashboard'
 import NoMatch from '../pages/noMatch'
 import ServiceWeb from '../pages/services/web'
 import ServiceMobile from '../pages/services/mobile'
@@ -30,6 +29,7 @@ import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
 import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
 import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
 import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
+import AdminBlog from '../pages/admin/adminBlog'
 import AdminPrivacy from '../pages/admin/single-pages/privacy'
 import AdminPortfolios from '../pages/admin/adminPortfolios'
 import AdminReviews from '../pages/admin/adminReviews'
@@ -175,52 +175,16 @@ const routes = [
         component: Terms
     },
     {
-        path: '/admin/dashboard',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
         path: '/admin/pages',
         exact: true,
         admin: true,
         component: AdminPages
     },
     {
-        path: '/admin/services',
+        path: '/admin/blog',
         exact: true,
         admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/clients',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/projects',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/teams',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/invoices',
-        exact: true,
-        admin: true,
-        component: Dashboard
-    },
-    {
-        path: '/admin/settings',
-        exact: true,
-        admin: true,
-        component: Dashboard
+        component: AdminBlog
     },
     {
         path: '/admin/portfolio',

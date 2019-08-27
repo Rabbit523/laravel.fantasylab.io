@@ -68,16 +68,34 @@ class Page extends React.Component {
             case 'review_job':
                 reviews.job = event.target.value;
                 return this.setState({ reviews });
+            case 'review_url':
+                reviews.path = event.target.value;
+                return this.setState({ reviews });
+            case 'footer_title':
+                list.footer_title = event.target.value;
+                return this.setState({ list });
+            case 'footer_description':
+                list.footer_description = event.target.value;
+                return this.setState({ list });
+            case 'footer_button':
+                list.footer_button = event.target.value;
+                return this.setState({ list });
+            case 'footer_link':
+                list.footer_link = event.target.value;
+                return this.setState({ list });
+            case 'footer_link_name':
+                list.footer_link_name = event.target.value;
+                return this.setState({ list });
         }
 
         Object.keys(technologies).map((key, i) => {
             if (type.includes('tech') && type.includes(key)) {
                 if (type.includes('title')) {
                     technologies[key].lang = event.target.value;
-                    this.setState({ technologies });
+                    ref.setState({ technologies });
                 } else if (type.includes('description')) {
                     technologies[key].text = event.target.value;
-                    this.setState({ technologies });
+                    ref.setState({ technologies });
                 }
             }
         });
@@ -98,6 +116,16 @@ class Page extends React.Component {
                 }
             }
             reader.readAsDataURL(infile.files[0]);
+        }
+
+        var footer_file = document.getElementById('footer-file');
+        if (footer_file.files && footer_file.files[0]) {
+            var reader = new FileReader();
+            reader.onload = new FileReader();
+            reader.onload = function (e) {
+                if (type == 'footer') { list.footer_url = e.target.result; ref.setState({ list }); }
+            }
+            reader.readAsDataURL(footer_file.files[0]);
         }
 
         var review_files = document.getElementsByClassName('review-file');
@@ -151,7 +179,19 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    
+    // Update footer section
+    updateFooter() {
+        var { list } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { name: 'service-market', data: JSON.stringify(list), type: 'footer' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     //Update review section
     updateReview() {
         var { list, reviews } = this.state;
@@ -180,7 +220,7 @@ class Page extends React.Component {
             }
         });
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'service-web', data: JSON.stringify(technologies), type: 'tech', id: type})
+        Http.post('/api/admin/update-page', {name: 'service-market', data: JSON.stringify(technologies), type: 'tech', id: type})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -198,7 +238,7 @@ class Page extends React.Component {
             {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Grid>
-                        <Grid.Column computer={6}>
+                        <Grid.Column computer={8}>
                             <Card>
                                 <Card.Content>
                                     <Card.Header>Header Section</Card.Header>
@@ -233,7 +273,30 @@ class Page extends React.Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
+                            <Card className='header-section'>
+                                <Card.Content>
+                                    <Card.Header>Footer Section</Card.Header>
+                                </Card.Content>
+                                <Card.Content>
+                                    <Card.Description>
+                                        <Form.Input fluid label='Title' name='title' placeholder='Footer title' className='input-form' value={list.footer_title} onChange={(val) => this.handleChange(val, 'footer_title')} />
+                                        <Form.Input fluid label='Button' name='button' placeholder='button name' className='input-form' value={list.footer_button} onChange={(val) => this.handleChange(val, 'footer_button')} />
+                                        <Form.Input fluid label='Description' name='description' placeholder='footer description' className='input-form' value={list.footer_description} onChange={(val) => this.handleChange(val, 'footer_description')} />
+                                        <Form.Input fluid label='Link' name='link' placeholder='footer link' className='input-form' value={list.footer_link} onChange={(val) => this.handleChange(val, 'footer_link')} />
+                                        <Form.Input fluid label='Link Name' name='link_name' placeholder='footer link' className='input-form' value={list.footer_link_name} onChange={(val) => this.handleChange(val, 'footer_link_name')} />
+                                        <Form>
+                                            <label>Footer Image</label>
+                                            <Form.Field>
+                                                <input accept='image/*' type='file' id='footer-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
+                                            </Form.Field>
+                                        </Form>
+                                        <label className='ui floated button save-btn' onClick={this.updateFooter.bind(this)}> Save </label>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column computer={8}>
                             <Card>
                                 <Card.Content>
                                     <Card.Header>Review Section</Card.Header>
@@ -242,7 +305,8 @@ class Page extends React.Component {
                                     <Card.Description>
                                         <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={reviews.title} onChange={(val) => this.handleChange(val, 'review_title')} />
                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={reviews.description} onChange={(val) => this.handleChange(val, 'review_description')} />
-                                        <Form.Input fluid label="job" name='job' placeholder='Header title' className="input-form" value={reviews.job} onChange={(val)=>this.handleChange(val, 'review_job')} />
+                                        <Form.Input fluid label="Job" name='job' placeholder='Header title' className="input-form" value={reviews.job} onChange={(val)=>this.handleChange(val, 'review_job')} />
+                                        <Form.Input fluid label="Url" name='url' placeholder='button url' className="input-form" value={reviews.path} onChange={(val)=>this.handleChange(val, 'review_url')} />
                                         <Form>
                                             <label>Background Image</label>
                                             <Form.Field>
@@ -260,7 +324,7 @@ class Page extends React.Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
                             <Card>
                                 <Card.Content>
                                     <Card.Header>Technologies</Card.Header>

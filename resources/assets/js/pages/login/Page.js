@@ -105,7 +105,7 @@ class Page extends React.Component {
 
     render() {
         const { isAuthenticated, isAdmin } = this.props;
-        const { from } = this.props.location.state || { from: { pathname: isAdmin ? '/admin/dashboard' : '/' } };
+        const { from } = this.props.location.state || { from: { pathname: isAdmin ? '/admin/pages' : '/' } };
 
         if (isAuthenticated) {
             return (

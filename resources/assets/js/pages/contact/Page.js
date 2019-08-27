@@ -167,7 +167,7 @@ class Page extends React.Component {
                                     <Grid style={{paddingTop: 50}}>
                                         {data.headquarters.map((item, i) => (
                                             <Grid.Column mobile={16} tablet={8} computer={isTablet?8:4} key={i}>
-                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} />
+                                                <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} type={item.type}/>
                                             </Grid.Column>
                                         ))}
                                     </Grid>

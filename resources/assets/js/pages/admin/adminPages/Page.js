@@ -31,30 +31,14 @@ class Page extends React.Component {
                         <Grid.Column width={8}>
                             <List selection divided relaxed>
                                 {list.map((item, i) => (
-                                    <List.Item key={i} as={Link} to={item.page_name.includes('privacy')?'/admin/legal':`/admin/single-page/${item.page_name}`}>
+                                    !item.page_name.includes('privacy') && <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
                                         <List.Icon name='github' size='large' verticalAlign='middle' />
                                         <List.Content>
-                                            <List.Header><p>{item.page_name}</p></List.Header>
+                                            <List.Header><p>{item.admin_page_name}</p></List.Header>
                                             <List.Description>Updated at {item.updated_at}</List.Description>
                                         </List.Content>
                                     </List.Item>
                                 ))}
-                            </List>
-                        </Grid.Column>
-                        <Grid.Column width={8}>
-                            <List selection divided relaxed>
-                                <List.Item as={Link} to={`/admin/portfolio`}>
-                                    <List.Icon name='github' size='large' verticalAlign='middle' />
-                                    <List.Content>
-                                        <List.Header><p>Portfolios</p></List.Header>
-                                    </List.Content>
-                                </List.Item>
-                                <List.Item as={Link} to={`/admin/reviews`}>
-                                    <List.Icon name='github' size='large' verticalAlign='middle' />
-                                    <List.Content>
-                                        <List.Header><p>Reviews</p></List.Header>
-                                    </List.Content>
-                                </List.Item>
                             </List>
                         </Grid.Column>
                     </Grid>

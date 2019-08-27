@@ -125,7 +125,7 @@ class Page extends React.Component {
                                         <p>'{data.study.description}'</p>
                                         <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
-                                        <Button className='third-button'>Read case study</Button>
+                                        <Link to={{pathname:'/single-portfolio', state:{pagename: data.study.path}}} className='third-button'>Read case study</Link>
                                     </div>
                                 </Container>
                             </Container>
@@ -166,7 +166,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </div>
-                        <PageFooter url={data.footer_url} />
+                        <PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />
                         <div className='divide'></div>
                     </React.Fragment>
                     :

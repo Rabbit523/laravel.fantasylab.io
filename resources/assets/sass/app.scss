@@ -1902,22 +1902,6 @@ body {
             color: #29356e;
             font-family: "Gotham Bold";
           }
-          .item {
-            cursor: pointer;
-            color: #9aa2bf;
-            font-family: "Gotham Bold";
-            i {
-              float: right;
-              color: #fff;
-              border: none;
-            }
-            &:hover {
-              color: #fff;
-            }
-            &.active {
-              color: #fff;
-            }
-          }
         }
       }
     }
@@ -2164,7 +2148,6 @@ body {
               cursor: pointer;
               color: #4183C4 !important;
               text-align: left;
-              text-transform: uppercase;
               font-size: 18px;
               font-family: "Gotham Bold";
               padding-bottom: 10px;
@@ -2240,6 +2223,29 @@ body {
       .ui.inverted.dimmer {
         background-color: #03051b;
         .loader {
+          color: #fff;
+        }
+      }
+    }
+    .side-nav {
+      display: flex !important;
+      flex-direction: column;
+      a {
+        text-decoration: none;
+        cursor: pointer;
+        color: #9aa2bf;
+        font-family: "Gotham Bold";
+        margin-bottom: 10px;
+        font-size: 16px;
+        i {
+          float: right;
+          color: #fff;
+          border: none;
+        }
+        &:hover {
+          color: #fff;
+        }
+        &.active {
           color: #fff;
         }
       }
@@ -2790,6 +2796,7 @@ body {
               }
               .third-button {
                 font-size: 12px !important;
+                text-decoration: none;
               }
             }
           }
@@ -3770,7 +3777,7 @@ body {
               .headquater-item {
                 padding-top: 130px;
                 p {
-                  font-size: 18px;
+                  font-size: 16px;
                 }
               }
             }
@@ -4579,9 +4586,6 @@ body {
               height: 510px;
               .headquater-item {
                 padding-top: 180px;
-                p {
-                  font-size: 18px;
-                }
               }
             }
           }

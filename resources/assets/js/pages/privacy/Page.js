@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Grid, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser';
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
@@ -62,10 +63,10 @@ class Page extends React.Component {
                             <Grid padded='horizontally'>
                                 <Grid.Column computer={3} className='custom-column side-nav'>
                                     <h3>Legal</h3>
-                                    <p onClick={this.isPrivacySelected.bind(this)} className={isPrivacy?"item active": "item"}>Privacy {isPrivacy && <Icon name="caret right"></Icon>}</p>
-                                    <p onClick={this.isSecuritySelected.bind(this)} className={isSecurity?"item active": "item"}>Security {isSecurity && <Icon name="caret right"></Icon>}</p>
-                                    <p onClick={this.isTermsSelected.bind(this)} className={isTerms?"item active":"item"}>Terms {isTerms && <Icon name="caret right"></Icon>}</p>
-                                    <p onClick={this.isConfidentSelected.bind(this)} className={isConfident?"item active":"item"}>Confidently {isConfident && <Icon name="caret right"></Icon>}</p>
+                                    <Link to={{pathname:'/privacy', state:{pagename:'privacy'}}} className={isPrivacy?"item active": "item"}>Privacy {isPrivacy && <Icon name="caret right"></Icon>}</Link>
+                                    <Link to={{pathname:'/security', state:{pagename:'security'}}} className={isSecurity?"item active": "item"}>Security {isSecurity && <Icon name="caret right"></Icon>}</Link>
+                                    <Link to={{pathname:'/terms', state:{pagename: 'terms'}}} className={isTerms?"item active":"item"}>Terms {isTerms && <Icon name="caret right"></Icon>}</Link>
+                                    <Link to={{pathname:'/confidentiality', state:{pagename:'confidentiality'}}} className={isConfident?"item active":"item"}>Confidently {isConfident && <Icon name="caret right"></Icon>}</Link>
                                 </Grid.Column>
                                 {isPrivacy && <Grid.Column computer={13} className='custom-column'>
                                     {ReactHtmlParser(data.privacy)}

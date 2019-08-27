@@ -194,7 +194,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        <PageFooter url={data.header.footer_url} />
+                        <PageFooter title={data.footer.title} description={data.footer.description} button={data.footer.button} link={data.footer.link} linkName={data.footer.link_name} url={data.footer.url} />
                         <section className='divide'></section>
                     </React.Fragment>
                     :

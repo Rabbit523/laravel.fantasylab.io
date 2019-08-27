@@ -9,6 +9,7 @@ class Page extends React.Component {
         this.state = {
             list: [],
             header:{},
+            footer: {},
             services: {},
             badges: {},
             portfolios: {},
@@ -33,10 +34,13 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                var header = {}, services = {}, badges = {}, portfolios = {}, carousels = [], news = [];
+                var header = {}, footer = {}, services = {}, badges = {}, portfolios = {}, carousels = [], news = [];
+                
                 Object.keys(list).map((key, index) => {
                     if (key == 'header') {
                         header = list[key];
+                    } else if (key == 'footer') {
+                        footer = list[key];
                     } else if (key == 'services') {
                         services = list[key];
                     } else if (key == 'badges') {
@@ -53,6 +57,7 @@ class Page extends React.Component {
                     isLoaded: true, 
                     list,
                     header,
+                    footer,
                     services,
                     badges,
                     portfolios,
@@ -66,7 +71,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { header, services, badges, carousels, news } = this.state;
+        var { header, footer, services, badges, carousels, news } = this.state;
         const ref = this;
 
         switch (type) {
@@ -85,6 +90,21 @@ class Page extends React.Component {
             case 'header_description':
                 header.header_description = event.target.value;
                 return this.setState({ header });
+            case 'footer_title':
+                footer.title = event.target.value;
+                return this.setState({ footer });
+            case 'footer_description':
+                footer.description = event.target.value;
+                return this.setState({ footer });
+            case 'footer_button':
+                footer.button = event.target.value;
+                return this.setState({ footer });
+            case 'footer_link':
+                footer.link = event.target.value;
+                return this.setState({ footer });
+            case 'footer_link_name':
+                footer.link_name = event.target.value;
+                return this.setState({ footer });
         }
 
         Object.keys(services).map((key, index) => {
@@ -120,21 +140,27 @@ class Page extends React.Component {
     }
 
     onAvatarChange(type, e){
-        var { header, services, badges, carousels, news } = this.state;
-        var infile = document.getElementById('input-file');
+        const { header, footer, services, badges, carousels, news } = this.state;
         const ref = this;
+
+        var infile = document.getElementById('input-file');
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                if (type == 'header') { header.header_url = e.target.result; ref.setState({ header }); } 
-                else if (type == 'footer') { header.footer_url = e.target.result; ref.setState({ header }); }
-                else if (type == 'mobile_header') {
-                    header.mobile_header = e.target.result; 
-                    ref.setState({ header });
-                }
+                header.header_url = e.target.result; ref.setState({ header });
             }
             reader.readAsDataURL(infile.files[0]);
         }
+
+        var footerfile = document.getElementById('footer-file');
+        if (footerfile.files && footerfile.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                footer.url = e.target.result; ref.setState({ footer });
+            }
+            reader.readAsDataURL(footerfile.files[0]);
+        }
+
         //upload mobile header image
         var mobilefile = document.getElementById('mobile-file');
         if (mobilefile.files && mobilefile.files[0]) {
@@ -248,6 +274,24 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    // Update footer section
+    updateFooter() {
+        var { footer , list } = this.state;
+        Object.keys(list).map((key, index) => {
+            if (key == 'footer') {
+                list[key] = footer;
+            }
+        });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(footer), type: 'footer' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     // Update service section
     onUpdateService(e, type) {
         var { services , list } = this.state;
@@ -324,15 +368,16 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     render() {
-        const { isLoaded, header, services, badges, portfolios, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
+        const { isLoaded, header, footer, services, badges, portfolios, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
         const ref = this;
         return (
             <div className='admin-page home'>
             {isLoaded ?
                 <Segment vertical textAlign='center'>
                     <Grid>
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Header Section</Card.Header>
@@ -363,19 +408,35 @@ class Page extends React.Component {
                                                 <input accept='image/*' type='file' id='mobile-file' onChange={(e) => this.onAvatarChange('mobile_header', e)}/>
                                             </Form.Field>
                                         </Form>
-                                        <Form>
-                                            <label>Footer Image</label>
-                                            <Form.Field>
-                                                <input accept='image/*' type='file' id='input-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
-                                            </Form.Field>
-                                        </Form>
                                         <label className='ui floated button save-btn' onClick={this.updateHeader.bind(this)}> Save </label>
                                     </Card.Description>
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
+                            <Card className='header-section'>
+                                <Card.Content>
+                                    <Card.Header>Footer Section</Card.Header>
+                                </Card.Content>
+                                <Card.Content>
+                                    <Card.Description>
+                                        <Form.Input fluid label='Title' name='title' placeholder='Footer title' className='input-form' value={footer.title} onChange={(val) => this.handleChange(val, 'footer_title')} />
+                                        <Form.Input fluid label='Button' name='button' placeholder='button name' className='input-form' value={footer.button} onChange={(val) => this.handleChange(val, 'footer_button')} />
+                                        <Form.Input fluid label='Description' name='description' placeholder='footer description' className='input-form' value={footer.description} onChange={(val) => this.handleChange(val, 'footer_description')} />
+                                        <Form.Input fluid label='Link' name='link' placeholder='footer link' className='input-form' value={footer.link} onChange={(val) => this.handleChange(val, 'footer_link')} />
+                                        <Form.Input fluid label='Link Name' name='link_name' placeholder='footer link' className='input-form' value={footer.link_name} onChange={(val) => this.handleChange(val, 'footer_link_name')} />
+                                        <Form>
+                                            <label>Footer Image</label>
+                                            <Form.Field>
+                                                <input accept='image/*' type='file' id='footer-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
+                                            </Form.Field>
+                                        </Form>
+                                        <label className='ui floated button save-btn' onClick={this.updateFooter.bind(this)}> Save </label>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Service Section</Card.Header>
@@ -407,9 +468,8 @@ class Page extends React.Component {
                                     </Card.Description>
                                 </Card.Content>
                             </Card>
-                        </Grid.Column>
-                            
-                        <Grid.Column computer={5}>
+                        </Grid.Column> 
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Badge Section</Card.Header>
@@ -436,8 +496,7 @@ class Page extends React.Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-                        
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Portfolio Section</Card.Header>
@@ -454,8 +513,7 @@ class Page extends React.Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Reviews Section</Card.Header>
@@ -482,8 +540,7 @@ class Page extends React.Component {
                                 </Card.Content>
                             </Card>
                         </Grid.Column>
-
-                        <Grid.Column computer={5}>
+                        <Grid.Column computer={8}>
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>News Section</Card.Header>

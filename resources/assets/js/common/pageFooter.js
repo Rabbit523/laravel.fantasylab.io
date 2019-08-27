@@ -58,10 +58,10 @@ class PageFooter extends React.Component {
                 </Modal>
                 <Container className='custom-col-6'>
                     <div className='main-footer-description'>
-                        <h2>Let's elevate the world.</h2>
+                        <h2>{this.props.title}</h2>
                         {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
-                        <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
-                        <p>Existing user? <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>Log in to FantasyLab</Link>.</p>
+                        <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{this.props.button}</Button>
+                        <p>{this.props.description} <Link to={this.props.url} className='item-link' onClick={(event) => this.triggerModal(event)}>{this.props.linkName}</Link></p>
                     </div>
                 </Container>
             </div>
@@ -70,6 +70,11 @@ class PageFooter extends React.Component {
 }
 
 PageFooter.propTypes = {
-    url: PropTypes.string.isRequired
+    title: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    button: PropTypes.string.isRequired,
+    link: PropTypes.string.isRequired,
+    url: PropTypes.string.isRequired,
+    linkName: PropTypes.string.isRequired
 };
 export default PageFooter;

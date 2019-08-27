@@ -11,14 +11,11 @@ class AdminSidebar extends React.Component {
         return (
             <React.Fragment>
                 <Sidebar as={Menu} animation='push' direction='left' icon='labeled' inverted vertical visible={true} width='thin' className="admin-sidebar">
-                    <Menu.Item as={Link} to="/admin/dashboard" > <Icon name='home' /> Dashboard </Menu.Item>
                     <Menu.Item as={Link} to="/admin/pages" > <Icon name='gamepad' /> Pages </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/services" > <Icon name='camera' /> Services </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/clients" > <Icon name='camera' /> Clients </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/projects" > <Icon name='camera' /> Projects </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/teams" > <Icon name='camera' /> Teams </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/invoices" > <Icon name='camera' /> Invoices </Menu.Item>
-                    <Menu.Item as={Link} to="/admin/settings" > <Icon name='settings' /> Settings </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/portfolio" > <Icon name='camera' /> Portfolio </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/reviews" > <Icon name='camera' /> Reviews </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/blog" > <Icon name='camera' /> Blog </Menu.Item>
+                    <Menu.Item as={Link} to="/admin/legal" > <Icon name='camera' /> Legal </Menu.Item>
                 </Sidebar>
             </React.Fragment>
         );

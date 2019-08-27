@@ -87,7 +87,7 @@ class Page extends React.Component {
                                     <Dropdown icon='bars' className='collapsible-menu'>
                                         <Dropdown.Menu className='animated'>
                                             {this.props.isAdmin && this.props.isAuthenticated?
-                                                <Dropdown.Item as={NavLink} to='/dashboard' text='Dashboard'/>
+                                                <Dropdown.Item as={NavLink} to='/pages' text='Dashboard'/>
                                                 : ''}
                                             {this.props.isAuthenticated?
                                                 <Dropdown.Item onClick={this.handleLogout} text='logout' icon='sign out'key='logout' />
@@ -255,7 +255,7 @@ class Page extends React.Component {
                                                 text={'Signed in as ' + this.props.userName}
                                                 disabled key='user' />
                                             {this.props.isAdmin ?
-                                                <Dropdown.Item as={NavLink} to='/admin/dashboard' text='Dashboard'/>
+                                                <Dropdown.Item as={NavLink} to='/admin/pages' text='Dashboard'/>
                                                 : ''
                                             }
                                             <Dropdown.Item onClick={this.handleLogout} text='logout' icon='sign out'
