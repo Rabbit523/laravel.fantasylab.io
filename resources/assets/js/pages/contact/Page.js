@@ -42,7 +42,7 @@ class Page extends React.Component {
             phone: '',
             checked: false,
             checkbox_border: true,
-            isOpen: true
+            isOpen: false
         }
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
