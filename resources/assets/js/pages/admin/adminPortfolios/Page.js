@@ -80,10 +80,6 @@ class Page extends React.Component {
     // Create a portfolio
     onCreate(e, type) {
         const { portfolios } = this.state;
-        console.log(portfolios[type-1].title.trim());
-        console.log(portfolios[type-1].description.trim());
-        console.log(portfolios[type-1].type.trim());
-        console.log(portfolios[type-1].avatar.trim());
         if (portfolios[type-1].title.trim() != "" && portfolios[type-1].description.trim() != "" && portfolios[type-1].type.trim() != "" && portfolios[type-1].avatar.trim() != "") {
             this.setState({ isLoaded: false });
             Http.post('/api/admin/create-portfolio', { data: portfolios[type-1], id: type})

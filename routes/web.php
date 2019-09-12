@@ -15,4 +15,4 @@ Route::get('/redirect/{social}','Auth\LoginController@socialLogin')->where('soci
 
 Route::get('{slug}', function() {
     return view('home');
-})->where('slug', '(?!api)([A-z-_]+)?');
+})->where('slug', '(?!api)([A-z\d-\/_.]+)?');
