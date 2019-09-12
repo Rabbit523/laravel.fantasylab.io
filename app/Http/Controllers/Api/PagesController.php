@@ -69,7 +69,12 @@ class PagesController extends Controller
 
     public function getPage(Request $request) {
         $page = Page::where('page_name', $request->name)->first();
-        return response()->json($page);
+        if ($request->name == "portfolio" || $request->name == "home") {
+            $portfolios = Portfolio::get();
+            return response()->json(['page' => $page, 'portfolio' => $portfolios ]);
+        } else {
+            return response()->json($page);
+        }
     }  
 
     public function getPages() {
