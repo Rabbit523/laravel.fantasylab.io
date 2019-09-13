@@ -135,17 +135,19 @@ class Page extends React.Component {
                 list.description = event.target.value;
                 return this.setState({ list });
         }
-
+        
         list.main_description.map((item, index) =>{
             if (type.includes('subtext')) {
-                var key = type.charAt(type.length-1);
-                item.sub[key] = event.target.value;
+                var keys = type.split('subtext')[1];
+                list.main_description[keys.charAt(0)].sub[keys.charAt(1)] = event.target.value;
                 ref.setState({ list });
             } else if(type.includes('sub_title')) {
-                item['title'] = event.target.value;
+                var sub_key = type.split('sub_title')[1];
+                list.main_description[sub_key]['title'] = event.target.value;
                 ref.setState({ list });
             } else if (type.includes('sub_description')) {
-                item['text'] = event.target.value;
+                var sub_key = type.split('sub_description')[1];
+                list.main_description[sub_key]['text'] = event.target.value;
                 ref.setState({ list });
             }
         });
@@ -308,10 +310,7 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    // Update portfolio section
-    onDeletePortfolio (e, type) {
-        console.log(type);
-    }
+    
     render() {
         const { isLoaded, list, data, activeKey, accordion } = this.state;
         const ref = this;
@@ -402,7 +401,7 @@ class Page extends React.Component {
                                                     </Form>
                                                     {Object.keys(item.sub).map((key, index) => (
                                                         <Form key={index}>
-                                                            <Form.Input fluid label='Text' name='text' placeholder='text' className='input-form' value={item.sub[index]} onChange={(val)=>ref.handleChange(val, 'subtext'+index)} />
+                                                            <Form.Input fluid label='Text' name='text' placeholder='text' className='input-form' value={item.sub[index]} onChange={(val)=>ref.handleChange(val, 'subtext'+i+index)} />
                                                         </Form>
                                                     ))}
                                                 </div>)
