@@ -879,6 +879,39 @@ class PagesController extends Controller
         return response()->json('success');
     }
 
+    public function deletePortfolioPage(Request $request) {
+        $page = Page::where('page_name', $request->from)->first();
+        $type = $request->type;
+        $json_page = json_decode($page->data);
+        $portfolios = $json_page->portfolios;
+        unset($portfolios->$type);
+        $json_page->portfolios = $portfolios;
+        $page->data = json_encode($json_page);
+        $page->save();
+        return response()->json($portfolios);
+    }
+
+    public function addPortfolioPage(Request $request) {
+        $page = Page::where('page_name', $request->from)->first();
+        $json_page = json_decode($page->data);
+        $portfolios = $json_page->portfolios;
+        $type = $request->data['type'];
+        $data = [
+            'from' => $request->from,
+            'title' => $request->data['title'],
+            'description' => $request->data['description']
+        ];
+        if ($request->from == "home") {
+            $data['icon_url'] = $request->data['avatar'];
+            $data['back_url'] = $request->data['back_url'];
+        }
+        $portfolios->$type = $data;
+        $json_page->portfolios = $portfolios;
+        $page->data = json_encode($json_page);
+        $page->save();
+        return response()->json($portfolios);
+    }
+
     public function deletePortfolio(Request $request) {
         Portfolio::where('id', $request->id)->delete();
         $data = Portfolio::get();

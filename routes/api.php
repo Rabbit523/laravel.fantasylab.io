@@ -36,6 +36,8 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    Route::post('/admin/create-portfolio', 'Api\PagesController@createPortfolio');
    Route::post('/admin/update-portfolio', 'Api\PagesController@updatePortfolio');
    Route::post('/admin/update-portfolio-page', 'Api\PagesController@updatePortfolioPage');
+   Route::post('/admin/delete-portfolio-page', 'Api\PagesController@deletePortfolioPage');
+   Route::post('/admin/add-portfolio-page', 'Api\PagesController@addPortfolioPage');
    Route::post('/admin/delete-portfolio', 'Api\PagesController@deletePortfolio');
 
    Route::get('/front/get-reviews', 'Api\PagesController@getReviews');

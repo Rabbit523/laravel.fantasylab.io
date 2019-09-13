@@ -1,27 +1,39 @@
 import React from 'react'
-import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
-import Collapse, { Panel } from 'rc-collapse';
+import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Button } from 'semantic-ui-react'
 import 'rc-collapse/assets/index.css';
 import Http from '../../../../Http'
+import Modal from 'react-modal';
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      height: 470
+    }
+};
 class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             list: [],
-            portfolios: {},            
+            portfolios: {},
+            _portfolios: [],
+            rest_items: [],
             isLoaded: false,
-            accordion: false,
-            activeKey: []            
+            isOpen: false
         }
-        this.onAvatarChange = this.onAvatarChange.bind(this);
-        this.onCollapseChange = this.onCollapseChange.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
         Http.post('/api/front/get-page', {name: 'portfolio'})
         .then(
             res => {
-                var list = JSON.parse(res.data.data);
+                var list = JSON.parse(res.data.page.data);
                 var portfolios = {};
                 Object.keys(list).map((key, index) =>{
                     if (key == 'portfolios') {
@@ -31,7 +43,8 @@ class Page extends React.Component {
                 this.setState({ 
                     isLoaded: true, 
                     list,
-                    portfolios
+                    portfolios,
+                    _portfolios: res.data.portfolio
                 });
             }
         ).catch(err => {
@@ -119,10 +132,7 @@ class Page extends React.Component {
             }
         });
     }
-    
-    onCollapseChange(activeKey) {
-        this.setState({ activeKey });
-    }
+
     // Update header section
     updateHeader() {
         var { list } = this.state;
@@ -149,17 +159,74 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    // Update portfolio section
+    // Close modal
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
+    // Add a portfolio
+    onAdd (e) {
+        var { portfolios, _portfolios, rest_items } = this.state;
+        var types = [], rest_items = [];
+        Object.keys(portfolios).map((key, i) => {
+           types.push(key);
+        });
+        _portfolios.map((item, i) => {
+            if (!types.includes(item.type)) {
+                rest_items.push(item);
+            }
+        });
+        this.setState({ isOpen: true, rest_items });
+    }
+    onAddPortfolio (e, key) {
+        var { rest_items } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/add-portfolio-page', { data: rest_items[key], from: 'portfolio' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, isOpen: false, portfolios: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    // Delete a selected portfolio
     onDeletePortfolio (e, type) {
-        console.log(type);
-    }    
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/delete-portfolio-page', { type: type, from: 'portfolio' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, portfolios: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     render() {
-        const { isLoaded, list, portfolios, activeKey, accordion } = this.state;
+        const { isLoaded, list, portfolios, rest_items, isOpen } = this.state;
         const ref = this;
         return (
             <div className='admin-page'>
             {isLoaded ?
                 <Segment vertical textAlign='center'>
+                    <Modal
+                        isOpen={isOpen}
+                        onRequestClose={this.closeModal}
+                        style={customStyles}
+                        >
+                        <Button icon='close' onClick={this.closeModal}/>
+                        {rest_items.length > 0 && rest_items.map((item, i) => (
+                            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.type}</p>
+                                <label onClick={(e) => ref.onAddPortfolio(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
+                            </div>
+                        ))}
+                        {rest_items.length == 0 && (
+                            <div>
+                                <h2>Hi,<br/>Admin.</h2>
+                                <p>There is no more portfolio item should be added.</p>
+                            </div>
+                        )}
+                    </Modal>
                     <Container>
                         <Grid>
                             <Grid.Column computer={6}>
@@ -228,17 +295,16 @@ class Page extends React.Component {
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Portfolio Section</Card.Header>
+                                        <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAdd(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
-                                            {Object.keys(portfolios).map((key, i) => {
-                                                return (
-                                                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                                        <p style={{ textTransform: 'uppercase', margin: 0 }}>{key}</p>
-                                                        <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
-                                                    </div>
-                                                )
-                                            })}
+                                            {Object.keys(portfolios).map((key, i) => (
+                                                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                                    <p style={{ textTransform: 'uppercase', margin: 0 }}>{key}</p>
+                                                    <label onClick={(e) => ref.onDeletePortfolio(e, key)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
+                                                </div>
+                                            ))}
                                         </Card.Description>
                                     </Card.Content>
                                 </Card>

@@ -32,8 +32,7 @@ class Page extends React.Component {
             isLoaded: false,
             isTablet: false,
             isOpen: false,
-            data: [],
-            portfolios: []
+            data: []
         };
         this.closeModal = this.closeModal.bind(this);
         this.triggerModal = this.triggerModal.bind(this);
@@ -43,9 +42,9 @@ class Page extends React.Component {
         Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
                 if (window.innerWidth < 1024) {
-                    this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.page.data), portfolios: res.data.portfolio });
+                    this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.page.data) });
                 } else {
-                    this.setState({ isLoaded: true, isTablet: true, data: JSON.parse(res.data.page.data), portfolios: res.data.portfolio });
+                    this.setState({ isLoaded: true, isTablet: true, data: JSON.parse(res.data.page.data) });
                 }
                 window.scrollTo(0, 0);
             }
@@ -64,7 +63,7 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, isTablet, isOpen, data, portfolios } = this.state;
+        const { isLoaded, isTablet, isOpen, data } = this.state;
         Modal.setAppElement('#app')
         return (
             <div className='home-page'>
