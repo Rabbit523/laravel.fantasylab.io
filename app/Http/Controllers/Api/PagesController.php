@@ -110,7 +110,7 @@ class PagesController extends Controller
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                     $request_data['header_url'] = $path;
                 } 
-                if ($data->header->footer_url != $request_data['mobile_header']) {
+                if ($data->header->mobile_header != $request_data['mobile_header']) {
                     if (strpos($request_data['mobile_header'], 'data:image/jpeg;base64') !== false) {
                         $img = str_replace('data:image/jpeg;base64,', '', $request_data['mobile_header']);
                     } else {
