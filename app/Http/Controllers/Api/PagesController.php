@@ -69,10 +69,14 @@ class PagesController extends Controller
 
     public function getPage(Request $request) {
         $page = Page::where('page_name', $request->name)->first();
-        if ($request->name == "portfolio" || $request->name == "home") {
+        if ($request->name == "home") {
+            $portfolios = Portfolio::get();
+            $reviews = Review::get();
+            return response()->json(['page' => $page, 'portfolio' => $portfolios, 'review' => $reviews ]);
+        } elseif ($request->name == "portfolio") {
             $portfolios = Portfolio::get();
             return response()->json(['page' => $page, 'portfolio' => $portfolios ]);
-        } else {
+        }else {
             return response()->json($page);
         }
     }  
@@ -987,5 +991,34 @@ class PagesController extends Controller
         Review::where('id', $request->id)->delete();
         $reviews = Review::get();
         return response()->json($reviews);
+    }
+
+    public function deleteReviewPage(Request $request) {
+        $page = Page::where('page_name', $request->from)->first();
+        $type = $request->type;
+        $json_page = json_decode($page->data);
+        $reviews = $json_page->carousels;
+        unset($reviews[$type]);
+        $json_page->carousels = $reviews;
+        $page->data = json_encode($json_page);
+        $page->save();
+        return response()->json($reviews);
+    }
+
+    public function addReviewPage(Request $request) {
+        $page = Page::where('page_name', $request->from)->first();
+        $json_page = json_decode($page->data);
+        $carousels = $json_page->carousels;
+        $data = [
+            'avatar' => $request->data['avatar'],
+            'name' => $request->data['name'],
+            'description' => $request->data['description'],
+            'job' => $request->data['job']
+        ];
+        array_push($carousels, $data);
+        $json_page->carousels = $carousels;
+        $page->data = json_encode($json_page);
+        $page->save();
+        return response()->json($carousels);
     }
 }

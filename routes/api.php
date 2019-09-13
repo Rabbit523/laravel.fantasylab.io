@@ -44,6 +44,8 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
    Route::post('/admin/create-review', 'Api\PagesController@createReview');
    Route::post('/admin/update-review', 'Api\PagesController@updateReview');
    Route::post('/admin/delete-review', 'Api\PagesController@deleteReview');
+   Route::post('/admin/delete-review-page', 'Api\PagesController@deleteReviewPage');
+   Route::post('/admin/add-review-page', 'Api\PagesController@addReviewPage');
 
    Route::get('/admin/pages', 'Api\PagesController@getPages');
    Route::post('/admin/update-page', 'Api\PagesController@updatePage');   

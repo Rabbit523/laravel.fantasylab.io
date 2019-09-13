@@ -30,19 +30,21 @@ class Page extends React.Component {
             _portfolios: {},
             rest_items: [],
             carousels: [],
+            _reviews: [],
+            rest_reviews: [],
             news: [],
             isLoaded: false,
             isOpen: false,
+            isPortfolio: false,
+            isReview: false,
             accordion: false,
             service_activeKey: [],
             badge_activeKey: [],
-            review_activeKey: [],
             news_activeKey: []
         }
         this.onAvatarChange = this.onAvatarChange.bind(this);
         this.onServiceCollapseChange = this.onServiceCollapseChange.bind(this);
         this.onBadgeCollapseChange = this.onBadgeCollapseChange.bind(this);
-        this.onReviewCollapseChange = this.onReviewCollapseChange.bind(this);
         this.onNewsCollapseChange = this.onNewsCollapseChange.bind(this);
         this.closeModal = this.closeModal.bind(this);
     }
@@ -79,6 +81,7 @@ class Page extends React.Component {
                     badges,
                     portfolios,
                     _portfolios: res.data.portfolio,
+                    _reviews: res.data.review,
                     carousels,
                     news
                 });
@@ -266,10 +269,6 @@ class Page extends React.Component {
         this.setState({ badge_activeKey });
     }
 
-    onReviewCollapseChange(review_activeKey) {
-        this.setState({ review_activeKey });
-    }
-
     onNewsCollapseChange(news_activeKey) {
         this.setState({ news_activeKey });
     }
@@ -362,7 +361,7 @@ class Page extends React.Component {
                 rest_items.push(item);
             }
         });
-        this.setState({ isOpen: true, rest_items });
+        this.setState({ isOpen: true, isPortfolio: true, isReview: false, rest_items });
     }
     onAddPortfolioItem (e, key) {
         var { rest_items } = this.state;
@@ -370,7 +369,7 @@ class Page extends React.Component {
         Http.post('/api/admin/add-portfolio-page', { data: rest_items[key], from: 'home' })
         .then(
             res => {
-                this.setState({ isLoaded: true, isOpen: false, portfolios: res.data });
+                this.setState({ isLoaded: true, isOpen: false, isPortfolio: false, portfolios: res.data });
             }
         ).catch(err => {
             console.error(err);
@@ -382,7 +381,44 @@ class Page extends React.Component {
         Http.post('/api/admin/delete-portfolio-page', { type: type, from: 'home' })
         .then(
             res => {
-                this.setState({ isLoaded: true, portfolios: res.data });
+                this.setState({ isLoaded: true, isPortfolio: false, portfolios: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onAddReview (e) {
+        var { carousels, _reviews, rest_reviews } = this.state;
+        var types = [], rest_reviews = [];
+        carousels.map((item, i) => {
+           types.push(item.name);
+        });
+        _reviews.map((item, i) => {
+            if (!types.includes(item.name)) {
+                rest_reviews.push(item);
+            }
+        });
+        this.setState({ isOpen: true, isReview: true, isPortfolio: false, rest_reviews }); 
+    }
+    onAddReviewItem (e, key) {
+        var { rest_reviews } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/add-review-page', { data: rest_reviews[key], from: 'home' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, isOpen: false, isReview: false, carousels: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    // Update portfolio section
+    onDeleteReview (e, type) {
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/delete-review-page', { type: type, from: 'home' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, isReview: false, carousels: res.data });
             }
         ).catch(err => {
             console.error(err);
@@ -426,28 +462,36 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, isOpen, header, footer, services, badges, portfolios, _portfolios, rest_items, carousels, news, service_activeKey, accordion, badge_activeKey, review_activeKey, news_activeKey } = this.state;
+        const { isLoaded, isOpen, isPortfolio, isReview, header, footer, services, badges, portfolios, rest_items, carousels, rest_reviews, news, service_activeKey, accordion, badge_activeKey, news_activeKey } = this.state;
         const ref = this;
         return (
             <div className='admin-page home'>
             {isLoaded ?
                 <Segment vertical textAlign='center'>
-                    <Modal
-                        isOpen={isOpen}
-                        onRequestClose={this.closeModal}
-                        style={customStyles}
-                        >
+                    <Modal isOpen={isOpen} onRequestClose={this.closeModal} style={customStyles}>
                         <Button icon='close' onClick={this.closeModal}/>
-                        {rest_items.length > 0 && rest_items.map((item, i) => (
+                        {rest_items.length > 0 && isPortfolio && rest_items.map((item, i) => (
                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
                                 <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.type}</p>
                                 <label onClick={(e) => ref.onAddPortfolioItem(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
                             </div>
                         ))}
-                        {rest_items.length == 0 && (
+                        {rest_items.length == 0 && isPortfolio && (
                             <div>
                                 <h2>Hi,<br/>Admin.</h2>
                                 <p>There is no more portfolio item should be added.</p>
+                            </div>
+                        )}
+                        {rest_reviews.length > 0 && isReview && rest_reviews.map((item, i) => (
+                            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.name}</p>
+                                <label onClick={(e) => ref.onAddReviewItem(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
+                            </div>
+                        ))}
+                        {rest_reviews.length == 0 && isReview && (
+                            <div>
+                                <h2>Hi,<br/>Admin.</h2>
+                                <p>There is no more review item should be added.</p>
                             </div>
                         )}
                     </Modal>
@@ -593,25 +637,16 @@ class Page extends React.Component {
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Reviews Section</Card.Header>
+                                    <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddReview(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                 </Card.Content>
                                 <Card.Content>
                                     <Card.Description>
-                                        <Collapse accordion={accordion} onChange={this.onReviewCollapseChange} activeKey={review_activeKey}>
-                                            {carousels.map((item, i) => (
-                                                <Panel header={item.name} key={i}>
-                                                    <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={item.name} onChange={(val)=>ref.handleChange(val, 'name'+i)} />
-                                                    <Form.Input fluid label='Job' name='Job' placeholder='job' className='input-form' value={item.job} onChange={(val)=>ref.handleChange(val, 'job'+i)} />
-                                                    <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val)=>ref.handleChange(val, 'description'+i)} />
-                                                    <Form>
-                                                        <label>Image Upload</label>
-                                                        <Form.Field>
-                                                            <input accept='image/*' type='file' id='input-file' className='review_avatar' onChange={(e) => ref.onAvatarChange(i, e)}/>
-                                                        </Form.Field>
-                                                    </Form>
-                                                    <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateCarousel(e, i)}> Save </label>
-                                                </Panel>
-                                            ))}
-                                        </Collapse>
+                                        {carousels.map((item, i) => (
+                                            <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                                <p style={{textTransform: 'uppercase', margin: 0}}>{item.name}</p>
+                                                <label onClick={(e) => ref.onDeleteReview(e, i)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
+                                            </div>
+                                        ))}
                                     </Card.Description>
                                 </Card.Content>
                             </Card>
