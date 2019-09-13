@@ -228,7 +228,7 @@ class Page extends React.Component {
                                     <div className={checkbox_border?'privacy-section': 'privacy-section error'}>
                                         <Checkbox onClick={this.handleCheckBoxClick} label="By clicking 'Send message', I agree to FantasyLab's " />
                                         <div className='terms-section'>
-                                            <Link to='/privacy' replace>Privacy Policy</Link>
+                                            <Link to={{ pathname: '/privacy', state:{ pagename: 'privacy' } }} className='item-link'>Privacy Policy</Link>
                                         </div>
                                     </div>
                                     <Button fluid size='large' className={isLoading?'primary-button loading':'primary-button'} onClick={this.handleSubmit}>Send message</Button>

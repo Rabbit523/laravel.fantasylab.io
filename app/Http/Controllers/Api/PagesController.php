@@ -85,7 +85,9 @@ class PagesController extends Controller
     public function updatePage(Request $request) {
         $page = Page::where('page_name', $request->name)->first();
         $data = json_decode($page->data);
-        $request_data = json_decode($request->data, true);
+        if ($request->name != "privacy") {
+            $request_data = json_decode($request->data, true);   
+        }
         $uploads_dir = "./assets/uploads/";
         // identify the case with page name
         if ($request->name == "home") {
