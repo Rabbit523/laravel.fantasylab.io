@@ -25,7 +25,7 @@ class Page extends React.Component {
 
     componentDidMount() {
         const { page } = this.props.location.state;
-        Http.post('/api/admin/get-portfolio-page', { type: page})
+        Http.post('/api/admin/get-portfolio-page', { type: page })
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
