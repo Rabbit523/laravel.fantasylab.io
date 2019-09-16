@@ -15,12 +15,11 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        const { pagename } = this.props.location.state;
-        Http.post('api/front/get-portfolio-page', { type: pagename })
+        const { type } = this.props.match.params;
+        Http.post('api/front/get-portfolio-page', { type: type })
         .then(
             res => {
                 var data = JSON.parse(res.data.data);
-                console.log(data);
                 if (data.header_description != 'example') {
                     this.setState({ isLoaded: true, isExisted: true, data });
                 } else {
