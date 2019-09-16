@@ -195,6 +195,15 @@ class Page extends React.Component {
     onDescriptionCollapseChange(description_activeKey) {
         this.setState({ description_activeKey });
     }
+    onAddSubImage(e) {
+        const { list } = this.state;
+        var new_item = {
+            url: '',
+            text: 'example'
+        };
+        list.sub_images.push(new_item);
+        this.setState({ list });
+    }
     onAddService (e) {
         var { services, data } = this.state;
         var new_item = {
@@ -286,6 +295,7 @@ class Page extends React.Component {
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Header Section</Card.Header>
+                                        <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddSubImage(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
@@ -322,14 +332,15 @@ class Page extends React.Component {
                                                     </Form.Field>
                                                 </Form>
                                             </div>
-                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                            <div style={{ display: 'flex', flexDirection: 'column' }}>
                                                 {Object.keys(list.sub_images).map((key, index) => (
-                                                    <Form key={index}>
+                                                    <div className="flex-form" key={index}>
                                                         <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.sub_images[key].text} onChange={(val)=>ref.handleChange(val, 'subimage_text'+key)} />
-                                                        <Form.Field>
+                                                        <Form.Field className="flex-item">
+                                                            <label>Image</label>
                                                             <input accept='image/*' type='file' className='sub-file' onChange={(e) => ref.onAvatarChange(key, e)}/>
                                                         </Form.Field>
-                                                    </Form>
+                                                    </div>
                                                 ))}
                                             </div>
                                             <label className='ui floated button save-btn' onClick={this.updateHeader.bind(this)}> Save </label>
@@ -337,7 +348,7 @@ class Page extends React.Component {
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
-                            <Grid.Column computer={8}>
+                            <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Footer Section</Card.Header>

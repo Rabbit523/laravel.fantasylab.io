@@ -110,12 +110,6 @@ const routes = [
         component: Portfolio
     },
     {
-        path: '/single-portfolio',
-        exact: true,
-        auth: false,
-        component: SinglePortfolio
-    },
-    {
         path: '/features',
         exact: true,
         auth: false,
@@ -264,6 +258,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminPrivacy
+    },
+    {
+        path: '/:type',
+        exact: true,
+        auth: false,
+        component: SinglePortfolio
     },
     {
         path: '',

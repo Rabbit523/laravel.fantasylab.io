@@ -100,6 +100,7 @@ class Page extends React.Component {
             description: "",
             type: "",
             avatar: "",
+            url: '',
             id: portfolios.length + 1
         };
         portfolios.push(new_item);
@@ -148,6 +149,7 @@ class Page extends React.Component {
                                                         <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={portfolios[key].title} onChange={(val) => ref.handleChange(val, portfolios[key].id+'_title')} />
                                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={portfolios[key].description} onChange={(val) => ref.handleChange(val, portfolios[key].id +'_description')} />
                                                         <Form.Input fluid label='type' name='type' placeholder='type' className='input-form' value={portfolios[key].type} onChange={(val)=> ref.handleChange(val, portfolios[key].id+'_type')} />
+                                                        <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={portfolios[key].url} onChange={(val)=> ref.handleChange(val, portfolios[key].id+'_url')} />
                                                         <Form>
                                                             <label>Avatar Image</label>
                                                             <Form.Field>

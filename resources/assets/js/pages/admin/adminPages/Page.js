@@ -32,7 +32,7 @@ class Page extends React.Component {
                             <List selection divided relaxed>
                                 {list.map((item, i) => (
                                     !item.page_name.includes('privacy') && <List.Item key={i} as={Link} to={`/admin/single-page/${item.page_name}`}>
-                                        <List.Icon name='github' size='large' verticalAlign='middle' />
+                                        <List.Icon name='tag' size='large' verticalAlign='middle' />
                                         <List.Content>
                                             <List.Header><p>{item.admin_page_name}</p></List.Header>
                                             <List.Description>Updated at {item.updated_at}</List.Description>

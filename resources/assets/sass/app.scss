@@ -2190,6 +2190,14 @@ body {
       .list {
         .item {
           text-decoration: none;
+          i {
+            color: rgba(255, 255, 255, 0.4);
+          }
+          &:hover {
+            i {
+              color: rgba(255, 255, 255, 0.4);
+            } 
+          }
           .content {
             p {
               cursor: pointer;
@@ -2200,6 +2208,10 @@ body {
               padding-bottom: 10px;
               font-weight: bold;
               padding: 0;
+            }
+            .description {
+              color: #bebebe;
+              text-align: left;
             }
           }
         }

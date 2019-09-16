@@ -764,6 +764,7 @@ class PagesController extends Controller
         $data->title = $request->data['title'];
         $data->description = $request->data['description'];
         $data->type = $request->data['type'];
+        $data->url = $request->data['url'];
         if ($data->avatar != $request->data['avatar']) {
             $uploads_dir = "./assets/uploads/";
             if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
@@ -838,7 +839,7 @@ class PagesController extends Controller
                         $img = str_replace('data:image/png;base64,', '', $request_data['sub_images'][$key]['url']);
                     }
                     $base_code = base64_decode($img);
-                    $name = 'maora'.$key.'.png';
+                    $name = $data->type.$key.'.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
@@ -847,6 +848,27 @@ class PagesController extends Controller
                     $url = url("/assets/uploads") ."/" . $name;
                     $arr = explode("/", $url);
                     $request_data['sub_images'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                }
+            }
+            if (count($request_data['sub_images']) > count($list->sub_images)) {
+                foreach($request_data['sub_images'] as $key=> $item) {
+                    if (!array_key_exists($key, $list->sub_images)) {
+                        if (strpos($request_data['sub_images'][$key]['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '',$request_data['sub_images'][$key]['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data['sub_images'][$key]['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $data->type.$key.'.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $request_data['sub_images'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    }
                 }
             }
             $data->data = json_encode($request_data);
@@ -974,7 +996,8 @@ class PagesController extends Controller
         $data = [
             'from' => $request->from,
             'title' => $request->data['title'],
-            'description' => $request->data['description']
+            'description' => $request->data['description'],
+            'url' => $request->data['url']
         ];
         if ($request->from == "home") {
             $data['icon_url'] = $request->data['avatar'];

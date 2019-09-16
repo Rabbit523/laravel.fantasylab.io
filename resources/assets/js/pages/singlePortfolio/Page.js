@@ -20,7 +20,7 @@ class Page extends React.Component {
         .then(
             res => {
                 var data = JSON.parse(res.data.data);
-                if (data.header_back_url != null) {
+                if (data.header_description != 'example') {
                     this.setState({ isLoaded: true, isExisted: true, data });
                 } else {
                     this.setState({ isLoaded: true, isExisted: false });
@@ -30,7 +30,7 @@ class Page extends React.Component {
         ).catch(err => {
             console.error(err);
             this.setState({ isLoaded: true });
-        });
+        });    
     }
 
     render() {

@@ -2854,6 +2854,14 @@ body {
   text-decoration: none;
 }
 
+.page main .admin-pages .list .item i {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.page main .admin-pages .list .item:hover i {
+  color: rgba(255, 255, 255, 0.4);
+}
+
 .page main .admin-pages .list .item .content p {
   cursor: pointer;
   color: #4183C4 !important;
@@ -2863,6 +2871,11 @@ body {
   padding-bottom: 10px;
   font-weight: bold;
   padding: 0;
+}
+
+.page main .admin-pages .list .item .content .description {
+  color: #bebebe;
+  text-align: left;
 }
 
 .page main .admin-page {
