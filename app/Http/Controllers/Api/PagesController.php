@@ -734,6 +734,7 @@ class PagesController extends Controller
             "title" => $request->data['title'],
             "description" => $request->data['description'],
             "type" => $request->data['type'],
+            "url" => $request->data['url'],
             "avatar" => $request->data['avatar'],
             "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":["example","example"],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"review":{"avatar":"","back_url":"","description":"","job":"","name":"","title":""},"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
         ];
