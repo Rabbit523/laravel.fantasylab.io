@@ -30,7 +30,6 @@ class Page extends React.Component {
             res => {
                 var list = JSON.parse(res.data.data);
                 var reviews = {}, technologies = {}, estimation = [];
-                console.log(list);
                 Object.keys(list).map(function(key, index) {
                     if (key == "study") {
                         reviews = list[key];

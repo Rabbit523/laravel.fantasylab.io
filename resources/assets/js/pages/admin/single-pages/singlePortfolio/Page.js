@@ -50,7 +50,7 @@ class Page extends React.Component {
                 list.title = event.target.value;
                 return this.setState({ list });
             case 'description':
-                list.description = event.target.value;
+                list.header_description = event.target.value;
                 return this.setState({ list });
             case 'footer_title':
                 list.footer_title = event.target.value;
