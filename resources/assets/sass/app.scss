@@ -590,6 +590,9 @@ body {
       width: 100%;
       background-size: cover !important;
     }
+    a {
+      text-decoration: none;
+    }
     .main-footer {
       min-height: 350px;
       height: auto;
@@ -2229,18 +2232,22 @@ body {
           }
           .content {
             text-align: left;
+            .flex-form {
+              display: flex;
+              justify-content: space-between;
+              flex-direction: row;
+              .input-form {
+                flex: 1;
+                margin-right: 10px;
+              }
+              .flex-item {
+                margin-top: 5px;
+              }
+            }
             .admin-form-group {
               display: flex;
               justify-content: space-between;
               flex-direction: column;
-              .flex-form {
-                display: flex;
-                justify-content: space-between;
-                flex-direction: row;
-                .input-form {
-                  flex: 1;
-                }
-              }
             }          
             input {
               margin-bottom: 10px;
@@ -3965,7 +3972,7 @@ body {
               margin: inherit !important;
             }
             .service-review {
-              padding-top: 210px;
+              padding-top: 130px;
               p {
                 font-size: 14px;
                 &.case_text {
@@ -3980,9 +3987,6 @@ body {
           }
           &.branding {
             margin-top: 400px;
-            .service-review {
-              padding-top: 220px;
-            }
           }
         }
         .service-estimation {
@@ -4316,7 +4320,9 @@ body {
         .service-section {
           &.review {
             margin-top: 200px;
+            min-height: 100vh;
             .service-review {
+              padding-top: 140px;
               .third-button {
                 font-size: 12px !important;
               }
@@ -4368,6 +4374,16 @@ body {
     main {
       .main-footer {
         min-height: 410px;
+      }
+      .service-page {
+        .service-section {
+          &.review {
+            min-height: 80vh;
+            .service-review {
+              padding-top: 180px;
+            }
+          }
+        }
       }
     }
   }

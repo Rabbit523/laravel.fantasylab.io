@@ -23,12 +23,7 @@ import AdminHome from '../pages/admin/single-pages/home'
 import AdminPortfolio from '../pages/admin/single-pages/portfolio'
 import AdminAbout from '../pages/admin/single-pages/about'
 import AdminContact from '../pages/admin/single-pages/contact'
-import AdminServiceWeb from '../pages/admin/single-pages/serviceWeb'
-import AdminServiceMobile from '../pages/admin/single-pages/serviceMobile'
-import AdminServiceUI from '../pages/admin/single-pages/serviceUI'
-import AdminServiceBranding from '../pages/admin/single-pages/serviceBranding'
-import AdminServiceIllustration from '../pages/admin/single-pages/serviceIllustration'
-import AdminServiceMarket from '../pages/admin/single-pages/serviceMarket'
+import AdminServicePage from '../pages/admin/single-pages/servicePage'
 import AdminBlog from '../pages/admin/adminBlog'
 import AdminPrivacy from '../pages/admin/single-pages/privacy'
 import AdminPortfolios from '../pages/admin/adminPortfolios'
@@ -232,37 +227,37 @@ const routes = [
         path: '/admin/single-page/service-web',
         exact: true,
         admin: true,
-        component: AdminServiceWeb
+        component: AdminServicePage
     },
     {
         path: '/admin/single-page/service-mobile',
         exact: true,
         admin: true,
-        component: AdminServiceMobile
+        component: AdminServicePage
     },
     {
         path: '/admin/single-page/service-ui',
         exact: true,
         admin: true,
-        component: AdminServiceUI
+        component: AdminServicePage
     },
     {
         path: '/admin/single-page/service-branding',
         exact: true,
         admin: true,
-        component: AdminServiceBranding
+        component: AdminServicePage
     },
     {
         path: '/admin/single-page/service-illustration',
         exact: true,
         admin: true,
-        component: AdminServiceIllustration
+        component: AdminServicePage
     },
     {
         path: '/admin/single-page/service-market',
         exact: true,
         admin: true,
-        component: AdminServiceMarket
+        component: AdminServicePage
     },
     {
         path: '/admin/legal',

@@ -19,8 +19,9 @@ class Page extends React.Component {
         Http.post('api/front/get-portfolio-page', { type: pagename })
         .then(
             res => {
-                if (res.data.data) {
-                    this.setState({ isLoaded: true, isExisted: true, data: JSON.parse(res.data.data) });
+                var data = JSON.parse(res.data.data);
+                if (data.header_back_url != null) {
+                    this.setState({ isLoaded: true, isExisted: true, data });
                 } else {
                     this.setState({ isLoaded: true, isExisted: false });
                 }
@@ -137,7 +138,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        <PageFooter url={data.footer_back_url} />
+                        <PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />
                         <div className='divide'></div>
                     </React.Fragment>
                     :

@@ -716,6 +716,10 @@ body {
   background-size: cover !important;
 }
 
+.page main a {
+  text-decoration: none;
+}
+
 .page main .main-footer {
   min-height: 350px;
   height: auto;
@@ -2897,20 +2901,7 @@ body {
   text-align: left;
 }
 
-.page main .admin-page .ui.card .content .admin-form-group {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-.page main .admin-page .ui.card .content .admin-form-group .flex-form {
+.page main .admin-page .ui.card .content .flex-form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2923,10 +2914,28 @@ body {
           flex-direction: row;
 }
 
-.page main .admin-page .ui.card .content .admin-form-group .flex-form .input-form {
+.page main .admin-page .ui.card .content .flex-form .input-form {
   -webkit-box-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin-right: 10px;
+}
+
+.page main .admin-page .ui.card .content .flex-form .flex-item {
+  margin-top: 5px;
+}
+
+.page main .admin-page .ui.card .content .admin-form-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .page main .admin-page .ui.card .content input {
@@ -4731,7 +4740,7 @@ body {
   }
 
   .page main .service-page .service-section.review .service-review {
-    padding-top: 210px;
+    padding-top: 130px;
   }
 
   .page main .service-page .service-section.review .service-review p {
@@ -4749,10 +4758,6 @@ body {
 
   .page main .service-page .service-section.branding {
     margin-top: 400px;
-  }
-
-  .page main .service-page .service-section.branding .service-review {
-    padding-top: 220px;
   }
 
   .page main .service-page .service-estimation .service-estimation-description h3 {
@@ -5080,6 +5085,11 @@ body {
 
   .page main .service-page .service-section.review {
     margin-top: 200px;
+    min-height: 100vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 140px;
   }
 
   .page main .service-page .service-section.review .service-review .third-button {
@@ -5123,6 +5133,14 @@ body {
 @media (min-width: 1440px) {
   .page main .main-footer {
     min-height: 410px;
+  }
+
+  .page main .service-page .service-section.review {
+    min-height: 80vh;
+  }
+
+  .page main .service-page .service-section.review .service-review {
+    padding-top: 180px;
   }
 }
 

@@ -159,8 +159,8 @@ class Page extends React.Component {
                                                             {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> Delete </label>}
                                                             {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, portfolios[key].id)}> Create </label>}
                                                             {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, portfolios[key].id)}> Cancel </label>}
-                                                            {!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ type: 'create_page', page: `${portfolios[key].type}` }}}> Create CMS </Label> }
-                                                            {portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ type: 'edit_page', page: `${portfolios[key].type}` }}}> Edit CMS </Label> }
+                                                            {!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ page: `${portfolios[key].type}` }}}> Create CMS </Label> }
+                                                            {portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ page: `${portfolios[key].type}` }}}> Edit CMS </Label> }
                                                         </div>
                                                     </Panel>
                                                 ))}

@@ -3,115 +3,33 @@ import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea } 
 import Collapse, { Panel } from 'rc-collapse';
 import 'rc-collapse/assets/index.css';
 import Http from '../../../../Http'
+
 class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             list: [],
+            services: [],
+            reviews: [],
             data: [],
             isLoaded: false,
             accordion: false,
-            activeKey: []            
+            activeKey: [],
+            description_activeKey: []
         }
         this.handleChange = this.handleChange.bind(this);
         this.onAvatarChange = this.onAvatarChange.bind(this);
         this.onCollapseChange = this.onCollapseChange.bind(this);
+        this.onDescriptionCollapseChange = this.onDescriptionCollapseChange.bind(this);
     }
 
     componentDidMount() {
-        const { type, page } = this.props.location.state;
+        const { page } = this.props.location.state;
         Http.post('/api/admin/get-portfolio-page', { type: page})
         .then(
             res => {
-                if (type != "create_page") {
-                    var list = JSON.parse(res.data.data);
-                    this.setState({ isLoaded: true, list, data: res.data });
-                } else {
-                    var list = {
-                        footer_back_url: "",
-                        header_back_url: "",
-                        header_description: "example",
-                        title: "example",
-                        header_sub_images: [
-                            "example",
-                            "example"
-                        ],
-                        main_description: [
-                            {
-                                title: "example",
-                                text: "example",
-                                sub: [
-                                    "example",
-                                    "example",
-                                    "example"
-                                ]
-                            },
-                            {
-                                title: "example",
-                                text: "example",
-                                sub: [
-                                    "example",
-                                    "example",
-                                    "example"
-                                ]
-                            },
-                            {
-                                title: "example",
-                                text: "example",
-                                sub: [
-                                    "example",
-                                    "example",
-                                    "example"
-                                ]
-                            }
-                        ],
-                        review: {
-                            avatar: "",
-                            back_url: "",
-                            description: "",
-                            job: "",
-                            name: "",
-                            title: ""
-                        },
-                        services: [
-                            {
-                                backimage: "",
-                                color: "",
-                                description: "",
-                                title: "",
-                                type: "",
-                                url: ""
-                            },
-                            {
-                                backimage: "",
-                                color: "",
-                                description: "",
-                                title: "",
-                                type: "",
-                                url: ""
-                            },
-                            {
-                                backimage: "",
-                                color: "",
-                                description: "",
-                                title: "",
-                                type: "",
-                                url: ""
-                            }
-                        ],
-                        sub_images: [
-                            {
-                                url: "",
-                                text: ""
-                            },
-                            {
-                                url: "",
-                                text: ""
-                            }
-                        ]
-                    };
-                    this.setState({ isLoaded: true, list, data: res.data });
-                }
+                var list = JSON.parse(res.data.data);
+                this.setState({ isLoaded: true, list: JSON.parse(res.data.data), data: res.data, services: list.services });
             }
         ).catch(err => {
             console.error(err);
@@ -119,7 +37,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { data, list } = this.state;
+        var { data, list, services } = this.state;
         const ref = this;
         switch (type) {
             case 'meta_title':
@@ -133,6 +51,21 @@ class Page extends React.Component {
                 return this.setState({ list });
             case 'description':
                 list.description = event.target.value;
+                return this.setState({ list });
+            case 'footer_title':
+                list.footer_title = event.target.value;
+                return this.setState({ list });
+            case 'footer_description':
+                list.footer_description = event.target.value;
+                return this.setState({ list });
+            case 'footer_button':
+                list.footer_button = event.target.value;
+                return this.setState({ list });
+            case 'footer_link':
+                list.footer_link = event.target.value;
+                return this.setState({ list });
+            case 'footer_link_name':
+                list.footer_link_name = event.target.value;
                 return this.setState({ list });
         }
         
@@ -158,13 +91,12 @@ class Page extends React.Component {
             ref.setState({ list });
         }
 
-        list.services.map((item, index) => {
-            var sub_key = type.split('_')[1];
-            if (item.type == type.split('_')[0]) {
-                item[sub_key] = event.target.value;
-                ref.setState({ list });
-            }
-        });
+        if (type.includes('service')) {
+            var key = type.split('_')[1];
+            var sub_key = type.split('_')[2];
+            services[sub_key][key] = event.target.value;
+            this.setState({ services });
+        }
 
         if (type.includes('review')) {
             var sub_key = type.split('_')[1];
@@ -175,7 +107,7 @@ class Page extends React.Component {
 
     // Upload Images
     onAvatarChange(type, e){
-        var { list } = this.state;       
+        var { list, services } = this.state;       
         const ref = this;
 
         var headerfiles = document.getElementsByClassName('header-file');
@@ -185,9 +117,6 @@ class Page extends React.Component {
                 reader.onload = function(e) {
                     if (type == "header") {
                         list.header_back_url = e.target.result;
-                        ref.setState({ list });
-                    } else {
-                        list.footer_back_url = e.target.result;
                         ref.setState({ list });
                     }
                 }
@@ -219,18 +148,24 @@ class Page extends React.Component {
             }
         });
 
+        var footer_file = document.getElementById('footer-file');
+        if (footer_file.files && footer_file.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                if (type == 'footer') { list.footer_url = e.target.result; ref.setState({ list }); }
+            }
+            reader.readAsDataURL(footer_file.files[0]);
+        }
+
         var Servicefiles = document.getElementsByClassName('service_avatar');
         Object.keys(Servicefiles).map((key, index) => {
             if (Servicefiles[index].files && Servicefiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    var sub_key = type.split('_')[1];                    
-                    list.services.map((item, i) => {
-                        if (item.type == type.split('_')[0]) {
-                            item[sub_key] = e.target.result;
-                            ref.setState({ list });
-                        }
-                    });
+                    var sub_key = type.split('_')[1];
+                    var id = type.split('_')[2];
+                    services[id][sub_key] = e.target.result;
+                    ref.setState({ services });
                 }
                 reader.readAsDataURL(Servicefiles[index].files[0]);
             }
@@ -257,12 +192,38 @@ class Page extends React.Component {
     onCollapseChange(activeKey) {
         this.setState({ activeKey });
     }
-    
+    onDescriptionCollapseChange(description_activeKey) {
+        this.setState({ description_activeKey });
+    }
+    onAddService (e) {
+        var { services, data } = this.state;
+        var new_item = {
+            title: 'New Service',
+            description: '',
+            type: data.type,
+            backimage: '',
+            url: ''
+        };
+        services.push(new_item);
+        this.setState({ services });
+    }
     // Update header section
     updateHeader() {
         const { list, data } = this.state;
         this.setState({ isLoaded: false });
         Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, meta_title: data.meta_title, meta_description: data.meta_description, type: 'header'})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    updateFooter() {
+        const { list, data } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'footer'})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -286,7 +247,8 @@ class Page extends React.Component {
     }
     // Update services
     onUpdateService (e, type) {
-        const { list, data } = this.state;
+        const { list, data, services } = this.state;
+        list.services = services;
         this.setState({ isLoaded: false });
         Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'service'})
         .then(
@@ -312,7 +274,7 @@ class Page extends React.Component {
     }
     
     render() {
-        const { isLoaded, list, data, activeKey, accordion } = this.state;
+        const { isLoaded, list, data, services, activeKey, accordion, description_activeKey } = this.state;
         const ref = this;
         return (
             <div className='admin-page'>
@@ -320,7 +282,7 @@ class Page extends React.Component {
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded='vertically'>
-                            <Grid.Column className='custom-column' width={8}>
+                            <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Header Section</Card.Header>
@@ -343,12 +305,6 @@ class Page extends React.Component {
                                                     <label>Header Image</label>
                                                     <Form.Field>
                                                         <input accept='image/*' type='file' className='header-file' onChange={(e) => this.onAvatarChange('header', e)}/>
-                                                    </Form.Field>
-                                                </Form>
-                                                <Form>
-                                                    <label>Footer Image</label>
-                                                    <Form.Field>
-                                                        <input accept='image/*' type='file' className='header-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
                                                     </Form.Field>
                                                 </Form>
                                             </div>
@@ -381,82 +337,90 @@ class Page extends React.Component {
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
-                            <Grid.Column className='custom-column' width={8}>
+                            <Grid.Column computer={8}>
+                                <Card className='header-section'>
+                                    <Card.Content>
+                                        <Card.Header>Footer Section</Card.Header>
+                                    </Card.Content>
+                                    <Card.Content>
+                                        <Card.Description>
+                                            <Form.Input fluid label='Title' name='title' placeholder='Footer title' className='input-form' value={list.footer_title} onChange={(val) => this.handleChange(val, 'footer_title')} />
+                                            <Form.Input fluid label='Button' name='button' placeholder='button name' className='input-form' value={list.footer_button} onChange={(val) => this.handleChange(val, 'footer_button')} />
+                                            <Form.Input fluid label='Description' name='description' placeholder='footer description' className='input-form' value={list.footer_description} onChange={(val) => this.handleChange(val, 'footer_description')} />
+                                            <Form.Input fluid label='Link' name='link' placeholder='footer link' className='input-form' value={list.footer_link} onChange={(val) => this.handleChange(val, 'footer_link')} />
+                                            <Form.Input fluid label='Link Name' name='link_name' placeholder='footer link' className='input-form' value={list.footer_link_name} onChange={(val) => this.handleChange(val, 'footer_link_name')} />
+                                            <Form>
+                                                <label>Footer Image</label>
+                                                <Form.Field>
+                                                    <input accept='image/*' type='file' id='footer-file' onChange={(e) => this.onAvatarChange('footer', e)}/>
+                                                </Form.Field>
+                                            </Form>
+                                            <label className='ui floated button save-btn' onClick={this.updateFooter.bind(this)}> Save </label>
+                                        </Card.Description>
+                                    </Card.Content>
+                                </Card>
+                            </Grid.Column>
+                            <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Sub Description Section</Card.Header>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
-                                            {list.main_description.map((item, i) => (
-                                                <div className="description-group" key={i}>
-                                                    <Form.Input fluid label='Title' name='sub_title' placeholder='title' className='input-form' value={item.title} onChange={(val) => this.handleChange(val, 'sub_title'+i)} />
-                                                    <Form>
-                                                        <label>Description</label>
-                                                        <TextArea
-                                                            placeholder='Tell us more'
-                                                            value={item.text}
-                                                            onChange={(val) => this.handleChange(val, 'sub_description'+i)}
-                                                        />
-                                                    </Form>
-                                                    {Object.keys(item.sub).map((key, index) => (
-                                                        <Form key={index}>
-                                                            <Form.Input fluid label='Text' name='text' placeholder='text' className='input-form' value={item.sub[index]} onChange={(val)=>ref.handleChange(val, 'subtext'+i+index)} />
+                                            <Collapse accordion={accordion} onChange={this.onDescriptionCollapseChange} activeKey={description_activeKey}>
+                                                {list.main_description.map((item, i) => (
+                                                    <Panel header={i+1} key={i}>
+                                                        <Form.Input fluid label='Title' name='sub_title' placeholder='title' className='input-form' value={item.title} onChange={(val) => this.handleChange(val, 'sub_title'+i)} />
+                                                        <Form>
+                                                            <label>Description</label>
+                                                            <TextArea
+                                                                placeholder='Tell us more'
+                                                                value={item.text}
+                                                                onChange={(val) => this.handleChange(val, 'sub_description'+i)}
+                                                            />
                                                         </Form>
-                                                    ))}
-                                                </div>)
-                                            )}
+                                                        {Object.keys(item.sub).map((key, index) => (
+                                                            <Form key={index}>
+                                                                <Form.Input fluid label='Text' name='text' placeholder='text' className='input-form' value={item.sub[index]} onChange={(val)=>ref.handleChange(val, 'subtext'+i+index)} />
+                                                            </Form>
+                                                        ))}
+                                                    </Panel>)
+                                                )}
+                                            </Collapse>
                                             <label className='ui floated button save-btn' onClick={this.updateSubDescription.bind(this)}> Save </label>
                                         </Card.Description>
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
-                            <Grid.Column className='custom-column' width={8}>
+                            <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Services Section</Card.Header>
+                                        <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddService(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
                                             <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
-                                                {list.services.map((item, i) => (
+                                                {services.map((item, i) => (
                                                     <Panel header={item.title} key={i}>
-                                                        <Form.Input 
-                                                            fluid 
-                                                            label='Title' 
-                                                            placeholder='title' 
-                                                            className='input-form' 
-                                                            value={item.title} 
-                                                            onChange={(e) => ref.handleChange(e, item.type+'_title')} />
-                                                        <Form.Input 
-                                                            fluid 
-                                                            label='Description' 
-                                                            placeholder='description' 
-                                                            className='input-form' 
-                                                            value={item.description} 
-                                                            onChange={(e) => ref.handleChange(e, item.type+'_description')} />
-                                                        <Form.Input 
-                                                            fluid 
-                                                            label='Color' 
-                                                            placeholder='color' 
-                                                            className='input-form' 
-                                                            value={item.color} 
-                                                            onChange={(e)=> ref.handleChange(e, item.type+'_color')} />
+                                                        <Form.Input fluid label='Title' placeholder='title' className='input-form' value={item.title} onChange={(e) => ref.handleChange(e, 'service_title_'+i)} />
+                                                        <Form.Input fluid label='Description' placeholder='description' className='input-form' value={item.description} onChange={(e) => ref.handleChange(e, 'service_description_'+i)} />
+                                                        <Form.Input fluid label='Color' placeholder='color' className='input-form' value={item.color} onChange={(e)=> ref.handleChange(e, 'service_color_'+i)} />
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
                                                             <Form>
                                                                 <label>Avatar Image</label>
                                                                 <Form.Field>
-                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange(item.type+'_url', e)}/>
+                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange('service_url_'+i, e)}/>
                                                                 </Form.Field>
                                                             </Form>
                                                             <Form>
                                                                 <label>Background Image</label>
                                                                 <Form.Field>
-                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange(item.type+'_backimage', e)}/>
+                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange('service_backimage_'+i, e)}/>
                                                                 </Form.Field>
                                                             </Form>
                                                         </div>
-                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, item.type)}> Save </label>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, i)}> Save </label>
                                                     </Panel>
                                                 ))}
                                             </Collapse>
@@ -464,7 +428,7 @@ class Page extends React.Component {
                                     </Card.Content>
                                 </Card>
                             </Grid.Column>
-                            <Grid.Column className='custom-column' width={8}>
+                            <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Review Section</Card.Header>

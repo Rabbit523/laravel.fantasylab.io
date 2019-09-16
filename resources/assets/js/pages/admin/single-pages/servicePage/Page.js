@@ -7,35 +7,45 @@ class Page extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            page_name: '',
             list: [],
             reviews: {},
             technologies: {},
             isLoaded: false,
             accordion: false,
-            activeKey: []
+            activeKey: [],
+            process_activeKey: []
         }
         this.onCollapseChange = this.onCollapseChange.bind(this);
+        this.onCollapseProcessChange = this.onCollapseProcessChange.bind(this);
     }
 
     componentDidMount() {
-        Http.post('/api/front/get-page', { name: 'service-branding' })
+        const { pathname } = this.props.location;
+        var page_name = pathname.split('/admin/single-page/')[1];
+        this.setState({ page_name });
+
+        Http.post('/api/front/get-page', { name: page_name })
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                var reviews = {}, technologies = {};
-                
+                var reviews = {}, technologies = {}, estimation = [];
+                console.log(list);
                 Object.keys(list).map(function(key, index) {
                     if (key == "study") {
                         reviews = list[key];
                     } else if (key == "technologies") {
                         technologies = list[key];
+                    } else if (key == "estimation") {
+                        estimation = list[key];
                     }
                 });
                 this.setState({ 
                     isLoaded: true, 
                     list,
                     reviews,
-                    technologies
+                    technologies,
+                    estimation
                 });
             }
         ).catch(err => {
@@ -44,7 +54,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { list, reviews, technologies } = this.state;
+        var { list, reviews, technologies, estimation } = this.state;
         var ref = this;
         switch (type) {
             case 'meta_title':
@@ -88,6 +98,21 @@ class Page extends React.Component {
                 return this.setState({ list });
         }
 
+        if (type.includes('icon')) {
+            Object.keys(list.icons).map((key, i) => {
+                var sub_key = type.split('icon')[1];
+                list.icons[sub_key].text = event.target.value;
+                ref.setState({ list });
+            });
+        }
+
+        if (type.includes('estimation')) {
+            var sub_key = type.split('_')[2];
+            var key = type.split('_')[1];
+            estimation[sub_key][key] = event.target.value;
+            ref.setState({ estimation });
+        }
+
         Object.keys(technologies).map((key, i) => {
             if (type.includes('tech') && type.includes(key)) {
                 if (type.includes('title')) {
@@ -102,7 +127,7 @@ class Page extends React.Component {
     }
 
     onAvatarChange(type, e){
-        var { list, reviews, technologies } = this.state;
+        var { list, reviews, technologies, estimation } = this.state;
         var ref = this;
 
         var infile = document.getElementById("input-file");
@@ -145,19 +170,48 @@ class Page extends React.Component {
             }
         });
 
+        var icon_files = document.getElementsByClassName('icon-file');
+        Object.keys(icon_files).map((key, index) => {
+            if (icon_files[index].files && icon_files[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    if (type.includes('icon')) {
+                        var sub_key = type.split('icon')[1];
+                        list.icons[sub_key].icon = e.target.result;
+                        ref.setState({ list });
+                    }
+                }
+                reader.readAsDataURL(icon_files[index].files[0]);
+            }
+        });
+        
         var tech_files = document.getElementsByClassName('tech-file');
         Object.keys(tech_files).map((key, index) => {
             if (tech_files[index].files && tech_files[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    Object.keys(technologies).map(function (key, index) {
-                        if (type.includes(key) && type.includes('tech')) {
-                            technologies[key].icon = e.target.result;
-                            ref.setState({ technologies });
-                        }
-                    });
+                    if (type.includes('tech')) {
+                        var sub_key = type.split('tech')[0];
+                        technologies[sub_key].icon = e.target.result;
+                        ref.setState({ technologies });
+                    }
                 }
                 reader.readAsDataURL(tech_files[index].files[0]);
+            }
+        });
+
+        var estimation_files = document.getElementsByClassName('estimation-file');
+        Object.keys(estimation_files).map((key, index) => {
+            if (estimation_files[index].files && estimation_files[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    if (type.includes('estimation')) {
+                        var sub_key = type.split('estimation')[1];
+                        estimation[sub_key].url = e.target.result;
+                        ref.setState({ estimation });
+                    }
+                }
+                reader.readAsDataURL(estimation_files[index].files[0]);
             }
         });
     }    
@@ -165,12 +219,14 @@ class Page extends React.Component {
     onCollapseChange(activeKey) {
         this.setState({ activeKey });
     }
-
+    onCollapseProcessChange(process_activeKey) {
+        this.setState({ process_activeKey });
+    }
     // Update header section
     updateHeader() {
-        var { list } = this.state;
+        var { list, page_name } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'service-branding', data: JSON.stringify(list), type: 'header'})
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(list), type: 'header'})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -181,9 +237,9 @@ class Page extends React.Component {
     }
     // Update footer section
     updateFooter() {
-        var { list } = this.state;
+        var { list, page_name } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', { name: 'service-branding', data: JSON.stringify(list), type: 'footer' })
+        Http.post('/api/admin/update-page', { name: page_name, data: JSON.stringify(list), type: 'footer' })
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -194,14 +250,14 @@ class Page extends React.Component {
     }
     //Update review section
     updateReview() {
-        var { list, reviews } = this.state;
+        var { list, reviews, page_name } = this.state;
         Object.keys(list).map((key, index) => {
             if (key == 'study') {
                 list[key] = reviews;
             }
         });
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'service-branding', data: JSON.stringify(reviews), type: 'study'})
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(reviews), type: 'study'})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -210,17 +266,16 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-
     //Update technologies item
     onUpdateTechItem(e, type) {
-        var { list, technologies } = this.state;
+        var { list, technologies, page_name } = this.state;        
         Object.keys(list).map((key, index) => {
             if (key == 'technologies') {
                 list[key] = technologies;
             }
         });
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', {name: 'service-branding', data: JSON.stringify(technologies), type: 'tech', id: type})
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(technologies), type: 'tech', id: type})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -229,9 +284,26 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-
+    //Update estimation section
+    onUpdateProcessItem(e, type) {
+        var { list, estimation, page_name } = this.state;
+        Object.keys(list).map((key, index) => {
+            if (key == 'estimation') {
+                list[key] = estimation;
+            }
+        });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(estimation), type: 'estimation', id: type})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     render() {
-        const { isLoaded, list, reviews, technologies, accordion, activeKey } = this.state;
+        const { isLoaded, list, reviews, technologies, estimation, accordion, activeKey, process_activeKey } = this.state;
         const ref = this;
         return (
             <div className="admin-page">
@@ -262,12 +334,15 @@ class Page extends React.Component {
                                                 <input accept="image/*" type="file" id="input-file" onChange={(e) => this.onAvatarChange("header", e)}/>
                                             </Form.Field>
                                         </Form>
-                                        <Form>
-                                            <label>Footer Image</label>
-                                            <Form.Field>
-                                                <input accept="image/*" type="file" id="input-file" onChange={(e) => this.onAvatarChange("footer", e)}/>
-                                            </Form.Field>
-                                        </Form>
+                                        {Object.keys(list.icons).map((key, index) => (
+                                            <div className="flex-form" key={index}>
+                                                <Form.Input fluid label='Text' name='text' placeholder='Icon text' className='input-form' value={list.icons[key].text} onChange={(val)=>ref.handleChange(val, 'icon' + key)}/>
+                                                <Form.Field className="flex-item">
+                                                    <label>Image</label>
+                                                    <input accept='image/*' type='file' className='icon-file' onChange={(e) => ref.onAvatarChange('icon' + key, e)}/>
+                                                </Form.Field>
+                                            </div>
+                                        ))}
                                         <label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> Save </label>
                                     </Card.Description>
                                 </Card.Content>
@@ -345,6 +420,34 @@ class Page extends React.Component {
                                                     <div style={{display: 'flex'}}>
                                                         <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateTechItem(e, index)}> Save </label>
                                                         <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteTechItem(e, index)}> Delete </label>
+                                                    </div>
+                                                </Panel>
+                                            ))}
+                                        </Collapse>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column computer={8}>
+                            <Card>
+                                <Card.Content>
+                                    <Card.Header>Process section</Card.Header>
+                                </Card.Content>
+                                <Card.Content>
+                                    <Card.Description>
+                                        <Collapse accordion={accordion} onChange={this.onCollapseProcessChange} activeKey={process_activeKey}>
+                                            {estimation.map((item, i) => (
+                                                <Panel header={item.title} key={i}>
+                                                    <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, 'estimation_title_' + i)} />
+                                                    <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, 'estimation_description_' + i)} />
+                                                    <Form>
+                                                        <label>Icon Image</label>
+                                                        <Form.Field>
+                                                            <input accept="image/*" type="file" className="estimation-file" onChange={(e) => this.onAvatarChange("estimation" + i, e)}/>
+                                                        </Form.Field>
+                                                    </Form>
+                                                    <div style={{display: 'flex'}}>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateProcessItem(e, i)}> Save </label>
                                                     </div>
                                                 </Panel>
                                             ))}
