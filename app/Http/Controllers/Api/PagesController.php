@@ -1004,7 +1004,8 @@ class PagesController extends Controller
             $data['icon_url'] = $request->data['avatar'];
             $data['back_url'] = $request->data['back_url'];
         }
-        $portfolios->$type = $data;
+        $array = json_decode(json_encode($portfolios), true);
+        $portfolios = array($type => $data) + $array;
         $json_page->portfolios = $portfolios;
         $page->data = json_encode($json_page);
         $page->save();
