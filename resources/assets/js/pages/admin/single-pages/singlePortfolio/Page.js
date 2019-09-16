@@ -306,7 +306,7 @@ class Page extends React.Component {
                                                 <label>Description</label>
                                                 <TextArea
                                                     placeholder='Tell us more'
-                                                    value={list.description}
+                                                    value={list.header_description}
                                                     onChange={(val) => this.handleChange(val, 'description')}
                                                 />
                                             </Form>
