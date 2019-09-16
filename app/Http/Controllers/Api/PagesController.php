@@ -725,8 +725,13 @@ class PagesController extends Controller
     }
 
     public function getPortfolioPage(Request $request) {
-        $data = Portfolio::where('type', $request->type)->first();
-        return response()->json($data);
+        if ($request->from == 'front') {
+            $data = Portfolio::where('url', $request->type)->first();        
+            return response()->json($data);
+        } else {
+            $data = Portfolio::where('type', $request->type)->first();        
+            return response()->json($data);
+        }
     }
 
     public function createPortfolio(Request $request) {

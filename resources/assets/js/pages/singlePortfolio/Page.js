@@ -17,7 +17,7 @@ class Page extends React.Component {
     componentDidMount() {
         const { type } = this.props.match.params;
         console.log(this.props);
-        Http.post('api/front/get-portfolio-page', { type: type })
+        Http.post('api/front/get-portfolio-page', { type: type, from: 'front' })
         .then(
             res => {
                 console.log(res);
