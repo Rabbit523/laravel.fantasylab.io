@@ -861,7 +861,8 @@ class PagesController extends Controller
                     'from' => 'portfolio',
                     'url' => $request_data['url'],
                     'title' => $request_data['title'],
-                    'description' => $request_data['description']
+                    'description' => $request_data['description'],
+                    'back_url' => $request_data['back_url']
                 ];
                 $array = json_decode(json_encode($portfolio_data->portfolios), true);
                 $portfolio_data->portfolios = array($request_data['type'] => $new_portfolio) + $array;
@@ -1148,11 +1149,11 @@ class PagesController extends Controller
             'from' => $request->from,
             'title' => $request->data['title'],
             'description' => $request->data['description'],
-            'url' => $request->data['url']
+            'url' => $request->data['url'],
+            'back_url' => $request->data['back_url']
         ];
         if ($request->from == "home") {
-            $data['icon_url'] = $request->data['avatar'];
-            $data['back_url'] = $request->data['back_url'];
+            $data['icon_url'] = $request->data['avatar'];            
         }
         $array = json_decode(json_encode($portfolios), true);
         $portfolios = array($type => $data) + $array;
