@@ -16,11 +16,9 @@ class Page extends React.Component {
 
     componentDidMount() {
         const { type } = this.props.match.params;
-        console.log(this.props);
         Http.post('api/front/get-portfolio-page', { type: type, from: 'front' })
         .then(
             res => {
-                console.log(res);
                 var data = JSON.parse(res.data.data);
                 if (data.header_description != 'example') {
                     this.setState({ isLoaded: true, isExisted: true, data });

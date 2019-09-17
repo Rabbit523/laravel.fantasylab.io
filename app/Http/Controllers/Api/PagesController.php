@@ -767,6 +767,48 @@ class PagesController extends Controller
 
     public function updatePortfolio(Request $request) {
         $data = Portfolio::where('id', $request->id)->first();
+        $origin_type = $data->type;
+
+        // update home page portfolio info
+        $home = Page::where('page_name', 'home')->first();
+        $home_data = json_decode($home->data);
+        foreach ($home_data->portfolios as $key => $item) {
+            if ($key == $origin_type) {
+                unset($home_data->portfolios->$key);
+                $new_portfolio = [
+                    'from' => 'home',
+                    'url' => $request->data['url'],
+                    'title' => $request->data['title'],
+                    'description' => $request->data['description'],
+                    'icon_url' => $request->data['avatar'],
+                    'back_url' => $request->data['back_url']
+                ];
+                $array = json_decode(json_encode($home_data->portfolios), true);
+                $home_data->portfolios = array($request->data['type'] => $new_portfolio) + $array;
+            }
+        }
+        $home->data = json_encode($home_data);
+        $home->save();
+
+        // update portfolio page portfolio info
+        $portfolios = Page::where('page_name', 'portfolio')->first();
+        $portfolio_data = json_decode($portfolios->data);
+        foreach ($portfolio_data->portfolios as $key => $item) {
+            if ($key == $origin_type) {
+                unset($portfolio_data->portfolios->$key);
+                $new_portfolio = [
+                    'from' => 'portfolio',
+                    'url' => $request->data['url'],
+                    'title' => $request->data['title'],
+                    'description' => $request->data['description']
+                ];
+                $array = json_decode(json_encode($portfolio_data->portfolios), true);
+                $portfolio_data->portfolios = array($request->data['type'] => $new_portfolio) + $array;
+            }
+        }
+        $portfolios->data = json_encode($portfolio_data);
+        $portfolios->save();
+
         $data->title = $request->data['title'];
         $data->description = $request->data['description'];
         $data->type = $request->data['type'];

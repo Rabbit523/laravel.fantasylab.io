@@ -18,7 +18,6 @@ class Page extends React.Component {
         Http.post('api/front/get-page', { name: 'portfolio' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.page.data) });
-                console.log(JSON.parse(res.data.page.data));
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
