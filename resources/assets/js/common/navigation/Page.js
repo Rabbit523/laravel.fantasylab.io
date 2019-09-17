@@ -80,7 +80,7 @@ class Page extends React.Component {
                         </Menu.Item>
                         <div className="right-menu">
                             <Menu.Item className="mobile-register">
-                                <Button compact className='primary-button'>Craft Enterprise</Button>
+                                <Button as={Link} to='/register' className='primary-button' onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
                             </Menu.Item>
                             <Menu.Menu position='right'>
                                 <Menu.Item>
