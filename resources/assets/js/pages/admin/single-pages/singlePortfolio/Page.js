@@ -416,6 +416,7 @@ class Page extends React.Component {
                                                     <Panel header={item.title} key={i}>
                                                         <Form.Input fluid label='Title' placeholder='title' className='input-form' value={item.title} onChange={(e) => ref.handleChange(e, 'service_title_'+i)} />
                                                         <Form.Input fluid label='Description' placeholder='description' className='input-form' value={item.description} onChange={(e) => ref.handleChange(e, 'service_description_'+i)} />
+                                                        <Form.Input fluid label='Type' placeholder='type' className='input-form' value={item.type} onChange={(e) => ref.handleChange(e, 'service_type_'+i)} />
                                                         <Form.Input fluid label='Color' placeholder='color' className='input-form' value={item.color} onChange={(e)=> ref.handleChange(e, 'service_color_'+i)} />
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
                                                             <Form>
