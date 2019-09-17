@@ -21,8 +21,9 @@ class Page extends React.Component {
         .then(
             res => {
                 var data = JSON.parse(res.data.data);
+                var page = res.data;
                 if (data.header_description != 'example') {
-                    this.setState({ isLoaded: true, isExisted: true, data });
+                    this.setState({ isLoaded: true, isExisted: true, data, page });
                 } else {
                     this.setState({ isLoaded: true, isExisted: false });
                 }
@@ -35,12 +36,12 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, isExisted, data } = this.state;
+        const { isLoaded, isExisted, data, page } = this.state;
         return (
             <div className='singlePortfolio-page'>
                 {isLoaded?isExisted?
                     <React.Fragment>
-                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                        <PageMetaTag meta_title={page.meta_title} meta_description={page.meta_description}/>
                         <div className='singlePortfolio-header' style={{ backgroundImage: `url(${data.header_back_url})` }}>
                             <div className='header-gradient'>
                                 <Container className='custom-col-6'>
