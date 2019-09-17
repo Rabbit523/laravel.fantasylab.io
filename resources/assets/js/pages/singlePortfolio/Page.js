@@ -66,20 +66,20 @@ class Page extends React.Component {
                                                 <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
-                                                    <div className="sub_descriptions" key={i}>
+                                                    item.sub[key] && (<div className="sub_descriptions" key={i}>
                                                         <div className="round_number">{i+1}</div>
                                                         <p>{item.sub[key]}</p>
-                                                    </div>
+                                                    </div>)
                                                 ))}
                                             </Grid.Column>
                                             <Grid.Column only="computer" className="main_description">
                                                 <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
-                                                    <div className="sub_descriptions" key={i}>
+                                                    item.sub[key] && (<div className="sub_descriptions" key={i}>
                                                         <div className="round_number">{i+1}</div>
                                                         <p>{item.sub[key]}</p>
-                                                    </div>
+                                                    </div>)
                                                 ))}
                                             </Grid.Column>
                                         </React.Fragment>
