@@ -25,7 +25,6 @@ class Page extends React.Component {
                     isLoaded: true, 
                     portfolios: res.data
                 });
-                console.log(res.data);
             }
         ).catch(err => {
             console.error(err);
@@ -61,7 +60,7 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(infile.files[0]);
         }
-        console.log(type);
+        
         var backFiles = document.getElementsByClassName('service_back');
         Object.keys(backFiles).map((key, index) => {
             if (backFiles[index].files && backFiles[index].files[0]) {
@@ -69,6 +68,19 @@ class Page extends React.Component {
                 reader.onload = function(e) {
                     var sub_key = type.split('_')[0];
                    portfolios[sub_key].back_url = e.target.result;
+                   ref.setState({ ref });
+                }
+                reader.readAsDataURL(backFiles[index].files[0]);
+            }
+        });
+
+        var backFiles = document.getElementsByClassName('service_avatar');
+        Object.keys(backFiles).map((key, index) => {
+            if (backFiles[index].files && backFiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[0];
+                   portfolios[sub_key].avatar = e.target.result;
                    ref.setState({ ref });
                 }
                 reader.readAsDataURL(backFiles[index].files[0]);
@@ -83,7 +95,7 @@ class Page extends React.Component {
     onUpdate(e, type) {
         const { portfolios } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-portfolio', { data: portfolios[type-1], id: type})
+        Http.post('/api/admin/update-portfolio', { data: portfolios[type], id: portfolios[type].id })
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -95,9 +107,9 @@ class Page extends React.Component {
     // Create a portfolio
     onCreate(e, type) {
         const { portfolios } = this.state;
-        if (portfolios[type-1].title.trim() != "" && portfolios[type-1].description.trim() != "" && portfolios[type-1].type.trim() != "" && portfolios[type-1].avatar.trim() != "") {
+        if (portfolios[type].title.trim() != "" && portfolios[type].description.trim() != "" && portfolios[type].type.trim() != "" && portfolios[type].avatar.trim() != "") {
             this.setState({ isLoaded: false });
-            Http.post('/api/admin/create-portfolio', { data: portfolios[type-1], id: type})
+            Http.post('/api/admin/create-portfolio', { data: portfolios[type], id: type})
             .then(
                 res => {
                     this.setState({ isLoaded: true, portfolios: res.data });
@@ -178,10 +190,10 @@ class Page extends React.Component {
                                                             </Form.Field>
                                                         </Form>
                                                         <div style={{display: 'flex'}}>
-                                                            {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, portfolios[key].id)}> Save </label>}
+                                                            {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, i)}> Save </label>}
                                                             {portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> Delete </label>}
-                                                            {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, portfolios[key].id)}> Create </label>}
-                                                            {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, portfolios[key].id)}> Cancel </label>}
+                                                            {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> Create </label>}
+                                                            {!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> Cancel </label>}
                                                             {!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ page: `${portfolios[key].type}` }}}> Create CMS </Label> }
                                                             {portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state:{ page: `${portfolios[key].type}` }}}> Edit CMS </Label> }
                                                         </div>

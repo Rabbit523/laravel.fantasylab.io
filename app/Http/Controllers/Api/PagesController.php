@@ -735,31 +735,53 @@ class PagesController extends Controller
     }
 
     public function createPortfolio(Request $request) {
+        $request_data = $request->data;
         $data = [
-            "title" => $request->data['title'],
-            "description" => $request->data['description'],
-            "type" => $request->data['type'],
-            "url" => $request->data['url'],
-            "avatar" => $request->data['avatar'],
+            "title" => $request_data['title'],
+            "description" => $request_data['description'],
+            "type" => $request_data['type'],
+            "url" => $request_data['url'],
+            "avatar" => $request_data['avatar'],
+            "back_url" => $request_data['back_url'],
             "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":["example","example"],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"review":{"avatar":"","back_url":"","description":"","job":"","name":"","title":""},"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
         ];
         $uploads_dir = "./assets/uploads/";
-        if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
-            $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
-        } else {
-            $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+        if ($request_data['avatar'] != null) {
+            if (strpos($request_data['avatar'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request_data['avatar']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request_data['avatar']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['type'] .'_avatar.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['avatar'] = $path;
         }
-        $base_code = base64_decode($img);
-        $name = $request->data['type'] .'_avatar.png';
-        $file = $uploads_dir . $name;
-        if(File::exists($file)) {
-            File::delete($file);
+        if ($request_data['back_url'] != null) {
+            if (strpos($request_data['back_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request_data['back_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request_data['back_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['type'] .'_back_url.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['back_url'] = $path;
         }
-        file_put_contents($file, $base_code); // create image file into $upload_dir
-        $url = url("/assets/uploads") ."/" . $name;
-        $arr = explode("/", $url);
-        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-        $data['avatar'] = $path;
         Portfolio::Create($data);
         $data = Portfolio::get();
         return response()->json($data);
