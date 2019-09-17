@@ -209,7 +209,7 @@ class Page extends React.Component {
         var new_item = {
             title: 'New Service',
             description: '',
-            type: data.type,
+            type: 'web',
             backimage: '',
             url: ''
         };

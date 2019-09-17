@@ -981,6 +981,46 @@ class PagesController extends Controller
                     $request_data['services'][$key]['backimage'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                 }
             }
+            if (count($request_data['services']) > count($list->services)) {
+                foreach($request_data['services'] as $key=> $item) {
+                    if (!array_key_exists($key, $list->services)) {
+                        if ($request_data['services'][$key]['url'] != null) {
+                            if (strpos($request_data['services'][$key]['url'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '',$request_data['services'][$key]['url']);
+                            } else {
+                                $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['url']);
+                            }
+                            $base_code = base64_decode($img);
+                            $name = $data->type.'services_icon'.$key.'.png';
+                            $file = $uploads_dir . $name;
+                            if(File::exists($file)) {
+                                File::delete($file);
+                            }
+                            file_put_contents($file, $base_code); // create image file into $upload_dir
+                            $url = url("/assets/uploads") ."/" . $name;
+                            $arr = explode("/", $url);
+                            $request_data['services'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        }
+                        if ($request_data['services'][$key]['backimage'] != null) {
+                            if (strpos($request_data['services'][$key]['backimage'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '',$request_data['services'][$key]['backimage']);
+                            } else {
+                                $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['backimage']);
+                            }
+                            $base_code = base64_decode($img);
+                            $name = $data->type.'services_back'.$key.'.png';
+                            $file = $uploads_dir . $name;
+                            if(File::exists($file)) {
+                                File::delete($file);
+                            }
+                            file_put_contents($file, $base_code); // create image file into $upload_dir
+                            $url = url("/assets/uploads") ."/" . $name;
+                            $arr = explode("/", $url);
+                            $request_data['services'][$key]['backimage'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        }
+                    }
+                }
+            }
             $data->data = json_encode($request_data);
             $data->save();
         } else if ($request->type == "review") {
