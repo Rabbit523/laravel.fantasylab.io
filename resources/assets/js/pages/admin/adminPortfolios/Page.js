@@ -30,17 +30,11 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-
+    
     handleChange(event, type) {
         var { portfolios } = this.state;
-        const ref = this;
-        portfolios.map((item, index) =>{
-            var key = type.split('_')[1];
-            if (item.id == type.split('_')[0]) {
-                item[key] = event.target.value;
-                ref.setState({ portfolios });
-            }
-        });
+        portfolios[type.split('_')[0]][type.split('_')[1]] = event.target.value;
+        this.setState({ portfolios });
     }
 
     onAvatarChange(type, e){
@@ -173,10 +167,10 @@ class Page extends React.Component {
                                             <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
                                                 {Object.keys(portfolios).map((key, i) => (
                                                     <Panel header={portfolios[key].title} key={i}>
-                                                        <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={portfolios[key].title} onChange={(val) => ref.handleChange(val, portfolios[key].id+'_title')} />
-                                                        <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={portfolios[key].description} onChange={(val) => ref.handleChange(val, portfolios[key].id +'_description')} />
-                                                        <Form.Input fluid label='type' name='type' placeholder='type' className='input-form' value={portfolios[key].type} onChange={(val)=> ref.handleChange(val, portfolios[key].id+'_type')} />
-                                                        <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={portfolios[key].url} onChange={(val)=> ref.handleChange(val, portfolios[key].id+'_url')} />
+                                                        <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={portfolios[key].title} onChange={(val) => ref.handleChange(val, i +'_title')} />
+                                                        <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={portfolios[key].description} onChange={(val) => ref.handleChange(val, i +'_description')} />
+                                                        <Form.Input fluid label='type' name='type' placeholder='type' className='input-form' value={portfolios[key].type} onChange={(val)=> ref.handleChange(val, i +'_type')} />
+                                                        <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={portfolios[key].url} onChange={(val)=> ref.handleChange(val, i +'_url')} />
                                                         <Form>
                                                             <label>Avatar Image</label>
                                                             <Form.Field>
