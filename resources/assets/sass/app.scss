@@ -1460,21 +1460,25 @@ body {
               font-family: 'Gotham Bold';
             }
             color: #9da6c7;
+            word-wrap: break-word;
+            width: 87%;
+            padding-top: 0;
           }
           .sub_descriptions {
             display: flex;
-            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
             .round_number {
               border-radius: 50%;
               background: #070e29;
               border: 1px solid #202c5a;
-              width: 57px;
               height: 32px;
               margin-right: 10px;
               padding-left: 11px;
               padding-top: 5px;
               color: #fff;
+              text-align: center;
+              flex: 1;
             }
           }
         }
@@ -2650,6 +2654,18 @@ body {
           .main_description:nth-of-type(1) {
             margin-top: 100px;
           }
+          .main_description {
+            .sub_descriptions {
+              .round_number {
+                height: 30px;
+                padding-left: 0;
+                padding-top: 5px;
+              }
+              p {
+                width: 84%;
+              }
+            }
+          }
           .service {
             padding-left: 15px;
             padding-right: 15px;
@@ -3015,9 +3031,11 @@ body {
           .sub_title {
             padding-top: 20px;
           }
-          .sub_descriptions {
-            .round_number {
-              padding-left: 15px;
+          .main_description {
+            .sub_descriptions {
+              p {
+                width: 85%;
+              }
             }
           }
           &.review {
@@ -3081,9 +3099,11 @@ body {
           .main_description:nth-of-type(1) {
             margin-top: 0;
           }
-          .sub_descriptions {
-            .round_number {
-              padding-left: 17px;
+          .main_description {
+            .sub_descriptions {
+              p {
+                width: 87%;
+              }
             }
           }
           &.review {
@@ -3160,9 +3180,11 @@ body {
           .sub_title {
             padding-top: 50px;
           }
-          .sub_descriptions {
-            .round_number {
-              padding-left: 17px;
+          .main_description {
+            .sub_descriptions {
+              p {
+                width: 88%;
+              }
             }
           }
           &.review {
@@ -3340,16 +3362,10 @@ body {
           margin-top: 200px;
         }
         .portfolio-section {
-          .main_description  {
+          .main_description {
             .sub_descriptions {
-              .round_number {
-                width: 50px;
-                height: 50px;
-                padding-left: 20px;
-                padding-top: 15px;
-              }
               p {
-                padding-top: 13px;
+                width: 94%;
               }
             }
           }
@@ -3560,22 +3576,16 @@ body {
           margin-top: 350px;
         }
         .portfolio-section {
+          .main_description {
+            .sub_descriptions {
+              p {
+                width: 86%;
+              }
+            }
+          }
           &.review {
             .review-item {
               left: 330px;
-            }
-          }
-          .main_description {
-            .sub_descriptions {
-              .round_number {
-                width: 70px;
-                height: 40px;
-                padding-left: 14px;
-                padding-top: 9px;
-              }
-              p {
-                padding-top: 0;
-              }
             }
           }
         }

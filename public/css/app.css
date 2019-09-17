@@ -1967,6 +1967,9 @@ body {
 
 .page main .singlePortfolio-page .portfolio-section .main_description p {
   color: #9da6c7;
+  word-wrap: break-word;
+  width: 87%;
+  padding-top: 0;
 }
 
 .page main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
@@ -1978,9 +1981,9 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin-bottom: 20px;
 }
 
@@ -1988,12 +1991,15 @@ body {
   border-radius: 50%;
   background: #070e29;
   border: 1px solid #202c5a;
-  width: 57px;
   height: 32px;
   margin-right: 10px;
   padding-left: 11px;
   padding-top: 5px;
   color: #fff;
+  text-align: center;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 
 .page main .singlePortfolio-page .portfolio-section .subImage {
@@ -3419,6 +3425,16 @@ body {
     margin-top: 100px;
   }
 
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+    height: 30px;
+    padding-left: 0;
+    padding-top: 5px;
+  }
+
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    width: 84%;
+  }
+
   .page main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
@@ -3815,8 +3831,8 @@ body {
     padding-top: 20px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
-    padding-left: 15px;
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    width: 85%;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
@@ -3855,8 +3871,8 @@ body {
     margin-top: 0;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
-    padding-left: 17px;
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    width: 87%;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
@@ -3910,8 +3926,8 @@ body {
     padding-top: 50px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_descriptions .round_number {
-    padding-left: 17px;
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    width: 88%;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
@@ -4067,15 +4083,8 @@ body {
     margin-top: 200px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
-    width: 50px;
-    height: 50px;
-    padding-left: 20px;
-    padding-top: 15px;
-  }
-
   .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
-    padding-top: 13px;
+    width: 94%;
   }
 
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
@@ -4293,19 +4302,12 @@ body {
     margin-top: 350px;
   }
 
+  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+    width: 86%;
+  }
+
   .page main .singlePortfolio-page .portfolio-section.review .review-item {
     left: 330px;
-  }
-
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
-    width: 70px;
-    height: 40px;
-    padding-left: 14px;
-    padding-top: 9px;
-  }
-
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
-    padding-top: 0;
   }
 
   .footer {
