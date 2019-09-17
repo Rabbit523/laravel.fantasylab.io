@@ -123,14 +123,17 @@ class Page extends React.Component {
                 reader.readAsDataURL(headerfiles[index].files[0]);
             }
         });
-
+        
         var headerSubfiles = document.getElementsByClassName('header-subImg-file');
         Object.keys(headerSubfiles).map((key, index) => {
             if (headerSubfiles[index].files && headerSubfiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    list.header_sub_images[type] = e.target.result;
-                    ref.setState({ list });
+                    if (type.includes("header_sub")) {
+                        var key = type.split('header_sub')[1];
+                        list.header_sub_images[key] = e.target.result;
+                        ref.setState({ list });    
+                    }
                 }
                 reader.readAsDataURL(headerSubfiles[index].files[0]);
             }
@@ -325,13 +328,13 @@ class Page extends React.Component {
                                                 <Form>
                                                     <label>Header Sub Image1</label>
                                                     <Form.Field>
-                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange(0, e)}/>
+                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange("header_sub0", e)}/>
                                                     </Form.Field>
                                                 </Form>
                                                 <Form>
                                                     <label>Header Sub Image2</label>
                                                     <Form.Field>
-                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange(1, e)}/>
+                                                        <input accept='image/*' type='file' className='header-subImg-file' onChange={(e) => ref.onAvatarChange("header_sub1", e)}/>
                                                     </Form.Field>
                                                 </Form>
                                             </div>
