@@ -52,7 +52,7 @@ class Page extends React.Component {
             reader.onload = function(e) {
                 portfolios.map((item, index) =>{
                     if (item.id == type.split('_')[0]) {
-                        item.avatar = event.target.result;
+                        item.avatar = e.target.result;
                         ref.setState({ portfolios });
                     }
                 });
