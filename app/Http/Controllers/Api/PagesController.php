@@ -1258,7 +1258,19 @@ class PagesController extends Controller
     }
 
     public function deleteReview(Request $request) {
-        Review::where('id', $request->id)->delete();
+        $review = Review::where('id', $request->id)->first();
+
+        $home = Page::where('page_name', 'home')->first();
+        $home_data = json_decode($home->data);
+        foreach ($home_data->carousels as $key => $item) {
+            if ($item->name == $review->name) {
+                unset($home_data->carousels->$key);
+            }
+        }
+        $home->data = json_encode($home_data);
+        $home->save();
+
+        $review->delete();
         $reviews = Review::get();
         return response()->json($reviews);
     }
