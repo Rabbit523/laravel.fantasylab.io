@@ -260,7 +260,7 @@ const routes = [
         component: AdminPrivacy
     },
     {
-        path: '/:type',
+        path: '/portfolio/:type',
         exact: true,
         auth: false,
         component: SinglePortfolio

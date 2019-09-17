@@ -18,6 +18,7 @@ class Page extends React.Component {
         Http.post('api/front/get-page', { name: 'portfolio' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.page.data) });
+                console.log(JSON.parse(res.data.page.data));
                 window.scrollTo(0, 0);
             }
         ).catch(err => {
@@ -27,6 +28,7 @@ class Page extends React.Component {
 
     render() {
         const { isLoaded, data } = this.state;
+        const ref = this;
         return (
             <div className='portfolio-page'>
                 {isLoaded ?
@@ -58,10 +60,10 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {Object.keys(data.portfolios).map((key, index) => (
                                         <React.Fragment key={index}>
-                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: `/${data.portfolios[key].url}` }}>
+                                            <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}` }}>
                                                 <PortfolioCard from='portfolio' back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
-                                            <Grid.Column only="computer" as={Link} to={{ pathname: `/${data.portfolios[key].url}` }}>
+                                            <Grid.Column only="computer"  as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}` }}>
                                                 <PortfolioCard from='portfolio' back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description}/>
                                             </Grid.Column>
                                         </React.Fragment>
