@@ -25,6 +25,7 @@ class Page extends React.Component {
                     isLoaded: true, 
                     portfolios: res.data
                 });
+                console.log(res.data);
             }
         ).catch(err => {
             console.error(err);
@@ -44,9 +45,10 @@ class Page extends React.Component {
     }
 
     onAvatarChange(type, e){
-        var infile = document.getElementById('input-file');
         var { portfolios } = this.state;
         const ref = this;
+
+        var infile = document.getElementById('input-file');
         if (infile.files && infile.files[0]) {
             var reader = new FileReader();
             reader.onload = function(e) {
@@ -59,6 +61,19 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(infile.files[0]);
         }
+        console.log(type);
+        var backFiles = document.getElementsByClassName('service_back');
+        Object.keys(backFiles).map((key, index) => {
+            if (backFiles[index].files && backFiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[0];
+                   portfolios[sub_key].back_url = e.target.result;
+                   ref.setState({ ref });
+                }
+                reader.readAsDataURL(backFiles[index].files[0]);
+            }
+        });
     }
     
     onCollapseChange(activeKey) {
@@ -153,7 +168,13 @@ class Page extends React.Component {
                                                         <Form>
                                                             <label>Avatar Image</label>
                                                             <Form.Field>
-                                                                <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(portfolios[key].id+'_avatar', e)}/>
+                                                                <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(i+'_avatar', e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                        <Form>
+                                                            <label>Background Image</label>
+                                                            <Form.Field>
+                                                                <input accept='image/*' type='file' className='service_back' onChange={(e) => ref.onAvatarChange(i+'_back', e)}/>
                                                             </Form.Field>
                                                         </Form>
                                                         <div style={{display: 'flex'}}>

@@ -768,6 +768,45 @@ class PagesController extends Controller
     public function updatePortfolio(Request $request) {
         $data = Portfolio::where('id', $request->id)->first();
         $origin_type = $data->type;
+        $request_data = $request->data;
+        
+        $uploads_dir = "./assets/uploads/";
+        if ($request_data['avatar'] != $data->avatar) {
+            if (strpos($request_data['avatar'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request_data['avatar']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request_data['avatar']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request_data['type'] .'_avatar.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $request_data['avatar'] = $path;
+        }
+        if ($request_data['back_url'] != $data->back_url) {
+            if (strpos($request_data['back_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request_data['back_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request_data['back_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request_data['type'] .'_back.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $request_data['back_url'] = $path;
+        }
 
         // update home page portfolio info
         $home = Page::where('page_name', 'home')->first();
@@ -777,14 +816,14 @@ class PagesController extends Controller
                 unset($home_data->portfolios->$key);
                 $new_portfolio = [
                     'from' => 'home',
-                    'url' => $request->data['url'],
-                    'title' => $request->data['title'],
-                    'description' => $request->data['description'],
-                    'icon_url' => $request->data['avatar'],
-                    'back_url' => $request->data['back_url']
+                    'url' => $request_data['url'],
+                    'title' => $request_data['title'],
+                    'description' => $request_data['description'],
+                    'icon_url' => $request_data['avatar'],
+                    'back_url' => $request_data['back_url']
                 ];
                 $array = json_decode(json_encode($home_data->portfolios), true);
-                $home_data->portfolios = array($request->data['type'] => $new_portfolio) + $array;
+                $home_data->portfolios = array($request_data['type'] => $new_portfolio) + $array;
             }
         }
         $home->data = json_encode($home_data);
@@ -798,41 +837,26 @@ class PagesController extends Controller
                 unset($portfolio_data->portfolios->$key);
                 $new_portfolio = [
                     'from' => 'portfolio',
-                    'url' => $request->data['url'],
-                    'title' => $request->data['title'],
-                    'description' => $request->data['description']
+                    'url' => $request_data['url'],
+                    'title' => $request_data['title'],
+                    'description' => $request_data['description']
                 ];
                 $array = json_decode(json_encode($portfolio_data->portfolios), true);
-                $portfolio_data->portfolios = array($request->data['type'] => $new_portfolio) + $array;
+                $portfolio_data->portfolios = array($request_data['type'] => $new_portfolio) + $array;
             }
         }
         $portfolios->data = json_encode($portfolio_data);
         $portfolios->save();
 
-        $data->title = $request->data['title'];
-        $data->description = $request->data['description'];
-        $data->type = $request->data['type'];
-        $data->url = $request->data['url'];
-        if ($data->avatar != $request->data['avatar']) {
-            $uploads_dir = "./assets/uploads/";
-            if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
-                $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
-            } else {
-                $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
-            }
-            $base_code = base64_decode($img);
-            $name = $request->data['type'] .'_avatar.png';
-            $file = $uploads_dir . $name;
-            if(File::exists($file)) {
-                File::delete($file);
-            }
-            file_put_contents($file, $base_code); // create image file into $upload_dir
-            $url = url("/assets/uploads") ."/" . $name;
-            $arr = explode("/", $url);
-            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-            $data['avatar'] = $path;
-        }
+        $data->title = $request_data['title'];
+        $data->description = $request_data['description'];
+        $data->type = $request_data['type'];
+        $data->url = $request_data['url'];
+        $data->avatar = $request_data['avatar'];
+        $data->back_url = $request_data['back_url'];
         $data->save();
+
+        return response()->json($data);
     }
 
     public function updatePortfolioPage(Request $request) {
