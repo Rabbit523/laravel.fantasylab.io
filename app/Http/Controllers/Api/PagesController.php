@@ -743,7 +743,7 @@ class PagesController extends Controller
             "url" => $request_data['url'],
             "avatar" => $request_data['avatar'],
             "back_url" => $request_data['back_url'],
-            "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":["example","example"],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"review":{"avatar":"","back_url":"","description":"","job":"","name":"","title":""},"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
+            "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":["example","example"],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"review":{"avatar":"","back_url":"","description":"","job":"","name":"","title":"","logo_url":""},"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
         ];
         $uploads_dir = "./assets/uploads/";
         if ($request_data['avatar'] != null) {
@@ -1094,7 +1094,7 @@ class PagesController extends Controller
                     $img = str_replace('data:image/png;base64,', '', $request_data['review']['back_url']);
                 }
                 $base_code = base64_decode($img);
-                $name = $data->type .'3.png';
+                $name = $data->type .'_review_back.png';
                 $file = $uploads_dir . $name;
                 if(File::exists($file)) {
                     File::delete($file);
@@ -1103,6 +1103,23 @@ class PagesController extends Controller
                 $url = url("/assets/uploads") ."/" . $name;
                 $arr = explode("/", $url);
                 $request_data['review']['back_url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            }
+            if ($list->review->logo_url != $request_data['review']['logo_url']) {
+                if (strpos($request_data['review']['logo_url'], 'data:image/jpeg;base64') !== false) {
+                    $img = str_replace('data:image/jpeg;base64,', '', $request_data['review']['logo_url']);
+                } else {
+                    $img = str_replace('data:image/png;base64,', '', $request_data['review']['logo_url']);
+                }
+                $base_code = base64_decode($img);
+                $name = $data->type .'_logo_url.png';
+                $file = $uploads_dir . $name;
+                if(File::exists($file)) {
+                    File::delete($file);
+                }
+                file_put_contents($file, $base_code); // create image file into $upload_dir
+                $url = url("/assets/uploads") ."/" . $name;
+                $arr = explode("/", $url);
+                $request_data['review']['logo_url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
             }
             $data->data = json_encode($request_data);
             $data->save();

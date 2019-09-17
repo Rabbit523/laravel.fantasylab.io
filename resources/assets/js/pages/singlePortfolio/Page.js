@@ -101,7 +101,7 @@ class Page extends React.Component {
                             <Container className="custom-col-6">
                                 <div className="review-item">
                                     <div className="review-text-section">
-                                        <img src={`${ data.logo_url }`} />
+                                        <img src={`${ data.review.logo_url }`} />
                                         <div className='description'>{data.review.description}</div>
                                         <hr/>
                                     </div>

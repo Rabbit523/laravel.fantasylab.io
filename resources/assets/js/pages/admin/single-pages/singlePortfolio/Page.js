@@ -179,8 +179,11 @@ class Page extends React.Component {
                     if (type == "avatar") {
                         list.review.avatar = e.target.result;
                         ref.setState({ list });
-                    } else {
+                    } else if (type == "back_url") {
                         list.review.back_url = e.target.result;
+                        ref.setState({ list });
+                    } else {
+                        list.review.logo_url = e.target.result;
                         ref.setState({ list });
                     }
                 }
@@ -459,12 +462,18 @@ class Page extends React.Component {
                                                     </Form.Field>
                                                 </Form>
                                                 <Form>
-                                                    <label>Background Image Upload</label>
+                                                    <label>Logo Image Upload</label>
                                                     <Form.Field>
-                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('back_url', e)}/>
+                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('logo_url', e)}/>
                                                     </Form.Field>
                                                 </Form>
                                             </div>
+                                            <Form>
+                                                <label>Background Image Upload</label>
+                                                <Form.Field>
+                                                    <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('back_url', e)}/>
+                                                </Form.Field>
+                                            </Form>
                                             <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateReview(e)}> Save </label>
                                         </Card.Description>
                                     </Card.Content>
