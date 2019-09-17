@@ -15,10 +15,10 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
-        Http.post('api/front/get-page', { name: 'portfolio' }).then(
+        var url = `${window.location.origin}/api/front/get-page`;
+        Http.post(`${url}`, { name: 'portfolio' }).then(
             res => {
                 this.setState({ isLoaded: true, data: JSON.parse(res.data.page.data) });
-                console.log(JSON.parse(res.data.page.data));
                 window.scrollTo(0, 0);
             }
         ).catch(err => {

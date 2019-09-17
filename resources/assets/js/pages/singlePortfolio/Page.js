@@ -12,28 +12,19 @@ class Page extends React.Component {
             isLoaded: false,
             isExisted: false,
         };
-        this._isMounted = false;
     }
 
     componentDidMount() {
-        this._isMounted = true;
         const { type } = this.props.match.params;
-        console.log(this.props);
         var url = `${window.location.origin}/api/front/get-portfolio-page`;
         Http.post(`${url}`, { type: type, from: 'front' })
         .then(
             res => {
-                console.log({ res });
                 var data = JSON.parse(res.data.data);
-                console.log({ data });
                 if (data.header_description != 'example') {
-                    if (this._isMounted) {
-                        this.setState({ isLoaded: true, isExisted: true, data });
-                    }
+                    this.setState({ isLoaded: true, isExisted: true, data });
                 } else {
-                    if (this._isMounted) {
-                        this.setState({ isLoaded: true, isExisted: false });
-                    }
+                    this.setState({ isLoaded: true, isExisted: false });
                 }
                 window.scrollTo(0, 0);
             }
@@ -41,10 +32,6 @@ class Page extends React.Component {
             console.error(err);
             this.setState({ isLoaded: true });
         });    
-    }
-
-    componentWillUnmount() {
-        this._isMounted = false;
     }
 
     render() {
@@ -152,9 +139,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </section>
-                        {data.footer_url && (
-                            <PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />
-                        )}
+                        {data.footer_url && (<PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />)}
                         <div className='divide'></div>
                     </React.Fragment>
                     :

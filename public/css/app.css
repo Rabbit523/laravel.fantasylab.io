@@ -2585,6 +2585,16 @@ body {
   font-family: "Gotham Bold";
 }
 
+.page main .privacy-page .privacy-section h1,
+.page main .privacy-page .privacy-section h2,
+.page main .privacy-page .privacy-section h3 {
+  color: #fff;
+}
+
+.page main .privacy-page .privacy-section p {
+  color: #9aa2bf;
+}
+
 .page main .login-page {
   min-height: 120vh;
   background: #03051b;
