@@ -915,7 +915,7 @@ class PagesController extends Controller
                         $img = str_replace('data:image/png;base64,', '', $request_data['header_sub_images'][$key]);
                     }
                     $base_code = base64_decode($img);
-                    $name = 'maora_header'.$key.'.png';
+                    $name = $data->type .$key.'header_sub.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
