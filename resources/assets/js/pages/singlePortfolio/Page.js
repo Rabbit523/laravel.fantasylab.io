@@ -53,7 +53,7 @@ class Page extends React.Component {
                                     </div>
                                     <div className="image-group">
                                         <img src={`${ data.header_sub_images[0] }`} />
-                                        {data.header_sub_images[1]!="example" && (<img src={`${ data.header_sub_images[1] }`} className="sub-img" /> )}
+                                        { data.header_sub_images[1] != null && (<img src={`${ data.header_sub_images[1] }`} className="sub-img" /> )}
                                     </div>
                                 </Container>
                             </div>
