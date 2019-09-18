@@ -51,11 +51,11 @@ class ServiceItem extends React.Component {
 }
 
 ServiceItem.propTypes = {
-    url: PropTypes.string.isRequired,
-    backimage: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
+    url: PropTypes.string,
+    backimage: PropTypes.string,
+    color: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
     from: PropTypes.string
 };
 export default ServiceItem;

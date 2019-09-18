@@ -124,7 +124,6 @@ class Page extends React.Component {
 
     handleSubmit(event) {
         const { message, checked, checkbox_border } = this.state;
-        console.log(checked, checkbox_border);
         
         this.validator.validateAll(message)
             .then(success => {

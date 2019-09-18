@@ -70,11 +70,11 @@ class PageFooter extends React.Component {
 }
 
 PageFooter.propTypes = {
-    title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    button: PropTypes.string.isRequired,
-    link: PropTypes.string.isRequired,
-    url: PropTypes.string.isRequired,
-    linkName: PropTypes.string.isRequired
+    title: PropTypes.string,
+    description: PropTypes.string,
+    button: PropTypes.string,
+    link: PropTypes.string,
+    url: PropTypes.string,
+    linkName: PropTypes.string
 };
 export default PageFooter;

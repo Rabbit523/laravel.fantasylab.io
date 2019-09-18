@@ -41,7 +41,6 @@ class Page extends React.Component {
     componentDidMount() {
         Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
-                console.log(JSON.parse(res.data.page.data));
                 if (window.innerWidth < 1024) {
                     this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.page.data) });
                 } else {

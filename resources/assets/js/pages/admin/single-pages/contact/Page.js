@@ -22,7 +22,6 @@ class Page extends React.Component {
             res => {
                 var list = JSON.parse(res.data.data);
                 var headquarters = [];
-                console.log(list);
                 Object.keys(list).map(function(key, index) {
                     if (key == "headquarters") {
                         headquarters = list[key];
