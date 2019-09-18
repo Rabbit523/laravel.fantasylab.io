@@ -120,7 +120,7 @@ class Page extends React.Component {
             title: "New Portfolio",
             description: "",
             type: "",
-            avatar: "",
+            avatar: null,
             url: '',
             id: portfolios.length + 1
         };
