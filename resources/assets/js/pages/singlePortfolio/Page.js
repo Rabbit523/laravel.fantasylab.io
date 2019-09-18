@@ -20,6 +20,7 @@ class Page extends React.Component {
         Http.post(`${url}`, { type: type })
         .then(
             res => {
+                console.log(res);
                 var data = JSON.parse(res.data.data);
                 var page = res.data;
                 console.log(data);
