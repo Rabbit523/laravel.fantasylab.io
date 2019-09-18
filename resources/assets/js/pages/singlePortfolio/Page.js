@@ -22,6 +22,7 @@ class Page extends React.Component {
             res => {
                 var data = JSON.parse(res.data.data);
                 var page = res.data;
+                console.log(data);
                 if (data.header_description != 'example') {
                     this.setState({ isLoaded: true, isExisted: true, data, page });
                 } else {
