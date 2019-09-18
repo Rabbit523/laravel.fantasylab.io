@@ -717,12 +717,7 @@ class PagesController extends Controller
             $page->save();
         }
         return response()->json('update success');
-    }
-
-    public function getPortfolios() {
-        $portfolios = Portfolio::get();
-        return response()->json($portfolios);
-    }
+    }    
 
     public function getPortfolioPage(Request $request) {
         $data = Portfolio::where('type', $request->type)->first();        
@@ -735,6 +730,11 @@ class PagesController extends Controller
         return response()->json(['portfolio' => $data, 'review' => $reviews]);
     }
 
+    public function getPortfolios() {
+        $portfolios = Portfolio::get();
+        return response()->json($portfolios);
+    }
+    
     public function createPortfolio(Request $request) {
         $request_data = $request->data;
         $data = [
@@ -744,7 +744,7 @@ class PagesController extends Controller
             "url" => $request_data['url'],
             "avatar" => $request_data['avatar'],
             "back_url" => $request_data['back_url'],
-            "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":[null,null],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"review":{"avatar":"","back_url":"","description":"","job":"","name":"","title":"","logo_url":""},"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
+            "data" => '{"footer_title":"","footer_description":"","footer_button":"","footer_link":"","footer_link_name":"","footer_url":"","header_back_url":"","header_description":"example","title":"example","header_sub_images":[null,null],"main_description":[{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]},{"title":"example","text":"example","sub":["example","example","example"]}],"reviews":[],"services":[{"backimage":"","color":"","description":"","title":"example","type":"web","url":""}],"sub_images":[{"url":"","text":""},{"url":"","text":""}]}'
         ];
         $uploads_dir = "./assets/uploads/";
         if ($request_data['avatar'] != null) {
@@ -880,6 +880,37 @@ class PagesController extends Controller
         $data->back_url = $request_data['back_url'];
         $data->save();
 
+        return response()->json($data);
+    }
+
+    public function deletePortfolio(Request $request) {
+        $data = Portfolio::where('id', $request->id)->first();
+
+        // update home page portfolio info
+        $home = Page::where('page_name', 'home')->first();
+        $home_data = json_decode($home->data);
+        foreach ($home_data->portfolios as $key => $item) {
+            if ($key == $data->type) {
+                unset($home_data->portfolios->$key);
+            }
+        }
+        $home->data = json_encode($home_data);
+        $home->save();
+
+        // update portfolio page portfolio info
+        $portfolios = Page::where('page_name', 'portfolio')->first();
+        $portfolio_data = json_decode($portfolios->data);
+        foreach ($portfolio_data->portfolios as $key => $item) {
+            if ($key == $data->type) {
+                unset($portfolio_data->portfolios->$key);
+            }
+        }
+        $portfolios->data = json_encode($portfolio_data);
+        $portfolios->save();
+
+        // delete from the portfolio table
+        Portfolio::where('id', $request->id)->delete();
+        $data = Portfolio::get();
         return response()->json($data);
     }
 
@@ -1168,38 +1199,7 @@ class PagesController extends Controller
         $page->data = json_encode($json_page);
         $page->save();
         return response()->json($portfolios);
-    }
-
-    public function deletePortfolio(Request $request) {
-        $data = Portfolio::where('id', $request->id)->first();
-
-        // update home page portfolio info
-        $home = Page::where('page_name', 'home')->first();
-        $home_data = json_decode($home->data);
-        foreach ($home_data->portfolios as $key => $item) {
-            if ($key == $data->type) {
-                unset($home_data->portfolios->$key);
-            }
-        }
-        $home->data = json_encode($home_data);
-        $home->save();
-
-        // update portfolio page portfolio info
-        $portfolios = Page::where('page_name', 'portfolio')->first();
-        $portfolio_data = json_decode($portfolios->data);
-        foreach ($portfolio_data->portfolios as $key => $item) {
-            if ($key == $data->type) {
-                unset($portfolio_data->portfolios->$key);
-            }
-        }
-        $portfolios->data = json_encode($portfolio_data);
-        $portfolios->save();
-
-        // delete from the portfolio table
-        Portfolio::where('id', $request->id)->delete();
-        $data = Portfolio::get();
-        return response()->json($data);
-    }
+    }    
 
     public function getReviews() {
         $reviews = Review::get();
@@ -1213,7 +1213,6 @@ class PagesController extends Controller
             "name" => $request->data['name'],
             "job" => $request->data['job'],
             "avatar" => $request->data['avatar'],
-            "link" => $request->data['link'],
             "logo_url" => $request->data['logo_url'],
             "back_url" => $request->data['back_url']
         ];
@@ -1225,7 +1224,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-avatar.png';
+            $name = trim($request->data['name'], " ") .'-review-avatar.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1243,7 +1242,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['logo_url']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-logo.png';
+            $name = trim($request->data['name'], " ") .'-review-logo.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1261,7 +1260,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['back_url']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-back.png';
+            $name = trim($request->data['name'], " ") .'-review-back.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1283,7 +1282,6 @@ class PagesController extends Controller
         $review->description = $request->data['description'];
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
-        $review->link = $request->data['link'];
 
         $uploads_dir = "./assets/uploads/";
         if ($review->avatar != $request->data['avatar']) {
@@ -1293,7 +1291,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-avatar.png';
+            $name = trim($request->data['name'], " ") .'-review-avatar.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1311,7 +1309,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['logo_url']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-logo.png';
+            $name = trim($request->data['name'], " ") .'-review-logo.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1329,7 +1327,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request->data['back_url']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['link'] .'-review-back.png';
+            $name = trim($request->data['name'], " ") .'-review-back.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1341,6 +1339,38 @@ class PagesController extends Controller
             $review['back_url'] = $path;
         }
         $review->save();
+
+        $home = Page::where('page_name', 'home')->first();
+        $home_data = json_decode($home->data);
+        foreach ($home_data->carousels as $key => $item) {
+            if ($item->name == $review->name) {
+                $item->title = $review->title;
+                $item->description = $review->description;
+                $item->name = $review->name;
+                $item->job = $review->job;
+                $item->avatar = $review->avatar;
+                $item->logo_url = $review->logo_url;
+            }
+        }
+        $home->data = json_encode($home_data);
+        $home->save();
+
+        $portfolios = Portfolio::get();
+        foreach ($portfolios as $portfolio) {
+            $data = json_decode($portfolio->data);
+            if (count($data->reviews) > 0 && $review->name == $data->reviews[0]->name) {
+                $data->reviews[0]->title = $review->title;
+                $data->reviews[0]->description = $review->description;
+                $data->reviews[0]->name = $review->name;
+                $data->reviews[0]->job = $review->job;
+                $data->reviews[0]->avatar = $review->avatar;
+                $data->reviews[0]->logo_url = $review->logo_url;
+                $portfolio->data = json_encode($data);
+                $portfolio->save();
+            }
+        }
+
+        return response()->json('success');
     }
 
     public function deleteReview(Request $request) {
@@ -1356,6 +1386,15 @@ class PagesController extends Controller
         $home->data = json_encode($home_data);
         $home->save();
 
+        $portfolios = Portfolio::get();
+        foreach ($portfolios as $portfolio) {
+            $data = json_decode($portfolio->data);
+            if (count($data->reviews)>0 && $review->name == $data->reviews[0]->name) {
+                unset($data->reviews[0]);
+                $portfolio->data = json_encode($data);
+                $portfolio->save();
+            }
+        }
         $review->delete();
         $reviews = Review::get();
         return response()->json($reviews);
@@ -1368,6 +1407,12 @@ class PagesController extends Controller
             array_push($data->reviews, $request->data);
             $page->data = json_encode($data);
             $page->save();
+        } else if ($request->from == 'home') {
+            $page = Page::where('type', $request->page)->first();
+            $data = json_decode($page->data);
+            array_push($data->reviews, $request->data);
+            $page->data = json_encode($data);
+            $page->save();
         }
         return response()->json("success");
     }
@@ -1375,6 +1420,12 @@ class PagesController extends Controller
     public function deleteReviewPage(Request $request) {
         if ($request->from == 'portfolio') {
             $page = Portfolio::where('type', $request->page)->first();
+            $data = json_decode($page->data);
+            unset($data->reviews[0]);
+            $page->data = json_encode($data);
+            $page->save();
+        } else if ($request->from == 'home') {
+            $page = Page::where('type', $request->page)->first();
             $data = json_decode($page->data);
             unset($data->reviews[0]);
             $page->data = json_encode($data);

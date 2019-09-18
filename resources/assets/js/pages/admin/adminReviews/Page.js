@@ -93,7 +93,7 @@ class Page extends React.Component {
     onUpdate(e, type) {
         const { reviews } = this.state;
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-review', { data: reviews[type-1], id: type})
+        Http.post('/api/admin/update-review', { data: reviews[type], id: reviews[type].id})
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -105,9 +105,9 @@ class Page extends React.Component {
     // Create a review
     onCreate(e, type) {
         const { reviews } = this.state;
-        if (review[type-1].title.trim() == "" && review[type-1].description.trim() == "" && review[type-1].type.trim() == "" && review[type-1].avatar.trim() == "") {
+        if (reviews[type].title.trim() != "" && reviews[type].name.trim() != "") {
             this.setState({ isLoaded: false });
-            Http.post('/api/admin/create-review', { data: reviews[type-1], id: type})
+            Http.post('/api/admin/create-review', { data: reviews[type] })
             .then(
                 res => {
                     this.setState({ isLoaded: true, reviews: res.data });
@@ -128,7 +128,6 @@ class Page extends React.Component {
             avatar: null,
             logo_url: null,
             back_url: null,
-            link: null,
             id: reviews[reviews.length - 1].id + 1
         };
         reviews.push(new_item);
@@ -137,14 +136,15 @@ class Page extends React.Component {
     // Cancel review item
     onCancel (e, type) {
         var { reviews } = this.state;
-        reviews.splice(type - 1, 1);
+        reviews.splice(type, 1);
         this.setState({ reviews });
     }
     // Delete review item
     onDelete (e, type) {
+        const { reviews } = this.state;
         if (confirm("Are you sure to remove this review?")) {
             this.setState({ isLoaded: false });
-            Http.post('/api/admin/delete-review', { id: type })
+            Http.post('/api/admin/delete-review', { id: reviews[type].id })
             .then(
                 res => {
                     this.setState({ isLoaded: true, reviews: res.data });
@@ -178,7 +178,6 @@ class Page extends React.Component {
                                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={reviews[key].description} onChange={(val) => ref.handleChange(val, reviews[key].id +'_description')} />
                                                         <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={reviews[key].name} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_name')} />
                                                         <Form.Input fluid label='Job' name='job' placeholder='job' className='input-form' value={reviews[key].job} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_job')} />
-                                                        <Form.Input fluid label='Button Link' name='link' placeholder='link' className='input-form' value={reviews[key].link} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_link')} />
                                                         <div style={{display: 'flex'}}>
                                                             <Form style={{width: '100%'}}>
                                                                 <label>Logo Image</label>
@@ -200,10 +199,10 @@ class Page extends React.Component {
                                                             </Form.Field>
                                                         </Form>
                                                         <div style={{display: 'flex'}}>
-                                                            {reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, reviews[key].id)}> Save </label>}
-                                                            {reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, reviews[key].id)}> Delete </label> }
-                                                            {!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, reviews[key].id)}> Create </label>}
-                                                            {!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, reviews[key].id)}> Cancel </label>}
+                                                            {reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, i)}> Save </label>}
+                                                            {reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, i)}> Delete </label> }
+                                                            {!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> Create </label>}
+                                                            {!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> Cancel </label>}
                                                         </div>
                                                     </Panel>
                                                 ))}
