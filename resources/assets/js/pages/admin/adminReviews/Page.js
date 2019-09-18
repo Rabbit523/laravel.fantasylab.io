@@ -99,8 +99,9 @@ class Page extends React.Component {
             description: "",
             name: "",
             job: "",
-            avatar: "",
-            id: reviews.length + 1
+            avatar: null,
+            link: null,
+            id: reviews[reviews.length - 1].id + 1
         };
         reviews.push(new_item);
         this.setState({ reviews });
@@ -149,6 +150,7 @@ class Page extends React.Component {
                                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={reviews[key].description} onChange={(val) => ref.handleChange(val, reviews[key].id +'_description')} />
                                                         <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={reviews[key].name} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_name')} />
                                                         <Form.Input fluid label='Job' name='job' placeholder='job' className='input-form' value={reviews[key].job} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_job')} />
+                                                        <Form.Input fluid label='Button Link' name='link' placeholder='link' className='input-form' value={reviews[key].link} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_link')} />
                                                         <Form>
                                                             <label>Avatar Image</label>
                                                             <Form.Field>

@@ -1,8 +1,21 @@
 import React from 'react'
-import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
+import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Button } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse';
 import 'rc-collapse/assets/index.css';
 import Http from '../../../../Http'
+import Modal from 'react-modal';
+
+const customStyles = {
+    content : {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      height: 470
+    }
+};
 
 class Page extends React.Component {
     constructor(props) {
@@ -10,9 +23,11 @@ class Page extends React.Component {
         this.state = {
             list: [],
             services: [],
+            _reviews: [],
             reviews: [],
             data: [],
             isLoaded: false,
+            isOpen: false,
             accordion: false,
             activeKey: [],
             description_activeKey: []
@@ -21,6 +36,7 @@ class Page extends React.Component {
         this.onAvatarChange = this.onAvatarChange.bind(this);
         this.onCollapseChange = this.onCollapseChange.bind(this);
         this.onDescriptionCollapseChange = this.onDescriptionCollapseChange.bind(this);
+        this.closeModal = this.closeModal.bind(this);
     }
 
     componentDidMount() {
@@ -28,8 +44,8 @@ class Page extends React.Component {
         Http.post('/api/admin/get-portfolio-page', { type: page })
         .then(
             res => {
-                var list = JSON.parse(res.data.data);
-                this.setState({ isLoaded: true, list: JSON.parse(res.data.data), data: res.data, services: list.services });
+                var list = JSON.parse(res.data.portfolio.data);
+                this.setState({ isLoaded: true, list, data: res.data.portfolio, services: list.services, reviews: list.reviews, _reviews: res.data.review });
             }
         ).catch(err => {
             console.error(err);
@@ -287,6 +303,10 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    // Close modal
+    closeModal() {
+        this.setState({ isOpen: false });
+    }
     // Update review section
     onUpdateReview(e) {
         const { list, data } = this.state;
@@ -300,9 +320,40 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    
+    onAddReviewItem (e, key) {
+        const { page } = this.props.location.state;
+        var { _reviews } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/add-review-page', { data: _reviews[key], page: page, from: 'portfolio' })
+        .then(
+            res => {
+                var reviews = [];
+                reviews.push(_reviews[key]);
+                this.setState({ isLoaded: true, isOpen: false, reviews });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onAddReview(e) {
+        var { reviews } = this.state;
+        if (reviews.length > 0) return;        
+      
+        this.setState({ isOpen: true }); 
+    }
+    onDeleteReview(e, type) {
+        const { page } = this.props.location.state;
+        Http.post('/api/admin/delete-review-page', { page: page, from: 'portfolio' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, isOpen: false, reviews: [] });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     render() {
-        const { isLoaded, list, data, services, activeKey, accordion, description_activeKey } = this.state;
+        const { isLoaded, isOpen, list, data, services, activeKey, accordion, description_activeKey, reviews, _reviews } = this.state;
         const ref = this;
         return (
             <div className='admin-page'>
@@ -310,6 +361,21 @@ class Page extends React.Component {
                 <Segment vertical textAlign='center'>
                     <Container>
                         <Grid padded='vertically'>
+                            <Modal isOpen={isOpen} onRequestClose={this.closeModal} style={customStyles}>
+                                <Button icon='close' onClick={this.closeModal}/>
+                                {_reviews.length > 0 && _reviews.map((item, i) => (
+                                    <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                        <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.name}</p>
+                                        <label onClick={(e) => ref.onAddReviewItem(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
+                                    </div>
+                                ))}
+                                {_reviews.length == 0 && (
+                                    <div>
+                                        <h2>Hi,<br/>Admin.</h2>
+                                        <p>There is no more review item should be added.</p>
+                                    </div>
+                                )}
+                            </Modal>
                             <Grid.Column width={8}>
                                 <Card className='header-section'>
                                     <Card.Content>
@@ -466,34 +532,16 @@ class Page extends React.Component {
                                 <Card className='header-section'>
                                     <Card.Content>
                                         <Card.Header>Review Section</Card.Header>
+                                        <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddReview(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
-                                            <Form.Input fluid label='title' name='review_title' placeholder='title' className='input-form' value={list.review.title} onChange={(val)=>ref.handleChange(val, 'review_title')} />
-                                            <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={list.review.name} onChange={(val)=>ref.handleChange(val, 'review_name')} />
-                                            <Form.Input fluid label='Job' name='Job' placeholder='job' className='input-form' value={list.review.job} onChange={(val)=>ref.handleChange(val, 'review_job')} />
-                                            <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={list.review.description} onChange={(val)=>ref.handleChange(val, 'review_description')} />
-                                            <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
-                                                <Form>
-                                                    <label>Avatar Upload</label>
-                                                    <Form.Field>
-                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('avatar', e)}/>
-                                                    </Form.Field>
-                                                </Form>
-                                                <Form>
-                                                    <label>Logo Image Upload</label>
-                                                    <Form.Field>
-                                                        <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('logo_url', e)}/>
-                                                    </Form.Field>
-                                                </Form>
-                                            </div>
-                                            <Form>
-                                                <label>Background Image Upload</label>
-                                                <Form.Field>
-                                                    <input accept='image/*' type='file' className='review_img' onChange={(e) => ref.onAvatarChange('back_url', e)}/>
-                                                </Form.Field>
-                                            </Form>
-                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateReview(e)}> Save </label>
+                                            {reviews.map((item, i) => (
+                                                <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
+                                                    <p style={{textTransform: 'uppercase', margin: 0}}>{item.name}</p>
+                                                    <label onClick={(e) => ref.onDeleteReview(e, item.id)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
+                                                </div>
+                                            ))}
                                         </Card.Description>
                                     </Card.Content>
                                 </Card>

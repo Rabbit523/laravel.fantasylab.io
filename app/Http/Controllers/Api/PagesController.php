@@ -725,13 +725,14 @@ class PagesController extends Controller
     }
 
     public function getPortfolioPage(Request $request) {
-        if ($request->from == 'front') {
-            $data = Portfolio::where('url', $request->type)->first();        
-            return response()->json($data);
-        } else {
-            $data = Portfolio::where('type', $request->type)->first();        
-            return response()->json($data);
-        }
+        $data = Portfolio::where('type', $request->type)->first();        
+        return response()->json($data);
+    }
+
+    public function getAdminPortfolioPage(Request $request) {
+        $data = Portfolio::where('type', $request->type)->first(); 
+        $reviews = Review::all();       
+        return response()->json(['portfolio' => $data, 'review' => $reviews]);
     }
 
     public function createPortfolio(Request $request) {
@@ -1211,7 +1212,8 @@ class PagesController extends Controller
             "description" => $request->data['description'],
             "name" => $request->data['name'],
             "job" => $request->data['job'],
-            "avatar" => $request->data['avatar']
+            "avatar" => $request->data['avatar'],
+            "link" => $request->data['link']
         ];
         $uploads_dir = "./assets/uploads/";
         if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
@@ -1220,7 +1222,7 @@ class PagesController extends Controller
             $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
         }
         $base_code = base64_decode($img);
-        $name = $request->data['name'] .'_avatar.png';
+        $name = $request->data['name'] .'_review_avatar.png';
         $file = $uploads_dir . $name;
         if(File::exists($file)) {
             File::delete($file);
@@ -1241,6 +1243,7 @@ class PagesController extends Controller
         $review->description = $request->data['description'];
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
+        $review->link = $request->data['link'];
         if ($review->avatar != $request->data['avatar']) {
             $uploads_dir = "./assets/uploads/";
             if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
@@ -1281,32 +1284,25 @@ class PagesController extends Controller
         return response()->json($reviews);
     }
 
-    public function deleteReviewPage(Request $request) {
-        $page = Page::where('page_name', $request->from)->first();
-        $type = $request->type;
-        $json_page = json_decode($page->data);
-        $reviews = $json_page->carousels;
-        unset($reviews[$type]);
-        $json_page->carousels = $reviews;
-        $page->data = json_encode($json_page);
-        $page->save();
-        return response()->json($reviews);
+    public function addReviewPage(Request $request) {
+        if ($request->from == 'portfolio') {
+            $page = Portfolio::where('type', $request->page)->first();
+            $data = json_decode($page->data);
+            array_push($data->reviews, $request->data);
+            $page->data = json_encode($data);
+            $page->save();
+        }
+        return response()->json("success");
     }
 
-    public function addReviewPage(Request $request) {
-        $page = Page::where('page_name', $request->from)->first();
-        $json_page = json_decode($page->data);
-        $carousels = $json_page->carousels;
-        $data = [
-            'avatar' => $request->data['avatar'],
-            'name' => $request->data['name'],
-            'description' => $request->data['description'],
-            'job' => $request->data['job']
-        ];
-        array_push($carousels, $data);
-        $json_page->carousels = $carousels;
-        $page->data = json_encode($json_page);
-        $page->save();
-        return response()->json($carousels);
+    public function deleteReviewPage(Request $request) {
+        if ($request->from == 'portfolio') {
+            $page = Portfolio::where('type', $request->page)->first();
+            $data = json_decode($page->data);
+            unset($data->reviews[0]);
+            $page->data = json_encode($data);
+            $page->save();
+        }
+        return response()->json("success");
     }
 }

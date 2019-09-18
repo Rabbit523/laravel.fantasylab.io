@@ -17,7 +17,7 @@ class Page extends React.Component {
     componentDidMount() {
         const { type } = this.props.match.params;
         var url = `${window.location.origin}/api/front/get-portfolio-page`;
-        Http.post(`${url}`, { type: type, from: 'front' })
+        Http.post(`${url}`, { type: type })
         .then(
             res => {
                 var data = JSON.parse(res.data.data);
