@@ -45,6 +45,7 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.portfolio.data);
+                console.log(list);
                 this.setState({ isLoaded: true, list, data: res.data.portfolio, services: list.services, reviews: list.reviews, _reviews: res.data.review });
             }
         ).catch(err => {
@@ -175,16 +176,17 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(footer_file.files[0]);
         }
-
-        var Servicefiles = document.getElementsByClassName('service_avatar');
+        var Servicefiles = document.getElementsByClassName('service-file');
         Object.keys(Servicefiles).map((key, index) => {
             if (Servicefiles[index].files && Servicefiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
                     var sub_key = type.split('_')[1];
                     var id = type.split('_')[2];
-                    services[id][sub_key] = e.target.result;
-                    ref.setState({ services });
+                    if (type.includes('service')) {
+                        services[id][sub_key] = e.target.result;
+                        ref.setState({ services });    
+                    }
                 }
                 reader.readAsDataURL(Servicefiles[index].files[0]);
             }
@@ -507,13 +509,13 @@ class Page extends React.Component {
                                                             <Form>
                                                                 <label>Avatar Image</label>
                                                                 <Form.Field>
-                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange('service_url_'+i, e)}/>
+                                                                    <input accept='image/*' type='file' className='service-file' onChange={(e) => ref.onAvatarChange('service_avatar_'+i, e)}/>
                                                                 </Form.Field>
                                                             </Form>
                                                             <Form>
                                                                 <label>Background Image</label>
                                                                 <Form.Field>
-                                                                    <input accept='image/*' type='file' className='service_avatar' onChange={(e) => ref.onAvatarChange('service_backimage_'+i, e)}/>
+                                                                    <input accept='image/*' type='file' className='service-file' onChange={(e) => ref.onAvatarChange('service_backimage_'+i, e)}/>
                                                                 </Form.Field>
                                                             </Form>
                                                         </div>
