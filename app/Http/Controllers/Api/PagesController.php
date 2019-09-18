@@ -1213,25 +1213,65 @@ class PagesController extends Controller
             "name" => $request->data['name'],
             "job" => $request->data['job'],
             "avatar" => $request->data['avatar'],
-            "link" => $request->data['link']
+            "link" => $request->data['link'],
+            "logo_url" => $request->data['logo_url'],
+            "back_url" => $request->data['back_url']
         ];
         $uploads_dir = "./assets/uploads/";
-        if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
-            $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
-        } else {
-            $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+        if ($request->data['avatar'] != null) {
+            if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['link'] .'-review-avatar.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['avatar'] = $path;
         }
-        $base_code = base64_decode($img);
-        $name = $request->data['name'] .'_review_avatar.png';
-        $file = $uploads_dir . $name;
-        if(File::exists($file)) {
-            File::delete($file);
+        if ($request->data['logo_url'] != null) {
+            if (strpos($request->data['logo_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['logo_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['logo_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['link'] .'-review-logo.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['logo_url'] = $path;
         }
-        file_put_contents($file, $base_code); // create image file into $upload_dir
-        $url = url("/assets/uploads") ."/" . $name;
-        $arr = explode("/", $url);
-        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-        $data['avatar'] = $path;
+        if ($request->data['back_url'] != null) {
+            if (strpos($request->data['back_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['back_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['back_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['link'] .'-review-back.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $data['back_url'] = $path;
+        }
         Review::Create($data);
         $reviews = Review::get();
         return response()->json($reviews);
@@ -1244,15 +1284,16 @@ class PagesController extends Controller
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
         $review->link = $request->data['link'];
+
+        $uploads_dir = "./assets/uploads/";
         if ($review->avatar != $request->data['avatar']) {
-            $uploads_dir = "./assets/uploads/";
             if (strpos($request->data['avatar'], 'data:image/jpeg;base64') !== false) {
                 $img = str_replace('data:image/jpeg;base64,', '', $request->data['avatar']);
             } else {
                 $img = str_replace('data:image/png;base64,', '', $request->data['avatar']);
             }
             $base_code = base64_decode($img);
-            $name = $request->data['name'] .'_avatar.png';
+            $name = $request->data['link'] .'-review-avatar.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);
@@ -1262,6 +1303,42 @@ class PagesController extends Controller
             $arr = explode("/", $url);
             $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
             $review['avatar'] = $path;
+        }
+        if ($review->logo_url != $request->data['logo_url']) {            
+            if (strpos($request->data['logo_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['logo_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['logo_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['link'] .'-review-logo.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $review['logo_url'] = $path;
+        }
+        if ($review->back_url != $request->data['back_url']) {            
+            if (strpos($request->data['back_url'], 'data:image/jpeg;base64') !== false) {
+                $img = str_replace('data:image/jpeg;base64,', '', $request->data['back_url']);
+            } else {
+                $img = str_replace('data:image/png;base64,', '', $request->data['back_url']);
+            }
+            $base_code = base64_decode($img);
+            $name = $request->data['link'] .'-review-back.png';
+            $file = $uploads_dir . $name;
+            if(File::exists($file)) {
+                File::delete($file);
+            }
+            file_put_contents($file, $base_code); // create image file into $upload_dir
+            $url = url("/assets/uploads") ."/" . $name;
+            $arr = explode("/", $url);
+            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+            $review['back_url'] = $path;
         }
         $review->save();
     }

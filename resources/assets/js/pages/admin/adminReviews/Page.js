@@ -43,21 +43,47 @@ class Page extends React.Component {
     }
 
     onAvatarChange(type, e){
-        var infile = document.getElementById('input-file');
         var { reviews } = this.state;
         const ref = this;
-        if (infile.files && infile.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                reviews.map((item, index) =>{
-                    if (item.id == type.split('_')[0]) {
-                        item.avatar = event.target.result;
-                        ref.setState({ reviews });
-                    }
-                });
+       
+        var avatarFiles = document.getElementsByClassName('avatar-file');
+        Object.keys(avatarFiles).map((key, index) => {
+            if (avatarFiles[index].files && avatarFiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[0];
+                    reviews[sub_key].avatar = e.target.result;
+                    ref.setState({ reviews });
+                }
+                reader.readAsDataURL(avatarFiles[index].files[0]);
             }
-            reader.readAsDataURL(infile.files[0]);
-        }
+        });
+
+        var logoFiles = document.getElementsByClassName('logo-file');
+        Object.keys(logoFiles).map((key, index) => {
+            if (logoFiles[index].files && logoFiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[0];
+                    reviews[sub_key].logo_url = e.target.result;
+                    ref.setState({ reviews });
+                }
+                reader.readAsDataURL(logoFiles[index].files[0]);
+            }
+        });
+
+        var backFiles = document.getElementsByClassName('back-file');
+        Object.keys(backFiles).map((key, index) => {
+            if (backFiles[index].files && backFiles[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var sub_key = type.split('_')[0];
+                    reviews[sub_key].back_url = e.target.result;
+                    ref.setState({ reviews });
+                }
+                reader.readAsDataURL(backFiles[index].files[0]);
+            }
+        });
     }
     
     onCollapseChange(activeKey) {
@@ -100,6 +126,8 @@ class Page extends React.Component {
             name: "",
             job: "",
             avatar: null,
+            logo_url: null,
+            back_url: null,
             link: null,
             id: reviews[reviews.length - 1].id + 1
         };
@@ -151,10 +179,24 @@ class Page extends React.Component {
                                                         <Form.Input fluid label='Name' name='name' placeholder='name' className='input-form' value={reviews[key].name} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_name')} />
                                                         <Form.Input fluid label='Job' name='job' placeholder='job' className='input-form' value={reviews[key].job} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_job')} />
                                                         <Form.Input fluid label='Button Link' name='link' placeholder='link' className='input-form' value={reviews[key].link} onChange={(val)=> ref.handleChange(val, reviews[key].id+'_link')} />
+                                                        <div style={{display: 'flex'}}>
+                                                            <Form style={{width: '100%'}}>
+                                                                <label>Logo Image</label>
+                                                                <Form.Field>
+                                                                    <input accept='image/*' type='file' id='input-file' className="logo-file" onChange={(e) => ref.onAvatarChange(i+'_logo', e)}/>
+                                                                </Form.Field>
+                                                            </Form>
+                                                            <Form style={{width: '100%'}}>
+                                                                <label>Avatar Image</label>
+                                                                <Form.Field>
+                                                                    <input accept='image/*' type='file' id='input-file' className="avatar-file" onChange={(e) => ref.onAvatarChange(i+'_avatar', e)}/>
+                                                                </Form.Field>
+                                                            </Form>
+                                                        </div>
                                                         <Form>
-                                                            <label>Avatar Image</label>
+                                                            <label>Background Image</label>
                                                             <Form.Field>
-                                                                <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(reviews[key].id+'_avatar', e)}/>
+                                                                <input accept='image/*' type='file' id='input-file' className="back-file" onChange={(e) => ref.onAvatarChange(i+'_back', e)}/>
                                                             </Form.Field>
                                                         </Form>
                                                         <div style={{display: 'flex'}}>

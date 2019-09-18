@@ -62,7 +62,7 @@ class Page extends React.Component {
                 reader.onload = function(e) {
                     var sub_key = type.split('_')[0];
                    portfolios[sub_key].back_url = e.target.result;
-                   ref.setState({ ref });
+                   ref.setState({ portfolios });
                 }
                 reader.readAsDataURL(backFiles[index].files[0]);
             }
@@ -75,7 +75,7 @@ class Page extends React.Component {
                 reader.onload = function(e) {
                     var sub_key = type.split('_')[0];
                    portfolios[sub_key].avatar = e.target.result;
-                   ref.setState({ ref });
+                   ref.setState({ portfolios });
                 }
                 reader.readAsDataURL(backFiles[index].files[0]);
             }

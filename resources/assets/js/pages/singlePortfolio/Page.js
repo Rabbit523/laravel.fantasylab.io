@@ -98,23 +98,23 @@ class Page extends React.Component {
                                 ))}
                             </Container>
                         </section>
-                        <section className='portfolio-section review' style={{ backgroundImage: `url(${data.review.back_url})` }}>
+                        <section className='portfolio-section review' style={{ backgroundImage: `url(${data.reviews[0].back_url})` }}>
                             <Container className="custom-col-6">
                                 <div className="review-item">
                                     <div className="review-text-section">
-                                        <img src={`${ data.review.logo_url }`} />
-                                        <div className='description'>{data.review.description}</div>
+                                        <img src={`${ data.reviews[0].logo_url }`} />
+                                        <div className='description'>{data.reviews[0].description}</div>
                                         <hr/>
                                     </div>
                                     <div className="review-avatar">
-                                        <img src={`${ data.review.avatar }`} />
+                                        <img src={`${ data.reviews[0].avatar }`} />
                                         <div className='icon-quote-right'>
                                             <Icon name='quote right'/>
                                         </div>
                                     </div>
                                     <div className="review-personal">
-                                        <p className='name'>{data.review.name}</p>
-                                        <p>{data.review.job}</p>
+                                        <p className='name'>{data.reviews[0].name}</p>
+                                        <p>{data.reviews[0].job}</p>
                                     </div>
                                 </div>
                             </Container>
