@@ -800,7 +800,7 @@ class PagesController extends Controller
                 $img = str_replace('data:image/png;base64,', '', $request_data['avatar']);
             }
             $base_code = base64_decode($img);
-            $name = $request_data['type'] .'_avatar.png';
+            $name = $request_data['type'] .'_logo.png';
             $file = $uploads_dir . $name;
             if(File::exists($file)) {
                 File::delete($file);

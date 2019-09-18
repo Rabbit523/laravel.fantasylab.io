@@ -172,7 +172,7 @@ class Page extends React.Component {
                                                         <Form.Input fluid label='type' name='type' placeholder='type' className='input-form' value={portfolios[key].type} onChange={(val)=> ref.handleChange(val, i +'_type')} />
                                                         <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={portfolios[key].url} onChange={(val)=> ref.handleChange(val, i +'_url')} />
                                                         <Form>
-                                                            <label>Avatar Image</label>
+                                                            <label>Logo Image</label>
                                                             <Form.Field>
                                                                 <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(i+'_avatar', e)}/>
                                                             </Form.Field>
