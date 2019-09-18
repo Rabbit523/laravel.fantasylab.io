@@ -274,6 +274,19 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    // Delete service item
+    onDeleteService(e, type) {
+        const { list, data, services } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, type: 'service_delete', key: type})
+        .then(
+            res => {
+                this.setState({ isLoaded: true, services: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     // Update review section
     onUpdateReview(e) {
         const { list, data } = this.state;
@@ -438,7 +451,10 @@ class Page extends React.Component {
                                                                 </Form.Field>
                                                             </Form>
                                                         </div>
-                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, i)}> Save </label>
+                                                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, i)}> Save </label>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteService(e, i)}> Delete </label>
+                                                        </div>
                                                     </Panel>
                                                 ))}
                                             </Collapse>

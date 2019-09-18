@@ -1070,6 +1070,12 @@ class PagesController extends Controller
             }
             $data->data = json_encode($request_data);
             $data->save();
+        } else if ($request->type == "service_delete") {
+            $key = $request->key;
+            unset($list->services[$key]);
+            $data->data = json_encode($list);
+            $data->save();
+            return response()->json($list->services);
         } else if ($request->type == "review") {
             if ($list->review->avatar != $request_data['review']['avatar']) {
                 if (strpos($request_data['review']['avatar'], 'data:image/jpeg;base64') !== false) {
