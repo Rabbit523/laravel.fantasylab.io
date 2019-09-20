@@ -58,7 +58,7 @@ class Page extends React.Component {
                                 </Container>
                             </div>
                         </div>
-                        <section className='portfolio-section'>
+                        {data.main_description && <section className='portfolio-section'>
                             <Container className='custom-col-6'>
                                 <Grid columns={3}>
                                     {data.main_description.map((item, index) => (
@@ -87,7 +87,7 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                             </Container>
-                        </section>
+                        </section>}
                         <section className="portfolio-section">
                             <Container className='custom-col-6'>
                                 {data.sub_images.map((item, index) => (
