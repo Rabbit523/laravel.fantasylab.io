@@ -720,7 +720,7 @@ class PagesController extends Controller
     }    
 
     public function getPortfolioPage(Request $request) {
-        $data = Portfolio::where('type', $request->type)->first();        
+        $data = Portfolio::where('type', $request->type)->orWhere('url', $request->type)->first();        
         return response()->json($data);
     }
 
