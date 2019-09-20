@@ -368,7 +368,7 @@ class Page extends React.Component {
                                 <Button icon='close' onClick={this.closeModal}/>
                                 {_reviews.length > 0 && _reviews.map((item, i) => (
                                     <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                        <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.title}</p>
+                                        <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.job}</p>
                                         <label onClick={(e) => ref.onAddReviewItem(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
                                     </div>
                                 ))}
