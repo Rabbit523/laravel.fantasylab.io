@@ -41,7 +41,6 @@ class Page extends React.Component {
     componentDidMount() {
         Http.post('api/front/get-page', { name: 'home' }).then(
             res => {
-                console.log(JSON.parse(res.data.page.data));
                 if (window.innerWidth < 1024) {
                     this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.page.data) });
                 } else {
@@ -111,17 +110,13 @@ class Page extends React.Component {
                                     {Object.keys(data.services).map((key, index) => (
                                         <React.Fragment key={index}>
                                             {index<2 && 
-                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={
-                                                    (key.includes('mobile') || key.includes('web')) && `/${key}-development`
-                                                }>
-                                                    <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={data.services[key].url}>
+                                                    <ServiceItem avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
                                             </Grid.Column>}
                                             {index>=2 && 
-                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={
-                                                        (key=='ui'?`/ui-ux-design`:key=='branding'?'branding':key=='illustration'?'illustration':'marketing-material')
-                                                    }>
-                                                        <ServiceItem url={data.services[key].url} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
-                                                    </Grid.Column>}
+                                                <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={data.services[key].url}>
+                                                    <ServiceItem avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                </Grid.Column>}
                                         </React.Fragment>
                                     ))}
                                 </Grid>

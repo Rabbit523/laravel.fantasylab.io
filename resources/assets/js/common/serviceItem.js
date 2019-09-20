@@ -35,7 +35,7 @@ class ServiceItem extends React.Component {
                     <div className='service-item' style={isMobile?item_hover:isHovering?item_hover:{}}>
                         {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow' style={arrow_color}/>:'':''}
                         <div className='avatar-item' style={isHovering?avatar_hover:{}}>
-                            <img src={`${ this.props.url}`} />
+                            <img src={`${ this.props.avatar}`} />
                         </div>
                         <div className='text-item'>
                             <h3>{this.props.title}</h3>
@@ -51,7 +51,7 @@ class ServiceItem extends React.Component {
 }
 
 ServiceItem.propTypes = {
-    url: PropTypes.string,
+    avatar: PropTypes.string,
     backimage: PropTypes.string,
     color: PropTypes.string,
     title: PropTypes.string,

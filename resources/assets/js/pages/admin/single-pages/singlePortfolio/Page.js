@@ -176,6 +176,7 @@ class Page extends React.Component {
             }
             reader.readAsDataURL(footer_file.files[0]);
         }
+        
         var Servicefiles = document.getElementsByClassName('service-file');
         Object.keys(Servicefiles).map((key, index) => {
             if (Servicefiles[index].files && Servicefiles[index].files[0]) {
@@ -233,9 +234,9 @@ class Page extends React.Component {
         var new_item = {
             title: 'New Service',
             description: '',
-            type: 'web',
             backimage: '',
-            url: ''
+            avatar: '',
+            url: 'web'
         };
         services.push(new_item);
         this.setState({ services });
@@ -503,7 +504,7 @@ class Page extends React.Component {
                                                     <Panel header={item.title} key={i}>
                                                         <Form.Input fluid label='Title' placeholder='title' className='input-form' value={item.title} onChange={(e) => ref.handleChange(e, 'service_title_'+i)} />
                                                         <Form.Input fluid label='Description' placeholder='description' className='input-form' value={item.description} onChange={(e) => ref.handleChange(e, 'service_description_'+i)} />
-                                                        <Form.Input fluid label='Type' placeholder='type' className='input-form' value={item.type} onChange={(e) => ref.handleChange(e, 'service_type_'+i)} />
+                                                        <Form.Input fluid label='URL' placeholder='url' className='input-form' value={item.url} onChange={(e) => ref.handleChange(e, 'service_url_'+i)} />
                                                         <Form.Input fluid label='Color' placeholder='color' className='input-form' value={item.color} onChange={(e)=> ref.handleChange(e, 'service_color_'+i)} />
                                                         <div style={{ display: 'flex', justifyContent: 'space-between' }}> 
                                                             <Form>

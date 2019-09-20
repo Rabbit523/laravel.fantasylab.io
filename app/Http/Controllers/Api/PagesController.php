@@ -1025,14 +1025,14 @@ class PagesController extends Controller
             $data->save();
         } else if ($request->type == "service") {
             foreach($list->services as $key => $item) {
-                if ($item->url != $request_data['services'][$key]['url']) {
-                    if (strpos($request_data['services'][$key]['url'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['services'][$key]['url']);
+                if ($item->avatar != $request_data['services'][$key]['avatar']) {
+                    if (strpos($request_data['services'][$key]['avatar'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['services'][$key]['avatar']);
                     } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['url']);
+                        $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['avatar']);
                     }
                     $base_code = base64_decode($img);
-                    $name = $request_data['services'][$key]['type'] .'.png';
+                    $name = $data->type.'_portfolio_service_icon'.$key.'.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
@@ -1040,7 +1040,7 @@ class PagesController extends Controller
                     file_put_contents($file, $base_code); // create image file into $upload_dir
                     $url = url("/assets/uploads") ."/" . $name;
                     $arr = explode("/", $url);
-                    $request_data['services'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['services'][$key]['avatar'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                 }
                 if ($item->backimage != $request_data['services'][$key]['backimage']) {
                     if (strpos($request_data['services'][$key]['backimage'], 'data:image/jpeg;base64') !== false) {
@@ -1049,7 +1049,7 @@ class PagesController extends Controller
                         $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['backimage']);
                     }
                     $base_code = base64_decode($img);
-                    $name = $request_data['services'][$key]['type'] .'_back.png';
+                    $name = $data->type.'_portfolio_service_back'.$key.'.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
@@ -1063,14 +1063,14 @@ class PagesController extends Controller
             if (count($request_data['services']) > count($list->services)) {
                 foreach($request_data['services'] as $key=> $item) {
                     if (!array_key_exists($key, $list->services)) {
-                        if ($request_data['services'][$key]['url'] != null) {
-                            if (strpos($request_data['services'][$key]['url'], 'data:image/jpeg;base64') !== false) {
-                                $img = str_replace('data:image/jpeg;base64,', '',$request_data['services'][$key]['url']);
+                        if ($request_data['services'][$key]['avatar'] != null) {
+                            if (strpos($request_data['services'][$key]['avatar'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '',$request_data['services'][$key]['avatar']);
                             } else {
-                                $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['url']);
+                                $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['avatar']);
                             }
                             $base_code = base64_decode($img);
-                            $name = $data->type.'services_icon'.$key.'.png';
+                            $name = $data->type.'_portfolio_service_icon'.$key.'.png';
                             $file = $uploads_dir . $name;
                             if(File::exists($file)) {
                                 File::delete($file);
@@ -1078,7 +1078,7 @@ class PagesController extends Controller
                             file_put_contents($file, $base_code); // create image file into $upload_dir
                             $url = url("/assets/uploads") ."/" . $name;
                             $arr = explode("/", $url);
-                            $request_data['services'][$key]['url'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                            $request_data['services'][$key]['avatar'] = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                         }
                         if ($request_data['services'][$key]['backimage'] != null) {
                             if (strpos($request_data['services'][$key]['backimage'], 'data:image/jpeg;base64') !== false) {
@@ -1087,7 +1087,7 @@ class PagesController extends Controller
                                 $img = str_replace('data:image/png;base64,', '', $request_data['services'][$key]['backimage']);
                             }
                             $base_code = base64_decode($img);
-                            $name = $data->type.'services_back'.$key.'.png';
+                            $name = $data->type.'_portfolio_service_back'.$key.'.png';
                             $file = $uploads_dir . $name;
                             if(File::exists($file)) {
                                 File::delete($file);

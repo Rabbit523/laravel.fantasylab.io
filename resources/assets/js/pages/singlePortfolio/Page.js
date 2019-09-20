@@ -125,15 +125,11 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {data.services.map((item, index) => (
                                         <React.Fragment key={index}>
-                                            <Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={
-                                                    item.type.includes('web')?`/${item.type}-development`:item.type=='ui'?`/ui-ux-design`:item.type=='branding'?'branding':item.type=='illustration'?'illustration':'marketing-material'
-                                                }>
-                                                <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                            <Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: `/${item.url}` }}>
+                                                <ServiceItem avatar={item.avatar} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                             </Grid.Column>
-                                            <Grid.Column only="computer" as={Link} to={
-                                                    item.type.includes('web')?`/${item.type}-development`:item.type=='ui'?`/ui-ux-design`:item.type=='branding'?'branding':item.type=='illustration'?'illustration':'marketing-material'
-                                                }>
-                                                <ServiceItem url={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                            <Grid.Column only="computer" as={Link} to={{ pathname: `/${item.url}` }}>
+                                                <ServiceItem avatar={item.avatar} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                             </Grid.Column>
                                         </React.Fragment>
                                     ))}
