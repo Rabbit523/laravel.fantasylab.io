@@ -107,7 +107,7 @@ class Page extends React.Component {
                                         <hr/>
                                     </div>
                                     <div className="review-avatar">
-                                        <img src={data.reviews[0].avatar!='null'?`${ data.reviews[0].avatar }`:'/images/default-user.png'} />
+                                        <img src={data.reviews[0].avatar?`${ data.reviews[0].avatar }`:'/images/default-user.png'} />
                                         <div className='icon-quote-right'>
                                             <Icon name='quote right'/>
                                         </div>

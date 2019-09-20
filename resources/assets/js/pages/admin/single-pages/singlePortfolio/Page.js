@@ -45,7 +45,6 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.portfolio.data);
-                console.log(list);
                 this.setState({ isLoaded: true, list, data: res.data.portfolio, services: list.services, reviews: list.reviews, _reviews: res.data.review });
             }
         ).catch(err => {
