@@ -1172,15 +1172,7 @@ body {
 }
 
 .page main .review-item .review-avatar {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  position: relative;
   padding-bottom: 15px;
 }
 
@@ -1197,13 +1189,13 @@ body {
   width: 30px;
   height: 30px;
   position: absolute;
-  margin-left: 20px;
-  margin-top: 15px;
+  top: 25px;
+  right: 80px;
 }
 
 .page main .review-item .review-avatar .icon-quote-right i {
-  margin-left: 6px;
-  margin-top: 8px;
+  margin-left: 3px;
+  margin-top: 6px;
   color: #7436e9;
 }
 
