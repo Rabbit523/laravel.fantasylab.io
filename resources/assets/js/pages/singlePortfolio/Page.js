@@ -58,12 +58,12 @@ class Page extends React.Component {
                                 </Container>
                             </div>
                         </div>
-                        <section className='portfolio-section'>
+                        {data.main_description.length > 0 && <section className='portfolio-section'>
                             <Container className='custom-col-6'>
                                 <Grid columns={3}>
                                     {data.main_description.map((item, index) => (
                                         <React.Fragment key={index}>
-                                            {item.title!=null && <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
+                                            <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
                                                 <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
@@ -72,7 +72,7 @@ class Page extends React.Component {
                                                         <p>{item.sub[key]}</p>
                                                     </div>)
                                                 ))}
-                                            </Grid.Column>}
+                                            </Grid.Column>
                                             <Grid.Column only="computer" className="main_description">
                                                 <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
@@ -87,7 +87,7 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                             </Container>
-                        </section>
+                        </section>}
                         <section className="portfolio-section">
                             <Container className='custom-col-6'>
                                 {data.sub_images.map((item, index) => (
