@@ -929,7 +929,7 @@ class PagesController extends Controller
                     $img = str_replace('data:image/png;base64,', '', $request_data['header_back_url']);
                 }
                 $base_code = base64_decode($img);
-                $name = $data->type .'page_header_back.png';
+                $name = $data->type .'_header_back.png';
                 $file = $uploads_dir . $name;
                 if(File::exists($file)) {
                     File::delete($file);
@@ -947,7 +947,7 @@ class PagesController extends Controller
                         $img = str_replace('data:image/png;base64,', '', $request_data['header_sub_images'][$key]);
                     }
                     $base_code = base64_decode($img);
-                    $name = $data->type .$key.'header_sub.png';
+                    $name = $data->type .'_header_sub' .$key .'.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
@@ -966,7 +966,7 @@ class PagesController extends Controller
                         $img = str_replace('data:image/png;base64,', '', $request_data['sub_images'][$key]['url']);
                     }
                     $base_code = base64_decode($img);
-                    $name = $data->type.$key.'.png';
+                    $name = $data->type .'_sub' .$key .'.png';
                     $file = $uploads_dir . $name;
                     if(File::exists($file)) {
                         File::delete($file);
