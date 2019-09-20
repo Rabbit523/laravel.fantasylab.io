@@ -21,7 +21,6 @@ class Page extends React.Component {
         .then(
             res => {
                 var data = JSON.parse(res.data.data);
-                console.log(data);
                 var page = res.data;
                 if (data.header_description != 'example') {
                     this.setState({ isLoaded: true, isExisted: true, data, page });
@@ -64,7 +63,7 @@ class Page extends React.Component {
                                 <Grid columns={3}>
                                     {data.main_description.map((item, index) => (
                                         <React.Fragment key={index}>
-                                            {item.title!='null' && <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
+                                            {item.title!=null && <Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
                                                 <h3 className="sub_title">{item.title}</h3>
                                                 <p className="sub_text">{item.text}</p>
                                                 {Object.keys(item.sub).map((key, i) => (
