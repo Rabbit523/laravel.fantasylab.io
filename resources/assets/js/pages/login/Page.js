@@ -178,9 +178,9 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
-    isAuthenticated: PropTypes.bool.isRequired,
-    isAdmin: PropTypes.bool.isRequired,
-    dispatch: PropTypes.func.isRequired
+    isAuthenticated: PropTypes.bool,
+    isAdmin: PropTypes.bool,
+    dispatch: PropTypes.func
 };
 
 export default Page;
