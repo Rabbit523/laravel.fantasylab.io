@@ -98,7 +98,7 @@ class Page extends React.Component {
                                 ))}
                             </Container>
                         </section>
-                        <section className='portfolio-section review' style={{ backgroundImage: `url(${data.reviews[0].back_url})` }}>
+                        <section className='portfolio-section review' style={data.reviews[0].back_url?{backgroundImage: `url(${data.reviews[0].back_url})`}:''}>
                             <Container className="custom-col-6">
                                 <div className="review-item">
                                     <div className="review-text-section">
