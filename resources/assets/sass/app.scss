@@ -886,6 +886,9 @@ body {
           width: 50px;
           height: 50px;
           border-radius: 50%;
+          margin-left: auto;
+          margin-right: auto;
+          display: block;
         }
         .icon-quote-right {
           border: 1px solid #202c5a;
@@ -2573,6 +2576,18 @@ body {
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
             display: none;
           }
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                top: 30px;
+                right: 60px;
+                i {
+                  margin-left: 5px;
+                  margin-top: 8px;
+                }
+              }
+            }
+          }
         }
         .home-estimation {
           .home-button-group {
@@ -3021,6 +3036,20 @@ body {
       .divide {
         height: 40px;
       }
+      .home-page {
+        .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 80px;
+                i {
+                  margin-left: 6px;
+                }
+              }
+            }
+          }
+        }
+      }
       .singlePortfolio-page {
         .singlePortfolio-header {
           .header-gradient {
@@ -3074,6 +3103,17 @@ body {
   }
   .page {
     main {
+      .home-page {
+        .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 85px;
+              }
+            }
+          }
+        }
+      }
       .portfolio-page {
         .portfolio-header {
           .header-gradient {
@@ -3135,6 +3175,20 @@ body {
 @media (min-width: 384px) {
   .page {
     main {
+      .home-page {
+        .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 90px;
+                i {
+                  margin-left: 5px;
+                }
+              }
+            }
+          }
+        }
+      }
       .login-page {
         min-height: 110vh;
       }
@@ -3165,6 +3219,18 @@ body {
           height: 300px; 
           .homepage-header-description {
             margin-top: 280px;
+          }
+        }
+        .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 105px;
+                i {
+                  margin-left: 6px;
+                }
+              }
+            }
           }
         }
       }
@@ -3317,6 +3383,13 @@ body {
           margin-top: 510px;
         }
         .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 100px;
+              }
+            }
+          }
           .alice-carousel{ 
             .alice-carousel__stage-item {
               width: 346.5px !important;
@@ -3524,6 +3597,13 @@ body {
           margin-top: 210px;
         }
         .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 155px;
+              }
+            }
+          }
           .alice-carousel{ 
             .alice-carousel__stage-item {
               width: 451.5px !important;
@@ -3711,6 +3791,13 @@ body {
         .home-section {
           .portfolio-item-observer {
             height: 100%;
+          }
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 110px;
+              }
+            }
           }
           .alice-carousel {
             margin-left: 85px;
@@ -4135,6 +4222,13 @@ body {
       }
       .home-page {
         .home-section {
+          .review-item {
+            .review-avatar {
+              .icon-quote-right {
+                right: 100px;
+              }
+            }
+          }
           .alice-carousel {
             margin-left: 52px;
             .alice-carousel__stage-item {
