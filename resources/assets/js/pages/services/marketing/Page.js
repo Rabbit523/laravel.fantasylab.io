@@ -103,10 +103,10 @@ class Page extends React.Component {
                                                 {data.starting.map((item, i) => (
                                                     <React.Fragment key={i}>
                                                         <Grid.Column mobile={16} tablet={8} only='mobile' onClick={(event) => this.triggerModal(event)}>
-                                                            <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                            <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
                                                         <Grid.Column only='computer' onClick={(event) => this.triggerModal(event)}>
-                                                            <ServiceItem from='service' url={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                            <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
                                                         </Grid.Column>
                                                     </React.Fragment>
                                                 ))}
