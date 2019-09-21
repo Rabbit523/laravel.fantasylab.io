@@ -173,6 +173,9 @@ class Page extends React.Component {
                                                                     <div className='text-item'>
                                                                         <p>Web Development</p>
                                                                     </div>
+                                                                    <div className='description'>
+                                                                        <p>High traffic websites, ecommerce & web apps</p>
+                                                                    </div>
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/mobile-development'>
@@ -185,7 +188,7 @@ class Page extends React.Component {
                                                                         <p>Mobile Development</p>
                                                                     </div>
                                                                     <div className='description'>
-                                                                        <p>Lorem ipsum dolor sit amet constatur ipsum</p>
+                                                                        <p>Powerful, effective and practical phone apps</p>
                                                                     </div>
                                                                 </div>
                                                             </Grid.Column>
@@ -198,6 +201,9 @@ class Page extends React.Component {
                                                                     <div className='text-item'>
                                                                         <p>UI & UX Design</p>
                                                                     </div>
+                                                                    <div className='description'>
+                                                                        <p>Awesome end-user interfaces & experience</p>
+                                                                    </div>
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/branding'>
@@ -208,6 +214,9 @@ class Page extends React.Component {
                                                                     </div>
                                                                     <div className='text-item'>
                                                                         <p>Branding</p>
+                                                                    </div>
+                                                                    <div className='description'>
+                                                                        <p>Creativity, purpose, knowledge & business</p>
                                                                     </div>
                                                                 </div>
                                                             </Grid.Column>
@@ -220,6 +229,9 @@ class Page extends React.Component {
                                                                     <div className='text-item'>
                                                                         <p>Illustration</p>
                                                                     </div>
+                                                                    <div className='description'>
+                                                                        <p>Visual storytelling, iconography & digital art</p>
+                                                                    </div>
                                                                 </div>
                                                             </Grid.Column>
                                                             <Grid.Column className='custom-dropdown' as={Link} to='/marketing-material'>
@@ -230,6 +242,9 @@ class Page extends React.Component {
                                                                     </div>
                                                                     <div className='text-item'>
                                                                         <p>Marketing</p>
+                                                                    </div>
+                                                                    <div className='description'>
+                                                                        <p>Optimized- & brand consistent messages</p>
                                                                     </div>
                                                                 </div>
                                                             </Grid.Column>
