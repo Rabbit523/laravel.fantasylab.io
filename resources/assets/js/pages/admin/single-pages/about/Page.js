@@ -80,6 +80,12 @@ class Page extends React.Component {
             case 'description':
                 list.description = event.target.value;
                 return this.setState({ list });
+            case 'headquartersTitle':
+                headquarters.title = event.target.value;
+                return this.setState({ headquarters });
+            case 'headquartersDescription':
+                headquarters.description = event.target.value;
+                return this.setState({ headquarters });
         }
 
         counters.map(function (item, i) {
@@ -301,6 +307,24 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    // Update headquater
+    onUpdateHeadquater(e) {
+        var { headquarters, list } = this.state;
+        Object.keys(list).map((key, index) => {
+            if (key == 'headquarters') {
+                list[key] = headquarters;
+            }
+        });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(headquarters), type: 'headquarters' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     // Update headquater items
     onUpdateHeadquaterItem(e, type) {
         var { headquarters, list } = this.state;
@@ -310,7 +334,7 @@ class Page extends React.Component {
             }
         });
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(headquarters), type: 'headquarters', id: type })
+        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(headquarters), type: 'headquarter-item', id: type })
         .then(
             res => {
                 this.setState({ isLoaded: true });
@@ -462,12 +486,15 @@ class Page extends React.Component {
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
+                                            <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={headquarters.title} onChange={(val) => ref.handleChange(val, 'headquartersTitle')} />
+                                            <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={headquarters.description} onChange={(val) => ref.handleChange(val, 'headquartersDescription')} />
                                             <Form>
                                                 <label>Background Image</label>
                                                 <Form.Field>
                                                     <input accept="image/*" type="file" className="headquater-file" onChange={(e) => this.onAvatarChange("headquater_back", e)}/>
                                                 </Form.Field>
                                             </Form>
+                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquater(e)}> Save </label>
                                             <Collapse accordion={accordion} onChange={this.onHeadquaterCollapseChange} activeKey={headquater_activeKey}>
                                                 {headquarters.data.map((item, index) => (
                                                     <Panel header={item.title} key={index}>

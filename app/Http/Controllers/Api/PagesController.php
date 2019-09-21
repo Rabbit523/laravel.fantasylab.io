@@ -508,6 +508,28 @@ class PagesController extends Controller
                 $data->services->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();
+            } else if ($service_type == "headquarter-item") {
+                if($data->headquarters->data[$request->id]->avatar != $request_data['data'][$request->id]['avatar']) {
+                    if (strpos($request_data['data'][$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['avatar']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['avatar']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'about_headquater_item'.$request->id.'_avatar.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['data'][$request->id]['url'] = $path;
+                }
+                $data->headquarters->data[$request->id] = $request_data['data'][$request->id];
+                $page->data = json_encode($data);
+                $page->save();
             } else if ($service_type == "headquarters") {
                 if($data->headquarters->backimage != $request_data['backimage']) {
                     if (strpos($request_data['backimage'], 'data:image/jpeg;base64') !== false) {
@@ -527,26 +549,9 @@ class PagesController extends Controller
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                     $request_data['backimage'] = $path;
                 }
-                if($data->headquarters->data[$request->id]->avatar != $request_data['data'][$request->id]['avatar']) {
-                    if (strpos($request_data['data'][$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['avatar']);
-                    } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['avatar']);
-                    }
-                    $base_code = base64_decode($img);
-                    $name = 'about_headquater_item'.$request->id.'_avatar.png';
-                    $file = $uploads_dir . $name;
-                    if(File::exists($file)) {
-                        File::delete($file);
-                    }
-                    file_put_contents($file, $base_code); // create image file into $upload_dir
-                    $url = url("/assets/uploads") ."/" . $name;
-                    $arr = explode("/", $url);
-                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['data'][$request->id]['url'] = $path;
-                }
+                $data->headquarters->title = $request_data['title'];
+                $data->headquarters->description = $request_data['description'];
                 $data->headquarters->backimage = $request_data['backimage'];
-                $data->headquarters->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();
             }

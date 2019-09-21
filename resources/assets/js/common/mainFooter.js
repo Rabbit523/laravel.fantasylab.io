@@ -115,7 +115,7 @@ class Footer extends React.Component {
                                     </div>
                                     <div className='footer-item'>
                                         <Link to={{ pathname: '/privacy', state:{ pagename: 'privacy' } }} className='item-link'>Privacy</Link>
-                                        <Link to={{ pathname: '/security', state:{ pagename: 'security' } }} className='item-link'>Security</Link>
+                                        <Link to={{ pathname: '/security', state:{ pagename: 'security' } }} className='item-link'>Data Processor</Link>
                                         <Link to={{ pathname: '/terms', state:{ pagename: 'terms' } }} className='item-link'>Terms</Link>
                                         <Link to={{ pathname: '/confidentiality', state:{ pagename: 'confidentiality' } }} className='item-link'>Confidentiality</Link>
                                     </div>
