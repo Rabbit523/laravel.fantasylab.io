@@ -54,7 +54,6 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.page.data);
-                console.log(list);
                 var header = {}, footer = {}, services = [], badges = {}, portfolios = {}, carousels = [], news = [];
                 Object.keys(list).map((key, index) => {
                     if (key == 'header') {
