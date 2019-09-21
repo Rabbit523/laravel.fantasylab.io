@@ -106,7 +106,7 @@ class Page extends React.Component {
             list.sub_images[key].text = event.target.value;
             ref.setState({ list });
         }
-
+        
         if (type.includes('service')) {
             var key = type.split('_')[1];
             var sub_key = type.split('_')[2];
@@ -233,8 +233,8 @@ class Page extends React.Component {
         var new_item = {
             title: 'New Service',
             description: '',
-            backimage: '',
-            avatar: '',
+            backimage: null,
+            avatar: null,
             url: 'web'
         };
         services.push(new_item);

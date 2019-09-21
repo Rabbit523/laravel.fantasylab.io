@@ -24,7 +24,7 @@ class Page extends React.Component {
             list: [],
             header:{},
             footer: {},
-            services: {},
+            services: [],
             badges: {},
             portfolios: {},
             _portfolios: {},
@@ -54,7 +54,7 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.page.data);
-                var header = {}, footer = {}, services = {}, badges = {}, portfolios = {}, carousels = [], news = [];
+                var header = {}, footer = {}, services = [], badges = {}, portfolios = {}, carousels = [], news = [];
                 Object.keys(list).map((key, index) => {
                     if (key == 'header') {
                         header = list[key];
@@ -128,13 +128,13 @@ class Page extends React.Component {
                 return this.setState({ footer });
         }
 
-        Object.keys(services).map((key, index) => {
-            if (type.includes(key)) {
-                var sub_key = type.split('_')[1];
-                services[key][sub_key] = event.target.value;
-                ref.setState({ services });
-            }
-        });
+        if (type.includes('service')) {
+            var key = type.split('_')[1];
+            var sub_key = type.split('_')[2];
+            services[sub_key][key] = event.target.value;
+            this.setState({ services });
+        }
+
         Object.keys(badges).map((key, index) => {
             if (type.includes(key)) {
                 var sub_key = type.split('_')[1];
@@ -193,21 +193,19 @@ class Page extends React.Component {
             reader.readAsDataURL(mobilefile.files[0]);
         }
         // upload service images
-        var files = document.getElementsByClassName('service_avatar');
-        Object.keys(files).map((key, index) => {
-            if (files[index].files && files[index].files[0]) {
+        var Servicefiles = document.getElementsByClassName('service-file');
+        Object.keys(Servicefiles).map((key, index) => {
+            if (Servicefiles[index].files && Servicefiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    var temp = type.split('_');
-                    var sub_key = temp[1];
-                    Object.keys(services).map((key, i) => {
-                        if (temp[0] == key) {
-                            services[key][sub_key] = e.target.result;
-                            ref.setState({ services });
-                        }
-                    });
+                    var sub_key = type.split('_')[1];
+                    var id = type.split('_')[2];
+                    if (type.includes('service')) {
+                        services[id][sub_key] = e.target.result;
+                        ref.setState({ services });    
+                    }
                 }
-                reader.readAsDataURL(files[index].files[0]);
+                reader.readAsDataURL(Servicefiles[index].files[0]);
             }
         });
 
@@ -309,7 +307,20 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     // Update service section
+    onAddService (e) {
+        var { services } = this.state;
+        var new_item = {
+            title: 'New Service',
+            description: '',
+            backimage: null,
+            avatar: null,
+            url: 'web'
+        };
+        services.push(new_item);
+        this.setState({ services });
+    }
     onUpdateService(e, type) {
         var { services , list } = this.state;
         Object.keys(list).map((key, index) => {
@@ -327,6 +338,19 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    onDeleteService(e, type) {
+        const { list, data, services } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { data: list, id: data.id, type: 'service_delete', key: type})
+        .then(
+            res => {
+                this.setState({ isLoaded: true, services: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+
     // Update badge section
     onUpdateBadge(e, type) {
         var { badges , list } = this.state;
@@ -345,11 +369,13 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     // Close modal
     closeModal() {
         this.setState({ isOpen: false });
     }
-    // Add a portfolio
+
+    // Portfolio functions
     onAddPortfolio (e) {
         var { portfolios, _portfolios, rest_items } = this.state;
         var types = [], rest_items = [];
@@ -375,7 +401,6 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    // Update portfolio section
     onDeletePortfolio (e, type) {
         this.setState({ isLoaded: false });
         Http.post('/api/admin/delete-portfolio-page', { type: type, from: 'home' })
@@ -387,6 +412,8 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
+    //Review functions
     onAddReview (e) {
         var { carousels, _reviews, rest_reviews } = this.state;
         var types = [], rest_reviews = [];
@@ -412,7 +439,6 @@ class Page extends React.Component {
             console.error(err);
         });
     }
-    // Update portfolio section
     onDeleteReview (e, type) {
         this.setState({ isLoaded: false });
         Http.post('/api/admin/delete-review-page', { type: type, from: 'home' })
@@ -424,6 +450,7 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     // Update review section
     onUpdateCarousel (e, type) {
         var { carousels , list } = this.state;
@@ -442,6 +469,7 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+    
     // Update blog section
     onUpdateNews (e, type) {
         var { news , list } = this.state;
@@ -559,28 +587,35 @@ class Page extends React.Component {
                             <Card className='header-section'>
                                 <Card.Content>
                                     <Card.Header>Service Section</Card.Header>
+                                    <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddService(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                 </Card.Content>
                                 <Card.Content>
                                     <Card.Description>
                                         <Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
-                                            {Object.keys(services).map((key, i) => (
-                                                <Panel header={services[key].title} key={i}>
-                                                    <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={services[key].title} onChange={(val) => ref.handleChange(val, services[key].type+'_title')} />
-                                                    <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={services[key].description} onChange={(val) => ref.handleChange(val, services[key].type+'_description')} />
-                                                    <Form.Input fluid label='Color' name='color' placeholder='color' className='input-form' value={services[key].color} onChange={(val)=> ref.handleChange(val, services[key].type+'_color')} />
-                                                    <Form>
-                                                        <label>Avatar Image</label>
-                                                        <Form.Field>
-                                                            <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(services[key].type+'_avatar', e)}/>
-                                                        </Form.Field>
-                                                    </Form>
-                                                    <Form>
-                                                        <label>Background Image</label>
-                                                        <Form.Field>
-                                                            <input accept='image/*' type='file' id='input-file' className='service_avatar' onChange={(e) => ref.onAvatarChange(services[key].type+'_back', e)}/>
-                                                        </Form.Field>
-                                                    </Form>
-                                                    <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, services[key].type)}> Save </label>
+                                            {services.map((item, i) => (
+                                                <Panel header={item.title} key={i}>
+                                                    <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, 'service_title_'+i)} />
+                                                    <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, 'service_description_'+i)} />
+                                                    <Form.Input fluid label='Color' name='color' placeholder='color' className='input-form' value={item.color} onChange={(val)=> ref.handleChange(val, 'service_color_'+i)} />
+                                                    <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={item.url} onChange={(val)=> ref.handleChange(val, 'service_url_'+i)} />
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                        <Form>
+                                                            <label>Avatar Image</label>
+                                                            <Form.Field>
+                                                                <input accept='image/*' type='file' className='service-file' onChange={(e) => ref.onAvatarChange('service_avatar_'+i, e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                        <Form>
+                                                            <label>Background Image</label>
+                                                            <Form.Field>
+                                                                <input accept='image/*' type='file' className='service-file' onChange={(e) => ref.onAvatarChange('service_backimage_'+i, e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                    </div>
+                                                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, i)}> Save </label>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteService(e, i)}> Delete </label>
+                                                    </div>
                                                 </Panel>
                                             ))}
                                         </Collapse>

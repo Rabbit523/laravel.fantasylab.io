@@ -103,7 +103,7 @@ class Page extends React.Component {
                                 </div>
                             </Container>
                         </div>
-                        <section className='home-section'>
+                        {data.services && <section className='home-section'>
                             <Container className='custom-col-6'>
                                 <h2>Services</h2>
                                 <Grid>
@@ -121,7 +121,7 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                             </Container>
-                        </section>
+                        </section>}
                         <section className='home-estimation'>
                             <Container className='custom-col-6'>
                                 <div className='home-estimation-description'>
