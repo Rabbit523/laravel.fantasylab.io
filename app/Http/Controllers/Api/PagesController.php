@@ -1481,11 +1481,14 @@ class PagesController extends Controller
             $page->data = json_encode($data);
             $page->save();
         } else if ($request->from == 'home') {
-            $page = Page::where('type', $request->page)->first();
+            $page = Page::where('page_name', 'home')->first();
             $data = json_decode($page->data);
-            array_push($data->reviews, $request->data);
+            $reviews = json_decode(json_encode(($data->carousels), true));
+            array_push($reviews, $request->data);
+            $data->carousels = $reviews;            
             $page->data = json_encode($data);
             $page->save();
+            return response()->json($reviews);
         }
         return response()->json("success");
     }
@@ -1498,11 +1501,13 @@ class PagesController extends Controller
             $page->data = json_encode($data);
             $page->save();
         } else if ($request->from == 'home') {
-            $page = Page::where('type', $request->page)->first();
+            $page = Page::where('page_name', $request->from)->first();
             $data = json_decode($page->data);
-            unset($data->reviews[0]);
+            $reviews = json_decode(json_encode(($data->carousels), true));
+            unset($data->carousels[$request->type]);
             $page->data = json_encode($data);
             $page->save();
+            return response()->json($data->carousels);
         }
         return response()->json("success");
     }

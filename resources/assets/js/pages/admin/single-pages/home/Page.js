@@ -512,7 +512,7 @@ class Page extends React.Component {
                         )}
                         {rest_reviews.length > 0 && isReview && rest_reviews.map((item, i) => (
                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: 'transparent', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.name}</p>
+                                <p style={{ textTransform: 'uppercase', margin: 0 }}>{item.job}</p>
                                 <label onClick={(e) => ref.onAddReviewItem(e, i)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label>
                             </div>
                         ))}
@@ -678,7 +678,7 @@ class Page extends React.Component {
                                     <Card.Description>
                                         {carousels.map((item, i) => (
                                             <div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
-                                                <p style={{textTransform: 'uppercase', margin: 0}}>{item.name}</p>
+                                                <p style={{textTransform: 'uppercase', margin: 0}}>{item.job}</p>
                                                 <label onClick={(e) => ref.onDeleteReview(e, i)}><Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon></label>
                                             </div>
                                         ))}
