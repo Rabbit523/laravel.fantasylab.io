@@ -1503,7 +1503,9 @@ class PagesController extends Controller
         } else if ($request->from == 'home') {
             $page = Page::where('page_name', $request->from)->first();
             $data = json_decode($page->data);
-            unset($data->carousels[$request->type]);
+            $reviews = json_decode(json_encode(($data->carousels), true));
+            unset($reviews[$request->type]);
+            $data->carousels = $reviews;
             $page->data = json_encode($data);
             $page->save();
             return response()->json($data->carousels);
