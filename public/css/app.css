@@ -553,13 +553,6 @@ body {
   font-weight: 100;
 }
 
-.segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item.mobile:hover {
-  background-image: -webkit-gradient(linear, left top, right bottom, from(rgba(20, 49, 144, 0.6)), to(rgba(3, 5, 28, 0.7))), url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
-  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/mobile-back.png?0def82732fd46c1074b53e3fdaa03c76) !important;
-  -webkit-box-shadow: 8px 10px 25px 10px #101535;
-          box-shadow: 8px 10px 25px 10px #101535;
-}
-
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover {
   cursor: pointer;
 }
