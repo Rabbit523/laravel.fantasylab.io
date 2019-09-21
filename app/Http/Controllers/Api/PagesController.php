@@ -198,8 +198,8 @@ class PagesController extends Controller
                             $arr = explode("/", $url);
                             $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                             $request_data[$service_type]['backimage'] = $path;
-                            $data->services[$service_type] = $request_data[$service_type];
                         }
+                        $data->services[$service_type] = $request_data[$service_type];
                     } else {
                         if (strpos($request_data[$service_type]['avatar'], 'data:image/jpeg;base64') !== false) {
                             $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['avatar']);
