@@ -463,12 +463,6 @@ body {
               font-weight: 100;
             }
           }
-          &.mobile {
-            &:hover {
-              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url('../images/theme/mobile-back.png') !important;
-              box-shadow: 8px 10px 25px 10px #101535;
-            }
-          }
           &:hover {
             cursor: pointer;
             &.desktop {

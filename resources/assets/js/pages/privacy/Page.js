@@ -64,7 +64,7 @@ class Page extends React.Component {
                                 <Grid.Column computer={3} className='custom-column side-nav'>
                                     <h3>Legal</h3>
                                     <Link to={{pathname:'/privacy', state:{pagename:'privacy'}}} className={isPrivacy?"item active": "item"}>Privacy {isPrivacy && <Icon name="caret right"></Icon>}</Link>
-                                    <Link to={{pathname:'/security', state:{pagename:'security'}}} className={isSecurity?"item active": "item"}>Security {isSecurity && <Icon name="caret right"></Icon>}</Link>
+                                    <Link to={{pathname:'/security', state:{pagename:'security'}}} className={isSecurity?"item active": "item"}>Data Processor {isSecurity && <Icon name="caret right"></Icon>}</Link>
                                     <Link to={{pathname:'/terms', state:{pagename: 'terms'}}} className={isTerms?"item active":"item"}>Terms {isTerms && <Icon name="caret right"></Icon>}</Link>
                                     <Link to={{pathname:'/confidentiality', state:{pagename:'confidentiality'}}} className={isConfident?"item active":"item"}>Confidentiality {isConfident && <Icon name="caret right"></Icon>}</Link>
                                 </Grid.Column>
