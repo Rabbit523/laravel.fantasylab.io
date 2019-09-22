@@ -4239,7 +4239,9 @@ body {
   }
 
   .page main .privacy-page .privacy-section .side-nav {
-    display: block !important;
+    display: -webkit-box !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
   }
 
   .footer {
