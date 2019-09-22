@@ -2968,6 +2968,12 @@ body {
   width: 100%;
 }
 
+.page main .admin-page .ui.card .content .delete-btn {
+  height: 42px;
+  width: 150px;
+  margin-top: 28px;
+}
+
 .page main .admin-page .ui.card .content a.save-btn {
   padding-top: 10px;
 }

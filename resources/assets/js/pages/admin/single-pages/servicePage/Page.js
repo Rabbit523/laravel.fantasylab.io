@@ -11,13 +11,16 @@ class Page extends React.Component {
             list: [],
             reviews: {},
             technologies: {},
+            starting: [],
             isLoaded: false,
             accordion: false,
             activeKey: [],
-            process_activeKey: []
+            process_activeKey: [],
+            start_activeKey: []
         }
         this.onCollapseChange = this.onCollapseChange.bind(this);
         this.onCollapseProcessChange = this.onCollapseProcessChange.bind(this);
+        this.onCollapseStartingChange = this.onCollapseStartingChange.bind(this);
     }
 
     componentDidMount() {
@@ -29,7 +32,7 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                var reviews = {}, technologies = {}, estimation = [];
+                var reviews = {}, technologies = {}, estimation = [], starting = [];
                 Object.keys(list).map(function(key, index) {
                     if (key == "study") {
                         reviews = list[key];
@@ -37,6 +40,8 @@ class Page extends React.Component {
                         technologies = list[key];
                     } else if (key == "estimation") {
                         estimation = list[key];
+                    } else if (key == 'starting') {
+                        starting = list[key];
                     }
                 });
                 this.setState({ 
@@ -44,7 +49,8 @@ class Page extends React.Component {
                     list,
                     reviews,
                     technologies,
-                    estimation
+                    estimation,
+                    starting
                 });
             }
         ).catch(err => {
@@ -53,7 +59,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { list, reviews, technologies, estimation } = this.state;
+        var { list, reviews, technologies, estimation, starting } = this.state;
         var ref = this;
         switch (type) {
             case 'meta_title':
@@ -104,6 +110,13 @@ class Page extends React.Component {
                 ref.setState({ list });
             });
         }
+        
+        if (type.includes('start')) {
+            var index = type.split('_')[0];
+            var key = type.split('_')[2];
+            starting[index][key] = event.target.value;
+            ref.setState({ starting });
+        }
 
         if (type.includes('estimation')) {
             var sub_key = type.split('_')[2];
@@ -124,9 +137,8 @@ class Page extends React.Component {
             }
         });
     }
-
     onAvatarChange(type, e){
-        var { list, reviews, technologies, estimation } = this.state;
+        var { list, reviews, technologies, estimation, starting } = this.state;
         var ref = this;
 
         var infile = document.getElementById("input-file");
@@ -213,6 +225,24 @@ class Page extends React.Component {
                 reader.readAsDataURL(estimation_files[index].files[0]);
             }
         });
+
+        var start_files = document.getElementsByClassName('start-file');
+        Object.keys(start_files).map((key, index) => {
+            if (start_files[index].files && start_files[index].files[0]) {
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    var index = type.split("_")[0];
+                    if (type.includes('start_backimage')) {
+                        starting[index].backimage = e.target.result;
+                        ref.setState({ starting });
+                    } else if (type.includes('start_url')) {
+                        starting[index].url = e.target.result;
+                        ref.setState({ starting });
+                    }
+                }
+                reader.readAsDataURL(start_files[index].files[0]);
+            }
+        });
     }    
     
     onCollapseChange(activeKey) {
@@ -220,6 +250,60 @@ class Page extends React.Component {
     }
     onCollapseProcessChange(process_activeKey) {
         this.setState({ process_activeKey });
+    }
+    onCollapseStartingChange(start_activeKey) {
+        this.setState({ start_activeKey });
+    }
+
+    onAddItem(e) {
+        let { starting } = this.state;
+        let new_item = {
+            title: "",
+            description: "",
+            color: "",
+            url: null,
+            backimage: null
+        };
+        starting.push(new_item);
+        this.setState({ starting });
+    }
+    onUpdateStartItem(e, index) {
+        var { list, page_name, starting } = this.state;
+        list.starting = starting;
+        this.setState({ list });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(list), type: 'start_update', id: index})
+        .then(
+            res => {
+                this.setState({ isLoaded: true, list: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onDeleteStartItem(e, index) {
+        var { list, page_name } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(list), type: 'start_delete', id: index})
+        .then(
+            res => {
+                this.setState({ isLoaded: true, starting: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onDeleteStartImages(e, type) {
+        var { list, page_name } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(list), type: 'start_delete_image', id: type.split("_")[0], key: type.split("_")[1]})
+        .then(
+            res => {
+                this.setState({ isLoaded: true, starting: res.data });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
     }
     // Update header section
     updateHeader() {
@@ -301,8 +385,9 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     render() {
-        const { isLoaded, list, reviews, technologies, estimation, accordion, activeKey, process_activeKey } = this.state;
+        const { isLoaded, list, reviews, technologies, starting, estimation, accordion, activeKey, process_activeKey, start_activeKey } = this.state;
         const ref = this;
         return (
             <div className="admin-page">
@@ -373,6 +458,49 @@ class Page extends React.Component {
                         <Grid.Column computer={8}>
                             <Card>
                                 <Card.Content>
+                                    <Card.Header>Starting Section</Card.Header>
+                                    <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddItem(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
+                                </Card.Content>
+                                <Card.Content>
+                                    <Card.Description>
+                                        <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
+                                            {starting.map((item, index) => (
+                                                <Panel header={item.title} key={index}>
+                                                    <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, index+'_start_title')} />
+                                                    <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, index +'_start_description')} />
+                                                    <Form.Input fluid label='Color' name='color' placeholder='color' className='input-form' value={item.color} onChange={(val) => ref.handleChange(val, index +'_start_color')} />
+                                                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                                        <Form>
+                                                            <label>Icon Image</label>
+                                                            <Form.Field>
+                                                                <input accept="image/*" type="file" className="start-file" onChange={(e) => this.onAvatarChange(index+"_start_url", e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                        <label className='ui floated button delete-btn' onClick={(e) => ref.onDeleteStartImages(e, index+"_url")}> Delete </label>
+                                                    </div>
+                                                    <div style={{display: 'flex', justifyContent: 'space-between'}}>
+                                                        <Form>
+                                                            <label>Background Image</label>
+                                                            <Form.Field>
+                                                                <input accept="image/*" type="file" className="start-file" onChange={(e) => this.onAvatarChange(index+"_start_backimage", e)}/>
+                                                            </Form.Field>
+                                                        </Form>
+                                                        <label className='ui floated button delete-btn' onClick={(e) => ref.onDeleteStartImages(e, index+"_backimage")}> Delete </label>
+                                                    </div>
+                                                    <div style={{display: 'flex'}}>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateStartItem(e, index)}> Save </label>
+                                                        <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteStartItem(e, index)}> Delete </label>
+                                                    </div>
+                                                </Panel>
+                                            ))}
+                                        </Collapse>
+                                    </Card.Description>
+                                </Card.Content>
+                            </Card>
+                        </Grid.Column>
+                        <Grid.Column computer={8}>
+                            <Card>
+                                <Card.Content>
                                     <Card.Header>Review Section</Card.Header>
                                 </Card.Content>
                                 <Card.Content>
@@ -380,7 +508,7 @@ class Page extends React.Component {
                                         <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={reviews.title} onChange={(val) => this.handleChange(val, 'review_title')} />
                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={reviews.description} onChange={(val) => this.handleChange(val, 'review_description')} />
                                         <Form.Input fluid label="Job" name='job' placeholder='Header title' className="input-form" value={reviews.job} onChange={(val)=>this.handleChange(val, 'review_job')} />
-                                        <Form.Input fluid label="Url" name='url' placeholder='button url' className="input-form" value={reviews.path} onChange={(val)=>this.handleChange(val, 'review_url')} />
+                                        <Form.Input fluid label="URL" name='url' placeholder='button url' className="input-form" value={reviews.path} onChange={(val)=>this.handleChange(val, 'review_url')} />
                                         <Form>
                                             <label>Background Image</label>
                                             <Form.Field>
@@ -397,7 +525,7 @@ class Page extends React.Component {
                                     </Card.Description>
                                 </Card.Content>
                             </Card>
-                        </Grid.Column>
+                        </Grid.Column>            
                         <Grid.Column computer={8}>
                             <Card>
                                 <Card.Content>

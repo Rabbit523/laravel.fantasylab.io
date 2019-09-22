@@ -776,6 +776,105 @@ class PagesController extends Controller
                 $data->estimation = $request_data;
                 $page->data = json_encode($data);
                 $page->save();
+            } else if ($service_type == "start_update") {
+                $id = $request->id;
+                if (array_key_exists($id, $data->starting)) {
+                    if ($data->starting[$id]->url != $request_data['starting'][$id]['url']) {
+                        if (strpos($request_data['starting'][$id]['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data['starting'][$id]['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request_data['url'].'_start'.$request_data['starting'][$id]['title'].'_icon.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data['starting'][$id]['url'] = $path;
+                    }
+                    if ($data->starting[$id]->backimage != $request_data['starting'][$id]['backimage']) {
+                        if (strpos($request_data['starting'][$id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['backimage']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data['starting'][$id]['backimage']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request_data['url'].'_start'.$request_data['starting'][$id]['title'].'_back.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data['starting'][$id]['backimage'] = $path;
+                    }
+                    $data->starting[$id] = $request_data['starting'][$id];
+                } else {
+                    if ($request_data['starting'][$id]['url'] != null) {
+                        if (strpos($request_data['starting'][$id]['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data['starting'][$id]['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request_data['url'].'_start'.$request_data['starting'][$id]['title'].'_icon.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data['starting'][$id]['url'] = $path;
+                    }
+                    if ($request_data['starting'][$id]['backimage'] != null) {
+                        if (strpos($request_data['starting'][$id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['backimage']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data['starting'][$id]['backimage']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request_data['url'].'_start'.$request_data['starting'][$id]['title'].'_back.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data['starting'][$id]['backimage'] = $path;
+                    }
+                    $array_data = json_decode(json_encode($data));
+                    array_push($array_data, $request_data['starting'][$id]);
+                    $data = $array_data;
+                }
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
+            } else if ($service_type == "start_delete") {
+                $id = $request->id;
+                $array_data = json_decode(json_encode($data->starting));
+                unset($array_data[$id]);
+                $data->starting = $array_data;
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data->starting);
+            } else if ($service_type == "start_delete_image") {
+                $id = $request->id;
+                $key = $request->key;
+                $data->starting[$id]->$key = null;
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data->starting);
             }
         } else if ($request->name == "privacy") {
             $service_type = $request->type;
