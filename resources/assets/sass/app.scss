@@ -3001,6 +3001,13 @@ body {
           }
         }        
       }
+      .privacy-page {
+        .privacy-section {
+          .side-nav {
+            display: none !important;
+          }
+        }
+      }
     }
   }
   .footer {
@@ -3534,6 +3541,13 @@ body {
         min-height: 90px;
         &.register {
           min-height: 80vh;
+        }
+      }
+      .privacy-page {
+        .privacy-section {
+          .side-nav {
+            display: flex !important;
+          }
         }
       }
     }
