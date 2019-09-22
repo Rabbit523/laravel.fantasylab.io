@@ -61,23 +61,23 @@ class Page extends React.Component {
                         <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
                         <Container className='custom-col-6 privacy-section'>
                             <Grid padded='horizontally'>
-                                <Grid.Column computer={3} className='custom-column side-nav'>
+                                <Grid.Column computer={3} tablet={3} mobile={0} className='custom-column side-nav'>
                                     <h3>Legal</h3>
                                     <Link to={{pathname:'/privacy', state:{pagename:'privacy'}}} className={isPrivacy?"item active": "item"}>Privacy {isPrivacy && <Icon name="caret right"></Icon>}</Link>
                                     <Link to={{pathname:'/security', state:{pagename:'security'}}} className={isSecurity?"item active": "item"}>Data Processor {isSecurity && <Icon name="caret right"></Icon>}</Link>
                                     <Link to={{pathname:'/terms', state:{pagename: 'terms'}}} className={isTerms?"item active":"item"}>Terms {isTerms && <Icon name="caret right"></Icon>}</Link>
                                     <Link to={{pathname:'/confidentiality', state:{pagename:'confidentiality'}}} className={isConfident?"item active":"item"}>Confidentiality {isConfident && <Icon name="caret right"></Icon>}</Link>
                                 </Grid.Column>
-                                {isPrivacy && <Grid.Column computer={13} className='custom-column'>
+                                {isPrivacy && <Grid.Column computer={13} tablet={13} mobile={16} className='custom-column'>
                                     {ReactHtmlParser(data.privacy)}
                                 </Grid.Column>}
-                                {isSecurity && <Grid.Column computer={13} className='custom-column'>
+                                {isSecurity && <Grid.Column computer={13} tablet={13} mobile={16} className='custom-column'>
                                     {ReactHtmlParser(data.security)}
                                 </Grid.Column>}
-                                {isTerms && <Grid.Column computer={13} className='custom-column'>
+                                {isTerms && <Grid.Column computer={13} tablet={13} mobile={16} className='custom-column'>
                                     {ReactHtmlParser(data.terms)}
                                 </Grid.Column>}
-                                {isConfident && <Grid.Column computer={13} className='custom-column'>
+                                {isConfident && <Grid.Column computer={13} tablet={13} mobile={16} className='custom-column'>
                                     {ReactHtmlParser(data.confident)}
                                 </Grid.Column>}
                             </Grid>

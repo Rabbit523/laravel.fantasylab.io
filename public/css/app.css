@@ -3814,6 +3814,10 @@ body {
     font-size: 16px;
   }
 
+  .page main .privacy-page .privacy-section .side-nav {
+    display: none !important;
+  }
+
   .footer h5 {
     font-size: 10px;
     margin-bottom: 10px;
@@ -4232,6 +4236,10 @@ body {
 
   .page main .login-page.register {
     min-height: 80vh;
+  }
+
+  .page main .privacy-page .privacy-section .side-nav {
+    display: block !important;
   }
 
   .footer {
