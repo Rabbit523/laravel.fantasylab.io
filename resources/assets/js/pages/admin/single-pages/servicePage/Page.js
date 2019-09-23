@@ -12,6 +12,7 @@ class Page extends React.Component {
             reviews: {},
             technologies: {},
             starting: [],
+            starting_title: "",
             isLoaded: false,
             accordion: false,
             activeKey: [],
@@ -32,7 +33,7 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                var reviews = {}, technologies = {}, estimation = [], starting = [];
+                var reviews = {}, technologies = {}, estimation = [], starting = [], starting_title = "";
                 Object.keys(list).map(function(key, index) {
                     if (key == "study") {
                         reviews = list[key];
@@ -41,7 +42,8 @@ class Page extends React.Component {
                     } else if (key == "estimation") {
                         estimation = list[key];
                     } else if (key == 'starting') {
-                        starting = list[key];
+                        starting = list[key].data;
+                        starting_title = list[key].start_title;
                     }
                 });
                 this.setState({ 
@@ -50,7 +52,8 @@ class Page extends React.Component {
                     reviews,
                     technologies,
                     estimation,
-                    starting
+                    starting,
+                    starting_title
                 });
             }
         ).catch(err => {
@@ -59,7 +62,7 @@ class Page extends React.Component {
     }
 
     handleChange(event, type) {
-        var { list, reviews, technologies, estimation, starting } = this.state;
+        var { list, reviews, technologies, estimation, starting, starting_title } = this.state;
         var ref = this;
         switch (type) {
             case 'meta_title':
@@ -101,6 +104,9 @@ class Page extends React.Component {
             case 'footer_link_name':
                 list.footer_link_name = event.target.value;
                 return this.setState({ list });
+            case 'starting_title':
+                starting_title = event.target.value;
+                return this.setState({ starting_title });
         }
 
         if (type.includes('icon')) {
@@ -255,6 +261,20 @@ class Page extends React.Component {
         this.setState({ start_activeKey });
     }
 
+    onUpdateStartTitle(e) {
+        var { list, page_name, starting_title } = this.state;
+        list.starting.start_title = starting_title;
+        this.setState({ list });
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', {name: page_name, data: JSON.stringify(list), type: 'start_title'})
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
     onAddItem(e) {
         let { starting } = this.state;
         let new_item = {
@@ -387,7 +407,7 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, list, reviews, technologies, starting, estimation, accordion, activeKey, process_activeKey, start_activeKey } = this.state;
+        const { isLoaded, list, reviews, technologies, starting, starting_title, estimation, accordion, activeKey, process_activeKey, start_activeKey } = this.state;
         const ref = this;
         return (
             <div className="admin-page">
@@ -463,6 +483,8 @@ class Page extends React.Component {
                                 </Card.Content>
                                 <Card.Content>
                                     <Card.Description>
+                                        <Form.Input fluid label='Starting Title' name='start_title' placeholder='starting title' className='input-form' value={starting_title} onChange={(val) => ref.handleChange(val, 'starting_title')} />
+                                        <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateStartTitle(e)}> Save </label>
                                         <Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
                                             {starting.map((item, index) => (
                                                 <Panel header={item.title} key={index}>

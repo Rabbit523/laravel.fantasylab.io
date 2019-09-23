@@ -778,15 +778,15 @@ class PagesController extends Controller
                 $page->save();
             } else if ($service_type == "start_update") {
                 $id = $request->id;
-                if (array_key_exists($id, $data->starting)) {
-                    if ($data->starting[$id]->url != $request_data['starting'][$id]['url']) {
+                if (array_key_exists($id, $data->starting->data)) {
+                    if ($data->starting->data[$id]->url != $request_data['starting'][$id]['url']) {
                         if (strpos($request_data['starting'][$id]['url'], 'data:image/jpeg;base64') !== false) {
                             $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['url']);
                         } else {
                             $img = str_replace('data:image/png;base64,', '', $request_data['starting'][$id]['url']);
                         }
                         $base_code = base64_decode($img);
-                        $name = $request_data['url'].'_start'.$request_data['starting'][$id]['title'].'_icon.png';
+                        $name = $request_data['url'].'_start'.$request_data['starting']['title'].'_icon.png';
                         $file = $uploads_dir . $name;
                         if(File::exists($file)) {
                             File::delete($file);
@@ -797,7 +797,7 @@ class PagesController extends Controller
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                         $request_data['starting'][$id]['url'] = $path;
                     }
-                    if ($data->starting[$id]->backimage != $request_data['starting'][$id]['backimage']) {
+                    if ($data->starting->data[$id]->backimage != $request_data['starting'][$id]['backimage']) {
                         if (strpos($request_data['starting'][$id]['backimage'], 'data:image/jpeg;base64') !== false) {
                             $img = str_replace('data:image/jpeg;base64,', '', $request_data['starting'][$id]['backimage']);
                         } else {
@@ -815,7 +815,7 @@ class PagesController extends Controller
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                         $request_data['starting'][$id]['backimage'] = $path;
                     }
-                    $data->starting[$id] = $request_data['starting'][$id];
+                    $data->starting->data[$id] = $request_data['starting'][$id];
                 } else {
                     if ($request_data['starting'][$id]['url'] != null) {
                         if (strpos($request_data['starting'][$id]['url'], 'data:image/jpeg;base64') !== false) {
@@ -862,19 +862,23 @@ class PagesController extends Controller
                 return response()->json($data);
             } else if ($service_type == "start_delete") {
                 $id = $request->id;
-                $array_data = json_decode(json_encode($data->starting));
+                $array_data = json_decode(json_encode($data->starting->data));
                 unset($array_data[$id]);
-                $data->starting = $array_data;
+                $data->starting->data = $array_data;
                 $page->data = json_encode($data);
                 $page->save();
-                return response()->json($data->starting);
+                return response()->json($data->starting->data);
             } else if ($service_type == "start_delete_image") {
                 $id = $request->id;
                 $key = $request->key;
-                $data->starting[$id]->$key = null;
+                $data->starting->data[$id]->$key = null;
                 $page->data = json_encode($data);
                 $page->save();
-                return response()->json($data->starting);
+                return response()->json($data->starting->data);
+            } else if ($service_type == 'start_title') {
+                $data->starting->start_title = $request_data['starting']['start_title'];
+                $page->data = json_encode($data);
+                $page->save();
             }
         } else if ($request->name == "privacy") {
             $service_type = $request->type;

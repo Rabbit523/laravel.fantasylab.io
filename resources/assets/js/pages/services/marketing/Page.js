@@ -97,10 +97,10 @@ class Page extends React.Component {
                                 </Container>
                                 <div className='starter-group'>
                                     <Container className='custom-col-6'>
-                                        <h2>Let's start. What do you need?</h2>
+                                        <h2>{data.starting.start_title}</h2>
                                         <Container className='custom-col-8'>
                                             <Grid columns={3}>
-                                                {data.starting.map((item, i) => (
+                                                {data.starting.data.map((item, i) => (
                                                     <React.Fragment key={i}>
                                                         <Grid.Column mobile={16} tablet={8} only='mobile' onClick={(event) => this.triggerModal(event)}>
                                                             <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
