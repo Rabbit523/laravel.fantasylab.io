@@ -722,9 +722,11 @@ body {
       }
       .badge-description {
         padding-top: 5px;
+        width: 300px;
         p {          
           white-space: pre-wrap;
           color: #9aa2bf;
+          overflow: hidden;
         }
       }
     }
@@ -2842,6 +2844,7 @@ body {
             }
             .header-description {
               padding: 50px 0px 0px 0px;
+              width: 300px;
               .header-text {
                 padding: 0;
               }
@@ -2849,6 +2852,7 @@ body {
             .figures {
               padding-top: 50px;
               align-items: flex-start;
+              width: 300px;
               .figure {
                 padding-left: 6px;
                 padding-right: 6px;
@@ -2894,6 +2898,7 @@ body {
               .third-button {
                 font-size: 12px !important;
                 text-decoration: none;
+                padding: 10px 30px 10px 30px !important;
               }
             }
           }
@@ -3052,6 +3057,18 @@ body {
                   margin-left: 6px;
                 }
               }
+            }
+          }
+        }
+      }
+      .service-page {
+        .service-header {
+          .header-gradient {
+            .header-description {
+              width: auto;
+            }
+            .figures {
+              width: auto;
             }
           }
         }
