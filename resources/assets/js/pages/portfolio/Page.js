@@ -15,6 +15,9 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
         var url = `${window.location.origin}/api/front/get-page`;
         Http.post(`${url}`, { name: 'portfolio' }).then(
             res => {
