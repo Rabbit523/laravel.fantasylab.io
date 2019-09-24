@@ -657,47 +657,47 @@ body {
   font-size: 18px;
 }
 
-.page main {
+.page .main {
   flex: 1;
   width: 100%;
 }
 
-.page main .divide {
+.page .main .divide {
   background-image: url("/images/divide-back.png");
   height: 160px;
   width: 100%;
   background-size: cover !important;
 }
 
-.page main a {
+.page .main a {
   text-decoration: none;
 }
 
-.page main .main-footer {
+.page .main .main-footer {
   min-height: 350px;
   height: auto;
   width: 100%;
   background-size: cover !important;
 }
 
-.page main .main-footer .main-footer-description {
+.page .main .main-footer .main-footer-description {
   display: inline-block;
   margin-top: 100px;
   width: 50%;
   color: #fff;
 }
 
-.page main .main-footer .main-footer-description .register {
+.page .main .main-footer .main-footer-description .register {
   padding-left: 55px;
   padding-right: 55px;
   margin-bottom: 1em;
 }
 
-.page main .main-footer .main-footer-description .item-link {
+.page .main .main-footer .main-footer-description .item-link {
   text-decoration: none;
 }
 
-.page main .service-item {
+.page .main .service-item {
   padding: 20px 20px 30px 20px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   height: 100%;
@@ -712,31 +712,31 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .page main .service-item {
+  .page .main .service-item {
     height: 210px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .service-item {
+  .page .main .service-item {
     height: 240px;
   }
 }
 
-.page main .service-item .item-hover-back {
+.page .main .service-item .item-hover-back {
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   width: 100%;
   height: 100%;
 }
 
-.page main .service-item i {
+.page .main .service-item i {
   position: absolute;
   right: 30px;
   font-size: 15px;
   font-weight: 100;
 }
 
-.page main .service-item .avatar-item {
+.page .main .service-item .avatar-item {
   border-radius: 50%;
   border: 2px solid #202c5a;
   display: inline-block;
@@ -747,18 +747,18 @@ body {
 }
 
 @media (min-width: 320px) {
-  .page main .service-item .avatar-item {
+  .page .main .service-item .avatar-item {
     margin-bottom: 65px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .service-item .avatar-item {
+  .page .main .service-item .avatar-item {
     margin-bottom: 100px;
   }
 }
 
-.page main .service-item .avatar-item img {
+.page .main .service-item .avatar-item img {
   width: 30px;
   height: 30px;
   margin-left: 8px;
@@ -766,53 +766,53 @@ body {
 }
 
 @media (min-width: 320px) {
-  .page main .service-item .avatar-item img {
+  .page .main .service-item .avatar-item img {
     margin-left: 8px;
   }
 }
 
 @media (min-width: 375px) {
-  .page main .service-item .avatar-item img {
+  .page .main .service-item .avatar-item img {
     margin-left: 9px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .service-item .avatar-item img {
+  .page .main .service-item .avatar-item img {
     margin-left: 8px;
   }
 }
 
-.page main .service-item .text-item {
+.page .main .service-item .text-item {
   display: flex;
   align-items: flex-end;
   flex: 1;
 }
 
-.page main .service-item .text-item h3 {
+.page .main .service-item .text-item h3 {
   white-space: pre-wrap;
   color: #fff;
 }
 
-.page main .service-item .description {
+.page .main .service-item .description {
   display: none;
   padding-top: 5px;
   text-align: left;
 }
 
-.page main .service-item .description p {
+.page .main .service-item .description p {
   white-space: pre-wrap;
   color: #9da6c7;
 }
 
-.page main .badge-item {
+.page .main .badge-item {
   background: transparent;
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
-.page main .badge-item .badge-img {
+.page .main .badge-item .badge-img {
   display: inline-block;
   width: 50px;
   height: 50px;
@@ -820,12 +820,12 @@ body {
   position: relative;
 }
 
-.page main .badge-item .badge-img img {
+.page .main .badge-item .badge-img img {
   width: 50px;
   height: 50px;
 }
 
-.page main .badge-item .badge-img p {
+.page .main .badge-item .badge-img p {
   position: absolute;
   top: 0;
   margin-left: 19px;
@@ -834,32 +834,34 @@ body {
 }
 
 @media (min-width: 1366px) {
-  .page main .badge-item .badge-img p {
+  .page .main .badge-item .badge-img p {
     margin-top: 15px;
   }
 }
 
-.page main .badge-item .badge-title {
+.page .main .badge-item .badge-title {
   display: flex;
   align-items: flex-end;
   flex: 1;
 }
 
-.page main .badge-item .badge-title h3 {
+.page .main .badge-item .badge-title h3 {
   white-space: pre-wrap;
   color: #fff;
 }
 
-.page main .badge-item .badge-description {
+.page .main .badge-item .badge-description {
   padding-top: 5px;
+  width: 300px;
 }
 
-.page main .badge-item .badge-description p {
+.page .main .badge-item .badge-description p {
   white-space: pre-wrap;
   color: #9aa2bf;
+  overflow: hidden;
 }
 
-.page main .portfolio-item {
+.page .main .portfolio-item {
   padding: 20px 20px 20px 20px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   min-height: 220px;
@@ -872,19 +874,19 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item {
+  .page .main .portfolio-item {
     height: 300px;
   }
 }
 
-.page main .portfolio-item .portfolio {
+.page .main .portfolio-item .portfolio {
   margin: auto;
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
 
-.page main .portfolio-item .portfolio .avatar {
+.page .main .portfolio-item .portfolio .avatar {
   margin-top: 110px;
   margin-bottom: 50px;
   position: relative;
@@ -893,20 +895,20 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio .avatar {
+  .page .main .portfolio-item .portfolio .avatar {
     margin-top: 90px;
     margin-bottom: 100px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .portfolio-item .portfolio .avatar {
+  .page .main .portfolio-item .portfolio .avatar {
     margin-top: 160px;
     margin-bottom: 25px;
   }
 }
 
-.page main .portfolio-item .portfolio .avatar img {
+.page .main .portfolio-item .portfolio .avatar img {
   width: auto;
   height: auto;
   position: absolute;
@@ -915,74 +917,74 @@ body {
 }
 
 @media (min-width: 360px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 65px;
   }
 }
 
 @media (min-width: 375px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 80px;
   }
 }
 
 @media (min-width: 414px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 100px;
   }
 }
 
 @media (min-width: 768px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 80px;
   }
 }
 
 @media (min-width: 1024px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 60px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     top: 21px;
     left: 64px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     top: 20px;
     left: 70px;
   }
 }
 
 @media (min-width: 1440px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 85px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .portfolio-item .portfolio .avatar img {
+  .page .main .portfolio-item .portfolio .avatar img {
     left: 90px;
     top: -44px;
   }
 }
 
-.page main .portfolio-item .portfolio .hover-texts {
+.page .main .portfolio-item .portfolio .hover-texts {
   width: 100%;
 }
 
-.page main .portfolio-item .portfolio .hover-texts i {
+.page .main .portfolio-item .portfolio .hover-texts i {
   position: absolute;
   top: 20px;
   right: 30px;
   color: #8341ff;
 }
 
-.page main .portfolio-item .portfolio .hover-texts .hover-title {
+.page .main .portfolio-item .portfolio .hover-texts .hover-title {
   text-align: center;
   font-family: "Gotham Bold";
   color: #fff;
@@ -991,30 +993,30 @@ body {
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio .hover-texts .hover-title {
+  .page .main .portfolio-item .portfolio .hover-texts .hover-title {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .portfolio-item .portfolio .hover-texts .hover-title {
+  .page .main .portfolio-item .portfolio .hover-texts .hover-title {
     font-size: 20px;
   }
 }
 
-.page main .portfolio-item .portfolio .hover-texts p {
+.page .main .portfolio-item .portfolio .hover-texts p {
   text-align: center;
   font-family: "Gotham Bold";
   color: #8341ff;
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio .hover-texts p {
+  .page .main .portfolio-item .portfolio .hover-texts p {
     font-size: 16px;
   }
 }
 
-.page main .portfolio-item .portfolio-text {
+.page .main .portfolio-item .portfolio-text {
   display: flex;
   align-items: flex-start;
   flex: 1;
@@ -1024,18 +1026,18 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .page main .portfolio-item .portfolio-text {
+  .page .main .portfolio-item .portfolio-text {
     margin-top: 220px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio-text {
+  .page .main .portfolio-item .portfolio-text {
     margin-top: 215px;
   }
 }
 
-.page main .portfolio-item .portfolio-text h3 {
+.page .main .portfolio-item .portfolio-text h3 {
   font-size: 20px;
   font-family: "Gotham Bold";
   white-space: pre-wrap;
@@ -1044,48 +1046,48 @@ body {
 }
 
 @media (min-width: 1024px) {
-  .page main .portfolio-item .portfolio-text h3 {
+  .page .main .portfolio-item .portfolio-text h3 {
     font-size: 18px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .portfolio-item .portfolio-text h3 {
+  .page .main .portfolio-item .portfolio-text h3 {
     font-size: 20px;
   }
 }
 
-.page main .portfolio-item .portfolio-text .portfolio-des {
+.page .main .portfolio-item .portfolio-text .portfolio-des {
   color: #8341ff;
   font-size: 16px;
   font-family: "Gotham Bold";
 }
 
 @media (min-width: 1024px) {
-  .page main .portfolio-item .portfolio-text .portfolio-des {
+  .page .main .portfolio-item .portfolio-text .portfolio-des {
     font-size: 14px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page main .portfolio-item .portfolio-text .portfolio-des {
+  .page .main .portfolio-item .portfolio-text .portfolio-des {
     font-size: 16px;
   }
 }
 
-.page main .review-item {
+.page .main .review-item {
   padding: 30px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   margin-right: 1rem;
   border-radius: 5px;
 }
 
-.page main .review-item .review-avatar {
+.page .main .review-item .review-avatar {
   position: relative;
   padding-bottom: 15px;
 }
 
-.page main .review-item .review-avatar img {
+.page .main .review-item .review-avatar img {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -1094,7 +1096,7 @@ body {
   display: block;
 }
 
-.page main .review-item .review-avatar .icon-quote-right {
+.page .main .review-item .review-avatar .icon-quote-right {
   border: 1px solid #202c5a;
   background: #070e29;
   border-radius: 50%;
@@ -1105,13 +1107,13 @@ body {
   right: 80px;
 }
 
-.page main .review-item .review-avatar .icon-quote-right i {
+.page .main .review-item .review-avatar .icon-quote-right i {
   margin-left: 3px;
   margin-top: 6px;
   color: #7436e9;
 }
 
-.page main .review-item .review-text-section {
+.page .main .review-item .review-text-section {
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -1119,16 +1121,16 @@ body {
   justify-content: center;
 }
 
-.page main .review-item .review-text-section p {
+.page .main .review-item .review-text-section p {
   color: #9aa2bf;
 }
 
-.page main .review-item .review-text-section p.name {
+.page .main .review-item .review-text-section p.name {
   color: #7436e9;
   font-family: "Gotham Bold";
 }
 
-.page main .review-item .review-text-section h3 {
+.page .main .review-item .review-text-section h3 {
   overflow: hidden;
   text-overflow: ellipsis;
   width: 100%;
@@ -1140,7 +1142,7 @@ body {
   color: #fff;
 }
 
-.page main .review-item .review-text-section hr {
+.page .main .review-item .review-text-section hr {
   width: 115px;
   margin-bottom: 20px;
   margin-top: 20px;
@@ -1148,33 +1150,33 @@ body {
 }
 
 @media (min-width: 1366px) {
-  .page main .review-item {
+  .page .main .review-item {
     padding: 20px 40px 30px 40px;
   }
 }
 
-.page main .alice-carousel .alice-carousel__dots {
+.page .main .alice-carousel .alice-carousel__dots {
   text-align: left !important;
 }
 
-.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item {
+.page .main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item {
   background-color: #fff !important;
 }
 
-.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item:hover,
-.page main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item.__active {
+.page .main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item:hover,
+.page .main .alice-carousel .alice-carousel__dots .alice-carousel__dots-item.__active {
   background-color: #7436e9 !important;
 }
 
-.page main .alice-carousel .alice-carousel__prev-btn {
+.page .main .alice-carousel .alice-carousel__prev-btn {
   display: none;
 }
 
-.page main .alice-carousel .alice-carousel__next-btn {
+.page .main .alice-carousel .alice-carousel__next-btn {
   display: none;
 }
 
-.page main .news-item {
+.page .main .news-item {
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   height: 100%;
   display: flex;
@@ -1188,20 +1190,20 @@ body {
   margin-right: 1rem;
 }
 
-.page main .news-item:hover {
+.page .main .news-item:hover {
   border-bottom: 2px solid #7436e9;
 }
 
-.page main .news-item:hover .news-content .news-icon-arrow {
+.page .main .news-item:hover .news-content .news-icon-arrow {
   display: inline;
 }
 
-.page main .news-item .figure img {
+.page .main .news-item .figure img {
   width: 100%;
   max-height: 161px;
 }
 
-.page main .news-item .news-content {
+.page .main .news-item .news-content {
   padding: 30px 20px 20px 20px;
   align-items: center;
   justify-content: flex-end;
@@ -1214,79 +1216,79 @@ body {
   flex: 1;
 }
 
-.page main .news-item .news-content p {
+.page .main .news-item .news-content p {
   font-size: 14px;
   text-align: left;
 }
 
-.page main .news-item .news-content p.title {
+.page .main .news-item .news-content p.title {
   font-weight: bold;
   font-family: "Gotham Bold";
   font-size: 18px;
   margin: 0;
 }
 
-.page main .news-item .news-content p.category {
+.page .main .news-item .news-content p.category {
   color: #fff;
   margin-top: 15px;
 }
 
-.page main .news-item .news-content p.normal {
+.page .main .news-item .news-content p.normal {
   color: #9aa2bf;
 }
 
 @media (min-width: 1280px) {
-  .page main .news-item .news-content p.title {
+  .page .main .news-item .news-content p.title {
     font-size: 14px;
   }
 
-  .page main .news-item .news-content p.category {
+  .page .main .news-item .news-content p.category {
     font-size: 12px;
   }
 
-  .page main .news-item .news-content p.normal {
+  .page .main .news-item .news-content p.normal {
     font-size: 12px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .news-item .news-content p.title {
+  .page .main .news-item .news-content p.title {
     font-size: 20px;
   }
 
-  .page main .news-item .news-content p.category {
+  .page .main .news-item .news-content p.category {
     font-size: 14px;
   }
 
-  .page main .news-item .news-content p.normal {
+  .page .main .news-item .news-content p.normal {
     font-size: 16px;
   }
 }
 
-.page main .news-item .news-content .news-icon-arrow {
+.page .main .news-item .news-content .news-icon-arrow {
   display: none;
   position: absolute;
   right: 20px;
   bottom: 20px;
 }
 
-.page main .news-item .news-content .news-icon-arrow i {
+.page .main .news-item .news-content .news-icon-arrow i {
   color: #7436e9;
 }
 
 @media (min-width: 1280px) {
-  .page main .news-item {
+  .page .main .news-item {
     height: 300px;
   }
 }
 
 @media (min-width: 1920px) {
-  .page main .news-item {
+  .page .main .news-item {
     height: 340px;
   }
 }
 
-.page main .guide-card {
+.page .main .guide-card {
   padding: 40px 20px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   height: 100%;
@@ -1297,79 +1299,79 @@ body {
   border-bottom: 2px solid #03051c;
 }
 
-.page main .guide-card.service {
+.page .main .guide-card.service {
   padding: 20px;
 }
 
-.page main .guide-card .avatar {
+.page .main .guide-card .avatar {
   display: inline-block;
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
 }
 
-.page main .guide-card .avatar img {
+.page .main .guide-card .avatar img {
   width: 100%;
   height: auto;
 }
 
-.page main .guide-card .avatar.service_web {
+.page .main .guide-card .avatar.service_web {
   width: 80px;
   height: 80px;
 }
 
-.page main .guide-card .avatar.service_mobile {
+.page .main .guide-card .avatar.service_mobile {
   widows: 60px;
   height: 80px;
 }
 
-.page main .guide-card .title {
+.page .main .guide-card .title {
   display: flex;
   align-items: flex-end;
   flex: 1;
   text-align: center;
 }
 
-.page main .guide-card .title h3 {
+.page .main .guide-card .title h3 {
   white-space: pre-wrap;
   color: #fff;
 }
 
-.page main .guide-card .description {
+.page .main .guide-card .description {
   padding-top: 5px;
   text-align: center;
 }
 
-.page main .guide-card .description p {
+.page .main .guide-card .description p {
   white-space: pre-wrap;
   color: #9da6c7;
 }
 
 @media (min-width: 375px) {
-  .page main .guide-card {
+  .page .main .guide-card {
     padding: 30px 60px;
   }
 }
 
 @media (min-width: 414px) {
-  .page main .guide-card {
+  .page .main .guide-card {
     padding: 30px 70px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page main .guide-card {
+  .page .main .guide-card {
     padding: 20px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .guide-card {
+  .page .main .guide-card {
     padding: 30px 20px;
   }
 }
 
-.page main .text-card {
+.page .main .text-card {
   padding: 40px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   height: 100%;
@@ -1379,30 +1381,30 @@ body {
   align-items: center;
 }
 
-.page main .text-card .title {
+.page .main .text-card .title {
   display: flex;
   align-items: flex-end;
   flex: 1;
 }
 
-.page main .text-card .title h3 {
+.page .main .text-card .title h3 {
   font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
 
 @media (min-width: 1280px) {
-  .page main .text-card .title h3 {
+  .page .main .text-card .title h3 {
     font-size: 26px;
   }
 }
 
-.page main .text-card .description {
+.page .main .text-card .description {
   padding-top: 5px;
   text-align: center;
 }
 
-.page main .text-card .description p {
+.page .main .text-card .description p {
   font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
@@ -1410,24 +1412,24 @@ body {
 }
 
 @media (min-width: 320px) {
-  .page main .text-card {
+  .page .main .text-card {
     padding: 30px;
   }
 }
 
 @media (min-width: 375px) {
-  .page main .text-card {
+  .page .main .text-card {
     padding: 40px;
   }
 }
 
 @media (min-width: 414px) {
-  .page main .text-card {
+  .page .main .text-card {
     padding: 60px;
   }
 }
 
-.page main .headquater-card {
+.page .main .headquater-card {
   padding: 60px 25px;
   background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
   height: 100%;
@@ -1437,107 +1439,107 @@ body {
   align-items: center;
 }
 
-.page main .headquater-card .avatar {
+.page .main .headquater-card .avatar {
   display: inline-block;
   width: 50px;
   height: 50px;
   margin-bottom: 20px;
 }
 
-.page main .headquater-card .avatar img {
+.page .main .headquater-card .avatar img {
   width: 50px;
   height: 50px;
 }
 
-.page main .headquater-card .title {
+.page .main .headquater-card .title {
   display: flex;
   align-items: flex-end;
   flex: 1;
 }
 
-.page main .headquater-card .title h3 {
+.page .main .headquater-card .title h3 {
   font-family: "Gotham Bold";
   white-space: pre-wrap;
   color: #fff;
 }
 
-.page main .headquater-card .description {
+.page .main .headquater-card .description {
   padding-top: 5px;
   padding-bottom: 25px;
   text-align: center;
 }
 
-.page main .headquater-card .description p {
+.page .main .headquater-card .description p {
   font-family: "Gotham Book";
   white-space: pre-wrap;
   color: #9da6c7;
   font-weight: 100;
 }
 
-.page main .headquater-card .headquater-button {
+.page .main .headquater-card .headquater-button {
   text-decoration: none;
   padding: 10px 18px;
 }
 
 @media (min-width: 320px) {
-  .page main .headquater-card {
+  .page .main .headquater-card {
     padding-left: 40px;
     padding-right: 40px;
   }
 }
 
 @media (min-width: 375px) {
-  .page main .headquater-card {
+  .page .main .headquater-card {
     padding-left: 70px;
     padding-right: 70px;
   }
 }
 
 @media (min-width: 1280px) {
-  .page main .headquater-card {
+  .page .main .headquater-card {
     padding: 50px 30px;
   }
 
-  .page main .headquater-card .headquater-button {
+  .page .main .headquater-card .headquater-button {
     padding: 10px 11px;
   }
 }
 
 @media (min-width: 1366px) {
-  .page main .headquater-card .headquater-button {
+  .page .main .headquater-card .headquater-button {
     padding: 10px 18px;
   }
 }
 
-.page main .home-page {
+.page .main .home-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .home-page .homepage-header {
+.page .main .home-page .homepage-header {
   min-height: 550px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .home-page .homepage-header .homepage-header-description {
+.page .main .home-page .homepage-header .homepage-header-description {
   display: inline-block;
   margin-top: 60px;
   width: 100%;
   color: #fff;
 }
 
-.page main .home-page .homepage-header .homepage-header-description .normal {
+.page .main .home-page .homepage-header .homepage-header-description .normal {
   color: #9aa2bf;
 }
 
-.page main .home-page .homepage-header .homepage-header-description h1 {
+.page .main .home-page .homepage-header .homepage-header-description h1 {
   padding: 0;
   margin: 0;
 }
 
-.page main .home-page .homepage-header .homepage-header-description .title {
+.page .main .home-page .homepage-header .homepage-header-description .title {
   margin: 0;
   padding: 0;
   font-size: 18px;
@@ -1545,37 +1547,37 @@ body {
   font-family: "Gotham Bold";
 }
 
-.page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+.page .main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
   padding: 15px 60px 15px 60px;
   margin-bottom: 1em;
 }
 
-.page main .home-page .home-section {
+.page .main .home-page .home-section {
   color: #fff;
   margin-top: 110px;
 }
 
-.page main .home-page .home-section a {
+.page .main .home-page .home-section a {
   text-decoration: none;
 }
 
-.page main .home-page .home-section .service-item-observer {
+.page .main .home-page .home-section .service-item-observer {
   height: 100%;
 }
 
-.page main .home-page .home-section .home-review {
+.page .main .home-page .home-section .home-review {
   margin-bottom: 20px;
 }
 
-.page main .home-page .home-section .home-review p {
+.page .main .home-page .home-section .home-review p {
   color: #9aa2bf;
 }
 
-.page main .home-page .home-section .alice-carousel {
+.page .main .home-page .home-section .alice-carousel {
   margin-left: 167px;
 }
 
-.page main .home-page .home-section .alice-carousel_prev_btn {
+.page .main .home-page .home-section .alice-carousel_prev_btn {
   position: absolute;
   top: 135px;
   left: 110px;
@@ -1586,12 +1588,12 @@ body {
   cursor: pointer;
 }
 
-.page main .home-page .home-section .alice-carousel_prev_btn i {
+.page .main .home-page .home-section .alice-carousel_prev_btn i {
   color: #7436e9;
   padding-left: 3px;
 }
 
-.page main .home-page .home-section .alice-carousel_next_btn {
+.page .main .home-page .home-section .alice-carousel_next_btn {
   position: absolute;
   top: 175px;
   left: 110px;
@@ -1602,162 +1604,162 @@ body {
   cursor: pointer;
 }
 
-.page main .home-page .home-section .alice-carousel_next_btn i {
+.page .main .home-page .home-section .alice-carousel_next_btn i {
   color: #7436e9;
   padding-left: 3px;
 }
 
-.page main .home-page .home-estimation {
+.page .main .home-page .home-estimation {
   color: #fff;
   margin-top: 200px;
 }
 
-.page main .home-page .home-estimation .home-estimation-description {
+.page .main .home-page .home-estimation .home-estimation-description {
   margin-bottom: 40px;
 }
 
-.page main .home-page .home-estimation .home-estimation-description h3 {
+.page .main .home-page .home-estimation .home-estimation-description h3 {
   margin: 0;
 }
 
-.page main .home-page .home-estimation .home-estimation-description p {
+.page .main .home-page .home-estimation .home-estimation-description p {
   padding: 0;
   color: #9aa2bf;
 }
 
-.page main .home-page .home-estimation .home-button-group {
+.page .main .home-page .home-estimation .home-button-group {
   margin-top: 40px;
 }
 
-.page main .home-page .home-estimation .home-button-group .button {
+.page .main .home-page .home-estimation .home-button-group .button {
   padding-left: 40px;
   padding-right: 40px;
 }
 
-.page main .portfolio-page {
+.page .main .portfolio-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .portfolio-page .portfolio-header {
+.page .main .portfolio-page .portfolio-header {
   min-height: 550px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient {
+.page .main .portfolio-page .portfolio-header .header-gradient {
   width: 100%;
   height: 550px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
   text-align: center;
   color: #fff;
   padding: 100px 150px 100px 150px;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
   padding-bottom: 50px;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
   color: #9da6c7;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
   padding-left: 30px;
   padding-right: 30px;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
   width: 50px;
   height: 50px;
 }
 
-.page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+.page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
   font-family: "Gotham Bold";
 }
 
-.page main .portfolio-page .portfolio-studios {
+.page .main .portfolio-page .portfolio-studios {
   text-align: center;
   color: #fff;
   margin-top: -50px;
 }
 
-.page main .singlePortfolio-page {
+.page .main .singlePortfolio-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header {
+.page .main .singlePortfolio-page .singlePortfolio-header {
   min-height: 550px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient {
   width: 100%;
   height: 610px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
   padding-bottom: 40px;
   padding-top: 60px;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
   padding-bottom: 50px;
   padding-left: 100px;
   padding-right: 100px;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
   color: #9da6c7;
   font-size: 18px;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
   padding-left: 100px;
   padding-right: 100px;
   position: relative;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
   width: 100%;
 }
 
-.page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+.page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
   width: 130px;
   position: absolute;
   bottom: -20px;
   right: 0;
 }
 
-.page main .singlePortfolio-page .portfolio-section {
+.page .main .singlePortfolio-page .portfolio-section {
   margin-top: 60px;
   text-align: center;
   color: #fff;
   position: relative;
 }
 
-.page main .singlePortfolio-page .portfolio-section.review {
+.page .main .singlePortfolio-page .portfolio-section.review {
   height: 130px;
   margin-top: 120px;
 }
 
-.page main .singlePortfolio-page .portfolio-section.review .review-item {
+.page .main .singlePortfolio-page .portfolio-section.review .review-item {
   position: absolute;
   width: 280px;
   top: -100px;
@@ -1765,51 +1767,51 @@ body {
   padding: 30px 20px 40px 20px;
 }
 
-.page main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section h3 {
+.page .main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section h3 {
   color: #5771d6;
   padding-bottom: 10px;
 }
 
-.page main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
+.page .main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
   font-family: "Gotham Bold";
 }
 
-.page main .singlePortfolio-page .portfolio-section.review .review-item .review-personal p {
+.page .main .singlePortfolio-page .portfolio-section.review .review-item .review-personal p {
   font-size: 12px;
 }
 
-.page main .singlePortfolio-page .portfolio-section.review .review-item .review-personal .name {
+.page .main .singlePortfolio-page .portfolio-section.review .review-item .review-personal .name {
   color: #7436e9;
   font-family: "Gotham Bold";
 }
 
-.page main .singlePortfolio-page .portfolio-section.scope {
+.page .main .singlePortfolio-page .portfolio-section.scope {
   margin-top: 200px;
 }
 
-.page main .singlePortfolio-page .portfolio-section .main_description {
+.page .main .singlePortfolio-page .portfolio-section .main_description {
   text-align: left;
 }
 
-.page main .singlePortfolio-page .portfolio-section .main_description p {
+.page .main .singlePortfolio-page .portfolio-section .main_description p {
   color: #9da6c7;
   word-wrap: break-word;
   width: 87%;
   padding-top: 0;
 }
 
-.page main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
+.page .main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
   color: #fff;
   font-family: "Gotham Bold";
 }
 
-.page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions {
+.page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions {
   display: flex;
   align-items: center;
   margin-bottom: 20px;
 }
 
-.page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+.page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
   border-radius: 50%;
   background: #070e29;
   border: 1px solid #202c5a;
@@ -1822,202 +1824,202 @@ body {
   flex: 1;
 }
 
-.page main .singlePortfolio-page .portfolio-section .subImage {
+.page .main .singlePortfolio-page .portfolio-section .subImage {
   margin-bottom: 50px;
 }
 
-.page main .singlePortfolio-page .portfolio-section .subImage img {
+.page .main .singlePortfolio-page .portfolio-section .subImage img {
   width: 100%;
 }
 
-.page main .singlePortfolio-page .portfolio-section .subImage p {
+.page .main .singlePortfolio-page .portfolio-section .subImage p {
   text-align: left;
   font-size: 12px;
 }
 
-.page main .singlePortfolio-page .portfolio-section .service {
+.page .main .singlePortfolio-page .portfolio-section .service {
   padding-left: 100px;
   padding-right: 100px;
 }
 
-.page main .singlePortfolio-page .portfolio-section .service-item-observer {
+.page .main .singlePortfolio-page .portfolio-section .service-item-observer {
   height: 100%;
 }
 
-.page main .singlePortfolio-page .alert-notice {
+.page .main .singlePortfolio-page .alert-notice {
   text-align: center;
   padding-top: 270px;
 }
 
-.page main .about-page {
+.page .main .about-page {
   min-height: 100vh;
   background: #03051b;
   color: #fff;
 }
 
-.page main .about-page .about-header {
+.page .main .about-page .about-header {
   min-height: 550px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .about-page .about-header .header-gradient {
+.page .main .about-page .about-header .header-gradient {
   width: 100%;
   height: 650px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
-.page main .about-page .about-header .header-gradient .header-description {
+.page .main .about-page .about-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
   padding-top: 150px;
   padding-bottom: 150px;
 }
 
-.page main .about-page .about-header .header-gradient .header-description .header-text {
+.page .main .about-page .about-header .header-gradient .header-description .header-text {
   padding-bottom: 50px;
   padding-left: 10px;
   padding-right: 10px;
 }
 
-.page main .about-page .about-header .header-gradient .header-description .header-text p {
+.page .main .about-page .about-header .header-gradient .header-description .header-text p {
   color: #9da6c7;
 }
 
-.page main .about-page .about-header .header-gradient .header-description .counter-box {
+.page .main .about-page .about-header .header-gradient .header-description .counter-box {
   display: flex;
   justify-content: space-between;
 }
 
-.page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
+.page .main .about-page .about-header .header-gradient .header-description .counter-box .box p {
   color: #9da6c7;
 }
 
-.page main .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
+.page .main .about-page .about-header .header-gradient .guide-tags .guide-card-observer {
   height: 100%;
 }
 
-.page main .about-page .about-section {
+.page .main .about-page .about-section {
   padding-top: 200px;
   text-align: center;
 }
 
-.page main .about-page .about-section.headquarter p {
+.page .main .about-page .about-section.headquarter p {
   color: #9da6c7;
 }
 
-.page main .about-page .about-section.headquarter .headquater-item {
+.page .main .about-page .about-section.headquarter .headquater-item {
   padding-top: 200px;
 }
 
-.page main .about-page .about-section.headquarter .headquater-item h3 {
+.page .main .about-page .about-section.headquarter .headquater-item h3 {
   color: #fff;
 }
 
-.page main .about-page .about-section.headquarter .headquater-item p {
+.page .main .about-page .about-section.headquarter .headquater-item p {
   color: #9da6c7;
   font-size: 16px;
   font-family: "Gotham Book";
 }
 
-.page main .about-page .about-section .text-card-observer {
+.page .main .about-page .about-section .text-card-observer {
   margin-top: 20px;
 }
 
-.page main .about-page .about-section .service-item-observer {
+.page .main .about-page .about-section .service-item-observer {
   height: 100%;
   margin-top: 20px;
 }
 
-.page main .features-page {
+.page .main .features-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .blog-page {
+.page .main .blog-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .contact-page {
+.page .main .contact-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .contact-page .contact-header {
+.page .main .contact-page .contact-header {
   min-height: 885px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .contact-page .contact-header .header-gradient {
+.page .main .contact-page .contact-header .header-gradient {
   width: 100%;
   height: 885px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
-.page main .contact-page .contact-header .header-gradient .header-description {
+.page .main .contact-page .contact-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
   padding-top: 150px;
   padding-bottom: 45px;
 }
 
-.page main .contact-page .contact-header .header-gradient .header-description .header-text {
+.page .main .contact-page .contact-header .header-gradient .header-description .header-text {
   padding-bottom: 50px;
   padding-left: 200px;
   padding-right: 200px;
 }
 
-.page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
+.page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
   color: #9da6c7;
   font-size: 18px;
   font-family: "Gotham Book";
 }
 
-.page main .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
+.page .main .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
   padding-left: 0;
 }
 
-.page main .contact-page .contact-header .header-gradient .custom-row .custom-column:last-child {
+.page .main .contact-page .contact-header .header-gradient .custom-row .custom-column:last-child {
   padding-right: 0;
 }
 
-.page main .contact-page .contact-section {
+.page .main .contact-page .contact-section {
   margin-top: -100px;
 }
 
-.page main .contact-page .contact-section .message-form {
+.page .main .contact-page .contact-section .message-form {
   background: linear-gradient(to bottom, #09133a 0%, #070e29 100%);
   padding: 20px;
   border-radius: 5px;
 }
 
-.page main .contact-page .contact-section .message-form .form-group {
+.page .main .contact-page .contact-section .message-form .form-group {
   display: flex;
   justify-content: space-between;
   position: relative;
   flex-direction: row;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .field {
+.page .main .contact-page .contact-section .message-form .form-group .field {
   flex: 1;
   margin-left: 20px;
   margin-right: 20px;
   margin-bottom: 25px;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .field:first-child {
+.page .main .contact-page .contact-section .message-form .form-group .field:first-child {
   margin-left: 0;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .field:last-child {
+.page .main .contact-page .contact-section .message-form .form-group .field:last-child {
   margin-right: 0;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form {
   text-align: left;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -2025,16 +2027,16 @@ body {
   flex: 1;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form svg {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form svg {
   color: #8341ff;
   width: 20px;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
   border-color: #94d544 !important;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2046,62 +2048,62 @@ body {
   padding-bottom: 20px;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:hover {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:hover {
   border-color: #465489 !important;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:focus,
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:active {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:focus,
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:active {
   border-color: #8341ff !important;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form input:focus::-webkit-input-placeholder {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form input:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
   font-family: "Gotham Bold";
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__input--invalid {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__input--invalid {
   border-color: #e71f1f;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
+.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
   margin-left: 1.3em;
 }
 
-.page main .contact-page .contact-section .message-form .form-group .custom-error {
+.page .main .contact-page .contact-section .message-form .form-group .custom-error {
   position: absolute;
   bottom: -10px;
   padding: 0;
   font-family: "Gotham Bold";
 }
 
-.page main .contact-page .contact-section .message-form label {
+.page .main .contact-page .contact-section .message-form label {
   color: #656c8b !important;
   font-family: "Gotham Bold";
   font-size: 16px;
 }
 
-.page main .contact-page .contact-section .message-form .field.error label:after {
+.page .main .contact-page .contact-section .message-form .field.error label:after {
   content: "*";
   color: #e71f1f;
   padding-left: 3px;
 }
 
-.page main .contact-page .contact-section .message-form .field.error input,
-.page main .contact-page .contact-section .message-form .field.error textarea {
+.page .main .contact-page .contact-section .message-form .field.error input,
+.page .main .contact-page .contact-section .message-form .field.error textarea {
   border-color: #a71f1f !important;
 }
 
-.page main .contact-page .contact-section .message-form .field label {
+.page .main .contact-page .contact-section .message-form .field label {
   text-align: left;
   padding-bottom: 10px;
   font-family: "Gotham Bold";
 }
 
-.page main .contact-page .contact-section .message-form .field input {
+.page .main .contact-page .contact-section .message-form .field input {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2110,24 +2112,24 @@ body {
   color: #fff;
 }
 
-.page main .contact-page .contact-section .message-form .field input.success {
+.page .main .contact-page .contact-section .message-form .field input.success {
   border-color: #94d544 !important;
 }
 
-.page main .contact-page .contact-section .message-form .field input:hover {
+.page .main .contact-page .contact-section .message-form .field input:hover {
   border-color: #465489 !important;
 }
 
-.page main .contact-page .contact-section .message-form .field input:focus,
-.page main .contact-page .contact-section .message-form .field input:active {
+.page .main .contact-page .contact-section .message-form .field input:focus,
+.page .main .contact-page .contact-section .message-form .field input:active {
   border-color: #8341ff !important;
 }
 
-.page main .contact-page .contact-section .message-form .field input:focus::-webkit-input-placeholder {
+.page .main .contact-page .contact-section .message-form .field input:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page main .contact-page .contact-section .message-form .field textarea {
+.page .main .contact-page .contact-section .message-form .field textarea {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2136,24 +2138,24 @@ body {
   font-family: "Gotham Bold";
 }
 
-.page main .contact-page .contact-section .message-form .field textarea.success {
+.page .main .contact-page .contact-section .message-form .field textarea.success {
   border-color: #94d544 !important;
 }
 
-.page main .contact-page .contact-section .message-form .field textarea:hover {
+.page .main .contact-page .contact-section .message-form .field textarea:hover {
   border-color: #465489 !important;
 }
 
-.page main .contact-page .contact-section .message-form .field textarea:focus,
-.page main .contact-page .contact-section .message-form .field textarea:active {
+.page .main .contact-page .contact-section .message-form .field textarea:focus,
+.page .main .contact-page .contact-section .message-form .field textarea:active {
   border-color: #8341ff !important;
 }
 
-.page main .contact-page .contact-section .message-form .field textarea:focus::-webkit-input-placeholder {
+.page .main .contact-page .contact-section .message-form .field textarea:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section {
+.page .main .contact-page .contact-section .message-form .privacy-section {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -2163,15 +2165,15 @@ body {
   align-items: flex-start;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section.error .checkbox label:before {
+.page .main .contact-page .contact-section .message-form .privacy-section.error .checkbox label:before {
   border-color: red;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .checkbox:hover label:before {
+.page .main .contact-page .contact-section .message-form .privacy-section .checkbox:hover label:before {
   border-color: #465489 !important;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .checkbox label:before {
+.page .main .contact-page .contact-section .message-form .privacy-section .checkbox label:before {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   top: -3px;
@@ -2179,7 +2181,7 @@ body {
   height: 30px;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .checkbox label:after {
+.page .main .contact-page .contact-section .message-form .privacy-section .checkbox label:after {
   background: #8341ff !important;
   color: #fff;
   font-size: 17px;
@@ -2189,16 +2191,16 @@ body {
   padding-top: 5px;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+.page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
   margin-left: 5px;
   margin-top: -2px;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .terms-section span {
+.page .main .contact-page .contact-section .message-form .privacy-section .terms-section span {
   color: #9aa2bf !important;
 }
 
-.page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+.page .main .contact-page .contact-section .message-form .privacy-section .terms-section a {
   color: #3e75db;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2206,51 +2208,51 @@ body {
   display: inline-block;
 }
 
-.page main .contact-page .contact-section .message-form .primary-button {
+.page .main .contact-page .contact-section .message-form .primary-button {
   width: 50%;
 }
 
-.page main .service-page {
+.page .main .service-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .service-page .service-header {
+.page .main .service-page .service-header {
   min-height: 550px;
   height: auto;
   width: 100%;
   background-size: cover;
 }
 
-.page main .service-page .service-header .header-gradient {
+.page .main .service-page .service-header .header-gradient {
   width: 100%;
   height: 885px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
-.page main .service-page .service-header .header-gradient .header-description {
+.page .main .service-page .service-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
   padding-top: 150px;
 }
 
-.page main .service-page .service-header .header-gradient .header-description .header-text {
+.page .main .service-page .service-header .header-gradient .header-description .header-text {
   padding-bottom: 50px;
   padding-left: 210px;
   padding-right: 210px;
 }
 
-.page main .service-page .service-header .header-gradient .header-description .header-text p {
+.page .main .service-page .service-header .header-gradient .header-description .header-text p {
   color: #9da6c7;
 }
 
-.page main .service-page .service-header .header-gradient .figures {
+.page .main .service-page .service-header .header-gradient .figures {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.page main .service-page .service-header .header-gradient .figures .figure {
+.page .main .service-page .service-header .header-gradient .figures .figure {
   padding-left: 30px;
   padding-right: 30px;
   display: flex;
@@ -2259,44 +2261,44 @@ body {
   text-align: center;
 }
 
-.page main .service-page .service-header .header-gradient .figures .figure img {
+.page .main .service-page .service-header .header-gradient .figures .figure img {
   width: 50px;
   height: 50px;
 }
 
-.page main .service-page .service-header .header-gradient .figures .figure p {
+.page .main .service-page .service-header .header-gradient .figures .figure p {
   font-size: 18px;
   color: #fff;
   padding-top: 20px;
   font-family: "Gotham Bold";
 }
 
-.page main .service-page .service-header .header-gradient .starter-group {
+.page .main .service-page .service-header .header-gradient .starter-group {
   margin-top: 90px;
   color: #fff;
   text-align: center;
 }
 
-.page main .service-page .service-header .header-gradient .starter-group .service-item-observer {
+.page .main .service-page .service-header .header-gradient .starter-group .service-item-observer {
   height: 100%;
 }
 
-.page main .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
+.page .main .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
   left: 36px;
 }
 
-.page main .service-page .service-section {
+.page .main .service-page .service-section {
   color: #fff;
   text-align: center;
   padding-top: 50px;
   padding-bottom: 50px;
 }
 
-.page main .service-page .service-section.review {
+.page .main .service-page .service-section.review {
   min-height: 100vh;
 }
 
-.page main .service-page .service-section .service-review {
+.page .main .service-page .service-section .service-review {
   padding-top: 180px;
   display: flex;
   flex-direction: column;
@@ -2305,11 +2307,11 @@ body {
   justify-content: space-between;
 }
 
-.page main .service-page .service-section .service-review h2 {
+.page .main .service-page .service-section .service-review h2 {
   margin-top: 0;
 }
 
-.page main .service-page .service-section .service-review .avatar {
+.page .main .service-page .service-section .service-review .avatar {
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -2317,111 +2319,111 @@ body {
   margin-bottom: 10px;
 }
 
-.page main .service-page .service-section .service-review .avatar img {
+.page .main .service-page .service-section .service-review .avatar img {
   width: 100%;
   height: auto;
   border-radius: 50%;
 }
 
-.page main .service-page .service-estimation {
+.page .main .service-page .service-estimation {
   color: #fff;
   margin-top: 90px;
 }
 
-.page main .service-page .service-estimation .service-estimation-description {
+.page .main .service-page .service-estimation .service-estimation-description {
   margin-bottom: 40px;
   text-align: center;
 }
 
-.page main .service-page .service-estimation .service-estimation-description h3 {
+.page .main .service-page .service-estimation .service-estimation-description h3 {
   margin: 0;
 }
 
-.page main .service-page .service-estimation .service-estimation-description p {
+.page .main .service-page .service-estimation .service-estimation-description p {
   padding: 0;
   color: #9aa2bf;
 }
 
-.page main .privacy-page {
+.page .main .privacy-page {
   min-height: 100vh;
   background: #03051b;
 }
 
-.page main .privacy-page .privacy-section {
+.page .main .privacy-page .privacy-section {
   padding-top: 100px;
   min-height: 80vh;
 }
 
-.page main .privacy-page .privacy-section .side-nav h3 {
+.page .main .privacy-page .privacy-section .side-nav h3 {
   color: #29356e;
   font-family: "Gotham Bold";
 }
 
-.page main .privacy-page .privacy-section h1,
-.page main .privacy-page .privacy-section h2,
-.page main .privacy-page .privacy-section h3 {
+.page .main .privacy-page .privacy-section h1,
+.page .main .privacy-page .privacy-section h2,
+.page .main .privacy-page .privacy-section h3 {
   color: #fff;
 }
 
-.page main .privacy-page .privacy-section p {
+.page .main .privacy-page .privacy-section p {
   color: #9aa2bf;
 }
 
-.page main .login-page {
+.page .main .login-page {
   min-height: 120vh;
   background: #03051b;
   margin: 0 !important;
   padding: 0 !important;
 }
 
-.page main .login-page.register {
+.page .main .login-page.register {
   min-height: 150vh;
 }
 
-.page main .login-page.register .login-responsive {
+.page .main .login-page.register .login-responsive {
   max-width: 550px;
 }
 
-.page main .login-page .login-responsive {
+.page .main .login-page .login-responsive {
   max-width: 450px;
 }
 
-.page main .login-page .login-responsive .login_title {
+.page .main .login-page .login-responsive .login_title {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.page main .login-page .login-responsive .login_title h2 {
+.page .main .login-page .login-responsive .login_title h2 {
   margin: 0;
   color: #fff;
 }
 
-.page main .login-page .login-responsive .login_title h3 {
+.page .main .login-page .login-responsive .login_title h3 {
   margin: 0;
   color: #3e75db;
 }
 
-.page main .login-page .login-responsive .login-form {
+.page .main .login-page .login-responsive .login-form {
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
   padding: 20px;
   border-radius: 5px;
 }
 
-.page main .login-page .login-responsive .login-form.register {
+.page .main .login-page .login-responsive .login-form.register {
   margin-left: 50px;
   margin-right: 50px;
 }
 
-.page main .login-page .login-responsive .login-form.register input {
+.page .main .login-page .login-responsive .login-form.register input {
   color: #fff !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment {
+.page .main .login-page .login-responsive .login-form .segment {
   background: transparent;
   border: none;
 }
 
-.page main .login-page .login-responsive .login-form .segment label {
+.page .main .login-page .login-responsive .login-form .segment label {
   color: #656c8b !important;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2430,22 +2432,22 @@ body {
   padding-top: 10px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field.error label:after {
+.page .main .login-page .login-responsive .login-form .segment .field.error label:after {
   content: "*";
   color: #e71f1f;
   padding-left: 3px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field.error input {
+.page .main .login-page .login-responsive .login-form .segment .field.error input {
   border-color: #e71f1f !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field label {
+.page .main .login-page .login-responsive .login-form .segment .field label {
   text-align: left;
   padding-top: 10px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field input {
+.page .main .login-page .login-responsive .login-form .segment .field input {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2454,36 +2456,36 @@ body {
   font-family: "Gotham Bold";
 }
 
-.page main .login-page .login-responsive .login-form .segment .field input:hover {
+.page .main .login-page .login-responsive .login-form .segment .field input:hover {
   border-color: #465489 !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field input:focus,
-.page main .login-page .login-responsive .login-form .segment .field input:active {
+.page .main .login-page .login-responsive .login-form .segment .field input:focus,
+.page .main .login-page .login-responsive .login-form .segment .field input:active {
   border-color: #8341ff !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .field input:focus::-webkit-input-placeholder {
+.page .main .login-page .login-responsive .login-form .segment .field input:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page main .login-page .login-responsive .login-form .segment .custom-error {
+.page .main .login-page .login-responsive .login-form .segment .custom-error {
   text-align: left;
   font-family: "Gotham Bold";
 }
 
-.page main .login-page .login-responsive .login-form .segment .remember-section {
+.page .main .login-page .login-responsive .login-form .segment .remember-section {
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
 }
 
-.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox:hover label:before {
+.page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox:hover label:before {
   border-color: #465489 !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:before {
+.page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:before {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   top: -3px;
@@ -2491,7 +2493,7 @@ body {
   height: 30px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:after {
+.page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox label:after {
   background: #8341ff !important;
   color: #fff;
   font-size: 17px;
@@ -2501,7 +2503,7 @@ body {
   padding-top: 5px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .remember-section a {
+.page .main .login-page .login-responsive .login-form .segment .remember-section a {
   color: #3e75db;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2509,7 +2511,7 @@ body {
   padding-top: 7px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section {
   padding-top: 10px;
   padding-bottom: 10px;
   margin-top: 10px;
@@ -2519,11 +2521,11 @@ body {
   align-items: flex-start;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox:hover label:before {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox:hover label:before {
   border-color: #465489 !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:before {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:before {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   top: -3px;
@@ -2531,7 +2533,7 @@ body {
   height: 30px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:after {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label:after {
   background: #8341ff !important;
   color: #fff;
   font-size: 17px;
@@ -2541,15 +2543,15 @@ body {
   padding-top: 5px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
   margin-left: 30px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section span {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section span {
   color: #656c8b !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
+.page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
   color: #3e75db;
   font-weight: bold;
   font-family: "Gotham Bold";
@@ -2557,7 +2559,7 @@ body {
   display: inline-block;
 }
 
-.page main .login-page .login-responsive .login-form .segment .google-button {
+.page .main .login-page .login-responsive .login-form .segment .google-button {
   width: 100%;
   margin-top: 10px;
   color: #363b52;
@@ -2570,24 +2572,24 @@ body {
   padding-left: 32px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .google-button img {
+.page .main .login-page .login-responsive .login-form .segment .google-button img {
   width: 20px;
   position: absolute;
   left: 30px;
   margin-top: -3px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form {
+.page .main .login-page .login-responsive .login-form .segment .phone-form {
   text-align: left;
   margin-bottom: 10px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form svg {
+.page .main .login-page .login-responsive .login-form .segment .phone-form svg {
   color: #8341ff;
   width: 20px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2597,48 +2599,48 @@ body {
   padding-bottom: 20px;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:hover {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:hover {
   border-color: #465489 !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:focus,
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:active {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:focus,
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone:active {
   border-color: #8341ff !important;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form input:focus::-webkit-input-placeholder {
+.page .main .login-page .login-responsive .login-form .segment .phone-form input:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__error {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__error {
   font-family: "Gotham Bold";
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__input--invalid {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__input--invalid {
   border-color: #e71f1f;
 }
 
-.page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__country-select-arrow {
+.page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__country-select-arrow {
   margin-left: 1.3em;
 }
 
-.page main .admin-pages {
+.page .main .admin-pages {
   min-height: 110vh;
 }
 
-.page main .admin-pages .list .item {
+.page .main .admin-pages .list .item {
   text-decoration: none;
 }
 
-.page main .admin-pages .list .item i {
+.page .main .admin-pages .list .item i {
   color: rgba(255, 255, 255, 0.4);
 }
 
-.page main .admin-pages .list .item:hover i {
+.page .main .admin-pages .list .item:hover i {
   color: rgba(255, 255, 255, 0.4);
 }
 
-.page main .admin-pages .list .item .content p {
+.page .main .admin-pages .list .item .content p {
   cursor: pointer;
   color: #4183C4 !important;
   text-align: left;
@@ -2649,110 +2651,110 @@ body {
   padding: 0;
 }
 
-.page main .admin-pages .list .item .content .description {
+.page .main .admin-pages .list .item .content .description {
   color: #bebebe;
   text-align: left;
 }
 
-.page main .admin-page {
+.page .main .admin-page {
   min-height: 110vh;
   padding-left: 30px;
 }
 
-.page main .admin-page.home {
+.page .main .admin-page.home {
   min-height: 150vh;
 }
 
-.page main .admin-page.home .ui.card textarea {
+.page .main .admin-page.home .ui.card textarea {
   min-height: 150px;
 }
 
-.page main .admin-page .ui.card {
+.page .main .admin-page .ui.card {
   width: 100%;
 }
 
-.page main .admin-page .ui.card .header {
+.page .main .admin-page .ui.card .header {
   font-size: 20px;
 }
 
-.page main .admin-page .ui.card label,
-.page main .admin-page .ui.card a {
+.page .main .admin-page .ui.card label,
+.page .main .admin-page .ui.card a {
   font-size: 16px;
 }
 
-.page main .admin-page .ui.card input,
-.page main .admin-page .ui.card .rc-collapse-header,
-.page main .admin-page .ui.card textarea {
+.page .main .admin-page .ui.card input,
+.page .main .admin-page .ui.card .rc-collapse-header,
+.page .main .admin-page .ui.card textarea {
   font-size: 14px;
 }
 
-.page main .admin-page .ui.card .content {
+.page .main .admin-page .ui.card .content {
   text-align: left;
 }
 
-.page main .admin-page .ui.card .content .flex-form {
+.page .main .admin-page .ui.card .content .flex-form {
   display: flex;
   justify-content: space-between;
   flex-direction: row;
 }
 
-.page main .admin-page .ui.card .content .flex-form .input-form {
+.page .main .admin-page .ui.card .content .flex-form .input-form {
   flex: 1;
   margin-right: 10px;
 }
 
-.page main .admin-page .ui.card .content .flex-form .flex-item {
+.page .main .admin-page .ui.card .content .flex-form .flex-item {
   margin-top: 5px;
 }
 
-.page main .admin-page .ui.card .content .admin-form-group {
+.page .main .admin-page .ui.card .content .admin-form-group {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.page main .admin-page .ui.card .content input {
+.page .main .admin-page .ui.card .content input {
   margin-bottom: 10px;
 }
 
-.page main .admin-page .ui.card .content textarea {
+.page .main .admin-page .ui.card .content textarea {
   min-height: 110px;
   margin-bottom: 10px;
 }
 
-.page main .admin-page .ui.card .content .save-btn {
+.page .main .admin-page .ui.card .content .save-btn {
   width: 100%;
 }
 
-.page main .admin-page .ui.card .content .delete-btn {
+.page .main .admin-page .ui.card .content .delete-btn {
   height: 42px;
   width: 150px;
   margin-top: 28px;
 }
 
-.page main .admin-page .ui.card .content a.save-btn {
+.page .main .admin-page .ui.card .content a.save-btn {
   padding-top: 10px;
 }
 
-.page main .page-loader {
+.page .main .page-loader {
   min-height: 100vh;
   background-color: #03051b;
 }
 
-.page main .page-loader .ui.inverted.dimmer {
+.page .main .page-loader .ui.inverted.dimmer {
   background-color: #03051b;
 }
 
-.page main .page-loader .ui.inverted.dimmer .loader {
+.page .main .page-loader .ui.inverted.dimmer .loader {
   color: #fff;
 }
 
-.page main .side-nav {
+.page .main .side-nav {
   display: flex !important;
   flex-direction: column;
 }
 
-.page main .side-nav a {
+.page .main .side-nav a {
   text-decoration: none;
   cursor: pointer;
   color: #9aa2bf;
@@ -2761,17 +2763,17 @@ body {
   font-size: 16px;
 }
 
-.page main .side-nav a i {
+.page .main .side-nav a i {
   float: right;
   color: #fff;
   border: none;
 }
 
-.page main .side-nav a:hover {
+.page .main .side-nav a:hover {
   color: #fff;
 }
 
-.page main .side-nav a.active {
+.page .main .side-nav a.active {
   color: #fff;
 }
 
@@ -3004,11 +3006,11 @@ body {
     font-family: "Gotham Book";
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 34px;
   }
 
-  .page main .main-footer {
+  .page .main .main-footer {
     min-height: 290px;
     height: 290px;
     width: 100%;
@@ -3019,20 +3021,20 @@ body {
     margin-top: 250px;
   }
 
-  .page main .main-footer .main-footer-description {
+  .page .main .main-footer .main-footer-description {
     width: 100%;
     margin-top: -220px;
   }
 
-  .page main .main-footer .main-footer-description h3 {
+  .page .main .main-footer .main-footer-description h3 {
     font-size: 22px;
   }
 
-  .page main .main-footer .main-footer-description .primary-button {
+  .page .main .main-footer .main-footer-description .primary-button {
     padding: 15px 60px;
   }
 
-  .page main .home-page .homepage-header {
+  .page .main .home-page .homepage-header {
     min-height: 250px;
     height: 250px;
     width: 100%;
@@ -3043,58 +3045,58 @@ body {
     background-image: url(/images/home-header-mobile.png);
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 240px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description .title {
+  .page .main .home-page .homepage-header .homepage-header-description .title {
     font-size: 18px;
   }
 
-  .page main .home-page .home-section {
+  .page .main .home-page .home-section {
     margin-top: 200px;
   }
 
-  .page main .home-page .home-section .alice-carousel {
+  .page .main .home-page .home-section .alice-carousel {
     margin-left: 0;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 100% !important;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__dots {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__dots {
     text-align: center !important;
   }
 
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
+  .page .main .home-page .home-section .alice-carousel_prev_btn,
+  .page .main .home-page .home-section .alice-carousel_next_btn {
     display: none;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     top: 30px;
     right: 60px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 5px;
     margin-top: 8px;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button {
+  .page .main .home-page .home-estimation .home-button-group .button {
     width: 100%;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+  .page .main .home-page .home-estimation .home-button-group .button.primary-button {
     margin-bottom: 20px;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
+  .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 650px;
   }
 
-  .page main .portfolio-page .portfolio-header {
+  .page .main .portfolio-page .portfolio-header {
     min-height: 290px;
     height: 290px;
     width: 100%;
@@ -3104,93 +3106,93 @@ body {
     background-repeat: no-repeat;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient {
+  .page .main .portfolio-page .portfolio-header .header-gradient {
     height: 300px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
     padding: 50px 0px 0px 0px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text {
     padding-bottom: 40px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 10px 0px 10px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure {
     padding: 0px 10px 0px 10px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure img {
     width: 40px;
     height: auto;
   }
 
-  .page main .portfolio-page .portfolio-studios {
+  .page .main .portfolio-page .portfolio-studios {
     margin-top: 110px;
     margin-bottom: 150px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header {
+  .page .main .singlePortfolio-page .singlePortfolio-header {
     min-height: 370px;
     height: 370px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient {
     height: 400px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
     padding: 50px 0px 0px 0px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 0px;
     padding-left: 0px;
     padding-right: 0px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
     padding-left: 0px;
     padding-right: 0px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
     width: 85%;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
     width: 50px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 260px;
     left: 30px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
     margin-top: 100px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions .round_number {
     height: 30px;
     padding-left: 0;
     padding-top: 5px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 84%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .service {
+  .page .main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .page main .about-page .about-header {
+  .page .main .about-page .about-header {
     min-height: 290px;
     height: 290px;
     width: 100%;
@@ -3200,64 +3202,64 @@ body {
     background-repeat: no-repeat;
   }
 
-  .page main .about-page .about-header .header-gradient {
+  .page .main .about-page .about-header .header-gradient {
     height: 300px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description {
+  .page .main .about-page .about-header .header-gradient .header-description {
     padding-bottom: 25px;
     padding: 50px 0px 0px 0px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text {
+  .page .main .about-page .about-header .header-gradient .header-description .header-text {
     padding-bottom: 150px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box {
     flex-direction: column;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box {
     margin-bottom: 20px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
     font-family: "Gotham Bold";
     margin-bottom: 5px;
     font-size: 30px;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: 1500px;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) .mobile {
+  .page .main .about-page .about-section:nth-of-type(2) .mobile {
     margin-top: 0;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) {
+  .page .main .about-page .about-section:nth-of-type(5) {
     margin-top: 1250px;
     margin-bottom: 100px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel {
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel {
     margin-left: 0;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__stage-item {
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__stage-item {
     width: 100% !important;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__dots {
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__dots {
     text-align: center !important;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel_prev_btn,
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel_next_btn {
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel_prev_btn,
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel_next_btn {
     display: none;
   }
 
-  .page main .about-page .about-section .headquarters {
+  .page .main .about-page .about-section .headquarters {
     min-height: 150px;
     height: 150px;
     width: 100%;
@@ -3266,11 +3268,11 @@ body {
     background-repeat: no-repeat;
   }
 
-  .page main .about-page .about-section .headquarters .headquater-item {
+  .page .main .about-page .about-section .headquarters .headquater-item {
     padding-top: 60px;
   }
 
-  .page main .contact-page .contact-header {
+  .page .main .contact-page .contact-header {
     min-height: 290px;
     height: 290px;
     width: 100%;
@@ -3280,75 +3282,75 @@ body {
     background-repeat: no-repeat;
   }
 
-  .page main .contact-page .contact-header .header-gradient {
+  .page .main .contact-page .contact-header .header-gradient {
     height: 300px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description {
+  .page .main .contact-page .contact-header .header-gradient .header-description {
     padding: 50px 0px 0px 0px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text {
     padding: 0;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
     line-height: 1.4285em;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 1505px;
     margin-bottom: 100px;
   }
 
-  .page main .contact-page .contact-section .message-form label {
+  .page .main .contact-page .contact-section .message-form label {
     font-size: 14px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group {
+  .page .main .contact-page .contact-section .message-form .form-group {
     flex-direction: column;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .phone-form {
+  .page .main .contact-page .contact-section .message-form .form-group .phone-form {
     margin-left: 0px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .field {
+  .page .main .contact-page .contact-section .message-form .form-group .field {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .custom-error {
+  .page .main .contact-page .contact-section .message-form .form-group .custom-error {
     bottom: 96px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section {
     flex-direction: column;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .checkbox {
+  .page .main .contact-page .contact-section .message-form .privacy-section .checkbox {
     margin-bottom: 0px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
+  .page .main .contact-page .contact-section .message-form .privacy-section .checkbox label {
     padding-left: 40px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin: 0;
     padding-left: 25px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 14px;
     padding-left: 14px;
   }
 
-  .page main .contact-page .contact-section .message-form .primary-button {
+  .page .main .contact-page .contact-section .message-form .primary-button {
     width: 100%;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     min-height: 290px;
     height: 290px;
     width: 100%;
@@ -3358,48 +3360,50 @@ body {
     background-repeat: no-repeat;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 300px;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6,
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6,
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
     width: 100% !important;
     margin: 0 !important;
     padding: 0;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description {
+  .page .main .service-page .service-header .header-gradient .header-description {
     padding: 50px 0px 0px 0px;
+    width: 300px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
+  .page .main .service-page .service-header .header-gradient .header-description .header-text {
     padding: 0;
   }
 
-  .page main .service-page .service-header .header-gradient .figures {
+  .page .main .service-page .service-header .header-gradient .figures {
     padding-top: 50px;
     align-items: flex-start;
+    width: 300px;
   }
 
-  .page main .service-page .service-header .header-gradient .figures .figure {
+  .page .main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 6px;
     padding-right: 6px;
   }
 
-  .page main .service-page .service-header .header-gradient .figures .figure p {
+  .page .main .service-page .service-header .header-gradient .figures .figure p {
     font-size: 16px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group h3 {
+  .page .main .service-page .service-header .header-gradient .starter-group h3 {
     text-align: left;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
+  .page .main .service-page .service-header .header-gradient .starter-group .service-item-observer .service-item .avatar-item img {
     left: 33px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     min-height: 650px;
     width: 100%;
     background-size: cover;
@@ -3408,117 +3412,118 @@ body {
     margin-top: 1330px;
   }
 
-  .page main .service-page .service-section.review .custom-col-4 {
+  .page .main .service-page .service-section.review .custom-col-4 {
     width: 100% !important;
     margin: 0 !important;
     padding: 0;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 20px;
   }
 
-  .page main .service-page .service-section.review .service-review h3 {
+  .page .main .service-page .service-section.review .service-review h3 {
     text-align: center;
   }
 
-  .page main .service-page .service-section.review .service-review .third-button {
+  .page .main .service-page .service-section.review .service-review .third-button {
     font-size: 12px !important;
     text-decoration: none;
+    padding: 10px 30px 10px 30px !important;
   }
 
-  .page main .service-page .service-section.mobile {
+  .page .main .service-page .service-section.mobile {
     margin-top: 1370px;
   }
 
-  .page main .service-page .service-section.branding {
+  .page .main .service-page .service-section.branding {
     margin-top: 2100px;
   }
 
-  .page main .service-page .service-section.illustration {
+  .page .main .service-page .service-section.illustration {
     margin-top: 1350px;
   }
 
-  .page main .service-page .service-section.tech {
+  .page .main .service-page .service-section.tech {
     text-align: left;
   }
 
-  .page main .service-page .service-section.tech .custom-col-8 {
+  .page .main .service-page .service-section.tech .custom-col-8 {
     width: 100% !important;
     margin: 0 !important;
     padding: 0;
   }
 
-  .page main .service-page .service-section.tech .custom-col-8 .guide-card .service_mobile {
+  .page .main .service-page .service-section.tech .custom-col-8 .guide-card .service_mobile {
     width: 60px !important;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     padding-top: 50px !important;
   }
 
-  .page main .login-page.register .login-responsive {
+  .page .main .login-page.register .login-responsive {
     max-width: 320px;
   }
 
-  .page main .login-page.register .login-responsive .login_title h2 {
+  .page .main .login-page.register .login-responsive .login_title h2 {
     font-size: 29px !important;
   }
 
-  .page main .login-page.register .login-responsive .login_title h3 {
+  .page .main .login-page.register .login-responsive .login_title h3 {
     padding: 0px 30px 0px 30px;
   }
 
-  .page main .login-page .login-responsive {
+  .page .main .login-page .login-responsive {
     max-width: 300px;
   }
 
-  .page main .login-page .login-responsive .login_title h2 {
+  .page .main .login-page .login-responsive .login_title h2 {
     font-size: 30px !important;
   }
 
-  .page main .login-page .login-responsive .login_title h3 {
+  .page .main .login-page .login-responsive .login_title h3 {
     font-size: 17px !important;
     padding: 0px 35px 0px 35px;
     text-align: center;
   }
 
-  .page main .login-page .login-responsive .login-form.register {
+  .page .main .login-page .login-responsive .login-form.register {
     margin-left: 0px;
     margin-right: 0px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .field label {
+  .page .main .login-page .login-responsive .login-form .segment .field label {
     font-size: 16px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section {
     flex-direction: column;
     font-size: 14px;
     text-align: left;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
     padding-top: 3px;
     padding-left: 40px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section a {
     padding-top: 15px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section {
     font-size: 14px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
     font-size: 14px;
     text-align: left;
     padding-left: 40px;
     padding-top: 3px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
     margin-left: 40px;
     line-height: 0;
     text-align: left;
@@ -3529,20 +3534,20 @@ body {
     font-family: "Gotham Bold";
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a {
     font-size: 14px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .primary-button {
+  .page .main .login-page .login-responsive .login-form .segment .primary-button {
     font-size: 16px !important;
     margin-top: 30px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .google {
+  .page .main .login-page .login-responsive .login-form .segment .google {
     font-size: 16px;
   }
 
-  .page main .privacy-page .privacy-section .side-nav {
+  .page .main .privacy-page .privacy-section .side-nav {
     display: none !important;
   }
 
@@ -3559,36 +3564,44 @@ body {
     left: -306px;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 40px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 80px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 6px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+  .page .main .service-page .service-header .header-gradient .header-description {
+    width: auto;
+  }
+
+  .page .main .service-page .service-header .header-gradient .figures {
+    width: auto;
+  }
+
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
     width: 90%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_title {
+  .page .main .singlePortfolio-page .portfolio-section .sub_title {
     padding-top: 20px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 85%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 300px;
     left: 30px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 1480px;
   }
 }
@@ -3599,63 +3612,63 @@ body {
     left: -321px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 85px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 15px 0px 15px;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: 1360px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 1305px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_title {
+  .page .main .singlePortfolio-page .portfolio-section .sub_title {
     padding-top: 50px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
     margin-top: 0;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 87%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 315px;
     left: 30px;
     padding: 50px 40px 50px 40px;
   }
 
-  .page main .login-page {
+  .page .main .login-page {
     min-height: 100vh;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     min-height: 120vh;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 41px;
   }
 }
 
 @media (min-width: 384px) {
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 90px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 5px;
   }
 
-  .page main .login-page {
+  .page .main .login-page {
     min-height: 110vh;
   }
 }
@@ -3666,61 +3679,61 @@ body {
     left: -360px;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 46px;
   }
 
-  .page main .home-page .homepage-header {
+  .page .main .home-page .homepage-header {
     height: 300px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 280px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 105px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 6px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin: 0px 35px 0px 35px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .sub_title {
+  .page .main .singlePortfolio-page .portfolio-section .sub_title {
     padding-top: 50px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 88%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 355px;
     left: 30px;
     padding: 50px 40px 50px 40px;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 70px;
   }
 
-  .page main .service-page .service-section.illustration {
+  .page .main .service-page .service-section.illustration {
     margin-top: 1350px;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     min-height: 150vh;
   }
 
-  .page main .login-page.register .login-responsive {
+  .page .main .login-page.register .login-responsive {
     max-width: 400px;
   }
 
-  .page main .login-page .login-responsive {
+  .page .main .login-page .login-responsive {
     max-width: 370px;
   }
 }
@@ -3789,181 +3802,189 @@ body {
     width: 723px !important;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 85px;
   }
 
-  .page main .main-footer {
+  .page .main .main-footer {
     margin-top: 150px;
   }
 
-  .page main .main-footer .main-footer-description {
+  .page .main .main-footer .main-footer-description {
     margin-top: 100px;
   }
 
-  .page main .home-page .homepage-header {
+  .page .main .home-page .homepage-header {
     height: 590px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 600px;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
+  .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 510px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 100px;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 346.5px !important;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button {
+  .page .main .home-page .home-estimation .home-button-group .button {
     font-size: 14px !important;
     width: auto;
     padding: 15px 40px 15px 40px !important;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+  .page .main .home-page .home-estimation .home-button-group .button.primary-button {
     margin-right: 20px;
   }
 
-  .page main .portfolio-page .portfolio-header {
+  .page .main .portfolio-page .portfolio-header {
     height: 450px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient {
+  .page .main .portfolio-page .portfolio-header .header-gradient {
     height: 450px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
     padding: 150px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
     padding: 50px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
     width: 110px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
     margin-top: 200px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 94%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     left: 200px;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     height: 450px;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 450px;
   }
 
-  .page main .service-page .service-header .header-gradient .text-group {
+  .page .main .service-page .service-header .header-gradient .text-group {
     padding: 100px 150px 30px 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group {
+  .page .main .service-page .service-header .header-gradient .starter-group {
     margin-top: 150px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     margin-top: 780px;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 140px;
   }
 
-  .page main .service-page .service-section.mobile {
+  .page .main .service-page .service-section.review .service-review h2 {
+    width: 500px;
+  }
+
+  .page .main .service-page .service-section.review .service-review .description {
+    width: 500px;
+  }
+
+  .page .main .service-page .service-section.mobile {
     margin-top: 860px;
   }
 
-  .page main .service-page .service-section.branding {
+  .page .main .service-page .service-section.branding {
     margin-top: 1090px;
   }
 
-  .page main .service-page .service-section.illustration {
+  .page .main .service-page .service-section.illustration {
     margin-top: 840px;
   }
 
-  .page main .service-page .service-section.tech {
+  .page .main .service-page .service-section.tech {
     text-align: center;
   }
 
-  .page main .about-page .about-header {
+  .page .main .about-page .about-header {
     height: 450px;
   }
 
-  .page main .about-page .about-header .header-gradient {
+  .page .main .about-page .about-header .header-gradient {
     height: 450px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description {
+  .page .main .about-page .about-header .header-gradient .header-description {
     padding: 150px 100px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box {
     flex-direction: row;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: 620px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) {
+  .page .main .about-page .about-section:nth-of-type(5) {
     margin-top: 650px;
   }
 
-  .page main .about-page .about-section .headquarters {
+  .page .main .about-page .about-section .headquarters {
     height: 270px;
   }
 
-  .page main .about-page .about-section .headquarters .headquater-item {
+  .page .main .about-page .about-section .headquarters .headquater-item {
     padding-top: 210px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__stage-item {
+  .page .main .about-page .about-section:nth-of-type(5) .alice-carousel .alice-carousel__stage-item {
     width: 346.5px !important;
   }
 
-  .page main .contact-page .contact-header {
+  .page .main .contact-page .contact-header {
     height: 450px;
   }
 
-  .page main .contact-page .contact-header .header-gradient {
+  .page .main .contact-page .contact-header .header-gradient {
     height: 450px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description {
+  .page .main .contact-page .contact-header .header-gradient .header-description {
     padding: 150px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 725px;
   }
 
-  .page main .login-page {
+  .page .main .login-page {
     min-height: 90px;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     min-height: 80vh;
   }
 
-  .page main .privacy-page .privacy-section .side-nav {
+  .page .main .privacy-page .privacy-section .side-nav {
     display: flex !important;
   }
 
@@ -4014,76 +4035,76 @@ body {
     font-size: 16px;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 112px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 170px;
     width: 49%;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
+  .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 210px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 155px;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 451.5px !important;
   }
 
-  .page main .about-page .about-section .headquarters {
+  .page .main .about-page .about-section .headquarters {
     height: 410px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) {
+  .page .main .about-page .about-section:nth-of-type(5) {
     margin-top: 420px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 660px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .custom-error {
+  .page .main .contact-page .contact-section .message-form .form-group .custom-error {
     bottom: 0;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     height: 450px;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 450px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group {
+  .page .main .service-page .service-header .header-gradient .starter-group {
     margin-top: 150px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     margin-top: 500px;
   }
 
-  .page main .service-page .service-section.branding {
+  .page .main .service-page .service-section.branding {
     margin-top: 800px;
   }
 
-  .page main .service-page .service-section.marketing {
+  .page .main .service-page .service-section.marketing {
     margin-top: 820px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
     margin-top: 350px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 86%;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     left: 330px;
   }
 
@@ -4151,11 +4172,11 @@ body {
     width: 75% !important;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 140px;
   }
 
-  .page main .main-footer {
+  .page .main .main-footer {
     min-height: 350px;
     height: auto;
     width: 100%;
@@ -4163,7 +4184,7 @@ body {
     margin-top: 50px;
   }
 
-  .page main .main-footer .main-footer-description {
+  .page .main .main-footer .main-footer-description {
     display: inline-block;
     margin-top: 90px;
     padding-top: 0px;
@@ -4171,348 +4192,348 @@ body {
     color: #fff;
   }
 
-  .page main .main-footer .main-footer-description .register {
+  .page .main .main-footer .main-footer-description .register {
     padding: 15px 85px;
     margin-bottom: 10px;
   }
 
-  .page main .main-footer .main-footer-description .item-link {
+  .page .main .main-footer .main-footer-description .item-link {
     text-decoration: underline;
   }
 
-  .page main .main-footer .main-footer-description h3 {
+  .page .main .main-footer .main-footer-description h3 {
     text-align: left;
   }
 
-  .page main .home-page .homepage-header {
+  .page .main .home-page .homepage-header {
     height: 560px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 110px;
     width: 50%;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+  .page .main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
     padding: 15px 70px 15px 70px;
     font-size: 14px !important;
     margin-bottom: 10px;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
+  .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 200px;
   }
 
-  .page main .home-page .home-section .portfolio-item-observer {
+  .page .main .home-page .home-section .portfolio-item-observer {
     height: 100%;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 110px;
   }
 
-  .page main .home-page .home-section .alice-carousel {
+  .page .main .home-page .home-section .alice-carousel {
     margin-left: 85px;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 365.333px !important;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__dots {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__dots {
     text-align: left !important;
   }
 
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
+  .page .main .home-page .home-section .alice-carousel_prev_btn,
+  .page .main .home-page .home-section .alice-carousel_next_btn {
     left: 30px;
     display: block;
   }
 
-  .page main .portfolio-page .portfolio-header {
+  .page .main .portfolio-page .portfolio-header {
     height: 550px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient {
+  .page .main .portfolio-page .portfolio-header .header-gradient {
     height: 550px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
     padding: 100px 150px 100px 150px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
     font-size: 18px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
     font-size: 16px;
   }
 
-  .page main .portfolio-page .portfolio-studios {
+  .page .main .portfolio-page .portfolio-studios {
     margin-top: -50px;
     margin-bottom: 0px;
   }
 
-  .page main .portfolio-page .portfolio-studios a {
+  .page .main .portfolio-page .portfolio-studios a {
     text-decoration: none;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header {
+  .page .main .singlePortfolio-page .singlePortfolio-header {
     min-height: 550px;
     height: 550px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient {
     height: 610px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
     padding-bottom: 0;
     padding: 100px 0px 100px 0px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 50px;
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
     font-size: 36px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
     font-size: 18px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
     width: 100%;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
     width: 130px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
     margin-top: 210px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review {
+  .page .main .singlePortfolio-page .portfolio-section.review {
     margin-top: 200px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 350px;
     left: 35%;
     padding: 30px 30px 40px 30px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .service {
+  .page .main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .page main .singlePortfolio-page .alert-notice {
+  .page .main .singlePortfolio-page .alert-notice {
     padding-top: 320px;
   }
 
-  .page main .about-page .about-header {
+  .page .main .about-page .about-header {
     height: 530px;
   }
 
-  .page main .about-page .about-header .header-gradient {
+  .page .main .about-page .about-header .header-gradient {
     height: 580px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description {
+  .page .main .about-page .about-header .header-gradient .header-description {
     padding: 100px 0 0 0;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
+  .page .main .about-page .about-header .header-gradient .header-description .header-text h1 {
     font-size: 36px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+  .page .main .about-page .about-header .header-gradient .header-description .header-text p {
     font-size: 18px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box {
     flex-direction: row;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
     font-size: 24px;
     font-family: "Gotham Bold";
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box p {
     font-size: 12px;
   }
 
-  .page main .about-page .about-section .sub_title {
+  .page .main .about-page .about-section .sub_title {
     font-size: 16px;
     color: #9da6c7;
   }
 
-  .page main .about-page .about-section.headquarter .headquarters {
+  .page .main .about-page .about-section.headquarter .headquarters {
     height: 330px;
   }
 
-  .page main .about-page .about-section.headquarter .headquarters .headquater-item {
+  .page .main .about-page .about-section.headquarter .headquarters .headquater-item {
     padding-top: 130px;
   }
 
-  .page main .about-page .about-section.headquarter .headquarters .headquater-item p {
+  .page .main .about-page .about-section.headquarter .headquarters .headquater-item p {
     font-size: 16px;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: 100px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) {
+  .page .main .about-page .about-section:nth-of-type(5) {
     margin-top: 100px;
     padding-bottom: 50px;
   }
 
-  .page main .contact-page .contact-header {
+  .page .main .contact-page .contact-header {
     height: 560px;
   }
 
-  .page main .contact-page .contact-header .header-gradient {
+  .page .main .contact-page .contact-header .header-gradient {
     height: 600px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description {
+  .page .main .contact-page .contact-header .header-gradient .header-description {
     padding: 100px 0 0 0;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text {
     padding-left: 180px;
     padding-right: 180px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
     font-size: 36px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
     font-size: 18px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 25px;
     margin-bottom: 100px;
   }
 
-  .page main .contact-page .contact-section .message-form label,
-  .page main .contact-page .contact-section .message-form input {
+  .page .main .contact-page .contact-section .message-form label,
+  .page .main .contact-page .contact-section .message-form input {
     font-size: 16px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group {
+  .page .main .contact-page .contact-section .message-form .form-group {
     flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .field {
+  .page .main .contact-page .contact-section .message-form .form-group .field {
     margin-left: 15px;
     margin-right: 15px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
+  .page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
     font-size: 16px;
     margin-top: 8px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section {
     flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .checkbox label {
+  .page .main .contact-page .contact-section .message-form .privacy-section .checkbox label {
     padding-left: 40px;
     padding-top: 5px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin-top: 10px;
     padding-left: 5px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 16px;
     padding-top: 3px;
     padding-left: 0;
   }
 
-  .page main .contact-page .contact-section .message-form .primary-button {
+  .page .main .contact-page .contact-section .message-form .primary-button {
     width: 50%;
     font-size: 16px;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     height: 660px;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 700px;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6.text-group {
+  .page .main .service-page .service-header .header-gradient .custom-col-6.text-group {
     padding: 0;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
     width: 60% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description {
+  .page .main .service-page .service-header .header-gradient .header-description {
     padding-top: 100px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
+  .page .main .service-page .service-header .header-gradient .header-description .header-text {
     padding-left: 150px;
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group h2 {
+  .page .main .service-page .service-header .header-gradient .starter-group h2 {
     text-align: center;
   }
 
-  .page main .service-page .service-header .header-gradient .figures .figure {
+  .page .main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+  .page .main .service-page .service-header .header-gradient.mobile .figures .figure {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+  .page .main .service-page .service-header .header-gradient.mobile .starter-group {
     margin-top: 70px;
   }
 
-  .page main .service-page .service-section.review {
-    min-height: 80vh;
+  .page .main .service-page .service-section.review {
+    min-height: 85vh;
     background-size: cover;
     max-width: 100%;
     background-position: center center;
@@ -4521,81 +4542,81 @@ body {
     margin-top: 220px;
   }
 
-  .page main .service-page .service-section.review .custom-col-4 {
+  .page .main .service-page .service-section.review .custom-col-4 {
     width: 50% !important;
     margin: inherit !important;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 130px;
   }
 
-  .page main .service-page .service-section.review .service-review p {
+  .page .main .service-page .service-section.review .service-review p {
     font-size: 14px;
   }
 
-  .page main .service-page .service-section.review .service-review p.case_text {
+  .page .main .service-page .service-section.review .service-review p.case_text {
     font-size: 10px;
   }
 
-  .page main .service-page .service-section.review .service-review .third-button {
+  .page .main .service-page .service-section.review .service-review .third-button {
     font-size: 14px !important;
     padding: 15px 50px 15px 50px !important;
   }
 
-  .page main .service-page .service-section.branding {
+  .page .main .service-page .service-section.branding {
     margin-top: 400px;
   }
 
-  .page main .service-page .service-estimation .service-estimation-description h3 {
+  .page .main .service-page .service-estimation .service-estimation-description h3 {
     text-align: center;
   }
 
-  .page main .service-page .service-estimation .service-estimation-description p {
+  .page .main .service-page .service-estimation .service-estimation-description p {
     text-align: center;
     font-size: 16px;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     min-height: 102vh;
   }
 
-  .page main .login-page.register .login-responsive {
+  .page .main .login-page.register .login-responsive {
     max-width: 450px;
   }
 
-  .page main .login-page .login-responsive {
+  .page .main .login-page .login-responsive {
     max-width: 450px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone {
+  .page .main .login-page .login-responsive .login-form .segment .phone-form .react-phone-number-input__phone {
     font-size: 16px;
     font-family: "Gotham Bold";
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section {
     flex-direction: row;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
     padding-top: 4px;
     padding-left: 40px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section a {
     padding-top: 11px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
     padding-top: 0px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section {
     top: 0;
     right: 0;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a:nth-of-type(2) {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .terms-section a:nth-of-type(2) {
     padding-top: 0;
   }
 
@@ -4641,262 +4662,262 @@ body {
     font-size: 9px;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 150px;
   }
 
-  .page main .home-page .home-section .review-item .review-avatar .icon-quote-right {
+  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
     right: 100px;
   }
 
-  .page main .home-page .home-section .alice-carousel {
+  .page .main .home-page .home-section .alice-carousel {
     margin-left: 52px;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 365.667px !important;
   }
 
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
+  .page .main .home-page .home-section .alice-carousel_prev_btn,
+  .page .main .home-page .home-section .alice-carousel_next_btn {
     left: 0px;
     display: block;
   }
 
-  .page main .home-page .home-section .alice-carousel_prev_btn i,
-  .page main .home-page .home-section .alice-carousel_next_btn i {
+  .page .main .home-page .home-section .alice-carousel_prev_btn i,
+  .page .main .home-page .home-section .alice-carousel_next_btn i {
     padding-left: 0;
   }
 
-  .page main .portfolio-page .portfolio-header {
+  .page .main .portfolio-page .portfolio-header {
     height: 550px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient {
+  .page .main .portfolio-page .portfolio-header .header-gradient {
     height: 550px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-studios {
+  .page .main .portfolio-page .portfolio-studios {
     margin-top: -50px;
     margin-bottom: 0px;
   }
 
-  .page main .portfolio-page .portfolio-studios a {
+  .page .main .portfolio-page .portfolio-studios a {
     text-decoration: none;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header {
+  .page .main .singlePortfolio-page .singlePortfolio-header {
     min-height: 550px;
     height: 550px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient {
     height: 610px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 0px;
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
     font-size: 36px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
     font-size: 18px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
     width: 100%;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
     width: 130px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
     margin-top: 310px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 280px;
     left: 40%;
     padding: 30px 20px 40px 20px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .service {
+  .page .main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .page main .singlePortfolio-page .alert-notice {
+  .page .main .singlePortfolio-page .alert-notice {
     padding-top: 320px;
   }
 
-  .page main .about-page .about-header {
+  .page .main .about-page .about-header {
     height: 530px;
   }
 
-  .page main .about-page .about-header .header-gradient {
+  .page .main .about-page .about-header .header-gradient {
     height: 580px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box {
     flex-direction: row;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: 0px;
   }
 
-  .page main .contact-page .contact-header {
+  .page .main .contact-page .contact-header {
     height: 560px;
   }
 
-  .page main .contact-page .contact-header .header-gradient {
+  .page .main .contact-page .contact-header .header-gradient {
     height: 600px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text {
     padding-left: 180px;
     padding-right: 180px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text p {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text p {
     font-size: 14px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .row {
+  .page .main .contact-page .contact-header .header-gradient .row {
     margin-left: 0;
     margin-right: 0;
   }
 
-  .page main .contact-page .contact-header .header-gradient .row .column:first-child {
+  .page .main .contact-page .contact-header .header-gradient .row .column:first-child {
     padding-left: 0;
   }
 
-  .page main .contact-page .contact-header .header-gradient .row .column:last-child {
+  .page .main .contact-page .contact-header .header-gradient .row .column:last-child {
     padding-right: 0;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: 35px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group {
+  .page .main .contact-page .contact-section .message-form .form-group {
     flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section {
     flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
     padding-left: 5px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin-top: 10px;
   }
 
-  .page main .contact-page .contact-section .message-form .primary-button {
+  .page .main .contact-page .contact-section .message-form .primary-button {
     width: 50%;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     height: 660px;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 700px;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
     width: 60% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
+  .page .main .service-page .service-header .header-gradient .header-description .header-text {
     padding-left: 150px;
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group h3 {
+  .page .main .service-page .service-header .header-gradient .starter-group h3 {
     text-align: center;
   }
 
-  .page main .service-page .service-header .header-gradient .figures .figure {
+  .page .main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+  .page .main .service-page .service-header .header-gradient.mobile .figures .figure {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+  .page .main .service-page .service-header .header-gradient.mobile .starter-group {
     margin-top: 70px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
+  .page .main .service-page .service-header .header-gradient.mobile .starter-group .service-item .text-item p {
     font-size: 13px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     margin-top: 200px;
     min-height: 100vh;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 140px;
   }
 
-  .page main .service-page .service-section.review .service-review .third-button {
+  .page .main .service-page .service-section.review .service-review .third-button {
     font-size: 12px !important;
   }
 
-  .page main .service-page .service-section.branding {
+  .page .main .service-page .service-section.branding {
     margin-top: 380px;
   }
 
-  .page main .service-page .service-section.tech h3 {
+  .page .main .service-page .service-section.tech h3 {
     text-align: center;
   }
 
-  .page main .service-page .service-estimation .service-estimation-description h3 {
+  .page .main .service-page .service-estimation .service-estimation-description h3 {
     text-align: center;
   }
 
-  .page main .service-page .service-estimation .service-estimation-description p {
+  .page .main .service-page .service-estimation .service-estimation-description p {
     text-align: center;
     font-size: 20px;
   }
 
-  .page main .login-page.register .login-responsive {
+  .page .main .login-page.register .login-responsive {
     max-width: 450px;
   }
 
-  .page main .login-page .login-responsive {
+  .page .main .login-page .login-responsive {
     max-width: 450px;
   }
 
@@ -4910,15 +4931,15 @@ body {
 }
 
 @media (min-width: 1440px) {
-  .page main .main-footer {
+  .page .main .main-footer {
     min-height: 410px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     min-height: 80vh;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 180px;
   }
 }
@@ -4964,11 +4985,11 @@ body {
     font-size: 16px;
   }
 
-  .page main .divide {
+  .page .main .divide {
     height: 200px;
   }
 
-  .page main .main-footer {
+  .page .main .main-footer {
     min-height: 550px;
     height: auto;
     width: 100%;
@@ -4976,300 +4997,300 @@ body {
     margin-top: 50px;
   }
 
-  .page main .main-footer .main-footer-description {
+  .page .main .main-footer .main-footer-description {
     display: inline-block;
     margin-top: 160px;
     width: 50%;
     color: #fff;
   }
 
-  .page main .main-footer .main-footer-description .register {
+  .page .main .main-footer .main-footer-description .register {
     padding: 20px 70px 20px 70px;
     font-size: 18px !important;
   }
 
-  .page main .main-footer .main-footer-description .item-link {
+  .page .main .main-footer .main-footer-description .item-link {
     text-decoration: underline;
   }
 
-  .page main .main-footer .main-footer-description p {
+  .page .main .main-footer .main-footer-description p {
     font-size: 16px;
   }
 
-  .page main .main-footer .main-footer-description h3 {
+  .page .main .main-footer .main-footer-description h3 {
     text-align: left;
     font-size: 36px;
   }
 
-  .page main .home-page .homepage-header {
+  .page .main .home-page .homepage-header {
     height: 780px;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description {
+  .page .main .home-page .homepage-header .homepage-header-description {
     margin-top: 200px;
     width: 45%;
   }
 
-  .page main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
+  .page .main .home-page .homepage-header .homepage-header-description .homepage-header-buttons .register {
     margin-top: 10px;
     font-size: 18px !important;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button {
+  .page .main .home-page .home-estimation .home-button-group .button {
     font-size: 18px !important;
     width: auto;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button.secondary-button {
+  .page .main .home-page .home-estimation .home-button-group .button.secondary-button {
     padding: 20px 70px 20px 70px;
   }
 
-  .page main .home-page .home-estimation .home-button-group .button.primary-button {
+  .page .main .home-page .home-estimation .home-button-group .button.primary-button {
     padding: 20px 70px 20px 70px;
   }
 
-  .page main .home-page .home-section:nth-of-type(1) {
+  .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 35px;
   }
 
-  .page main .home-page .home-section .alice-carousel {
+  .page .main .home-page .home-section .alice-carousel {
     margin-left: 0px;
   }
 
-  .page main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
+  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 366.464px !important;
   }
 
-  .page main .home-page .home-section .alice-carousel_prev_btn,
-  .page main .home-page .home-section .alice-carousel_next_btn {
+  .page .main .home-page .home-section .alice-carousel_prev_btn,
+  .page .main .home-page .home-section .alice-carousel_next_btn {
     left: -100px;
     display: block;
   }
 
-  .page main .portfolio-page .portfolio-header {
+  .page .main .portfolio-page .portfolio-header {
     height: 885px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient {
+  .page .main .portfolio-page .portfolio-header .header-gradient {
     height: 885px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description {
     padding: 150px 150px 100px 150px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
     margin-left: 50px;
     margin-right: 50px;
   }
 
-  .page main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
+  .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure .figure p {
     font-size: 16px;
   }
 
-  .page main .portfolio-page .portfolio-studios {
+  .page .main .portfolio-page .portfolio-studios {
     margin-top: -350px;
     margin-bottom: 0px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header {
+  .page .main .singlePortfolio-page .singlePortfolio-header {
     min-height: 550px;
     height: 550px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient {
     height: 610px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description {
     padding-top: 150px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text {
     padding-bottom: 50px;
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text h2 {
     font-size: 48px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .header-description .header-text p {
     font-size: 20px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group {
     padding-left: 100px;
     padding-right: 100px;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
     width: 100%;
   }
 
-  .page main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
+  .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img.sub-img {
     width: 130px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
+  .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
     margin-top: 480px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 400px;
     left: 40%;
     padding: 50px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item .review-text-section .description {
     height: 100%;
     font-size: 18px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section.scope {
+  .page .main .singlePortfolio-page .portfolio-section.scope {
     margin-top: 300px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .service {
+  .page .main .singlePortfolio-page .portfolio-section .service {
     padding-left: 15px;
     padding-right: 15px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description p {
+  .page .main .singlePortfolio-page .portfolio-section .main_description p {
     font-size: 16px;
   }
 
-  .page main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
+  .page .main .singlePortfolio-page .portfolio-section .main_description p.sub_title {
     font-size: 20px;
   }
 
-  .page main .singlePortfolio-page .alert-notice {
+  .page .main .singlePortfolio-page .alert-notice {
     padding-top: 320px;
   }
 
-  .page main .about-page .about-header {
+  .page .main .about-page .about-header {
     height: 835px;
   }
 
-  .page main .about-page .about-header .header-gradient {
+  .page .main .about-page .about-header .header-gradient {
     height: 885px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description {
+  .page .main .about-page .about-header .header-gradient .header-description {
     padding-top: 150px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text h1 {
+  .page .main .about-page .about-header .header-gradient .header-description .header-text h1 {
     font-size: 48px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .header-text p {
+  .page .main .about-page .about-header .header-gradient .header-description .header-text p {
     font-size: 20px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
     font-size: 30px;
   }
 
-  .page main .about-page .about-header .header-gradient .header-description .counter-box .box p {
+  .page .main .about-page .about-header .header-gradient .header-description .counter-box .box p {
     font-size: 16px;
   }
 
-  .page main .about-page .about-section h2 {
+  .page .main .about-page .about-section h2 {
     font-size: 36px;
   }
 
-  .page main .about-page .about-section .sub_title {
+  .page .main .about-page .about-section .sub_title {
     font-size: 20px;
     color: #9da6c7;
   }
 
-  .page main .about-page .about-section.headquarter .headquarters {
+  .page .main .about-page .about-section.headquarter .headquarters {
     height: 510px;
   }
 
-  .page main .about-page .about-section.headquarter .headquarters .headquater-item {
+  .page .main .about-page .about-section.headquarter .headquarters .headquater-item {
     padding-top: 180px;
   }
 
-  .page main .about-page .about-section:nth-of-type(2) {
+  .page .main .about-page .about-section:nth-of-type(2) {
     margin-top: -100px;
   }
 
-  .page main .about-page .about-section:nth-of-type(5) {
+  .page .main .about-page .about-section:nth-of-type(5) {
     margin-top: 100px;
   }
 
-  .page main .contact-page .contact-header {
+  .page .main .contact-page .contact-header {
     height: 885px;
   }
 
-  .page main .contact-page .contact-header .header-gradient {
+  .page .main .contact-page .contact-header .header-gradient {
     height: 885px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description {
+  .page .main .contact-page .contact-header .header-gradient .header-description {
     padding-top: 150px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text {
     padding-left: 180px;
     padding-right: 180px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
     font-size: 48px;
   }
 
-  .page main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
+  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
     font-size: 20px;
   }
 
-  .page main .contact-page .contact-section {
+  .page .main .contact-page .contact-section {
     margin-top: -225px;
     margin-bottom: 150px;
   }
 
-  .page main .contact-page .contact-section .message-form label,
-  .page main .contact-page .contact-section .message-form input {
+  .page .main .contact-page .contact-section .message-form label,
+  .page .main .contact-page .contact-section .message-form input {
     font-size: 16px;
     font-family: "Gotham Bold";
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .field {
+  .page .main .contact-page .contact-section .message-form .form-group .field {
     margin-right: 15px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
+  .page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
     padding-left: 15px;
   }
 
-  .page main .contact-page .contact-section .message-form .form-group .custom-error {
+  .page .main .contact-page .contact-section .message-form .form-group .custom-error {
     bottom: 0;
   }
 
-  .page main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
+  .page .main .contact-page .contact-section .message-form .phone-form .react-phone-number-input__phone {
     margin-top: 7px !important;
     padding: 22px 8px !important;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section {
     flex-direction: row;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section {
     margin-top: 10px;
     padding-left: 5px;
   }
 
-  .page main .contact-page .contact-section .message-form .privacy-section .terms-section a {
+  .page .main .contact-page .contact-section .message-form .privacy-section .terms-section a {
     font-size: 16px;
     padding-top: 3px;
     padding-left: 0;
   }
 
-  .page main .contact-page .contact-section .message-form .primary-button {
+  .page .main .contact-page .contact-section .message-form .primary-button {
     font-size: 18px !important;
     width: 30%;
     padding: 20px 70px 20px 70px;
@@ -5277,55 +5298,55 @@ body {
     margin-bottom: 10px;
   }
 
-  .page main .service-page .service-header {
+  .page .main .service-page .service-header {
     height: 885px;
   }
 
-  .page main .service-page .service-header .header-gradient {
+  .page .main .service-page .service-header .header-gradient {
     height: 885px;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-6 {
     width: 60% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
+  .page .main .service-page .service-header .header-gradient .custom-col-6 .custom-col-8 {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description {
+  .page .main .service-page .service-header .header-gradient .header-description {
     padding-top: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .header-description .header-text {
+  .page .main .service-page .service-header .header-gradient .header-description .header-text {
     padding-left: 150px;
     padding-right: 150px;
   }
 
-  .page main .service-page .service-header .header-gradient .starter-group .third-button {
+  .page .main .service-page .service-header .header-gradient .starter-group .third-button {
     font-size: 18px;
     padding: 20px 70px 20px 70px;
   }
 
-  .page main .service-page .service-header .header-gradient .figures .figure {
+  .page .main .service-page .service-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .figures .figure {
+  .page .main .service-page .service-header .header-gradient.mobile .figures .figure {
     padding-left: 10px;
     padding-right: 10px;
   }
 
-  .page main .service-page .service-header .header-gradient.mobile .starter-group {
+  .page .main .service-page .service-header .header-gradient.mobile .starter-group {
     margin-top: 70px;
   }
 
-  .page main .service-page .service-section.review {
+  .page .main .service-page .service-section.review {
     min-height: 100vh;
     background-size: cover;
     max-width: 100%;
@@ -5335,45 +5356,45 @@ body {
     margin-top: 180px;
   }
 
-  .page main .service-page .service-section.review .custom-col-4 {
+  .page .main .service-page .service-section.review .custom-col-4 {
     width: 40% !important;
     margin: inherit !important;
   }
 
-  .page main .service-page .service-section.review .service-review {
+  .page .main .service-page .service-section.review .service-review {
     padding-top: 300px;
   }
 
-  .page main .service-page .service-section.review .service-review p {
+  .page .main .service-page .service-section.review .service-review p {
     font-size: 16px;
   }
 
-  .page main .service-page .service-section.review .service-review p.case_text {
+  .page .main .service-page .service-section.review .service-review p.case_text {
     font-size: 16px;
   }
 
-  .page main .service-page .service-section.review .service-review .third-button {
+  .page .main .service-page .service-section.review .service-review .third-button {
     font-size: 18px !important;
     padding: 15px 50px 5px 50px;
   }
 
-  .page main .login-page {
+  .page .main .login-page {
     min-height: 95vh;
   }
 
-  .page main .login-page.register {
+  .page .main .login-page.register {
     min-height: 90vh;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section .checkbox label {
     font-size: 16px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .remember-section a {
+  .page .main .login-page .login-responsive .login-form .segment .remember-section a {
     font-size: 16px;
   }
 
-  .page main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section .checkbox label {
     font-size: 16px;
   }
 

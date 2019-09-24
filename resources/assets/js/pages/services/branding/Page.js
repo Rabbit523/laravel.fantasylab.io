@@ -122,7 +122,7 @@ class Page extends React.Component {
                                     <div className='service-review'>
                                         <p className="case_text">CASE STUDY</p>
                                         <h2>{data.study.title}</h2>
-                                        <p>'{data.study.description}'</p>
+                                        <p className="description">'{data.study.description}'</p>
                                         <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
                                         <Link to={{pathname:'/single-portfolio', state:{pagename: data.study.path}}} className='third-button'>Read case study</Link>

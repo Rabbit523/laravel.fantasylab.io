@@ -575,7 +575,7 @@ body {
       font-size: 18px;
     }
   }
-  main {
+  .main {
     flex: 1;
     width: 100%;
     .divide {
@@ -2522,7 +2522,7 @@ body {
       font-size: 16px;
       font-family: "Gotham Book";
     }
-    main {
+    .main {
       .divide {
         height: 34px;
       }
@@ -3043,7 +3043,7 @@ body {
     }
   }
   .page {
-    main {
+    .main {
       .divide {
         height: 40px;
       }
@@ -3125,7 +3125,7 @@ body {
     }
   }
   .page {
-    main {
+    .main {
       .home-page {
         .home-section {
           .review-item {
@@ -3197,7 +3197,7 @@ body {
 
 @media (min-width: 384px) {
   .page {
-    main {
+    .main {
       .home-page {
         .home-section {
           .review-item {
@@ -3233,7 +3233,7 @@ body {
     }
   }
   .page {
-    main {
+    .main {
       .divide {
         height: 46px;
       }
@@ -3385,7 +3385,7 @@ body {
     .custom-col-6 {
       width: 723px !important;
     }
-    main {
+    .main {
       .divide {
         height: 85px;
       }
@@ -3494,6 +3494,12 @@ body {
             margin-top: 780px;
             .service-review {
               padding-top: 140px;
+              h2 {
+                width: 500px;
+              }
+              .description {
+                width: 500px;
+              }
             }
           }
           &.mobile {
@@ -3612,7 +3618,7 @@ body {
     p {
       font-size: 16px;
     }
-    main {
+    .main {
       .divide {
         height: 112px;
       }
@@ -3772,7 +3778,7 @@ body {
     .custom-col-6 {
       width: 75% !important;
     }
-    main {
+    .main {
       .divide {
         height: 140px;
       }
@@ -4103,7 +4109,7 @@ body {
         }
         .service-section {
           &.review {
-            min-height: 80vh;
+            min-height: 85vh;
             background-size: cover;
             max-width: 100%;
             background-position: center center;
@@ -4246,7 +4252,7 @@ body {
     }
   }
   .page {
-    main {
+    .main {
       .divide {
         height: 150px;
       }
@@ -4521,7 +4527,7 @@ body {
 
 @media (min-width: 1440px) {
   .page {
-    main {
+    .main {
       .main-footer {
         min-height: 410px;
       }
@@ -4587,7 +4593,7 @@ body {
     p {
       font-size: 16px;
     }
-    main {
+    .main {
       .divide {
         height: 200px;
       }

@@ -24,7 +24,7 @@ class Main extends React.Component {
           <Navigation />
           <div className="page">
             {is_dashboard && <AdminSidebar />}
-            <div className="fadeIn animated">
+            <div className="fadeIn animated main">
               {this.props.children}
             </div>
           </div>
@@ -34,7 +34,7 @@ class Main extends React.Component {
           <React.Fragment>
             <Navigation />
             <div className="page">
-              <div className="fadeIn animated">
+              <div className="fadeIn animated main">
                 {this.props.children}
               </div>
             </div>
