@@ -2669,6 +2669,9 @@ body {
             .review-item {
               width: 260px;
               left: 30px;
+              .description {
+                width: 250px;
+              }
             }
           }
           .main_description:nth-of-type(1) {

@@ -3173,6 +3173,10 @@ body {
     left: 30px;
   }
 
+  .page .main .singlePortfolio-page .portfolio-section.review .review-item .description {
+    width: 250px;
+  }
+
   .page .main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
     margin-top: 100px;
   }
