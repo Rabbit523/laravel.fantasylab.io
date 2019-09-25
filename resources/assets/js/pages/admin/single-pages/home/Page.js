@@ -417,9 +417,12 @@ class Page extends React.Component {
     onAddReview (e) {
         var { carousels, _reviews, rest_reviews } = this.state;
         var types = [], rest_reviews = [];
+        console.log({carousels});
         carousels.map((item, i) => {
            types.push(item.name);
         });
+        console.log({types});
+        console.log({_reviews});
         _reviews.map((item, i) => {
             if (!types.includes(item.name)) {
                 rest_reviews.push(item);
