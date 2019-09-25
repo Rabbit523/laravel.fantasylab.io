@@ -862,9 +862,13 @@ class PagesController extends Controller
                 return response()->json($data);
             } else if ($service_type == "start_delete") {
                 $id = $request->id;
-                $array_data = json_decode(json_encode($data->starting->data));
-                unset($array_data[$id]);
-                $data->starting->data = $array_data;
+                $startings = [];
+                foreach ($data->starting->data as $item) {
+                    $tmp = get_object_vars($item);
+                    array_push($startings, $tmp);
+                }
+                unset($startings[$id]);
+                $data->starting->data = $startings;
                 $page->data = json_encode($data);
                 $page->save();
                 return response()->json($data->starting->data);
@@ -1285,7 +1289,13 @@ class PagesController extends Controller
             $data->save();
         } else if ($request->type == "service_delete") {
             $key = $request->key;
-            unset($list->services[$key]);
+            $services = [];
+            foreach ($list->services as $item) {
+                $tmp = get_object_vars($item);
+                array_push($services, $tmp);
+            }
+            unset($services[$key]);
+            $list->services = $services;
             $data->data = json_encode($list);
             $data->save();
             return response()->json($list->services);
@@ -1611,7 +1621,11 @@ class PagesController extends Controller
         } else if ($request->from == 'home') {
             $page = Page::where('page_name', $request->from)->first();
             $data = json_decode($page->data);
-            $reviews = json_decode(json_encode(($data->carousels), true));
+            $reviews = [];
+            foreach ($data->carousels as $item) {
+                $tmp = get_object_vars($item);
+                array_push($reviews, $tmp);
+            }
             unset($reviews[$request->type]);
             $data->carousels = $reviews;
             $page->data = json_encode($data);
