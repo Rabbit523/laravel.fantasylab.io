@@ -125,7 +125,7 @@ class Page extends React.Component {
                                         <p className="description">'{data.study.description}'</p>
                                         <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                         <p>{data.study.job}</p>
-                                        <Link to={{pathname:'/single-portfolio', state:{pagename: data.study.path}}} className='third-button'>Read case study</Link>
+                                        <Link to={{pathname:`/portfolio/${data.study.path}`}} className='third-button'>Read case study</Link>
                                     </div>
                                 </Container>
                             </Container>
