@@ -618,12 +618,23 @@ body {
       border-bottom: 2px solid #09133a;
       justify-content: space-between;
       overflow: hidden;
-      height: 240px;
-      @media (min-width: 1280px) {
+      height: 250px;
+
+      @media (min-width: 768px) {
+        &.service-item-quater {
+          height: 300px;
+        }
+      }
+      @media (min-width: 1024px) {
+        &.service-item-quater {
+          height: 350px;
+        }
+      }
+      @media (min-width: 1366px) {
         height: 210px;
       }
       @media (min-width: 1920px) {
-        height: 240px;
+        height: 250px;
       }
       .item-hover-back {
         background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);

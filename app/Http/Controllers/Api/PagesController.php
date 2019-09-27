@@ -862,9 +862,8 @@ class PagesController extends Controller
                 return response()->json($data);
             } else if ($service_type == "start_delete") {
                 $id = $request->id;
-                $array_data = json_decode(json_encode($data->starting->data));
-                unset($array_data[$id]);
-                $data->starting->data = $array_data;
+                unset($data->starting->data[$id]);
+                $data->starting->data = array_values($data->starting->data);
                 $page->data = json_encode($data);
                 $page->save();
                 return response()->json($data->starting->data);
@@ -1286,6 +1285,7 @@ class PagesController extends Controller
         } else if ($request->type == "service_delete") {
             $key = $request->key;
             unset($list->services[$key]);
+            $list->services = array_values($list->services);
             $data->data = json_encode($list);
             $data->save();
             return response()->json($list->services);
@@ -1564,6 +1564,7 @@ class PagesController extends Controller
                 unset($home_data->carousels->$key);
             }
         }
+        $home_data->carousels = array_values($home_data->carousels);
         $home->data = json_encode($home_data);
         $home->save();
 
@@ -1606,12 +1607,14 @@ class PagesController extends Controller
             $page = Portfolio::where('type', $request->page)->first();
             $data = json_decode($page->data);
             unset($data->reviews[0]);
+            $data->reviews = array_values($data->reviews);
             $page->data = json_encode($data);
             $page->save();
         } else if ($request->from == 'home') {
             $page = Page::where('page_name', $request->from)->first();
             $data = json_decode($page->data);
             unset($data->carousels[$request->type]);
+            $data->carousels = array_values($data->carousels);
             $page->data = json_encode($data);
             $page->save();
             return response()->json($data->carousels);

@@ -115,7 +115,7 @@ class Page extends React.Component {
                                             </Grid.Column>}
                                             {index>=2 && 
                                                 <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={data.services[key].url}>
-                                                    <ServiceItem avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                    <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage}/>
                                                 </Grid.Column>}
                                         </React.Fragment>
                                     ))}

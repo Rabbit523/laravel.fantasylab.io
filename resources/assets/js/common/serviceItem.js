@@ -32,7 +32,7 @@ class ServiceItem extends React.Component {
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
-                    <div className='service-item' style={isMobile?item_hover:isHovering?item_hover:{}}>
+                    <div className={this.props.type?'service-item service-item-quater':'service-item'} style={isMobile?item_hover:isHovering?item_hover:{}}>
                         {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow' style={arrow_color}/>:'':''}
                         <div className='avatar-item' style={isHovering?avatar_hover:{}}>
                             <img src={`${ this.props.avatar}`} />
@@ -56,6 +56,7 @@ ServiceItem.propTypes = {
     color: PropTypes.string,
     title: PropTypes.string,
     description: PropTypes.string,
-    from: PropTypes.string
+    from: PropTypes.string,
+    type: PropTypes.string
 };
 export default ServiceItem;

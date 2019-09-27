@@ -708,10 +708,22 @@ body {
   border-bottom: 2px solid #09133a;
   justify-content: space-between;
   overflow: hidden;
-  height: 240px;
+  height: 250px;
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 768px) {
+  .page .main .service-item.service-item-quater {
+    height: 300px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page .main .service-item.service-item-quater {
+    height: 350px;
+  }
+}
+
+@media (min-width: 1366px) {
   .page .main .service-item {
     height: 210px;
   }
@@ -719,7 +731,7 @@ body {
 
 @media (min-width: 1920px) {
   .page .main .service-item {
-    height: 240px;
+    height: 250px;
   }
 }
 
