@@ -16,6 +16,7 @@ class Page extends React.Component {
             news: {},
             isLoaded: false,
             accordion: false,
+            service_title: "",
             guide_activeKey: [],
             values_activeKey: [],
             service_activeKey: [],
@@ -32,12 +33,13 @@ class Page extends React.Component {
         .then(
             res => {
                 var list = JSON.parse(res.data.data);
-                var services = {}, values = {}, headquarters = {}, guides = [], counters = [], news = {};
+                var services = {}, values = {}, headquarters = {}, guides = [], counters = [], news = {}, service_title = "";
                 Object.keys(list).map(function(key, index) {
                     if (key == "values") {
                         values = list[key];
                     } else if (key == "services") {
-                        services = list[key];
+                        services = list[key].data;
+                        service_title = list[key].title;
                     } else if (key == "headquarters") {
                         headquarters = list[key];
                     } else if (key == "guides") {
@@ -50,6 +52,7 @@ class Page extends React.Component {
                     isLoaded: true, 
                     list,
                     services,
+                    service_title,
                     values,
                     headquarters,
                     guides,
@@ -64,7 +67,7 @@ class Page extends React.Component {
 
     // handle input text
     handleChange(event, type) {
-        var { list, counters, guides, values, services, headquarters } = this.state;
+        var { list, counters, guides, values, services, service_title, headquarters } = this.state;
         var ref = this;
 
         switch (type) {
@@ -86,6 +89,9 @@ class Page extends React.Component {
             case 'headquartersDescription':
                 headquarters.description = event.target.value;
                 return this.setState({ headquarters });
+            case 'service_main_title':
+                service_title = event.target.value;
+                return this.setState({ service_title });
         }
 
         counters.map(function (item, i) {
@@ -124,20 +130,12 @@ class Page extends React.Component {
             }
         });
 
-        services.data.map(function (item, i) {
-            if (type.includes('service')) {
-                if (type.includes('title') && type.includes('main')) {
-                    services.title = event.target.value;
-                    return ref.setState({ services });
-                } else if (type.includes('title') && type.includes(i)) {
-                    item.title = event.target.value;
-                    return ref.setState({ services });
-                } else if (type.includes('description') && type.includes(i)) {
-                    item.description = event.target.value;
-                    return ref.setState({ services });
-                }
-            }
-        });
+        if (type.includes('service')) {
+            var key = type.split('_')[0];
+            var sub_key = type.split('_')[2];
+            services[key][sub_key] = event.target.value;
+            this.setState({ services });
+        }
         
         headquarters.data.map(function (item, i) {
             if (type.includes('headquater') && type.includes(i)) {
@@ -185,22 +183,19 @@ class Page extends React.Component {
             }
         });
 
-        var service_files = document.getElementsByClassName("service-file");
-        Object.keys(service_files).map((key, index) => {
-            if (service_files[index].files && service_files[index].files[0]) {
+        var Servicefiles = document.getElementsByClassName('service-file');
+        Object.keys(Servicefiles).map((key, index) => {
+            if (Servicefiles[index].files && Servicefiles[index].files[0]) {
                 var reader = new FileReader();
                 reader.onload = function(e) {
-                    services.data.map((item, i) => {
-                        if (type.includes('header') && type.includes(i)) {
-                            item.url = e.target.result;
-                            ref.setState({ services });
-                        } else if (type.includes('back') && type.includes(i)) {
-                            item.backimage = e.target.result;
-                            ref.setState({ services });
-                        }
-                    });
+                    var sub_key = type.split('_')[1];
+                    var id = type.split('_')[2];
+                    if (type.includes('service')) {
+                        services[id][sub_key] = e.target.result;
+                        ref.setState({ services });    
+                    }
                 }
-                reader.readAsDataURL(service_files[index].files[0]);
+                reader.readAsDataURL(Servicefiles[index].files[0]);
             }
         });
 
@@ -289,8 +284,32 @@ class Page extends React.Component {
             console.error(err);
         });
     }
+
     // Update service items
-    onUpdateServiceItem(e, type) {
+    onAddService (e) {
+        var { services } = this.state;
+        var new_item = {
+            title: 'New Service',
+            description: '',
+            backimage: null,
+            avatar: null,
+            url: 'web-development'
+        };
+        services.push(new_item);
+        this.setState({ services });
+    }
+    onUpdateServiceTitle(e) {
+        const { services, service_title } = this.state;
+        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), title: service_title, type: 'services_title' })
+        .then(
+            res => {
+                this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onUpdateService(e, type) {
         var { services, list } = this.state;
         Object.keys(list).map((key, index) => {
             if (key == 'services') {
@@ -298,10 +317,22 @@ class Page extends React.Component {
             }
         });
         this.setState({ isLoaded: false });
-        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services', id: type })
+        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services_data', id: type })
         .then(
             res => {
                 this.setState({ isLoaded: true });
+            }
+        ).catch(err => {
+            console.error(err);
+        });
+    }
+    onDeleteService(e, type) {
+        const { services } = this.state;
+        this.setState({ isLoaded: false });
+        Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services_delete', id: type })
+        .then(
+            res => {
+                this.setState({ isLoaded: true, services: res.data });
             }
         ).catch(err => {
             console.error(err);
@@ -344,7 +375,7 @@ class Page extends React.Component {
         });
     }
     render() {
-        const { isLoaded, list, services, values, headquarters, guides, counters, guide_activeKey, value_activeKey, service_activeKey, headquater_activeKey, accordion } = this.state;
+        const { isLoaded, list, services, service_title, values, headquarters, guides, counters, guide_activeKey, value_activeKey, service_activeKey, headquater_activeKey, accordion } = this.state;
         const ref = this;
         return (
             <div className="admin-page">
@@ -447,30 +478,34 @@ class Page extends React.Component {
                                 <Card>
                                     <Card.Content>
                                         <Card.Header>Service Items</Card.Header>
+                                        <Card.Description style={{position: 'absolute', top: 4, right: 20}}><label onClick={(e) => ref.onAddService(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
                                     </Card.Content>
                                     <Card.Content>
                                         <Card.Description>
-                                            <Form.Input fluid label="Title" name='title' placeholder='Header title' className="input-form" value={services.title} onChange={(val)=>this.handleChange(val, 'service_main_title')} />
+                                            <Form.Input fluid label="Title" name='title' placeholder='Header title' className="input-form" value={service_title} onChange={(val)=>this.handleChange(val, 'service_main_title')} />
+                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceTitle(e)}> Save </label>
                                             <Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
-                                                {services.data.map((item, index) => (
+                                                {services.map((item, index) => (
                                                     <Panel header={item.title} key={index}>
                                                         <Form.Input fluid label='Title' name='title' placeholder='title' className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, index+'_service_title')} />
                                                         <Form.Input fluid label='Description' name='description' placeholder='description' className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, index +'_service_description')} />
+                                                        <Form.Input fluid label='Color' name='color' placeholder='color' className='input-form' value={item.color} onChange={(val)=> ref.handleChange(val, index+'_service_color')} />
+                                                        <Form.Input fluid label='URL' name='url' placeholder='url' className='input-form' value={item.url} onChange={(val)=> ref.handleChange(val, index+'_service_url')} />
                                                         <Form>
-                                                            <label>Header Image</label>
+                                                            <label>Avatar Image</label>
                                                             <Form.Field>
-                                                                <input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("header_" + index, e)}/>
+                                                                <input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("service_avatar_" + index, e)}/>
                                                             </Form.Field>
                                                         </Form>
                                                         <Form>
-                                                            <label>Header Background Image</label>
+                                                            <label>Background Image</label>
                                                             <Form.Field>
-                                                                <input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("back_" + index, e)}/>
+                                                                <input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("service_backimage_" + index, e)}/>
                                                             </Form.Field>
                                                         </Form>
                                                         <div style={{display: 'flex'}}>
-                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceItem(e, index)}> Save </label>
-                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteServiceItem(e, index)}> Delete </label>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, index)}> Save </label>
+                                                            <label className='ui floated button save-btn' onClick={(e) => ref.onDeleteService(e, index)}> Delete </label>
                                                         </div>
                                                     </Panel>
                                                 ))}

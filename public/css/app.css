@@ -525,26 +525,38 @@ body {
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.desktop {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/web-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #7436e9;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.mobile {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/mobile-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #f34cb5;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.ui {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/uiux-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #f3a864;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.branding {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/branding-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #e4cb0d;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.illustration {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/illustration-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #90ce41;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover.marketing {
+  background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/marketing-dropdown.jpg) !important;
+  background-size: cover !important;
   border-bottom: 2px solid #285596;
 }
 

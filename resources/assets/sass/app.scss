@@ -466,21 +466,33 @@ body {
           &:hover {
             cursor: pointer;
             &.desktop {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/web-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #7436e9;
             }
             &.mobile {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/mobile-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #f34cb5;
             }
             &.ui {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/uiux-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #f3a864;
             }
             &.branding {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/branding-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #e4cb0d;
             }
             &.illustration {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/illustration-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #90ce41;
             }
             &.marketing {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/marketing-dropdown.jpg) !important;
+              background-size: cover !important;
               border-bottom: 2px solid #285596;
             }
             .avatar-item {

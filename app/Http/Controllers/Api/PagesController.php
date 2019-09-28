@@ -467,45 +467,93 @@ class PagesController extends Controller
                 $data->values->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();
-            } else if ($service_type == "services") {
-                $data->services->title = $request_data['title'];
-                if($data->services->data[$request->id]->url != $request_data['data'][$request->id]['url']) {
-                    if (strpos($request_data['data'][$request->id]['url'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['url']);
-                    } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['url']);
+            } else if ($service_type == "services_data") {
+                if (array_key_exists($request->id, $data->services->data)) {
+                    if($data->services->data[$request->id]->avatar != $request_data[$request->id]['avatar']) {
+                        if (strpos($request_data[$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['avatar']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['avatar']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = 'about_'.$request_data[$request->id]['avatar'].'_avatar.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data[$request->id]['avatar'] = $path;
                     }
-                    $base_code = base64_decode($img);
-                    $name = 'about_'.$request_data['data'][$request->id]['type'].'_avatar.png';
-                    $file = $uploads_dir . $name;
-                    if(File::exists($file)) {
-                        File::delete($file);
+                    if($data->services->data[$request->id]->backimage != $request_data[$request->id]['backimage']) {
+                        if (strpos($request_data[$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['backimage']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['backimage']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = 'about_'.$request_data[$request->id]['url'].'_back.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data[$request->id]['backimage'] = $path;
                     }
-                    file_put_contents($file, $base_code); // create image file into $upload_dir
-                    $url = url("/assets/uploads") ."/" . $name;
-                    $arr = explode("/", $url);
-                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['data'][$request->id]['url'] = $path;
+                    $data->services->data[$request->id] = $request_data[$request->id];
+                } else {
+                    if ($request_data[$request->id]['avatar'] != null) {
+                        if (strpos($request_data[$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['avatar']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['avatar']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = 'about_'.$request_data[$request->id]['url'].'_avatar.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data[$request->id]['avatar'] = $path;
+                    }
+                    if ($request_data[$request->id]['backimage'] != null) {
+                        if (strpos($request_data[$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['backimage']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['backimage']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = 'about_'.$request_data[$request->id]['url'].'_back.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data[$request->id]['backimage'] = $path;
+                    }
+                    array_push($data->services->data, $request_data[$request->id]);
                 }
-                if($data->services->data[$request->id]->backimage != $request_data['data'][$request->id]['backimage']) {
-                    if (strpos($request_data['data'][$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['backimage']);
-                    } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['backimage']);
-                    }
-                    $base_code = base64_decode($img);
-                    $name = 'about_'.$request_data['data'][$request->id]['type'].'_back.png';
-                    $file = $uploads_dir . $name;
-                    if(File::exists($file)) {
-                        File::delete($file);
-                    }
-                    file_put_contents($file, $base_code); // create image file into $upload_dir
-                    $url = url("/assets/uploads") ."/" . $name;
-                    $arr = explode("/", $url);
-                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['data'][$request->id]['url'] = $path;
-                }
-                $data->services->data[$request->id] = $request_data['data'][$request->id];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == "services_title") {
+                $data->services->title = $request->title;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == "services_delete") {
+                unset($data->services->data[$request->id]);
+                $data->services->data = array_values($data->services->data);
                 $page->data = json_encode($data);
                 $page->save();
             } else if ($service_type == "headquarter-item") {
