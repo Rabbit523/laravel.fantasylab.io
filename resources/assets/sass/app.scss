@@ -2421,7 +2421,7 @@ body {
           display: inline-block !important;
           .primary-button {
             padding: 7px;
-            font-size: 10px !important;
+            font-size: 14px !important;
           }
         }
       }
@@ -2764,7 +2764,7 @@ body {
               width: 100% !important;
             }
             .alice-carousel__dots {
-              text-align: center !important;
+              display:none !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
@@ -3350,7 +3350,6 @@ body {
         .mobile-register {
           .primary-button {
             padding: 10px 20px;
-            font-size: 14px !important;
           }
         }
       }
@@ -3623,9 +3622,6 @@ body {
     .custom-col-6 {
       width: 933px !important;
     }
-    .primary-button {
-      font-size: 14px !important;
-    }
   }
   .page {
     padding-top: 64px;
@@ -3764,14 +3760,14 @@ body {
     }
     .logo {
       img {
-        width: 115px !important;
+        width: 89px !important;
       }
     }
     .nav-color {
       font-size: 16px;
       padding: 22px 8px 22px 8px !important;
       .text {
-        padding-top: 8px;
+        padding-top: 2px;
       }
     }
     .menu {
@@ -3995,6 +3991,22 @@ body {
                 }
               }
             }
+          }
+        }
+        .about-section:nth-of-type(5) {
+          margin-top: 1250px;
+          margin-bottom: 100px;
+          .alice-carousel {
+            margin-left: 0;
+            .alice-carousel__stage-item {
+              width: 100% !important;
+            }
+            .alice-carousel__dots {
+              display:none !important;
+            }
+          }
+          .alice-carousel_prev_btn, .alice-carousel_next_btn {
+            display: none;
           }
         }
         .about-section {
@@ -4247,7 +4259,7 @@ body {
       }
     }
     img {
-      width: 30px !important;
+      width: 89px !important;
     }
     h5 {
       text-align: right;
@@ -4550,9 +4562,6 @@ body {
   }
   .footer {
     min-height: 45vh;
-    img {
-      width: 30px !important;
-    }
   }
 }
 

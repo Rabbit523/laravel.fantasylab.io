@@ -141,7 +141,7 @@ class Page extends React.Component {
                                         <React.Fragment key={i}>
                                             {i<2 && 
                                                 <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={item.url}>
-                                                    <ServiceItem avatar={item.url} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
+                                                    <ServiceItem avatar={item.avatar} title={item.title} color={item.color} description={item.description} backimage={item.backimage} />
                                                 </Grid.Column>}
                                             {i>=2 && 
                                                 <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={item.url}>

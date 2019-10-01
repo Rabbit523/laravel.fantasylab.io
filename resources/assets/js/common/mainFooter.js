@@ -4,6 +4,7 @@
 import React from 'react'
 import { Container, Grid, Responsive, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import {isMobileOnly, isTablet} from 'react-device-detect'
 import Modal from 'react-modal';
 
 const customStyles = {
@@ -123,7 +124,7 @@ class Footer extends React.Component {
                             </Grid.Row>
                             <Grid.Row columns={2}>
                                 <Grid.Column>
-                                    <img src={require('../../images/theme/logo.png')} alt='infoTiq' />
+                                    <img src={(!isMobileOnly && !isTablet) ? require('../../images/theme/fantasy-logo.png'):require('../../images/theme/logo.png')} />
                                 </Grid.Column>
                                 <Grid.Column textAlign='right'>
                                     <h5>© + TM 2019 FantasyLab AS, NO 922 982 376 MVA</h5>

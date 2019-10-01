@@ -130,7 +130,7 @@ class Page extends React.Component {
                                                                 <div className='avatar-item marketing'>
                                                                     <img src={require('../../../images/theme/marketing.png')} />
                                                                 </div>
-                                                                <p>Marketing</p>
+                                                                <p>Marketing Material</p>
                                                             </Segment>
                                                         </Dropdown.Menu>
                                                     </Dropdown>
@@ -139,7 +139,8 @@ class Page extends React.Component {
                                                     <Dropdown.Item as={NavLink} to='/about' text='About'/>
                                                     <Dropdown.Item as={NavLink} to='/blog' text='Blog'/>
                                                     <Dropdown.Item as={NavLink} to='/contact' text='Contact'/>
-                                                    <Dropdown.Item as={NavLink} to='/login' text='Login'/>
+                                                    {/* <Dropdown.Item as={NavLink} to='/login' text='Login'/> */}
+                                                    <Dropdown.Item as={NavLink} to='/login' className='login' text='Login' onClick={(event) => this.triggerModal(event)}/>
                                                 </div>}
                                         </Dropdown.Menu>
                                     </Dropdown>
@@ -242,7 +243,7 @@ class Page extends React.Component {
                                                                         <Icon name='arrow right' className='icon-right-arrow'/>
                                                                     </div>
                                                                     <div className='text-item'>
-                                                                        <p>Marketing</p>
+                                                                        <p>Marketing Material</p>
                                                                     </div>
                                                                     <div className='description'>
                                                                         <p>Optimized- & brand consistent messages</p>
