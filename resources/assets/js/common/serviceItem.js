@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import ReactHoverObserver from 'react-hover-observer';
 import { Icon } from 'semantic-ui-react';
-import {isMobile} from 'react-device-detect'
+import {isMobile, isMobileOnly} from 'react-device-detect'
 
 class ServiceItem extends React.Component {
     constructor(props) {
@@ -32,7 +32,7 @@ class ServiceItem extends React.Component {
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
-                    <div className={this.props.type?'service-item service-item-quater':'service-item'} style={isMobile?item_hover:isHovering?item_hover:{}}>
+                    <div className={this.props.type?'service-item service-item-quater':'service-item'} style={isHovering?item_hover:{}}>
                         {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow' style={arrow_color}/>:'':''}
                         <div className='avatar-item' style={isHovering?avatar_hover:{}}>
                             <img src={`${ this.props.avatar}`} />
@@ -40,7 +40,7 @@ class ServiceItem extends React.Component {
                         <div className='text-item'>
                             <h3>{this.props.title}</h3>
                         </div>
-                        {this.props.description && <div className='description' style={isMobile?des_hover:isHovering?des_hover:{}}>
+                        {this.props.description && <div className='description' style={isHovering?des_hover:{}}>
                             <p>{this.props.description}</p>
                         </div>}
                     </div>
