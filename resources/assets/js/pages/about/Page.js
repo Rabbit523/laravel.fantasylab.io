@@ -133,6 +133,7 @@ class Page extends React.Component {
                                 </Grid>
                             </Container>
                         </div>
+                        {data.services.data.length > 0 &&
                         <div className="about-section">
                             <Container className="custom-col-6">
                                 <h2>{data.services.title}</h2>
@@ -151,7 +152,7 @@ class Page extends React.Component {
                                     ))}
                                 </Grid>
                             </Container>
-                        </div>
+                        </div>}
                         <div className="about-section headquarter">
                             <Container className="custom-col-6">
                                 <h2>{data.headquarters.title}</h2>

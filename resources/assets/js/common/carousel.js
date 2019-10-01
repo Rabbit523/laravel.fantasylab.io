@@ -74,6 +74,7 @@ class Gallery extends React.Component {
                     playButtonEnabled={false}
                     disableAutoPlayOnAction={true}
                     slideToIndex={currentIndex}
+                    dotsDisabled={isMobileOnly?true:false}
                 />
                 <button className='alice-carousel_prev_btn' onClick={() => this.slidePrev()}><Icon name='arrow left'/></button>
                 <button className='alice-carousel_next_btn' onClick={() => this.slideNext()}><Icon name='arrow right'/></button>
