@@ -632,7 +632,7 @@ body {
   line-height: normal !important;
   font-family: "Gotham Bold";
   font-weight: bold !important;
-  padding-top: 3px;
+  padding-top: 8px;
 }
 
 .segment.navbar .menu .text:hover {
@@ -4163,13 +4163,17 @@ body {
     width: 75% !important;
   }
 
+  .segment.navbar .logo img {
+    width: 115px !important;
+  }
+
   .segment.navbar .nav-color {
     font-size: 16px;
     padding: 22px 8px 22px 8px !important;
   }
 
   .segment.navbar .nav-color .text {
-    padding-top: 2px;
+    padding-top: 8px;
   }
 
   .segment.navbar .menu .ui.buttons a {

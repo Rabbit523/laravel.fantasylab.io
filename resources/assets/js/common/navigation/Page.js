@@ -6,6 +6,7 @@ import { NavLink, Link } from 'react-router-dom'
 import Modal from 'react-modal';
 import PropTypes from 'prop-types'
 import { Button, Container, Dropdown, Icon, Menu, Responsive, Grid, Segment } from 'semantic-ui-react';
+import {isMobileOnly, isTablet} from 'react-device-detect'
 import * as actions from '../../store/actions'
 
 const customStyles = {
@@ -152,12 +153,12 @@ class Page extends React.Component {
                     <Menu pointing secondary size='large'>
                         <Container className='custom-col-6'>
                             {this.props.isAdmin && this.props.isAuthenticated && is_dashboard ? 
-                                <Menu.Item as={Link} to='/' className='logo' replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0}}>
-                                    <img src={require('../../../images/theme/logo.png')} /></Menu.Item> 
+                                <Menu.Item as={Link} to='/' className='logo' replace style={{margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0, paddingTop: 12, height: '100%'}}>
+                                    <img src={(!isMobileOnly && !isTablet) && require('../../../images/theme/fantasy-logo.png')} /></Menu.Item> 
                                 : 
                                 <React.Fragment>
-                                    <Menu.Item as={Link} to='/' className='logo' replace style={{margin: 0, padding: 0, paddingRight: 20}}>
-                                        <img src={require('../../../images/theme/logo.png')} /></Menu.Item>
+                                    <Menu.Item as={Link} to='/' className='logo' replace style={{margin: 0, padding: 0, paddingRight: 20, paddingTop: 12, height: '100%'}}>
+                                        <img src={(!isMobileOnly && !isTablet) && require('../../../images/theme/fantasy-logo.png')} /></Menu.Item>
                                     <Dropdown text='Services' className='collapsible-menu nav-color services'>
                                         <Dropdown.Menu>
                                             <div className='custom-box'>

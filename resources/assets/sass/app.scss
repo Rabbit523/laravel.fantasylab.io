@@ -556,7 +556,7 @@ body {
       line-height: normal !important;
       font-family: "Gotham Bold";
       font-weight: bold !important;
-      padding-top: 3px;
+      padding-top: 8px;
       &:hover {
         color: #fff;
         ~i {
@@ -3762,11 +3762,16 @@ body {
     .custom-col-6 {
       width: 75% !important;
     }
+    .logo {
+      img {
+        width: 115px !important;
+      }
+    }
     .nav-color {
       font-size: 16px;
       padding: 22px 8px 22px 8px !important;
       .text {
-        padding-top: 2px;
+        padding-top: 8px;
       }
     }
     .menu {
