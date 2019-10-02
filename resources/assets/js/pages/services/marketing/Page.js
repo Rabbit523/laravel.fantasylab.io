@@ -117,7 +117,7 @@ class Page extends React.Component {
                                 </div>
                             </div>
                         </div>
-                        <div className='service-section review branding' style={data.starting.length > 3 ? { backgroundImage: `url(${data.study.backimage})`} : { background: `url(${data.study.backimage})`}}>
+                        <div className='service-section review branding' style={{ backgroundImage: `url(${data.study.backimage})`}}>
                             <Container className='custom-col-6'>
                                 <Container className='custom-col-4'>
                                     <div className='service-review'>
