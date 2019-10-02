@@ -476,7 +476,7 @@ class PagesController extends Controller
                             $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['avatar']);
                         }
                         $base_code = base64_decode($img);
-                        $name = 'about_'.$request_data[$request->id]['avatar'].'_avatar.png';
+                        $name = 'about_'.$request_data[$request->id]['url'].'_avatar.png';
                         $file = $uploads_dir . $name;
                         if(File::exists($file)) {
                             File::delete($file);
