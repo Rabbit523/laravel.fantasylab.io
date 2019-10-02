@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal';
 import PageMetaTag from '../../../common/pageMetaTag'
@@ -113,7 +113,7 @@ class Page extends React.Component {
                                             </Grid>
                                         </Container>
                                     </Container>
-                                    <Button className='primary-button' style={{marginTop: 10}} onClick={(event) => this.triggerModal(event)}>Craft Enterprise</Button>
+                                    <Button className='primary-button' style={{marginTop: 10}} onClick={(event) => this.triggerModal(event)}>Craft Enterprise <Icon name='arrow right'></Icon></Button>
                                 </div>
                             </div>
                         </div>

@@ -112,7 +112,7 @@ class Page extends React.Component {
                                                 ))}
                                             </Grid>
                                         </Container>
-                                        <Button className='primary-button' style={{marginTop: 20}}>Craft Enterprise <Icon name='arrow right'></Icon></Button>
+                                        <Button className='primary-button' onClick={(event) => this.triggerModal(event)} style={{marginTop: 20}}>Craft Enterprise <Icon name='arrow right'></Icon></Button>
                                     </Container>
                                 </div>
                             </div>
