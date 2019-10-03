@@ -2693,7 +2693,14 @@ body {
               width: 260px;
               left: 30px;
               .description {
-                width: 250px;
+                display: -webkit-box;
+                min-height: 123px;
+                margin: 0 auto;
+                font-size: 14px;
+                -webkit-line-clamp: 6;
+                -webkit-box-orient: vertical;
+                overflow: hidden;
+                text-overflow: ellipsis;
               }
             }
           }

@@ -3198,7 +3198,14 @@ body {
   }
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item .description {
-    width: 250px;
+    display: -webkit-box;
+    min-height: 123px;
+    margin: 0 auto;
+    font-size: 14px;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .page .main .singlePortfolio-page .portfolio-section .main_description:nth-of-type(1) {
