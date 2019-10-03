@@ -588,7 +588,6 @@ body {
     }
   }
   .main {
-    flex: 1;
     width: 100%;
     .divide {
       background-image: url('/images/divide-back.png');
@@ -745,7 +744,6 @@ body {
       }
       .badge-description {
         padding-top: 5px;
-        width: 300px;
         p {          
           white-space: pre-wrap;
           color: #9aa2bf;

@@ -670,7 +670,6 @@ body {
 }
 
 .page .main {
-  flex: 1;
   width: 100%;
 }
 
@@ -876,7 +875,6 @@ body {
 
 .page .main .badge-item .badge-description {
   padding-top: 5px;
-  width: 300px;
 }
 
 .page .main .badge-item .badge-description p {
