@@ -15,28 +15,50 @@ class Page extends React.Component {
             isTerms: false,
             isConfident: false
         };
-        // this.isSelected = this.isSelected.bind(this);
     }
 
     componentDidMount() {
-        const { pagename } = this.props.location.state;
-        Http.post('api/front/get-page', { name: 'privacy' })
-        .then(
-            res => {
-                if (pagename == "privacy") {
-                    this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
-                } else if(pagename == 'security') {
-                    this.setState({ isLoaded: true, isSecurity: true, data: JSON.parse(res.data.data) });
-                } else if (pagename == 'terms') {
-                    this.setState({ isLoaded: true, isTerms: true, data: JSON.parse(res.data.data) });
-                } else {
-                    this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
+        if (this.props.location.state != undefined) {
+            const { pagename } = this.props.location.state;
+            Http.post('api/front/get-page', { name: 'privacy' })
+            .then(
+                res => {
+                    if (pagename != null && pagename == "privacy") {
+                        this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
+                    } else if(pagename != null && pagename == 'security') {
+                        this.setState({ isLoaded: true, isSecurity: true, data: JSON.parse(res.data.data) });
+                    } else if (pagename != null && pagename == 'terms') {
+                        this.setState({ isLoaded: true, isTerms: true, data: JSON.parse(res.data.data) });
+                    } else if (pagename != null && pagename == 'confidentiality') {
+                        this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
+                    } else {
+                        this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
+                    }
+                    window.scrollTo(0, 0);
                 }
-                window.scrollTo(0, 0);
-            }
-        ).catch(err => {
-            console.error(err);
-        });
+            ).catch(err => {
+                console.error(err);
+            });
+        } else {
+            let path = this.props.location.pathname.split("/")[1];
+            Http.post('api/front/get-page', { name: 'privacy' })
+            .then(
+                res => {
+                    if (path == "privacy") {
+                        this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
+                    } else if(path == 'security') {
+                        this.setState({ isLoaded: true, isSecurity: true, data: JSON.parse(res.data.data) });
+                    } else if (path == 'terms') {
+                        this.setState({ isLoaded: true, isTerms: true, data: JSON.parse(res.data.data) });
+                    } else if (path == 'confidentiality') {
+                        this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
+                    }
+                    window.scrollTo(0, 0);
+                }
+            ).catch(err => {
+                console.error(err);
+            });            
+        }
     }
 
     isPrivacySelected () {
@@ -53,7 +75,7 @@ class Page extends React.Component {
     }
 
     render() {
-        const { isLoaded, data, privacy, isPrivacy, isSecurity, isTerms, isConfident} = this.state;
+        const { isLoaded, data, isPrivacy, isSecurity, isTerms, isConfident} = this.state;
         return (
             <div className='privacy-page'>
                 {isLoaded ?
