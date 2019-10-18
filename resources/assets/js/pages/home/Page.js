@@ -77,7 +77,7 @@ class Page extends React.Component {
                             >
                             <Button icon='close' onClick={this.closeModal}/>
                             <h2>Hi,<br/>Visionary.</h2>
-                            <p>Our website is under development.</p>
+                            <p>Our web app is under development.</p>
                             <div className="button-group">
                                 <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
                                 <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
