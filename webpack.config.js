@@ -65,6 +65,14 @@ module.exports = {
         use: ExtractTextPlugin.extract({ fallback: 'style-loader', use: 'css-loader' })
       },
       {
+        test: /\.(png|jpg|gif|svg|webp)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
         test: /\.(otf|eot|svg|ttf|woff|woff2)(\?.+)?$/,
         use: [{
           loader: 'url-loader',

@@ -12,10 +12,10 @@ class Main extends React.Component {
   render() {
     let is_dashboard = false;
     let is_footer = true;
-    if (window.location.href.indexOf("admin") > 0) {
+    if (typeof window != 'undefined' && window.location.href.indexOf("admin") > 0) {
       is_dashboard = true;
     }
-    if (window.location.href.indexOf("login") > 0 || window.location.href.indexOf("register") > 0) {
+    if (typeof window != 'undefined' && (window.location.href.indexOf("login") > 0 || window.location.href.indexOf("register") > 0)) {
       is_footer = false;
     }
     return (

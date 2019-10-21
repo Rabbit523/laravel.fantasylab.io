@@ -1,0 +1,1 @@
+{"version":3,"sources":["../../source/libphonenumber/RFC3966.js"],"names":["parseRFC3966","formatRFC3966"],"mappings":";;;;;;;;;;;iBAASA,Y;;;;;;iBAAcC,a","file":"RFC3966.js","sourcesContent":["export { parseRFC3966, formatRFC3966 } from 'libphonenumber-js/core'"]}

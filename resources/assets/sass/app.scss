@@ -1290,7 +1290,10 @@ body {
           }
         }
         .alice-carousel {
-          margin-left: 167px;
+          margin-left: 0;
+        }
+        .alice-carousel__stage-item {
+          width: 100% !important;
         }
         .alice-carousel_prev_btn {
           position: absolute;
@@ -1300,6 +1303,7 @@ body {
           border: none;
           width: 30px;
           height: 30px;
+          display: none;
           cursor: pointer;
           i {
             color: #7436e9;
@@ -1314,11 +1318,16 @@ body {
           border: none;
           width: 30px;
           height: 30px;
+          display: none;
           cursor: pointer;
           i {
             color: #7436e9;
             padding-left: 3px;
           }
+        }
+        .alice-carousel__dots {
+          display: block;
+          text-align: center !important;
         }
       }
       .home-estimation {
@@ -2586,18 +2595,6 @@ body {
         }
         .home-section {
           margin-top: 200px;
-          .alice-carousel {
-            margin-left: 0;
-            .alice-carousel__stage-item {
-              width: 100% !important;
-            }
-            .alice-carousel__dots {
-              text-align: center !important;
-            }
-          }
-          .alice-carousel_prev_btn, .alice-carousel_next_btn {
-            display: none;
-          }
           .review-item {
             .review-avatar {
               .icon-quote-right {

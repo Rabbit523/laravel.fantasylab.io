@@ -76,21 +76,21 @@
 
 @font-face {
   font-family: "Gotham Book";
-  src: url(/fonts/Gotham-Book.eot?3e077b58b8ae367b93056e35c3a61df2) format("embedded-opentype"), url(/fonts/Gotham-Book.woff?1afe0a8aa6e3459080fcabe62050b3e9) format("woff"), url(/fonts/Gotham-Book.ttf?d044a4bf155bf00e3533b5b4c2b892bc) format("truetype"), url(/fonts/Gotham-Book.svg?5c23a69e60a9fcc8d9bae826f1e0da21) format("svg");
+  src: url(/fonts/Gotham-Book.eot?3e077b58b8ae367b93056e35c3a61df2) format("embedded-opentype"), url(/fonts/Gotham-Book.woff?1afe0a8aa6e3459080fcabe62050b3e9) format("woff"), url(/fonts/Gotham-Book.ttf?d044a4bf155bf00e3533b5b4c2b892bc) format("truetype"), url(/fonts/Gotham-Book.svg?27ffeb2feadff5b1299bbe49128330b0) format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gotham Medium";
-  src: url(/fonts/Gotham-Medium.eot?adc4354cbbb8141ca5bdbd6cdaa5d443) format("embedded-opentype"), url(/fonts/Gotham-Medium.otf?982ce17d7ddd10e11f0fdec9214fa9fc) format("opentype"), url(/fonts/Gotham-Medium.woff?4b22c998c63cc9cf343f1cf6713404f9) format("woff"), url(/fonts/Gotham-Medium.ttf?ff0075c4410632484f89be9b2850abaf) format("truetype"), url(/fonts/Gotham-Medium.svg?c727ac8d0192d902f9a598c4a696c197) format("svg");
+  src: url(/fonts/Gotham-Medium.eot?adc4354cbbb8141ca5bdbd6cdaa5d443) format("embedded-opentype"), url(/fonts/Gotham-Medium.otf?982ce17d7ddd10e11f0fdec9214fa9fc) format("opentype"), url(/fonts/Gotham-Medium.woff?4b22c998c63cc9cf343f1cf6713404f9) format("woff"), url(/fonts/Gotham-Medium.ttf?ff0075c4410632484f89be9b2850abaf) format("truetype"), url(/fonts/Gotham-Medium.svg?bf195b1486875e71493207c2d007a53f) format("svg");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Gotham Bold";
-  src: url(/fonts/Gotham-Bold.eot?a4e3583fbc53980dfebf4dc489b774d1) format("embedded-opentype"), url(/fonts/Gotham-Bold.otf?722c5f898bbca8b2eb3fce0287688326) format("opentype"), url(/fonts/Gotham-Bold.woff?361bdb76dec13d3ff12baf2c95c1c36d) format("woff"), url(/fonts/Gotham-Bold.ttf?ea4745b02597c68f1e77a6d99c4fa1d5) format("truetype"), url(/fonts/Gotham-Bold.svg?36a715a2b43d8dfc45fbb7f22acf3c4e) format("svg");
+  src: url(/fonts/Gotham-Bold.eot?a4e3583fbc53980dfebf4dc489b774d1) format("embedded-opentype"), url(/fonts/Gotham-Bold.otf?722c5f898bbca8b2eb3fce0287688326) format("opentype"), url(/fonts/Gotham-Bold.woff?361bdb76dec13d3ff12baf2c95c1c36d) format("woff"), url(/fonts/Gotham-Bold.ttf?ea4745b02597c68f1e77a6d99c4fa1d5) format("truetype"), url(/fonts/Gotham-Bold.svg?a1fda1913d85157bd07f966852ebcf77) format("svg");
   font-weight: bold;
   font-style: normal;
 }
@@ -1596,7 +1596,11 @@ body {
 }
 
 .page .main .home-page .home-section .alice-carousel {
-  margin-left: 167px;
+  margin-left: 0;
+}
+
+.page .main .home-page .home-section .alice-carousel__stage-item {
+  width: 100% !important;
 }
 
 .page .main .home-page .home-section .alice-carousel_prev_btn {
@@ -1607,6 +1611,7 @@ body {
   border: none;
   width: 30px;
   height: 30px;
+  display: none;
   cursor: pointer;
 }
 
@@ -1623,12 +1628,18 @@ body {
   border: none;
   width: 30px;
   height: 30px;
+  display: none;
   cursor: pointer;
 }
 
 .page .main .home-page .home-section .alice-carousel_next_btn i {
   color: #7436e9;
   padding-left: 3px;
+}
+
+.page .main .home-page .home-section .alice-carousel__dots {
+  display: block;
+  text-align: center !important;
 }
 
 .page .main .home-page .home-estimation {
@@ -3077,23 +3088,6 @@ body {
 
   .page .main .home-page .home-section {
     margin-top: 200px;
-  }
-
-  .page .main .home-page .home-section .alice-carousel {
-    margin-left: 0;
-  }
-
-  .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
-    width: 100% !important;
-  }
-
-  .page .main .home-page .home-section .alice-carousel .alice-carousel__dots {
-    text-align: center !important;
-  }
-
-  .page .main .home-page .home-section .alice-carousel_prev_btn,
-  .page .main .home-page .home-section .alice-carousel_next_btn {
-    display: none;
   }
 
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {

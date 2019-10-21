@@ -1,6 +1,5 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Card, Form } from 'semantic-ui-react'
-// import {jQuery } from 'jquery';
 import 'bootstrap/js/modal';
 import 'bootstrap/js/dropdown';
 import 'bootstrap/js/tooltip';

@@ -16,7 +16,6 @@ import Features from '../pages/features'
 import About from '../pages/about'
 import Blog from '../pages/blog'
 import Contact from '../pages/contact'
-import Terms from '../pages/terms'
 import Privacy from '../pages/privacy'
 import AdminPages from '../pages/admin/adminPages'
 import AdminHome from '../pages/admin/single-pages/home'
@@ -156,12 +155,6 @@ const routes = [
         exact: true,
         auth: false,
         component: Privacy
-    },
-    {
-        path: '/terms',
-        exact: true,
-        auth: false,
-        component: Terms
     },
     {
         path: '/admin/pages',

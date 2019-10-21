@@ -53,7 +53,7 @@ class Page extends React.Component {
             </span>
         );
         let is_dashboard = false;
-        if (window.location.href.indexOf('admin') > 0) {
+        if (typeof window !== 'undefined' && window.location.href.indexOf('admin') > 0) {
             is_dashboard = true;
         }
         const { isOpen } = this.state;
@@ -76,8 +76,7 @@ class Page extends React.Component {
                 <Responsive as={Segment} inverted maxWidth={768} className='mobile-navbar'>
                     <Menu size='large' inverted secondary>
                         <Menu.Item as={Link} to='/' className='logo' replace>
-                            <img
-                                src={require('../../../images/theme/logo.png')} alt='infoTiq' />
+                            <img src={require('../../../images/theme/logo.png')} alt='infoTiq' />
                         </Menu.Item>
                         <div className="right-menu">
                             <Menu.Item className="mobile-register">

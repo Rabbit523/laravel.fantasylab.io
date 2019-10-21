@@ -31,41 +31,46 @@ const Auth = (state= initialState,{type,payload = null}) => {
 const authLogin = (state,payload) => {
     const jwtToken = payload.token;
     const user = payload.user[0];
-    if(!!payload.user[0].role == 0){
-        localStorage.setItem('is_admin',true);
-    } else {
-        localStorage.setItem('is_admin',false);
+    if (typeof window !== 'undefined') {
+        if(!!payload.user[0].role == 0){
+            localStorage.setItem('is_admin',true);
+        } else {
+            localStorage.setItem('is_admin',false);
+        }
+        localStorage.setItem('jwt_token',jwtToken);
+        Http.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
+        state = Object.assign({}, state, {
+            isAuthenticated: true,
+            isAdmin: localStorage.getItem('is_admin') === 'true',
+            user
+        });
     }
-    localStorage.setItem('jwt_token',jwtToken);
-    Http.defaults.headers.common['Authorization'] = `Bearer ${jwtToken}`;
-    state = Object.assign({}, state, {
-        isAuthenticated: true,
-        isAdmin: localStorage.getItem('is_admin') === 'true',
-        user
-    });
     return state;
-
 };
 
 const checkAuth = (state) =>{
-    state =Object.assign({},state,{
-        isAuthenticated : !!localStorage.getItem('jwt_token'),
-        isAdmin : localStorage.getItem('is_admin'),
-    });
-    if(state.isAuthenticated){
-        Http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt_token')}`;
+    if (typeof window !== 'undefined') {
+        state =Object.assign({},state,{
+            isAuthenticated : !!localStorage.getItem('jwt_token'),
+            isAdmin : localStorage.getItem('is_admin'),
+        });
+        if(state.isAuthenticated){
+            Http.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('jwt_token')}`;
+        }
     }
     return state;
 };
 
 const logout = (state) => {
-    localStorage.removeItem('jwt_token');
-    localStorage.setItem('is_admin',false);
-    state = Object.assign({},state,{
-        isAuthenticated: false,
-        isAdmin : false,
-        user
-    });
+    if (typeof window !== 'undefined') {
+        localStorage.removeItem('jwt_token');
+        localStorage.setItem('is_admin',false);
+        state = Object.assign({},state,{
+            isAuthenticated: false,
+            isAdmin : false,
+            user
+        });
+    }
     return state;
 };
 
