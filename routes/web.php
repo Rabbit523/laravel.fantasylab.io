@@ -36,3 +36,16 @@ Route::get('/privacy', 'PagesController@privacy');
 Route::get('/security', 'PagesController@security');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/confidentiality', 'PagesController@confidentiality');
+
+Route::get('/admin/pages', 'PagesController@adminPages');
+Route::get('/admin/single-page/home', 'PagesController@adminHomePage');
+Route::get('/admin/single-page/portfolio', 'PagesController@adminPortfolioPage');
+Route::get('/admin/single-page/about', 'PagesController@adminAboutPage');
+Route::get('/admin/single-page/contact', 'PagesController@adminContactPage');
+Route::get('/admin/single-page/service-web', 'PagesController@adminServiceWebPage');
+Route::get('/admin/single-page/service-mobile', 'PagesController@adminServiceMobilePage');
+Route::get('/admin/single-page/service-ui', 'PagesController@adminServiceUIPage');
+Route::get('/admin/single-page/service-branding', 'PagesController@adminServiceBrandingPage');
+Route::get('/admin/single-page/service-illustration', 'PagesController@adminServiceIllustrationPage');
+Route::get('/admin/single-page/service-market', 'PagesController@adminServiceMarketPage');
+Route::get('/admin/single-page/features', 'PagesController@adminFeaturesPage');

@@ -22,6 +22,7 @@ import AdminHome from '../pages/admin/single-pages/home'
 import AdminPortfolio from '../pages/admin/single-pages/portfolio'
 import AdminAbout from '../pages/admin/single-pages/about'
 import AdminContact from '../pages/admin/single-pages/contact'
+import AdminFeature from '../pages/admin/single-pages/feature'
 import AdminServicePage from '../pages/admin/single-pages/servicePage'
 import AdminBlog from '../pages/admin/adminBlog'
 import AdminPrivacy from '../pages/admin/single-pages/privacy'
@@ -209,6 +210,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminContact
+    },
+    {
+        path: '/admin/single-page/features',
+        exact: true,
+        admin: true,
+        component: AdminFeature
     },
     {
         path: '/admin/single-page/service-web',

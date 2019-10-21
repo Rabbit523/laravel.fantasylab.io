@@ -265,4 +265,160 @@ class PagesController extends Controller
         }
         return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
     }
+
+    public function adminPages() {
+        $page = Page::get();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminHomePage() {
+        $page = Page::where('id', 1)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminPortfolioPage() {
+        $page = Page::where('id', 8)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminAboutPage() {
+        $page = Page::where('id', 10)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminContactPage() {
+        $page = Page::where('id', 12)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceWebPage() {
+        $page = Page::where('id', 2)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceMobilePage() {
+        $page = Page::where('id', 3)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceUIPage() {
+        $page = Page::where('id', 4)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceBrandingPage() {
+        $page = Page::where('id', 5)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceIllustrationPage() {
+        $page = Page::where('id', 6)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminServiceMarketingPage() {
+        $page = Page::where('id', 7)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminFeaturesPage() {
+        $page = Page::where('id', 9)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
 }

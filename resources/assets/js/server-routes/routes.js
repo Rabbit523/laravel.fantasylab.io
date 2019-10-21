@@ -1,8 +1,8 @@
 import HomeServer from '../pages/home/server'
-import LoginServer from '../pages/login/server'
-import RegisterServer from '../pages/register/server'
-import ForgotPasswordServer from '../pages/forgotPassword/server'
-import ResetPasswordServer from '../pages/resetPassword/server'
+import LoginServer from '../pages/login'
+import RegisterServer from '../pages/register'
+import ForgotPasswordServer from '../pages/forgotPassword'
+import ResetPasswordServer from '../pages/resetPassword'
 import NoMatch from '../pages/noMatch'
 import ServiceWebServer from '../pages/services/web/server'
 import ServiceMobileServer from '../pages/services/mobile/server'
@@ -17,17 +17,18 @@ import AboutServer from '../pages/about/server'
 import BlogServer from '../pages/blog/server'
 import ContactServer from '../pages/contact/server'
 import PrivacyServer from '../pages/privacy/server'
-// import AdminPages from '../pages/admin/adminPages'
-// import AdminHome from '../pages/admin/single-pages/home'
-// import AdminPortfolio from '../pages/admin/single-pages/portfolio'
-// import AdminAbout from '../pages/admin/single-pages/about'
-// import AdminContact from '../pages/admin/single-pages/contact'
-// import AdminServicePage from '../pages/admin/single-pages/servicePage'
-// import AdminBlog from '../pages/admin/adminBlog'
-// import AdminPrivacy from '../pages/admin/single-pages/privacy'
-// import AdminPortfolios from '../pages/admin/adminPortfolios'
-// import AdminReviews from '../pages/admin/adminReviews'
-// import AdminSinglePortfolio from '../pages/admin/single-pages/singlePortfolio'
+import AdminPages from '../pages/admin/adminPages/server'
+import AdminHome from '../pages/admin/single-pages/home/server'
+import AdminPortfolio from '../pages/admin/single-pages/portfolio/server'
+import AdminAbout from '../pages/admin/single-pages/about/server'
+import AdminContact from '../pages/admin/single-pages/contact/server'
+import AdminServicePage from '../pages/admin/single-pages/servicePage/server'
+import AdminBlog from '../pages/admin/adminBlog/server'
+import AdminPrivacy from '../pages/admin/single-pages/privacy/server'
+import AdminPortfolios from '../pages/admin/adminPortfolios/server'
+import AdminReviews from '../pages/admin/adminReviews/server'
+import AdminSinglePortfolio from '../pages/admin/single-pages/singlePortfolio/server'
+import AdminFeature from '../pages/admin/single-pages/feature/server'
 
 const routes = [
     {
@@ -150,102 +151,108 @@ const routes = [
         auth: false,
         component: PrivacyServer
     },
-    // {
-    //     path: '/admin/pages',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminPages
-    // },
-    // {
-    //     path: '/admin/blog',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminBlog
-    // },
-    // {
-    //     path: '/admin/portfolio',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminPortfolios
-    // },
-    // {
-    //     path: '/admin/reviews',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminReviews
-    // },
-    // {
-    //     path: '/admin/single-page/home',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminHome
-    // },
-    // {
-    //     path: '/admin/single-page/portfolio',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminPortfolio
-    // },
-    // {
-    //     path: '/admin/single-page/single_portfolio',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminSinglePortfolio
-    // },
-    // {
-    //     path: '/admin/single-page/about',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminAbout
-    // },
-    // {
-    //     path: '/admin/single-page/contact',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminContact
-    // },
-    // {
-    //     path: '/admin/single-page/service-web',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/single-page/service-mobile',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/single-page/service-ui',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/single-page/service-branding',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/single-page/service-illustration',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/single-page/service-market',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminServicePage
-    // },
-    // {
-    //     path: '/admin/legal',
-    //     exact: true,
-    //     admin: true,
-    //     component: AdminPrivacy
-    // },
+    {
+        path: '/admin/pages',
+        exact: true,
+        admin: true,
+        component: AdminPages
+    },
+    {
+        path: '/admin/blog',
+        exact: true,
+        admin: true,
+        component: AdminBlog
+    },
+    {
+        path: '/admin/portfolio',
+        exact: true,
+        admin: true,
+        component: AdminPortfolios
+    },
+    {
+        path: '/admin/reviews',
+        exact: true,
+        admin: true,
+        component: AdminReviews
+    },
+    {
+        path: '/admin/single-page/home',
+        exact: true,
+        admin: true,
+        component: AdminHome
+    },
+    {
+        path: '/admin/single-page/portfolio',
+        exact: true,
+        admin: true,
+        component: AdminPortfolio
+    },
+    {
+        path: '/admin/single-page/single_portfolio',
+        exact: true,
+        admin: true,
+        component: AdminSinglePortfolio
+    },
+    {
+        path: '/admin/single-page/about',
+        exact: true,
+        admin: true,
+        component: AdminAbout
+    },
+    {
+        path: '/admin/single-page/contact',
+        exact: true,
+        admin: true,
+        component: AdminContact
+    },
+    {
+        path: '/admin/single-page/features',
+        exact: true,
+        admin: true,
+        component: AdminFeature
+    },
+    {
+        path: '/admin/single-page/service-web',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-mobile',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-ui',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-branding',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-illustration',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/service-market',
+        exact: true,
+        admin: true,
+        component: AdminServicePage
+    },
+    {
+        path: '/admin/legal',
+        exact: true,
+        admin: true,
+        component: AdminPrivacy
+    },
     {
         path: '/portfolio/:type',
         exact: true,
