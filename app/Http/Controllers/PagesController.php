@@ -18,7 +18,7 @@ class PagesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function sitemap(){
-        return response()->view('sitemap')->header('Content-Type', 'text/xml');
+        return response('sitemap.xml')->header('Content-Type', 'text/xml');
     }
     
     public function index() {
