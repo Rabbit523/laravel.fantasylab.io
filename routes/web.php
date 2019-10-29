@@ -17,6 +17,7 @@ Route::get('/redirect/{social}','Auth\LoginController@socialLogin')->where('soci
 //     return view('home');
 // })->where('slug', '(?!api)([A-z\d-\/_.]+)?');
 
+Route::get('/sitemap', 'PagesController@sitemap');
 Route::get('/', 'PagesController@index');
 Route::get('/login', 'PagesController@login');
 Route::get('/register', 'PagesController@register');
