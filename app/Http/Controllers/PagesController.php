@@ -17,9 +17,6 @@ class PagesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function sitemap(){
-        return response('sitemap.xml')->header('Content-Type', 'text/xml');
-    }
     
     public function index() {
         $page_data = Page::where('id', 1)->first();
