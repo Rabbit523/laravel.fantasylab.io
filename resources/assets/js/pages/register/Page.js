@@ -156,9 +156,9 @@ class Page extends React.Component {
     }
 
     render() {
-        if (this.props.isAuthenticated) {
-            return <Redirect to='/' replace/>
-        }
+        // if (this.props.isAuthenticated) {
+        //     return <Redirect to='/' replace/>
+        // }
         const { errors, phone, checkbox_border } = this.state;
         return (
             <React.Fragment>
@@ -233,7 +233,7 @@ class Page extends React.Component {
                                 <Header size='tiny' className='custom-error' color='red'>
                                     {errors.first('password_confirmation')}
                                 </Header>}
-                                <div className='phone-form'>
+                                {/* <div className='phone-form'>
                                     <label>Phone</label>
                                     <PhoneInput
                                         placeholder='Enter phone number'
@@ -241,7 +241,9 @@ class Page extends React.Component {
                                         flags={flags}
                                         onChange={ phone => this.setState({ phone }) } 
                                         error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
-                                </div>
+                                </div> */}
+                                <Form.Input label='Phone' name='phone' placeholder='Your phone number' className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
+                                {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
                                 <Form.Input
                                     fluid
                                     label='Team name'

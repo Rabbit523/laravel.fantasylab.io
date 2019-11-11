@@ -217,10 +217,12 @@ class Page extends React.Component {
                                     <div className="form-group">
                                         <Form.Input label='Work email' name='email' placeholder='E-mail address' className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
                                         {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')}</Header>}
-                                        <div className='phone-form'>
+                                        {/* <div className='phone-form'>
                                             <label>Phone</label>
                                             <PhoneInput placeholder='Your phone number' className={phoneError?'':'success'} value={phone} flags={flags} onChange={ (phone) => this.handleChange(phone, 'phone') }  error={ phone && (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number')}/>
-                                        </div>
+                                        </div> */}
+                                        <Form.Input label='Phone' name='phone' placeholder='Your phone number' className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
+                                        {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
                                     </div>
                                     <Form.Field label='What can we help you with?' name='message' placeholder='Write your message' control='textarea'  rows='5' error={errors.has('message')} onChange={(val)=>this.handleChange(val, 'message')} />
                                     {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')}</Header>}
