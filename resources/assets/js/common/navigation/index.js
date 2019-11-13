@@ -8,7 +8,8 @@ const mapStateToProps = state => {
     return {
         isAuthenticated : state.Auth.isAuthenticated,
         userName : state.Auth.user.name,
-        isAdmin: state.Auth.isAdmin
+        isAdmin: state.Auth.isAdmin,
+        lang: state.Auth.lang
     }
 };
 

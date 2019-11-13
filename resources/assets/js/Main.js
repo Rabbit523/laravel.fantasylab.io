@@ -1,12 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { renderToStaticMarkup } from "react-dom/server"
+import { withLocalize } from "react-localize-redux"
+import globalTranslations from "./translations/global.json"
 import Navigation from './common/navigation'
 import Footer from './common/mainFooter'
-import AdminSidebar from './common/sidebar';
+import AdminSidebar from './common/sidebar'
+import { getLang } from './store/actions'
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
+    
+    this.props.initialize({
+      languages: [
+        { name: "English", code: "en" },
+        { name: "Norwegian", code: "no" }
+      ],
+      translation: globalTranslations,
+      options: { renderToStaticMarkup }
+    });
+    this.props.getLang();
+  }
+  
+  componentDidUpdate(prevProps, prevState) {
+    if (prevProps.lang !== this.props.lang) {
+      console.log('didupdate: lang = ', this.props.lang);
+      this.props.setActiveLanguage(this.props.lang);
+    }
   }
 
   render() {
@@ -48,8 +69,13 @@ class Main extends React.Component {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.Auth.isAuthenticated,
-    isAdmin: state.Auth.isAdmin
+    isAdmin: state.Auth.isAdmin,
+    lang: state.Auth.lang
   }
 };
 
-export default connect(mapStateToProps)(Main);
+const mapDispatchToProps = {
+  getLang,
+};
+
+export default withLocalize(connect(mapStateToProps, mapDispatchToProps)(Main));

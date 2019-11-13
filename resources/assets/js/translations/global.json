@@ -1,0 +1,102 @@
+{
+    "navigation": {
+        "services": ["Services", "Tjenester"],
+        "web-development": ["Web Development", "Web utvikling"],
+        "web-development-des":["High traffic websites, ecommerce & web apps", "Nettsteder med høy trafikk, e-handel og webapper"],
+        "mobile-development": ["Mobile Development", "Mobil utvikling"],
+        "mobile-development-des":["Powerful, efficient and convenient phone apps", "Kraftige, effektive og praktiske telefonapper"],
+        "ui-design": ["UI & UX Design", "UI- og UX-design"],
+        "ui-design-des": ["Awesome end-user interfaces & experience", "Fantastiske sluttbrukergrensesnitt og opplevelse"],
+        "branding": ["Branding", "Merkevarebygging"],
+        "branding-des": ["Creativity, purpose, knowledge & business", "Kreativitet, formål, kunnskap og virksomhet"],
+        "illustration": ["Illustration", "Illustrasjon"],
+        "illustration-des": ["Visual storytelling, iconography & digital art", "Visuell historiefortelling, ikonografi og digital kunst"],
+        "marketing-material": ["Marketing Material", "Markedsføring smateriale"],
+        "marketing-material-des": ["Optimized- & brand consistent messages", "Optimaliserte & merkekonsistente meldinger"],
+        "portfolio": ["Portfolio", "Portefølje"],
+        "features": ["Features", "Funksjoner"],
+        "about": ["About", "Om oss"],
+        "blog": ["Blog", "Blogg"],
+        "contact": ["Contact", "Kontakt"],
+        "login": ["Login", "Logg inn"],
+        "craft-enterprise": ["Craft Enterprise", "Start prosjekt"],
+        "dashboard": ["Dashboard", "Dashboard"],
+        "logout": ["Logout", "Logg ut"],
+        "login-as": ["Logged in as", "logget inn som"]
+    },
+    "footer": {
+        "language": ["Language:", "Språk:"],
+        "marketing": ["Marketing", "Markedsføring"],
+        "platform": ["Platform", "Plattform"],
+        "creatives": ["Creatives", "Reklamer"],
+        "pricing": ["Pricing", "Priser"],
+        "company": ["Company", "Selskap"],
+        "about-us": ["About us", "Om oss"],
+        "get-started": ["Get started", "Kom i gang"],
+        "signup": ["Sign up", "Melde deg på"],
+        "apply-as-designer": ["Apply as Designer", "søke om som designer"],
+        "apply-as-developer": ["Apply as Developer", "søke om som utvikler"],
+        "legal": ["Legal", "Lovlig"],
+        "privacy": ["Privacy", "Personvern"],
+        "data-processor": ["Data Processor", "Databehandler"],
+        "terms": ["Terms", "Vilkår"],
+        "confidentiality": ["Confidentiality", "Konfidensialitet"]
+    },
+    "home": {
+        "login-to-fantasylab": ["Log in to FantasyLab", "Logg deg på FantasyLab"],
+        "existing-user": ["Existing user?", "Eksisterende bruker?"],
+        "estimation-delivery": ["Estimation. Proposal. Delivery", "Anslag. Forslag. Leveranse"],
+        "get-quote": ["Don't get a goat. Get a quote", "Ikke skaff deg en geit. Få et tilbud"],
+        "the-platform": ["The Platform", "Plattformen"],
+        "excellence": ["Choose excellence, always.", "Velg fortreffelighet, alltid."],
+        "agile-framework": ["The scrum Framework and an Agile mindset is paramount.", "Scrum Framework og en smidig tankegang er avgjørende."],
+        "latest-news": ["Latest News", "Siste nytt"]
+    },
+    "portfolio": {
+        "case-studio": ["Case Studies", "Casestudier"],
+        "scope-project": ["Scope of the project", "Prosjektets omfang"]
+    },
+    "contact": {
+        "name": ["Name", "Navn"],
+        "company-name": ["Company Name", "selskapsnavn"],
+        "your-company": ["Your company", "Din bedrift"],
+        "email-address": ["E-mail address", "Epostadresse"],
+        "work-email": ["Work email", "Arbeid e-post"],
+        "phone": ["Phone", "telefon"],
+        "your-phone": ["Your phone number", "Telefonnummeret ditt"],
+        "write-message": ["Write your message", "Skriv meldingen"],
+        "message": ["What can we help you with?", "Hva kan vi hjelpe deg med?"],
+        "send-message": ["Send message", "Sende melding"],
+        "clicking-agree": ["By clicking 'Send message', I agree to FantasyLab's ", "Ved å klikke på 'Send melding', godtar jeg FantasyLab"],
+        "privacy-policy": ["Privacy Policy", "Personvern Politikk"]
+    },
+    "login": {
+        "welcome-message": ["Sign into FantasyLab", "Logg deg på FantasyLab"],
+        "create-account": ["or create a free FantasyLab account", "eller opprett en gratis FantasyLab-konto"],
+        "password": ["Password", "Passord"],
+        "remember-me": ["Remember me", "Husk meg"],
+        "forgot-password": ["Forgot password?", "Glemt passord?"],
+        "login": ["Login", "Logg Inn"],
+        "login-google": ["Login with Google", "Logg inn med Google"]
+    },
+    "register": {
+        "create-account": ["Create a FantasyLab account", "Opprett en FantasyLab-konto"],
+        "login-account": ["or sign in into your account", "eller logg deg på kontoen din"],
+        "confirm-password": ["Confirm password", "Bekreft passord"],
+        "team-name": ["Team name", "Lag navn"],
+        "team-placeholder": ["e.g.'FantasyLab' or FantasyLab Finance", "f.eks. 'FantasyLab' eller FantasyLab Finance"],
+        "clicking-agree": ["By creating an account, I agree to our ", "Ved å opprette en konto, godtar jeg vår "],
+        "terms": ["Terms", "Vilkår"],
+        "and": ["and", "og"],
+        "privacy": ["Privacy", "Personvern"],
+        "btn-create-account": ["Create account", "Opprett konto"],
+        "signup-google": ["Sign up with Google", "Registrer deg med Google"]
+    },
+    "service": {
+        "case-study": ["CASE STUDY", "CASESTUDIE"],
+        "technologies": ["Technologies we excel at", "Teknologier vi utmerker oss med"]
+    },
+    "alert": {
+        "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."]
+    }
+}

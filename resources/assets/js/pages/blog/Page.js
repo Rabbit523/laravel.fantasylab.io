@@ -1,7 +1,8 @@
 import React from 'react'
 import { Header, Segment, Dimmer, Loader, Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import Modal from 'react-modal';
+import Modal from 'react-modal'
+import { Translate, withLocalize } from "react-localize-redux"
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 
@@ -29,6 +30,7 @@ class Page extends React.Component {
     }
 
     componentDidMount() {
+        this.props.setActiveLanguage(this.props.lang);
         Http.post('api/front/get-page', { name: 'blog' })
         .then(
             res => {
@@ -49,37 +51,41 @@ class Page extends React.Component {
         const { isLoaded, isOpen, data } = this.state;
         Modal.setAppElement('#app')
         return (
-            <div className='blog-page'>
-                <Modal
-                    isOpen={isOpen}
-                    onRequestClose={this.closeModal}
-                    style={customStyles}
-                    >
-                    <Button icon='close' onClick={this.closeModal}/>
-                    <h2>Hi,<br/>Visionary.</h2>
-                    <p>Our web app is under development.</p>
-                    <div className="button-group">
-                        <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
-                        <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+            <Translate>
+                {({ translate }) => (
+                    <div className='blog-page'>
+                        <Modal
+                            isOpen={isOpen}
+                            onRequestClose={this.closeModal}
+                            style={customStyles}
+                            >
+                            <Button icon='close' onClick={this.closeModal}/>
+                            <h2>Hi,<br/>Visionary.</h2>
+                            <p>Our web app is under development.</p>
+                            <div className="button-group">
+                                <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
+                                <Button className='secondary-button' onClick={this.closeModal}>Close</Button> 
+                            </div>
+                        </Modal>
+                        {isLoaded && !isOpen?
+                            <React.Fragment>
+                                <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                                <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
+                                    <Header as='h1'>Blog</Header>
+                                </Segment>
+                            </React.Fragment>
+                            :
+                            <Segment className='page-loader'>
+                                <Dimmer active inverted>
+                                    <Loader size='large'>Loading...</Loader>
+                                </Dimmer>
+                            </Segment>
+                        }
                     </div>
-                </Modal>
-                {isLoaded && !isOpen?
-                    <React.Fragment>
-                        <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
-                        <Segment vertical textAlign='center' style={{minHeight: '100vh'}}>
-                            <Header as='h1'>Blog</Header>
-                        </Segment>
-                    </React.Fragment>
-                    :
-                    <Segment className='page-loader'>
-                        <Dimmer active inverted>
-                            <Loader size='large'>Loading...</Loader>
-                        </Dimmer>
-                    </Segment>
-                }
-            </div>
+                )}
+            </Translate>
         );
     }
 }
 
-export default Page;
+export default withLocalize(Page);

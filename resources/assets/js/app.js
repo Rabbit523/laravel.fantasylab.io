@@ -1,6 +1,7 @@
 import React from 'react'
-import {render} from 'react-dom'
-import {Provider} from 'react-redux'
+import { render } from 'react-dom'
+import { Provider } from 'react-redux'
+import { LocalizeProvider } from "react-localize-redux";
 import store from './store'
 import Routes from './routes'
 import * as action from './store/actions'
@@ -13,8 +14,10 @@ const { page } = window.__PRELOADED_STATE__;
 delete window.__PRELOADED_STATE__;
 
 render(
-    <Provider store={store}>
-        <Routes />
-    </Provider>,
-    document.getElementById('app')
+	<LocalizeProvider>
+		<Provider store={store}>
+			<Routes />
+		</Provider>
+	</LocalizeProvider>,
+	document.getElementById('app')
 );

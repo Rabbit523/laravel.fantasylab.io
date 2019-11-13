@@ -1,4 +1,10 @@
 import {connect} from 'react-redux'
 import Page from './Page'
 
-export default connect()(Page);
+const mapStateToProps = (state) => {
+    return {
+      lang: state.Auth.lang
+    }
+};
+
+export default connect(mapStateToProps)(Page);

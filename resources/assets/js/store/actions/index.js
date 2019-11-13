@@ -7,7 +7,6 @@ export function authLogin(payload){
     }
 }
 
-
 export function authLogout(){
     return {
         type: ActionTypes.AUTH_LOGOUT
@@ -17,5 +16,18 @@ export function authLogout(){
 export function authCheck(){
     return {
         type:ActionTypes.AUTH_CHECK
+    }
+}
+
+export function getLang(){
+    return {
+        type:ActionTypes.GET_LANG
+    }
+}
+
+export function setLang(payload){
+    return {
+        type:ActionTypes.SET_LANG,
+        payload
     }
 }

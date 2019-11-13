@@ -446,7 +446,7 @@ body {
 .segment.navbar .menu.right-menu-width .user-dropdown {
   padding-top: 18px;
   padding-bottom: 18px;
-  color: #9aa2bf;
+  color: #747ea3;
 }
 
 .segment.navbar .menu .custom-row {
@@ -632,7 +632,7 @@ body {
   line-height: normal !important;
   font-family: "Gotham Bold";
   font-weight: bold !important;
-  padding-top: 8px;
+  padding-top: 2px;
 }
 
 .segment.navbar .menu .text:hover {
@@ -644,7 +644,7 @@ body {
 }
 
 .segment.navbar .logo img {
-  width: 40px !important;
+  width: 55px !important;
   margin-bottom: 8px !important;
 }
 
@@ -2819,7 +2819,7 @@ body {
 }
 
 .footer img {
-  width: 20px !important;
+  width: 35px !important;
 }
 
 .footer .footer-title {
@@ -2860,6 +2860,10 @@ body {
   color: #fff !important;
 }
 
+.footer .footer-lang h5 {
+  margin: 0px 10px 0px 0px;
+}
+
 @media (min-width: 320px) {
   .segment.mobile-navbar {
     background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
@@ -2898,6 +2902,11 @@ body {
   .segment.mobile-navbar .secondary.menu .right-menu .mobile-register .primary-button {
     padding: 7px;
     font-size: 14px !important;
+  }
+
+  .segment.mobile-navbar .secondary.menu .right-menu .mobile-lang {
+    padding: 0;
+    margin: 0;
   }
 
   .segment.mobile-navbar .menu .dropdown.services .text {
@@ -2988,7 +2997,7 @@ body {
     position: absolute;
     top: 32px;
     width: 320px;
-    left: -266px;
+    left: -220px;
     z-index: 299;
     overflow: visible;
     text-align: left;
@@ -3581,14 +3590,18 @@ body {
   .footer h5 {
     font-size: 10px;
     margin-bottom: 10px;
-    text-align: left;
+    margin-left: 10px;
+  }
+
+  .footer .dropdown {
+    font-size: 10px;
   }
 }
 
 @media (min-width: 360px) {
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 360px;
-    left: -306px;
+    left: -260px;
   }
 
   .page .main .divide {
@@ -3636,7 +3649,7 @@ body {
 @media (min-width: 375px) {
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 375px;
-    left: -321px;
+    left: -275px;
   }
 
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
@@ -3703,7 +3716,7 @@ body {
 @media (min-width: 414px) {
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 414px;
-    left: -360px;
+    left: -315px;
   }
 
   .page .main .divide {
@@ -3789,7 +3802,7 @@ body {
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 768px;
-    left: -715px;
+    left: -670px;
   }
 
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition .item {
@@ -4024,7 +4037,7 @@ body {
   }
 
   .footer h5 {
-    text-align: right;
+    margin: 0px 10px 0px 10px;
   }
 }
 
@@ -4147,8 +4160,11 @@ body {
   }
 
   .footer h5 {
-    font-size: 16px;
-    padding-top: 10px;
+    font-size: 14px;
+  }
+
+  .footer .dropdown {
+    font-size: 14px;
   }
 }
 
@@ -4162,8 +4178,8 @@ body {
   }
 
   .segment.navbar .nav-color {
-    font-size: 16px;
-    padding: 22px 8px 22px 8px !important;
+    font-size: 15px;
+    padding: 24px 8px 22px 8px !important;
   }
 
   .segment.navbar .nav-color .text {
@@ -4171,7 +4187,11 @@ body {
   }
 
   .segment.navbar .menu .ui.buttons a {
-    font-size: 16px !important;
+    font-size: 15px !important;
+  }
+
+  .segment.navbar .menu .ui.buttons .primary-button {
+    padding: 0.78571429em 0.7em 0.78571429em !important;
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
@@ -4687,13 +4707,6 @@ body {
 
   .footer img {
     width: 89px !important;
-  }
-
-  .footer h5 {
-    text-align: right;
-    font-size: 16px;
-    margin-bottom: 0px;
-    margin-top: 5px;
   }
 }
 
@@ -5465,7 +5478,10 @@ body {
   }
 
   .footer h5 {
-    text-align: right;
+    font-size: 16px;
+  }
+
+  .footer .dropdown {
     font-size: 16px;
   }
 }

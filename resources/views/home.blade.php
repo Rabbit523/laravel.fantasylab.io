@@ -23,7 +23,7 @@
         </script>
     </head>
     <body>
-        
+        <?php $status['lang'] = app()->getLocale();?>
         {!! ssr('js/app-server.js')
             // Share the packages with the server script through context
             ->context('page', $page)

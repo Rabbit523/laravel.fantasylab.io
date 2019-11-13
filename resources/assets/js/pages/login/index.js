@@ -5,6 +5,7 @@ const mapStateToProps = (state) => {
     return {
         isAuthenticated : state.Auth.isAuthenticated,
         isAdmin : state.Auth.isAdmin,
+        lang: state.Auth.lang
     }
 };
 
