@@ -37,6 +37,26 @@ Route::get('/security', 'PagesController@security');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/confidentiality', 'PagesController@confidentiality');
 
+Route::get('/no', 'PagesController@no_index');
+Route::get('/no/login', 'PagesController@no_login');
+Route::get('/no/register', 'PagesController@no_register');
+Route::get('/no/portfolio', 'PagesController@no_portfolio');
+Route::get('/no/portfolio/{type?}', 'PagesController@no_singlePortfolio');
+Route::get('/no/web-development', 'PagesController@no_webDevelopment');
+Route::get('/no/mobile-development', 'PagesController@no_mobileDevelopment');
+Route::get('/no/ui-ux-design', 'PagesController@no_uiDesign');
+Route::get('/no/branding', 'PagesController@no_branding');
+Route::get('/no/illustration', 'PagesController@no_illustration');
+Route::get('/no/marketing-material', 'PagesController@no_marketingMaterial');
+Route::get('/no/features', 'PagesController@no_features');
+Route::get('/no/about', 'PagesController@no_about');
+Route::get('/no/blog', 'PagesController@no_blog');
+Route::get('/no/contact', 'PagesController@no_contact');
+Route::get('/no/privacy', 'PagesController@no_privacy');
+Route::get('/no/security', 'PagesController@no_security');
+Route::get('/no/terms', 'PagesController@no_terms');
+Route::get('/no/confidentiality', 'PagesController@no_confidentiality');
+
 Route::get('/admin/pages', 'PagesController@adminPages');
 Route::get('/admin/single-page/home', 'PagesController@adminHomePage');
 Route::get('/admin/single-page/portfolio', 'PagesController@adminPortfolioPage');

@@ -286,19 +286,24 @@ class Page extends React.Component {
 									<Menu.Menu position='right' className='right-menu-width'>
 										{this.props.isAuthenticated
 											?
-											<Dropdown text={this.props.userName} pointing='top right' className='user-dropdown'>
-												<Dropdown.Menu>
-													<Dropdown.Item
-														text={translate('navigation.login-as') + this.props.userName}
-														disabled key='user' />
-													{this.props.isAdmin ?
-														<Dropdown.Item as={NavLink} to='/admin/pages' text={translate('navigation.dashboard')} />
-														: ''
-													}
-													<Dropdown.Item onClick={this.handleLogout} text={translate('navigation.logout')} icon='sign out'
-														key='logout' />
-												</Dropdown.Menu>
-											</Dropdown>
+											(
+												<React.Fragment>
+													<Dropdown text={this.props.userName} pointing='top right' className='user-dropdown'>
+														<Dropdown.Menu>
+															<Dropdown.Item
+																text={translate('navigation.login-as') + this.props.userName}
+																disabled key='user' />
+															{this.props.isAdmin ?
+																<Dropdown.Item as={NavLink} to='/admin/pages' text={translate('navigation.dashboard')} />
+																: ''
+															}
+															<Dropdown.Item onClick={this.handleLogout} text={translate('navigation.logout')} icon='sign out'
+																key='logout' />
+														</Dropdown.Menu>
+													</Dropdown>
+													{this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+												</React.Fragment>
+											)
 											: <Button.Group>
 												{/* <Button as={Link} to='/login' className='login'>Login</Button> */}
 												<Button as={Link} to='/login' className='login' onClick={(event) => this.triggerModal(event)}>{translate("navigation.login")}</Button>

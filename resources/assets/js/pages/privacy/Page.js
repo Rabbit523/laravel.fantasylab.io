@@ -22,9 +22,12 @@ class Page extends React.Component {
 
     componentDidMount() {
         this.props.setActiveLanguage(this.props.lang);
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
         if (this.props.location.state != undefined) {
             const { pagename } = this.props.location.state;
-            Http.post('api/front/get-page', { name: 'privacy' })
+            Http.post(`${window.location.origin}/api/front/get-page`, { name: 'privacy' })
             .then(
                 res => {
                     if (pagename != null && pagename == "privacy") {
@@ -45,7 +48,7 @@ class Page extends React.Component {
             });
         } else {
             let path = this.props.location.pathname.split("/")[1];
-            Http.post('api/front/get-page', { name: 'privacy' })
+            Http.post(`${window.location.origin}/api/front/get-page`, { name: 'privacy' })
             .then(
                 res => {
                     if (path == "privacy") {

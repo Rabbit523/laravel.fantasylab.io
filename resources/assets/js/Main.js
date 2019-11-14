@@ -22,11 +22,36 @@ class Main extends React.Component {
     });
     this.props.getLang();
   }
-  
+  componentWillReceiveProps(nextProps) {
+    if(nextProps.lang !== this.props.lang && !this.props.isAuthenticated) {
+      if(nextProps.lang === 'no') {
+        var next_url = `/no${this.props.location.pathname}`;
+        this.props.history.push(next_url);
+      } else {
+        var next_url = this.props.location.pathname.replace('/no', '');
+        this.props.history.push(next_url);
+      }
+    }
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (prevProps.lang !== this.props.lang) {
       console.log('didupdate: lang = ', this.props.lang);
       this.props.setActiveLanguage(this.props.lang);
+    }
+  }
+
+  componentDidMount() {
+    if (!this.props.isAuthenticated) {
+      if (this.props.lang == 'en') {
+        var next_url = this.props.location.pathname.replace('/no', '');
+        this.props.history.push(next_url);
+      } else {
+        if(this.props.location.pathname.indexOf('/no') === -1){
+          var next_url = `/no${this.props.location.pathname}`;
+          this.props.history.push(next_url);
+        }      
+      }
     }
   }
 

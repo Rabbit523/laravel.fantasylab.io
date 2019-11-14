@@ -38,6 +38,12 @@ const routes = [
         component: Home
     },
     {
+        path: '/no',
+        exact: true,
+        auth: false,
+        component: Home
+    },
+    {
         path: '/login/:social',
         exact: false,
         auth: false,
@@ -50,7 +56,19 @@ const routes = [
         component: Login
     },
     {
+        path: '/no/login',
+        exact: true,
+        auth: false,
+        component: Login
+    },
+    {
         path: '/register',
+        exact: true,
+        auth: false,
+        component: Register
+    },
+    {
+        path: '/no/register',
         exact: true,
         auth: false,
         component: Register
@@ -74,7 +92,19 @@ const routes = [
         component: ServiceWeb
     },
     {
+        path: '/no/web-development',
+        exact: true,
+        auth: false,
+        component: ServiceWeb
+    },
+    {
         path: '/mobile-development',
+        exact: true,
+        auth: false,
+        component: ServiceMobile
+    },
+    {
+        path: '/no/mobile-development',
         exact: true,
         auth: false,
         component: ServiceMobile
@@ -86,7 +116,19 @@ const routes = [
         component: ServiceUI
     },
     {
+        path: '/no/ui-ux-design',
+        exact: true,
+        auth: false,
+        component: ServiceUI
+    },
+    {
         path: '/branding',
+        exact: true,
+        auth: false,
+        component: ServiceBranding
+    },
+    {
+        path: '/no/branding',
         exact: true,
         auth: false,
         component: ServiceBranding
@@ -98,7 +140,19 @@ const routes = [
         component: ServiceIllustration
     },
     {
+        path: '/no/illustration',
+        exact: true,
+        auth: false,
+        component: ServiceIllustration
+    },
+    {
         path: '/marketing-material',
+        exact: true,
+        auth: false,
+        component: ServiceMarketing
+    },
+    {
+        path: '/no/marketing-material',
         exact: true,
         auth: false,
         component: ServiceMarketing
@@ -110,7 +164,19 @@ const routes = [
         component: Portfolio
     },
     {
+        path: '/no/portfolio',
+        exact: true,
+        auth: false,
+        component: Portfolio
+    },
+    {
         path: '/features',
+        exact: true,
+        auth: false,
+        component: Features
+    },
+    {
+        path: '/no/features',
         exact: true,
         auth: false,
         component: Features
@@ -122,7 +188,19 @@ const routes = [
         component: About
     },
     {
+        path: '/no/about',
+        exact: true,
+        auth: false,
+        component: About
+    },
+    {
         path: '/blog',
+        exact: true,
+        auth: false,
+        component: Blog
+    },
+    {
+        path: '/no/blog',
         exact: true,
         auth: false,
         component: Blog
@@ -134,7 +212,19 @@ const routes = [
         component: Contact
     },
     {
+        path: '/no/contact',
+        exact: true,
+        auth: false,
+        component: Contact
+    },
+    {
         path: '/privacy',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/privacy',
         exact: true,
         auth: false,
         component: Privacy
@@ -146,13 +236,31 @@ const routes = [
         component: Privacy
     },
     {
+        path: '/no/security',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
         path: '/terms',
         exact: true,
         auth: false,
         component: Privacy
     },
     {
+        path: '/no/terms',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
         path: '/confidentiality',
+        exact: true,
+        auth: false,
+        component: Privacy
+    },
+    {
+        path: '/no/confidentiality',
         exact: true,
         auth: false,
         component: Privacy
@@ -261,6 +369,12 @@ const routes = [
     },
     {
         path: '/portfolio/:type',
+        exact: true,
+        auth: false,
+        component: SinglePortfolio
+    },
+    {
+        path: '/no/portfolio/:type',
         exact: true,
         auth: false,
         component: SinglePortfolio

@@ -22,7 +22,7 @@
         "craft-enterprise": ["Craft Enterprise", "Start prosjekt"],
         "dashboard": ["Dashboard", "Dashboard"],
         "logout": ["Logout", "Logg ut"],
-        "login-as": ["Logged in as", "logget inn som"]
+        "login-as": ["Logged in as ", "logget inn som "]
     },
     "footer": {
         "language": ["Language:", "Språk:"],
@@ -98,5 +98,9 @@
     },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."]
+    },
+    "card": {
+        "header": ["Header Section", "Overskrift Seksjon"],
+        "meta-title": ["Meta title", "Metatittel"]
     }
 }

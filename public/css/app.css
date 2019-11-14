@@ -444,9 +444,10 @@ body {
 }
 
 .segment.navbar .menu.right-menu-width .user-dropdown {
-  padding-top: 18px;
+  padding-top: 24px;
   padding-bottom: 18px;
   color: #747ea3;
+  font-size: 14px;
 }
 
 .segment.navbar .menu .custom-row {

@@ -38,13 +38,31 @@ const routes = [
         component: HomeServer
     },
     {
+        path: '/no',
+        exact: true,
+        auth: false,
+        component: HomeServer
+    },
+    {
         path: '/login',
         exact: true,
         auth: false,
         component: LoginServer
     },
     {
+        path: '/no/login',
+        exact: true,
+        auth: false,
+        component: LoginServer
+    },
+    {
         path: '/register',
+        exact: true,
+        auth: false,
+        component: RegisterServer
+    },
+    {
+        path: '/no/register',
         exact: true,
         auth: false,
         component: RegisterServer
@@ -68,7 +86,19 @@ const routes = [
         component: ServiceWebServer
     },
     {
+        path: '/no/web-development',
+        exact: true,
+        auth: false,
+        component: ServiceWebServer
+    },
+    {
         path: '/mobile-development',
+        exact: true,
+        auth: false,
+        component: ServiceMobileServer
+    },
+    {
+        path: '/no/mobile-development',
         exact: true,
         auth: false,
         component: ServiceMobileServer
@@ -80,7 +110,19 @@ const routes = [
         component: ServiceUIServer
     },
     {
+        path: '/no/ui-ux-design',
+        exact: true,
+        auth: false,
+        component: ServiceUIServer
+    },
+    {
         path: '/branding',
+        exact: true,
+        auth: false,
+        component: ServiceBrandingServer
+    },
+    {
+        path: '/no/branding',
         exact: true,
         auth: false,
         component: ServiceBrandingServer
@@ -92,7 +134,19 @@ const routes = [
         component: ServiceIllustrationServer
     },
     {
+        path: '/no/illustration',
+        exact: true,
+        auth: false,
+        component: ServiceIllustrationServer
+    },
+    {
         path: '/marketing-material',
+        exact: true,
+        auth: false,
+        component: ServiceMarketingServer
+    },
+    {
+        path: '/no/marketing-material',
         exact: true,
         auth: false,
         component: ServiceMarketingServer
@@ -104,7 +158,19 @@ const routes = [
         component: PortfolioServer
     },
     {
+        path: '/no/portfolio',
+        exact: true,
+        auth: false,
+        component: PortfolioServer
+    },
+    {
         path: '/features',
+        exact: true,
+        auth: false,
+        component: FeaturesServer
+    },
+    {
+        path: '/no/features',
         exact: true,
         auth: false,
         component: FeaturesServer
@@ -116,7 +182,19 @@ const routes = [
         component: AboutServer
     },
     {
+        path: '/no/about',
+        exact: true,
+        auth: false,
+        component: AboutServer
+    },
+    {
         path: '/blog',
+        exact: true,
+        auth: false,
+        component: BlogServer
+    },
+    {
+        path: '/no/blog',
         exact: true,
         auth: false,
         component: BlogServer
@@ -128,7 +206,19 @@ const routes = [
         component: ContactServer
     },
     {
+        path: '/no/contact',
+        exact: true,
+        auth: false,
+        component: ContactServer
+    },
+    {
         path: '/privacy',
+        exact: true,
+        auth: false,
+        component: PrivacyServer
+    },
+    {
+        path: '/no/privacy',
         exact: true,
         auth: false,
         component: PrivacyServer
@@ -140,13 +230,31 @@ const routes = [
         component: PrivacyServer
     },
     {
+        path: '/no/security',
+        exact: true,
+        auth: false,
+        component: PrivacyServer
+    },
+    {
         path: '/terms',
         exact: true,
         auth: false,
         component: PrivacyServer
     },
     {
+        path: '/no/terms',
+        exact: true,
+        auth: false,
+        component: PrivacyServer
+    },
+    {
         path: '/confidentiality',
+        exact: true,
+        auth: false,
+        component: PrivacyServer
+    },
+    {
+        path: '/no/confidentiality',
         exact: true,
         auth: false,
         component: PrivacyServer
@@ -255,6 +363,12 @@ const routes = [
     },
     {
         path: '/portfolio/:type',
+        exact: true,
+        auth: false,
+        component: SinglePortfolioServer
+    },
+    {
+        path: '/no/portfolio/:type',
         exact: true,
         auth: false,
         component: SinglePortfolioServer

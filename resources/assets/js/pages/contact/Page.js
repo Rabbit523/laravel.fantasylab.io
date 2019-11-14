@@ -55,7 +55,10 @@ class Page extends React.Component {
 
     componentDidMount() {
         this.props.setActiveLanguage(this.props.lang);
-        Http.post('api/front/get-page', { name: 'contact' })
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
+        Http.post(`${window.location.origin}/api/front/get-page`, { name: 'contact' })
         .then(
             res => {
                 if (window.innerWidth <= 1024) {

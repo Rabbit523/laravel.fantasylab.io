@@ -20,9 +20,12 @@ export function setLang(lang) {
 }
 
 export function login(credentials) {
+	if (!window.location.origin) {
+		window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+	}
 	return dispatch => (
 		new Promise((resolve, reject) => {
-			Http.post('api/auth/login', credentials).then(res => {
+			Http.post(`${window.location.origin}/api/auth/login`, credentials).then(res => {
 				dispatch(action.authLogin(res.data));
 				return resolve();
 			})
@@ -125,9 +128,12 @@ export function updatePassword(credentials) {
 }
 
 export function register(credentials) {
+	if (!window.location.origin) {
+		window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+	}
 	return dispatch => (
 		new Promise((resolve, reject) => {
-			Http.post('api/auth/register', credentials)
+			Http.post(`${window.location.origin}/api/auth/register`, credentials)
 				.then(res => {
 					return resolve(res.data);
 				})

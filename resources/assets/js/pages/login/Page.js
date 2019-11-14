@@ -170,7 +170,7 @@ class Page extends React.Component {
 										</div>
 										<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('login.login')}</Button>
 										<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-											<img src='images/google.png' /> {translate('login.login-google')}
+											<img src='/images/google.png' /> {translate('login.login-google')}
 										</Button>
 									</Segment>
 								</Form>
@@ -184,8 +184,6 @@ class Page extends React.Component {
 }
 
 Page.propTypes = {
-	isAuthenticated: PropTypes.bool,
-	isAdmin: PropTypes.bool,
 	dispatch: PropTypes.func
 };
 

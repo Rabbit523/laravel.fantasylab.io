@@ -41,7 +41,10 @@ class Page extends React.Component {
 
     componentDidMount() {
         this.props.setActiveLanguage(this.props.lang);
-        Http.post('api/front/get-page', { name: 'home' }).then(
+        if (!window.location.origin) {
+            window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port: '');
+        }
+        Http.post(`${window.location.origin}/api/front/get-page`, { name: 'home' }).then(
             res => {
                 if (window.innerWidth < 1024) {
                     this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.page.data) });
@@ -66,6 +69,7 @@ class Page extends React.Component {
 
     render() {
         const { isLoaded, isTablet, isOpen, data } = this.state;
+        const { lang } = this.props;
         Modal.setAppElement('#app')
         return (
             <Translate>
@@ -73,7 +77,7 @@ class Page extends React.Component {
                     <div className='home-page'>
                     {isLoaded ?
                         <React.Fragment>
-                            <PageMetaTag meta_title={data.header.meta_title} meta_description={data.header.meta_description}/>
+                            <PageMetaTag meta_title={lang=='en'?data.header.meta_title:data.header.no_meta_title} meta_description={lang=='no'?data.header.meta_description:data.header.no_meta_description}/>
                             <Modal
                                 isOpen={isOpen}
                                 onRequestClose={this.closeModal}

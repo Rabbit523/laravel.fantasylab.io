@@ -265,7 +265,7 @@ class Page extends React.Component {
                                         </div>
                                         <Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('register.btn-create-account')}</Button>
                                         <Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-                                            <img src='images/google.png'/> {translate('register.signup-google')}
+                                            <img src='/images/google.png'/> {translate('register.signup-google')}
                                         </Button>
                                     </Segment>
                                 </Form>
