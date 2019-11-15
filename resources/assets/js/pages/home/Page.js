@@ -94,10 +94,14 @@ class Page extends React.Component {
                             <div className='homepage-header' style={{ backgroundImage: `url(${isMobile&&!isTablet?data.header.mobile_header:data.header.header_url})` }}>
                                 <Container className='custom-col-6'>
                                     <div className='homepage-header-description'>
-                                        <h1>{data.header.header_title}</h1>
-                                        <p className='title'>{data.header.header_description_title}</p>
+                                        <h1>{lang=='en'?data.header.header_title:data.header.no_header_title}</h1>
+                                        <p className='title'>{lang=='en'?data.header.header_description_title:data.header.no_header_description_title}</p>
                                         {
-                                            data.header.header_description.split('\n').map((item, i) => {
+                                            lang=='en'?data.header.header_description.split('\n').map((item, i) => {
+                                                return (
+                                                    <p key={i} className='normal'>{item}</p>
+                                                )
+                                            }):data.header.no_header_description.split('\n').map((item, i) => {
                                                 return (
                                                     <p key={i} className='normal'>{item}</p>
                                                 )
@@ -119,11 +123,11 @@ class Page extends React.Component {
                                             <React.Fragment key={index}>
                                                 {index<2 && 
                                                     <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={data.services[key].url}>
-                                                        <ServiceItem avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage} />
+                                                        <ServiceItem avatar={data.services[key].avatar} title={lang=='en'?data.services[key].title:data.services[key].no_title} color={data.services[key].color} description={lang=='en'?data.services[key].description:data.services[key].no_description} backimage={data.services[key].backimage} />
                                                 </Grid.Column>}
                                                 {index>=2 && 
                                                     <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={data.services[key].url}>
-                                                        <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={data.services[key].title} color={data.services[key].color} description={data.services[key].description} backimage={data.services[key].backimage}/>
+                                                        <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={lang=='en'?data.services[key].title:data.services[key].no_title} color={data.services[key].color} description={lang=='en'?data.services[key].description:data.services[key].no_description} backimage={data.services[key].backimage}/>
                                                     </Grid.Column>}
                                             </React.Fragment>
                                         ))}
@@ -140,10 +144,10 @@ class Page extends React.Component {
                                         {Object.keys(data.badges).map((key, index) => (
                                             <React.Fragment key={index}>
                                                 <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                    <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={lang=='en'?data.badges[key].title:data.badges[key].no_title} color={data.badges[key].color} description={lang=='en'?data.badges[key].description:data.badges[key].no_description} />
                                                 </Grid.Column>
                                                 <Grid.Column only="computer">
-                                                    <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={data.badges[key].title} color={data.badges[key].color} description={data.badges[key].description} />
+                                                    <BadgeTextCard from="home" url={data.badges[key].url} number={data.badges[key].number} title={lang=='en'?data.badges[key].title:data.badges[key].no_title} color={data.badges[key].color} description={lang=='en'?data.badges[key].description:data.badges[key].no_description} />
                                                 </Grid.Column>
                                             </React.Fragment>
                                         ))}
@@ -179,7 +183,7 @@ class Page extends React.Component {
                                     <p>{translate('home.agile-framework')}</p>
                                 </Container>
                                 <Container>
-                                    <Gallery type="review" items={data.carousels} />
+                                    <Gallery type="review" items={data.carousels} lang={lang}/>
                                 </Container>
                             </section>
                             <section className='home-section'>
@@ -188,24 +192,24 @@ class Page extends React.Component {
                                     <Grid columns={3}>
                                         {data.news.map((item, i) => (
                                             <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-                                                <NewsCard url={item.url} author={item.author} type={item.type} title={item.title} description={item.description} time={item.time} read={item.read} />
+                                                <NewsCard url={item.url} author={item.author} type={item.type} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description} time={item.time} read={item.read} />
                                             </Grid.Column>
                                         ))}
                                     </Grid>
                                     <Grid>
                                         <Grid.Column only="tablet mobile" onClick={(event) => this.triggerModal(event)}>
-                                            <Gallery type="news" items={data.news} />
+                                            <Gallery type="news" items={data.news} lang={lang}/>
                                         </Grid.Column>
                                     </Grid>
                                 </Container>
                             </section>
-                            <PageFooter title={data.footer.title} description={data.footer.description} button={data.footer.button} link={data.footer.link} linkName={data.footer.link_name} url={data.footer.url} />
+                            <PageFooter title={lang=='en'?data.footer.title:data.footer.no_title} description={lang=='en'?data.footer.description:data.footer.no_description} button={lang=='en'?data.footer.button:data.footer.no_button} link={lang=='en'?data.footer.link:data.footer.no_link} linkName={lang=='en'?data.footer.link_name:data.footer.no_link_name} url={data.footer.url} />
                             <section className='divide'></section>
                         </React.Fragment>
                         :
                         <Segment className='page-loader'>
                             <Dimmer active inverted>
-                                <Loader size='large'>Loading...</Loader>
+                                <Loader size='large'>{translate('alert.loading')}</Loader>
                             </Dimmer>
                         </Segment>
                     }

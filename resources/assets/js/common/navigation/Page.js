@@ -164,7 +164,7 @@ class Page extends React.Component {
 										</Menu.Item>
 									</Menu.Menu>
 									<Menu.Item className="mobile-lang">
-										{this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+										{/* {this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
 									</Menu.Item>
 								</div>
 							</Menu>
@@ -301,7 +301,7 @@ class Page extends React.Component {
 																key='logout' />
 														</Dropdown.Menu>
 													</Dropdown>
-													{this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+													{/* {this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
 												</React.Fragment>
 											)
 											: <Button.Group>
@@ -311,7 +311,7 @@ class Page extends React.Component {
 													{/* <Button as={Link} to='/register' className='primary-button'>Craft Enterprise</Button> */}
 													<Button as={Link} to='/register' className='primary-button' onClick={(event) => this.triggerModal(event)}>{translate("navigation.craft-enterprise")}</Button>
 												</div>
-												{this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+												{/* {this.props.lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("no")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
 											</Button.Group>
 										}
 									</Menu.Menu>

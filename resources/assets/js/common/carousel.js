@@ -31,9 +31,9 @@ class Gallery extends React.Component {
                         <img src={`${ i.url}`} />
                     </div>
                     <div className='news-content'>
-                        <h3>{i.title}</h3>
-                        <p className='normal'>{i.description}</p>
-                        <p className='category'>By {i.author} in {i.type}</p>
+                        <h3>{this.props.lang=='en'?i.title:i.no_title}</h3>
+                        <p className='normal'>{this.props.lang=='en'?i.description:i.no_description}</p>
+                        <p className='category'>By {i.author} in {this.props.lang=='en'?i.type:i.no_type}</p>
                         <p className='normal'>{i.time} <span>&middot;</span> {i.read} read <span className='news-icon-arrow'><Icon name='arrow right'/></span></p>
                     </div>
                 </div>)
@@ -84,6 +84,7 @@ class Gallery extends React.Component {
 }
 Gallery.propTypes = {
     items: PropTypes.array.isRequired,
-    type: PropTypes.string
+    type: PropTypes.string,
+    lang: PropTypes.string
 };
 export default Gallery;

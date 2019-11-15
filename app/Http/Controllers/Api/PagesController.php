@@ -464,6 +464,7 @@ class PagesController extends Controller
                 $page->save();
             } else if ($service_type == "values") {
                 $data->values->title = $request_data['title'];
+                $data->values->no_title = $request_data['no_title'];
                 $data->values->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();
@@ -549,6 +550,7 @@ class PagesController extends Controller
                 $page->save();
             } else if ($service_type == "services_title") {
                 $data->services->title = $request->title;
+                $data->services->no_title = $request->no_title;
                 $page->data = json_encode($data);
                 $page->save();
             } else if ($service_type == "services_delete") {
@@ -599,6 +601,8 @@ class PagesController extends Controller
                 }
                 $data->headquarters->title = $request_data['title'];
                 $data->headquarters->description = $request_data['description'];
+                $data->headquarters->no_title = $request_data['no_title'];
+                $data->headquarters->no_description = $request_data['no_description'];
                 $data->headquarters->backimage = $request_data['backimage'];
                 $page->data = json_encode($data);
                 $page->save();

@@ -33,6 +33,7 @@ class Page extends React.Component {
 
     render() {
         const { isLoaded, data } = this.state;
+        const { lang } = this.props;
         const ref = this;
         return (
             <Translate>
@@ -40,20 +41,20 @@ class Page extends React.Component {
                     <div className='portfolio-page'>
                         {isLoaded ?
                             <React.Fragment>
-                                <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                                <PageMetaTag meta_title={lang=='en'?data.meta_title:data.no_meta_title} meta_description={lang=='en'?data.meta_description:data.no_meta_description}/>
                                 <div className='portfolio-header' style={{ backgroundImage: `url(${data.header_url})` }}>
                                     <div className='header-gradient'>
                                         <Container className='custom-col-6'>
                                             <div className='portfolio-header-description'>
                                                 <div className='portfolio-header-text'>
-                                                    <h1>{data.title}</h1>
-                                                    <p>{data.description}</p>
+                                                    <h1>{lang=='en'?data.title:data.no_title}</h1>
+                                                    <p>{lang=='en'?data.description:data.no_description}</p>
                                                 </div>
                                                 <div className='portfolio-header-figure'>
                                                     {data.icon_urls.map((item, i) => (
                                                         <div className='figure' key={i}>
                                                             <img src={`${ item.path}`} />
-                                                            <p>{item.text}</p>
+                                                            <p>{lang=='en'?item.text:item.no_text}</p>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -78,13 +79,13 @@ class Page extends React.Component {
                                         </Grid>
                                     </Container>
                                 </div>
-                                <PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />
+                                <PageFooter title={lang=='en'?data.footer_title:data.no_footer_title} description={lang=='en'?data.footer_description:data.no_footer_description} button={lang=='en'?data.footer_button:data.no_footer_button} link={lang=='en'?data.footer_link:data.no_footer_link} linkName={lang=='en'?data.footer_link_name:data.no_footer_link_name} url={data.footer_url} />
                                 <div className='divide'></div>
                             </React.Fragment>
                             :
                             <Segment className='page-loader'>
                                 <Dimmer active inverted>
-                                    <Loader size='large'>Loading...</Loader>
+                                    <Loader size='large'>{translate('alert.loading')}</Loader>
                                 </Dimmer>
                             </Segment>
                         }

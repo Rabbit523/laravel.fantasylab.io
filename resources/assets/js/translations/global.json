@@ -97,10 +97,46 @@
         "technologies": ["Technologies we excel at", "Teknologier vi utmerker oss med"]
     },
     "alert": {
-        "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."]
+        "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
+        "loading": ["Loading...", "Laster ..."]
     },
     "card": {
-        "header": ["Header Section", "Overskrift Seksjon"],
-        "meta-title": ["Meta title", "Metatittel"]
+        "header-section": ["Header Section", "Overskrift Seksjon"],
+        "meta-title": ["Meta title", "Metatittel"],
+        "meta-description": ["Meta description", "Meta beskrivelse"],
+        "title": ["Title", "Tittel"],
+        "description-title": ["Description Title", "Beskrivelse Tittel"],
+        "des-title-place": ["Write about homepage", "Skriv om hjemmesiden"],
+        "description-place": ["Tell us more", "Fortell oss mer"],
+        "description": ["Description", "Beskrivelse"],
+        "header-img": ["Header Image", "Topptekstbilde"],
+        "header-mobile-img": ["Header Mobile Image", "Overskrift mobilbilde"],
+        "save": ["Save", "Lagre"],
+        "footer-section": ["Footer Section", "Bunntekst seksjon"],
+        "btn-name": ["Button name", "Knappenavn"],
+        "link": ["Link", "Lenke"],
+        "link-name": ["Link name", "Lenke navn"],
+        "footer-img": ["Footer Image", "Bunntekstbilde"],
+        "service-section": ["Service Section", "Serviceseksjonen"],
+        "badge-section": ["Badge Section", "Merkeseksjon"],
+        "portfolio-section": ["Portfolio Section", "Porteføljeseksjon"],
+        "review-section": ["Reviews Section", "Gjennomgangsseksjonen"],
+        "news-section": ["News Section", "Nyhetsseksjonen"],
+        "image-upload": ["Image Upload", "Bildeopplasting"],
+        "read": ["Read", "Lese"],
+        "author": ["Author", "Forfatter"],
+        "color": ["Color", "Farge"],
+        "avatar-img": ["Avatar Image", "Avatar-bilde"],
+        "background-img": ["Background Image", "Bakgrunnsbilde"],
+        "delete": ["Delete", "Slett"],
+        "text": ["Text", "Tekst"],
+        "number": ["Number", "Nummer"],
+        "guide-items": ["Guide Items", "Veiledningselementer"],
+        "value-items": ["Value Items", "Verdi elementer"],
+        "headquarter-items": ["Headquarters Items", "Hovedkvarter"]
+    },
+    "sidebar": {
+        "pages": ["Pages", "Sider"],
+        "reviews": ["Reviews", "Anmeldelser"]
     }
 }
