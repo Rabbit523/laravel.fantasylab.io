@@ -175,6 +175,7 @@ class Page extends React.Component {
     }
     render() {
         const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
+        const { lang } = this.props;
         return (
             <Translate>
                 {({ translate }) => (
@@ -200,14 +201,14 @@ class Page extends React.Component {
                                         <Container className='custom-col-6'>
                                             <div className='header-description'>
                                                 <div className='header-text'>
-                                                    <h1>{data.title}</h1>
-                                                    <h2>{data.description}</h2>
+                                                    <h1>{lang=='en'?data.title:data.no_title}</h1>
+                                                    <h2>{lang=='en'?data.description:data.no_description}</h2>
                                                 </div>
                                             </div>
                                             <Grid style={{paddingTop: 50}}>
                                                 {data.headquarters.map((item, i) => (
                                                     <Grid.Column mobile={16} tablet={8} computer={isTablet?8:4} key={i}>
-                                                        <HeadquaterItem avatar={item.avatar} button={item.button} title={item.title} description={item.description} type={item.type}/>
+                                                        <HeadquaterItem avatar={item.avatar} button={lang=='en'?item.button:item.no_button} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description} type={item.type}/>
                                                     </Grid.Column>
                                                 ))}
                                             </Grid>

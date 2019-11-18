@@ -529,6 +529,32 @@ class PagesController extends Controller
         return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
     }
 
+    public function adminPortfolios() {
+        $page = Portfolio::get();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminSinglePortfolioPage(Request $request) {
+        $page = Portfolio::get();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
     public function adminHomePage() {
         $page = Page::where('id', 1)->first();
         $status = [

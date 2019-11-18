@@ -137,13 +137,13 @@ class Footer extends React.Component {
 								</Grid.Column>
 								<Grid.Column mobile={16} tablet={4} computer={4} className="footer-lang" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '10px 0px' }}>
 									<h5>{translate('footer.language')} </h5>
-									{/* <Dropdown text={this.props.lang == 'en' ? 'English' : 'Norsk'}>
+									<Dropdown text={this.props.lang == 'en' ? 'English' : 'Norsk'}>
 										<Dropdown.Menu>
 											{this.props.lang == 'en' ? 
 												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("no")} /> 
 												:<Dropdown.Item text='English' onClick={(event) => this.changeLang("en")} /> }
 										</Dropdown.Menu>
-									</Dropdown> */}
+									</Dropdown>
 								</Grid.Column>
 							</Grid>
 						</Container>

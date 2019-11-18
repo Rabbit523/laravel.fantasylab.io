@@ -94,7 +94,8 @@
     },
     "service": {
         "case-study": ["CASE STUDY", "CASESTUDIE"],
-        "technologies": ["Technologies we excel at", "Teknologier vi utmerker oss med"]
+        "technologies": ["Technologies we excel at", "Teknologier vi utmerker oss med"],
+        "read-study": ["Read case study", "Les casestudie"]
     },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
@@ -110,6 +111,7 @@
         "description-place": ["Tell us more", "Fortell oss mer"],
         "description": ["Description", "Beskrivelse"],
         "header-img": ["Header Image", "Topptekstbilde"],
+        "header-sub-img": ["Header Sub Image", "Overskrift underbilde"],
         "header-mobile-img": ["Header Mobile Image", "Overskrift mobilbilde"],
         "save": ["Save", "Lagre"],
         "footer-section": ["Footer Section", "Bunntekst seksjon"],
@@ -128,12 +130,26 @@
         "color": ["Color", "Farge"],
         "avatar-img": ["Avatar Image", "Avatar-bilde"],
         "background-img": ["Background Image", "Bakgrunnsbilde"],
+        "icon-img": ["Icon Image", "Ikonbilde"],
         "delete": ["Delete", "Slett"],
         "text": ["Text", "Tekst"],
         "number": ["Number", "Nummer"],
         "guide-items": ["Guide Items", "Veiledningselementer"],
         "value-items": ["Value Items", "Verdi elementer"],
-        "headquarter-items": ["Headquarters Items", "Hovedkvarter"]
+        "headquarter-items": ["Headquarters Items", "Hovedkvarter"],
+        "starting-section": ["Starting Section", "Startseksjon"],
+        "job": ["Job", "Jobb"],
+        "technologies": ["Technologies", "Technologies"],
+        "process-section": ["Process section", "Prosessdel"],
+        "image": ["Image", "Bilde"],
+        "sub-description-section": ["Sub Description Section", "Delbeskrivelsesdel"],
+        "services-section": ["Services Section", "Tjenesteseksjonen"],
+        "logo-img": ["Logo Image", "Logobilde"],
+        "create": ["Create", "Skape"],
+        "cancel": ["Cancel", "Avbryt"],
+        "create-cms": ["Create CMS", "opprette cms"],
+        "edit-cms": ["Edit CMS", "rediger cms"],
+        "updated-at": ["Update at", "Oppdatert kl"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

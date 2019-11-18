@@ -575,7 +575,7 @@ class PagesController extends Controller
                     $url = url("/assets/uploads") ."/" . $name;
                     $arr = explode("/", $url);
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['data'][$request->id]['url'] = $path;
+                    $request_data['data'][$request->id]['avatar'] = $path;
                 }
                 $data->headquarters->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
@@ -1073,7 +1073,9 @@ class PagesController extends Controller
                     'from' => 'home',
                     'url' => $request_data['url'],
                     'title' => $request_data['title'],
+                    'no_title' => $request_data['no_title'],
                     'description' => $request_data['description'],
+                    'no_description' => $request_data['no_description'],
                     'icon_url' => $request_data['avatar'],
                     'back_url' => $request_data['back_url']
                 ];
@@ -1094,7 +1096,9 @@ class PagesController extends Controller
                     'from' => 'portfolio',
                     'url' => $request_data['url'],
                     'title' => $request_data['title'],
+                    'no_title' => $request_data['no_title'],
                     'description' => $request_data['description'],
+                    'no_description' => $request_data['no_description'],
                     'back_url' => $request_data['back_url']
                 ];
                 $array = json_decode(json_encode($portfolio_data->portfolios), true);
@@ -1103,9 +1107,10 @@ class PagesController extends Controller
         }
         $portfolios->data = json_encode($portfolio_data);
         $portfolios->save();
-
-        $data->title = $request_data['title'];
-        $data->description = $request_data['description'];
+        $data->title = $request['title'];
+        $data->no_title = $request['no_title'];
+        $data->description = $request['description'];
+        $data->no_description = $request['no_description'];
         $data->type = $request_data['type'];
         $data->url = $request_data['url'];
         $data->avatar = $request_data['avatar'];

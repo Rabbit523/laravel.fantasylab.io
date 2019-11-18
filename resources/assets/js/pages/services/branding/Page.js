@@ -60,6 +60,7 @@ class Page extends React.Component {
 
     render() {
         const { isLoaded, isOpen, data } = this.state;
+        const { lang } = this.props;
         Modal.setAppElement('#app')
         return (
             <Translate>
@@ -67,7 +68,7 @@ class Page extends React.Component {
                     <div className='service-page'>
                         {isLoaded ?
                             <React.Fragment>
-                                <PageMetaTag meta_title={data.meta_title} meta_description={data.meta_description}/>
+                                <PageMetaTag meta_title={lang=='en'?data.meta_title:data.no_meta_title} meta_description={lang=='en'?data.meta_description:data.no_meta_description}/>
                                 <Modal
                                     isOpen={isOpen}
                                     onRequestClose={this.closeModal}
@@ -86,8 +87,8 @@ class Page extends React.Component {
                                         <Container className='custom-col-6 text-group'>
                                             <div className='header-description'>
                                                 <div className='header-text'>
-                                                    <h1>{data.title}</h1>
-                                                    <p>{data.description}</p>
+                                                    <h1>{lang=='en'?data.title:data.no_title}</h1>
+                                                    <p>{lang=='en'?data.description:data.no_description}</p>
                                                 </div>
                                             </div>
                                             <Container className='custom-col-6'>
@@ -95,7 +96,7 @@ class Page extends React.Component {
                                                     {data.icons.map((item, i) => (
                                                         <div className='figure' key={i}>
                                                             <img src={`${ item.icon}`} />
-                                                            <p>{item.text}</p>
+                                                            <p>{lang=='en'?item.text:item.no_text}</p>
                                                         </div>
                                                     ))}
                                                 </div>
@@ -109,10 +110,10 @@ class Page extends React.Component {
                                                         {data.starting.data.map((item, i) => (
                                                             <React.Fragment key={i}>
                                                                 <Grid.Column mobile={16} tablet={8} only="mobile" onClick={(event) => this.triggerModal(event)}>
-                                                                    <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                                    <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description}/>
                                                                 </Grid.Column>
                                                                 <Grid.Column only="computer" onClick={(event) => this.triggerModal(event)}>
-                                                                    <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={item.title} description={item.description}/>
+                                                                    <ServiceItem from='service' avatar={item.url} backimage={item.backimage} color={item.color} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description}/>
                                                                 </Grid.Column>
                                                             </React.Fragment>
                                                         ))}
@@ -128,11 +129,11 @@ class Page extends React.Component {
                                         <Container className='custom-col-4'>
                                             <div className='service-review'>
                                                 <p className="case_text">{translate('service.case-study')}</p>
-                                                <h2>{data.study.title}</h2>
-                                                <p className="description">'{data.study.description}'</p>
+                                                <h2>{lang=='en'?data.study.title:data.study.no_title}</h2>
+                                                <p className="description">'{lang=='en'?data.study.description:data.study.no_description}'</p>
                                                 <div className='avatar'><img src={`${ data.study.avatar}`} /></div>
                                                 <p>{data.study.job}</p>
-                                                {data.study.path && <Link to={{pathname:`/portfolio/${data.study.path}`}} className='third-button'>Read case study</Link>}
+                                                {data.study.path && <Link to={{pathname:`/portfolio/${data.study.path}`}} className='third-button'>{translate('service.read-study')}</Link>}
                                             </div>
                                         </Container>
                                     </Container>
@@ -145,7 +146,7 @@ class Page extends React.Component {
                                                 {data.technologies.map((item, i) => (
                                                     <React.Fragment key={i}>
                                                         <Grid.Column mobile={8} tablet={8} computer={4}>
-                                                            <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={item.text}/>
+                                                            <GuideCard from='service_mobile' avatar={item.icon} title={item.lang} description={lang=='en'?item.text:item.no_text}/>
                                                         </Grid.Column>
                                                     </React.Fragment>
                                                 ))}
@@ -163,23 +164,23 @@ class Page extends React.Component {
                                             {data.estimation.map((item, i) => (
                                                 <React.Fragment key={i}>
                                                     <Grid.Column mobile={16} tablet={8} only="mobile tablet">
-                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={lang=='en'?item.title:item.no_title} color={item.color} description={lang=='en'?item.description:item.no_description} />
                                                     </Grid.Column>
                                                     <Grid.Column only="computer">
-                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={item.title} color={item.color} description={item.description} />
+                                                        <BadgeTextCard from='service' url={item.url} number={item.number} title={lang=='en'?item.title:item.no_title} color={item.color} description={lang=='en'?item.description:item.no_description} />
                                                     </Grid.Column>
                                                 </React.Fragment>
                                             ))}
                                         </Grid>
                                     </Container>
                                 </div>
-                                <PageFooter title={data.footer_title} description={data.footer_description} button={data.footer_button} link={data.footer_link} linkName={data.footer_link_name} url={data.footer_url} />
+                                <PageFooter title={lang=='en'?data.footer_title:data.no_footer_title} description={lang=='en'?data.footer_description:data.no_footer_description} button={lang=='en'?data.footer_button:data.no_footer_button} link={lang=='en'?data.footer_link:data.no_footer_link} linkName={lang=='en'?data.footer_link_name:data.no_footer_link_name} url={data.footer_url} />
                                 <div className='divide'></div>
                             </React.Fragment>
                             :
                             <Segment className='page-loader'>
                                 <Dimmer active inverted>
-                                    <Loader size='large'>Loading...</Loader>
+                                    <Loader size='large'>{translate('alert.loading')}</Loader>
                                 </Dimmer>
                             </Segment>
                         }

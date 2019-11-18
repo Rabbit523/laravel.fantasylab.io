@@ -58,8 +58,10 @@ Route::get('/no/terms', 'PagesController@no_terms');
 Route::get('/no/confidentiality', 'PagesController@no_confidentiality');
 
 Route::get('/admin/pages', 'PagesController@adminPages');
+Route::get('/admin/portfolio', 'PagesController@adminPortfolios');
 Route::get('/admin/single-page/home', 'PagesController@adminHomePage');
 Route::get('/admin/single-page/portfolio', 'PagesController@adminPortfolioPage');
+Route::get('/admin/single-page/single_portfolio', 'PagesController@adminSinglePortfolioPage');
 Route::get('/admin/single-page/about', 'PagesController@adminAboutPage');
 Route::get('/admin/single-page/contact', 'PagesController@adminContactPage');
 Route::get('/admin/single-page/service-web', 'PagesController@adminServiceWebPage');
