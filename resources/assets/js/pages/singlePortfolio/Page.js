@@ -84,12 +84,30 @@ class Page extends React.Component {
 													<Grid.Column only="computer" className="main_description">
 														<h3 className="sub_title">{lang == 'en' ? item.title : item.no_title}</h3>
 														<p className="sub_text">{lang == 'en' ? item.text : item.no_text}</p>
-														{Object.keys(item.sub).map((key, i) => (
-															item.sub[key] && (<div className="sub_descriptions" key={i}>
-																<div className="round_number">{i + 1}</div>
-																<p>{lang == 'en' ? item.sub[key].text : item.sub[key].no_text}</p>
-															</div>)
-														))}
+														{lang == 'en' && <React.Fragment>
+															{Object.keys(item.sub).map((key, i) => {
+																return (
+																	(index < 3) && !key.includes("no") &&
+																	(<div className="sub_descriptions" key={i}>
+																		<div className="round_number">{i + 1}</div>
+																		<p>{item.sub[key]}</p>
+																	</div>)
+																)
+															})}
+														</React.Fragment>
+														}
+														{lang == 'no' && <React.Fragment>
+															{Object.keys(item.sub).map((key, i) => {
+																return (
+																	(0 < index < 4) && key.includes("no") &&
+																	(<div className="sub_descriptions" key={i}>
+																		<div className="round_number">{i - 2}</div>
+																		<p>{item.sub[key]}</p>
+																	</div>)
+																)
+															})}
+														</React.Fragment>
+														}
 													</Grid.Column>
 												</React.Fragment>
 											))}
@@ -133,10 +151,10 @@ class Page extends React.Component {
 										<Grid columns={3}>
 											{data.services.map((item, index) => (
 												<React.Fragment key={index}>
-													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: `/${item.url}` }}>
+													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
-													<Grid.Column only="computer" as={Link} to={{ pathname: `/${item.url}` }}>
+													<Grid.Column only="computer" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
 												</React.Fragment>

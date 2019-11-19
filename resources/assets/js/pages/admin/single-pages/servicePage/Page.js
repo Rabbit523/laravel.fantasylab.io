@@ -70,6 +70,7 @@ class Page extends React.Component {
 	handleChange(event, type) {
 		var { list, reviews, technologies, estimation, starting, starting_title, no_starting_title } = this.state;
 		var ref = this;
+
 		switch (type) {
 			case 'meta_title':
 				list.meta_title = event.target.value;
@@ -151,6 +152,7 @@ class Page extends React.Component {
 				return this.setState({ no_starting_title });
 		}
 
+		console.log(type);
 		if (type.includes('icon')) {
 			Object.keys(list.icons).map((key, i) => {
 				var sub_key = type.split('icon')[1];

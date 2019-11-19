@@ -24,7 +24,7 @@ class Review extends Model
      * @var array
      */
 
-    protected $fillable = ['id', 'title', 'description', 'avatar', 'name', 'job', 'logo_url', 'back_url'];
+    protected $fillable = ['id', 'title', 'description', 'no_description', 'avatar', 'name', 'job', 'logo_url', 'back_url'];
 
     /**
      * The attributes that should be hidden for arrays.

@@ -179,7 +179,7 @@ class Page extends React.Component {
 													<Card.Description>
 														<Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
 															{lang == 'en' && Object.keys(portfolios).map((key, i) => (
-																<Panel header={data.title} key={i}>
+																<Panel header={portfolios[key].title} key={i}>
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={portfolios[key].title} onChange={(val) => ref.handleChange(val, i + '_title')} />
 																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={portfolios[key].description} onChange={(val) => ref.handleChange(val, i + '_description')} />
 																	<Form.Input fluid label='type' name='type' placeholder='type' className='input-form' value={portfolios[key].type} onChange={(val) => ref.handleChange(val, i + '_type')} />

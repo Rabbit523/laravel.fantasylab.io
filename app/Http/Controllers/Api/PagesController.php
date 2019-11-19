@@ -1106,11 +1106,12 @@ class PagesController extends Controller
             }
         }
         $portfolios->data = json_encode($portfolio_data);
-        $portfolios->save();
-        $data->title = $request['title'];
-        $data->no_title = $request['no_title'];
-        $data->description = $request['description'];
-        $data->no_description = $request['no_description'];
+		$portfolios->save();
+		
+		$data->title = $request_data['title'];
+        $data->no_title = $request_data['no_title'];
+        $data->description = $request_data['description'];
+        $data->no_description = $request_data['no_description'];
         $data->type = $request_data['type'];
         $data->url = $request_data['url'];
         $data->avatar = $request_data['avatar'];
@@ -1158,7 +1159,9 @@ class PagesController extends Controller
         $uploads_dir = "./assets/uploads/";
         if ($request->type == "header") {
             $data->meta_title = $request->meta_title;
-            $data->meta_description = $request->meta_description;
+			$data->meta_description = $request->meta_description;
+			$data->no_meta_title = $request->no_meta_title;
+            $data->no_meta_description = $request->no_meta_description;
             if ($list->header_back_url != $request_data['header_back_url']) {
                 if (strpos($request_data['header_back_url'], 'data:image/jpeg;base64') !== false) {
                     $img = str_replace('data:image/jpeg;base64,', '', $request_data['header_back_url']);
@@ -1517,7 +1520,8 @@ class PagesController extends Controller
     public function updateReview(Request $request) {
         $review = Review::where('id', $request->id)->first();
         $review->title = $request->data['title'];
-        $review->description = $request->data['description'];
+		$review->description = $request->data['description'];
+		$review->no_description = $request->data['no_description'];
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
 
@@ -1583,7 +1587,8 @@ class PagesController extends Controller
         foreach ($home_data->carousels as $key => $item) {
             if ($item->name == $review->name) {
                 $item->title = $review->title;
-                $item->description = $review->description;
+				$item->description = $review->description;
+				$item->no_description = $review->no_description;
                 $item->name = $review->name;
                 $item->job = $review->job;
                 $item->avatar = $review->avatar;
@@ -1598,7 +1603,8 @@ class PagesController extends Controller
             $data = json_decode($portfolio->data);
             if (count($data->reviews) > 0 && $review->name == $data->reviews[0]->name) {
                 $data->reviews[0]->title = $review->title;
-                $data->reviews[0]->description = $review->description;
+				$data->reviews[0]->description = $review->description;
+				$data->reviews[0]->no_description = $review->no_description;
                 $data->reviews[0]->name = $review->name;
                 $data->reviews[0]->job = $review->job;
                 $data->reviews[0]->avatar = $review->avatar;

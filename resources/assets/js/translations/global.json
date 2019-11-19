@@ -149,7 +149,8 @@
         "cancel": ["Cancel", "Avbryt"],
         "create-cms": ["Create CMS", "opprette cms"],
         "edit-cms": ["Edit CMS", "rediger cms"],
-        "updated-at": ["Update at", "Oppdatert kl"]
+        "updated-at": ["Update at", "Oppdatert kl"],
+        "name": ["Name", "Navn"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

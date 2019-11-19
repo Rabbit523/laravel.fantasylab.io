@@ -54,9 +54,10 @@ class Page extends React.Component {
 			});
 	}
 
-	handleChange(event, type) {
+	handleChange(event, type, val) {
 		var { data, list, services } = this.state;
 		const ref = this;
+
 		switch (type) {
 			case 'meta_title':
 				data.meta_title = event.target.value;
@@ -117,29 +118,59 @@ class Page extends React.Component {
 		list.main_description.map((item, index) => {
 			if (type.includes('subtext')) {
 				var keys = type.split('subtext')[1];
-				list.main_description[keys.charAt(0)].sub[keys.charAt(1)] = event.target.value;
+				if (this.props.lang == 'en') {
+					var key = 'text' + (parseInt(keys) + 1);
+					list.main_description[val].sub[key] = event.target.value;
+				} else {
+					var key = 'no_text' + (parseInt(keys) - 2 );
+					list.main_description[val].sub[key] = event.target.value;
+				}
 				ref.setState({ list });
 			} else if (type.includes('sub_title')) {
 				var sub_key = type.split('sub_title')[1];
-				list.main_description[sub_key]['title'] = event.target.value;
+				if (this.props.lang == 'en') {
+					list.main_description[sub_key]['title'] = event.target.value;
+				} else {
+					list.main_description[sub_key]['no_title'] = event.target.value;
+				}
 				ref.setState({ list });
 			} else if (type.includes('sub_description')) {
 				var sub_key = type.split('sub_description')[1];
-				list.main_description[sub_key]['text'] = event.target.value;
+				if (this.props.lang == 'en') {
+					list.main_description[sub_key]['text'] = event.target.value;
+				} else {
+					list.main_description[sub_key]['no_text'] = event.target.value;
+				}
 				ref.setState({ list });
 			}
 		});
 
 		if (type.includes('subimage')) {
 			var key = type.charAt(type.length - 1);
-			list.sub_images[key].text = event.target.value;
+			if (this.props.lang == 'en') {
+				list.sub_images[key].text = event.target.value;
+			} else {
+				list.sub_images[key].no_text = event.target.value;
+			}
 			ref.setState({ list });
 		}
 
 		if (type.includes('service')) {
-			var key = type.split('_')[1];
-			var sub_key = type.split('_')[2];
-			services[sub_key][key] = event.target.value;
+			if (type.includes('title') || type.includes('description') || type.includes('url')) {
+				if (this.props.lang == 'en') {
+					var key = type.split('_')[1];
+					var sub_key = type.split('_')[2];
+					services[sub_key][key] = event.target.value;
+				} else {
+					var key = 'no_' + type.split('_')[2];
+					var sub_key = type.split('_')[3];
+					services[sub_key][key] = event.target.value;
+				}
+			} else {
+				var key = type.split('_')[1];
+				var sub_key = type.split('_')[2];
+				services[sub_key][key] = event.target.value;
+			}
 			this.setState({ services });
 		}
 
@@ -258,10 +289,12 @@ class Page extends React.Component {
 		this.setState({ list });
 	}
 	onAddService(e) {
-		var { services, data } = this.state;
+		var { services } = this.state;
 		var new_item = {
 			title: 'New Service',
+			no_title: "Ny tjeneste",
 			description: '',
+			no_description: '',
 			backimage: null,
 			avatar: null,
 			url: 'web'
@@ -273,15 +306,14 @@ class Page extends React.Component {
 	updateHeader() {
 		const { list, data } = this.state;
 		this.setState({ isLoaded: false });
-		console.log(list);
-		// Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, meta_title: data.meta_title, meta_description: data.meta_description, type: 'header' })
-		// 	.then(
-		// 		res => {
-		// 			this.setState({ isLoaded: true });
-		// 		}
-		// 	).catch(err => {
-		// 		console.error(err);
-		// 	});
+		Http.post('/api/admin/update-portfolio-page', { data: list, id: data.id, meta_title: data.meta_title, meta_description: data.meta_description, no_meta_title: data.no_meta_title, no_meta_description: data.no_meta_description, type: 'header' })
+			.then(
+				res => {
+					this.setState({ isLoaded: true });
+				}
+			).catch(err => {
+				console.error(err);
+			});
 	}
 	updateFooter() {
 		const { list, data } = this.state;
@@ -384,10 +416,12 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
+
 	render() {
 		const { isLoaded, isOpen, list, data, services, activeKey, accordion, description_activeKey, reviews, _reviews } = this.state;
 		const { lang } = this.props;
 		const ref = this;
+
 		return (
 			<Translate>
 				{({ translate }) => (
@@ -510,11 +544,13 @@ class Page extends React.Component {
 																			onChange={(val) => this.handleChange(val, 'sub_description' + i)}
 																		/>
 																	</Form>
-																	{Object.keys(item.sub).map((key, index) => (
-																		<Form key={index}>
-																			<Form.Input fluid label={translate('card.text')} name='text' placeholder={translate('card.text')} className='input-form' value={item.sub[index]} onChange={(val) => ref.handleChange(val, 'subtext' + i + index)} />
-																		</Form>
-																	))}
+																	{Object.keys(item.sub).map((key, index) => {
+																		return ((index < 3) && !key.includes("no") && (
+																			<Form key={index}>
+																				<Form.Input fluid label={translate('card.text')} name='text' placeholder={translate('card.text')} className='input-form' value={item.sub[key]} onChange={(val) => ref.handleChange(val, 'subtext' + index, i)} />
+																			</Form>)
+																		)
+																	})}
 																</Panel>)
 															)}
 														</Collapse>
@@ -566,7 +602,7 @@ class Page extends React.Component {
 										<Grid.Column width={8}>
 											<Card className='header-section'>
 												<Card.Content>
-													<Card.Header>Review Section</Card.Header>
+													<Card.Header>{translate('card.review-section')}</Card.Header>
 													<Card.Description style={{ position: 'absolute', top: 4, right: 20 }}><label onClick={(e) => ref.onAddReview(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
 												</Card.Content>
 												<Card.Content>
@@ -647,11 +683,11 @@ class Page extends React.Component {
 												</Card.Content>
 												<Card.Content>
 													<Card.Description>
-														<Form.Input fluid label={translate('card.title')} name='title' placeholder='Footer title' className='input-form' value={list.footer_title} onChange={(val) => this.handleChange(val, 'footer_title')} />
-														<Form.Input fluid label={translate('card.btn-name')} name='button' placeholder={translate('card.btn-name')} className='input-form' value={list.footer_button} onChange={(val) => this.handleChange(val, 'footer_button')} />
-														<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={list.footer_description} onChange={(val) => this.handleChange(val, 'footer_description')} />
-														<Form.Input fluid label={translate('card.link')} name='link' placeholder={translate('card.link')} className='input-form' value={list.footer_link} onChange={(val) => this.handleChange(val, 'footer_link')} />
-														<Form.Input fluid label={translate('card.link-name')} name='link_name' placeholder={translate('card.link-name')} className='input-form' value={list.footer_link_name} onChange={(val) => this.handleChange(val, 'footer_link_name')} />
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder='Footer title' className='input-form' value={list.no_footer_title} onChange={(val) => this.handleChange(val, 'no_footer_title')} />
+														<Form.Input fluid label={translate('card.btn-name')} name='button' placeholder={translate('card.btn-name')} className='input-form' value={list.no_footer_button} onChange={(val) => this.handleChange(val, 'no_footer_button')} />
+														<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={list.no_footer_description} onChange={(val) => this.handleChange(val, 'no_footer_description')} />
+														<Form.Input fluid label={translate('card.link')} name='link' placeholder={translate('card.link')} className='input-form' value={list.no_footer_link} onChange={(val) => this.handleChange(val, 'no_footer_link')} />
+														<Form.Input fluid label={translate('card.link-name')} name='link_name' placeholder={translate('card.link-name')} className='input-form' value={list.no_footer_link_name} onChange={(val) => this.handleChange(val, 'no_footer_link_name')} />
 														<Form>
 															<label>{translate('card.footer-img')}</label>
 															<Form.Field>
@@ -673,20 +709,22 @@ class Page extends React.Component {
 														<Collapse accordion={accordion} onChange={this.onDescriptionCollapseChange} activeKey={description_activeKey}>
 															{list.main_description.map((item, i) => (
 																<Panel header={i + 1} key={i}>
-																	<Form.Input fluid label={translate('card.title')} name='sub_title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => this.handleChange(val, 'sub_title' + i)} />
+																	<Form.Input fluid label={translate('card.title')} name='sub_title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => this.handleChange(val, 'no_sub_title' + i)} />
 																	<Form>
 																		<label>{translate('card.description')}</label>
 																		<TextArea
 																			placeholder={translate('card.description-place')}
-																			value={item.text}
-																			onChange={(val) => this.handleChange(val, 'sub_description' + i)}
+																			value={item.no_text}
+																			onChange={(val) => this.handleChange(val, 'no_sub_description' + i)}
 																		/>
 																	</Form>
-																	{Object.keys(item.sub).map((key, index) => (
-																		<Form key={index}>
-																			<Form.Input fluid label={translate('card.text')} name='text' placeholder={translate('card.text')} className='input-form' value={item.sub[index]} onChange={(val) => ref.handleChange(val, 'subtext' + i + index)} />
-																		</Form>
-																	))}
+																	{Object.keys(item.sub).map((key, index) => {
+																		return ((0 < index < 4) && key.includes("no") && (
+																			<Form key={index}>
+																				<Form.Input fluid label={translate('card.text')} name='text' placeholder={translate('card.text')} className='input-form' value={item.sub[key]} onChange={(val) => ref.handleChange(val, 'no_subtext' + index, i)} />
+																			</Form>)
+																		)
+																	})}
 																</Panel>)
 															)}
 														</Collapse>
@@ -705,10 +743,10 @@ class Page extends React.Component {
 													<Card.Description>
 														<Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
 															{services.map((item, i) => (
-																<Panel header={item.title} key={i}>
-																	<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(e) => ref.handleChange(e, 'service_title_' + i)} />
-																	<Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(e) => ref.handleChange(e, 'service_description_' + i)} />
-																	<Form.Input fluid label='URL' placeholder='url' className='input-form' value={item.url} onChange={(e) => ref.handleChange(e, 'service_url_' + i)} />
+																<Panel header={item.no_title} key={i}>
+																	<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(e) => ref.handleChange(e, 'no_service_title_' + i)} />
+																	<Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(e) => ref.handleChange(e, 'no_service_description_' + i)} />
+																	<Form.Input fluid label='URL' placeholder='url' className='input-form' value={item.no_url} onChange={(e) => ref.handleChange(e, 'no_service_url_' + i)} />
 																	<Form.Input fluid label={translate('card.color')} placeholder={translate('card.color')} className='input-form' value={item.color} onChange={(e) => ref.handleChange(e, 'service_color_' + i)} />
 																	<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																		<Form>
@@ -738,7 +776,7 @@ class Page extends React.Component {
 										<Grid.Column width={8}>
 											<Card className='header-section'>
 												<Card.Content>
-													<Card.Header>Review Section</Card.Header>
+													<Card.Header>{translate('card.review-section')}</Card.Header>
 													<Card.Description style={{ position: 'absolute', top: 4, right: 20 }}><label onClick={(e) => ref.onAddReview(e)}><Icon name='add' style={{ cursor: 'pointer' }}></Icon></label></Card.Description>
 												</Card.Content>
 												<Card.Content>
