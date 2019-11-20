@@ -150,7 +150,11 @@
         "create-cms": ["Create CMS", "opprette cms"],
         "edit-cms": ["Edit CMS", "rediger cms"],
         "updated-at": ["Update at", "Oppdatert kl"],
-        "name": ["Name", "Navn"]
+        "name": ["Name", "Navn"],
+        "privacy-section": ["Privacy Section", "Seksjon for personvern"],
+        "security-section": ["Security Section", "Sikkerhetsseksjonen"],
+        "terms-section": ["Terms Section", "Avsnitt om vilkår"],
+        "confident-section": ["Confident Section", "Sikker seksjon"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

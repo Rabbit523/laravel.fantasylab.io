@@ -60,6 +60,7 @@ Route::get('/no/confidentiality', 'PagesController@no_confidentiality');
 Route::get('/admin/pages', 'PagesController@adminPages');
 Route::get('/admin/portfolio', 'PagesController@adminPortfolios');
 Route::get('/admin/reviews', 'PagesController@adminReviews');
+Route::get('/admin/legal', 'PagesController@adminLegal');
 Route::get('/admin/single-page/home', 'PagesController@adminHomePage');
 Route::get('/admin/single-page/portfolio', 'PagesController@adminPortfolioPage');
 Route::get('/admin/single-page/single_portfolio', 'PagesController@adminSinglePortfolioPage');

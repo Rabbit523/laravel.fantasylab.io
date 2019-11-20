@@ -934,16 +934,22 @@ class PagesController extends Controller
         } else if ($request->name == "privacy") {
             $service_type = $request->type;
             if ($service_type == "header") {
-                $data->meta_title = $request_data['meta_title'];
-                $data->meta_description = $request_data['meta_description'];
+                $data->meta_title = $request->data['meta_title'];
+                $data->meta_description = $request->data['meta_description'];
+                $data->no_meta_title = $request->data['no_meta_title'];
+                $data->no_meta_description = $request->data['no_meta_description'];
             } else if ($service_type == "privacy") {
-                $data->privacy = $request->data;
+                $data->privacy = $request->data['en'];
+                $data->no_privacy = $request->data['no'];
             } else if ($service_type == "security") {
-                $data->security = $request->data;
+                $data->security = $request->data['en'];
+                $data->no_security = $request->data['no'];
             } else if ($service_type == "terms") {
-                $data->terms = $request->data;
+                $data->terms = $request->data['en'];
+                $data->no_terms = $request->data['no'];
             } else if ($service_type == "confident") {
-                $data->confident = $request->data;
+                $data->confident = $request->data['en'];
+                $data->no_confident = $request->data['no'];
             }
             $page->data = json_encode($data);
             $page->save();

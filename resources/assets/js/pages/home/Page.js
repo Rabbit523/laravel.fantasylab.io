@@ -3,7 +3,6 @@ import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic
 import { Link } from 'react-router-dom'
 import {isMobile} from 'react-device-detect'
 import Modal from 'react-modal'
-import { connect } from 'react-redux'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageFooter from '../../common/pageFooter'
 import ServiceItem from '../../common/serviceItem'
@@ -122,11 +121,11 @@ class Page extends React.Component {
                                         {Object.keys(data.services).map((key, index) => (
                                             <React.Fragment key={index}>
                                                 {index<2 && 
-                                                    <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={data.services[key].url}>
+                                                    <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang=='en'?data.services[key].url:data.services[key].no_url}>
                                                         <ServiceItem avatar={data.services[key].avatar} title={lang=='en'?data.services[key].title:data.services[key].no_title} color={data.services[key].color} description={lang=='en'?data.services[key].description:data.services[key].no_description} backimage={data.services[key].backimage} />
                                                 </Grid.Column>}
                                                 {index>=2 && 
-                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={data.services[key].url}>
+                                                    <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang=='en'?data.services[key].url:data.services[key].no_url}>
                                                         <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={lang=='en'?data.services[key].title:data.services[key].no_title} color={data.services[key].color} description={lang=='en'?data.services[key].description:data.services[key].no_description} backimage={data.services[key].backimage}/>
                                                     </Grid.Column>}
                                             </React.Fragment>
@@ -192,7 +191,7 @@ class Page extends React.Component {
                                     <Grid columns={3}>
                                         {data.news.map((item, i) => (
                                             <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-                                                <NewsCard url={item.url} author={item.author} type={item.type} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description} time={item.time} read={item.read} />
+                                                <NewsCard url={item.url} author={item.author} type={lang=='en'?item.type:item.no_type} title={lang=='en'?item.title:item.no_title} description={lang=='en'?item.description:item.no_description} time={item.time} read={item.read} />
                                             </Grid.Column>
                                         ))}
                                     </Grid>

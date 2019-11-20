@@ -152,7 +152,6 @@ class Page extends React.Component {
 				return this.setState({ no_starting_title });
 		}
 
-		console.log(type);
 		if (type.includes('icon')) {
 			Object.keys(list.icons).map((key, i) => {
 				var sub_key = type.split('icon')[1];
@@ -167,24 +166,35 @@ class Page extends React.Component {
 
 		if (type.includes('start')) {
 			var index = type.split('_')[0];
-			if (this.props.lang == 'en') {
-				var sub_key = type.split('_')[2];
-				starting[index][sub_key] = event.target.value;
+			if (type.includes('title') && type.includes('description')) {
+				if (this.props.lang == 'en') {
+					var sub_key = type.split('_')[2];
+					starting[index][sub_key] = event.target.value;
+				} else {
+					var sub_key = type.split('_')[1] + "_" + type.split('_')[3];
+					starting[index][sub_key] = event.target.value;
+				}
 			} else {
-				var sub_key = type.split('_')[1] + "_" + type.split('_')[3];				
+				var sub_key = type.split('_')[2];
 				starting[index][sub_key] = event.target.value;
 			}
 			ref.setState({ starting });
 		}
 
 		if (type.includes('estimation')) {
-			if (this.props.lang == 'en') {
+			if (type.includes('title') && type.includes('description')) {
+				if (this.props.lang == 'en') {
+					var sub_key = type.split('_')[2];
+					var key = type.split('_')[1];
+					estimation[sub_key][key] = event.target.value;
+				} else {
+					var sub_key = type.split('_')[3];
+					var key = type.split('_')[0] + "_" + type.split('_')[2];
+					estimation[sub_key][key] = event.target.value;
+				}
+			} else {
 				var sub_key = type.split('_')[2];
 				var key = type.split('_')[1];
-				estimation[sub_key][key] = event.target.value;
-			} else {
-				var sub_key = type.split('_')[3];
-				var key = type.split('_')[0] + "_" + type.split('_')[2];
 				estimation[sub_key][key] = event.target.value;
 			}
 			ref.setState({ estimation });
