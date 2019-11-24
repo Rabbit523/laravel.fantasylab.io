@@ -1,4 +1,16 @@
-import {connect} from 'react-redux'
-import Page from './Page'
+import React from 'react'
+import { Redirect } from 'react-router-dom'
+class Page extends React.Component {
+	constructor(props) {
+		super(props);
 
-export default connect()(Page)
+	}
+
+	render() {
+		return (
+			<Redirect to='/' />
+		);
+	}
+}
+
+export default Page;

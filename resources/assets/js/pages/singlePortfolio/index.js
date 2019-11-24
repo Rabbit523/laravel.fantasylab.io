@@ -7,4 +7,4 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(Page);
+export default Page;

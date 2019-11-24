@@ -1,6 +1,6 @@
 import React from 'react'
 import {Route} from 'react-router'
-import ServerMain from '../Main'
+import ServerMain from './Main'
 
 const PublicRoute = ({component: Component,page,status, ...rest}) => (
     <Route {...rest} render={props => (

@@ -14,6 +14,9 @@
         "marketing-material": ["Marketing Material", "Markedsføring smateriale"],
         "marketing-material-des": ["Optimized- & brand consistent messages", "Optimaliserte & merkekonsistente meldinger"],
         "portfolio": ["Portfolio", "Portefølje"],
+        "products": ["Products", "Produkter"],
+        "managed-hosting": ["Managed Hosting", "Administrert Hosting"],
+        "managed-hosting-des": ["Managed Hosting", "Administrert Hosting"],
         "features": ["Features", "Funksjoner"],
         "about": ["About", "Om oss"],
         "blog": ["Blog", "Blogg"],
@@ -154,10 +157,30 @@
         "privacy-section": ["Privacy Section", "Seksjon for personvern"],
         "security-section": ["Security Section", "Sikkerhetsseksjonen"],
         "terms-section": ["Terms Section", "Avsnitt om vilkår"],
-        "confident-section": ["Confident Section", "Sikker seksjon"]
+        "confident-section": ["Confident Section", "Sikker seksjon"],
+        "plan-section": ["Plan Section", "Plan seksjon"],
+        "cost": ["Cost", "Koste"],
+        "info": ["Info", "Info"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],
         "reviews": ["Reviews", "Anmeldelser"]
+    },
+    "modal": {
+        "greeting-hi": ["Hi", "Hei"],
+        "visionary": ["Visionary", "Visjonær"],
+        "description":["Our web app is under development.", "Nettappen vår er under utvikling."],
+        "contact": ["Contact us", "Kontakt oss"],
+        "close": ["Close", "Lukk"],
+        "monthly": ["monthly", "månedlig"]
+    },
+    "hosting": {
+        "distribution": ["Distributions", "Fordeling"],
+        "click-app": ["1-Click Apps", "1-klikk-apper"],
+        "custom-image": ["Custom", "Tilpasset"],
+        "manage": ["Manage", "Få til"],
+        "scale": ["Scale", "Scale"],
+        "feature": ["Features", "egenskaper"],
+        "news": ["Do more with Managed Hosting", "Gjør mer med Managed Hosting"]
     }
 }

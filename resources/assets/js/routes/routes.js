@@ -10,6 +10,7 @@ import ServiceUI from '../pages/services/ui'
 import ServiceBranding from '../pages/services/branding'
 import ServiceIllustration from '../pages/services/illustration'
 import ServiceMarketing from '../pages/services/marketing'
+import Hosting from '../pages/hosting'
 import Portfolio from '../pages/portfolio'
 import SinglePortfolio from '../pages/singlePortfolio'
 import Features from '../pages/features'
@@ -24,6 +25,7 @@ import AdminAbout from '../pages/admin/single-pages/about'
 import AdminContact from '../pages/admin/single-pages/contact'
 import AdminFeature from '../pages/admin/single-pages/feature'
 import AdminServicePage from '../pages/admin/single-pages/servicePage'
+import AdminHosting from '../pages/admin/single-pages/hosting'
 import AdminBlog from '../pages/admin/adminBlog'
 import AdminPrivacy from '../pages/admin/single-pages/privacy'
 import AdminPortfolios from '../pages/admin/adminPortfolios'
@@ -156,6 +158,18 @@ const routes = [
         exact: true,
         auth: false,
         component: ServiceMarketing
+    },
+    {
+        path: '/managed-hosting',
+        exact: true,
+        auth: false,
+        component: Hosting
+    },
+    {
+        path: '/no/managed-hosting',
+        exact: true,
+        auth: false,
+        component: Hosting
     },
     {
         path: '/portfolio',
@@ -360,6 +374,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminServicePage
+    },
+    {
+        path: '/admin/single-page/hosting',
+        exact: true,
+        admin: true,
+        component: AdminHosting
     },
     {
         path: '/admin/legal',

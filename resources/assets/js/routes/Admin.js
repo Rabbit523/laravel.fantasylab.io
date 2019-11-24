@@ -1,34 +1,42 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router'
-import {connect} from 'react-redux'
+import { Route, Redirect } from 'react-router'
 import Main from '../Main'
 
 
-const AdminRoute = ({component: Component,isAuthenticated,isAdmin, ...rest}) => (
-    <Route {...rest} render={props => (
-        (isAuthenticated && isAdmin) ? (
-            <Main>
-                <Component {...props}/>
-            </Main>
-        ) : isAuthenticated ? (
-            <Redirect to={{
-                pathname: '/',
-                state: {from: props.location}
-            }}/>
-        ) : (
-            <Redirect to={{
-                pathname: '/login',
-                state: {from: props.location}
-            }}/>
-        )
-    )}/>
-);
-
-const mapStateToProps = (state) => {
-    return {
-        isAuthenticated : state.Auth.isAuthenticated,
-        isAdmin: state.Auth.isAdmin
-    }
+const AdminRoute = ({ component: Component, ...rest }) => {
+	let isAuthenticated = false, isAdmin = false;
+	if (typeof window !== 'undefined') {
+		isAuthenticated = localStorage.getItem('isAuthenticated');
+		isAdmin = localStorage.getItem('isAdmin');
+	}
+	
+	if (isAuthenticated=='true' && isAdmin == 'true') {
+		return (
+			<Route {...rest} render={props => (
+				<Main isAdmin={isAdmin} isAuthenticated={isAuthenticated} {...props}>
+					<Component {...props} />
+				</Main>
+			)}/>
+		)
+	} else if (isAuthenticated == 'true') {
+		return (
+			<Route {...rest} render={props => (
+				<Redirect to={{
+					pathname: '/',
+					state: { from: props.location }
+				}} />
+			)}/>
+		)
+	} else {
+		return (
+			<Route {...rest} render={props => (
+				<Redirect to={{
+					pathname: '/login',
+					state: { from: props.location }
+				}} />
+			)}/>
+		)
+	}
 };
 
-export default connect(mapStateToProps)(AdminRoute);
+export default AdminRoute;

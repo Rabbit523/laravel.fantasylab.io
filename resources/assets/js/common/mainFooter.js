@@ -2,14 +2,11 @@
  * Created by Sumit-Yadav on 12-10-2017.
  */
 import React from 'react'
-import {connect} from 'react-redux'
 import { Container, Grid, Button, Dropdown } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
 import { isMobileOnly } from 'react-device-detect'
-import { setLang } from '../services/authService'
 import Modal from 'react-modal'
-import PropTypes from 'prop-types'
 
 const customStyles = {
 	content: {
@@ -27,11 +24,16 @@ class Footer extends React.Component {
 		super(props);
 
 		this.state = {
-			isOpen: false
+			isOpen: false,
+			lang: "en"
 		}
 
 		this.closeModal = this.closeModal.bind(this);
 		this.triggerModal = this.triggerModal.bind(this);
+	}
+
+	componentDidMount() {
+		this.setState({ lang: localStorage.getItem('locale') });
 	}
 
 	closeModal() {
@@ -44,11 +46,14 @@ class Footer extends React.Component {
 	}
 
 	changeLang(val) {
-		this.props.dispatch(setLang(val));
+		localStorage.setItem('locale', val);
+		this.props.setActiveLanguage(val);
+		this.setState({ lang: val });
 	}
 
 	render() {
 		const { isOpen } = this.state;
+		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
 		return (
 			<Translate>
@@ -137,10 +142,10 @@ class Footer extends React.Component {
 								</Grid.Column>
 								<Grid.Column mobile={16} tablet={4} computer={4} className="footer-lang" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '10px 0px' }}>
 									<h5>{translate('footer.language')} </h5>
-									<Dropdown text={this.props.lang == 'en' ? 'English' : 'Norsk'}>
+									<Dropdown text={lang == 'en' ? 'English' : 'Norsk'}>
 										<Dropdown.Menu>
-											{this.props.lang == 'en' ? 
-												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("no")} /> 
+											{lang == 'en' ? 
+												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("nb")} /> 
 												:<Dropdown.Item text='English' onClick={(event) => this.changeLang("en")} /> }
 										</Dropdown.Menu>
 									</Dropdown>
@@ -154,13 +159,4 @@ class Footer extends React.Component {
 	}
 }
 
-Footer.propTypes = {
-	dispatch: PropTypes.func.isRequired,
-};
-
-const mapStateToProps = (state) => {
-  return {
-    lang: state.Auth.lang
-  }
-};
-export default withLocalize(connect(mapStateToProps, null)(Footer));
+export default withLocalize(Footer);

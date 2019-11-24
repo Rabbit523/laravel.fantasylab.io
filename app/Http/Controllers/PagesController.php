@@ -136,6 +136,19 @@ class PagesController extends Controller
         }
         return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
     }
+    public function managedHosting() {
+        $page_data = Page::where('id', 14)->first();
+        $page = json_decode($page_data->data);
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+    }
     public function features() {
         $page_data = Page::where('id', 9)->first();
         $page = json_decode($page_data->data);
@@ -374,6 +387,19 @@ class PagesController extends Controller
     }
     public function no_marketingMaterial() {
         $page_data = Page::where('id', 7)->first();
+        $page = json_decode($page_data->data);
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+    }
+    public function no_managedHosting() {
+        $page_data = Page::where('id', 14)->first();
         $page = json_decode($page_data->data);
         $status = [
             'isAuthenticated' => Auth::user()?true:false,
@@ -713,6 +739,19 @@ class PagesController extends Controller
 
     public function adminFeaturesPage() {
         $page = Page::where('id', 9)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminHostingPage() {
+        $page = Page::where('id', 14)->first();
         $status = [
             'isAuthenticated' => Auth::user()?true:false,
             'isAdmin'=> false,

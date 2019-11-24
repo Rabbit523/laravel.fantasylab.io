@@ -15,7 +15,7 @@ class TextCard extends React.Component {
         return (
             <ReactHoverObserver className='text-card-observer'>
                 {({ isHovering }) => (
-                    <div className='text-card' style={this.hoverStyle}>
+                    <div className={this.props.from?'text-card hosting':'text-card'} style={this.hoverStyle}>
                         <div className='title'>
                             <h3>{this.props.title}</h3>
                         </div>
@@ -32,6 +32,7 @@ class TextCard extends React.Component {
 TextCard.propTypes = {
     color: PropTypes.string.isRequired,
     title: PropTypes.string,
-    description: PropTypes.string
+    description: PropTypes.string,
+    from: PropTypes.string
 };
 export default TextCard;

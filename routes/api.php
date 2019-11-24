@@ -21,6 +21,7 @@ Route::group(['prefix' => 'password'],function() {
 Route::group(['prefix'=> 'auth'],function(){
 	Route::post('/register','Auth\RegisterController@register');
 	Route::post("/login",'Auth\LoginController@login');
+	Route::get("/logout",'Auth\LoginController@logout');
 	Route::post('/login/{social}/callback','Auth\LoginController@handleProviderCallback')->where('social','twitter|facebook|linkedin|google|');
 });
 

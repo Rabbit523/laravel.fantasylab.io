@@ -1,106 +1,96 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { withRouter } from 'react-router-dom'
 import { renderToStaticMarkup } from "react-dom/server"
 import { withLocalize } from "react-localize-redux"
-import globalTranslations from "./translations/global.json"
+import globalTranslations from './translations/global.json'
 import Navigation from './common/navigation'
 import Footer from './common/mainFooter'
 import AdminSidebar from './common/sidebar'
-import { getLang } from './store/actions'
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
     
+    this.state = {
+      lang: "en",
+    };
+
     this.props.initialize({
       languages: [
         { name: "English", code: "en" },
-        { name: "Norwegian", code: "no" }
+        { name: "Norwegian", code: "nb" }
       ],
       translation: globalTranslations,
-      options: { renderToStaticMarkup }
+      options: { 
+        renderToStaticMarkup,
+        defaultLanguage: "en" 
+      }
     });
-    this.props.getLang();
+    this.setActiveLanguage = this.setActiveLanguage.bind(this);
   }
-  componentWillReceiveProps(nextProps) {
-    if(nextProps.lang !== this.props.lang && !this.props.isAuthenticated) {
-      if(nextProps.lang === 'no') {
-        var next_url = `/no${this.props.location.pathname}`;
+ 
+  setActiveLanguage(code) {
+    localStorage.setItem('locale', code);
+    if (!this.props.location.pathname.includes('admin')) {
+      if (this.props.location.pathname.includes('no')) {
+        var next_url = this.props.location.pathname.replace('/no', '');
         this.props.history.push(next_url);
       } else {
-        var next_url = this.props.location.pathname.replace('/no', '');
+        var next_url = `/no${this.props.location.pathname}`;
         this.props.history.push(next_url);
       }
     }
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.lang !== this.props.lang) {
-      console.log('didupdate: lang = ', this.props.lang);
-      this.props.setActiveLanguage(this.props.lang);
-    }
+    this.props.setActiveLanguage(code);
   }
 
   componentDidMount() {
-    if (!this.props.isAuthenticated) {
-      if (this.props.lang == 'en') {
-        var next_url = this.props.location.pathname.replace('/no', '');
-        this.props.history.push(next_url);
-      } else {
-        if(this.props.location.pathname.indexOf('/no') === -1){
-          var next_url = `/no${this.props.location.pathname}`;
-          this.props.history.push(next_url);
-        }      
+    let lang = "";
+		if (typeof window !== 'undefined') {
+      lang = localStorage.getItem('locale');
+      if (!lang) {
+        localStorage.setItem('locale', 'en');
+        lang = 'en';
       }
     }
+    this.setState({ lang });
+    this.props.setActiveLanguage(lang);
   }
 
   render() {
     let is_dashboard = false;
     let is_footer = true;
-    if (typeof window != 'undefined' && window.location.href.indexOf("admin") > 0) {
+    if (typeof window != 'undefined' && window.location.href.indexOf('admin') > 0) {
       is_dashboard = true;
     }
     if (typeof window != 'undefined' && (window.location.href.indexOf("login") > 0 || window.location.href.indexOf("register") > 0)) {
       is_footer = false;
     }
+    const { isAdmin, isAuthenticated } = this.props;
     return (
-      (this.props.isAdmin && this.props.isAuthenticated) ? (
+      (isAdmin && isAuthenticated) ? (
         <React.Fragment>
-          <Navigation />
+          <Navigation isAdmin={isAdmin} isAuthenticated={isAuthenticated} onChangeLang={this.setActiveLanguage} />
           <div className="page">
             {is_dashboard && <AdminSidebar />}
             <div className="fadeIn animated main">
               {this.props.children}
             </div>
           </div>
-          <Footer />
+          <Footer onChangeLang={this.setActiveLanguage} />
         </React.Fragment>
       ) : (
           <React.Fragment>
-            <Navigation />
+            <Navigation isAdmin={isAdmin} isAuthenticated={isAuthenticated} onChangeLang={this.setActiveLanguage}/>
             <div className="page">
               <div className="fadeIn animated main">
                 {this.props.children}
               </div>
             </div>
-            {is_footer && <Footer />}
+            {is_footer && <Footer onChangeLang={this.setActiveLanguage}/>}
           </React.Fragment>
         )
     );
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
-    isAuthenticated: state.Auth.isAuthenticated,
-    isAdmin: state.Auth.isAdmin,
-    lang: state.Auth.lang
-  }
-};
-
-const mapDispatchToProps = {
-  getLang,
-};
-
-export default withLocalize(connect(mapStateToProps, mapDispatchToProps)(Main));
+export default withLocalize(withRouter(Main));

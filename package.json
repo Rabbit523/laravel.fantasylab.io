@@ -39,6 +39,7 @@
     "react-dropzone": "^10.1.6",
     "react-hover-observer": "^2.1.1",
     "react-html-parser": "^2.0.2",
+    "react-i18next": "^9.0.10",
     "react-localize-redux": "^3.5.3",
     "react-meta-tags": "^0.7.4",
     "react-modal": "^3.10.1",

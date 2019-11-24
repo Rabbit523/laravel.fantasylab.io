@@ -1,29 +1,26 @@
 import React from 'react'
-import {Route, Redirect} from 'react-router'
-import {connect} from 'react-redux'
+import { Route, Redirect } from 'react-router'
 import Main from '../Main'
 
 
-const PrivateRoute = ({component: Component,isAuthenticated,isAdmin, ...rest}) => (
-    <Route {...rest} render={props => (
-        isAuthenticated ? (
-            <Main>
-                <Component {...props}/>
-            </Main>
-        ) : (
-            <Redirect to={{
-                pathname: '/login',
-                state: {from: props.location}
-            }}/>
-        )
-    )}/>
-);
-
-const mapStateToProps = (state) => {
-    return {
-        isAuthenticated : state.Auth.isAuthenticated,
-        isAdmin: state.Auth.isAdmin
-    }
+const PrivateRoute = ({ component: Component, ...rest }) => {
+	let isAuthenticated = false, isAdmin = false;
+	if (typeof window !== 'undefined') {
+		isAuthenticated = localStorage.getItem('isAuthenticated');
+		isAdmin = localStorage.getItem('isAdmin');
+	}
+	return (<Route {...rest} render={props => (
+		isAuthenticated ? (
+			<Main isAdmin={isAdmin} isAuthenticated={isAuthenticated} {...props}>
+				<Component {...props} />
+			</Main>
+		) : (
+				<Redirect to={{
+					pathname: '/login',
+					state: { from: props.location }
+				}} />
+			)
+	)} />);
 };
 
-export default connect(mapStateToProps)(PrivateRoute);
+export default PrivateRoute;
