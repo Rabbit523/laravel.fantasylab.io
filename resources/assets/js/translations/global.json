@@ -160,7 +160,12 @@
         "confident-section": ["Confident Section", "Sikker seksjon"],
         "plan-section": ["Plan Section", "Plan seksjon"],
         "cost": ["Cost", "Koste"],
-        "info": ["Info", "Info"]
+        "info": ["Info", "Info"],
+        "deploy-section": ["Deploy Section", "Distribuer seksjonen"],
+        "manage-section": ["Manage Section", "Administrer seksjonen"],
+        "scale-section": ["Scale Section", "Skala seksjonen"],
+        "feature-section": ["Feature Section", "Funksjonsseksjon"],
+        "server-section": ["Server Section", "Server seksjon"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

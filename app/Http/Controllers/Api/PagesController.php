@@ -607,7 +607,7 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             }
-        }else if ($request->name == "contact") {
+        } else if ($request->name == "contact") {
             $service_type = $request->type;
             if ($service_type == "header") {
                 if ($data->header_url != $request_data['header_url']) {
@@ -953,6 +953,340 @@ class PagesController extends Controller
             }
             $page->data = json_encode($data);
             $page->save();
+        } else if ($request->name == 'hosting') {
+            if ($request->type == 'header') {
+                //  if header background image is updated or not
+                if ($data->back_url != $request_data['back_url']) {
+                    if (strpos($request_data['back_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['back_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['back_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'-header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['back_url'] = $path;
+                }
+                foreach ($data->icons as $key => $item) {
+                    if ($item->icon != $request_data['icons'][$key]['icon']) {
+                        $changed_icon = $request_data['icons'][$key]['icon'];
+                        if (strpos($changed_icon, 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $changed_icon);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $changed_icon);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = 'hosting-header-icon'.$key.'.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $request_data['icons'][$key]['icon'] = $path;
+                    }
+                }
+                $data->back_url = $request_data['back_url'];
+                $data->title = $request_data['title'];
+                $data->description = $request_data['description'];
+                $data->no_title = $request_data['no_title'];
+                $data->no_description = $request_data['no_description'];
+                $data->meta_title = $request_data['meta_title'];
+                $data->meta_description = $request_data['meta_description'];
+                $data->no_meta_title = $request_data['no_meta_title'];
+                $data->no_meta_description = $request_data['no_meta_description'];
+                $data->icons = $request_data['icons'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'plan_header') {
+                $data->plans->title = $request_data['plans']['title'];
+                $data->plans->no_title = $request_data['plans']['no_title'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'plan_item') {
+                $index = $request->index;
+                $plan_item = $request_data['plans']['data'][$index];
+                if ($data->plans->data[$index]->url != $plan_item['url']) {
+                    if (strpos($plan_item['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $plan_item['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $plan_item['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-plan-avatar'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $plan_item['url'] = $path;
+                }
+                $data->plans->data[$index] = $plan_item;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'deploy') {
+                $index = $request->index;
+                if ($index == 0) {
+                    $data->distributions->title = $request_data['distributions']['title'];
+                    $data->distributions->no_title = $request_data['distributions']['no_title'];
+                    $data->distributions->description = $request_data['distributions']['description'];
+                    $data->distributions->no_description = $request_data['distributions']['no_description'];
+                    foreach ($data->distributions->items as $key => $item) {
+                        $request_destribution_item = $request_data['distributions']['items'][$key];
+                        if ($item->avatar != $request_destribution_item['avatar']) {
+                            if (strpos($request_destribution_item['avatar'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '', $request_destribution_item['avatar']);
+                            } else {
+                                $img = str_replace('data:image/png;base64,', '', $request_destribution_item['avatar']);
+                            }
+                            $base_code = base64_decode($img);
+                            $name = 'hosting-distribution-avatar'.$key.'.png';
+                            $file = $uploads_dir . $name;
+                            if(File::exists($file)) {
+                                File::delete($file);
+                            }
+                            file_put_contents($file, $base_code); // create image file into $upload_dir
+                            $url = url("/assets/uploads") ."/" . $name;
+                            $arr = explode("/", $url);
+                            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                            $request_data['distributions']['items'][$key]['avatar'] = $path;
+                        }
+                    }
+                    $data->distributions->items = $request_data['distributions']['items'];
+                    $page->data = json_encode($data);
+                    $page->save();
+                } else if ($index == 1) {
+                    $data->click_app->title = $request_data['click_app']['title'];
+                    $data->click_app->no_title = $request_data['click_app']['no_title'];
+                    $data->click_app->description = $request_data['click_app']['description'];
+                    $data->click_app->no_description = $request_data['click_app']['no_description'];
+                    foreach ($data->click_app->items as $key => $item) {
+                        $request_click_app_item = $request_data['click_app']['items'][$key];
+                        if ($item->avatar != $request_click_app_item['avatar']) {
+                            if (strpos($request_click_app_item['avatar'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '', $request_click_app_item['avatar']);
+                            } else {
+                                $img = str_replace('data:image/png;base64,', '', $request_click_app_item['avatar']);
+                            }
+                            $base_code = base64_decode($img);
+                            $name = 'hosting-click-app-avatar'.$key.'.png';
+                            $file = $uploads_dir . $name;
+                            if(File::exists($file)) {
+                                File::delete($file);
+                            }
+                            file_put_contents($file, $base_code); // create image file into $upload_dir
+                            $url = url("/assets/uploads") ."/" . $name;
+                            $arr = explode("/", $url);
+                            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                            $request_data['click_app']['items'][$key]['avatar'] = $path;
+                        }
+                    }
+                    $data->click_app->items = $request_data['click_app']['items'];
+                    $page->data = json_encode($data);
+                    $page->save();
+                } else if ($index == 2) {
+                    $data->custom_image->title = $request_data['custom_image']['title'];
+                    $data->custom_image->no_title = $request_data['custom_image']['no_title'];
+                    $data->custom_image->description = $request_data['custom_image']['description'];
+                    $data->custom_image->no_description = $request_data['custom_image']['no_description'];
+                    foreach ($data->custom_image->items as $key => $item) {
+                        $request_custom_image_item = $request_data['custom_image']['items'][$key];
+                        if ($item->avatar != $request_custom_image_item['avatar']) {
+                            if (strpos($request_custom_image_item['avatar'], 'data:image/jpeg;base64') !== false) {
+                                $img = str_replace('data:image/jpeg;base64,', '', $request_custom_image_item['avatar']);
+                            } else {
+                                $img = str_replace('data:image/png;base64,', '', $request_custom_image_item['avatar']);
+                            }
+                            $base_code = base64_decode($img);
+                            $name = 'hosting-custom-image-avatar'.$key.'.png';
+                            $file = $uploads_dir . $name;
+                            if(File::exists($file)) {
+                                File::delete($file);
+                            }
+                            file_put_contents($file, $base_code); // create image file into $upload_dir
+                            $url = url("/assets/uploads") ."/" . $name;
+                            $arr = explode("/", $url);
+                            $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                            $request_data['custom_image']['items'][$key]['avatar'] = $path;
+                        }
+                    }
+                    $data->custom_image->items = $request_data['custom_image']['items'];
+                    $page->data = json_encode($data);
+                    $page->save();
+                }
+            } else if ($request->type == 'manage_header') {
+                $data->manage->title = $request_data['manage']['title'];
+                $data->manage->no_title = $request_data['manage']['no_title'];
+                $data->manage->description = $request_data['manage']['description'];
+                $data->manage->no_description = $request_data['manage']['no_description'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'manage_item') {
+                $index = $request->index;
+                if ($data->manage->items[$index]->avatar != $request_data['manage']['items'][$index]['avatar']) {
+                    if (strpos($request_data['manage']['items'][$index]['avatar'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['manage']['items'][$index]['avatar']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['manage']['items'][$index]['avatar']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-manage-avatar'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['manage']['items'][$index]['avatar'] = $path;
+                }
+                if ($data->manage->items[$index]->img != $request_data['manage']['items'][$index]['img']) {
+                    if (strpos($request_data['manage']['items'][$index]['img'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['manage']['items'][$index]['img']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['manage']['items'][$index]['img']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-manage-img'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['manage']['items'][$index]['img'] = $path;
+                }
+                $data->manage->items = $request_data['manage']['items'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'scale_header') {
+                $data->scale->title = $request_data['scale']['title'];
+                $data->scale->no_title = $request_data['scale']['no_title'];
+                $data->scale->description = $request_data['scale']['description'];
+                $data->scale->no_description = $request_data['scale']['no_description'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'scale_item') {
+                $index = $request->index;
+                if ($data->scale->items[$index]->avatar != $request_data['scale']['items'][$index]['avatar']) {
+                    if (strpos($request_data['scale']['items'][$index]['avatar'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['scale']['items'][$index]['avatar']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['scale']['items'][$index]['avatar']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-scale-avatar'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['scale']['items'][$index]['avatar'] = $path;
+                }
+                if ($data->scale->items[$index]->img != $request_data['scale']['items'][$index]['img']) {
+                    if (strpos($request_data['scale']['items'][$index]['img'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['scale']['items'][$index]['img']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['scale']['items'][$index]['img']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-scale-img'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['scale']['items'][$index]['img'] = $path;
+                }
+                $data->scale->items = $request_data['scale']['items'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'feature_header') {
+                $data->features->title = $request_data['features']['title'];
+                $data->features->no_title = $request_data['features']['no_title'];
+                $data->features->description = $request_data['features']['description'];
+                $data->features->no_description = $request_data['features']['no_description'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'feature_item') {
+                $index = $request->index;
+                $data->features->items = $request_data['features']['items'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'server_header') {
+                $data->servers->title = $request_data['servers']['title'];
+                $data->servers->no_title = $request_data['servers']['no_title'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'server_item') {
+                $index = $request->index;
+                if ($data->servers->data[$index]->url != $request_data['servers']['data'][$index]['url']) {
+                    if (strpos($request_data['servers']['data'][$index]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['servers']['data'][$index]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['servers']['data'][$index]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-server-avatar'.$index.'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['servers']['data'][$index]['url'] = $path;
+                }
+                $data->servers->data[$index] = $request_data['servers']['data'][$index];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == "news") {
+                $service_type = $request->service_type;
+                if ($data->news[$service_type]->url != $request_data[$service_type]['url']) {
+                    if (strpos($request_data[$service_type]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'hosting-'.$request_data[$service_type]['author'] .'.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data[$service_type]['url'] = $path;
+                }
+                $request_data[$service_type]['time'] = date("d.m").".".substr(date("Y"), 2, 3);
+                $data->news = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            }
         }
         return response()->json('update success');
     }    
