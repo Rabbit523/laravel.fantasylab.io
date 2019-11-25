@@ -131,71 +131,69 @@ class Page extends React.Component {
 										<Menu.Item>
 											<Dropdown icon='bars' className='collapsible-menu'>
 												<Dropdown.Menu className='animated'>
+													<div style={{ display: 'flex', flexDirection: 'column' }}>
+														<Dropdown text={translate('navigation.services')} className="services">
+															<Dropdown.Menu className="sub-menu">
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/web-development':'/no/web-development'}>
+																	<div className='avatar-item desktop'>
+																		<img src={require('../../../images/theme/desktop.png')} />
+																	</div>
+																	<p>{translate('navigation.web-development')}</p>
+																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/mobile-development':'/no/mobile-development'}>
+																	<div className='avatar-item mobile'>
+																		<img src={require('../../../images/theme/mobile.png')} />
+																	</div>
+																	<p>{translate('navigation.mobile-development')}</p>
+																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/ui-ux-design':'/no/ui-ux-design'}>
+																	<div className='avatar-item ui'>
+																		<img src={require('../../../images/theme/ui.png')} />
+																	</div>
+																	<p>{translate('navigation.ui-design')}</p>
+																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/branding':'/no/branding'}>
+																	<div className='avatar-item branding'>
+																		<img src={require('../../../images/theme/branding.png')} />
+																	</div>
+																	<p>{translate('navigation.branding')}</p>
+																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/illustration':'/no/illustration'}>
+																	<div className='avatar-item illustration'>
+																		<img src={require('../../../images/theme/illustration.png')} />
+																	</div>
+																	<p>{translate('navigation.illustration')}</p>
+																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/marketing-material':'/no/marketing-material'}>
+																	<div className='avatar-item marketing'>
+																		<img src={require('../../../images/theme/marketing.png')} />
+																	</div>
+																	<p>{translate('navigation.marketing-material')}</p>
+																</Segment>
+															</Dropdown.Menu>
+														</Dropdown>
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} text={translate('navigation.portfolio')} />
+														<Dropdown text={translate('navigation.products')} className="services">
+															<Dropdown.Menu className="sub-menu">
+																<Segment className='custom-dropdown-item' as={Link} to='/managed-hosting'>
+																	<div className='avatar-item desktop'>
+																		<img src={require('../../../images/theme/desktop.png')} />
+																	</div>
+																	<p>{translate('navigation.managed-hosting')}</p>
+																</Segment>
+															</Dropdown.Menu>
+														</Dropdown>
+														{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} text={translate('navigation.about')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/blog':'/no/blog'} text={translate('navigation.blog')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/contact':'/no/contact'} text={translate('navigation.contact')} />
+														{/* <Dropdown.Item as={NavLink} to='/login' text='Login'/> */}
+														{!isAuthenticated && <Dropdown.Item as={NavLink} to={lang=='en'?'/login':'/no/login'} className='login' text={translate('navigation.login')} onClick={(event) => this.triggerModal(event)} /> }
+													</div>
 													{isAdmin && isAuthenticated ?
 														<Dropdown.Item as={NavLink} to='/admin/pages' text={translate('navigation.dashboard')} />
 														: ''}
-													{isAuthenticated ?
-														<Dropdown.Item onClick={this.handleLogout} text={translate('navigation.logout')} icon='sign out' key='logout' />
-														:
-														<div style={{ display: 'flex', flexDirection: 'column' }}>
-															<Dropdown text={translate('navigation.services')} className="services">
-																<Dropdown.Menu className="sub-menu">
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/web-development':'/no/web-development'}>
-																		<div className='avatar-item desktop'>
-																			<img src={require('../../../images/theme/desktop.png')} />
-																		</div>
-																		<p>{translate('navigation.web-development')}</p>
-																	</Segment>
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/mobile-development':'/no/mobile-development'}>
-																		<div className='avatar-item mobile'>
-																			<img src={require('../../../images/theme/mobile.png')} />
-																		</div>
-																		<p>{translate('navigation.mobile-development')}</p>
-																	</Segment>
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/ui-ux-design':'/no/ui-ux-design'}>
-																		<div className='avatar-item ui'>
-																			<img src={require('../../../images/theme/ui.png')} />
-																		</div>
-																		<p>{translate('navigation.ui-design')}</p>
-																	</Segment>
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/branding':'/no/branding'}>
-																		<div className='avatar-item branding'>
-																			<img src={require('../../../images/theme/branding.png')} />
-																		</div>
-																		<p>{translate('navigation.branding')}</p>
-																	</Segment>
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/illustration':'/no/illustration'}>
-																		<div className='avatar-item illustration'>
-																			<img src={require('../../../images/theme/illustration.png')} />
-																		</div>
-																		<p>{translate('navigation.illustration')}</p>
-																	</Segment>
-																	<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/marketing-material':'/no/marketing-material'}>
-																		<div className='avatar-item marketing'>
-																			<img src={require('../../../images/theme/marketing.png')} />
-																		</div>
-																		<p>{translate('navigation.marketing-material')}</p>
-																	</Segment>
-																</Dropdown.Menu>
-															</Dropdown>
-															<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} text={translate('navigation.portfolio')} />
-															<Dropdown text={translate('navigation.products')} className="services">
-																<Dropdown.Menu className="sub-menu">
-																	<Segment className='custom-dropdown-item' as={Link} to='/managed-hosting'>
-																		<div className='avatar-item desktop'>
-																			<img src={require('../../../images/theme/desktop.png')} />
-																		</div>
-																		<p>{translate('navigation.managed-hosting')}</p>
-																	</Segment>
-																</Dropdown.Menu>
-															</Dropdown>
-															{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
-															<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} text={translate('navigation.about')} />
-															<Dropdown.Item as={NavLink} to={lang=='en'?'/blog':'/no/blog'} text={translate('navigation.blog')} />
-															<Dropdown.Item as={NavLink} to={lang=='en'?'/contact':'/no/contact'} text={translate('navigation.contact')} />
-															{/* <Dropdown.Item as={NavLink} to='/login' text='Login'/> */}
-															<Dropdown.Item as={NavLink} to={lang=='en'?'/login':'/no/login'} className='login' text={translate('navigation.login')} onClick={(event) => this.triggerModal(event)} />
-														</div>}
+													{isAuthenticated && <Dropdown.Item onClick={this.handleLogout} text={translate('navigation.logout')} icon='sign out' key='logout' />}
 												</Dropdown.Menu>
 											</Dropdown>
 										</Menu.Item>

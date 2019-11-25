@@ -2369,6 +2369,46 @@ body {
             color: #fff;
           }
         }
+        .alice-carousel {
+          margin-left: 0;
+        }
+        .alice-carousel__stage-item {
+          width: 100% !important;
+        }
+        .alice-carousel_prev_btn {
+          position: absolute;
+          top: 135px;
+          left: 110px;
+          border-radius: 50%;
+          border: none;
+          width: 30px;
+          height: 30px;
+          display: none;
+          cursor: pointer;
+          i {
+            color: #7436e9;
+            padding-left: 3px;
+          }
+        }
+        .alice-carousel_next_btn {
+          position: absolute;
+          top: 175px;
+          left: 110px;
+          border-radius: 50%;
+          border: none;
+          width: 30px;
+          height: 30px;
+          display: none;
+          cursor: pointer;
+          i {
+            color: #7436e9;
+            padding-left: 3px;
+          }
+        }
+        .alice-carousel__dots {
+          display: block;
+          text-align: center !important;
+        }
       }
     }
     .privacy-page {
@@ -2916,7 +2956,7 @@ body {
           .menu.transition {
             background: #070e29 !important;
             position: absolute;
-            top: 32px;
+            top: 48px;
             width: 320px;
             left: -220px;
             z-index: 299;
@@ -3402,6 +3442,11 @@ body {
                 }
               }
             }
+          }
+        }
+        .hosting-section {
+          &.starter-group {
+            margin-top: 160px;
           }
         }
       }

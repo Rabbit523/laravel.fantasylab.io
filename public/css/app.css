@@ -2852,6 +2852,53 @@ body {
   color: #fff;
 }
 
+.page .main .hosting-page .hosting-section .alice-carousel {
+  margin-left: 0;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel__stage-item {
+  width: 100% !important;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel_prev_btn {
+  position: absolute;
+  top: 135px;
+  left: 110px;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: none;
+  cursor: pointer;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel_prev_btn i {
+  color: #7436e9;
+  padding-left: 3px;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel_next_btn {
+  position: absolute;
+  top: 175px;
+  left: 110px;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: none;
+  cursor: pointer;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel_next_btn i {
+  color: #7436e9;
+  padding-left: 3px;
+}
+
+.page .main .hosting-page .hosting-section .alice-carousel__dots {
+  display: block;
+  text-align: center !important;
+}
+
 .page .main .privacy-page {
   min-height: 100vh;
   background: #03051b;
@@ -3470,7 +3517,7 @@ body {
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     background: #070e29 !important;
     position: absolute;
-    top: 32px;
+    top: 48px;
     width: 320px;
     left: -220px;
     z-index: 299;
@@ -4012,6 +4059,10 @@ body {
 
   .page .main .hosting-page .hosting-header .header-gradient .figures .figure p {
     font-size: 16px;
+  }
+
+  .page .main .hosting-page .hosting-section.starter-group {
+    margin-top: 160px;
   }
 
   .page .main .login-page.register {
