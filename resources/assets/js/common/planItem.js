@@ -91,7 +91,7 @@ class PlanItem extends React.Component {
 									<p>{this.props.lang=='en'?item.title:item.no_title}</p>
 									{item.info && 
 										<Popup trigger={<img src='/images/icon-info.svg' className='popper'/>} position="left center">
-											<div>{item.info}</div>
+											<div>{this.props.lang == 'en' ? item.info : item.no_info}</div>
 										</Popup>
 									}
 								</div>
