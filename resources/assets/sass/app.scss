@@ -752,7 +752,7 @@ body {
         }
         .primary-button {
           margin-top: 10px;
-          font-size: 13px !important;
+          font-size: 16px !important;
         }
       }
       .options {
@@ -1274,14 +1274,11 @@ body {
         background: none;
         .title {
           h3 {
-            font-size: 18px;
+            font-size: 20px;
           }
         }
         .description {
           padding-top: 10px;
-          p {
-            font-size: 14px;
-          }
         }
       }
       @media (min-width: 320px) {
@@ -2236,7 +2233,7 @@ body {
             }
             .ScrollArea {
               display: flex;
-              min-width: 736px;
+              min-width: 600px;
               justify-content: space-between;
             }
             .manage-item {
@@ -2330,7 +2327,7 @@ body {
             }
             .ScrollArea {
               display: flex;
-              min-width: 736px;
+              min-width: 445px;
               justify-content: space-between;
             }
             .manage-item {
@@ -3532,7 +3529,7 @@ body {
               .item {
                 flex-direction: column;
                 .text {
-                  padding: 80px 10px 20px 10px;
+                  padding: 40px 10px 20px 10px;
                 }
               }
             }
@@ -3548,7 +3545,7 @@ body {
               .item {
                 flex-direction: column;
                 .text {
-                  padding: 80px 10px 20px 10px;
+                  padding: 40px 10px 20px 10px;
                 }
               }
             }
