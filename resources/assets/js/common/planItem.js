@@ -5,6 +5,8 @@ import Modal from 'react-modal'
 import { isMobile } from 'react-device-detect'
 import { Button } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import Popup from "reactjs-popup"
+
 const customStyles = {
 	content: {
 		top: '50%',
@@ -87,7 +89,11 @@ class PlanItem extends React.Component {
 								<div className="item" key={i}>
 									<img src="/images/icon-check.png" />
 									<p>{this.props.lang=='en'?item.title:item.no_title}</p>
-									{item.info && <img src='/images/icon-info.svg' className='popper'/>}
+									{item.info && 
+										<Popup trigger={<img src='/images/icon-info.svg' className='popper'/>} position="left center">
+											<div>{item.info}</div>
+										</Popup>
+									}
 								</div>
 							))}
 							</div>
