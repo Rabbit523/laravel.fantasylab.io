@@ -306,7 +306,7 @@ class Page extends React.Component {
 											{data.features.items.map((item, i) => (
 												<React.Fragment key={i}>
 													<Grid.Column mobile={16} tablet={8} computer={4}>
-														<TextCard from='hosting' color='#070e28' title={lang == 'en' ? item.title : item.no_title} />
+														<TextCard from='hosting' color='#070e28' title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description}/>
 													</Grid.Column>
 												</React.Fragment>
 											))}

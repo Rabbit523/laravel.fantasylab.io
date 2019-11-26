@@ -1547,6 +1547,7 @@ body {
   height: 100%;
   display: flex;
   justify-content: center;
+  background: none;
 }
 
 .page .main .text-card.hosting .title h3 {
