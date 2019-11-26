@@ -781,6 +781,20 @@ body {
         border-color: #202c5a;
         width: 100px;
       }
+      @media (min-width: 1280px) {
+        .text-item {
+          p {
+            font-size: 16px;
+          }
+        }
+        .description {
+          h3 {
+            span {
+              font-size: 16px;
+            }
+          }
+        }
+      }
     }
     .badge-item {
       background: transparent;
@@ -1254,10 +1268,10 @@ body {
         }
       }
       &.hosting {
-        padding: 20px;
+        padding: 30px;
         height: 100%;
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         .title {
           h3 {
             font-size: 18px;
@@ -1278,6 +1292,15 @@ body {
       }
       @media (min-width: 414px) {
         padding: 60px;
+      }
+      @media (min-width: 1280px) {
+        &.hosting {
+          .title {
+            h3 {
+              font-size: 16px;
+            }
+          }
+        }
       }
     }
     .headquater-card {
@@ -2166,6 +2189,21 @@ body {
               display: flex;
               justify-content: space-between;
               margin-top: 30px;
+              .deploy-item {
+                padding: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                align-self: flex-start;
+                .text-item {
+                  margin-top: 15px;
+                  text-align: left;
+                  h3 {
+                    margin-bottom: 20px;
+                    color: #fff;
+                  }
+                }
+              }
             }
           }
         }
@@ -2185,15 +2223,21 @@ body {
             color: #9da6c7;
           }
           .header {
-            justify-content: space-around;
-            display: flex;
             margin-top: 20px;
             position: relative;
+            overflow-x: auto;
+            display: block;
             hr {
               position: absolute;
               border-color: #202c5a;
               width: 80%;
               top: 12px;
+              left: 80px;
+            }
+            .ScrollArea {
+              display: flex;
+              min-width: 736px;
+              justify-content: space-between;
             }
             .manage-item {
               display: flex;
@@ -2248,7 +2292,6 @@ body {
                 }
                 p {
                   text-align: left;
-                  font-size: 13px;
                 }
               }
               .avatar {
@@ -2275,15 +2318,21 @@ body {
             color: #9da6c7;
           }
           .header {
-            justify-content: space-around;
-            display: flex;
             margin-top: 20px;
             position: relative;
+            overflow-x: auto;
+            display: block;
             hr {
               position: absolute;
               border-color: #202c5a;
               width: 80%;
               top: 12px;
+              left: 80px;
+            }
+            .ScrollArea {
+              display: flex;
+              min-width: 736px;
+              justify-content: space-between;
             }
             .manage-item {
               display: flex;
@@ -3457,6 +3506,52 @@ body {
         .hosting-section {
           &.starter-group {
             margin-top: 160px;
+          }
+          &.server-group {
+            .header {
+              align-items: flex-end;
+              p {
+                text-align: center;
+              }
+            }
+            .server-item {
+              .server-cards {
+                &.custom {
+                  flex-direction: column;
+                }
+              }
+            }
+          }
+          &.manage {
+            .header {
+              hr {
+                width: 616px;
+              }
+            }
+            .body {
+              .item {
+                flex-direction: column;
+                .text {
+                  padding: 80px 10px 20px 10px;
+                }
+              }
+            }
+          }
+          &.scale {
+            .header {
+              hr {
+                width: 595px;
+                left: 80px;
+              }
+            }
+            .body {
+              .item {
+                flex-direction: column;
+                .text {
+                  padding: 80px 10px 20px 10px;
+                }
+              }
+            }
           }
         }
       }
@@ -4801,6 +4896,78 @@ body {
         .hosting-section {
           &.starter-group {
             margin-top: -140px;
+          }
+          &.server-group {
+            .header {
+              align-items: unset;
+              p {
+                font-size: 18px;
+                text-align: unset;
+              }
+            }
+            .server-item {
+              p {
+                font-size: 18px;
+              }
+              .server-cards {
+                &.custom {
+                  flex-direction: column;
+                }
+              }
+            }
+          }
+          &.manage {
+            p {
+              font-size: 18px;
+            }
+            .header {
+              hr {
+                width: 90%;
+              }
+              .manage-item {
+                p {
+                  font-size: 16px;
+                }
+              }
+            }
+            .body {
+              .item {
+                flex-direction: row;
+                .text{
+                  padding: 80px 30px 20px 30px;
+                  p {
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
+          }
+          &.scale {
+            p {
+              font-size: 18px;
+            }
+            .header {
+              hr {
+                width: 87%;
+                left: 100px;
+              }
+              .manage-item {
+                p {
+                  font-size: 16px;
+                }
+              }
+            }
+            .body {
+              .item {
+                flex-direction: row;
+                .text{
+                  padding: 80px 30px 20px 30px;
+                  p {
+                    font-size: 16px;
+                  }
+                }
+              }
+            }
           }
         }
       }

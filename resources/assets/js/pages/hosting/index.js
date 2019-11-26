@@ -1,6 +1,7 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { isMobile } from 'react-device-detect'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import PageMetaTag from '../../common/pageMetaTag'
@@ -164,35 +165,59 @@ class Page extends React.Component {
 											<div className="server-item">
 												<h2>{lang == 'en' ? data.distributions.title : data.distributions.no_title}</h2>
 												<p>{lang == 'en' ? data.distributions.description : data.distributions.no_description}</p>
-												<div className='server-cards'>
+												{isMobile && <Grid style={{marginTop: 30}}>
+													{data.distributions.items.map((item, i) => (
+														<Grid.Column mobile={8} key={i}>
+															<GuideCard from='hosting' avatar={item.avatar} title={item.title} />
+														</Grid.Column>
+													))}
+												</Grid>}
+												{!isMobile && <div className='server-cards'>
 													{data.distributions.items.map((item, i) => (
 														<React.Fragment key={i}>
 															<GuideCard from='hosting' avatar={item.avatar} title={item.title} />
 														</React.Fragment>
 													))}
-												</div>
+												</div>}
 											</div>}
 										{isClickApp &&
 											<div className="server-item">
 												<h2>{lang == 'en' ? data.click_app.title : data.click_app.no_title}</h2>
 												<p>{lang == 'en' ? data.click_app.description : data.click_app.no_description}</p>
-												<div className='server-cards'>
+												{isMobile && <Grid style={{marginTop: 30}}>
+													{data.click_app.items.map((item, i) => (
+														<Grid.Column mobile={8} key={i}>
+															<GuideCard from='hosting' avatar={item.avatar} title={item.title} />
+														</Grid.Column>
+													))}
+												</Grid>}
+												{!isMobile && <div className='server-cards'> 
 													{data.click_app.items.map((item, i) => (
 														<React.Fragment key={i}>
 															<GuideCard from='hosting' avatar={item.avatar} title={item.title} />
 														</React.Fragment>
 													))}
-												</div>
+												</div>}
 											</div>}
 										{isCustom &&
 											<div className="server-item">
 												<h2>{lang == 'en' ? data.custom_image.title : data.custom_image.no_title}</h2>
 												<p>{lang == 'en' ? data.custom_image.description : data.custom_image.no_description}</p>
-												<div className='server-cards'>
+												<div className={isMobile?'server-cards custom':'server-cards'}>
 													{data.custom_image.items.map((item, i) => (
-														<React.Fragment key={i}>
-															<GuideCard from='hosting' avatar={item.avatar} title={item.title} />
-														</React.Fragment>
+														<div className='deploy-item' key={i}>
+															<div className='avatar-item'>
+																{i == 0 && <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" aria-hidden="true" className="www-Icon www-Icon--xlarge bui-u-mb--regular"><defs><linearGradient x1="50.064%" y1="99.939%" x2="50.064%" y2=".494%" id="a"><stop stopColor="#0069FF" stopOpacity=".3" offset="0%"></stop><stop stopColor="#0069FF" stopOpacity="0" offset="100%"></stop></linearGradient></defs><g transform="translate(2 1)" fill="none" fillRule="evenodd"><ellipse fill="#FFFFFF" fillRule="nonzero" opacity=".6" cx="18.5" cy="28.462" rx="18.5" ry="7.021"></ellipse><ellipse stroke="#0069FF" strokeWidth="2" cx="18.5" cy="28.462" rx="18.5" ry="7.021"></ellipse><ellipse fill="#FFFFFF" fillRule="nonzero" opacity=".7" cx="18.5" cy="18.785" rx="18.5" ry="7.021"></ellipse><ellipse stroke="#0069FF" strokeWidth="2" cx="18.5" cy="18.785" rx="18.5" ry="7.021"></ellipse><ellipse fill="#FFFFFF" fillRule="nonzero" opacity=".7" cx="18.5" cy="9.297" rx="18.5" ry="7.021"></ellipse><ellipse stroke="#0069FF" strokeWidth="2" cx="18.5" cy="9.297" rx="18.5" ry="7.021"></ellipse><path d="M33.015 1.044H4.838V33.11s7.4 2.562 14.041 2.562c6.642 0 14.042-2.562 14.042-2.562V1.044h.094z" fill="url(#a)" fillRule="nonzero"></path><circle stroke="#120078" strokeWidth="2" fill="#FFFFFF" fillRule="nonzero" transform="rotate(-45 11.02 15.9)" cx="11.021" cy="15.901" r="1.992"></circle><circle stroke="#120078" strokeWidth="2" fill="#FFFFFF" fillRule="nonzero" transform="rotate(-45 17.937 35.601)" cx="17.937" cy="35.601" r="2.372"></circle><circle stroke="#120078" strokeWidth="2" fill="#FFFFFF" fillRule="nonzero" transform="rotate(-45 30.17 24.39)" cx="30.17" cy="24.389" r="2.846"></circle><circle stroke="#120078" strokeWidth="2" fill="#FFFFFF" fillRule="nonzero" transform="rotate(-45 26.59 2.911)" cx="26.59" cy="2.911" r="1.992"></circle></g></svg>}
+																{i == 1 && <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" aria-hidden="true" className="www-Icon www-Icon--xlarge bui-u-mb--regular"><defs><linearGradient id="a" x1="100.265%" x2="43.513%" y1="49.992%" y2="49.992%"><stop offset="0%" stopColor="#0069FF" stopOpacity=".3"></stop><stop offset="100%" stopColor="#0069FF" stopOpacity="0"></stop></linearGradient><linearGradient id="b" x1="100.265%" x2="43.513%" y1="50.562%" y2="50.562%"><stop offset="0%" stopColor="#0069FF" stopOpacity=".3"></stop><stop offset="100%" stopColor="#0069FF" stopOpacity="0"></stop></linearGradient><linearGradient id="c" x1="100.265%" x2="43.513%" y1="50.008%" y2="50.008%"><stop offset="0%" stopColor="#0069FF" stopOpacity=".3"></stop><stop offset="100%" stopColor="#0069FF" stopOpacity="0"></stop></linearGradient></defs><g fill="none" fillRule="evenodd" transform="translate(6 6)"><path fill="url(#a)" d="M27.02 22.102H2.98a1.932 1.932 0 0 0-1.95 1.952v3.044c0 1.092.858 1.95 1.95 1.95h24.118a1.932 1.932 0 0 0 1.95-1.95v-3.044c-.077-1.093-.936-1.952-2.028-1.952z"></path><path stroke="#120078" strokeWidth="1.75" d="M27.02 22.102H2.98a1.932 1.932 0 0 0-1.95 1.952v3.044c0 1.092.858 1.95 1.95 1.95h24.118a1.932 1.932 0 0 0 1.95-1.95v-3.044c-.077-1.093-.936-1.952-2.028-1.952z"></path><circle cx="5.4" cy="25.537" r="1.015" fill="#0069FF"></circle><circle cx="8.834" cy="25.537" r="1.015" fill="#0069FF" opacity=".3"></circle><circle cx="12.19" cy="25.537" r="1.015" fill="#0069FF" opacity=".3"></circle><path fill="#D8D8D8" stroke="#120078" strokeLinecap="round" strokeWidth="1.75" d="M25.38 25.537H19.45"></path><path fill="url(#b)" d="M27.02 11.488H2.98a1.932 1.932 0 0 0-1.95 1.951v3.044c0 1.093.858 1.951 1.95 1.951h24.118a1.932 1.932 0 0 0 1.95-1.951v-3.044c-.077-1.015-.936-1.951-2.028-1.951z"></path><path stroke="#0069FF" strokeWidth="1.75" d="M27.02 11.488H2.98a1.932 1.932 0 0 0-1.95 1.951v3.044c0 1.093.858 1.951 1.95 1.951h24.118a1.932 1.932 0 0 0 1.95-1.951v-3.044c-.077-1.015-.936-1.951-2.028-1.951z"></path><circle cx="5.4" cy="15" r="1.015" fill="#0069FF"></circle><circle cx="8.834" cy="15" r="1.015" fill="#0069FF" opacity=".3"></circle><circle cx="12.19" cy="15" r="1.015" fill="#0069FF" opacity=".3"></circle><path fill="#D8D8D8" stroke="#120078" strokeLinecap="round" strokeWidth="1.75" d="M25.38 15H19.45"></path><path fill="url(#c)" d="M27.02.951H2.98a1.932 1.932 0 0 0-1.95 1.951v3.044c0 1.093.858 1.952 1.95 1.952h24.118a1.932 1.932 0 0 0 1.95-1.952V2.902c-.077-1.092-.936-1.95-2.028-1.95z"></path><path stroke="#0069FF" strokeWidth="1.75" d="M27.02.951H2.98a1.932 1.932 0 0 0-1.95 1.951v3.044c0 1.093.858 1.952 1.95 1.952h24.118a1.932 1.932 0 0 0 1.95-1.952V2.902c-.077-1.092-.936-1.95-2.028-1.95z"></path><circle cx="5.4" cy="4.463" r="1.015" fill="#0069FF"></circle><circle cx="8.834" cy="4.463" r="1.015" fill="#0069FF" opacity=".3"></circle><circle cx="12.19" cy="4.463" r="1.015" fill="#0069FF" opacity=".3"></circle><path fill="#D8D8D8" stroke="#120078" strokeLinecap="round" strokeWidth="1.75" d="M25.38 4.463H19.45"></path></g></svg>}
+																{i == 2 && <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" aria-hidden="true" className="www-Icon www-Icon--xlarge bui-u-mb--regular"><defs><linearGradient x1="50%" y1="93.571%" x2="50%" y2="-.778%" id="a"><stop stopColor="#0069FF" stopOpacity=".25" offset="0%"></stop><stop stopColor="#0069FF" stopOpacity="0" offset="100%"></stop></linearGradient></defs><g fill="none" fillRule="evenodd"><path fill="url(#a)" fillRule="nonzero" d="M2.8.6h31.4v35.6H2.8z" transform="translate(2 1)"></path><g strokeWidth="2"><path d="M5.7 5.7l29.6 29.6M5.7 35.3L35.3 5.7" stroke="#0069FF" opacity=".3"></path><path d="M2.1 36.2c0-2.7 3.6-5.3 3.6-5.3s3.6 2.7 3.6 5.3c0 2-1.6 3.6-3.6 3.6s-3.6-1.6-3.6-3.6zM31.8 36.2c0-2.7 3.6-5.3 3.6-5.3s3.6 2.7 3.6 5.3c0 2-1.6 3.6-3.6 3.6s-3.6-1.6-3.6-3.6zM2.1 6.5c0-2.7 3.6-5.3 3.6-5.3s3.6 2.7 3.6 5.3c0 2-1.6 3.6-3.6 3.6S2.1 8.5 2.1 6.5zM31.8 6.5c0-2.7 3.6-5.3 3.6-5.3S39 3.9 39 6.5c0 2-1.6 3.6-3.6 3.6s-3.6-1.6-3.6-3.6z" stroke="#120078" fill="#FFFFFF" fillRule="nonzero"></path><path d="M14.5 21.9c0-4.5 6-8.9 6-8.9s6 4.5 6 8.9c0 3.3-2.7 6-6 6s-6-2.7-6-6z" stroke="#0069FF" fill="#FFFFFF" fillRule="nonzero"></path></g></g></svg>}
+																{i ==3 && <svg xmlns="http://www.w3.org/2000/svg" width="41" height="41" viewBox="0 0 41 41" aria-hidden="true" className="www-Icon www-Icon--xlarge bui-u-mb--regular"><defs><linearGradient id="a" x1="49.868%" x2="49.868%" y1="2.976%" y2="101.08%"><stop offset="0%" stopColor="#0069FF" stopOpacity=".3"></stop><stop offset="100%" stopColor="#0069FF" stopOpacity="0"></stop></linearGradient></defs><g fill="none" fillRule="evenodd"><path fill="url(#a)" d="M1.465 9h36.651v24.907H1.466z" transform="translate(1 3)"></path><path fill="#120078" fillRule="nonzero" d="M4.14 5C3.482 5 3 5.482 3 6.14v28.744c0 .657.482 1.14 1.14 1.14h32.93c.657 0 1.14-.483 1.14-1.14V6.14c0-.664-.49-1.14-1.233-1.14H4.14zm0-2h32.837c1.834 0 3.232 1.357 3.232 3.14v28.744a3.105 3.105 0 0 1-3.14 3.14H4.14A3.105 3.105 0 0 1 1 34.883V6.14A3.105 3.105 0 0 1 4.14 3z"></path><path fill="#120078" d="M2 13v-2h37.023v2z"></path><path fill="#0069FF" fillRule="nonzero" d="M5.442 8.907v-2h2.14v2h-2.14zm4.93 0v-2h2.14v2h-2.14z"></path><path stroke="#0069FF" strokeWidth="2" d="M15.395 19.442h4.186m-11.07 0h4.745m10.883 5.21h3.628m-13.674 0h8.093m-13.674 0h3.441m7.442 5.302h5.396m-16.28 0h8.93"></path></g></svg>}
+																{/* <img src={`${item.avatar}`} /> */}
+															</div>
+															<div className='text-item'>
+																<h3>{lang=='en'?item.title:item.no_title}</h3>
+																<p>{lang=='en'?item.description:item.no_description}</p>
+															</div>
+														</div>
 													))}
 												</div>
 											</div>}
@@ -205,14 +230,16 @@ class Page extends React.Component {
 										<p>{lang == 'en' ? data.manage.description : data.manage.no_description}</p>
 										<div className="header">
 											<hr />
-											{data.manage.items.map((item, i) => (
-												<div className={active_manage_type == item.type ? 'manage-item active' : 'manage-item'} key={i} onClick={() => this.manageActiveType(item.type)}>
-													<div className="avatar">
-														<img src={item.avatar} />
+											<div className="ScrollArea">
+												{data.manage.items.map((item, i) => (
+													<div className={active_manage_type == item.type ? 'manage-item active' : 'manage-item'} key={i} onClick={() => this.manageActiveType(item.type)}>
+														<div className="avatar">
+															<img src={item.avatar} />
+														</div>
+														<p>{lang == 'en' ? item.title : item.no_title}</p>
 													</div>
-													<p>{lang == 'en' ? item.title : item.no_title}</p>
-												</div>
-											))}
+												))}
+											</div>
 										</div>
 										<div className="body">
 											{data.manage.items.map(function (item, i) {
@@ -240,14 +267,16 @@ class Page extends React.Component {
 										<p>{lang == 'en' ? data.scale.description : data.scale.no_description}</p>
 										<div className="header">
 											<hr />
-											{data.scale.items.map((item, i) => (
-												<div className={active_scale_type == item.type ? 'manage-item active' : 'manage-item'} key={i} onClick={() => this.scaleActiveType(item.type)}>
-													<div className="avatar">
-														<img src={item.avatar} />
+											<div className="ScrollArea">
+												{data.scale.items.map((item, i) => (
+													<div className={active_scale_type == item.type ? 'manage-item active' : 'manage-item'} key={i} onClick={() => this.scaleActiveType(item.type)}>
+														<div className="avatar">
+															<img src={item.avatar} />
+														</div>
+														<p>{lang == 'en' ? item.title : item.no_title}</p>
 													</div>
-													<p>{lang == 'en' ? item.title : item.no_title}</p>
-												</div>
-											))}
+												))}
+											</div>
 										</div>
 										<div className="body">
 											{data.scale.items.map(function (item, i) {
@@ -277,7 +306,7 @@ class Page extends React.Component {
 											{data.features.items.map((item, i) => (
 												<React.Fragment key={i}>
 													<Grid.Column mobile={16} tablet={8} computer={4}>
-														<TextCard from='hosting' color='#070e28' title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} />
+														<TextCard from='hosting' color='#070e28' title={lang == 'en' ? item.title : item.no_title} />
 													</Grid.Column>
 												</React.Fragment>
 											))}
