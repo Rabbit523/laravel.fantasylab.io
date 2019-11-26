@@ -1488,6 +1488,16 @@ body {
   }
 }
 
+@media (min-width: 1920px) {
+  .page .main .guide-card.hosting {
+    padding: 30px 50px;
+  }
+
+  .page .main .guide-card.hosting .title h3 {
+    font-size: 18px;
+  }
+}
+
 .page .main .text-card {
   padding: 40px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);

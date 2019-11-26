@@ -8,7 +8,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import ReactSummernote from 'react-summernote';
 import 'react-summernote/dist/react-summernote.css';
 import 'react-summernote/lang/summernote-nb-NO';
-import { Manager, Reference, Popper } from 'react-popper';
 import Http from '../../../../Http'
 
 class Page extends React.Component {
