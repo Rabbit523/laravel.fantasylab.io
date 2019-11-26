@@ -562,7 +562,7 @@ body {
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item .icon-right-arrow {
@@ -863,7 +863,7 @@ body {
 
 .page .main .plan-item .text-item p {
   color: #9da6c7;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .page .main .plan-item .description h3 {
@@ -872,7 +872,7 @@ body {
 
 .page .main .plan-item .description h3 span {
   color: #9da6c7;
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Gotham light";
 }
 
@@ -1546,7 +1546,6 @@ body {
   padding: 30px;
   height: 100%;
   display: flex;
-  justify-content: center;
   background: none;
 }
 
@@ -2712,10 +2711,6 @@ body {
   top: 3px;
 }
 
-.page .main .hosting-page .hosting-section.manage .header .manage-item p {
-  font-size: 14px;
-}
-
 .page .main .hosting-page .hosting-section.manage .header .manage-item.active .avatar {
   background: #fff;
 }
@@ -2746,10 +2741,12 @@ body {
 
 .page .main .hosting-page .hosting-section.manage .body .item .text h3 {
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .page .main .hosting-page .hosting-section.manage .body .item .text p {
   text-align: left;
+  margin-bottom: 20px;
 }
 
 .page .main .hosting-page .hosting-section.manage .body .item .avatar {
@@ -2825,7 +2822,7 @@ body {
 }
 
 .page .main .hosting-page .hosting-section.scale .header .manage-item p {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .page .main .hosting-page .hosting-section.scale .header .manage-item.active .avatar {
@@ -2858,11 +2855,12 @@ body {
 
 .page .main .hosting-page .hosting-section.scale .body .item .text h3 {
   color: #fff;
+  margin-bottom: 20px;
 }
 
 .page .main .hosting-page .hosting-section.scale .body .item .text p {
   text-align: left;
-  font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .page .main .hosting-page .hosting-section.scale .body .item .avatar {

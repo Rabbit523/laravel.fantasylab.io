@@ -497,7 +497,7 @@ body {
               border-bottom: 2px solid #285596;
             }
             .avatar-item {
-              margin-bottom: 10px;
+              margin-bottom: 5px;
               .icon-right-arrow {
                 display: block;
               }
@@ -738,7 +738,7 @@ body {
         }
         p {
           color: #9da6c7;
-          font-size: 14px;
+          font-size: 16px;
         }
       }
       .description {
@@ -746,7 +746,7 @@ body {
           color: #fff;
           span {
             color: #9da6c7;
-            font-size: 14px;
+            font-size: 16px;
             font-family: "Gotham light";
           }
         }
@@ -1271,7 +1271,6 @@ body {
         padding: 30px;
         height: 100%;
         display: flex;
-        justify-content: center;
         background: none;
         .title {
           h3 {
@@ -2260,9 +2259,6 @@ body {
                   top: 3px;
                 }
               }
-              p {
-                font-size: 14px;
-              }
               &.active {
                 .avatar {
                   background: #fff;
@@ -2290,9 +2286,11 @@ body {
                 align-items: flex-start;
                 h3 {
                   color: #fff;
+                  margin-bottom: 20px;
                 }
                 p {
                   text-align: left;
+                  margin-bottom: 20px;
                 }
               }
               .avatar {
@@ -2356,7 +2354,7 @@ body {
                 }
               }
               p {
-                font-size: 14px;
+                font-size: 16px;
               }
               &.active {
                 .avatar {
@@ -2385,10 +2383,11 @@ body {
                 align-items: flex-start;
                 h3 {
                   color: #fff;
+                  margin-bottom: 20px;
                 }
                 p {
                   text-align: left;
-                  font-size: 13px;
+                  margin-bottom: 20px;
                 }
               }
               .avatar {
