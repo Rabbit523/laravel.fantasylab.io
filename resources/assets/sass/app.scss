@@ -497,7 +497,7 @@ body {
               border-bottom: 2px solid #285596;
             }
             .avatar-item {
-              margin-bottom: 5px;
+              margin-bottom: 10px;
               .icon-right-arrow {
                 display: block;
               }
@@ -4896,7 +4896,7 @@ body {
         }
         .hosting-section {
           &.starter-group {
-            margin-top: -160px;
+            margin-top: -180px;
           }
           &.server-group {
             .header {
@@ -5875,6 +5875,11 @@ body {
                 margin-top: 70px;
               }
             }
+          }
+        }
+        .hosting-section {
+          &.starter-group {
+            margin-top: -320px;
           }
         }
       }

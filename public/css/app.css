@@ -562,7 +562,7 @@ body {
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item {
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item:hover .avatar-item .icon-right-arrow {
@@ -5395,7 +5395,7 @@ body {
   }
 
   .page .main .hosting-page .hosting-section.starter-group {
-    margin-top: -160px;
+    margin-top: -180px;
   }
 
   .page .main .hosting-page .hosting-section.server-group .header {
@@ -6347,6 +6347,10 @@ body {
 
   .page .main .hosting-page .hosting-header .header-gradient.mobile .starter-group {
     margin-top: 70px;
+  }
+
+  .page .main .hosting-page .hosting-section.starter-group {
+    margin-top: -320px;
   }
 
   .page .main .login-page {

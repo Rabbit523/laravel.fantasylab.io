@@ -16,7 +16,7 @@
         "portfolio": ["Portfolio", "Portefølje"],
         "products": ["Products", "Produkter"],
         "managed-hosting": ["Managed Hosting", "Administrert Hosting"],
-        "managed-hosting-des": ["Managed Hosting", "Administrert Hosting"],
+        "managed-hosting-des": ["High performance managed hosting for your app.", "Administrert hosting med høy ytelse for appen din."],
         "features": ["Features", "Funksjoner"],
         "about": ["About", "Om oss"],
         "blog": ["Blog", "Blogg"],
