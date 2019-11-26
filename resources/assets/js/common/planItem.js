@@ -81,7 +81,7 @@ class PlanItem extends React.Component {
 							<hr/>
 							<div className='description'>
 								<h3>kr {this.props.cost},- <span>/ monthly</span></h3>
-								<Button className='primary-button' onClick={(event) => this.triggerModal(event)}>{this.props.lang=='en'?'Contact Sales':'Kontakt salg'} </Button>
+								<Button as={Link} to='/contact' className='primary-button'>{this.props.lang=='en'?'Contact Sales':'Kontakt salg'} </Button>
 							</div>
 							<hr/>
 							<div className='options'>
