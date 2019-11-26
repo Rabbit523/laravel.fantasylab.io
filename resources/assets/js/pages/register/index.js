@@ -1,14 +1,13 @@
 import React from 'react'
 import { Button, Dimmer, Checkbox, Form, Grid, Header, Loader, Message, Segment } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect, withRouter } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
-import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
-import AuthService from '../../services'
 import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
 import 'react-phone-number-input/style.css'
 import flags from 'react-phone-number-input/flags'
 import PageMetaTag from '../../common/pageMetaTag'
+import Http from '../../Http'
 
 class Page extends React.Component {
 	constructor(props) {
@@ -26,8 +25,8 @@ class Page extends React.Component {
 				email: '',
 				password: '',
 				password_confirmation: '',
-				phone: '',
-				team: ''
+				team: '',
+				phone: ''
 			},
 			responseError: {
 				isError: false,
@@ -39,7 +38,8 @@ class Page extends React.Component {
 			errors: this.validator.errors,
 			phone: '',
 			checked: false,
-			checkbox_border: true
+			checkbox_border: true,
+			isAuthenticated: false
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -52,11 +52,14 @@ class Page extends React.Component {
 		const { errors } = this.validator;
 		const { credentials } = this.state;
 		credentials[name] = value;
-
-		this.validator.validate(name, value)
+		if (name != 'phone') {
+			this.validator.validate(name, value)
 			.then(() => {
 				this.setState({ errors, credentials })
 			});
+		} else {
+			this.setState({ phone: value });
+		}
 	}
 
 	handleCheckBoxClick() {
@@ -73,24 +76,33 @@ class Page extends React.Component {
 				if (success) {
 					// Manually verify the password confirmation fields
 					if (this.passwordConfirmation(credentials)) {
-						if (isValidPhoneNumber(phone)) {
-							if (checked) {
-								this.setState({
-									isLoading: true
-								});
-								credentials.phone = phone;
-								this.submit(credentials);
-							} else {
-								this.setState({ checkbox_border: !this.state.checkbox_border });
-							}
-						}
-						else {
-							const responseError = {
-								isError: true,
-								code: 401,
-								text: "Oops! Phone number doesn't exit!"
-							};
-							this.setState({ responseError });
+						// if (isValidPhoneNumber(phone)) {
+							// if (checked) {
+							// 	this.setState({
+							// 		isLoading: true
+							// 	});
+						// 		credentials.phone = phone;
+						// 		this.submit(credentials);
+						// 	} else {
+						// 		this.setState({ checkbox_border: !this.state.checkbox_border });
+						// 	}
+						// }
+						// else {
+						// 	const responseError = {
+						// 		isError: true,
+						// 		code: 401,
+						// 		text: "Oops! Phone number doesn't exit!"
+						// 	};
+						// 	this.setState({ responseError });
+						// }
+						if (checked) {
+							credentials.phone = phone;
+							this.setState({
+								isLoading: true
+							});
+							this.submit(credentials);
+						} else {
+							this.setState({ checkbox_border: !this.state.checkbox_border });
 						}
 					}
 					else {
@@ -115,8 +127,11 @@ class Page extends React.Component {
 	}
 
 	submit(credentials) {
-		this.props.dispatch(AuthService.register(credentials))
-			.then((result) => {
+		if (!window.location.origin) {
+			window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
+		}
+		Http.post(`${window.location.origin}/api/auth/register`, credentials)
+			.then(res => {
 				this.setState({
 					isLoading: false,
 					isSuccess: true,
@@ -134,9 +149,22 @@ class Page extends React.Component {
 						text: ''
 					}
 				});
-
+				this.props.history.push('/login');
 			})
-			.catch(({ error, statusCode }) => {
+			.catch(err => {
+				const statusCode = err.response.status;
+				const data = {
+					error: null,
+					statusCode,
+				};
+				if (statusCode === 422) {
+					Object.values(err.response.data.message).map((value, i) => {
+						data.error = value
+					});
+
+				} else if (statusCode === 400) {
+					data.error = err.response.data.message;
+				}
 				const responseError = {
 					isError: true,
 					code: statusCode,
@@ -146,11 +174,16 @@ class Page extends React.Component {
 				this.setState({
 					isLoading: false
 				});
-			})
+				console.log(data);
+			});
 	}
 
 	componentDidMount() {
-		this.setState({ isLoading: false });
+		var isAuthenticated = false;
+		if (typeof window !== 'undefined') {
+			isAuthenticated = localStorage.getItem('isAuthenticated');
+		}
+		this.setState({ isLoading: false, isAuthenticated });
 	}
 
 	onSocialClick(event, data) {
@@ -158,7 +191,8 @@ class Page extends React.Component {
 	}
 
 	render() {
-		if (this.props.isAuthenticated) {
+		const { isAuthenticated } = this.state;
+		if (isAuthenticated=='true') {
 			return <Redirect to='/' replace />
 		}
 		const { errors, phone, checkbox_border } = this.state;
@@ -277,9 +311,4 @@ class Page extends React.Component {
 	}
 }
 
-Page.propTypes = {
-	isAuthenticated: PropTypes.bool.isRequired,
-	dispatch: PropTypes.func.isRequired
-};
-
-export default withLocalize(Page);
+export default withLocalize(withRouter(Page));

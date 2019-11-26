@@ -26,7 +26,9 @@ class Page extends React.Component {
 				text: ''
 			},
 			isLoaded: false,
-			errors: this.validator.errors
+			errors: this.validator.errors,
+			isAdmin: false,
+			isAuthenticated: false
 		};
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
@@ -110,16 +112,23 @@ class Page extends React.Component {
 		//     }
 
 		// }.bind(this), 1000);
+		let isAuthenticated = false, isAdmin = false;
+		if (typeof window !== 'undefined') {
+			isAuthenticated = localStorage.getItem('isAuthenticated');
+			isAdmin = localStorage.getItem('isAdmin');
+		}
 		this.setState({
-			isLoaded: false
+			isLoaded: false,
+			isAdmin,
+			isAuthenticated
 		});
 	}
 
 	render() {
-		const { isAuthenticated, isAdmin } = this.props;
-		const { from } = this.props.location.state || { from: { pathname: isAdmin ? '/admin/pages' : '/' } };
+		const { isAuthenticated, isAdmin } = this.state;
+		const { from } = this.props.location.state || { from: { pathname: isAdmin=='true' ? '/admin/pages' : '/' } };
 
-		if (isAuthenticated) {
+		if (isAuthenticated == 'true') {
 			return (
 				<Redirect to={from} />
 			)
@@ -192,9 +201,5 @@ class Page extends React.Component {
 		);
 	}
 }
-
-Page.propTypes = {
-	dispatch: PropTypes.func
-};
 
 export default withLocalize(Page);

@@ -3523,6 +3523,15 @@ body {
                     font-size: 14px;
                   }
                 }
+                &.checkbox_border {
+                  .checkbox {
+                    label {
+                      &:before {
+                        border: 2px solid red;
+                      }
+                    }
+                  }
+                }
               }
               .primary-button {
                 font-size: 16px !important;

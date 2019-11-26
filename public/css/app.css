@@ -4145,6 +4145,10 @@ body {
     font-size: 14px;
   }
 
+  .page .main .login-page .login-responsive .login-form .segment .privacy-section.checkbox_border .checkbox label:before {
+    border: 2px solid red;
+  }
+
   .page .main .login-page .login-responsive .login-form .segment .primary-button {
     font-size: 16px !important;
     margin-top: 30px;
