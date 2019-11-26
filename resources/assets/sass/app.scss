@@ -1214,6 +1214,16 @@ body {
       @media (min-width: 1366px) {
         padding: 30px 20px;        
       }
+      @media (min-width: 1920px) {
+        &.hosting {
+          padding: 30px 50px;
+          .title {
+            h3 {
+              font-size: 18px;
+            }
+          }
+        }
+      }
     }
     .text-card {
       padding: 40px;
