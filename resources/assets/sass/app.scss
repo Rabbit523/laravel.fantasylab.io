@@ -764,11 +764,15 @@ body {
             width: 20px;
             height: 20px;
             margin-right: 10px;
-            &.popper {
-              position: absolute;
-              margin: 0;
-              right: 0;
-              top: 2px;
+          }
+          .popper {
+            position: absolute;
+            margin: 0;
+            right: 0;
+            top: 2px;
+            fill: #8088a4;
+            &:hover {
+              fill: #fff;
             }
           }
           p {

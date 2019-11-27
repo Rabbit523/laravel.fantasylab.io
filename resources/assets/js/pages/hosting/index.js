@@ -283,14 +283,17 @@ class Page extends React.Component {
 												return (
 													active_scale_type == item.type &&
 													(<div className='item' key={i}>
-														<div className="avatar">
+														{!isMobile&& <div className="avatar">
 															<img src={item.img} />
-														</div>
+														</div>}
 														<div className="text">
 															<h3>{lang == 'en' ? item.title : item.no_title}</h3>
 															<p>{lang == 'en' ? item.description : item.no_description}</p>
 															<Button className='primary-button' onClick={(event) => this.triggerModal(event)}>{lang == 'en' ? item.btn_name : item.no_btn_name} </Button>
 														</div>
+														{isMobile&& <div className="avatar">
+															<img src={item.img} />
+														</div>}
 													</div>));
 											}
 											)}

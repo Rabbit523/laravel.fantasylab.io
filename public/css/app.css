@@ -893,11 +893,16 @@ body {
   margin-right: 10px;
 }
 
-.page .main .plan-item .options .item img.popper {
+.page .main .plan-item .options .item .popper {
   position: absolute;
   margin: 0;
   right: 0;
   top: 2px;
+  fill: #8088a4;
+}
+
+.page .main .plan-item .options .item .popper:hover {
+  fill: #fff;
 }
 
 .page .main .plan-item .options .item p {
