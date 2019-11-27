@@ -330,7 +330,7 @@ class Page extends React.Component {
 													<div className='custom-box'>
 														<Container className='custom-col-6'>
 															<Grid padded='horizontally'>
-																<Grid.Row columns={1} className='custom-row'>
+																<Grid.Row columns={6} className='custom-row' style={{justifyContent: 'flex-start'}}>
 																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/managed-hosting':'/no/managed-hosting'}>
 																		<div className='custom-dropdown-item desktop'>
 																			<div className='avatar-item desktop'>
