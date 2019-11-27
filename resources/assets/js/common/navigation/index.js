@@ -332,8 +332,8 @@ class Page extends React.Component {
 															<Grid padded='horizontally'>
 																<Grid.Row columns={6} className='custom-row' style={{justifyContent: 'flex-start'}}>
 																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/managed-hosting':'/no/managed-hosting'}>
-																		<div className='custom-dropdown-item desktop'>
-																			<div className='avatar-item desktop'>
+																		<div className='custom-dropdown-item hosting'>
+																			<div className='avatar-item hosting'>
 																				<img src={require('../../../images/theme/desktop.png')} />
 																				<Icon name='arrow right' className='icon-right-arrow' />
 																			</div>

@@ -466,6 +466,14 @@ body {
           }
           &:hover {
             cursor: pointer;
+            &.hosting {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/web-dropdown.jpg) !important;
+              background-size: cover !important;
+              border-bottom: 2px solid #7436e9;
+              .avatar-item {
+                margin-bottom: 42px;
+              }
+            }
             &.desktop {
               background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/web-dropdown.jpg) !important;
               background-size: cover !important;
@@ -497,11 +505,18 @@ body {
               border-bottom: 2px solid #285596;
             }
             .avatar-item {
-              margin-bottom: 5px;
+              margin-bottom: 40px;
               .icon-right-arrow {
                 display: block;
               }
               &.desktop {
+                border: 2px solid #7436e9;
+                color: #7436e9;
+                i {
+                  color: #7436e9;
+                }
+              }
+              &.hosting {
                 border: 2px solid #7436e9;
                 color: #7436e9;
                 i {
