@@ -249,7 +249,7 @@ class Page extends React.Component {
 														<div className="text">
 															<h3>{lang == 'en' ? item.title : item.no_title}</h3>
 															<p>{lang == 'en' ? item.description : item.no_description}</p>
-															<Button className='primary-button' as={Link} to='/contact'>{lang == 'en' ? item.btn_name : item.no_btn_name} </Button>
+															<Button className='primary-button' as={Link} to={lang=='en'?item.btn_link:item.no_btn_link}>{lang == 'en' ? item.btn_name : item.no_btn_name} </Button>
 														</div>
 														<div className="avatar">
 															<img src={item.img} />
@@ -289,7 +289,7 @@ class Page extends React.Component {
 														<div className="text">
 															<h3>{lang == 'en' ? item.title : item.no_title}</h3>
 															<p>{lang == 'en' ? item.description : item.no_description}</p>
-															<Button className='primary-button' as={Link} to='/contact'>{lang == 'en' ? item.btn_name : item.no_btn_name} </Button>
+															<Button className='primary-button' as={Link} to={lang=='en'?item.btn_link:item.no_btn_link}>{lang == 'en' ? item.btn_name : item.no_btn_name} </Button>
 														</div>
 														{isMobile&& <div className="avatar">
 															<img src={item.img} />
