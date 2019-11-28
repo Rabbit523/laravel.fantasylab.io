@@ -129,7 +129,7 @@ class Page extends React.Component {
 									</Menu.Item>}
 									<Menu.Menu position='right'>
 										<Menu.Item>
-											<Dropdown icon='bars' className='collapsible-menu'>
+											<Dropdown icon='bars' className='collapsible-menu' closeOnBlur={false}>
 												<Dropdown.Menu className='animated'>
 													<div style={{ display: 'flex', flexDirection: 'column' }}>
 														<Dropdown text={translate('navigation.services')} className="services">
