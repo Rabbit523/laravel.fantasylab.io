@@ -4,7 +4,8 @@ return [
     /*
      * Enable or disable the server renderer. Enabled in production by default.
      */
-    'enabled' => env('APP_ENV') === 'production',
+    // 'enabled' => env('APP_ENV') === 'production',
+    'enabled' => true,
 
     /*
      * When server side rendering goes wrong, nothing will be rendered so the
@@ -31,7 +32,7 @@ return [
      * Extra setup for the Node engine.
      */
     'node' => [
-        'node_path' => env('NODE_PATH', '/usr/local/bin/node'),
+        'node_path' => env('NODE_PATH', '/usr/local/opt/node@10/bin/node'),
         'temp_path' => storage_path('app/ssr'),
     ],
 

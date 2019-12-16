@@ -471,7 +471,7 @@ body {
               background-size: cover !important;
               border-bottom: 2px solid #7436e9;
               .avatar-item {
-                margin-bottom: 42px;
+                margin-bottom: 9px;
               }
             }
             &.desktop {
@@ -505,7 +505,7 @@ body {
               border-bottom: 2px solid #285596;
             }
             .avatar-item {
-              margin-bottom: 40px;
+              margin-bottom: 5px;
               .icon-right-arrow {
                 display: block;
               }
@@ -2928,6 +2928,169 @@ body {
     h5 {
       margin: 0px 10px 0px 0px;
     }
+  }
+}
+
+.cookieConsent {
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
+  flex-direction: column;
+  .cookie-consent {
+    margin: 0 !important;
+    flex: auto !important;
+    width: 100%;
+    .cookie-title {
+      display: flex;
+      .btn-group {
+        width: 25%;
+        font-size: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px;
+        box-sizing: border-box;
+        .button {
+          color: #fff;
+          border: none;
+          padding: 10px 50px;
+          text-transform: uppercase;
+          &.success-btn {
+            background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
+          }
+          &.detail-btn {
+            background: transparent;
+            text-decoration: underline;
+          }
+        }
+      }
+      .title {
+        padding-top: 40px;
+        padding-left: 20px;
+        border-left: 2px solid #202c5a;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    .cookie-des {
+      border-top: 2px solid #202c5a;
+      display: flex;
+      min-height: 300px;
+      .cookie-options {
+        width: 25%;
+        .cookie-consent-banner {
+          display: flex;
+          border-bottom: 2px solid #202c5a;
+          .banner-indicator {
+            text-transform: uppercase;
+            flex: 1;
+            cursor: pointer;
+            padding: 20px 25px 0px 25px;
+            text-align: center;
+            color: #fff;
+            &:hover {
+              text-decoration: underline;
+            }
+            &.active {
+              background: #1d2851;
+            }
+          }
+        }
+        .cookie-consent-statement {
+          .toggle-indicator {
+            padding: 15px 10px 15px 20px;
+            border-bottom: 2px solid #202c5a;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            &:last-child {
+              border: none;
+            }
+            &.active {
+              background: #1d2851;
+            }
+            &.toggle-btn {
+              justify-content: flex-end;
+              .update-btn {
+                color: #fff;
+                border: none;
+                padding: 10px 20px;
+                text-transform: uppercase;
+                text-decoration: none;
+                background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
+              }
+            }
+          }
+        }
+        .cookie-consent-about {
+          padding: 20px;
+        }
+      }
+      .cookie-content {
+        border-left: 2px solid #202c5a;
+        width: 75%;
+        .cookie-des-title {
+          border-bottom: 2px solid #202c5a;
+          padding: 20px;
+        }
+        .cookie-des-content {
+          padding: 25px 20px;
+          display: flex;
+          flex-direction: column;
+          height: 330px;
+          overflow-y: scroll;
+          p {
+            a {
+              color: #fff;
+            }
+          }
+          .cookie-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 25px;
+            .item {
+              display: flex;
+              padding: 0px 10px;
+              &:nth-child(1) {
+                width: 15%;
+                padding-left: 0;
+              }
+              &:nth-child(2) {
+                width: 25%;
+              }
+              &:nth-child(3) {
+                width: 50%;
+              }
+              &:last-child {
+                width: 10%;
+                padding-right: 0;
+              }
+              p {
+                color: #9aa2bf;
+                span {
+                  color: #fff;
+                  text-transform: capitalize;
+                  padding-right: 10px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .btn {
+    position: absolute;
+    background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%)!important;
+    color: #fff !important;
+    border: none !important;
+    padding: 10px 50px !important;
+    text-transform: uppercase;
+    margin: 0 !important;
+    top: 30px;
+    left: 102px;
   }
 }
 

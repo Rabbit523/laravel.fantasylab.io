@@ -108,7 +108,7 @@ class Page extends React.Component {
                       <div className='homepage-header-buttons'>
                         {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
                         <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
-                        <p>{translate('home.existing-user')} <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link>.</p>
+                        <p>{translate('home.existing-user')} <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link></p>
                       </div>
                     </div>
                   </Container>
