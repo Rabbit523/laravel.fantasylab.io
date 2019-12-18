@@ -3476,6 +3476,7 @@ body {
 .cookieConsent {
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   flex-direction: column;
+  font-family: "Gotham Book";
 }
 
 .cookieConsent .cookie-consent {
@@ -3491,6 +3492,7 @@ body {
 
 .cookieConsent .cookie-consent .cookie-title p {
   color: #fff;
+  font-family: "Gotham Bold";
 }
 
 .cookieConsent .cookie-consent .cookie-title .btn-group {
@@ -3509,7 +3511,7 @@ body {
   color: #fff;
   border: none;
   padding: 10px 50px;
-  text-transform: uppercase;
+  font-family: "Gotham Bold";
 }
 
 .cookieConsent .cookie-consent .cookie-title .btn-group .button.success-btn {
@@ -3518,7 +3520,6 @@ body {
 
 .cookieConsent .cookie-consent .cookie-title .btn-group .button.detail-btn {
   background: transparent;
-  text-decoration: underline;
 }
 
 .cookieConsent .cookie-consent .cookie-title .title {
@@ -3536,6 +3537,7 @@ body {
   border-top: 2px solid #202c5a;
   display: flex;
   min-height: 300px;
+  color: #9aa2bf;
 }
 
 .cookieConsent .cookie-consent .cookie-des .cookie-options {
@@ -3551,17 +3553,17 @@ body {
   text-transform: uppercase;
   flex: 1;
   cursor: pointer;
-  padding: 20px 25px 0px 25px;
+  padding: 20px 16px;
   text-align: center;
   color: #fff;
 }
 
-.cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator:hover {
-  text-decoration: underline;
-}
-
 .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator.active {
   background: #1d2851;
+}
+
+.cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator:hover {
+  text-decoration: none;
 }
 
 .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-statement .toggle-indicator {
@@ -3578,6 +3580,7 @@ body {
 
 .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-statement .toggle-indicator.active {
   background: #1d2851;
+  color: #fff;
 }
 
 .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-statement .toggle-indicator.toggle-btn {
@@ -3618,6 +3621,11 @@ body {
   padding: 20px;
 }
 
+.cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-about h2 {
+  color: #fff;
+  font-family: "Gotham Bold";
+}
+
 .cookieConsent .cookie-consent .cookie-des .cookie-content {
   border-left: 2px solid #202c5a;
   width: 75%;
@@ -3634,6 +3642,11 @@ body {
   flex-direction: column;
   height: 330px;
   overflow-y: scroll;
+}
+
+.cookieConsent .cookie-consent .cookie-des .cookie-content .cookie-des-content h2 {
+  font-family: "Gotham Bold";
+  color: #fff;
 }
 
 .cookieConsent .cookie-consent .cookie-des .cookie-content .cookie-des-content p a {
@@ -3685,9 +3698,9 @@ body {
   color: #fff !important;
   border: none !important;
   padding: 10px 50px !important;
-  text-transform: uppercase;
   margin: 0 !important;
   top: 30px;
+  font-family: "Gotham Bold";
 }
 
 @media (min-width: 320px) {
@@ -4599,9 +4612,13 @@ body {
     margin-top: 1480px;
   }
 
+  .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
+    padding: 20px 30px;
+  }
+
   .cookieConsent .btn {
-    left: 120px;
-    top: 149px;
+    left: 113px;
+    top: 168px;
   }
 }
 
@@ -4658,7 +4675,8 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 128px;
+    left: 121px;
+    top: 149px;
   }
 }
 
@@ -4675,8 +4693,18 @@ body {
     min-height: 110vh;
   }
 
+  .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
+    padding: 20px 40px;
+  }
+
   .cookieConsent .btn {
-    left: 132px;
+    left: 126px;
+  }
+}
+
+@media (min-width: 411px) {
+  .cookieConsent .btn {
+    left: 138px;
   }
 }
 
@@ -4745,7 +4773,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 147px;
+    left: 141px;
   }
 }
 
@@ -5052,7 +5080,7 @@ body {
   }
 
   .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
-    padding: 20px 10px 0px 10px;
+    padding: 20px 10px;
   }
 
   .cookieConsent .btn {
@@ -5204,7 +5232,7 @@ body {
   }
 
   .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
-    padding: 20px 25px 0px 25px;
+    padding: 20px 25px;
   }
 
   .cookieConsent .btn {
@@ -6221,8 +6249,12 @@ body {
     padding-top: 180px;
   }
 
+  .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
+    padding: 20px 30px;
+  }
+
   .cookieConsent .btn {
-    left: 120px;
+    left: 115px;
   }
 }
 
@@ -6760,6 +6792,10 @@ body {
 
   .footer .dropdown {
     font-size: 16px;
+  }
+
+  .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
+    padding: 25px;
   }
 
   .cookieConsent .btn {

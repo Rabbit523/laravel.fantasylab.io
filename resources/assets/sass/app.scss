@@ -2934,6 +2934,7 @@ body {
 .cookieConsent {
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
   flex-direction: column;
+  font-family: "Gotham Book";
   .cookie-consent {
     margin: 0 !important;
     flex: auto !important;
@@ -2943,6 +2944,7 @@ body {
       color: #9aa2bf;
       p {
         color: #fff;
+        font-family: "Gotham Bold";
       }
       .btn-group {
         width: 25%;
@@ -2958,13 +2960,12 @@ body {
           color: #fff;
           border: none;
           padding: 10px 50px;
-          text-transform: uppercase;
+          font-family: "Gotham Bold";
           &.success-btn {
             background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
           }
           &.detail-btn {
             background: transparent;
-            text-decoration: underline;
           }
         }
       }
@@ -2982,6 +2983,7 @@ body {
       border-top: 2px solid #202c5a;
       display: flex;
       min-height: 300px;
+      color: #9aa2bf;
       .cookie-options {
         width: 25%;
         .cookie-consent-banner {
@@ -2991,14 +2993,14 @@ body {
             text-transform: uppercase;
             flex: 1;
             cursor: pointer;
-            padding: 20px 25px 0px 25px;
+            padding: 20px 16px;
             text-align: center;
             color: #fff;
-            &:hover {
-              text-decoration: underline;
-            }
             &.active {
               background: #1d2851;
+            }
+            &:hover {
+              text-decoration: none;
             }
           }
         }
@@ -3014,6 +3016,7 @@ body {
             }
             &.active {
               background: #1d2851;
+              color: #fff;
             }
             &.toggle-btn {
               justify-content: flex-end;
@@ -3049,6 +3052,10 @@ body {
         }
         .cookie-consent-about {
           padding: 20px;
+          h2 {
+            color: #fff;
+            font-family: "Gotham Bold";
+          }
         }
       }
       .cookie-content {
@@ -3064,6 +3071,10 @@ body {
           flex-direction: column;
           height: 330px;
           overflow-y: scroll;
+          h2 {
+            font-family: "Gotham Bold";
+            color: #fff;
+          }
           p {
             a {
               color: #fff;
@@ -3111,9 +3122,9 @@ body {
     color: #fff !important;
     border: none !important;
     padding: 10px 50px !important;
-    text-transform: uppercase;
     margin: 0 !important;
     top: 30px;
+    font-family: "Gotham Bold";
   }
 }
 
@@ -4001,9 +4012,20 @@ body {
     }
   }
   .cookieConsent {
+    .cookie-consent { 
+      .cookie-des { 
+        .cookie-options {
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 20px 30px;
+            }
+          }
+        }
+      }
+    }
     .btn {
-      left: 120px;
-      top: 149px;
+      left: 113px;
+      top: 168px;
     }
   }
 }
@@ -4092,7 +4114,8 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 128px;
+      left: 121px;
+      top: 149px;
     }
   }
 }
@@ -4120,12 +4143,29 @@ body {
     }
   }
   .cookieConsent {
+    .cookie-consent { 
+      .cookie-des { 
+        .cookie-options {
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 20px 40px;
+            }
+          }
+        }
+      }
+    }
     .btn {
-      left: 132px;
+      left: 126px;
     }
   }
 }
-
+@media (min-width: 411px) {
+  .cookieConsent {
+    .btn {
+      left: 138px;
+    }
+  }
+}
 @media (min-width: 414px) {
   .segment.mobile-navbar {
     .menu {
@@ -4223,7 +4263,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 147px;
+      left: 141px;
     }
   }
 }
@@ -4540,7 +4580,7 @@ body {
           width: 25%;
           .cookie-consent-banner {
             .banner-indicator {
-              padding: 20px 10px 0px 10px;
+              padding: 20px 10px;
             }
           }
         }
@@ -4710,7 +4750,7 @@ body {
         .cookie-options {
           .cookie-consent-banner {
             .banner-indicator {
-              padding: 20px 25px 0px 25px;
+              padding: 20px 25px;
             }
           }
         }
@@ -5750,8 +5790,19 @@ body {
     }
   }
   .cookieConsent {
+    .cookie-consent { 
+      .cookie-des { 
+        .cookie-options {
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 20px 30px;
+            }
+          }
+        }
+      }
+    }
     .btn {
-      left: 120px;
+      left: 115px;
     }
   }
 }
@@ -6285,6 +6336,17 @@ body {
     }
   }
   .cookieConsent {
+    .cookie-consent {
+      .cookie-des {
+        .cookie-options {
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 25px;
+            }
+          }
+        }
+      }
+    }
     .btn {
       left: 180px;
     }

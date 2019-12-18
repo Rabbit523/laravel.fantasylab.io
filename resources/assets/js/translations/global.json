@@ -191,8 +191,8 @@
     "cookie": {
         "title": ["The site uses cookies", "Nettstedet bruker informasjonskapsler"],
         "des": ["Some cookies are used for statistics and others are posted by third-party services. By clicking 'OK' you accept the use of cookies.", "Noen informasjonskapsler brukes til statistikk og andre blir lagt ut av tredjeparts tjenester. Ved å klikke 'OK' godtar du bruken av informasjonskapsler."],
-        "details": ["details", "detaljer"],
-        "hide_details": ["hide details", "skjul detaljer"],
+        "details": ["Details", "Detaljer"],
+        "hide_details": ["Hide Details", "Skjul Detaljer"],
         "statement": ["Cookie Statement", "Cookie erklæring"],
         "about": ["About Cookies", "Om cookies"],
         "neccessary": ["Necessary", "Nødvendige"],
