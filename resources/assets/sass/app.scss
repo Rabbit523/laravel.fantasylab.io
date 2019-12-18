@@ -2940,6 +2940,10 @@ body {
     width: 100%;
     .cookie-title {
       display: flex;
+      color: #9aa2bf;
+      p {
+        color: #fff;
+      }
       .btn-group {
         width: 25%;
         font-size: 15px;
@@ -2967,6 +2971,7 @@ body {
       .title {
         padding-top: 40px;
         padding-left: 20px;
+        padding-right: 10px;
         border-left: 2px solid #202c5a;
       }
       p {
@@ -3019,6 +3024,25 @@ body {
                 text-transform: uppercase;
                 text-decoration: none;
                 background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
+              }
+            }
+          }
+          .mobile-state-des {
+            padding: 20px;
+            border-bottom: 1px solid #202c5a;
+            .cookie-item {
+              border-top: 1px solid;
+              margin-top: 10px;
+              padding-top: 10px;
+              .item {
+                p {
+                  color: #9aa2bf;
+                  span {
+                    color: #fff;
+                    text-transform: capitalize;
+                    padding-right: 10px;
+                  }
+                }
               }
             }
           }
@@ -3090,7 +3114,6 @@ body {
     text-transform: uppercase;
     margin: 0 !important;
     top: 30px;
-    left: 102px;
   }
 }
 
@@ -3856,6 +3879,33 @@ body {
       font-size: 10px;
     }
   }
+  .cookieConsent {
+    max-height: 450px;
+    overflow-y: scroll;
+    .cookie-consent {
+      .cookie-title {
+        flex-direction: column;
+        .btn-group {
+          width: 100%;
+        }
+        .title {
+          padding-top: 30px;
+          padding-left: 20px;
+          padding-right: 20px;
+          text-align: center;
+        }
+      }
+      .cookie-des {
+        .cookie-options {
+          width: 100%;
+        }
+      }
+    }
+    .btn {
+      left: 95px;
+      top: 169px;
+    }
+  }
 }
 
 @media (min-width: 360px) {
@@ -3950,6 +4000,12 @@ body {
       }
     }
   }
+  .cookieConsent {
+    .btn {
+      left: 120px;
+      top: 149px;
+    }
+  }
 }
 
 @media (min-width: 375px) {
@@ -4034,6 +4090,11 @@ body {
       }
     }
   }
+  .cookieConsent {
+    .btn {
+      left: 128px;
+    }
+  }
 }
 
 @media (min-width: 384px) {
@@ -4056,6 +4117,11 @@ body {
       .login-page {
         min-height: 110vh;
       }
+    }
+  }
+  .cookieConsent {
+    .btn {
+      left: 132px;
     }
   }
 }
@@ -4153,6 +4219,11 @@ body {
           max-width: 370px;
         }
       }
+    }
+  }
+  .cookieConsent {
+    .btn {
+      left: 147px;
     }
   }
 }
@@ -4444,6 +4515,42 @@ body {
       margin: 0px 10px 0px 10px;
     }
   }
+  .cookieConsent {
+    .cookie-consent {
+      .cookie-title {
+        flex-direction: row;
+        .btn-group {
+          width: 25%;
+          padding: 30px 35px;
+          .button {
+            &.detail-btn {
+              padding: 10px 0px;
+            }
+          }
+        }
+        .title {
+          padding-top: 30px;
+          padding-left: 20px;
+          padding-right: 10px;
+          text-align: left;
+        }
+      }
+      .cookie-des {
+        .cookie-options {
+          width: 25%;
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 20px 10px 0px 10px;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      left: 35px;
+      top: 30px;
+    }
+  }
 }
 
 @media (min-width: 1024px) {
@@ -4590,6 +4697,27 @@ body {
     }
     .dropdown {
       font-size: 14px;
+    }
+  }
+  .cookieConsent {
+    .cookie-consent {
+      .cookie-title {
+        .btn-group {
+          padding: 30px 67px;
+        }
+      }
+      .cookie-des {
+        .cookie-options {
+          .cookie-consent-banner {
+            .banner-indicator {
+              padding: 20px 25px 0px 25px;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      left: 60px;
     }
   }
 }
@@ -5229,6 +5357,23 @@ body {
       width: 89px !important;
     }
   }
+  .cookieConsent {
+    .cookie-consent {
+      .cookie-title {
+        .btn-group {
+          padding: 30px;
+          .button {
+            &.detail-btn {
+              padding: 10px 50px;
+            }
+          }
+        }
+      }
+    }
+    .btn {
+      left: 100px;
+    }
+  }
 }
 
 @media (min-width: 1366px) {
@@ -5579,6 +5724,11 @@ body {
   .footer {
     min-height: 45vh;
   }
+  .cookieConsent {
+    .btn {
+      left: 110px;
+    }
+  }
 }
 
 @media (min-width: 1440px) {
@@ -5597,6 +5747,11 @@ body {
           }
         }
       }
+    }
+  }
+  .cookieConsent {
+    .btn {
+      left: 120px;
     }
   }
 }
@@ -6127,6 +6282,11 @@ body {
     }
     .dropdown {
       font-size: 16px;
+    }
+  }
+  .cookieConsent {
+    .btn {
+      left: 180px;
     }
   }
 }

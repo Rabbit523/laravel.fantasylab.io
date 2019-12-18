@@ -4,6 +4,7 @@ import { renderToStaticMarkup } from "react-dom/server"
 import { withLocalize, Translate } from "react-localize-redux"
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import Switch from "react-switch";
+import { isMobileOnly, isMobile } from 'react-device-detect'
 import globalTranslations from './translations/global.json'
 import Navigation from './common/navigation'
 import Footer from './common/mainFooter'
@@ -334,15 +335,20 @@ class Main extends React.Component {
                 buttonText="OK"
               > 
               <div className="cookie-title">
-                <div className="btn-group">
+                {!isMobileOnly && <div className="btn-group">
                   <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
                   {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
                   {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                </div>
+                </div>}
                 <div className="title">
                   <p>{translate('cookie.title')}</p>
                   {translate('cookie.des')}
                 </div>
+                {isMobileOnly && <div className="btn-group">
+                  <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                  {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                  {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                </div>}
               </div>
               
               {isDetail && <div className="cookie-des">
@@ -355,21 +361,50 @@ class Main extends React.Component {
                     <div className={stateType=="neccessary"?"toggle-indicator active":"toggle-indicator"} onClick={(event) => this.onHandleToggles(event, "neccessary")}>
                       {translate('cookie.neccessary')}
                     </div>
+                    {stateType=="neccessary" && isMobileOnly && 
+                      <div className="mobile-state-des">
+                        {translate('cookie.neccessary-cookie-des')} 
+                        {cookie_neccessary.map((item, i) => (
+                          <div className="cookie-item" key={i}>
+                            {Object.keys(item).map((key, index) => (
+                              <div className='item' key={index}>
+                                <p><span>{key}: </span>{item[key]}</p>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>}
                     <div className={stateType=="functional"?"toggle-indicator active":"toggle-indicator"} onClick={(event) => this.onHandleToggles(event, "functional")}>
                       {translate('cookie.functional')}
                       <Switch onChange={(val) => this.handleChange(val, 'functional')} checked={is_functional} checkedIcon={false} uncheckedIcon={false} className="toggle-btn"/>
                     </div>
+                    {stateType=="functional" && isMobileOnly && <div className="mobile-state-des"> {translate('cookie.functional-cookie-des')} </div>}
                     <div className={stateType=="statistical"?"toggle-indicator active":"toggle-indicator"} onClick={(event) => this.onHandleToggles(event, "statistical")}>
                       {translate('cookie.statistical')}
                       <Switch onChange={(val) => this.handleChange(val, 'statistical')} checked={is_statistical} checkedIcon={false} uncheckedIcon={false} className="toggle-btn"/>
                     </div>
+                    {stateType=="statistical" && isMobileOnly && 
+                      <div className="mobile-state-des"> 
+                        {translate('cookie.statistical-cookie-des')}
+                        {cookie_statistical.map((item, i) => (
+                          <div className="cookie-item" key={i}>
+                            {Object.keys(item).map((key, index) => (
+                              <div className='item' key={index}>
+                                <p><span>{key}: </span>{item[key]}</p>
+                              </div>
+                            ))}
+                          </div>
+                        ))}
+                      </div>}
                     <div className={stateType=="marketing"?"toggle-indicator active":"toggle-indicator"} onClick={(event) => this.onHandleToggles(event, "marketing")}>
                       {translate('cookie.marketing')}
                       <Switch onChange={(val) => this.handleChange(val, 'marketing')} checked={is_marketing} checkedIcon={false} uncheckedIcon={false} className="toggle-btn"/>
                     </div>
+                    {stateType=="marketing" && isMobileOnly && <div className="mobile-state-des"> {translate('cookie.marketing-cookie-des')} </div>}
                     <div className={stateType=="unclassfied"?"toggle-indicator active":"toggle-indicator"} onClick={(event) => this.onHandleToggles(event, "unclassfied")}>
                       {translate('cookie.unclassified')}
                     </div>
+                    {stateType=="unclassfied" && isMobileOnly && <div className="mobile-state-des"> {translate('cookie.unclassified-cookie-des')} </div>}
                     <div className="toggle-indicator toggle-btn">
                       <a className={"update-btn"} onClick={(event) => this.onUpdateConsent(event)}>{translate('cookie.update-btn')}</a>
                     </div>
@@ -377,9 +412,39 @@ class Main extends React.Component {
                   {!stateTab && <div className="cookie-consent-about">
                     <p><b>{translate('cookie.about-domain')}: </b>fantasylab.io</p>
                     <p><b>{translate('cookie.about-date')}: </b>{today}</p>
+                    {isMobileOnly && <React.Fragment>
+                    <h2>{translate('cookie.cookie-des-content-title')}</h2>
+                    <p>{translate('cookie.cookie-des-content-sub-title')}</p>
+                    <p>Fantasylab AS<br/>Selma Ellefsensvei 2<br/>0581 Oslo<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
+                    <h2>{translate('cookie.what-is-cookie')}</h2>
+                    <p>{translate('cookie.what-is-cookie-answer')}</p>
+                    <h2>{translate('cookie.how-cookie-use')}</h2>
+                    <p>{translate('cookie.how-cookie-use-answer')}</p>
+                    <h2>{translate('cookie.how-long-cookie-stored')}</h2>
+                    <p>{translate('cookie.how-long-cookie-stored-answer')}</p>
+                    <h2>{translate('cookie.how-reject-cookie')}</h2>
+                    <p>{translate('cookie.how-reject-cookie-answer')}</p>
+                    <h2>{translate('cookie.deleting-cookies')}</h2>
+                    <p>{translate('cookie.deleing-cookies-key')}</p>
+                    <p>{translate('cookie.deleing-cookies-links')}</p>
+                    <ul>
+                      <li><a href="https://support.microsoft.com/en-us/help/17442/windows-internet-explorer-delete-manage-cookies#ie=ie-11" target="_blank">Internet Explorer</a></li>
+                      <li><a href="https://support.mozilla.org/en-US/kb/delete-cookies-remove-info-websites-stored" target="_blank">Mozilla Firefox</a></li>
+                      <li><a href="https://support.google.com/chrome/answer/95647?hl=en" target="_blank">Google Chrome</a></li>
+                      <li><a href="https://www.opera.com/help/tutorials/security/cookies" target="_blank">Opera</a></li>
+                      <li><a href="https://support.apple.com/en-us/HT201265" target="_blank">Safari</a></li>
+                      <li><a href="https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html" target="_blank">Flash Cookies</a></li>
+                      <li><a href="https://support.apple.com/en-us/HT1677" target="_blank">Apple</a></li>
+                      <li><a href="https://timeread.hubpages.com/hub/How-to-delete-internet-cookies-on-your-Droid-or-any-Android-device" target="_blank">Android</a></li>
+                      <li><a href="https://support.microsoft.com/en-us/help/11696/windows-phone-7" target="_blank">Windows 7</a></li>
+                    </ul>
+                    <p>{translate('cookie.deleing-cookies-remember')}</p>
+                    <h2>{translate('cookie.do-you-have-question')}</h2>
+                    <p>{translate('cookie.do-you-have-question-answer')}</p>
+                    </React.Fragment>}
                   </div>}
                 </div>
-                <div className="cookie-content">
+                {!isMobileOnly && <div className="cookie-content">
                   <div className="cookie-des-title">
                     {stateType=="neccessary" && translate('cookie.neccessary-cookie-des')}
                     {stateType=="functional" && translate('cookie.functional-cookie-des')}
@@ -411,7 +476,7 @@ class Main extends React.Component {
                     {!stateTab && <React.Fragment>
                       <h2>{translate('cookie.cookie-des-content-title')}</h2>
                       <p>{translate('cookie.cookie-des-content-sub-title')}</p>
-                      <p>Fantasylab AS<br/>Øvre Slottsgate 2B<br/>0106 Oslo<br/>22 09 04 00<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
+                      <p>Fantasylab AS<br/>Selma Ellefsensvei 2<br/>0581 Oslo<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
                       <h2>{translate('cookie.what-is-cookie')}</h2>
                       <p>{translate('cookie.what-is-cookie-answer')}</p>
                       <h2>{translate('cookie.how-cookie-use')}</h2>
@@ -439,7 +504,7 @@ class Main extends React.Component {
                       <p>{translate('cookie.do-you-have-question-answer')}</p>
                       </React.Fragment>}
                   </div>
-                </div>
+                </div>}
               </div>}
               </CookieConsent>
             </React.Fragment>
