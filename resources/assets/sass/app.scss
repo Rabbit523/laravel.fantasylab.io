@@ -4558,6 +4558,7 @@ body {
     }
   }
   .cookieConsent {
+    max-height: 550px;
     .cookie-consent {
       .cookie-title {
         flex-direction: row;
@@ -6338,6 +6339,7 @@ body {
     }
   }
   .cookieConsent {
+    max-height: 750px;
     .cookie-consent {
       .cookie-des {
         .cookie-options {
@@ -6345,6 +6347,11 @@ body {
             .banner-indicator {
               padding: 25px;
             }
+          }
+        }
+        .cookie-content {
+          .cookie-des-content {
+            height: 560px;
           }
         }
       }
