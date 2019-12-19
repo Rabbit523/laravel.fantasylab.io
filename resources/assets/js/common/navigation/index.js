@@ -88,6 +88,7 @@ class Page extends React.Component {
 
 	render() {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		const register_text = lang == 'en' ? 'Craft Enterprise' : 'Start prosjekt';
 		let is_dashboard = false;
 		if (typeof window !== 'undefined' && window.location.href.indexOf('admin') > 0) {
 			is_dashboard = true;
@@ -125,7 +126,7 @@ class Page extends React.Component {
 								</Menu.Item>
 								<div className="right-menu">
 									{!isAuthenticated && <Menu.Item className="mobile-register">
-										<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
+										<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
 									</Menu.Item>}
 									<Menu.Menu position='right'>
 										<Menu.Item>
@@ -384,7 +385,7 @@ class Page extends React.Component {
 												<Button as={Link} to={lang=='en'?'/login':'/no/login'} className='login' onClick={(event) => this.triggerModal(event)}>{translate("navigation.login")}</Button>
 												<div className="register">
 													{/* <Button as={Link} to='/register' className='primary-button'>Craft Enterprise</Button> */}
-													<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{translate("navigation.craft-enterprise")}</Button>
+													<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
 												</div>
 												{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
 											</Button.Group>
