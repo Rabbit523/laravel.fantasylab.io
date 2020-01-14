@@ -173,7 +173,7 @@ class Page extends React.Component {
 																</Segment>
 															</Dropdown.Menu>
 														</Dropdown>
-														<Dropdown text={translate('navigation.products')} className="services">
+														{/* <Dropdown text={translate('navigation.products')} className="services">
 															<Dropdown.Menu className="sub-menu">
 																<Segment className='custom-dropdown-item' as={Link} to='/managed-hosting'>
 																	<div className='avatar-item desktop'>
@@ -182,7 +182,7 @@ class Page extends React.Component {
 																	<p>{translate('navigation.managed-hosting')}</p>
 																</Segment>
 															</Dropdown.Menu>
-														</Dropdown>
+														</Dropdown> */}
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} text={translate('navigation.portfolio')} />
 														{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} text={translate('navigation.about')} />
@@ -326,7 +326,7 @@ class Page extends React.Component {
 													</div>
 												</Dropdown.Menu>
 											</Dropdown>
-											<Dropdown text={translate('navigation.products')} className='collapsible-menu nav-color services'>
+											{/* <Dropdown text={translate('navigation.products')} className='collapsible-menu nav-color services'>
 												<Dropdown.Menu>
 													<div className='custom-box'>
 														<Container className='custom-col-6'>
@@ -351,7 +351,7 @@ class Page extends React.Component {
 														</Container>
 													</div>
 												</Dropdown.Menu>
-											</Dropdown>
+											</Dropdown> */}
 											<Menu.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} className='nav-color portfolio'>{translate("navigation.portfolio")}</Menu.Item>
 											{/* <Menu.Item as={NavLink} to='/features' className='nav-color features'>{translate("navigation.features")}</Menu.Item> */}
 											<Menu.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} className='nav-color about'>{translate("navigation.about")}</Menu.Item>
