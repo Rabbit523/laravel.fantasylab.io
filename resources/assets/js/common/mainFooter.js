@@ -138,7 +138,7 @@ class Footer extends React.Component {
 							<Grid columns={2} style={{ margin: 0, padding: 0 }}>
 								<Grid.Column mobile={16} tablet={12} computer={12} style={{ display: 'flex', alignItems: 'center', padding: '10px 0px' }}>
 									<img src={isMobileOnly ? require('../../images/theme/logo.png') : require('../../images/theme/fantasy-logo.png')} />
-									<h5>© + TM 2019 FantasyLab AS, NO 922 982 376 MVA</h5>
+									<h5>© + TM 2020 FantasyLab AS, NO 922 982 376 MVA</h5>
 								</Grid.Column>
 								<Grid.Column mobile={16} tablet={4} computer={4} className="footer-lang" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '10px 0px' }}>
 									<h5>{translate('footer.language')} </h5>
