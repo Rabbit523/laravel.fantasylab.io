@@ -32,7 +32,7 @@ return [
      * Extra setup for the Node engine.
      */
     'node' => [
-        'node_path' => env('NODE_PATH', '/usr/local/opt/node@10/bin/node'),
+        // 'node_path' => env('NODE_PATH', '/usr/local/opt/node@10/bin/node'),
         'node_path' => env('NODE_PATH', '/usr/local/bin/node'),
         'temp_path' => storage_path('app/ssr'),
     ],
