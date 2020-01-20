@@ -22,7 +22,7 @@
         "blog": ["Blog", "Blogg"],
         "contact": ["Contact", "Kontakt"],
         "login": ["Login", "Logg inn"],
-        "craft-enterprise": ["Craft Enterprise", "Star prosjekt"],
+        "craft-enterprise": ["Craft Enterprise", "Start prosjekt"],
         "dashboard": ["Dashboard", "Dashboard"],
         "logout": ["Logout", "Logg ut"],
         "login-as": ["Logged in as ", "logget inn som "]
