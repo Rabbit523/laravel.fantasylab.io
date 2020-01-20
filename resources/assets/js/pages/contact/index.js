@@ -189,10 +189,10 @@ class Page extends React.Component {
                   className="notice-modal"
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>Thank you,<br />Visionary.</h2>
-                  <p>We have received your request. We will get in touch within 24 hours.</p>
+                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk skal du ha,'} <br />{lang == 'en' ? 'Visionary.' : 'Visjonær' }</h2>
+                  <p>{lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
                   <div className="button-group">
-                    <Button className='secondary-button' onClick={this.closeModal}>Close</Button>
+                    <Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
                   </div>
                 </Modal>
                 <div className='contact-header' style={{ backgroundImage: `url(${data.header_url})` }}>
@@ -220,16 +220,16 @@ class Page extends React.Component {
                       <div className="form-group">
                         <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
                         {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')}</Header>}
-                        <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.your-company')} onChange={(val) => this.handleChange(val, 'company')} />
+                        <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} />
                       </div>
                       <div className="form-group">
-                        <Form.Input label={translate('contact.work-email')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
+                        <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
                         {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')}</Header>}
                         {/* <div className='phone-form'>
                                                     <label>Phone</label>
                                                     <PhoneInput placeholder='Your phone number' className={phoneError?'':'success'} value={phone} flags={flags} onChange={ (phone) => this.handleChange(phone, 'phone') }  error={ phone && (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number')}/>
                                                 </div> */}
-                        <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.your-phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
+                        <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
                         {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
                       </div>
                       <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />

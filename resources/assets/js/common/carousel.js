@@ -33,8 +33,8 @@ class Gallery extends React.Component {
 					<div className='news-content'>
 						<h3>{this.props.lang == 'en' ? i.title : i.no_title}</h3>
 						<p className='normal'>{this.props.lang == 'en' ? i.description : i.no_description}</p>
-						<p className='category'>By {i.author} in {this.props.lang == 'en' ? i.type : i.no_type}</p>
-						<p className='normal'>{i.time} <span>&middot;</span> {i.read} read <span className='news-icon-arrow'><Icon name='arrow right' /></span></p>
+						<p className='category'>{this.props.lang == 'en' ? 'By' : 'Av'} {i.author} {this.props.lang == 'en' ? 'in' : 'i'} {this.props.lang == 'en' ? i.type : i.no_type}</p>
+						<p className='normal'>{i.time} <span>&middot;</span> {i.read} {this.props.lang == 'en' ? 'read' : 'lesing'} <span className='news-icon-arrow'><Icon name='arrow right' /></span></p>
 					</div>
 				</div>)
 			),

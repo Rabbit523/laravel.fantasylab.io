@@ -18,8 +18,8 @@ class NewsCard extends React.Component {
 						<div className='news-content'>
 							<h3>{this.props.title}</h3>
 							{isHovering && this.props.description && <p className='normal'>{this.props.description}</p>}
-							<p className='category'>By {this.props.author} in {this.props.type}</p>
-							<p className='normal'>{this.props.time} <span>&middot;</span> {this.props.read} read <span className='news-icon-arrow'><Icon name='arrow right' /></span></p>
+							<p className='category'>{this.props.lang == 'en' ? 'By' : 'Av'} {this.props.author} {this.props.lang == 'en' ? 'in' : 'i'} {this.props.type}</p>
+							<p className='normal'>{this.props.time} <span>&middot;</span> {this.props.read} {this.props.lang == 'en' ? 'read' : 'lesing'} <span className='news-icon-arrow'><Icon name='arrow right' /></span></p>
 						</div>
 					</div>
 				)}
@@ -35,6 +35,7 @@ NewsCard.propTypes = {
 	title: PropTypes.string.isRequired,
 	description: PropTypes.string.isRequired,
 	time: PropTypes.string.isRequired,
-	read: PropTypes.string.isRequired
+	read: PropTypes.string.isRequired,
+	lang: PropTypes.string
 };
 export default NewsCard;

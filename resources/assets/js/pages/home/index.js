@@ -82,11 +82,11 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>Hi,<br />Visionary.</h2>
-                  <p>Our web app is under development.</p>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær'}</h2>
+                  <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
-                    <Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
-                    <Button className='secondary-button' onClick={this.closeModal}>Close</Button>
+                    <Button as={Link} to='/contact' className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+                    <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
                 <div className='homepage-header' style={{ backgroundImage: `url(${isMobile && !isTablet ? data.header.mobile_header : data.header.header_url})` }}>
@@ -190,7 +190,7 @@ class Page extends React.Component {
                     <Grid columns={3}>
                       {data.news.map((item, i) => (
                         <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-                          <NewsCard url={item.url} author={item.author} type={lang == 'en' ? item.type : item.no_type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
+                          <NewsCard lang={lang} url={item.url} author={item.author} type={lang == 'en' ? item.type : item.no_type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
                         </Grid.Column>
                       ))}
                     </Grid>
