@@ -35,7 +35,8 @@ class Page extends React.Component {
 
 	handleChange(event, type) {
 		var { portfolios } = this.state;
-		if (this.props.lang == 'en') {
+		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		if (lang == 'en') {
 			portfolios[type.split('_')[0]][type.split('_')[1]] = event.target.value;
 		} else {
 			var key = type.split('_')[1] + "_" + type.split('_')[2];
