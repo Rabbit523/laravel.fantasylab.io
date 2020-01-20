@@ -115,7 +115,7 @@ class Page extends React.Component {
                 </div>
                 {data.services && <section className='home-section'>
                   <Container className='custom-col-6'>
-                    <h2>{translate('navigation.services')}</h2>
+                    <h2>{lang == 'en' ? data.translate_titles.service : data.translate_titles.no_service}</h2>
                     <Grid>
                       {Object.keys(data.services).map((key, index) => (
                         <React.Fragment key={index}>
@@ -135,8 +135,8 @@ class Page extends React.Component {
                 <section className='home-estimation'>
                   <Container className='custom-col-6'>
                     <div className='home-estimation-description'>
-                      <h2>{translate('home.estimation-delivery')}.</h2>
-                      <p>{translate('home.get-quote')}.</p>
+                      <h2>{lang == 'en' ? data.translate_titles.estimation : data.translate_titles.no_estimation}</h2>
+											<p>{lang == 'en' ? data.translate_titles.estimation_des : data.translate_titles.no_estimation_des}</p>
                     </div>
                     <Grid columns={3}>
                       {Object.keys(data.badges).map((key, index) => (
@@ -160,7 +160,7 @@ class Page extends React.Component {
                 </section>
                 <section className='home-section'>
                   <Container className='custom-col-6'>
-                    <h2>{translate('navigation.portfolio')}</h2>
+                    <h2>{lang == 'en' ? data.translate_titles.portfolio : data.translate_titles.no_portfolio}</h2>
                     <Grid columns={3}>
                       {Object.keys(data.portfolios).map((key, index) => (
                         <React.Fragment key={index}>
@@ -177,8 +177,8 @@ class Page extends React.Component {
                 </section>
                 <section className='home-section'>
                   <Container className='custom-col-6 home-review'>
-                    <h2>{translate('home.excellence')}</h2>
-                    <p>{translate('home.agile-framework')}</p>
+                    <h2>{lang == 'en' ? data.translate_titles.excellence : data.translate_titles.no_excellence}</h2>
+                    <p>{lang == 'en' ? data.translate_titles.excellence_des : data.translate_titles.no_excellence_des}</p>
                   </Container>
                   <Container>
                     <Gallery type="review" items={data.carousels} lang={lang} />
@@ -186,7 +186,7 @@ class Page extends React.Component {
                 </section>
                 <section className='home-section'>
                   <Container className='custom-col-6'>
-                    <h2>{translate('home.latest-news')}</h2>
+                    <h2>{lang == 'en' ? data.translate_titles.news : data.translate_titles.no_news}</h2>
                     <Grid columns={3}>
                       {data.news.map((item, i) => (
                         <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>

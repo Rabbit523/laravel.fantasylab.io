@@ -34,6 +34,7 @@ class Page extends React.Component {
 			_reviews: [],
 			rest_reviews: [],
 			news: [],
+			translate_titles: {},
 			isLoaded: false,
 			isOpen: false,
 			isPortfolio: false,
@@ -55,7 +56,7 @@ class Page extends React.Component {
 			.then(
 				res => {
 					var list = JSON.parse(res.data.page.data);
-					var header = {}, footer = {}, services = [], badges = {}, portfolios = {}, carousels = [], news = [];
+					var header = {}, footer = {}, services = [], badges = {}, portfolios = {}, carousels = [], news = [], translate_titles = {};
 					Object.keys(list).map((key, index) => {
 						if (key == 'header') {
 							header = list[key];
@@ -71,6 +72,8 @@ class Page extends React.Component {
 							carousels = list[key];
 						} else if (key == 'news') {
 							news = list[key];
+						} else if (key == 'translate_titles') {
+							translate_titles = list[key];
 						}
 					});
 					this.setState({
@@ -84,7 +87,8 @@ class Page extends React.Component {
 						_portfolios: res.data.portfolio,
 						_reviews: res.data.review,
 						carousels,
-						news
+						news,
+						translate_titles
 					});
 				}
 			).catch(err => {
@@ -93,7 +97,7 @@ class Page extends React.Component {
 	}
 
 	handleChange(event, type) {
-		var { header, footer, services, badges, carousels, news } = this.state;
+		var { header, footer, services, badges, carousels, news, translate_titles } = this.state;
 		const ref = this;
 
 		switch (type) {
@@ -157,11 +161,52 @@ class Page extends React.Component {
 			case 'no_footer_link_name':
 				footer.no_link_name = event.target.value;
 				return this.setState({ footer });
+			case 'service_title':
+				translate_titles.service = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_service_title':
+				translate_titles.no_service = event.target.value;
+				return this.setState({ translate_titles });
+			case 'portfolio_title':
+				translate_titles.portfolio = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_portfolio_title':
+				translate_titles.no_portfolio = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_title':
+				translate_titles.estimation = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_estimation_title':
+				translate_titles.no_estimation = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_des':
+				translate_titles.estimation_des = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_estimation_des':
+				translate_titles.no_estimation_des = event.target.value;
+				return this.setState({ translate_titles });
+			case 'news_title':
+				translate_titles.news = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_news_title':
+				translate_titles.no_news = event.target.value;
+				return this.setState({ translate_titles });
+			case 'excellence_title':
+				translate_titles.excellence = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_excellence_title':
+				translate_titles.no_excellence = event.target.value;
+				return this.setState({ translate_titles });
+			case 'excellence_des':
+				translate_titles.excellence_des = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_excellence_des':
+				translate_titles.no_excellence_des = event.target.value;
+				return this.setState({ translate_titles });
+
 		}
 		if (type.includes('service')) {
 			if (type.includes('title') || type.includes('description') || type.includes('url')) {
-				console.log(type);
-			console.log(this.props.lang);
 				if (this.props.lang == 'en') {
 					var key = type.split('_')[1];
 					var sub_key = type.split('_')[2];
@@ -169,8 +214,6 @@ class Page extends React.Component {
 				} else {
 					var key = type.split('_')[0] + "_" + type.split('_')[2];
 					var sub_key = type.split('_')[3];
-					console.log(key);
-					console.log(sub_key);
 					services[sub_key][key] = event.target.value;
 				}
 			} else {
@@ -385,7 +428,6 @@ class Page extends React.Component {
 				list[key] = services;
 			}
 		});
-		console.log(services);
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(services), type: 'service', service_type: type })
 			.then(
@@ -408,7 +450,23 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
-
+	onUpdateServiceTitle(e) {
+		var {translate_titles, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(translate_titles), type: 'service_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 	// Update badge section
 	onUpdateBadge(e, type) {
 		var { badges, list } = this.state;
@@ -427,7 +485,23 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
-
+	onUpdateEstimationTitle(e) {
+		var {translate_titles, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(translate_titles), type: 'estimation_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 	// Close modal
 	closeModal() {
 		this.setState({ isOpen: false });
@@ -470,7 +544,23 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
-
+	onUpdatePortfolioTitle(e) {
+		var {translate_titles, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(translate_titles), type: 'portfolio_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 	//Review functions
 	onAddReview(e) {
 		var { carousels, _reviews, rest_reviews } = this.state;
@@ -508,7 +598,23 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
-
+	onUpdateReviewTitle(e) {
+		var {translate_titles, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(translate_titles), type: 'review_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 	// Update review section
 	onUpdateCarousel(e, type) {
 		var { carousels, list } = this.state;
@@ -546,9 +652,26 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
+	onUpdateNewsTitle(e) {
+		var {translate_titles, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(translate_titles), type: 'news_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 
 	render() {
-		const { isLoaded, isOpen, isPortfolio, isReview, header, footer, services, badges, portfolios, rest_items, carousels, rest_reviews, news, service_activeKey, accordion, badge_activeKey, news_activeKey } = this.state;
+		const { isLoaded, isOpen, isPortfolio, isReview, header, footer, services, badges, portfolios, rest_items, carousels, rest_reviews, news, translate_titles, service_activeKey, accordion, badge_activeKey, news_activeKey } = this.state;
 		const ref = this;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		return (
@@ -652,6 +775,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='service_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.service} onChange={(val) => ref.handleChange(val, 'service_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
 														{services.map((item, i) => (
 															<Panel header={item.title} key={i}>
@@ -691,6 +816,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='estimation_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.estimation} onChange={(val) => ref.handleChange(val, 'estimation_title')} />
+													<Form.Input fluid label={translate('card.description')} name='estimation_description' placeholder={translate('card.description')} className='input-form' value={translate_titles.estimation_des} onChange={(val) => ref.handleChange(val, 'estimation_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateEstimationTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onBadgeCollapseChange} activeKey={badge_activeKey}>
 														{Object.keys(badges).map((key, i) => (
 															<Panel header={badges[key].title} key={i}>
@@ -719,6 +847,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='portfolio_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.portfolio} onChange={(val) => ref.handleChange(val, 'portfolio_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePortfolioTitle(e)}> {translate('card.save')} </label>
 													{Object.keys(portfolios).map((key, i) => (
 														<div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
 															<p style={{ textTransform: 'uppercase', margin: 0 }}>{key}</p>
@@ -737,6 +867,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='excellence_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.excellence} onChange={(val) => ref.handleChange(val, 'excellence_title')} />
+													<Form.Input fluid label={translate('card.description')} name='excellence_des' placeholder={translate('card.description')} className='input-form' value={translate_titles.excellence_des} onChange={(val) => ref.handleChange(val, 'excellence_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateReviewTitle(e)}> {translate('card.save')} </label>
 													{carousels.map((item, i) => (
 														<div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
 															<p style={{ textTransform: 'uppercase', margin: 0 }}>{item.title}</p>
@@ -754,6 +887,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='news_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.news} onChange={(val) => ref.handleChange(val, 'news_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
 														{news.map((item, i) => (
 															<Panel header={item.title} key={i}>
@@ -845,6 +980,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='no_service_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_service} onChange={(val) => ref.handleChange(val, 'no_service_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
 														{services.map((item, i) => (
 															<Panel header={item.no_title} key={i}>
@@ -884,6 +1021,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='no_estimation_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_estimation} onChange={(val) => ref.handleChange(val, 'no_estimation_title')} />
+													<Form.Input fluid label={translate('card.description')} name='no_estimation_description' placeholder={translate('card.description')} className='input-form' value={translate_titles.no_estimation_des} onChange={(val) => ref.handleChange(val, 'no_estimation_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateEstimationTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onBadgeCollapseChange} activeKey={badge_activeKey}>
 														{Object.keys(badges).map((key, i) => (
 															<Panel header={badges[key].title} key={i}>
@@ -912,6 +1052,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='no_portfolio_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_portfolio} onChange={(val) => ref.handleChange(val, 'no_portfolio_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePortfolioTitle(e)}> {translate('card.save')} </label>
 													{Object.keys(portfolios).map((key, i) => (
 														<div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
 															<p style={{ textTransform: 'uppercase', margin: 0 }}>{key}</p>
@@ -930,6 +1072,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='no_excellence_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_excellence} onChange={(val) => ref.handleChange(val, 'no_excellence_title')} />
+													<Form.Input fluid label={translate('card.description')} name='no_excellence_des' placeholder={translate('card.description')} className='input-form' value={translate_titles.no_excellence_des} onChange={(val) => ref.handleChange(val, 'no_excellence_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateReviewTitle(e)}> {translate('card.save')} </label>
 													{carousels.map((item, i) => (
 														<div key={i} style={{ display: 'flex', justifyContent: 'space-between', background: '#f7f7f7', border: '1px solid #d9d9d9', padding: '10px 16px', color: '#666', cursor: 'pointer' }}>
 															<p style={{ textTransform: 'uppercase', margin: 0 }}>{item.title}</p>
@@ -947,6 +1092,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='no_news_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_news} onChange={(val) => ref.handleChange(val, 'no_news_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
 														{news.map((item, i) => (
 															<Panel header={item.no_title} key={i}>

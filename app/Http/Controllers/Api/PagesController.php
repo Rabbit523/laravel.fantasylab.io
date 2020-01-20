@@ -352,6 +352,40 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
                 return response()->json($data);
+            } else if ($request->type == 'service_title') {
+                $data->translate_titles->service = $request_data['service'];
+                $data->translate_titles->no_service = $request_data['no_service'];
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
+            } else if ($request->type == 'portfolio_title') {
+                $data->translate_titles->portfolio = $request_data['portfolio'];
+                $data->translate_titles->no_portfolio = $request_data['no_portfolio'];
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
+            } else if ($request->type == 'news_title') {
+                $data->translate_titles->news = $request_data['news'];
+                $data->translate_titles->no_news = $request_data['no_news'];
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
+            } else if ($request->type == 'estimation_title') {
+                $data->translate_titles->estimation = $request_data['estimation'];
+                $data->translate_titles->no_estimation = $request_data['no_estimation'];
+                $data->translate_titles->estimation_des = $request_data['estimation_des'];
+                $data->translate_titles->no_estimation_des = $request_data['no_estimation_des'];
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
+            } else if ($request->type == 'review_title') {
+                $data->translate_titles->excellence = $request_data['excellence'];
+                $data->translate_titles->no_excellence = $request_data['no_excellence'];
+                $data->translate_titles->excellence_des = $request_data['excellence_des'];
+                $data->translate_titles->no_excellence_des = $request_data['no_excellence_des'];
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
             }
         } else if ($request->name == "portfolio") {
             $service_type = $request->type;
@@ -937,6 +971,18 @@ class PagesController extends Controller
                 return response()->json($data->starting->data);
             } else if ($service_type == 'start_title') {
                 $data->starting->start_title = $request_data['starting']['start_title'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == 'tech_title') {
+                $data->translate_titles->tech = $request_data['tech'];
+                $data->translate_titles->no_tech = $request_data['no_tech'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == 'estimation_title') {
+                $data->translate_titles->estimation = $request_data['estimation'];
+                $data->translate_titles->no_estimation= $request_data['no_estimation'];
+                $data->translate_titles->estimation_des = $request_data['estimation_des'];
+                $data->translate_titles->no_estimation_des= $request_data['no_estimation_des'];
                 $page->data = json_encode($data);
                 $page->save();
             }

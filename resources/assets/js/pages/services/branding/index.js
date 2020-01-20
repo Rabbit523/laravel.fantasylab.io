@@ -139,7 +139,7 @@ class Page extends React.Component {
 								</div>
 								<div className='service-section tech' style={data.technologies.length > 4 ? null : { minHeight: '30vh' }}>
 									<Container className='custom-col-6'>
-										<h2>{translate('service.technologies')}</h2>
+										<h2>{lang == 'en' ? data.translate_titles.tech : data.translate_titles.no_tech}</h2>
 										<Container className='custom-col-8'>
 											<Grid>
 												{data.technologies.map((item, i) => (
@@ -156,8 +156,8 @@ class Page extends React.Component {
 								<div className='service-estimation'>
 									<Container className='custom-col-6'>
 										<div className='service-estimation-description'>
-											<h2>{translate('home.estimation-delivery')}</h2>
-											<p>{translate('home.get-quote')}</p>
+											<h2>{lang == 'en' ? data.translate_titles.estimation : data.translate_titles.no_estimation}</h2>
+											<p>{lang == 'en' ? data.translate_titles.estimation_des : data.translate_titles.no_estimation_des}</p>
 										</div>
 										<Grid columns={3}>
 											{data.estimation.map((item, i) => (

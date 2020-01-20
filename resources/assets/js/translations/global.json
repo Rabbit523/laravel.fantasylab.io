@@ -94,7 +94,6 @@
     },
     "service": {
         "case-study": ["CASE STUDY", "CASESTUDIE"],
-        "technologies": ["Technologies we excel at", "Teknologier vi utmerker oss med"],
         "read-study": ["Read case study", "Les casestudie"]
     },
     "alert": {

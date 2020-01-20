@@ -13,6 +13,7 @@ class Page extends React.Component {
 			list: [],
 			reviews: {},
 			technologies: {},
+			translate_titles: {},
 			starting: [],
 			starting_title: "",
 			no_starting_title: "",
@@ -36,7 +37,8 @@ class Page extends React.Component {
 			.then(
 				res => {
 					var list = JSON.parse(res.data.data);
-					var reviews = {}, technologies = {}, estimation = [], starting = [], starting_title = "", no_starting_title = "";
+					var reviews = {}, technologies = {}, estimation = [], starting = [], starting_title = "", no_starting_title = "", translate_titles = {};
+					console.log(list);
 					Object.keys(list).map(function (key, index) {
 						if (key == "study") {
 							reviews = list[key];
@@ -48,6 +50,8 @@ class Page extends React.Component {
 							starting = list[key].data;
 							starting_title = list[key].start_title;
 							no_starting_title = list[key].no_start_title;
+						} else if (key == 'translate_titles') {
+							translate_titles = list[key];
 						}
 					});
 					this.setState({
@@ -58,7 +62,8 @@ class Page extends React.Component {
 						estimation,
 						starting,
 						starting_title,
-						no_starting_title
+						no_starting_title,
+						translate_titles
 					});
 				}
 			).catch(err => {
@@ -67,7 +72,7 @@ class Page extends React.Component {
 	}
 
 	handleChange(event, type) {
-		var { list, reviews, technologies, estimation, starting, starting_title, no_starting_title } = this.state;
+		var { list, reviews, technologies, estimation, starting, starting_title, no_starting_title, translate_titles } = this.state;
 		var ref = this;
 
 		switch (type) {
@@ -149,6 +154,24 @@ class Page extends React.Component {
 			case 'no_starting_title':
 				no_starting_title = event.target.value;
 				return this.setState({ no_starting_title });
+			case 'tech_title':
+				translate_titles.tech = event.target.value;
+				return this.setState({ translate_titles });
+			case 'no_tech_title':
+				translate_titles.no_tech = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_title':
+				translate_titles.estimation = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_no_title':
+				translate_titles.no_estimation = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_des':
+				translate_titles.estimation_des = event.target.value;
+				return this.setState({ translate_titles });
+			case 'estimation_no_des':
+				translate_titles.no_estimation_des = event.target.value;
+				return this.setState({ translate_titles });
 		}
 
 		if (type.includes('icon')) {
@@ -165,7 +188,7 @@ class Page extends React.Component {
 
 		if (type.includes('start')) {
 			var index = type.split('_')[0];
-			if (type.includes('title') && type.includes('description')) {
+			if (type.includes('title') || type.includes('description')) {
 				if (this.props.lang == 'en') {
 					var sub_key = type.split('_')[2];
 					starting[index][sub_key] = event.target.value;
@@ -181,7 +204,7 @@ class Page extends React.Component {
 		}
 
 		if (type.includes('estimation')) {
-			if (type.includes('title') && type.includes('description')) {
+			if (type.includes('title') || type.includes('description')) {
 				if (this.props.lang == 'en') {
 					var sub_key = type.split('_')[2];
 					var key = type.split('_')[1];
@@ -451,13 +474,31 @@ class Page extends React.Component {
 		});
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: page_name, data: JSON.stringify(technologies), type: 'tech', id: type })
-			.then(
-				res => {
-					this.setState({ isLoaded: true });
-				}
-			).catch(err => {
-				console.error(err);
-			});
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
+	// Update technologies title
+	onUpdateTechTitle(e, val) {
+		var { list, translate_titles, page_name } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: page_name, data: JSON.stringify(translate_titles), type: 'tech_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
 	}
 	//Update estimation section
 	onUpdateProcessItem(e, type) {
@@ -477,9 +518,26 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
-
+	//Update estimation title
+	onUpdateEstimationTitle(e, type) {
+		var { list, translate_titles, page_name } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'translate_titles') {
+				list[key] = translate_titles;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: page_name, data: JSON.stringify(translate_titles), type: 'estimation_title' })
+		.then(
+			res => {
+				this.setState({ isLoaded: true });
+			}
+		).catch(err => {
+			console.error(err);
+		});
+	}
 	render() {
-		const { isLoaded, list, reviews, technologies, starting, starting_title, no_starting_title, estimation, accordion, activeKey, process_activeKey, start_activeKey } = this.state;
+		const { isLoaded, list, reviews, technologies, starting, starting_title, no_starting_title, estimation, accordion, activeKey, process_activeKey, start_activeKey, translate_titles } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		const ref = this;
 		return (
@@ -630,6 +688,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='tech_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.tech} onChange={(val) => ref.handleChange(val, 'tech_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateTechTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
 														{Object.keys(technologies).map((key, index) => (
 															<Panel header={technologies[index].lang} key={key}>
@@ -659,6 +719,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='estimation_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.estimation} onChange={(val) => ref.handleChange(val, 'estimation_title')} />
+													<Form.Input fluid label={translate('card.description')} name='estimation_des' placeholder={translate('card.title')} className='input-form' value={translate_titles.estimation_des} onChange={(val) => ref.handleChange(val, 'estimation_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateEstimationTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onCollapseProcessChange} activeKey={process_activeKey}>
 														{estimation.map((item, i) => (
 															<Panel header={item.title} key={i}>
@@ -823,6 +886,8 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='tech_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_tech} onChange={(val) => ref.handleChange(val, 'no_tech_title')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateTechTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onCollapseChange} activeKey={activeKey}>
 														{Object.keys(technologies).map((key, index) => (
 															<Panel header={technologies[index].lang} key={key}>
@@ -852,6 +917,9 @@ class Page extends React.Component {
 											</Card.Content>
 											<Card.Content>
 												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='estimation_title' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_estimation} onChange={(val) => ref.handleChange(val, 'estimation_no_title')} />
+													<Form.Input fluid label={translate('card.description')} name='estimation_des' placeholder={translate('card.title')} className='input-form' value={translate_titles.no_estimation_des} onChange={(val) => ref.handleChange(val, 'estimation_no_des')} />
+													<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateEstimationTitle(e)}> {translate('card.save')} </label>
 													<Collapse accordion={accordion} onChange={this.onCollapseProcessChange} activeKey={process_activeKey}>
 														{estimation.map((item, i) => (
 															<Panel header={item.no_title} key={i}>
