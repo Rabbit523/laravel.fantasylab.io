@@ -158,9 +158,10 @@ class Page extends React.Component {
 				footer.no_link_name = event.target.value;
 				return this.setState({ footer });
 		}
-
 		if (type.includes('service')) {
-			if (type.includes('title') && type.includes('description') && type.includes('url')) {
+			if (type.includes('title') || type.includes('description') || type.includes('url')) {
+				console.log(type);
+			console.log(this.props.lang);
 				if (this.props.lang == 'en') {
 					var key = type.split('_')[1];
 					var sub_key = type.split('_')[2];
@@ -168,6 +169,8 @@ class Page extends React.Component {
 				} else {
 					var key = type.split('_')[0] + "_" + type.split('_')[2];
 					var sub_key = type.split('_')[3];
+					console.log(key);
+					console.log(sub_key);
 					services[sub_key][key] = event.target.value;
 				}
 			} else {
@@ -382,6 +385,7 @@ class Page extends React.Component {
 				list[key] = services;
 			}
 		});
+		console.log(services);
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(services), type: 'service', service_type: type })
 			.then(
@@ -393,12 +397,12 @@ class Page extends React.Component {
 			});
 	}
 	onDeleteService(e, type) {
-		const { list, data, services } = this.state;
+		const { list, services } = this.state;
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { data: list, id: data.id, type: 'service_delete', key: type })
+		Http.post('/api/admin/update-page', { name: 'home', data: JSON.stringify(services), type: 'service_delete', key: type })
 			.then(
 				res => {
-					this.setState({ isLoaded: true, services: res.data });
+					this.setState({ isLoaded: true, services: res.data.services });
 				}
 			).catch(err => {
 				console.error(err);
@@ -563,8 +567,8 @@ class Page extends React.Component {
 									))}
 									{rest_items.length == 0 && isPortfolio && (
 										<div>
-											<h2>Hi,<br />Admin.</h2>
-											<p>There is no more portfolio item should be added.</p>
+											<h2>{lang === 'en' ? 'Hi,' : 'Hei,'}<br />Admin.</h2>
+											<p>{lang === 'en' ? 'There is no more portfolio item should be added.' : 'Det er ikke mer portefølje som bør legges til.'}</p>
 										</div>
 									)}
 									{rest_reviews.length > 0 && isReview && rest_reviews.map((item, i) => (
@@ -575,8 +579,8 @@ class Page extends React.Component {
 									))}
 									{rest_reviews.length == 0 && isReview && (
 										<div>
-											<h2>Hi,<br />Admin.</h2>
-											<p>There is no more review item should be added.</p>
+											<h2>{lang === 'en' ? 'Hi,' : 'Hei,'}<br />Admin.</h2>
+											<p>{lang === 'en' ? 'There is no more review item should be added.' : 'Det er ikke flere vurderingselementer som bør legges til.'}</p>
 										</div>
 									)}
 								</Modal>

@@ -160,7 +160,7 @@ class Page extends React.Component {
 									<Segment stacked>
 										<Form.Input
 											fluid
-											label={translate('contact.work-email')}
+											label={translate('contact.email-address')}
 											name='email'
 											placeholder={translate('contact.email-address')}
 											className='input-form'

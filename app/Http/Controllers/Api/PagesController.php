@@ -343,6 +343,15 @@ class PagesController extends Controller
                 $data->news = $request_data;
                 $page->data = json_encode($data);
                 $page->save();
+            } else if ($request->type == 'service_delete') {
+                foreach ($data->services as $key => $item) {
+                    if ($key == $request->key) {
+                        array_splice($data->services, $key, 1);
+                    }
+                }
+                $page->data = json_encode($data);
+                $page->save();
+                return response()->json($data);
             }
         } else if ($request->name == "portfolio") {
             $service_type = $request->type;
