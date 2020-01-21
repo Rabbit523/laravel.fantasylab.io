@@ -219,12 +219,12 @@ class Page extends React.Component {
                     <Form className='message-form'>
                       <div className="form-group">
                         <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
-                        {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')}</Header>}
+                        {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name field is required.':'Navnfeltet er påkrevd.':''}</Header>}
                         <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} />
                       </div>
                       <div className="form-group">
                         <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
-                        {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')}</Header>}
+                        {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
                         {/* <div className='phone-form'>
                                                     <label>Phone</label>
                                                     <PhoneInput placeholder='Your phone number' className={phoneError?'':'success'} value={phone} flags={flags} onChange={ (phone) => this.handleChange(phone, 'phone') }  error={ phone && (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number')}/>
@@ -233,7 +233,7 @@ class Page extends React.Component {
                         {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
                       </div>
                       <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
-                      {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')}</Header>}
+                      {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message field is required.':'Meldingsfeltet er påkrevd.':''}</Header>}
                       <div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
                         <Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree')} />
                         <div className='terms-section'>
