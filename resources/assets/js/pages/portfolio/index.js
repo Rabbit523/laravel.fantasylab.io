@@ -77,7 +77,7 @@ class Page extends React.Component {
 										</Grid>
 									</Container>
 								</div>
-								<PageFooter title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />
+								<PageFooter lang={lang} title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />
 								<div className='divide'></div>
 							</React.Fragment>
 							:

@@ -82,10 +82,10 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær'}</h2>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
                   <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
-                    <Button as={Link} to='/contact' className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+                    <Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
                     <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
@@ -108,7 +108,7 @@ class Page extends React.Component {
                       <div className='homepage-header-buttons'>
                         {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
                         <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
-                        <p>{translate('home.existing-user')} <Link to='/login' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link></p>
+                        <p>{translate('home.existing-user')} <Link to='/logginn' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link></p>
                       </div>
                     </div>
                   </Container>
@@ -153,8 +153,8 @@ class Page extends React.Component {
                     <div className='home-button-group'>
                       {/* <Button as={Link} to='/register' replace compact className='primary-button'>Craft Enterprise</Button>
                                         <Button as={Link} to='/login' replace compact className='secondary-button'>The Platform</Button> */}
-                      <Button as={Link} to='/register' className='primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
-                      <Button as={Link} to='/login' className='secondary-button' onClick={(event) => this.triggerModal(event)}>{translate('home.the-platform')}</Button>
+                      <Button as={Link} to='/start-prosjekt' className='primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
+                      <Button as={Link} to='/logginn' className='secondary-button' onClick={(event) => this.triggerModal(event)}>{translate('home.the-platform')}</Button>
                     </div>
                   </Container>
                 </section>
@@ -201,7 +201,7 @@ class Page extends React.Component {
                     </Grid>
                   </Container>
                 </section>
-                <PageFooter title={lang == 'en' ? data.footer.title : data.footer.no_title} description={lang == 'en' ? data.footer.description : data.footer.no_description} button={lang == 'en' ? data.footer.button : data.footer.no_button} link={lang == 'en' ? data.footer.link : data.footer.no_link} linkName={lang == 'en' ? data.footer.link_name : data.footer.no_link_name} url={data.footer.url} />
+                <PageFooter lang={lang} title={lang == 'en' ? data.footer.title : data.footer.no_title} description={lang == 'en' ? data.footer.description : data.footer.no_description} button={lang == 'en' ? data.footer.button : data.footer.no_button} link={lang == 'en' ? data.footer.link : data.footer.no_link} linkName={lang == 'en' ? data.footer.link_name : data.footer.no_link_name} url={data.footer.url} />
                 <section className='divide'></section>
               </React.Fragment>
               :

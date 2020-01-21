@@ -778,10 +778,15 @@ class PagesController extends Controller
                     $request_data['footer_url'] = $path;
                 }
                 $data->footer_button = $request_data['footer_button'];
+                $data->no_footer_button = $request_data['no_footer_button'];
                 $data->footer_description = $request_data['footer_description'];
+                $data->no_footer_description = $request_data['no_footer_description'];
                 $data->footer_link = $request_data['footer_link'];
+                $data->no_footer_link = $request_data['no_footer_link'];
                 $data->footer_link_name = $request_data['footer_link_name'];
+                $data->no_footer_link_name = $request_data['no_footer_link_name'];
                 $data->footer_title = $request_data['footer_title'];
+                $data->no_footer_title = $request_data['no_footer_title'];
                 $data->footer_url = $request_data['footer_url'];
                 $page->data = json_encode($data);
                 $page->save();
@@ -971,6 +976,7 @@ class PagesController extends Controller
                 return response()->json($data->starting->data);
             } else if ($service_type == 'start_title') {
                 $data->starting->start_title = $request_data['starting']['start_title'];
+                $data->starting->no_start_title = $request_data['starting']['no_start_title'];
                 $page->data = json_encode($data);
                 $page->save();
             } else if ($service_type == 'tech_title') {

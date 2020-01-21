@@ -75,10 +75,10 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær'}</h2>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
                   <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
-                    <Button as={Link} to='/contact' className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+                    <Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
                     <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
@@ -174,7 +174,7 @@ class Page extends React.Component {
                     </Grid>
                   </Container>
                 </div>
-                <PageFooter title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />
+                <PageFooter lang={lang} title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />
                 <div className='divide'></div>
               </React.Fragment>
               :

@@ -38,6 +38,7 @@ class HeadquaterItem extends React.Component {
 
 	render() {
 		const { isOpen } = this.state;
+		const { lang } = this.props;
 		Modal.setAppElement('#app')
 		return (
 			<React.Fragment>
@@ -47,10 +48,10 @@ class HeadquaterItem extends React.Component {
 					style={customStyles}
 				>
 					<Button icon='close' onClick={this.closeModal} />
-					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk skal du ha,'} <br />{this.props.lang == 'en' ? 'Visionary.' : 'Visjonær' }</h2>
+					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk skal du ha,'} <br />{this.props.lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
                   	<p>{this.props.lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
 					<div className="button-group">
-						<Button as={Link} to='/contact' className='primary-button'>{this.props.lang == 'en' ? 'Contact us' : 'kontakt oss'}</Button>
+						<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact us' : 'kontakt oss'}</Button>
 						<Button className='secondary-button' onClick={this.closeModal}>{this.props.lang == 'en' ? 'Close' : 'Lukk'}</Button>
 					</div>
 				</Modal>

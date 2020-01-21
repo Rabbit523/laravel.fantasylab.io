@@ -58,7 +58,7 @@ const routes = [
         component: Login
     },
     {
-        path: '/no/login',
+        path: '/no/logginn',
         exact: true,
         auth: false,
         component: Login
@@ -70,7 +70,7 @@ const routes = [
         component: Register
     },
     {
-        path: '/no/register',
+        path: '/no/start-prosjekt',
         exact: true,
         auth: false,
         component: Register
@@ -94,7 +94,7 @@ const routes = [
         component: ServiceWeb
     },
     {
-        path: '/no/web-development',
+        path: '/no/webutvikling',
         exact: true,
         auth: false,
         component: ServiceWeb
@@ -106,7 +106,7 @@ const routes = [
         component: ServiceMobile
     },
     {
-        path: '/no/mobile-development',
+        path: '/no/mobilutvikling',
         exact: true,
         auth: false,
         component: ServiceMobile
@@ -130,7 +130,7 @@ const routes = [
         component: ServiceBranding
     },
     {
-        path: '/no/branding',
+        path: '/no/merkevarebygging',
         exact: true,
         auth: false,
         component: ServiceBranding
@@ -142,7 +142,7 @@ const routes = [
         component: ServiceIllustration
     },
     {
-        path: '/no/illustration',
+        path: '/no/illustrasjon',
         exact: true,
         auth: false,
         component: ServiceIllustration
@@ -154,7 +154,7 @@ const routes = [
         component: ServiceMarketing
     },
     {
-        path: '/no/marketing-material',
+        path: '/no/markedsføringsmateriell',
         exact: true,
         auth: false,
         component: ServiceMarketing
@@ -166,7 +166,7 @@ const routes = [
         component: Hosting
     },
     {
-        path: '/no/managed-hosting',
+        path: '/no/administrert-hosting',
         exact: true,
         auth: false,
         component: Hosting
@@ -190,7 +190,7 @@ const routes = [
         component: Features
     },
     {
-        path: '/no/features',
+        path: '/no/funksjoner',
         exact: true,
         auth: false,
         component: Features
@@ -202,7 +202,7 @@ const routes = [
         component: About
     },
     {
-        path: '/no/about',
+        path: '/no/om-oss',
         exact: true,
         auth: false,
         component: About
@@ -214,7 +214,7 @@ const routes = [
         component: Blog
     },
     {
-        path: '/no/blog',
+        path: '/no/blogg',
         exact: true,
         auth: false,
         component: Blog
@@ -226,7 +226,7 @@ const routes = [
         component: Contact
     },
     {
-        path: '/no/contact',
+        path: '/no/kontakt',
         exact: true,
         auth: false,
         component: Contact
@@ -238,7 +238,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/privacy',
+        path: '/no/personvern',
         exact: true,
         auth: false,
         component: Privacy
@@ -250,7 +250,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/security',
+        path: '/no/sikkerhet',
         exact: true,
         auth: false,
         component: Privacy
@@ -262,7 +262,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/terms',
+        path: '/no/avsnitt',
         exact: true,
         auth: false,
         component: Privacy
@@ -274,7 +274,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/confidentiality',
+        path: '/no/sikker',
         exact: true,
         auth: false,
         component: Privacy

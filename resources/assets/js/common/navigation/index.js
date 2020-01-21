@@ -112,10 +112,10 @@ class Page extends React.Component {
 							style={customStyles}
 						>
 							<Button icon='close' onClick={this.closeModal} />
-							<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær'}</h2>
+							<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
 							<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 							<div className="button-group">
-								<Button as={Link} to='/contact' className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+								<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
 								<Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
 							</div>
 						</Modal>
@@ -126,7 +126,7 @@ class Page extends React.Component {
 								</Menu.Item>
 								<div className="right-menu">
 									{!isAuthenticated && <Menu.Item className="mobile-register">
-										<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
+										<Button as={Link} to={lang=='en'?'/register':'/no/start-prosjekt'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
 									</Menu.Item>}
 									<Menu.Menu position='right'>
 										<Menu.Item>
@@ -135,13 +135,13 @@ class Page extends React.Component {
 													<div style={{ display: 'flex', flexDirection: 'column' }}>
 														<Dropdown text={translate('navigation.services')} className="services">
 															<Dropdown.Menu className="sub-menu">
-																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/web-development':'/no/web-development'}>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/web-development':'/no/webutvikling'}>
 																	<div className='avatar-item desktop'>
 																		<img src={require('../../../images/theme/desktop.png')} />
 																	</div>
 																	<p>{translate('navigation.web-development')}</p>
 																</Segment>
-																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/mobile-development':'/no/mobile-development'}>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/mobile-development':'/no/mobilutvikling'}>
 																	<div className='avatar-item mobile'>
 																		<img src={require('../../../images/theme/mobile.png')} />
 																	</div>
@@ -153,19 +153,19 @@ class Page extends React.Component {
 																	</div>
 																	<p>{translate('navigation.ui-design')}</p>
 																</Segment>
-																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/branding':'/no/branding'}>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/branding':'/no/merkevarebygging'}>
 																	<div className='avatar-item branding'>
 																		<img src={require('../../../images/theme/branding.png')} />
 																	</div>
 																	<p>{translate('navigation.branding')}</p>
 																</Segment>
-																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/illustration':'/no/illustration'}>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/illustration':'/no/illustrasjon'}>
 																	<div className='avatar-item illustration'>
 																		<img src={require('../../../images/theme/illustration.png')} />
 																	</div>
 																	<p>{translate('navigation.illustration')}</p>
 																</Segment>
-																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/marketing-material':'/no/marketing-material'}>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/marketing-material':'/no/markedsføringsmateriell'}>
 																	<div className='avatar-item marketing'>
 																		<img src={require('../../../images/theme/marketing.png')} />
 																	</div>
@@ -185,11 +185,11 @@ class Page extends React.Component {
 														</Dropdown> */}
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} text={translate('navigation.portfolio')} />
 														{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
-														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} text={translate('navigation.about')} />
-														<Dropdown.Item as={NavLink} to={lang=='en'?'/blog':'/no/blog'} text={translate('navigation.blog')} />
-														<Dropdown.Item as={NavLink} to={lang=='en'?'/contact':'/no/contact'} text={translate('navigation.contact')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} text={translate('navigation.about')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/blog':'/no/blogg'} text={translate('navigation.blog')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/contact':'/no/kontakt'} text={translate('navigation.contact')} />
 														{/* <Dropdown.Item as={NavLink} to='/login' text='Login'/> */}
-														{!isAuthenticated && <Dropdown.Item as={NavLink} to={lang=='en'?'/login':'/no/login'} className='login' text={translate('navigation.login')} onClick={(event) => this.triggerModal(event)} /> }
+														{!isAuthenticated && <Dropdown.Item as={NavLink} to={lang=='en'?'/login':'/no/logginn'} className='login' text={translate('navigation.login')} onClick={(event) => this.triggerModal(event)} /> }
 													</div>
 													{isAdmin && isAuthenticated ?
 														<Dropdown.Item as={NavLink} to='/admin/pages' text={translate('navigation.dashboard')} />
@@ -200,7 +200,7 @@ class Page extends React.Component {
 										</Menu.Item>
 									</Menu.Menu>
 									<Menu.Item className="mobile-lang">
-										{/* {lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
+										{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
 									</Menu.Item>
 								</div>
 							</Menu>
@@ -222,7 +222,7 @@ class Page extends React.Component {
 														<Container className='custom-col-6'>
 															<Grid padded='horizontally'>
 																<Grid.Row columns={6} className='custom-row'>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/web-development':'/no/web-development'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/web-development':'/no/webutvikling'}>
 																		<div className='custom-dropdown-item desktop'>
 																			<div className='avatar-item desktop'>
 																				<img src={require('../../../images/theme/desktop.png')} />
@@ -236,7 +236,7 @@ class Page extends React.Component {
 																			</div>
 																		</div>
 																	</Grid.Column>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/mobile-development':'/no/mobile-development'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/mobile-development':'/no/mobilutvikling'}>
 																		<div className='custom-dropdown-item mobile'>
 																			<div className='avatar-item mobile'>
 																				<img src={require('../../../images/theme/mobile.png')} />
@@ -264,7 +264,7 @@ class Page extends React.Component {
 																			</div>
 																		</div>
 																	</Grid.Column>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/branding':'/no/branding'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/branding':'/no/merkevarebygging'}>
 																		<div className='custom-dropdown-item branding'>
 																			<div className='avatar-item branding'>
 																				<img src={require('../../../images/theme/branding.png')} />
@@ -278,7 +278,7 @@ class Page extends React.Component {
 																			</div>
 																		</div>
 																	</Grid.Column>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/illustration':'/no/illustration'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/illustration':'/no/illustrasjon'}>
 																		<div className='custom-dropdown-item illustration'>
 																			<div className='avatar-item illustration'>
 																				<img src={require('../../../images/theme/illustration.png')} />
@@ -292,7 +292,7 @@ class Page extends React.Component {
 																			</div>
 																		</div>
 																	</Grid.Column>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/marketing-material':'/no/marketing-material'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/marketing-material':'/no/markedsføringsmateriell'}>
 																		<div className='custom-dropdown-item marketing'>
 																			<div className='avatar-item marketing'>
 																				<img src={require('../../../images/theme/marketing.png')} />
@@ -332,7 +332,7 @@ class Page extends React.Component {
 														<Container className='custom-col-6'>
 															<Grid padded='horizontally'>
 																<Grid.Row columns={6} className='custom-row' style={{justifyContent: 'flex-start'}}>
-																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/managed-hosting':'/no/managed-hosting'}>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/managed-hosting':'/no/administrert-hosting'}>
 																		<div className='custom-dropdown-item hosting'>
 																			<div className='avatar-item hosting'>
 																				<img src={require('../../../images/theme/desktop.png')} />
@@ -354,9 +354,9 @@ class Page extends React.Component {
 											</Dropdown> */}
 											<Menu.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} className='nav-color portfolio'>{translate("navigation.portfolio")}</Menu.Item>
 											{/* <Menu.Item as={NavLink} to='/features' className='nav-color features'>{translate("navigation.features")}</Menu.Item> */}
-											<Menu.Item as={NavLink} to={lang=='en'?'/about':'/no/about'} className='nav-color about'>{translate("navigation.about")}</Menu.Item>
-											<Menu.Item as={NavLink} to={lang=='en'?'/blog':'/no/blog'} className='nav-color blog'>{translate("navigation.blog")}</Menu.Item>
-											<Menu.Item as={NavLink} to={lang=='en'?'/contact':'/no/contact'} className='nav-color contact'>{translate("navigation.contact")}</Menu.Item>
+											<Menu.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} className='nav-color about'>{translate("navigation.about")}</Menu.Item>
+											<Menu.Item as={NavLink} to={lang=='en'?'/blog':'/no/blogg'} className='nav-color blog'>{translate("navigation.blog")}</Menu.Item>
+											<Menu.Item as={NavLink} to={lang=='en'?'/contact':'/no/kontakt'} className='nav-color contact'>{translate("navigation.contact")}</Menu.Item>
 										</React.Fragment>
 									}
 									<Menu.Menu position='right' className='right-menu-width'>
@@ -377,17 +377,17 @@ class Page extends React.Component {
 																key='logout' />
 														</Dropdown.Menu>
 													</Dropdown>
-													{/* {lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
+													{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
 												</React.Fragment>
 											)
 											: <Button.Group>
 												{/* <Button as={Link} to='/login' className='login'>Login</Button> */}
-												<Button as={Link} to={lang=='en'?'/login':'/no/login'} className='login' onClick={(event) => this.triggerModal(event)}>{translate("navigation.login")}</Button>
+												<Button as={Link} to={lang=='en'?'/login':'/no/logginn'} className='login' onClick={(event) => this.triggerModal(event)}>{translate("navigation.login")}</Button>
 												<div className="register">
 													{/* <Button as={Link} to='/register' className='primary-button'>Craft Enterprise</Button> */}
-													<Button as={Link} to={lang=='en'?'/register':'/no/register'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
+													<Button as={Link} to={lang=='en'?'/register':'/no/start-prosjekt'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
 												</div>
-												{/* {lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>} */}
+												{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
 											</Button.Group>
 										}
 									</Menu.Menu>

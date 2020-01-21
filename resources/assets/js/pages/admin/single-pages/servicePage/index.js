@@ -38,7 +38,6 @@ class Page extends React.Component {
 				res => {
 					var list = JSON.parse(res.data.data);
 					var reviews = {}, technologies = {}, estimation = [], starting = [], starting_title = "", no_starting_title = "", translate_titles = {};
-					console.log(list);
 					Object.keys(list).map(function (key, index) {
 						if (key == "study") {
 							reviews = list[key];
@@ -117,7 +116,12 @@ class Page extends React.Component {
 				return this.setState({ list });
 			case 'starting_title':
 				starting_title = event.target.value;
-				return this.setState({ starting_title });
+				list.starting.start_title = starting_title;
+				return this.setState({ starting_title, list });
+			case 'no_starting_title':
+				no_starting_title = event.target.value;
+				list.starting.no_start_title = no_starting_title;
+				return this.setState({ no_starting_title, list });
 			case 'no_meta_title':
 				list.no_meta_title = event.target.value;
 				return this.setState({ list });
@@ -151,9 +155,6 @@ class Page extends React.Component {
 			case 'no_footer_link_name':
 				list.no_footer_link_name = event.target.value;
 				return this.setState({ list });
-			case 'no_starting_title':
-				no_starting_title = event.target.value;
-				return this.setState({ no_starting_title });
 			case 'tech_title':
 				translate_titles.tech = event.target.value;
 				return this.setState({ translate_titles });
@@ -357,9 +358,7 @@ class Page extends React.Component {
 	}
 
 	onUpdateStartTitle(e) {
-		var { list, page_name, starting_title } = this.state;
-		list.starting.start_title = starting_title;
-		this.setState({ list });
+		var { list, page_name } = this.state;
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: page_name, data: JSON.stringify(list), type: 'start_title' })
 			.then(

@@ -374,7 +374,7 @@ class Page extends React.Component {
 			backimage: null,
 			avatar: null,
 			url: 'web-development',
-			no_url: '/no/web-development'
+			no_url: '/no/webutvikling'
 		};
 		services.push(new_item);
 		this.setState({ services });

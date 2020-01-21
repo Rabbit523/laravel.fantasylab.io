@@ -50,14 +50,131 @@ class Main extends React.Component {
     localStorage.setItem('locale', code);
     if (!this.props.location.pathname.includes('admin')) {
       if (this.props.location.pathname.includes('no')) {
+        this.props.setActiveLanguage(code);
         var next_url = this.props.location.pathname.replace('/no', '');
-        this.props.history.push(next_url);
+        switch(next_url) {
+          case '/logginn':
+            this.props.history.push('/login');
+            break;
+          case '/start-prosjekt':
+            this.props.history.push('/register');
+            break;
+          case '/webutvikling':
+            this.props.history.push('/web-development');
+            break;
+          case '/mobilutvikling':
+            this.props.history.push('/mobile-development');
+            break;
+          case '/ui-ux-design':
+            this.props.history.push('/ui-ux-design');
+            break;
+          case '/merkevarebygging':
+            this.props.history.push('/branding');
+            break;
+          case '/illustrasjon':
+            this.props.history.push('/illustration');
+            break;
+          case '/markedsføringsmateriell':
+            this.props.history.push('/marketing-material');
+            break;
+          case '/administrert-hosting':
+            this.props.history.push('/managed-hosting');
+            break;
+          case '/portfolio':
+            this.props.history.push('/portfolio');
+            break;
+          case '/funksjoner':
+            this.props.history.push('/features');
+            break;
+          case '/om-oss':
+            this.props.history.push('/about');
+            break;
+          case '/blogg':
+            this.props.history.push('/blog');
+            break;
+          case '/kontakt':
+            this.props.history.push('/contact');
+            break;
+          case '/personvern':
+            this.props.history.push('/privacy');
+            break;
+          case '/sikkerhet':
+            this.props.history.push('/security');
+            break;
+          case '/avsnitt':
+            this.props.history.push('/terms');
+            break;
+          case '/sikker':
+            this.props.history.push('/confidentiality');
+            break;
+          default:
+            this.props.history.push('/');
+            break;
+        }
       } else {
-        var next_url = `/no${this.props.location.pathname}`;
-        this.props.history.push(next_url);
+        this.props.setActiveLanguage(code);
+        var next_url = this.props.location.pathname;
+        switch(next_url) {
+          case '/login':
+            this.props.history.push('/no/logginn');
+            break;
+          case '/register':
+            this.props.history.push('/no/start-prosjekt');
+            break;
+          case '/web-development':
+            this.props.history.push('/no/webutvikling');
+            break;
+          case '/mobile-development':
+            this.props.history.push('/no/mobilutvikling');
+            break;
+          case '/ui-ux-design':
+            this.props.history.push('/no/ui-ux-design');
+            break;
+          case '/branding':
+            this.props.history.push('/no/merkevarebygging');
+            break;
+          case '/illustration':
+            this.props.history.push('/no/illustrasjon');
+            break;
+          case '/marketing-material':
+            this.props.history.push('/no/markedsføringsmateriell');
+            break;
+          case '/managed-hosting':
+            this.props.history.push('/no/administrert-hosting');
+            break;
+          case '/portfolio':
+            this.props.history.push('/no/portfolio');
+            break;
+          case '/features':
+            this.props.history.push('/no/funksjoner');
+            break;
+          case '/about':
+            this.props.history.push('/no/om-oss');
+            break;
+          case '/blog':
+            this.props.history.push('/no/blogg');
+            break;
+          case '/contact':
+            this.props.history.push('/no/kontakt');
+            break;
+          case '/privacy':
+            this.props.history.push('/no/personvern');
+            break;
+          case '/secruity':
+            this.props.history.push('/no/sikkerhet');
+            break;
+          case '/terms':
+            this.props.history.push('/no/avsnitt');
+            break;
+          case '/confidentiality':
+            this.props.history.push('/no/sikker');
+            break;
+          default:
+            this.props.history.push('/no');
+            break;
+        }
       }
     }
-    this.props.setActiveLanguage(code);
   }
 
   componentDidMount() {

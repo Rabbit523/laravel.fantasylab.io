@@ -51,6 +51,7 @@ class PlanItem extends React.Component {
 		};
 		const { avatar_hover } = this.state;
 		const { isOpen } = this.state;
+		const { lang } = this.props;
 		Modal.setAppElement('#app')
 
 		return (
@@ -63,11 +64,11 @@ class PlanItem extends React.Component {
 							style={customStyles}
 						>
 							<Button icon='close' onClick={this.closeModal} />
-							<h2>Hi,<br />Visionary.</h2>
-							<p>Our web app is under development.</p>
+							<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+							<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 							<div className="button-group">
-								<Button as={Link} to='/contact' className='primary-button'>Contact us</Button>
-								<Button className='secondary-button' onClick={this.closeModal}>Close</Button>
+								<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+								<Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
 							</div>
 						</Modal>
 						<div className='plan-item' style={isMobile ? item_hover : isHovering ? item_hover : {}}>
@@ -80,8 +81,8 @@ class PlanItem extends React.Component {
 							</div>
 							<hr/>
 							<div className='description'>
-								<h3>kr {this.props.cost},- <span>/ monthly</span></h3>
-								<Button as={Link} to='/contact' className='primary-button'>{this.props.lang=='en'?'Contact Sales':'Kontakt salg'} </Button>
+								<h3>kr {this.props.cost},- <span>/ {lang=='en'?'monthly':'månedlig'}</span></h3>
+								<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{this.props.lang=='en'?'Contact Sales':'Kontakt salg'} </Button>
 							</div>
 							<hr/>
 							<div className='options'>

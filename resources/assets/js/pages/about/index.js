@@ -81,10 +81,10 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær'}</h2>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
                   <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
-                    <Button as={Link} to='/contact' className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
+                    <Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
                     <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
@@ -168,7 +168,7 @@ class Page extends React.Component {
                       <Grid className="headquater-item">
                         {data.headquarters.data.map((item, i) => (
                           <Grid.Column mobile={16} tablet={8} computer={isTablet ? 8 : 4} key={i}>
-                            <HeadquaterItem avatar={item.avatar} button={lang == 'en' ? item.button : item.no_button} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type={item.type} />
+                            <HeadquaterItem lang={lang} avatar={item.avatar} button={lang == 'en' ? item.button : item.no_button} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type={item.type} />
                           </Grid.Column>
                         ))}
                       </Grid>
