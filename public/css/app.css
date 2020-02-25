@@ -1762,6 +1762,10 @@ body {
   margin-left: 0;
 }
 
+.page .main .home-page .home-section .alice-carousel .review-item {
+  height: 348px;
+}
+
 .page .main .home-page .home-section .alice-carousel__stage-item {
   width: 100% !important;
 }

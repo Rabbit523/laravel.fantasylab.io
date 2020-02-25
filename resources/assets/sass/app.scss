@@ -1440,6 +1440,9 @@ body {
         }
         .alice-carousel {
           margin-left: 0;
+          .review-item {
+            height: 348px;
+          }
         }
         .alice-carousel__stage-item {
           width: 100% !important;
