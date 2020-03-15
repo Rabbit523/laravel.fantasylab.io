@@ -116,7 +116,7 @@ class Page extends React.Component {
 
 		Object.keys(list['icon_urls']).map((key, index) => {
 			if (key == type) {
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					list['icon_urls'][key].text = event.target.value;
 				} else {
 					list['icon_urls'][key].no_text = event.target.value;

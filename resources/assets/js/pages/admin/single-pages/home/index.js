@@ -207,7 +207,7 @@ class Page extends React.Component {
 		}
 		if (type.includes('service')) {
 			if (type.includes('title') || type.includes('description') || type.includes('url')) {
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					var key = type.split('_')[1];
 					var sub_key = type.split('_')[2];
 					services[sub_key][key] = event.target.value;
@@ -229,7 +229,7 @@ class Page extends React.Component {
 				var sub_key = type.split('_')[1];
 				badges[key][sub_key] = event.target.value;
 			} else if (type.includes(key)){
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					var sub_key = type.split('_')[1];
 					badges[key][sub_key] = event.target.value;
 				} else {

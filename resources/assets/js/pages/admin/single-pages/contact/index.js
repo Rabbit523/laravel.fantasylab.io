@@ -73,21 +73,21 @@ class Page extends React.Component {
 		headquarters.map(function (item, i) {
 			if (type.includes('headquarter') && type.includes(i)) {
 				if (type.includes('title')) {
-					if (ref.props.lang == 'en') {
+					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 						item.title = event.target.value;
 					} else {
 						item.no_title = event.target.value;
 					}
 					return ref.setState({ headquarters });
 				} else if (type.includes('description')) {
-					if (ref.props.lang == 'en') {
+					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 						item.description = event.target.value;
 					} else {
 						item.no_description = event.target.value;
 					}
 					return ref.setState({ headquarters });
 				} else if (type.includes('button')) {
-					if (ref.props.lang == 'en') {
+					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 						item.button = event.target.value;
 					} else {
 						item.no_button = event.target.value;

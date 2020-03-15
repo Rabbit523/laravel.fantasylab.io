@@ -178,7 +178,7 @@ class Page extends React.Component {
 		if (type.includes('icon')) {
 			Object.keys(list.icons).map((key, i) => {
 				var sub_key = type.split('icon')[1];
-				if (ref.props.lang == 'en') {
+				if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 					list.icons[sub_key].text = event.target.value;
 				} else {
 					list.icons[sub_key].no_text = event.target.value;
@@ -190,7 +190,7 @@ class Page extends React.Component {
 		if (type.includes('start')) {
 			var index = type.split('_')[0];
 			if (type.includes('title') || type.includes('description')) {
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					var sub_key = type.split('_')[2];
 					starting[index][sub_key] = event.target.value;
 				} else {
@@ -206,7 +206,7 @@ class Page extends React.Component {
 
 		if (type.includes('estimation')) {
 			if (type.includes('title') || type.includes('description')) {
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					var sub_key = type.split('_')[2];
 					var key = type.split('_')[1];
 					estimation[sub_key][key] = event.target.value;
@@ -229,7 +229,7 @@ class Page extends React.Component {
 					technologies[key].lang = event.target.value;
 					ref.setState({ technologies });
 				} else if (type.includes('description')) {
-					if (ref.props.lang == 'en') {
+					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 						technologies[key].text = event.target.value;
 					} else {
 						technologies[key].no_text = event.target.value;
