@@ -149,7 +149,7 @@ class Page extends React.Component {
 					}
 					return ref.setState({ guides });
 				} else if (type.includes('description')) {
-					if (ref.props.lang == 'en') {
+					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
 						item.description = event.target.value;
 					} else {
 						item.no_description = event.target.value;
@@ -192,7 +192,7 @@ class Page extends React.Component {
 				var sub_key = type.split('_')[2];
 				services[key][sub_key] = event.target.value;
 			} else {
-				if (this.props.lang == 'en') {
+				if (this.props.lang == 'en' || ref.props.lang == undefined) {
 					var sub_key = type.split('_')[2];
 					services[key][sub_key] = event.target.value;
 				} else {

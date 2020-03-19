@@ -66,10 +66,10 @@ class Page extends React.Component {
 										<Grid columns={3}>
 											{Object.keys(data.portfolios).map((key, index) => (
 												<React.Fragment key={index}>
-													<Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}` }}>
+													<Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}` }}>
 														<PortfolioCard from={data.portfolios[key].from} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
 													</Grid.Column>
-													<Grid.Column only="computer" as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}` }}>
+													<Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}` }}>
 														<PortfolioCard from={data.portfolios[key].from} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
 													</Grid.Column>
 												</React.Fragment>

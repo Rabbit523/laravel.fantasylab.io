@@ -2084,7 +2084,8 @@ body {
 }
 
 .page .main .about-page .about-header .header-gradient .header-description .header-text p {
-  color: #9da6c7;
+  color: #fff;
+  font-size: 18px;
 }
 
 .page .main .about-page .about-header .header-gradient .header-description .counter-box {
@@ -2174,7 +2175,7 @@ body {
 }
 
 .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
-  color: #9da6c7;
+  color: #fff;
   font-size: 18px;
   font-family: "Gotham Book";
 }
@@ -2443,7 +2444,8 @@ body {
 }
 
 .page .main .service-page .service-header .header-gradient .header-description .header-text p {
-  color: #9da6c7;
+  color: #fff;
+  font-size: 18px;
 }
 
 .page .main .service-page .service-header .header-gradient .figures {
@@ -5492,10 +5494,6 @@ body {
     font-size: 36px;
   }
 
-  .page .main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 18px;
-  }
-
   .page .main .about-page .about-header .header-gradient .header-description .counter-box {
     flex-direction: row;
   }
@@ -5576,10 +5574,6 @@ body {
 
   .page .main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
     font-size: 36px;
-  }
-
-  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
-    font-size: 18px;
   }
 
   .page .main .contact-page .contact-section {
@@ -6064,10 +6058,6 @@ body {
     padding-right: 180px;
   }
 
-  .page .main .contact-page .contact-header .header-gradient .header-description .header-text p {
-    font-size: 14px;
-  }
-
   .page .main .contact-page .contact-header .header-gradient .row {
     margin-left: 0;
     margin-right: 0;
@@ -6509,10 +6499,6 @@ body {
     font-size: 48px;
   }
 
-  .page .main .about-page .about-header .header-gradient .header-description .header-text p {
-    font-size: 20px;
-  }
-
   .page .main .about-page .about-header .header-gradient .header-description .counter-box .box h4 {
     font-size: 30px;
   }
@@ -6565,10 +6551,6 @@ body {
 
   .page .main .contact-page .contact-header .header-gradient .header-description .header-text h1 {
     font-size: 48px;
-  }
-
-  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
-    font-size: 20px;
   }
 
   .page .main .contact-page .contact-section {
