@@ -174,6 +174,8 @@ class Main extends React.Component {
             break;
         }
       }
+    } else {
+      this.props.setActiveLanguage(code);
     }
   }
 
