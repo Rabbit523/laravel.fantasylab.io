@@ -1,4 +1,2 @@
-rm -rf /var/www/vhosts/fantasy.fantasylab.io/bootstrap/cache
-rm -rf /var/www/vhosts/fantasy.fantasylab.io/storage/logs
-rm -rf /var/www/vhosts/fantasy.fantasylab.io/vendor
-rm -rf /var/www/vhosts/fantasy.fantasylab.io/composer.lock
+rm -rf /var/www/vhosts/fantasy.fantasylab.io
+mkdir -p /var/www/vhosts/fantasy.fantasylab.io
