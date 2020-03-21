@@ -1,0 +1,2 @@
+rm -rf /var/www/vhosts/gotoconsult.fantasylab.io
+mkdir -p /var/www/vhosts/gotoconsult.fantasylab.io
