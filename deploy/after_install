@@ -1,10 +1,10 @@
-cd /var/www/vhosts/fantasy.fantasylab.io
-cp /var/www/vhosts/env-files/fantasy.fantasylab.io/.env /var/www/vhosts/fantasy.fantasylab.io/
+cd /var/www/vhosts/fantasylab.io
+cp /var/www/vhosts/env-files/fantasylab.io/.env /var/www/vhosts/fantasylab.io/
 composer install
-chown -R www-data:www-data /var/www/vhosts/fantasy.fantasylab.io
-find /var/www/vhosts/fantasy.fantasylab.io -type f -exec chmod 644 {} \;
-find /var/www/vhosts/fantasy.fantasylab.io -type d -exec chmod 755 {} \;
-find /var/www/vhosts/fantasy.fantasylab.io/storage -type d -exec sudo chmod 2775 {} \;
-find /var/www/vhosts/fantasy.fantasylab.io/storage -type f -exec sudo chmod 664 {} \;
+chown -R www-data:www-data /var/www/vhosts/fantasylab.io
+find /var/www/vhosts/fantasylab.io -type f -exec chmod 644 {} \;
+find /var/www/vhosts/fantasylab.io -type d -exec chmod 755 {} \;
+find /var/www/vhosts/fantasylab.io/storage -type d -exec sudo chmod 2775 {} \;
+find /var/www/vhosts/fantasylab.io/storage -type f -exec sudo chmod 664 {} \;
 chgrp -R www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
