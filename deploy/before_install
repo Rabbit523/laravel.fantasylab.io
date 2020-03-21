@@ -1,2 +1,2 @@
-rm -rf /var/www/vhosts/fantasy.fantasylab.io
-mkdir -p /var/www/vhosts/fantasy.fantasylab.io
+rm -rf /var/www/vhosts/fantasy.fantasylab.io/vendor
+rm -rf /var/www/vhosts/fantasy.fantasylab.io/composer.lock
