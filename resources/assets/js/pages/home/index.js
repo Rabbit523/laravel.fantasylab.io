@@ -164,11 +164,11 @@ class Page extends React.Component {
                     <Grid columns={3}>
                       {Object.keys(data.portfolios).map((key, index) => (
                         <React.Fragment key={index}>
-                          <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
-                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description} />
+                          <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
+                            <PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description} />
                           </Grid.Column>
-                          <Grid.Column only="computer" as={Link} to={{ pathname: `/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
-                            <PortfolioCard from={data.portfolios[key].from} icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description} />
+                          <Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
+                            <PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={data.portfolios[key].title} description={data.portfolios[key].description} />
                           </Grid.Column>
                         </React.Fragment>
                       ))}
