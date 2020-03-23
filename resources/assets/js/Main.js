@@ -405,7 +405,7 @@ class Main extends React.Component {
                     {!stateTab && <React.Fragment>
                       <h2>{translate('cookie.cookie-des-content-title')}</h2>
                       <p>{translate('cookie.cookie-des-content-sub-title')}</p>
-                      <p>Fantasylab AS<br/>Øvre Slottsgate 2B<br/>0106 Oslo<br/>22 09 04 00<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
+                      <p>Fantasylab AS<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
                       <h2>{translate('cookie.what-is-cookie')}</h2>
                       <p>{translate('cookie.what-is-cookie-answer')}</p>
                       <h2>{translate('cookie.how-cookie-use')}</h2>
@@ -532,7 +532,7 @@ class Main extends React.Component {
                       {isMobileOnly && <React.Fragment>
                       <h2>{translate('cookie.cookie-des-content-title')}</h2>
                       <p>{translate('cookie.cookie-des-content-sub-title')}</p>
-                      <p>Fantasylab AS<br/>Selma Ellefsensvei 2<br/>0581 Oslo<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
+                      <p>Fantasylab AS<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
                       <h2>{translate('cookie.what-is-cookie')}</h2>
                       <p>{translate('cookie.what-is-cookie-answer')}</p>
                       <h2>{translate('cookie.how-cookie-use')}</h2>
@@ -593,7 +593,7 @@ class Main extends React.Component {
                       {!stateTab && <React.Fragment>
                         <h2>{translate('cookie.cookie-des-content-title')}</h2>
                         <p>{translate('cookie.cookie-des-content-sub-title')}</p>
-                        <p>Fantasylab AS<br/>Selma Ellefsensvei 2<br/>0581 Oslo<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
+                        <p>Fantasylab AS<br/>+47 454 94 649<br/><a href="mailto:support@fantasylab.io">support@fantasylab.io</a></p>
                         <h2>{translate('cookie.what-is-cookie')}</h2>
                         <p>{translate('cookie.what-is-cookie-answer')}</p>
                         <h2>{translate('cookie.how-cookie-use')}</h2>

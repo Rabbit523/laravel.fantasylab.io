@@ -131,7 +131,7 @@ class Page extends React.Component {
 												<p className="description">'{lang == 'en' ? data.study.description : data.study.no_description}'</p>
 												<div className='avatar'><img src={`${data.study.avatar}`} /></div>
 												<p>{data.study.job}</p>
-												{data.study.path && <Link to={{ pathname: `/portfolio/${data.study.path}` }} className='third-button'>{translate('service.read-study')}</Link>}
+												{data.study.path && <Link to={{ pathname: lang=='en' ? `/portfolio/${data.study.path}` : `/no/portfolio/${data.study.path}` }} className='third-button'>{lang == 'en' ? data.study.btn_en : data.study.btn_no}</Link>}
 											</div>
 										</Container>
 									</Container>

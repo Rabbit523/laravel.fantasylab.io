@@ -92,10 +92,6 @@
         "btn-create-account": ["Create account", "Opprett konto"],
         "signup-google": ["Sign up with Google", "Registrer deg med Google"]
     },
-    "service": {
-        "case-study": ["CASE STUDY", "CASESTUDIE"],
-        "read-study": ["Read case study", "Les casestudie"]
-    },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
         "loading": ["Loading...", "Laster ..."]
@@ -161,7 +157,8 @@
         "manage-section": ["Manage Section", "Administrer seksjonen"],
         "scale-section": ["Scale Section", "Skala seksjonen"],
         "feature-section": ["Feature Section", "Funksjonsseksjon"],
-        "server-section": ["Server Section", "Server seksjon"]
+        "server-section": ["Server Section", "Server seksjon"],
+        "button-text": ["Button Text", "Knappetekst"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

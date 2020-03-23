@@ -27,7 +27,9 @@ class Page extends React.Component {
     this.validator = new ReeValidate({
       name: 'required|min:2',
       email: 'required|email',
-      message: 'required'
+      message: 'required',
+      company: 'required',
+      phone: 'required'
     });
     this.state = {
       isLoaded: false,
@@ -72,55 +74,53 @@ class Page extends React.Component {
       });
   }
 
-  handleChange(phone, type) {
-    if (type != "phone") {
-      const name = event.target.name;
-      const value = event.target.value;
-      const { errors } = this.validator;
+  handleChange(e, type) {
+    const name = event.target.name;
+    const value = event.target.value;
+    const { errors } = this.validator;
+    var { message } = this.state;
 
-      if (name != 'company') {
-        this.validator.validate(name, value)
-          .then(() => {
-            if (errors.items.length == 0) {
-              this.setState({ errors })
-              $('input[name=' + type + ']').addClass('success');
-              if (type == "message") {
-                $('textarea[name=' + type + ']').addClass('success');
-              }
-            } else {
-              this.setState({ errors })
-              $('input[name=' + type + ']').removeClass('success');
-              if (type == "message") {
-                $('textarea[name=' + type + ']').removeClass('success');
-              }
-            }
-          });
-      }
+    this.validator.validate(name, value)
+    .then(() => {
+      if (errors.items.length == 0) {
+        this.setState({ errors })
 
-      var { message } = this.state;
-      switch (type) {
-        case 'name':
-          message.name = event.target.value;
-          return this.setState({ message });
-        case 'company':
-          message.company = event.target.value;
-          return this.setState({ message });
-        case 'email':
-          message.email = event.target.value;
-          return this.setState({ message });
-        case 'message':
-          message.message = event.target.value;
-          return this.setState({ message });
-      }
-    } else {
-      var { message } = this.state;
-      if (isValidPhoneNumber(phone)) {
-        message.phone = phone;
-        this.setState({ phone, message, phoneError: false });
+        if (type == 'phone') {
+          if (!isValidPhoneNumber(event.target.value)) {
+            this.setState({ phone: event.target.value, phoneError: true });
+          }
+        }
+        
+        $('input[name=' + type + ']').addClass('success');
+        if (type == "message") {
+          $('textarea[name=' + type + ']').addClass('success');
+        }
+
+        switch (type) {
+          case 'name':
+            message.name = event.target.value;
+            return this.setState({ message });
+          case 'company':
+            message.company = event.target.value;
+            return this.setState({ message });
+          case 'email':
+            message.email = event.target.value;
+            return this.setState({ message });
+          case 'message':
+            message.message = event.target.value;
+            return this.setState({ message });
+          case 'phone':
+            message.phone = event.target.value;
+            return this.setState({ message });
+        }
       } else {
-        this.setState({ phone, phoneError: true });
+        this.setState({ errors })
+        $('input[name=' + type + ']').removeClass('success');
+        if (type == "message") {
+          $('textarea[name=' + type + ']').removeClass('success');
+        }
       }
-    }
+    });
   }
 
   handleCheckBoxClick() {
@@ -128,21 +128,18 @@ class Page extends React.Component {
   }
 
   handleSubmit(event) {
-    const { message, checked, checkbox_border } = this.state;
-
+    const { message, checked } = this.state;
     this.validator.validateAll(message)
       .then(success => {
         if (success) {
           if (!checked) {
             this.setState({ checkbox_border: !this.state.checkbox_border });
           } else {
-            this.setState({ isLoaded: false, isLoading: true });
             this.submit(message);
           }
         } else {
           const { errors } = this.validator;
           const ref = this;
-
           if (!checked) {
             this.setState({ checkbox_border: !this.state.checkbox_border });
           }
@@ -163,10 +160,17 @@ class Page extends React.Component {
   }
 
   submit(data) {
+    this.setState({ isLoaded: false, isLoading: true });
     Http.post('/api/send-message', { data: data })
       .then(
         res => {
-          this.setState({ isLoaded: true, isOpen: true, isLoading: false });
+          this.setState({ isLoaded: true, isOpen: true, isLoading: false, message: {
+            name: '',
+            email: '',
+            message: '',
+            phone: '',
+            company: ''
+          }, checked: false });
         }
       ).catch(err => {
         console.error(err);
@@ -189,7 +193,7 @@ class Page extends React.Component {
                   className="notice-modal"
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk skal du ha,'} <br />{lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
+                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
                   <p>{lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
                   <div className="button-group">
                     <Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
@@ -217,27 +221,36 @@ class Page extends React.Component {
                 <div className='contact-section'>
                   <Container className='custom-col-6'>
                     <Form className='message-form'>
-                      <div className="form-group">
-                        <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
-                        {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name field is required.':'Navnfeltet er påkrevd.':''}</Header>}
-                        <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} />
+                      <div className="d-flex">
+                        <div className="form-group">
+                          <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
+                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name field is required.':'Navnfeltet er påkrevd.':''}</Header>}
+                        </div>
+                        <div className="form-group">
+                          <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')}/>
+                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company')?lang=='en'?'The company field is required.':'Selskap er påkrevd.':''}</Header>}
+                        </div>
                       </div>
-                      <div className="form-group">
-                        <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
-                        {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
-                        {/* <div className='phone-form'>
-                                                    <label>Phone</label>
-                                                    <PhoneInput placeholder='Your phone number' className={phoneError?'':'success'} value={phone} flags={flags} onChange={ (phone) => this.handleChange(phone, 'phone') }  error={ phone && (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number')}/>
-                                                </div> */}
-                        <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
-                        {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
+                      <div className="d-flex">
+                        <div className="form-group">
+                          <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
+                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
+                        </div>
+                        <div className="form-group">
+                          <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
+                          {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
+                        </div>
                       </div>
-                      <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
-                      {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message field is required.':'Meldingsfeltet er påkrevd.':''}</Header>}
+                      <div className="d-flex">
+                        <div className="form-group">
+                          <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
+                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message field is required.':'Meldingsfeltet er påkrevd.':''}</Header>}
+                        </div>
+                      </div>
                       <div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
                         <Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree')} />
                         <div className='terms-section'>
-                          <Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} className='item-link'>{translate('contact.privacy-policy')}</Link>
+                          <Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('contact.privacy-policy')}</Link>
                         </div>
                       </div>
                       <Button fluid size='large' className={isLoading ? 'primary-button loading' : 'primary-button'} onClick={this.handleSubmit}>{translate('contact.send-message')}</Button>

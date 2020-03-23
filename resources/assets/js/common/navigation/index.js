@@ -211,11 +211,11 @@ class Page extends React.Component {
 								<Container className='custom-col-6'>
 									{isAdmin && isAuthenticated && is_dashboard ?
 										<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo' replace style={{ margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0, paddingTop: 12, height: '100%' }}>
-											<img src={require('../../../images/theme/fantasy-logo.png')} /></Menu.Item>
+											<img src={require('../../../images/theme/fantasylab-logo.svg')} /></Menu.Item>
 										:
 										<React.Fragment>
 											<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo' replace style={{ margin: 0, padding: 0, paddingRight: 20, paddingTop: 12, height: '100%' }}>
-												<img src={require('../../../images/theme/fantasy-logo.png')} /></Menu.Item>
+												<img src={require('../../../images/theme/fantasylab-logo.svg')} /></Menu.Item>
 											<Dropdown text={translate('navigation.services')} className='collapsible-menu nav-color services'>
 												<Dropdown.Menu>
 													<div className='custom-box'>

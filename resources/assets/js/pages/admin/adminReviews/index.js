@@ -39,7 +39,7 @@ class Page extends React.Component {
 			var key = type.split('_')[0];
 			if (item.id == key) {
 				if (type.includes('description')) {
-					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
+					if (ref.props.activeLanguage.code == 'en') {
 						var k = type.split('_')[1];
 						item[k] = event.target.value;
 					} else {
