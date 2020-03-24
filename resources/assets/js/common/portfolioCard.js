@@ -20,18 +20,34 @@ class PortfolioCard extends React.Component {
 			<ReactHoverObserver className='portfolio-item-observer'>
 				{({ isHovering }) => (
 					<div className='portfolio-item' style={isMobile ? item_hover : isHovering ? item_hover : {}}>
-						<div className='portfolio'>
-							<div className="avatar">
-								<img src={`${this.props.icon_url}`} />
-							</div>
-							{(isMobile || isHovering) &&
+						{isHovering ?
+							<div className='portfolio'>
+								<div className='hidden-tag'></div>
+								<div className='avatar'>
+									<img src={`${this.props.icon_url}`} />
+								</div>
 								<div className="hover-texts">
 									<Icon name='arrow right' className='icon-right-arrow' />
 									<h3 className='hover-title'>{this.props.title}</h3>
 									<p className='hover-des'>{this.props.description}</p>
 								</div>
-							}
-						</div>
+							</div>
+							:
+							<div className='portfolio'>
+								<div className='hidden-tag'></div>
+								<div className='avatar'>
+									<img src={`${this.props.icon_url}`} />
+								</div>
+								{isMobile ?
+									<div className="hover-texts">
+										<Icon name='arrow right' className='icon-right-arrow' />
+										<h3 className='hover-title'>{this.props.title}</h3>
+										<p className='hover-des'>{this.props.description}</p>
+									</div>
+									:
+									<div className='hidden-tag'></div>
+								}
+							</div>}
 					</div>
 				)}
 			</ReactHoverObserver>

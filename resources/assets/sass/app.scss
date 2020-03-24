@@ -871,65 +871,24 @@ body {
       background-position: center center;
       background-repeat: no-repeat;
       border-radius: 5px;
-      @media (min-width: 1280px) {
-        height: 300px;
-      }
+      display: flex;
+      justify-content: center;
+      align-items: center;
       .portfolio {
-        margin: auto;
         display: flex;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
         flex-direction: column;
+        height: 100%;
         .avatar {
-          margin-top: 110px;
-          margin-bottom: 50px;
-          position: relative;
-          width: 100%;
-          height: auto;
-          @media (min-width: 1280px) {
-            margin-top: 90px;
-            margin-bottom: 100px;
-          }
-          @media (min-width: 1920px) {
-            margin-top: 160px;
-            margin-bottom: 25px;
-          }
           img {
             width: auto;
             height: auto;
-            position: absolute;
-            top: 0;
-            left: 50px;
-            @media (min-width: 360px) {
-              left: 65px;
-            }
-            @media (min-width: 375px) {
-              left: 80px;
-            }
-            @media (min-width: 414px) {
-              left: 100px;
-            }
-            @media (min-width: 768px) {
-              left: 80px;
-            }
-            @media (min-width: 1024px) {
-              left: 60px;
-            }
-            @media (min-width: 1280px) {
-              top: 21px;
-              left: 64px;
-            }
-            @media (min-width: 1366px) {
-              top: 20px;
-              left: 70px;
-            }
-            @media (min-width: 1440px) {
-              left: 85px;
-            }
-            @media (min-width: 1920px) {
-              left: 90px;
-              top: -44px;
-            }
           } 
+        }
+        .hidden-tag {
+          opacity: 0;
+          height: 60px;
         }
         .hover-texts {
           width: 100%;
@@ -4889,9 +4848,6 @@ body {
           margin-top: 200px;
         }
         .home-section {
-          .portfolio-item-observer {
-            height: 100%;
-          }
           .alice-carousel {
             margin-left: 85px;
             .alice-carousel__stage-item {

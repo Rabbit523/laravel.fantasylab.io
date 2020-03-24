@@ -1011,106 +1011,27 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 5px;
-}
-
-@media (min-width: 1280px) {
-  .page .main .portfolio-item {
-    height: 300px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .page .main .portfolio-item .portfolio {
-  margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: column;
-}
-
-.page .main .portfolio-item .portfolio .avatar {
-  margin-top: 110px;
-  margin-bottom: 50px;
-  position: relative;
-  width: 100%;
-  height: auto;
-}
-
-@media (min-width: 1280px) {
-  .page .main .portfolio-item .portfolio .avatar {
-    margin-top: 90px;
-    margin-bottom: 100px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page .main .portfolio-item .portfolio .avatar {
-    margin-top: 160px;
-    margin-bottom: 25px;
-  }
+  height: 100%;
 }
 
 .page .main .portfolio-item .portfolio .avatar img {
   width: auto;
   height: auto;
-  position: absolute;
-  top: 0;
-  left: 50px;
 }
 
-@media (min-width: 360px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 65px;
-  }
-}
-
-@media (min-width: 375px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 80px;
-  }
-}
-
-@media (min-width: 414px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 100px;
-  }
-}
-
-@media (min-width: 768px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 80px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 60px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    top: 21px;
-    left: 64px;
-  }
-}
-
-@media (min-width: 1366px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    top: 20px;
-    left: 70px;
-  }
-}
-
-@media (min-width: 1440px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 85px;
-  }
-}
-
-@media (min-width: 1920px) {
-  .page .main .portfolio-item .portfolio .avatar img {
-    left: 90px;
-    top: -44px;
-  }
+.page .main .portfolio-item .portfolio .hidden-tag {
+  opacity: 0;
+  height: 60px;
 }
 
 .page .main .portfolio-item .portfolio .hover-texts {
@@ -5367,10 +5288,6 @@ body {
 
   .page .main .home-page .home-section:nth-of-type(1) {
     margin-top: 200px;
-  }
-
-  .page .main .home-page .home-section .portfolio-item-observer {
-    height: 100%;
   }
 
   .page .main .home-page .home-section .alice-carousel {
