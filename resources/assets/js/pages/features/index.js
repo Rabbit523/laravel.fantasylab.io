@@ -46,7 +46,7 @@ class Page extends React.Component {
 
 	closeModal() {
 		this.setState({ isOpen: false });
-		this.props.history.go(-1)
+		this.props.history.go(-1);
 	}
 
 	render() {

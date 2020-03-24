@@ -46,11 +46,7 @@ class Page extends React.Component {
 
   closeModal() {
     this.setState({ isOpen: false });
-    if (this.props.lang === 'en') {
-      this.props.history.push('/')
-    } else {
-      this.props.history.push('/no')
-    }
+    this.props.history.go(-1);
   }
 
   render() {
