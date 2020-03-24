@@ -96,6 +96,9 @@ class Page extends React.Component {
 			case 'review_job':
 				reviews.job = event.target.value;
 				return this.setState({ reviews });
+			case 'review_btn_en':
+				reviews.btn_en = event.target.value;
+				return this.setState({ reviews });
 			case 'review_url':
 				reviews.path = event.target.value;
 				return this.setState({ reviews });
@@ -140,6 +143,9 @@ class Page extends React.Component {
 			case 'no_review_description':
 				reviews.no_description = event.target.value;
 				return this.setState({ reviews });
+			case 'review_btn_no':
+				reviews.btn_no = event.target.value;
+				return this.setState({ reviews });
 			case 'no_footer_title':
 				list.no_footer_title = event.target.value;
 				return this.setState({ list });
@@ -178,7 +184,7 @@ class Page extends React.Component {
 		if (type.includes('icon')) {
 			Object.keys(list.icons).map((key, i) => {
 				var sub_key = type.split('icon')[1];
-				if (ref.props.lang == 'en' || ref.props.lang == undefined) {
+				if (this.props.activeLanguage.code == 'en') {
 					list.icons[sub_key].text = event.target.value;
 				} else {
 					list.icons[sub_key].no_text = event.target.value;
@@ -190,7 +196,7 @@ class Page extends React.Component {
 		if (type.includes('start')) {
 			var index = type.split('_')[0];
 			if (type.includes('title') || type.includes('description')) {
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (this.props.activeLanguage.code == 'en') {
 					var sub_key = type.split('_')[2];
 					starting[index][sub_key] = event.target.value;
 				} else {
@@ -206,7 +212,7 @@ class Page extends React.Component {
 
 		if (type.includes('estimation')) {
 			if (type.includes('title') || type.includes('description')) {
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (this.props.activeLanguage.code == 'en') {
 					var sub_key = type.split('_')[2];
 					var key = type.split('_')[1];
 					estimation[sub_key][key] = event.target.value;
@@ -229,7 +235,7 @@ class Page extends React.Component {
 					technologies[key].lang = event.target.value;
 					ref.setState({ technologies });
 				} else if (type.includes('description')) {
-					if (ref.props.lang == 'en' || ref.props.lang == undefined) {
+					if (ref.props.activeLanguage.code == 'en') {
 						technologies[key].text = event.target.value;
 					} else {
 						technologies[key].no_text = event.target.value;
@@ -663,6 +669,7 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={reviews.description} onChange={(val) => this.handleChange(val, 'review_description')} />
 													<Form.Input fluid label={translate('card.job')} name='job' placeholder={translate('card.job')} className="input-form" value={reviews.job} onChange={(val) => this.handleChange(val, 'review_job')} />
 													<Form.Input fluid label="URL" name='url' placeholder='button url' className="input-form" value={reviews.path} onChange={(val) => this.handleChange(val, 'review_url')} />
+													<Form.Input fluid label={translate('card.button-text')} name='button_text' placeholder={translate('card.button-text')} className="input-form" value={reviews.btn_en} onChange={(val) => this.handleChange(val, 'review_btn_en')} />
 													<Form>
 														<label>{translate('card.background-img')}</label>
 														<Form.Field>
@@ -860,6 +867,7 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={reviews.no_title} onChange={(val) => this.handleChange(val, 'no_review_title')} />
 													<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={reviews.no_description} onChange={(val) => this.handleChange(val, 'no_review_description')} />
 													<Form.Input fluid label={translate('card.job')} name='job' placeholder={translate('card.job')} className="input-form" value={reviews.job} onChange={(val) => this.handleChange(val, 'review_job')} />
+													<Form.Input fluid label={translate('card.button-text')} name='button_text' placeholder={translate('card.button-text')} className="input-form" value={reviews.btn_no} onChange={(val) => this.handleChange(val, 'review_btn_no')} />
 													<Form.Input fluid label="URL" name='url' placeholder='button url' className="input-form" value={reviews.path} onChange={(val) => this.handleChange(val, 'review_url')} />
 													<Form>
 														<label>{translate('card.background-img')}</label>

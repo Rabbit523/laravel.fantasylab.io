@@ -48,7 +48,7 @@ class HeadquaterItem extends React.Component {
 					style={customStyles}
 				>
 					<Button icon='close' onClick={this.closeModal} />
-					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk skal du ha,'} <br />{this.props.lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
+					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{this.props.lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
                   	<p>{this.props.lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
 					<div className="button-group">
 						<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact us' : 'kontakt oss'}</Button>
@@ -67,7 +67,7 @@ class HeadquaterItem extends React.Component {
 					</div>
 					{this.props.type == 'call' && <a href={`tel:${this.props.button}`} className="primary-button headquater-button">{this.props.lang == 'en' ? 'Call Us' : 'Ring oss'}</a>}
 					{this.props.type == 'email' && <a href='mailto:support@fantasylab.io' className="primary-button headquater-button">{this.props.button}</a>}
-					{this.props.type == 'chat' && <a href='https://www.google.com/maps/place/Selma+Ellefsens+Vei+2,+0581+Oslo/@59.9258526,10.8067645,17z/data=!3m1!4b1!4m5!3m4!1s0x46416fb461bfa19f:0x63b68cd75645a10d!8m2!3d59.9258499!4d10.8089532' className="primary-button headquater-button" target="_blank">{this.props.lang == 'en'?'View Map':'Vis kart'}</a>}
+					{this.props.type == 'chat' && <a href={`tel:${this.props.button}`} className="primary-button headquater-button">{this.props.lang == 'en' ? 'Call Us' : 'Ring oss'}</a>}
 					{this.props.type == 'start' && <Button className="primary-button headquater-button" onClick={(event) => this.triggerModal(event)}>{this.props.button}</Button>}
 				</div>
 			</React.Fragment>

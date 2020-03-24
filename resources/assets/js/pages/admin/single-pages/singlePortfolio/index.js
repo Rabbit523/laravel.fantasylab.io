@@ -117,7 +117,7 @@ class Page extends React.Component {
 		list.main_description.map((item, index) => {
 			if (type.includes('subtext')) {
 				var keys = type.split('subtext')[1];
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (ref.props.activeLanguage.code == 'en') {
 					var key = 'text' + (parseInt(keys) + 1);
 					list.main_description[val].sub[key] = event.target.value;
 				} else {
@@ -127,7 +127,7 @@ class Page extends React.Component {
 				ref.setState({ list });
 			} else if (type.includes('sub_title')) {
 				var sub_key = type.split('sub_title')[1];
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (ref.props.activeLanguage.code == 'en') {
 					list.main_description[sub_key]['title'] = event.target.value;
 				} else {
 					list.main_description[sub_key]['no_title'] = event.target.value;
@@ -135,7 +135,7 @@ class Page extends React.Component {
 				ref.setState({ list });
 			} else if (type.includes('sub_description')) {
 				var sub_key = type.split('sub_description')[1];
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (ref.props.activeLanguage.code == 'en') {
 					list.main_description[sub_key]['text'] = event.target.value;
 				} else {
 					list.main_description[sub_key]['no_text'] = event.target.value;
@@ -146,7 +146,7 @@ class Page extends React.Component {
 
 		if (type.includes('subimage')) {
 			var key = type.charAt(type.length - 1);
-			if (this.props.lang == 'en' || ref.props.lang == undefined) {
+			if (this.props.activeLanguage.code == 'en') {
 				list.sub_images[key].text = event.target.value;
 			} else {
 				list.sub_images[key].no_text = event.target.value;
@@ -156,7 +156,7 @@ class Page extends React.Component {
 
 		if (type.includes('service')) {
 			if (type.includes('title') || type.includes('description') || type.includes('url')) {
-				if (this.props.lang == 'en' || ref.props.lang == undefined) {
+				if (this.props.activeLanguage.code == 'en') {
 					var key = type.split('_')[1];
 					var sub_key = type.split('_')[2];
 					services[sub_key][key] = event.target.value;

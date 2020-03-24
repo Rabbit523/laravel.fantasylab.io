@@ -2198,29 +2198,32 @@ body {
   border-radius: 5px;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group {
+.page .main .contact-page .contact-section .message-form .d-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group {
   display: flex;
   justify-content: space-between;
   position: relative;
-  flex-direction: row;
+  flex: 1;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .field {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group:first-child {
+  margin-right: 15px;
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .ui.header {
+  margin: 0;
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .field {
   flex: 1;
-  margin-left: 20px;
-  margin-right: 20px;
   margin-bottom: 25px;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .field:first-child {
-  margin-left: 0;
-}
-
-.page .main .contact-page .contact-section .message-form .form-group .field:last-child {
-  margin-right: 0;
-}
-
-.page .main .contact-page .contact-section .message-form .form-group .phone-form {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form {
   text-align: left;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -2228,16 +2231,16 @@ body {
   flex: 1;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form svg {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form svg {
   color: #8341ff;
   width: 20px;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
   border-color: #94d544 !important;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
@@ -2249,34 +2252,34 @@ body {
   padding-bottom: 20px;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:hover {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:hover {
   border-color: #465489 !important;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:focus,
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone:active {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:focus,
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:active {
   border-color: #8341ff !important;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form input:focus::-webkit-input-placeholder {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form input:focus::-webkit-input-placeholder {
   color: #fff;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__error {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__error {
   font-family: "Gotham Bold";
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__input--invalid {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__input--invalid {
   border-color: #e71f1f;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__country-select-arrow {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .phone-form .react-phone-number-input__country-select-arrow {
   margin-left: 1.3em;
 }
 
-.page .main .contact-page .contact-section .message-form .form-group .custom-error {
+.page .main .contact-page .contact-section .message-form .d-flex .form-group .custom-error {
   position: absolute;
-  bottom: -10px;
+  bottom: 5px;
   padding: 0;
   font-family: "Gotham Bold";
 }
@@ -2357,9 +2360,7 @@ body {
 }
 
 .page .main .contact-page .contact-section .message-form .privacy-section {
-  padding-top: 10px;
   padding-bottom: 10px;
-  margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: row;
@@ -3652,6 +3653,11 @@ body {
   overflow-y: scroll;
 }
 
+.cookieConsent .cookie-consent .cookie-des .cookie-content .cookie-des-content ul li a {
+  color: #7d3ef5;
+  text-decoration: none;
+}
+
 .cookieConsent .cookie-consent .cookie-des .cookie-content .cookie-des-content h2 {
   font-family: "Gotham Bold";
   color: #fff;
@@ -3728,6 +3734,11 @@ body {
 
   .segment.mobile-navbar .secondary.menu .logo {
     flex: 1;
+  }
+
+  .segment.mobile-navbar .secondary.menu .logo:hover,
+  .segment.mobile-navbar .secondary.menu .logo:active {
+    background: transparent !important;
   }
 
   .segment.mobile-navbar .secondary.menu .logo img {
@@ -4196,11 +4207,6 @@ body {
 
   .page .main .contact-page .contact-section .message-form .form-group .phone-form {
     margin-left: 0px;
-  }
-
-  .page .main .contact-page .contact-section .message-form .form-group .field {
-    margin-left: 0;
-    margin-right: 0;
   }
 
   .page .main .contact-page .contact-section .message-form .form-group .custom-error {
@@ -4711,6 +4717,11 @@ body {
 }
 
 @media (min-width: 411px) {
+  .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
+    width: 411px;
+    left: -310px;
+  }
+
   .cookieConsent .btn {
     left: 138px;
   }
@@ -5258,7 +5269,7 @@ body {
   }
 
   .segment.navbar .logo img {
-    width: 89px !important;
+    width: 75px !important;
   }
 
   .segment.navbar .nav-color {
@@ -5588,11 +5599,6 @@ body {
 
   .page .main .contact-page .contact-section .message-form .form-group {
     flex-direction: row;
-  }
-
-  .page .main .contact-page .contact-section .message-form .form-group .field {
-    margin-left: 15px;
-    margin-right: 15px;
   }
 
   .page .main .contact-page .contact-section .message-form .form-group .phone-form .react-phone-number-input__phone {
@@ -6799,7 +6805,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 180px;
+    left: 175px;
   }
 }
 

@@ -1500,7 +1500,8 @@ class PagesController extends Controller
                     'no_title' => $request_data['no_title'],
                     'description' => $request_data['description'],
                     'no_description' => $request_data['no_description'],
-                    'back_url' => $request_data['back_url']
+                    'back_url' => $request_data['back_url'],
+                    'icon_url' => $request_data['avatar']
                 ];
                 $array = json_decode(json_encode($portfolio_data->portfolios), true);
                 $portfolio_data->portfolios = array($request_data['type'] => $new_portfolio) + $array;

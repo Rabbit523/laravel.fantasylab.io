@@ -92,10 +92,6 @@
         "btn-create-account": ["Create account", "Opprett konto"],
         "signup-google": ["Sign up with Google", "Registrer deg med Google"]
     },
-    "service": {
-        "case-study": ["CASE STUDY", "CASESTUDIE"],
-        "read-study": ["Read case study", "Les casestudie"]
-    },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
         "loading": ["Loading...", "Laster ..."]
@@ -161,7 +157,8 @@
         "manage-section": ["Manage Section", "Administrer seksjonen"],
         "scale-section": ["Scale Section", "Skala seksjonen"],
         "feature-section": ["Feature Section", "Funksjonsseksjon"],
-        "server-section": ["Server Section", "Server seksjon"]
+        "server-section": ["Server Section", "Server seksjon"],
+        "button-text": ["Button Text", "Knappetekst"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],
@@ -220,5 +217,8 @@
         "deleing-cookies-remember": ["Remember: If you use multiple browsers, you must delete cookies individually.", "Husk: Hvis du bruker flere nettlesere, må du slette cookies hver enkelt."],
         "do-you-have-question": ["Do you have questions?", "Har du spørsmål?"],
         "do-you-have-question-answer": ["If you have any comments or questions regarding information and / or processing of personal information, you are welcome to contact us. The cookie declaration is updated every month by Cookie Information . If you have any questions about this or any other part of the solution, please email info@cookieinformation.com.", "Hvis du har kommentarer eller spørsmål i forbindelse med informasjon og/eller behandling av personlige opplysninger, er du velkommen til å ta kontakt med oss. Cookiedeklarasjonen oppdateres hver måned av Cookie Information. Hvis du har spørsmål til denne eller andre deler av løsningen, kan du sende en mail til info@cookieinformation.com."]
+    },
+    "service": {
+        "case-study": ["Case Study", "Casestudie"]
     }
 }
