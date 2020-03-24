@@ -149,10 +149,10 @@ class Page extends React.Component {
 										<Grid columns={3}>
 											{data.services.map((item, index) => (
 												<React.Fragment key={index}>
-													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
+													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: lang=='en'?`/${item.url}` : `/no/${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
-													<Grid.Column only="computer" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
+													<Grid.Column only="computer" as={Link} to={{ pathname: lang=='en'?`/${item.url}` : `/no/${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
 												</React.Fragment>

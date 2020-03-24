@@ -120,11 +120,11 @@ class Page extends React.Component {
                       {Object.keys(data.services).map((key, index) => (
                         <React.Fragment key={index}>
                           {index < 2 &&
-                            <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang == 'en' ? data.services[key].url : data.services[key].no_url}>
+                            <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang == 'en' ? `/${data.services[key].url}` : `/no/${data.services[key].no_url}`}>
                               <ServiceItem avatar={data.services[key].avatar} title={lang == 'en' ? data.services[key].title : data.services[key].no_title} color={data.services[key].color} description={lang == 'en' ? data.services[key].description : data.services[key].no_description} backimage={data.services[key].backimage} />
                             </Grid.Column>}
                           {index >= 2 &&
-                            <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang == 'en' ? data.services[key].url : data.services[key].no_url}>
+                            <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang == 'en' ? `/${data.services[key].url}` : `/no/${data.services[key].no_url}`}>
                               <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={lang == 'en' ? data.services[key].title : data.services[key].no_title} color={data.services[key].color} description={lang == 'en' ? data.services[key].description : data.services[key].no_description} backimage={data.services[key].backimage} />
                             </Grid.Column>}
                         </React.Fragment>
