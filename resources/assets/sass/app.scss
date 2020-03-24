@@ -1025,7 +1025,7 @@ body {
           height: 30px;
           position: absolute;
           top: 25px;
-          right: 80px;
+          right: 25px;
           i {
             margin-left: 3px;
             margin-top: 6px;
@@ -1064,8 +1064,41 @@ body {
           border: 1px solid #7436e9;
         }
       }
+      @media (min-width: 320px) {
+        .review-avatar {
+          margin: 0 45px;
+        }
+      }
+      @media (min-width: 360px) {
+        .review-avatar {
+          margin: 0 65px;
+        }
+      }
+      @media (min-width: 375px) {
+        .review-avatar {
+          margin: 0 50px;
+        }
+      }
+      @media (min-width: 414px) {
+        .review-avatar {
+          margin: 0 70px;
+        }
+      }
+      @media (min-width: 1280px) {
+        .review-avatar {
+          margin: 0 80px;
+        }
+      }
       @media (min-width: 1366px) {
         padding: 20px 40px 30px 40px;
+        .review-avatar {
+          margin: 0 50px;
+        }
+      }
+      @media (min-width: 1920px) {
+        .review-avatar {
+          margin: 0 80px;
+        }
       }
     }
     .alice-carousel {
@@ -1602,11 +1635,15 @@ body {
         &.review {
           height: 130px;
           margin-top: 120px;
+          .ui.container {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+          }
           .review-item {
             position: absolute;
             width: 280px;
             top: -100px;
-            left: 40%;
             padding: 30px 20px 40px 20px;
             .review-text-section {
               h3 {
@@ -3349,8 +3386,6 @@ body {
           .review-item {
             .review-avatar {
               .icon-quote-right {
-                top: 30px;
-                right: 60px;
                 i {
                   margin-left: 5px;
                   margin-top: 8px;
@@ -3437,7 +3472,6 @@ body {
           &.review {
             .review-item {
               width: 260px;
-              left: 30px;
               .description {
                 display: -webkit-box;
                 min-height: 123px;
@@ -3958,7 +3992,6 @@ body {
           .review-item {
             .review-avatar {
               .icon-quote-right {
-                right: 80px;
                 i {
                   margin-left: 6px;
                 }
@@ -4015,7 +4048,6 @@ body {
           &.review {
             .review-item {
               width: 300px;
-              left: 30px;
             }
           }
         }
@@ -4061,17 +4093,6 @@ body {
   }
   .page {
     .main {
-      .home-page {
-        .home-section {
-          .review-item {
-            .review-avatar {
-              .icon-quote-right {
-                right: 85px;
-              }
-            }
-          }
-        }
-      }
       .portfolio-page {
         .portfolio-header {
           .header-gradient {
@@ -4111,7 +4132,6 @@ body {
           &.review {
             .review-item {
               width: 315px;
-              left: 30px;
               padding: 50px 40px 50px 40px;
             }
           }
@@ -4144,7 +4164,6 @@ body {
           .review-item {
             .review-avatar {
               .icon-quote-right {
-                right: 90px;
                 i {
                   margin-left: 5px;
                 }
@@ -4225,7 +4244,6 @@ body {
           .review-item {
             .review-avatar {
               .icon-quote-right {
-                right: 105px;
                 i {
                   margin-left: 6px;
                 }
@@ -4260,7 +4278,6 @@ body {
           &.review {
             .review-item {
               width: 355px;
-              left: 30px;
               padding: 50px 40px 50px 40px;
             }
           }
@@ -4387,13 +4404,6 @@ body {
           margin-top: 510px;
         }
         .home-section {
-          .review-item {
-            .review-avatar {
-              .icon-quote-right {
-                right: 100px;
-              }
-            }
-          }
           .alice-carousel{ 
             .alice-carousel__stage-item {
               width: 346.5px !important;
@@ -4448,11 +4458,6 @@ body {
               p {
                 width: 94%;
               }
-            }
-          }
-          &.review {
-            .review-item {
-              left: 200px;
             }
           }
         }
@@ -4662,13 +4667,6 @@ body {
           margin-top: 210px;
         }
         .home-section {
-          .review-item {
-            .review-avatar {
-              .icon-quote-right {
-                right: 155px;
-              }
-            }
-          }
           .alice-carousel{ 
             .alice-carousel__stage-item {
               width: 451.5px !important;
@@ -4741,11 +4739,6 @@ body {
               p {
                 width: 86%;
               }
-            }
-          }
-          &.review {
-            .review-item {
-              left: 330px;
             }
           }
         }
@@ -4899,13 +4892,6 @@ body {
           .portfolio-item-observer {
             height: 100%;
           }
-          .review-item {
-            .review-avatar {
-              .icon-quote-right {
-                right: 110px;
-              }
-            }
-          }
           .alice-carousel {
             margin-left: 85px;
             .alice-carousel__stage-item {
@@ -4994,7 +4980,6 @@ body {
             margin-top: 200px;
             .review-item {
               width: 350px;
-              left: 35%;
               padding: 30px 30px 40px 30px;
             }
           }
@@ -5468,13 +5453,6 @@ body {
       }
       .home-page {
         .home-section {
-          .review-item {
-            .review-avatar {
-              .icon-quote-right {
-                right: 100px;
-              }
-            }
-          }
           .alice-carousel {
             margin-left: 52px;
             .alice-carousel__stage-item {
@@ -5549,7 +5527,6 @@ body {
           &.review {
             .review-item {
               width: 280px;
-              left: 40%;
               padding: 30px 20px 40px 20px;
             }
           }
@@ -6011,7 +5988,6 @@ body {
           &.review {
             .review-item {
               width: 400px;
-              left: 40%;
               padding: 50px;
               .review-text-section {
                 .description {

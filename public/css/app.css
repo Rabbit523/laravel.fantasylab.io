@@ -1244,7 +1244,7 @@ body {
   height: 30px;
   position: absolute;
   top: 25px;
-  right: 80px;
+  right: 25px;
 }
 
 .page .main .review-item .review-avatar .icon-quote-right i {
@@ -1289,9 +1289,49 @@ body {
   border: 1px solid #7436e9;
 }
 
+@media (min-width: 320px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 45px;
+  }
+}
+
+@media (min-width: 360px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 65px;
+  }
+}
+
+@media (min-width: 375px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 50px;
+  }
+}
+
+@media (min-width: 414px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 70px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 80px;
+  }
+}
+
 @media (min-width: 1366px) {
   .page .main .review-item {
     padding: 20px 40px 30px 40px;
+  }
+
+  .page .main .review-item .review-avatar {
+    margin: 0 50px;
+  }
+}
+
+@media (min-width: 1920px) {
+  .page .main .review-item .review-avatar {
+    margin: 0 80px;
   }
 }
 
@@ -1959,11 +1999,16 @@ body {
   margin-top: 120px;
 }
 
+.page .main .singlePortfolio-page .portfolio-section.review .ui.container {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
 .page .main .singlePortfolio-page .portfolio-section.review .review-item {
   position: absolute;
   width: 280px;
   top: -100px;
-  left: 40%;
   padding: 30px 20px 40px 20px;
 }
 
@@ -3957,11 +4002,6 @@ body {
     margin-top: 200px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    top: 30px;
-    right: 60px;
-  }
-
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 5px;
     margin-top: 8px;
@@ -4053,7 +4093,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 260px;
-    left: 30px;
   }
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item .description {
@@ -4581,10 +4620,6 @@ body {
     height: 40px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 80px;
-  }
-
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 6px;
   }
@@ -4619,7 +4654,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 300px;
-    left: 30px;
   }
 
   .page .main .contact-page .contact-section {
@@ -4640,10 +4674,6 @@ body {
   .segment.mobile-navbar .menu .right.menu .item:last-child .menu.transition {
     width: 375px;
     left: -275px;
-  }
-
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 85px;
   }
 
   .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -4672,7 +4702,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 315px;
-    left: 30px;
     padding: 50px 40px 50px 40px;
   }
 
@@ -4695,10 +4724,6 @@ body {
 }
 
 @media (min-width: 384px) {
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 90px;
-  }
-
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 5px;
   }
@@ -4745,10 +4770,6 @@ body {
     margin-top: 280px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 105px;
-  }
-
   .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right i {
     margin-left: 6px;
   }
@@ -4767,7 +4788,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 355px;
-    left: 30px;
     padding: 50px 40px 50px 40px;
   }
 
@@ -4883,10 +4903,6 @@ body {
     margin-top: 510px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 100px;
-  }
-
   .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 346.5px !important;
   }
@@ -4927,10 +4943,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 94%;
-  }
-
-  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
-    left: 200px;
   }
 
   .page .main .service-page .service-header {
@@ -5154,10 +5166,6 @@ body {
     margin-top: 210px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 155px;
-  }
-
   .page .main .home-page .home-section .alice-carousel .alice-carousel__stage-item {
     width: 451.5px !important;
   }
@@ -5220,10 +5228,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 86%;
-  }
-
-  .page .main .singlePortfolio-page .portfolio-section.review .review-item {
-    left: 330px;
   }
 
   .footer {
@@ -5369,10 +5373,6 @@ body {
     height: 100%;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 110px;
-  }
-
   .page .main .home-page .home-section .alice-carousel {
     margin-left: 85px;
   }
@@ -5476,7 +5476,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 350px;
-    left: 35%;
     padding: 30px 30px 40px 30px;
   }
 
@@ -5935,10 +5934,6 @@ body {
     height: 150px;
   }
 
-  .page .main .home-page .home-section .review-item .review-avatar .icon-quote-right {
-    right: 100px;
-  }
-
   .page .main .home-page .home-section .alice-carousel {
     margin-left: 52px;
   }
@@ -6022,7 +6017,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 280px;
-    left: 40%;
     padding: 30px 20px 40px 20px;
   }
 
@@ -6459,7 +6453,6 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section.review .review-item {
     width: 400px;
-    left: 40%;
     padding: 50px;
   }
 

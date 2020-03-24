@@ -70,7 +70,7 @@ class Page extends React.Component {
 									<Container className='custom-col-6'>
 										<Grid columns={3}>
 											{data.main_description.map((item, index) => (
-												<React.Fragment key={index}>
+												item.title != null && <React.Fragment key={index}>
 													<Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
 														<h3 className="sub_title">{lang == 'en' ? item.title : item.no_title}</h3>
 														<p className="sub_text">{lang == 'en' ? item.text : item.no_text}</p>
@@ -94,9 +94,8 @@ class Page extends React.Component {
 																	</div>)
 																)
 															})}
-														</React.Fragment>
-														}
-														{lang == 'no' && <React.Fragment>
+															</React.Fragment>}
+														{lang == 'nb' && <React.Fragment>
 															{Object.keys(item.sub).map((key, i) => {
 																return (
 																	(0 < index < 4) && key.includes("no") &&
@@ -106,8 +105,7 @@ class Page extends React.Component {
 																	</div>)
 																)
 															})}
-														</React.Fragment>
-														}
+															</React.Fragment>}
 													</Grid.Column>
 												</React.Fragment>
 											))}
