@@ -210,6 +210,10 @@ body {
     padding: 20px !important;
     background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
     border: none !important;
+    outline: 0 !important;
+    &:focus {
+      outline: 0 !important;
+    }
     &.notice-modal {
       .button-group {
         float: right;

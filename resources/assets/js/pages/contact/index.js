@@ -193,7 +193,7 @@ class Page extends React.Component {
                   className="notice-modal"
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
+                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'visionary.' : 'visjonær.' }</h2>
                   <p>{lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
                   <div className="button-group">
                     <Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>

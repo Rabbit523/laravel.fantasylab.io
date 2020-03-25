@@ -167,7 +167,7 @@
     },
     "modal": {
         "greeting-hi": ["Hi", "Hei"],
-        "visionary": ["Visionary", "Visjonær"],
+        "visionary": ["visionary", "visjonær"],
         "description":["Our web app is under development.", "Nettappen vår er under utvikling."],
         "contact": ["Contact us", "Kontakt oss"],
         "close": ["Close", "Lukk"],
