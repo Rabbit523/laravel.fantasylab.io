@@ -1515,7 +1515,10 @@ body {
             .portfolio-header-text {
               padding-bottom: 50px;
               p {
-                color: #9da6c7;
+                color: #fff;
+                font-size: 18px;
+                font-family: 'Gotham Book';
+                font-weight: 400;
               }
             }
             .portfolio-header-figure {
@@ -1785,6 +1788,7 @@ body {
                 color: #fff;
                 font-size: 18px;
                 font-family: 'Gotham Book';
+                font-weight: 400;
               }
             }
           }
@@ -3546,9 +3550,6 @@ body {
               padding: 50px 0px 0px 0px;
               .header-text {
                 padding: 0;
-                h2 {
-                  line-height: 1.4285em;
-                }
               }
             }
           }

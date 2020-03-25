@@ -182,7 +182,7 @@ class Page extends React.Component {
                       <Grid columns={3}>
                         {data.news.data.map((item, i) => (
                           <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-                            <NewsCard url={item.url} author={item.author} type={item.type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
+                            <NewsCard lang={lang} url={item.url} author={item.author} type={item.type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
                           </Grid.Column>
                         ))}
                       </Grid>

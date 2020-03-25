@@ -592,8 +592,8 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             } else if ($service_type == "services_title") {
-                $data->services->title = $request->title;
-                $data->services->no_title = $request->no_title;
+                $data->services->title = $request_data['title'];
+                $data->services->no_title = $request_data['no_title'];
                 $page->data = json_encode($data);
                 $page->save();
             } else if ($service_type == "services_delete") {
@@ -647,6 +647,33 @@ class PagesController extends Controller
                 $data->headquarters->no_title = $request_data['no_title'];
                 $data->headquarters->no_description = $request_data['no_description'];
                 $data->headquarters->backimage = $request_data['backimage'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == "news_title") {
+                $data->news->title = $request_data['title'];
+                $data->news->no_title = $request_data['no_title'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($service_type == "news_item") {
+                if($data->news->data[$request->id]->url != $request_data['data'][$request->id]['url']) {
+                    if (strpos($request_data['data'][$request->id]['url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = 'about_news_item'.$request->id.'_avatar.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['data'][$request->id]['url'] = $path;
+                }
+                $data->news->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();
             }

@@ -1826,7 +1826,10 @@ body {
 }
 
 .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-text p {
-  color: #9da6c7;
+  color: #fff;
+  font-size: 18px;
+  font-family: "Gotham Book";
+  font-weight: 400;
 }
 
 .page .main .portfolio-page .portfolio-header .header-gradient .portfolio-header-description .portfolio-header-figure {
@@ -2144,6 +2147,7 @@ body {
   color: #fff;
   font-size: 18px;
   font-family: "Gotham Book";
+  font-weight: 400;
 }
 
 .page .main .contact-page .contact-header .header-gradient .custom-row .custom-column:first-child {
@@ -4146,10 +4150,6 @@ body {
 
   .page .main .contact-page .contact-header .header-gradient .header-description .header-text {
     padding: 0;
-  }
-
-  .page .main .contact-page .contact-header .header-gradient .header-description .header-text h2 {
-    line-height: 1.4285em;
   }
 
   .page .main .contact-page .contact-section {

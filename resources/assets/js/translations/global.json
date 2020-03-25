@@ -121,6 +121,7 @@
         "news-section": ["News Section", "Nyhetsseksjonen"],
         "image-upload": ["Image Upload", "Bildeopplasting"],
         "read": ["Read", "Lese"],
+        "time": ["Time", "Tid"],
         "author": ["Author", "Forfatter"],
         "color": ["Color", "Farge"],
         "avatar-img": ["Avatar Image", "Avatar-bilde"],
