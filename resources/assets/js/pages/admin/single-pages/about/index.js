@@ -457,6 +457,7 @@ class Page extends React.Component {
 				list[key] = services;
 			}
 		});
+		console.log(services.data[0]);
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services_data', id: type })
 			.then(

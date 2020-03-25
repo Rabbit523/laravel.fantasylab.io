@@ -513,11 +513,11 @@ class PagesController extends Controller
                 $page->save();
             } else if ($service_type == "services_data") {
                 if (array_key_exists($request->id, $data->services->data)) {
-                    if($data->services->data[$request->id]->avatar != $request_data[$request->id]['avatar']) {
-                        if (strpos($request_data[$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
-                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['avatar']);
+                    if($data->services->data[$request->id]->avatar != $request_data['data'][$request->id]['avatar']) {
+                        if (strpos($request_data['data'][$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['avatar']);
                         } else {
-                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['avatar']);
+                            $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['avatar']);
                         }
                         $base_code = base64_decode($img);
                         $name = 'about_'.$request_data[$request->id]['url'].'_avatar.png';
@@ -531,14 +531,14 @@ class PagesController extends Controller
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                         $request_data[$request->id]['avatar'] = $path;
                     }
-                    if($data->services->data[$request->id]->backimage != $request_data[$request->id]['backimage']) {
-                        if (strpos($request_data[$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
-                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['backimage']);
+                    if($data->services->data[$request->id]->backimage != $request_data['data'][$request->id]['backimage']) {
+                        if (strpos($request_data['data'][$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['backimage']);
                         } else {
-                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['backimage']);
+                            $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['backimage']);
                         }
                         $base_code = base64_decode($img);
-                        $name = 'about_'.$request_data[$request->id]['url'].'_back.png';
+                        $name = 'about_'.$request_data['data'][$request->id]['url'].'_back.png';
                         $file = $uploads_dir . $name;
                         if(File::exists($file)) {
                             File::delete($file);
@@ -547,18 +547,18 @@ class PagesController extends Controller
                         $url = url("/assets/uploads") ."/" . $name;
                         $arr = explode("/", $url);
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                        $request_data[$request->id]['backimage'] = $path;
+                        $request_data['data'][$request->id]['backimage'] = $path;
                     }
-                    $data->services->data[$request->id] = $request_data[$request->id];
+                    $data->services->data[$request->id] = $request_data['data'][$request->id];
                 } else {
-                    if ($request_data[$request->id]['avatar'] != null) {
-                        if (strpos($request_data[$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
-                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['avatar']);
+                    if ($request_data['data'][$request->id]['avatar'] != null) {
+                        if (strpos($request_data['data'][$request->id]['avatar'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['avatar']);
                         } else {
-                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['avatar']);
+                            $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['avatar']);
                         }
                         $base_code = base64_decode($img);
-                        $name = 'about_'.$request_data[$request->id]['url'].'_avatar.png';
+                        $name = 'about_'.$request_data['data'][$request->id]['url'].'_avatar.png';
                         $file = $uploads_dir . $name;
                         if(File::exists($file)) {
                             File::delete($file);
@@ -567,16 +567,16 @@ class PagesController extends Controller
                         $url = url("/assets/uploads") ."/" . $name;
                         $arr = explode("/", $url);
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                        $request_data[$request->id]['avatar'] = $path;
+                        $request_data['data'][$request->id]['avatar'] = $path;
                     }
-                    if ($request_data[$request->id]['backimage'] != null) {
-                        if (strpos($request_data[$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
-                            $img = str_replace('data:image/jpeg;base64,', '', $request_data[$request->id]['backimage']);
+                    if ($request_data['data'][$request->id]['backimage'] != null) {
+                        if (strpos($request_data['data'][$request->id]['backimage'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $request_data['data'][$request->id]['backimage']);
                         } else {
-                            $img = str_replace('data:image/png;base64,', '', $request_data[$request->id]['backimage']);
+                            $img = str_replace('data:image/png;base64,', '', $request_data['data'][$request->id]['backimage']);
                         }
                         $base_code = base64_decode($img);
-                        $name = 'about_'.$request_data[$request->id]['url'].'_back.png';
+                        $name = 'about_'.$request_data['data'][$request->id]['url'].'_back.png';
                         $file = $uploads_dir . $name;
                         if(File::exists($file)) {
                             File::delete($file);
@@ -585,9 +585,9 @@ class PagesController extends Controller
                         $url = url("/assets/uploads") ."/" . $name;
                         $arr = explode("/", $url);
                         $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                        $request_data[$request->id]['backimage'] = $path;
+                        $request_data['data'][$request->id]['backimage'] = $path;
                     }
-                    array_push($data->services->data, $request_data[$request->id]);
+                    array_push($data->services->data, $request_data['data'][$request->id]);
                 }
                 $page->data = json_encode($data);
                 $page->save();
