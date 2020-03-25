@@ -893,16 +893,20 @@ class Page extends React.Component {
 														{news.map((item, i) => (
 															<Panel header={item.title} key={i}>
 																<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, 'title' + i)} />
-																<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
-																<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'type' + i)} />
 																<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, 'description' + i)} />
-																<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
-																<Form>
-																	<label>{translate('card.image-upload')}</label>
-																	<Form.Field>
-																		<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
-																	</Form.Field>
-																</Form>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
+																	<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'type' + i)} />
+																</div>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
+																	<Form>
+																		<label>{translate('card.image-upload')}</label>
+																		<Form.Field>
+																			<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
+																		</Form.Field>
+																	</Form>
+																</div>
 																<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
 															</Panel>
 														))}
@@ -1098,16 +1102,20 @@ class Page extends React.Component {
 														{news.map((item, i) => (
 															<Panel header={item.no_title} key={i}>
 																<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.handleChange(val, 'no_title' + i)} />
-																<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
-																<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.handleChange(val, 'no_type' + i)} />
 																<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.handleChange(val, 'no_description' + i)} />
-																<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
-																<Form>
-																	<label>{translate('card.image-upload')}</label>
-																	<Form.Field>
-																		<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
-																	</Form.Field>
-																</Form>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
+																	<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.handleChange(val, 'no_type' + i)} />
+																</div>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
+																	<Form>
+																		<label>{translate('card.image-upload')}</label>
+																		<Form.Field>
+																			<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
+																		</Form.Field>
+																	</Form>
+																</div>
 																<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
 															</Panel>
 														))}

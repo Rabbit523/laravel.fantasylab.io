@@ -673,6 +673,7 @@ class PagesController extends Controller
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                     $request_data['data'][$request->id]['url'] = $path;
                 }
+                $request_data['data'][$request->id]['time'] = date("d.m").".".substr(date("Y"), 2, 3);
                 $data->news->data[$request->id] = $request_data['data'][$request->id];
                 $page->data = json_encode($data);
                 $page->save();

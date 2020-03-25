@@ -752,14 +752,13 @@ class Page extends React.Component {
 																	</div>
 																	<div className="flex-form">
 																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'news_read' + index)} />
-																		<Form.Input fluid label={translate('card.time')} name='read' placeholder={translate('card.time')} className='input-form' value={item.time} onChange={(val) => ref.handleChange(val, 'news_time' + index)} />
+																		<Form>
+																			<label>{translate('card.image-upload')}</label>
+																			<Form.Field>
+																				<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
+																			</Form.Field>
+																		</Form>
 																	</div>
-																	<Form>
-																		<label>{translate('card.image-upload')}</label>
-																		<Form.Field>
-																			<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
-																		</Form.Field>
-																	</Form>
 																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsItem(e, index)}> {translate('card.save')} </label>
 																</Panel>
 															))}
@@ -957,14 +956,13 @@ class Page extends React.Component {
 																	</div>
 																	<div className="flex-form">
 																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'news_read' + index)} />
-																		<Form.Input fluid label={translate('card.time')} name='read' placeholder={translate('card.time')} className='input-form' value={item.time} onChange={(val) => ref.handleChange(val, 'news_time' + index)} />
+																		<Form>
+																			<label>{translate('card.image-upload')}</label>
+																			<Form.Field>
+																				<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
+																			</Form.Field>
+																		</Form>
 																	</div>
-																	<Form>
-																		<label>{translate('card.image-upload')}</label>
-																		<Form.Field>
-																			<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
-																		</Form.Field>
-																	</Form>
 																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsItem(e, index)}> {translate('card.save')} </label>
 																</Panel>
 															))}
