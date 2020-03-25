@@ -189,7 +189,7 @@ class Page extends React.Component {
 				}
 			}
 		});
-
+		
 		if (type.includes('service')) {
 			var key = type.split('_')[0];
 			if (type.includes('color')) {
@@ -198,10 +198,10 @@ class Page extends React.Component {
 			} else {
 				if (this.props.activeLanguage.code == 'en') {
 					var sub_key = type.split('_')[2];
-					services[key][sub_key] = event.target.value;
+					services['data'][key][sub_key] = event.target.value;
 				} else {
 					var sub_key = type.split('_')[1] + "_" + type.split('_')[3];
-					services[key][sub_key] = event.target.value;
+					services['data'][key][sub_key] = event.target.value;
 				}
 			}
 			this.setState({ services });
