@@ -500,7 +500,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->privacy_no_meta_title, 'description' => $page->privacy_no_meta_description]);
     }
     public function no_security() {
         $page_data = Page::where('id', 13)->first();
@@ -513,7 +513,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->security_no_meta_title, 'description' => $page->security_no_meta_description]);
     }
     public function no_terms() {
         $page_data = Page::where('id', 13)->first();
@@ -526,7 +526,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->terms_no_meta_title, 'description' => $page->terms_no_meta_description]);
     }
     public function no_confidentiality() {
         $page_data = Page::where('id', 13)->first();
@@ -539,7 +539,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->confident_no_meta_title, 'description' => $page->confident_no_meta_description]);
     }
     
     public function adminPages() {
