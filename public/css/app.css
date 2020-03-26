@@ -2239,6 +2239,10 @@ body {
   }
 }
 
+.page .main .contact-page .contact-section .message-form .d-flex .form-group.phone input {
+  padding-left: 60px;
+}
+
 .page .main .contact-page .contact-section .message-form .d-flex .form-group.phone .custom-error {
   bottom: 20px;
 }

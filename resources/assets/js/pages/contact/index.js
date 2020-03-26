@@ -3,11 +3,9 @@ import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Heade
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
-import PhoneInput, { isValidPhoneNumber, getCountryCallingCode } from 'react-phone-number-input'
+import IntlTelInput from 'react-intl-tel-input';
+import 'react-intl-tel-input/dist/main.css';
 import ReeValidate from 'ree-validate'
-import 'react-phone-number-input/style.css'
-import nb from 'react-phone-number-input/locale/nb'
-import en from 'react-phone-number-input/locale/en'
 import PageMetaTag from '../../common/pageMetaTag'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
@@ -49,15 +47,14 @@ class Page extends React.Component {
       checked: false,
       checkbox_border: true,
       isOpen: false,
-      cur_country: ''
     }
     this.handleChange = this.handleChange.bind(this);
     this.handler = this.handler.bind(this);
     this.onBlur = this.onBlur.bind(this);
-    this.countryChange = this.countryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.myRef = React.createRef();
   }
 
   componentDidMount() {
@@ -81,23 +78,14 @@ class Page extends React.Component {
 
   handler() {
     var { message } = this.state;
-    message.phone = event.target.value;
+    message.phone = this.myRef.current.formatFullNumber(event.target.value);
     this.setState({ message });
   }
 
   onBlur() {
-    var { message, phone, cur_country } = this.state;
-    if (isValidPhoneNumber(phone) && cur_country.length > 0 || isValidPhoneNumber(message.phone)) {
-      this.setState({ phone_error: false });
-    }
-  }
-
-  countryChange() {
     var { message } = this.state;
-    if (/^[a-zA-Z]+$/.test(event.target.value)) {
-      var number = message.phone.replace('+', '').replace(/ /g,'');
-      var new_num = '+' + getCountryCallingCode(event.target.value) + number;
-      this.setState({ phone: new_num, cur_country: event.target.value });
+    if (this.myRef.current.isValidNumber(message.phone)) {
+      this.setState({ phone_error: false });
     }
   }
 
@@ -146,17 +134,13 @@ class Page extends React.Component {
   }
 
   handleSubmit(event) {
-    const { message, phone, checked } = this.state;
+    const { message, checked } = this.state;
     const { errors } = this.validator;
-
-    if (phone.length > 0) { 
-      message.phone = phone;
-    }
 
     this.validator.validateAll(message)
       .then(success => {
         if (success) {
-          if (!checked || !isValidPhoneNumber(message.phone)) {
+          if (!checked || !this.myRef.current.isValidNumber(message.phone)) {
             if (!checked) {
               this.setState({ checkbox_border: !this.state.checkbox_border });
             } else {
@@ -177,7 +161,7 @@ class Page extends React.Component {
                   ref.setState({ errors })
                 });
             } else {
-              if (!isValidPhoneNumber(message.phone)) {
+              if (!this.myRef.current.isValidNumber(message.phone)) {
                 ref.setState({ phone_error: true });
               }
             }
@@ -269,12 +253,13 @@ class Page extends React.Component {
                         </div>
                         <div className="form-group phone field">
                           <label>{translate('contact.phone')}</label>
-                          <PhoneInput
-                            placeholder={translate('contact.phone')}
-                            labels={lang=='en' ? en : nb}
-                            onChange={this.handler}
-                            onBlur={this.onBlur}
-                            onCountryChange={this.countryChange}/>
+                          <IntlTelInput
+                            ref={this.myRef}
+                            defaultCountry={'no'}
+                            preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
+                            onPhoneNumberChange={this.handler}
+                            onPhoneNumberBlur={this.onBlur}
+                          />
                           { errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
                           { !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
                         </div>
