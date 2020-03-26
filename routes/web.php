@@ -34,7 +34,7 @@ Route::get('/about', 'PagesController@about');
 Route::get('/blog', 'PagesController@blog');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/privacy', 'PagesController@privacy');
-Route::get('/security', 'PagesController@security');
+Route::get('/data-processor', 'PagesController@security');
 Route::get('/terms', 'PagesController@terms');
 Route::get('/confidentiality', 'PagesController@confidentiality');
 
@@ -55,9 +55,9 @@ Route::get('/no/om-oss', 'PagesController@no_about');
 Route::get('/no/blogg', 'PagesController@no_blog');
 Route::get('/no/kontakt', 'PagesController@no_contact');
 Route::get('/no/personvern', 'PagesController@no_privacy');
-Route::get('/no/sikkerhet', 'PagesController@no_security');
-Route::get('/no/avsnitt', 'PagesController@no_terms');
-Route::get('/no/sikker', 'PagesController@no_confidentiality');
+Route::get('/no/databehandler', 'PagesController@no_security');
+Route::get('/no/vilkar', 'PagesController@no_terms');
+Route::get('/no/konfidensialitet', 'PagesController@no_confidentiality');
 
 Route::get('/admin/pages', 'PagesController@adminPages');
 Route::get('/admin/portfolio', 'PagesController@adminPortfolios');

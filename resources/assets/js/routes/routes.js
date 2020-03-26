@@ -244,13 +244,13 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/security',
+        path: '/data-processor',
         exact: true,
         auth: false,
         component: Privacy
     },
     {
-        path: '/no/sikkerhet',
+        path: '/no/databehandler',
         exact: true,
         auth: false,
         component: Privacy
@@ -262,7 +262,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/avsnitt',
+        path: '/no/vilkar',
         exact: true,
         auth: false,
         component: Privacy
@@ -274,7 +274,7 @@ const routes = [
         component: Privacy
     },
     {
-        path: '/no/sikker',
+        path: '/no/konfidensialitet',
         exact: true,
         auth: false,
         component: Privacy

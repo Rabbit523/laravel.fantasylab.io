@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Grid, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
-import ReactHtmlParser, { processNodes, convertNodeToElement, htmlparser2 } from 'react-html-parser'
+import ReactHtmlParser from 'react-html-parser'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 
@@ -23,7 +23,6 @@ class Page extends React.Component {
 		if (!window.location.origin) {
 			window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
 		}
-		console.log(this.props.location);
 		if (this.props.location.state != undefined) {
 			const { pagename } = this.props.location.state;
 			Http.post(`${window.location.origin}/api/front/get-page`, { name: 'privacy' })
@@ -53,11 +52,11 @@ class Page extends React.Component {
 				res => {
 					if (path == "privacy" || path == 'personvern') {
 						this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
-					} else if (path == 'security' || path == 'sikkerhet') {
+					} else if (path == 'data-processor' || path == 'databehandler') {
 						this.setState({ isLoaded: true, isSecurity: true, data: JSON.parse(res.data.data) });
-					} else if (path == 'terms' || path == 'avsnitt') {
+					} else if (path == 'terms' || path == 'vilkar') {
 						this.setState({ isLoaded: true, isTerms: true, data: JSON.parse(res.data.data) });
-					} else if (path == 'confidentiality' || path == 'sikker') {
+					} else if (path == 'confidentiality' || path == 'konfidensialitet') {
 						this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
 					}
 					window.scrollTo(0, 0);
@@ -99,9 +98,9 @@ class Page extends React.Component {
 										<Grid.Column computer={3} tablet={3} className='custom-column side-nav'>
 											<h3>{translate('footer.legal')}</h3>
 											<Link to={{ pathname: lang=='en'?'/privacy':'/no/personvern', state: { pagename: 'privacy' } }} className={isPrivacy ? "item active" : "item"}>{translate('footer.privacy')} {isPrivacy && <Icon name="caret right"></Icon>}</Link>
-											<Link to={{ pathname: lang=='en'?'/security':'/no/sikkerhet', state: { pagename: 'security' } }} className={isSecurity ? "item active" : "item"}>{translate('footer.data-processor')} {isSecurity && <Icon name="caret right"></Icon>}</Link>
-											<Link to={{ pathname: lang=='en'?'/terms':'/no/avsnitt', state: { pagename: 'terms' } }} className={isTerms ? "item active" : "item"}>{translate('footer.terms')} {isTerms && <Icon name="caret right"></Icon>}</Link>
-											<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/sikker', state: { pagename: 'confidentiality' } }} className={isConfident ? "item active" : "item"}>{translate('footer.confidentiality')} {isConfident && <Icon name="caret right"></Icon>}</Link>
+											<Link to={{ pathname: lang=='en'?'/data-processor':'/no/databehandler', state: { pagename: 'security' } }} className={isSecurity ? "item active" : "item"}>{translate('footer.data-processor')} {isSecurity && <Icon name="caret right"></Icon>}</Link>
+											<Link to={{ pathname: lang=='en'?'/terms':'/no/vilkar', state: { pagename: 'terms' } }} className={isTerms ? "item active" : "item"}>{translate('footer.terms')} {isTerms && <Icon name="caret right"></Icon>}</Link>
+											<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/konfidensialitet', state: { pagename: 'confidentiality' } }} className={isConfident ? "item active" : "item"}>{translate('footer.confidentiality')} {isConfident && <Icon name="caret right"></Icon>}</Link>
 										</Grid.Column>
 										{isPrivacy && <Grid.Column computer={13} tablet={13} mobile={16} className='custom-column'>
 											{lang == 'en' ? ReactHtmlParser(data.privacy) : ReactHtmlParser(data.no_privacy)}

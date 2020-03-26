@@ -128,9 +128,9 @@ class Footer extends React.Component {
 									</div>
 									<div className='footer-item'>
 										<Link to={{ pathname: lang=='en'?'/privacy':'/no/personvern', state: { pagename: 'privacy' } }} className='item-link'>{translate('footer.privacy')}</Link>
-										<Link to={{ pathname: lang=='en'?'/security':'/no/sikkerhet', state: { pagename: 'security' } }} className='item-link'>{translate('footer.data-processor')}</Link>
-										<Link to={{ pathname: lang=='en'?'/terms':'/no/avsnitt', state: { pagename: 'terms' } }} className='item-link'>{translate('footer.terms')}</Link>
-										<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/sikker', state: { pagename: 'confidentiality' } }} className='item-link'>{translate('footer.confidentiality')}</Link>
+										<Link to={{ pathname: lang=='en'?'/data-processor':'/no/databehandler', state: { pagename: 'data-processor' } }} className='item-link'>{translate('footer.data-processor')}</Link>
+										<Link to={{ pathname: lang=='en'?'/terms':'/no/vilkar', state: { pagename: 'terms' } }} className='item-link'>{translate('footer.terms')}</Link>
+										<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/konfidensialitet', state: { pagename: 'confidentiality' } }} className='item-link'>{translate('footer.confidentiality')}</Link>
 									</div>
 								</Grid.Column>
 							</Grid>

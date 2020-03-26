@@ -102,13 +102,13 @@ class Main extends React.Component {
             case '/personvern':
               this.props.history.push('/privacy');
               break;
-            case '/sikkerhet':
-              this.props.history.push('/security');
+            case '/databehandler':
+              this.props.history.push('/data-processor');
               break;
-            case '/avsnitt':
+            case '/vilkar':
               this.props.history.push('/terms');
               break;
-            case '/sikker':
+            case '/konfidensialitet':
               this.props.history.push('/confidentiality');
               break;
             default:
@@ -168,14 +168,14 @@ class Main extends React.Component {
             case '/privacy':
               this.props.history.push('/no/personvern');
               break;
-            case '/security':
-              this.props.history.push('/no/sikkerhet');
+            case '/data-processor':
+              this.props.history.push('/no/databehandler');
               break;
             case '/terms':
-              this.props.history.push('/no/avsnitt');
+              this.props.history.push('/no/vilkar');
               break;
             case '/confidentiality':
-              this.props.history.push('/no/sikker');
+              this.props.history.push('/no/konfidensialitet');
               break;
             default:
               this.props.history.push('/no');
