@@ -168,7 +168,7 @@ class Main extends React.Component {
             case '/privacy':
               this.props.history.push('/no/personvern');
               break;
-            case '/secruity':
+            case '/security':
               this.props.history.push('/no/sikkerhet');
               break;
             case '/terms':
