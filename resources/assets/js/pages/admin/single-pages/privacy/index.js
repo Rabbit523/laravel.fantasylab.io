@@ -62,17 +62,53 @@ class Page extends React.Component {
 	handleChange(event, type) {
 		var { list } = this.state;
 		switch (type) {
-			case 'meta_title':
-				list.meta_title = event.target.value;
+			case 'privacy_meta_title':
+				list.privacy_meta_title = event.target.value;
 				return this.setState({ list });
-			case 'meta_description':
-				list.meta_description = event.target.value;
+			case 'privacy_meta_description':
+				list.privacy_meta_description = event.target.value;
 				return this.setState({ list });
-			case 'no_meta_title':
-				list.no_meta_title = event.target.value;
+			case 'privacy_no_meta_title':
+				list.privacy_no_meta_title = event.target.value;
 				return this.setState({ list });
-			case 'no_meta_description':
-				list.no_meta_description = event.target.value;
+			case 'privacy_no_meta_description':
+				list.privacy_no_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'security_meta_title':
+				list.security_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'security_meta_description':
+				list.security_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'security_no_meta_title':
+				list.security_no_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'security_no_meta_description':
+				list.security_no_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'terms_meta_title':
+				list.terms_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'terms_meta_description':
+				list.terms_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'terms_no_meta_title':
+				list.terms_no_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'terms_no_meta_description':
+				list.terms_no_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'confident_meta_title':
+				list.confident_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'confident_meta_description':
+				list.confident_meta_description = event.target.value;
+				return this.setState({ list });
+			case 'confident_no_meta_title':
+				list.confident_no_meta_title = event.target.value;
+				return this.setState({ list });
+			case 'confident_no_meta_description':
+				list.confident_no_meta_description = event.target.value;
 				return this.setState({ list });
 		}
 	}
@@ -102,16 +138,10 @@ class Page extends React.Component {
 		this.setState({ no_confident: content });
 	}
 	// Update header section
-	updateHeader() {
+	updateHeader(e, type) {
 		var { list } = this.state;
-		var meta_info = {
-			meta_title: list.meta_title,
-			meta_description: list.meta_description,
-			no_meta_title: list.no_meta_title,
-			no_meta_description: list.no_meta_description
-		};
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'privacy', data: meta_info, type: 'header' })
+		Http.post('/api/admin/update-page', { name: 'privacy', data: list, type })
 			.then(
 				res => {
 					this.setState({ isLoaded: true });
@@ -182,30 +212,101 @@ class Page extends React.Component {
 						{isLoaded ?
 							<Segment vertical textAlign='center'>
 								<Container>
-									<Grid padded="vertically">
-										<Grid.Column className="custom-column" width={16}>
+									<Grid>
+										<Grid.Column className="custom-column" width={8}>
 											<Card className="header-section">
 												<Card.Content>
-													<Card.Header>{translate('card.header-section')}</Card.Header>
+													<Card.Header>{translate('card.privacy-meta')}</Card.Header>
 												</Card.Content>
 												<Card.Content>
 													{lang == 'en' &&
 														<Card.Description>
-															<Form.Input fluid label={translate('card.meta-title')} name='meta_title' placeholder={translate('card.meta-title')} className='input-form' value={list.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
-															<Form.Input fluid label={translate('card.meta-description')} name='meta_description' placeholder={translate('card.meta-description')} className='input-form' value={list.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
-															<label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.privacy_meta_title} onChange={(val) => this.handleChange(val, 'privacy_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.privacy_meta_description} onChange={(val) => this.handleChange(val, 'privacy_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'privacy_meta')}> {translate('card.save')} </label>
 														</Card.Description>
 													}
 													{lang == 'nb' &&
 														<Card.Description>
-															<Form.Input fluid label={translate('card.meta-title')} name='meta_title' placeholder={translate('card.meta-title')} className='input-form' value={list.no_meta_title} onChange={(val) => this.handleChange(val, 'no_meta_title')} />
-															<Form.Input fluid label={translate('card.meta-description')} name='meta_description' placeholder={translate('card.meta-description')} className='input-form' value={list.no_meta_description} onChange={(val) => this.handleChange(val, 'no_meta_description')} />
-															<label className="ui floated button save-btn" onClick={this.updateHeader.bind(this)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.privacy_no_meta_title} onChange={(val) => this.handleChange(val, 'privacy_no_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.privacy_no_meta_description} onChange={(val) => this.handleChange(val, 'privacy_no_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'privacy_meta')}> {translate('card.save')} </label>
 														</Card.Description>
 													}
 												</Card.Content>
 											</Card>
 										</Grid.Column>
+										<Grid.Column className="custom-column" width={8}>
+											<Card className="header-section">
+												<Card.Content>
+													<Card.Header>{translate('card.security-meta')}</Card.Header>
+												</Card.Content>
+												<Card.Content>
+													{lang == 'en' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.security_meta_title} onChange={(val) => this.handleChange(val, 'security_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.security_meta_description} onChange={(val) => this.handleChange(val, 'security_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'security_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+													{lang == 'nb' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.security_no_meta_title} onChange={(val) => this.handleChange(val, 'security_no_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.security_no_meta_description} onChange={(val) => this.handleChange(val, 'security_no_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'security_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+												</Card.Content>
+											</Card>
+										</Grid.Column>
+										<Grid.Column className="custom-column" width={8}>
+											<Card className="header-section">
+												<Card.Content>
+													<Card.Header>{translate('card.terms-meta')}</Card.Header>
+												</Card.Content>
+												<Card.Content>
+													{lang == 'en' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.terms_meta_title} onChange={(val) => this.handleChange(val, 'terms_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.terms_meta_description} onChange={(val) => this.handleChange(val, 'terms_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'terms_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+													{lang == 'nb' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.terms_no_meta_title} onChange={(val) => this.handleChange(val, 'terms_no_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.terms_no_meta_description} onChange={(val) => this.handleChange(val, 'terms_no_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'terms_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+												</Card.Content>
+											</Card>
+										</Grid.Column>
+										<Grid.Column className="custom-column" width={8}>
+											<Card className="header-section">
+												<Card.Content>
+													<Card.Header>{translate('card.confident-meta')}</Card.Header>
+												</Card.Content>
+												<Card.Content>
+													{lang == 'en' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.confident_meta_title} onChange={(val) => this.handleChange(val, 'confident_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.confident_meta_description} onChange={(val) => this.handleChange(val, 'confident_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'confident_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+													{lang == 'nb' &&
+														<Card.Description>
+															<Form.Input fluid label={translate('card.meta-title')} placeholder={translate('card.meta-title')} className='input-form' value={list.confident_no_meta_title} onChange={(val) => this.handleChange(val, 'confident_no_meta_title')} />
+															<Form.Input fluid label={translate('card.meta-description')} placeholder={translate('card.meta-description')} className='input-form' value={list.confident_no_meta_description} onChange={(val) => this.handleChange(val, 'confident_no_meta_description')} />
+															<label className="ui floated button save-btn" onClick={(e) => this.updateHeader(e, 'confident_meta')}> {translate('card.save')} </label>
+														</Card.Description>
+													}
+												</Card.Content>
+											</Card>
+										</Grid.Column>
+									</Grid>
+									<Grid padded="vertically">
 										<Grid.Column className="custom-column" width={16}>
 											<Card className="header-section">
 												<Card.Content>

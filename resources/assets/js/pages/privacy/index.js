@@ -90,7 +90,10 @@ class Page extends React.Component {
 					<div className='privacy-page'>
 						{isLoaded ?
 							<React.Fragment>
-								<PageMetaTag meta_title={lang == 'en' ? data.meta_title : data.no_meta_title} meta_description={lang == 'en' ? data.meta_description : data.no_meta_description} />
+								{isPrivacy && <PageMetaTag meta_title={lang == 'en' ? data.privacy_meta_title : data.privacy_no_meta_title} meta_description={lang == 'en' ? data.privacy_meta_description : data.privacy_no_meta_description} />}
+								{isSecurity && <PageMetaTag meta_title={lang == 'en' ? data.security_meta_title : data.security_no_meta_title} meta_description={lang == 'en' ? data.security_meta_description : data.security_no_meta_description} />}
+								{isTerms && <PageMetaTag meta_title={lang == 'en' ? data.terms_meta_title : data.terms_no_meta_title} meta_description={lang == 'en' ? data.terms_meta_description : data.terms_no_meta_description} />}
+								{isConfident && <PageMetaTag meta_title={lang == 'en' ? data.confident_meta_title : data.confident_no_meta_title} meta_description={lang == 'en' ? data.confident_meta_description : data.confident_no_meta_description} />}
 								<Container className='custom-col-6 privacy-section'>
 									<Grid padded='horizontally'>
 										<Grid.Column computer={3} tablet={3} className='custom-column side-nav'>

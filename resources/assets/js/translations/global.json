@@ -98,7 +98,7 @@
     },
     "card": {
         "header-section": ["Header Section", "Overskrift Seksjon"],
-        "meta-title": ["Meta title", "Metatittel"],
+        "meta-title": ["Meta title", "Meta tittel"],
         "meta-description": ["Meta description", "Meta beskrivelse"],
         "title": ["Title", "Tittel"],
         "description-title": ["Description Title", "Beskrivelse Tittel"],
@@ -159,7 +159,11 @@
         "scale-section": ["Scale Section", "Skala seksjonen"],
         "feature-section": ["Feature Section", "Funksjonsseksjon"],
         "server-section": ["Server Section", "Server seksjon"],
-        "button-text": ["Button Text", "Knappetekst"]
+        "button-text": ["Button Text", "Knappetekst"],
+        "privacy-meta": ["Privacy Meta Section", "Meta seksjon om personvern"],
+        "security-meta": ["Security Meta Section", "Meta seksjon om Security"],
+        "terms-meta": ["Terms Meta Section", "Meta seksjon om Vilkår"],
+        "confident-meta": ["Confidentiality Meta Section", "Meta seksjon om konfidensialitet"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],

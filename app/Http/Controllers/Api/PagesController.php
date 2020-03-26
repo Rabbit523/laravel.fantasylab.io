@@ -1022,11 +1022,26 @@ class PagesController extends Controller
             }
         } else if ($request->name == "privacy") {
             $service_type = $request->type;
-            if ($service_type == "header") {
-                $data->meta_title = $request->data['meta_title'];
-                $data->meta_description = $request->data['meta_description'];
-                $data->no_meta_title = $request->data['no_meta_title'];
-                $data->no_meta_description = $request->data['no_meta_description'];
+            if ($service_type == "privacy_meta") {
+                $data->privacy_meta_title = $request->data['privacy_meta_title'];
+                $data->privacy_meta_description = $request->data['privacy_meta_description'];
+                $data->privacy_no_meta_title = $request->data['privacy_no_meta_title'];
+                $data->privacy_no_meta_description = $request->data['privacy_no_meta_description'];
+            } else if ($service_type == "security_meta") {
+                $data->security_meta_title = $request->data['security_meta_title'];
+                $data->security_meta_description = $request->data['security_meta_description'];
+                $data->security_no_meta_title = $request->data['security_no_meta_title'];
+                $data->security_no_meta_description = $request->data['security_no_meta_description'];
+            } else if ($service_type == "terms_meta") {
+                $data->terms_meta_title = $request->data['terms_meta_title'];
+                $data->terms_meta_description = $request->data['terms_meta_description'];
+                $data->terms_no_meta_title = $request->data['terms_no_meta_title'];
+                $data->terms_no_meta_description = $request->data['terms_no_meta_description'];
+            } else if ($service_type == "confident_meta") {
+                $data->confident_meta_title = $request->data['confident_meta_title'];
+                $data->confident_meta_description = $request->data['confident_meta_description'];
+                $data->confident_no_meta_title = $request->data['confident_no_meta_title'];
+                $data->confident_no_meta_description = $request->data['confident_no_meta_description'];
             } else if ($service_type == "privacy") {
                 $data->privacy = $request->data['en'];
                 $data->no_privacy = $request->data['no'];
