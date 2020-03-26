@@ -1,12 +1,13 @@
 import React from 'react'
-import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header } from 'semantic-ui-react'
+import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
+import PhoneInput, { isValidPhoneNumber, getCountryCallingCode } from 'react-phone-number-input'
 import ReeValidate from 'ree-validate'
 import 'react-phone-number-input/style.css'
-import flags from 'react-phone-number-input/flags'
+import nb from 'react-phone-number-input/locale/nb'
+import en from 'react-phone-number-input/locale/en'
 import PageMetaTag from '../../common/pageMetaTag'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
@@ -36,7 +37,7 @@ class Page extends React.Component {
       isLoading: false,
       isTablet: false,
       errors: this.validator.errors,
-      phoneError: true,
+      phone_error: false,
       message: {
         name: '',
         email: '',
@@ -47,9 +48,13 @@ class Page extends React.Component {
       phone: '',
       checked: false,
       checkbox_border: true,
-      isOpen: false
+      isOpen: false,
+      cur_country: ''
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handler = this.handler.bind(this);
+    this.onBlur = this.onBlur.bind(this);
+    this.countryChange = this.countryChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
@@ -74,6 +79,28 @@ class Page extends React.Component {
       });
   }
 
+  handler() {
+    var { message } = this.state;
+    message.phone = event.target.value;
+    this.setState({ message });
+  }
+
+  onBlur() {
+    var { message, phone, cur_country } = this.state;
+    if (isValidPhoneNumber(phone) && cur_country.length > 0 || isValidPhoneNumber(message.phone)) {
+      this.setState({ phone_error: false });
+    }
+  }
+
+  countryChange() {
+    var { message } = this.state;
+    if (/^[a-zA-Z]+$/.test(event.target.value)) {
+      var number = message.phone.replace('+', '').replace(/ /g,'');
+      var new_num = '+' + getCountryCallingCode(event.target.value) + number;
+      this.setState({ phone: new_num, cur_country: event.target.value });
+    }
+  }
+
   handleChange(e, type) {
     const name = event.target.name;
     const value = event.target.value;
@@ -84,35 +111,12 @@ class Page extends React.Component {
     .then(() => {
       if (errors.items.length == 0) {
         this.setState({ errors })
-
-        if (type == 'phone') {
-          if (!isValidPhoneNumber(event.target.value)) {
-            this.setState({ phone: event.target.value, phoneError: true });
-          }
-        }
         
         $('input[name=' + type + ']').addClass('success');
         if (type == "message") {
           $('textarea[name=' + type + ']').addClass('success');
         }
 
-        switch (type) {
-          case 'name':
-            message.name = event.target.value;
-            return this.setState({ message });
-          case 'company':
-            message.company = event.target.value;
-            return this.setState({ message });
-          case 'email':
-            message.email = event.target.value;
-            return this.setState({ message });
-          case 'message':
-            message.message = event.target.value;
-            return this.setState({ message });
-          case 'phone':
-            message.phone = event.target.value;
-            return this.setState({ message });
-        }
       } else {
         this.setState({ errors })
         $('input[name=' + type + ']').removeClass('success');
@@ -121,6 +125,20 @@ class Page extends React.Component {
         }
       }
     });
+    switch (type) {
+      case 'name':
+        message.name = event.target.value;
+        return this.setState({ message });
+      case 'company':
+        message.company = event.target.value;
+        return this.setState({ message });
+      case 'email':
+        message.email = event.target.value;
+        return this.setState({ message });
+      case 'message':
+        message.message = event.target.value;
+        return this.setState({ message });
+    }
   }
 
   handleCheckBoxClick() {
@@ -128,27 +146,40 @@ class Page extends React.Component {
   }
 
   handleSubmit(event) {
-    const { message, checked } = this.state;
+    const { message, phone, checked } = this.state;
+    const { errors } = this.validator;
+
+    if (phone.length > 0) { 
+      message.phone = phone;
+    }
+
     this.validator.validateAll(message)
       .then(success => {
         if (success) {
-          if (!checked) {
-            this.setState({ checkbox_border: !this.state.checkbox_border });
+          if (!checked || !isValidPhoneNumber(message.phone)) {
+            if (!checked) {
+              this.setState({ checkbox_border: !this.state.checkbox_border });
+            } else {
+              this.setState({ phone_error: true });
+            }
           } else {
             this.submit(message);
           }
         } else {
-          const { errors } = this.validator;
           const ref = this;
           if (!checked) {
             this.setState({ checkbox_border: !this.state.checkbox_border });
           }
           Object.keys(message).map((key, item) => {
-            if (key != 'phone' && key != 'company') {
+            if (key != 'phone') {
               ref.validator.validate(key, message[key])
                 .then(() => {
                   ref.setState({ errors })
                 });
+            } else {
+              if (!isValidPhoneNumber(message.phone)) {
+                ref.setState({ phone_error: true });
+              }
             }
           });
         }
@@ -177,7 +208,7 @@ class Page extends React.Component {
       });
   }
   render() {
-    const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
+    const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone_error, checkbox_border } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
     return (
       <Translate>
@@ -236,9 +267,16 @@ class Page extends React.Component {
                           <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
                           {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
                         </div>
-                        <div className="form-group">
-                          <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
-                          {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
+                        <div className="form-group phone field">
+                          <label>{translate('contact.phone')}</label>
+                          <PhoneInput
+                            placeholder={translate('contact.phone')}
+                            labels={lang=='en' ? en : nb}
+                            onChange={this.handler}
+                            onBlur={this.onBlur}
+                            onCountryChange={this.countryChange}/>
+                          { errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
+                          { !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">

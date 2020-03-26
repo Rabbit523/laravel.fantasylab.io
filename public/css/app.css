@@ -356,7 +356,7 @@ body {
 }
 
 .segment.navbar .custom-col-6 .ui.dropdown.nav-color {
-  margin-right: 10px;
+  padding: 10px;
   position: initial;
 }
 
@@ -391,7 +391,9 @@ body {
 }
 
 .segment.navbar .custom-col-6 .nav-color:hover {
-  color: #fff;
+  background: #060d26 !important;
+  border: none !important;
+  color: #fff !important;
 }
 
 .segment.navbar .custom-col-6 .nav-color.services.hover {
@@ -453,12 +455,6 @@ body {
   margin: 0;
 }
 
-.segment.navbar .item.nav-color:hover {
-  background: #060d26 !important;
-  border: none !important;
-  color: #fff !important;
-}
-
 .segment.navbar .custom-box {
   position: absolute;
   left: 0px;
@@ -484,11 +480,19 @@ body {
   align-items: center;
 }
 
+.segment.navbar .menu.right-menu-width .ui.buttons .login:hover {
+  color: #fff !important;
+}
+
 .segment.navbar .menu.right-menu-width .user-dropdown {
   padding-top: 24px;
   padding-bottom: 18px;
   color: #747ea3;
   font-size: 14px;
+}
+
+.segment.navbar .menu.right-menu-width .user-dropdown:hover {
+  color: #fff;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown {
@@ -2207,6 +2211,36 @@ body {
   justify-content: space-between;
   position: relative;
   flex: 1;
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group.phone {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group.phone label {
+  text-align: left;
+  padding-bottom: 13px;
+  margin: 0;
+  font-family: "Gotham Bold";
+  color: #656c8b !important;
+  background: transparent;
+}
+
+@media (min-width: 320px) {
+  .page .main .contact-page .contact-section .message-form .d-flex .form-group.phone label {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page .main .contact-page .contact-section .message-form .d-flex .form-group.phone label {
+    font-size: 16px;
+  }
+}
+
+.page .main .contact-page .contact-section .message-form .d-flex .form-group.phone .custom-error {
+  bottom: 20px;
 }
 
 .page .main .contact-page .contact-section .message-form .d-flex .form-group:first-child {
@@ -5870,10 +5904,6 @@ body {
 }
 
 @media (min-width: 1366px) {
-  .segment.navbar .nav-color {
-    padding: 22px 8px 22px 8px !important;
-  }
-
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
     font-size: 12px;
   }

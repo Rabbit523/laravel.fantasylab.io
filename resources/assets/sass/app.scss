@@ -316,7 +316,7 @@ body {
     .ui {
       &.dropdown {
         &.nav-color {
-          margin-right: 10px;
+          padding: 10px;
           position: initial;
         }
       }
@@ -344,7 +344,9 @@ body {
       display: flex;
       align-items: center;
       &:hover {
-        color: #fff;
+        background: #060d26 !important;
+        border: none !important;
+        color: #fff !important;
       }
       &.services {
         &.hover {
@@ -406,15 +408,6 @@ body {
         }
       }
     }
-  } 
-  .item {
-    &.nav-color {
-      &:hover {
-        background: #060d26 !important;
-        border: none !important;
-        color: #fff !important;
-      }
-    }
   }
   .custom-box {
     position: absolute;
@@ -435,6 +428,11 @@ body {
         &.buttons {
           display: flex;
           align-items: center;
+          .login {
+            &:hover {
+              color: #fff !important;
+            }
+          }
         }
       }
       .user-dropdown {
@@ -442,6 +440,9 @@ body {
         padding-bottom: 18px;
         color: #747ea3;
         font-size: 14px;
+        &:hover {
+          color: #fff;
+        }
       }
     }
     .custom-row {
@@ -1849,6 +1850,27 @@ body {
               justify-content: space-between;
               position: relative;
               flex: 1;
+              &.phone {
+                flex-direction: column;
+                justify-content: flex-start;
+                label {
+                  text-align: left;
+                  padding-bottom: 13px;
+                  margin: 0;
+                  font-family: "Gotham Bold";
+                  color: #656c8b !important;
+                  background: transparent;
+                  @media (min-width: 320px) {
+                    font-size: 14px;
+                  }
+                  @media (min-width: 1280px) {
+                    font-size: 16px;
+                  }
+                }
+                .custom-error {
+                  bottom: 20px;
+                }
+              }
               &:first-child {
                 margin-right: 15px;
               }
@@ -5426,9 +5448,6 @@ body {
 
 @media (min-width: 1366px) {
   .segment.navbar {
-    .nav-color {
-      padding: 22px 8px 22px 8px !important;
-    }
     .menu {
       .custom-row {
         .custom-dropdown {
