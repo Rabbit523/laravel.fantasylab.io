@@ -153,12 +153,15 @@ body {
 .login {
   background: transparent !important;
   color:#9aa2bf !important;
-  padding: 25px 12px 22px 12px !important;
   line-height: normal !important;
   font-family: "Gotham Bold" !important;
   font-weight: bold !important;
   font-size: 14px !important;
-  
+  &.lang {
+    img {
+      width: 30px;
+    }
+  }
 }
 .primary-button {
   line-height: normal !important;
@@ -174,9 +177,6 @@ body {
   &:active {
     background: linear-gradient(to bottom, #6e29f0 0%, #4e08d1 100%) !important;
   }
-}
-.register {
-  padding-top: 17px;
 }
 .secondary-button {
   line-height: normal !important;
@@ -310,75 +310,103 @@ body {
   top: 0;
   width: 100%;
   background: linear-gradient(to bottom, #0a1332 0%, #070e29 100%) !important;
-  .nav-color {
-    color:#9aa2bf !important;
-    margin: 0 !important;
-    padding: 22px 12px 22px 0px !important;
-    border: none !important;
-    line-height: normal !important;
-    font-family: "Gotham Bold";
-    font-size: 14px;
-    position: inherit !important;
-    margin-right: 10px !important;
-    height: 100%;
-    &:hover {
-      color: #fff;
-    }
-    &.services {
-      &.hover {
-        border-bottom: 2px solid #8341ff !important;
+  .custom-col-6 {
+    display: flex;
+    align-items: center;
+    .ui {
+      &.dropdown {
+        &.nav-color {
+          margin-right: 10px;
+          position: initial;
+        }
       }
-      &.active {
-        border-bottom: 2px solid #8341ff !important;
-        color: #8341ff !important;
-      }
-    }
-    &.portfolio {
-      &.hover {
-        border-bottom: 2px solid #f84db8 !important;
-      }
-      &.active {
-        border-bottom: 2px solid #f84db8 !important;
-        color: #f84db8 !important;
+      &.grid {
+        width: 100%;
+        .custom-row {
+          margin: 0;
+          .custom-dropdown {
+            margin: 0 8px;
+            @media (min-width: 1440px) {
+              margin: 0 12px;
+            }
+          }
+        }
       }
     }
-    &.features {
-      &.hover {
-        border-bottom: 2px solid #f49d43 !important;
+    .nav-color {
+      color:#9aa2bf !important;
+      border: none !important;
+      line-height: normal !important;
+      font-family: "Gotham Bold";
+      font-size: 14px;
+      align-self: center !important;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      &:hover {
+        color: #fff;
       }
-      &.active {
-        border-bottom: 2px solid #f49d43 !important;
-        color: #f49d43 !important;
+      &.services {
+        &.hover {
+          border-bottom: 2px solid #8341ff !important;
+        }
+        &.active {
+          border-bottom: 2px solid #8341ff !important;
+          color: #8341ff !important;
+        }
+      }
+      &.portfolio {
+        &.hover {
+          border-bottom: 2px solid #f84db8 !important;
+        }
+        &.active {
+          border-bottom: 2px solid #f84db8 !important;
+          color: #f84db8 !important;
+          margin: 0;
+        }
+      }
+      &.features {
+        &.hover {
+          border-bottom: 2px solid #f49d43 !important;
+        }
+        &.active {
+          border-bottom: 2px solid #f49d43 !important;
+          color: #f49d43 !important;
+          margin: 0;
+        }
+      }
+      &.about {
+        &.hover {
+          border-bottom: 2px solid #f3dc17 !important;
+        }
+        &.active {
+          border-bottom: 2px solid #f3dc17 !important;
+          color: #f3dc17 !important;
+          margin: 0;
+        }
+      }
+      &.blog {
+        &.hover {
+          border-bottom: 2px solid #94d544 !important;
+        }
+        &.active {
+          border-bottom: 2px solid #94d544 !important;
+          color: #94d544 !important;
+          margin: 0;
+        }
+      }
+      &.contact {
+        &.hover {
+          border-bottom: 2px solid #3e75db !important;
+        }
+        &.active {
+          border-bottom: 2px solid #3e75db !important;
+          color: #3e75db !important;
+          margin: 0;
+        }
       }
     }
-    &.about {
-      &.hover {
-        border-bottom: 2px solid #f3dc17 !important;
-      }
-      &.active {
-        border-bottom: 2px solid #f3dc17 !important;
-        color: #f3dc17 !important;
-      }
-    }
-    &.blog {
-      &.hover {
-        border-bottom: 2px solid #94d544 !important;
-      }
-      &.active {
-        border-bottom: 2px solid #94d544 !important;
-        color: #94d544 !important;
-      }
-    }
-    &.contact {
-      &.hover {
-        border-bottom: 2px solid #3e75db !important;
-      }
-      &.active {
-        border-bottom: 2px solid #3e75db !important;
-        color: #3e75db !important;
-      }
-    }
-  }
+  } 
   .item {
     &.nav-color {
       &:hover {
@@ -403,6 +431,12 @@ body {
     width: 100% !important;
     &.right-menu-width {
       width: auto !important;
+      .ui {
+        &.buttons {
+          display: flex;
+          align-items: center;
+        }
+      }
       .user-dropdown {
         padding-top: 24px;
         padding-bottom: 18px;
@@ -411,11 +445,11 @@ body {
       }
     }
     .custom-row {
-      justify-content: space-between;
       .custom-dropdown {
         color: #fff;
         padding: 0;
-        width: 15.8% !important;
+        flex: 1;
+        margin: 0 8px;
         text-decoration: none;
         .custom-dropdown-item {
           padding: 10px 10px 20px 10px;
@@ -577,17 +611,10 @@ body {
       font-family: "Gotham Bold";
       font-weight: bold !important;
       padding-top: 2px;
-      &:hover {
-        color: #fff;
-        ~i {
-          color: #fff;
-        }
-      }
     }
   }
   .logo img {
     width: 55px !important;
-    margin-bottom: 8px !important;
   }
   .or {
     top: 12% !important;
@@ -3262,7 +3289,7 @@ body {
             position: absolute;
             top: 48px;
             width: 320px;
-            left: -220px;
+            left: -238px;
             z-index: 299;
             overflow: visible;
             text-align: left;
@@ -3617,7 +3644,6 @@ body {
             }
             .header-description {
               padding: 50px 0px 0px 0px;
-              width: 300px;
               .header-text {
                 padding: 0;
               }
@@ -3625,12 +3651,11 @@ body {
             .figures {
               padding-top: 50px;
               align-items: flex-start;
-              width: 300px;
               .figure {
                 padding-left: 6px;
                 padding-right: 6px;
                 p {
-                  font-size: 16px;
+                  font-size: 14px;
                 }
               }
             }
@@ -3940,7 +3965,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 360px;
-            left: -260px;
+            left: -275px;
           }
         }
       }
@@ -3972,6 +3997,11 @@ body {
             }
             .figures {
               width: auto;
+              .figure {
+                p {
+                  font-size: 16px;
+                }
+              }
             }
           }
         }
@@ -4049,7 +4079,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 375px;
-            left: -275px;
+            left: -290px;
           }
         }
       }
@@ -4121,6 +4151,18 @@ body {
 }
 
 @media (min-width: 384px) {
+  .segment.mobile-navbar {
+    .menu {
+      .right.menu {
+        .item:last-child {
+          .menu.transition {
+            width: 384px;
+            left: -300px;
+          }
+        }
+      }
+    }
+  }
   .page {
     .main {
       .home-page {
@@ -4158,15 +4200,15 @@ body {
     }
   }
 }
-@media (min-width: 411px) {
+@media (min-width: 412px) {
   .segment.mobile-navbar {
     .menu {
       .right.menu {
         .item {
           &:last-child {
             .menu.transition {
-              width: 411px;
-              left: -310px;
+              width: 412px;
+              left: -328px;
             }
           }
         }
@@ -4186,7 +4228,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 414px;
-            left: -315px;
+            left: -329px;
           }
         }
       }
@@ -4763,7 +4805,6 @@ body {
     }
     .nav-color {
       font-size: 15px;
-      padding: 24px 8px 22px 8px !important;
       .text {
         padding-top: 2px;
       }

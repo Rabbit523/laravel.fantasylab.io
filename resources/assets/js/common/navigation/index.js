@@ -200,7 +200,7 @@ class Page extends React.Component {
 										</Menu.Item>
 									</Menu.Menu>
 									<Menu.Item className="mobile-lang">
-										{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+										{lang == 'en' ? <Button className="login lang" onClick={(event) => this.changeLang("nb")}><img src={require('../../../images/theme/norsk.svg')} /></Button> : <Button className="login lang" onClick={(event) => this.changeLang("en")}><img src={require('../../../images/theme/english.svg')} /></Button>}
 									</Menu.Item>
 								</div>
 							</Menu>
@@ -210,11 +210,11 @@ class Page extends React.Component {
 							<Menu pointing secondary size='large'>
 								<Container className='custom-col-6'>
 									{isAdmin && isAuthenticated && is_dashboard ?
-										<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo' replace style={{ margin: 0, paddingTop: 10, paddingRight: 20, paddingBottom: 0, paddingLeft: 0, paddingTop: 12, height: '100%' }}>
+										<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo' >
 											<img src={require('../../../images/theme/fantasylab-logo.svg')} /></Menu.Item>
 										:
 										<React.Fragment>
-											<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo' replace style={{ margin: 0, padding: 0, paddingRight: 20, paddingTop: 12, height: '100%' }}>
+											<Menu.Item as={Link} to={lang=='en'?'/':'/no'} className='logo'>
 												<img src={require('../../../images/theme/fantasylab-logo.svg')} /></Menu.Item>
 											<Dropdown text={translate('navigation.services')} className='collapsible-menu nav-color services'>
 												<Dropdown.Menu>
@@ -377,7 +377,7 @@ class Page extends React.Component {
 																key='logout' />
 														</Dropdown.Menu>
 													</Dropdown>
-													{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+													{lang == 'en' ? <Button className="login lang" onClick={(event) => this.changeLang("nb")}><img src={require('../../../images/theme/norsk.svg')} /></Button> : <Button className="login lang" onClick={(event) => this.changeLang("en")}><img src={require('../../../images/theme/english.svg')} /></Button>}
 												</React.Fragment>
 											)
 											: <Button.Group>
@@ -387,7 +387,7 @@ class Page extends React.Component {
 													{/* <Button as={Link} to='/register' className='primary-button'>Craft Enterprise</Button> */}
 													<Button as={Link} to={lang=='en'?'/register':'/no/start-prosjekt'} className='primary-button' onClick={(event) => this.triggerModal(event)}>{register_text}</Button>
 												</div>
-												{lang == 'en' ? <Button className="login" onClick={(event) => this.changeLang("nb")}>NO</Button> : <Button className="login" onClick={(event) => this.changeLang("en")}>EN</Button>}
+												{lang == 'en' ? <Button className="login lang" onClick={(event) => this.changeLang("nb")}><img src={require('../../../images/theme/norsk.svg')} /></Button> : <Button className="login lang" onClick={(event) => this.changeLang("en")}><img src={require('../../../images/theme/english.svg')} /></Button>}
 											</Button.Group>
 										}
 									</Menu.Menu>

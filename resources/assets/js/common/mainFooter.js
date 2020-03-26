@@ -144,7 +144,7 @@ class Footer extends React.Component {
 									<Dropdown text={lang == 'en' ? 'English' : 'Norsk'}>
 										<Dropdown.Menu>
 											{lang == 'en' ? 
-												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("nb")} /> 
+												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("nb")} />
 												:<Dropdown.Item text='English' onClick={(event) => this.changeLang("en")} /> }
 										</Dropdown.Menu>
 									</Dropdown>
