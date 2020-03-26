@@ -238,7 +238,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->privacy_meta_title, 'description' => $page->privacy_meta_description]);
     }
     public function security() {
         $page_data = Page::where('id', 13)->first();
@@ -251,7 +251,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->security_meta_title, 'description' => $page->security_meta_description]);
     }
     public function terms() {
         $page_data = Page::where('id', 13)->first();
@@ -264,7 +264,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->terms_meta_title, 'description' => $page->terms_meta_description]);
     }
     public function confidentiality() {
         $page_data = Page::where('id', 13)->first();
@@ -277,7 +277,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->confident_meta_title, 'description' => $page->confident_meta_description]);
     }
 
     public function no_index() {
