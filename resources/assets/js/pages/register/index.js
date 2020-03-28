@@ -2,10 +2,9 @@ import React from 'react'
 import { Button, Dimmer, Checkbox, Form, Grid, Header, Loader, Message, Segment } from 'semantic-ui-react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
+import IntlTelInput from 'react-intl-tel-input'
+import 'react-intl-tel-input/dist/main.css'
 import ReeValidate from 'ree-validate'
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
-import 'react-phone-number-input/style.css'
-import flags from 'react-phone-number-input/flags'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 
@@ -54,9 +53,9 @@ class Page extends React.Component {
 		credentials[name] = value;
 		if (name != 'phone') {
 			this.validator.validate(name, value)
-			.then(() => {
-				this.setState({ errors, credentials })
-			});
+				.then(() => {
+					this.setState({ errors, credentials })
+				});
 		} else {
 			this.setState({ phone: value });
 		}
@@ -77,10 +76,10 @@ class Page extends React.Component {
 					// Manually verify the password confirmation fields
 					if (this.passwordConfirmation(credentials)) {
 						// if (isValidPhoneNumber(phone)) {
-							// if (checked) {
-							// 	this.setState({
-							// 		isLoading: true
-							// 	});
+						// if (checked) {
+						// 	this.setState({
+						// 		isLoading: true
+						// 	});
 						// 		credentials.phone = phone;
 						// 		this.submit(credentials);
 						// 	} else {
@@ -192,121 +191,122 @@ class Page extends React.Component {
 
 	render() {
 		const { isAuthenticated } = this.state;
-		if (isAuthenticated=='true') {
-			return <Redirect to='/' replace />
-		}
+		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+
+		if (isAuthenticated == 'true') {
+			return (<Redirect to='/' />);
+		} 
+		// else if (lang == 'nb' && typeof window != 'undefined') {
+		// 	if (!window.location.pathname.includes('no')) {
+		// 		return (<Redirect to='/no/start-prosjekt' />);
+		// 	}
+		// }
+
 		const { errors, phone, checkbox_border } = this.state;
 		return (
-			<Translate>
-				{({ translate }) => (
-					<React.Fragment>
-						<PageMetaTag meta_title="Sign up" meta_description="" />
-						<Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
-							<Dimmer active inverted>
-								<Loader size='large'>Registering...</Loader>
-							</Dimmer>
-						</Segment>
+			<React.Fragment>
+				<PageMetaTag meta_title="Sign up" meta_description="" />
+				<Translate>
+					{({ translate }) => (
+						<React.Fragment>
+							<Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
+								<Dimmer active inverted>
+									<Loader size='large'>{translate('alert.registering')}</Loader>
+								</Dimmer>
+							</Segment>
 
-						<Grid textAlign='center' verticalAlign='middle' className='login-page register' >
-							<Grid.Column className="login-responsive">
-								<div className='login_title'>
-									<h2>{translate('register.create-account')}</h2>
-									<Link to='/login' replace><h3>{translate('register.login-account')}</h3></Link>
-								</div>
-								{this.state.responseError.isError && <Message negative>
-									<Message.Content>
-										{this.state.responseError.text}
-									</Message.Content>
-								</Message>}
-								{this.state.isSuccess && <Message positive>
-									<Message.Content>
-										Registered Successfully ! <Link to='/login' replace>Login</Link> here
-                                    </Message.Content>
-								</Message>}
-								<Form size='large' className='login-form register'>
-									<Segment stacked>
-										<Form.Input
-											fluid
-											label={translate('contact.name')}
-											name='name'
-											placeholder={translate('contact.name')}
-											onChange={this.handleChange}
-										/>
-										{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
-											{errors.first('name')}
-										</Header>}
-										<Form.Input
-											fluid
-											label={translate('contact.email-address')}
-											name='email'
-											placeholder={translate('contact.email-address')}
-											onChange={this.handleChange}
-											error={errors.has('email')}
-										/>
-										{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-											{errors.first('email')}
-										</Header>}
-										<Form.Input
-											fluid
-											label={translate('login.password')}
-											name='password'
-											placeholder={translate('login.password')}
-											type='password'
-											onChange={this.handleChange}
-											error={errors.has('password')}
-										/>
-										{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
-											{errors.first('password')}
-										</Header>}
-										<Form.Input
-											fluid
-											label={translate('register.confirm-password')}
-											name='password_confirmation'
-											placeholder={translate('register.confirm-password')}
-											type='password'
-											onChange={this.handleChange}
-											error={errors.has('password_confirmation')}
-										/>
-										{errors.has('password_confirmation') &&
-											<Header size='tiny' className='custom-error' color='red'>
-												{errors.first('password_confirmation')}
+							<Grid textAlign='center' verticalAlign='middle' className='login-page register' >
+								<Grid.Column className="login-responsive">
+									<div className='login_title'>
+										<h2>{translate('register.create-account')}</h2>
+										<Link to='/login' replace><h3>{translate('register.login-account')}</h3></Link>
+									</div>
+									{this.state.responseError.isError && <Message negative>
+										<Message.Content>
+											{this.state.responseError.text}
+										</Message.Content>
+									</Message>}
+									{this.state.isSuccess && <Message positive>
+										<Message.Content>
+											{translate('alert.register-success')}<Link to='/login' replace>{translate('navigation.login')}</Link> {translate('register.here')}
+										</Message.Content>
+									</Message>}
+									<Form size='large' className='login-form register'>
+										<Segment stacked>
+											<Form.Input
+												fluid
+												label={translate('contact.name')}
+												name='name'
+												placeholder={translate('contact.name')}
+												onChange={this.handleChange}
+											/>
+											{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
+												{errors.first('name')}
 											</Header>}
-										{/* <div className='phone-form'>
-                                            <label>Phone</label>
-                                            <PhoneInput
-                                                placeholder='Enter phone number'
-                                                value={ phone }
-                                                flags={flags}
-                                                onChange={ phone => this.setState({ phone }) } 
-                                                error={ phone ? (isValidPhoneNumber(phone) ? undefined : 'Invalid phone number') : 'Phone number required'}/>
-                                        </div> */}
-										<Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.your-phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
-										{errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
-										<Form.Input
-											fluid
-											label={translate('register.team-name')}
-											name='team'
-											placeholder={translate('register.team-placeholder')}
-											type='text'
-											onChange={this.handleChange}
-										/>
-										<div className={checkbox_border ? 'privacy-section' : 'privacy-section checkbox_border'}>
-											<Checkbox onClick={this.handleCheckBoxClick} label={translate('register.clicking-agree')} />
-											<div className='terms-section'>
-												<Link to='/terms-service' replace>{translate('register.terms')}</Link> <span>{translate('register.and')}</span> <Link to='/privacy-policy' replace>{translate('register.privacy')}</Link>
+											<Form.Input
+												fluid
+												label={translate('contact.email-address')}
+												name='email'
+												placeholder={translate('contact.email-address')}
+												onChange={this.handleChange}
+												error={errors.has('email')}
+											/>
+											{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
+												{errors.first('email')}
+											</Header>}
+											<Form.Input
+												fluid
+												label={translate('login.password')}
+												name='password'
+												placeholder={translate('login.password')}
+												type='password'
+												onChange={this.handleChange}
+												error={errors.has('password')}
+											/>
+											{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
+												{errors.first('password')}
+											</Header>}
+											<Form.Input
+												fluid
+												label={translate('register.confirm-password')}
+												name='password_confirmation'
+												placeholder={translate('register.confirm-password')}
+												type='password'
+												onChange={this.handleChange}
+												error={errors.has('password_confirmation')}
+											/>
+											{errors.has('password_confirmation') &&
+												<Header size='tiny' className='custom-error' color='red'>
+													{errors.first('password_confirmation')}
+												</Header>}
+											<Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
+											{errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
+											<Form.Input
+												fluid
+												label={translate('register.team-name')}
+												name='team'
+												placeholder={translate('register.team-placeholder')}
+												type='text'
+												onChange={this.handleChange}
+											/>
+											<div className={checkbox_border ? 'privacy-section' : 'privacy-section checkbox_border'}>
+												<Checkbox onClick={this.handleCheckBoxClick} label={translate('register.clicking-agree')} />
+												<div className='terms-section'>
+													<Link to='/terms-service' replace>{translate('register.terms')}</Link> <span>{translate('register.and')}</span> <Link to='/privacy-policy' replace>{translate('register.privacy')}</Link>
+												</div>
 											</div>
-										</div>
-										<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('register.btn-create-account')}</Button>
-										<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-											<img src='/images/google.png' /> {translate('register.signup-google')}
-										</Button>
-									</Segment>
-								</Form>
-							</Grid.Column>
-						</Grid>
-					</React.Fragment>
-				)}
-			</Translate>
+											<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('register.btn-create-account')}</Button>
+											<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
+												<img src='/images/google.png' /> {translate('register.signup-google')}
+											</Button>
+										</Segment>
+									</Form>
+								</Grid.Column>
+							</Grid>
+						</React.Fragment>
+					)}
+				</Translate>
+			</React.Fragment>
 		);
 	}
 }

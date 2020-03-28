@@ -88,13 +88,17 @@
         "clicking-agree": ["By creating an account, I agree to our ", "Ved å opprette en konto, godtar jeg vår "],
         "terms": ["Terms", "Vilkår"],
         "and": ["and", "og"],
+        "here": ["here", "her"],
         "privacy": ["Privacy", "Personvern"],
         "btn-create-account": ["Create account", "Opprett konto"],
         "signup-google": ["Sign up with Google", "Registrer deg med Google"]
     },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
-        "loading": ["Loading...", "Laster ..."]
+        "loading": ["Loading...", "Laster ..."],
+        "authenticate": ["Authenticating...", "Godkjenner ..."],
+        "registering": ["Registering...", "Registrerer ..."],
+        "register-success" : ["Registered Successfully!", "Registrert vellykket!"]
     },
     "card": {
         "header-section": ["Header Section", "Overskrift Seksjon"],

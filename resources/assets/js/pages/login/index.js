@@ -2,7 +2,6 @@ import React from 'react'
 import { Button, Checkbox, Dimmer, Form, Grid, Header, Icon, Loader, Message, Segment } from 'semantic-ui-react'
 import { Link, Redirect } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
-import PropTypes from 'prop-types'
 import ReeValidate from 'ree-validate'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http';
@@ -127,77 +126,85 @@ class Page extends React.Component {
 	render() {
 		const { isAuthenticated, isAdmin } = this.state;
 		const { from } = this.props.location.state || { from: { pathname: isAdmin=='true' ? '/admin/pages' : '/' } };
+		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 
 		if (isAuthenticated == 'true') {
 			return (
 				<Redirect to={from} />
 			)
-		}
+		} 
+		// else if (lang=='nb' && !window.location.pathname.includes('no')) {
+		// 	return (
+		// 		<Redirect to='no/logginn' />
+		// 	)
+		// }
+
 		const { errors } = this.state;
 		return (
-			<Translate>
-				{({ translate }) => (
-					<React.Fragment>
-						<PageMetaTag meta_title="Login to Access Loyalty" meta_description="" />
-						<Segment className='page-loader' style={{ display: this.state.isLoaded ? 'block' : 'none' }}>
-							<Dimmer active inverted>
-								<Loader size='large'>Authenticating...</Loader>
-							</Dimmer>
-						</Segment>
-
-						<Grid textAlign='center' verticalAlign='middle' className='login-page'>
-							<Grid.Column className="login-responsive">
-								<div className='login_title'>
-									<h2>{translate('login.welcome-message')}</h2>
-									<Link to='/register' replace><h3>{translate('login.create-account')}</h3></Link>
-								</div>
-								{this.state.responseError.isError && <Message negative>
-									<Message.Content>
-										{this.state.responseError.text}
-									</Message.Content>
-								</Message>}
-								<Form size='large' className='login-form'>
-									<Segment stacked>
-										<Form.Input
-											fluid
-											label={translate('contact.email-address')}
-											name='email'
-											placeholder={translate('contact.email-address')}
-											className='input-form'
-											onChange={this.handleChange}
-											error={errors.has('email')}
-										/>
-										{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-											{errors.first('email')}
-										</Header>}
-										<Form.Input
-											fluid
-											label={translate('login.password')}
-											name='password'
-											placeholder={translate('login.password')}
-											className='input-form'
-											type='password'
-											onChange={this.handleChange}
-											error={errors.has('password')}
-										/>
-										{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
-											{errors.first('password')}
-										</Header>}
-										<div className='remember-section'>
-											<Checkbox label={translate('login.remember-me')} />
-											<Link to='/forgot-password' replace><Icon name='lock' />{translate('login.forgot-password')}</Link>
-										</div>
-										<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('login.login')}</Button>
-										<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-											<img src='/images/google.png' /> {translate('login.login-google')}
-										</Button>
-									</Segment>
-								</Form>
-							</Grid.Column>
-						</Grid>
-					</React.Fragment>
-				)}
-			</Translate>
+			<React.Fragment>
+				<PageMetaTag meta_title="Login to Access Loyalty" meta_description="" />
+				<Translate>
+					{({ translate }) => (
+						<React.Fragment>
+							<Segment className='page-loader' style={{ display: this.state.isLoaded ? 'block' : 'none' }}>
+								<Dimmer active inverted>
+									<Loader size='large'>{translate('alert.authenticate')}</Loader>
+								</Dimmer>
+							</Segment>
+							<Grid textAlign='center' verticalAlign='middle' className='login-page'>
+								<Grid.Column className="login-responsive">
+									<div className='login_title'>
+										<h2>{translate('login.welcome-message')}</h2>
+										<Link to='/register' replace><h3>{translate('login.create-account')}</h3></Link>
+									</div>
+									{this.state.responseError.isError && <Message negative>
+										<Message.Content>
+											{this.state.responseError.text}
+										</Message.Content>
+									</Message>}
+									<Form size='large' className='login-form'>
+										<Segment stacked>
+											<Form.Input
+												fluid
+												label={translate('contact.email-address')}
+												name='email'
+												placeholder={translate('contact.email-address')}
+												className='input-form'
+												onChange={this.handleChange}
+												error={errors.has('email')}
+											/>
+											{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
+												{errors.first('email')}
+											</Header>}
+											<Form.Input
+												fluid
+												label={translate('login.password')}
+												name='password'
+												placeholder={translate('login.password')}
+												className='input-form'
+												type='password'
+												onChange={this.handleChange}
+												error={errors.has('password')}
+											/>
+											{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
+												{errors.first('password')}
+											</Header>}
+											<div className='remember-section'>
+												<Checkbox label={translate('login.remember-me')} />
+												<Link to='/forgot-password' replace><Icon name='lock' />{translate('login.forgot-password')}</Link>
+											</div>
+											<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('login.login')}</Button>
+											<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
+												<img src='/images/google.png' /> {translate('login.login-google')}
+											</Button>
+										</Segment>
+									</Form>
+								</Grid.Column>
+							</Grid>
+						</React.Fragment>
+					)}
+				</Translate>
+			</React.Fragment>
 		);
 	}
 }
