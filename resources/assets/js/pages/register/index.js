@@ -14,6 +14,7 @@ class Page extends React.Component {
 		this.validator = new ReeValidate({
 			name: 'required|min:3',
 			email: 'required|email',
+			phone: 'required',
 			password: 'required|min:6',
 			password_confirmation: 'required|min:6',
 			team: 'required'
@@ -35,14 +36,30 @@ class Page extends React.Component {
 			isSuccess: false,
 			isLoading: false,
 			errors: this.validator.errors,
-			phone: '',
+			phone_error: false,
 			checked: false,
 			checkbox_border: true,
 			isAuthenticated: false
 		};
+		this.myRef = React.createRef();
+		this.handler = this.handler.bind(this);
+		this.onBlur = this.onBlur.bind(this);
 		this.handleChange = this.handleChange.bind(this);
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
+	}
+
+	handler() {
+		var { credentials } = this.state;
+		credentials.phone = this.myRef.current.formatFullNumber(event.target.value);
+		this.setState({ credentials });
+	}
+	
+	onBlur() {
+		var { credentials } = this.state;
+		if (this.myRef.current.isValidNumber(credentials.phone)) {
+			this.setState({ phone_error: false });
+		}
 	}
 
 	handleChange(event) {
@@ -51,14 +68,19 @@ class Page extends React.Component {
 		const { errors } = this.validator;
 		const { credentials } = this.state;
 		credentials[name] = value;
-		if (name != 'phone') {
-			this.validator.validate(name, value)
-				.then(() => {
-					this.setState({ errors, credentials })
-				});
-		} else {
-			this.setState({ phone: value });
-		}
+
+		this.validator.validate(name, value)
+		.then(() => {
+			if (errors.items.length == 0) {
+				this.setState({ errors })
+				
+				$('input[name=' + type + ']').addClass('success');
+
+			} else {
+				this.setState({ errors })
+				$('input[name=' + type + ']').removeClass('success');
+			}
+		});
 	}
 
 	handleCheckBoxClick() {
@@ -68,43 +90,23 @@ class Page extends React.Component {
 	handleSubmit(event) {
 		event.preventDefault();
 
-		const { credentials, phone, checked } = this.state;
-
+		const { credentials, checked } = this.state;
+		const { errors } = this.validator;
 		this.validator.validateAll(credentials)
 			.then(success => {
 				if (success) {
 					// Manually verify the password confirmation fields
 					if (this.passwordConfirmation(credentials)) {
-						// if (isValidPhoneNumber(phone)) {
-						// if (checked) {
-						// 	this.setState({
-						// 		isLoading: true
-						// 	});
-						// 		credentials.phone = phone;
-						// 		this.submit(credentials);
-						// 	} else {
-						// 		this.setState({ checkbox_border: !this.state.checkbox_border });
-						// 	}
-						// }
-						// else {
-						// 	const responseError = {
-						// 		isError: true,
-						// 		code: 401,
-						// 		text: "Oops! Phone number doesn't exit!"
-						// 	};
-						// 	this.setState({ responseError });
-						// }
-						if (checked) {
-							credentials.phone = phone;
-							this.setState({
-								isLoading: true
-							});
-							this.submit(credentials);
+						if (!checked || !this.myRef.current.isValidNumber(credentials.phone)) {
+							if (!checked) {
+								this.setState({ checkbox_border: !this.state.checkbox_border });
+							} else {
+								this.setState({ phone_error: true });
+							}
 						} else {
-							this.setState({ checkbox_border: !this.state.checkbox_border });
+							this.submit(credentials);
 						}
-					}
-					else {
+					} else {
 						const responseError = {
 							isError: true,
 							code: 401,
@@ -112,6 +114,23 @@ class Page extends React.Component {
 						};
 						this.setState({ responseError });
 					}
+				} else {
+					const ref = this;
+          if (!checked) {
+            this.setState({ checkbox_border: !this.state.checkbox_border });
+          }
+          Object.keys(credentials).map((key, item) => {
+            if (key != 'phone') {
+              ref.validator.validate(key, credentials[key])
+                .then(() => {
+                  ref.setState({ errors })
+                });
+            } else {
+              if (!this.myRef.current.isValidNumber(credentials.phone)) {
+                ref.setState({ phone_error: true });
+              }
+            }
+          });
 				}
 			});
 	}
@@ -140,7 +159,8 @@ class Page extends React.Component {
 						password: '',
 						team: '',
 						password: '',
-						password_confirmation: ''
+						password_confirmation: '',
+						phone: ''
 					},
 					responseError: {
 						isError: false,
@@ -195,14 +215,13 @@ class Page extends React.Component {
 
 		if (isAuthenticated == 'true') {
 			return (<Redirect to='/' />);
-		} 
-		// else if (lang == 'nb' && typeof window != 'undefined') {
-		// 	if (!window.location.pathname.includes('no')) {
-		// 		return (<Redirect to='/no/start-prosjekt' />);
-		// 	}
-		// }
+		} else if (lang == 'nb' && typeof window != 'undefined') {
+			if (!window.location.pathname.includes('no')) {
+				return (<Redirect to='/no/start-prosjekt' />);
+			}
+		}
 
-		const { errors, phone, checkbox_border } = this.state;
+		const { errors, checkbox_border, phone_error } = this.state;
 		return (
 			<React.Fragment>
 				<PageMetaTag meta_title="Sign up" meta_description="" />
@@ -239,9 +258,10 @@ class Page extends React.Component {
 												name='name'
 												placeholder={translate('contact.name')}
 												onChange={this.handleChange}
+												error={errors.has('name')}
 											/>
 											{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('name')}
+												{errors.first('name')?lang=='en'?'The name is required.':'Navnet er påkrevd.':''}
 											</Header>}
 											<Form.Input
 												fluid
@@ -252,8 +272,20 @@ class Page extends React.Component {
 												error={errors.has('email')}
 											/>
 											{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('email')}
+												{errors.first('email')?lang=='en'?'The email is required.':'E-postadressen er påkrevd.':''}
 											</Header>}
+											<div className="form-group phone field">
+												<label>{translate('contact.phone')}</label>
+												<IntlTelInput
+													ref={this.myRef}
+													defaultCountry={'no'}
+													preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
+													onPhoneNumberChange={this.handler}
+													onPhoneNumberBlur={this.onBlur}
+												/>
+												{ errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
+												{ !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
+											</div>
 											<Form.Input
 												fluid
 												label={translate('login.password')}
@@ -264,7 +296,7 @@ class Page extends React.Component {
 												error={errors.has('password')}
 											/>
 											{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('password')}
+												{errors.first('password')?lang=='en'?'The password is required.':'Passordet er påkrevd.':''}
 											</Header>}
 											<Form.Input
 												fluid
@@ -277,10 +309,8 @@ class Page extends React.Component {
 											/>
 											{errors.has('password_confirmation') &&
 												<Header size='tiny' className='custom-error' color='red'>
-													{errors.first('password_confirmation')}
+													{errors.first('password_confirmation')?lang=='en'?'The confirmation password is required.':'Bekreftelsespassordet er påkrevd.':''}
 												</Header>}
-											<Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
-											{errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')}</Header>}
 											<Form.Input
 												fluid
 												label={translate('register.team-name')}
@@ -288,7 +318,12 @@ class Page extends React.Component {
 												placeholder={translate('register.team-placeholder')}
 												type='text'
 												onChange={this.handleChange}
+												error={errors.has('team')}
 											/>
+											{errors.has('team') &&
+												<Header size='tiny' className='custom-error' color='red'>
+													{errors.first('team')?lang=='en'?'The team name is required.':'Lagnavnet kreves.':''}
+												</Header>}
 											<div className={checkbox_border ? 'privacy-section' : 'privacy-section checkbox_border'}>
 												<Checkbox onClick={this.handleCheckBoxClick} label={translate('register.clicking-agree')} />
 												<div className='terms-section'>

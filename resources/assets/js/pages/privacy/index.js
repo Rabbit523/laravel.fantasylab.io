@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
 import ReactHtmlParser from 'react-html-parser'
 import PageMetaTag from '../../common/pageMetaTag'
@@ -83,6 +83,18 @@ class Page extends React.Component {
 	render() {
 		const { isLoaded, data, isPrivacy, isSecurity, isTerms, isConfident } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			switch(window.location.pathname) {
+				case '/privacy':
+					return <Redirect to='no/personvern' />
+				case '/data-processor':
+					return <Redirect to='no/databehandler' />
+				case '/terms':
+					return <Redirect to='no/vilkar' />
+				case '/confidentiality':
+					return <Redirect to='no/konfidensialitet' />
+			}
+		}
 		return (
 			<Translate>
 				{({ translate }) => (

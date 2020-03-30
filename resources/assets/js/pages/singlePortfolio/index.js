@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageMetaTag from '../../common/pageMetaTag'
 import PageFooter from '../../common/pageFooter'
@@ -43,6 +43,11 @@ class Page extends React.Component {
 	render() {
 		const { isLoaded, isExisted, data, page } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			return (
+				<Redirect to={`/no${this.props.location.pathname}`} />
+			)
+		}
 		return (
 			<Translate>
 				{({ translate }) => (

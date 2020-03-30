@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header, Label } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import IntlTelInput from 'react-intl-tel-input';
@@ -194,6 +194,11 @@ class Page extends React.Component {
   render() {
     const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone_error, checkbox_border } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+    if (lang=='nb' && !window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='no/kontakt' />
+			)
+		}
     return (
       <Translate>
         {({ translate }) => (
@@ -239,17 +244,17 @@ class Page extends React.Component {
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
-                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name field is required.':'Navnfeltet er påkrevd.':''}</Header>}
+                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name is required.':'Navnet er påkrevd.':''}</Header>}
                         </div>
                         <div className="form-group">
                           <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')}/>
-                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company')?lang=='en'?'The company field is required.':'Selskap er påkrevd.':''}</Header>}
+                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company')?lang=='en'?'The company is required.':'Selskapet er påkrevd.':''}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
-                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
+                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email is required.':'E-postadressen er påkrevd.':''}</Header>}
                         </div>
                         <div className="form-group phone field">
                           <label>{translate('contact.phone')}</label>
@@ -267,7 +272,7 @@ class Page extends React.Component {
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
-                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message field is required.':'Meldingsfeltet er påkrevd.':''}</Header>}
+                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message is required.':'Meldingen er påkrevd.':''}</Header>}
                         </div>
                       </div>
                       <div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>

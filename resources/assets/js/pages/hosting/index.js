@@ -2,7 +2,7 @@ import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from 'react-modal'
 import PageMetaTag from '../../common/pageMetaTag'
 import PlanItem from '../../common/planItem'
@@ -93,6 +93,11 @@ class Page extends React.Component {
 		const { isLoaded, isOpen, isDistribution, isClickApp, isCustom, data, active_manage_type, active_scale_type } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='no/administrert-hosting' />
+			)
+		}
 		return (
 			<Translate>
 				{({ translate }) => (

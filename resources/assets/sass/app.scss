@@ -2612,6 +2612,17 @@ body {
             input {
               color: #fff !important;
             }
+            .custom-error {
+              margin-top: 5px;
+            }
+            .phone {
+              .intl-tel-input {
+                width: 100%;
+                input {
+                  padding-left: 60px !important;
+                }
+              }
+            }
           }
           .segment {
             background: transparent;
@@ -5821,7 +5832,7 @@ body {
       }
     }
     .btn {
-      left: 115px;
+      left: 166px;
     }
   }
 }

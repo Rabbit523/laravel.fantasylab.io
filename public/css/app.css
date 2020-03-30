@@ -3104,6 +3104,18 @@ body {
   color: #fff !important;
 }
 
+.page .main .login-page .login-responsive .login-form.register .custom-error {
+  margin-top: 5px;
+}
+
+.page .main .login-page .login-responsive .login-form.register .phone .intl-tel-input {
+  width: 100%;
+}
+
+.page .main .login-page .login-responsive .login-form.register .phone .intl-tel-input input {
+  padding-left: 60px !important;
+}
+
 .page .main .login-page .login-responsive .login-form .segment {
   background: transparent;
   border: none;
@@ -6206,7 +6218,7 @@ body {
   }
 
   .page .main .login-page.register .login-responsive {
-    max-width: 450px;
+    max-width: 460px;
   }
 
   .page .main .login-page .login-responsive {
@@ -6240,7 +6252,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 115px;
+    left: 166px;
   }
 }
 

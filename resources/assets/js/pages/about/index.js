@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Button } from 'semantic-ui-react'
 import { isMobileOnly } from 'react-device-detect'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageMetaTag from '../../common/pageMetaTag'
@@ -68,6 +68,11 @@ class Page extends React.Component {
   render() {
     const { isLoaded, isTablet, isOpen, data } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+    if (lang=='nb' && !window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='no/om-oss' />
+			)
+		}
     return (
       <Translate>
         {({ translate }) => (
