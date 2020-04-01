@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Dimmer, Checkbox, Form, Grid, Header, Loader, Message, Segment } from 'semantic-ui-react'
 import { Link, Redirect, withRouter } from 'react-router-dom'
-import { Translate, withLocalize } from "react-localize-redux"
+import { withLocalize } from "react-localize-redux"
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import ReeValidate from 'ree-validate'
@@ -225,122 +225,118 @@ class Page extends React.Component {
 		return (
 			<React.Fragment>
 				<PageMetaTag meta_title="Sign up" meta_description="" />
-				<Translate>
-					{({ translate }) => (
-						<React.Fragment>
-							<Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
-								<Dimmer active inverted>
-									<Loader size='large'>{translate('alert.registering')}</Loader>
-								</Dimmer>
-							</Segment>
+				<Segment className='page-loader' style={{ display: this.state.isLoading ? 'block' : 'none' }}>
+					<Dimmer active inverted>
+						<Loader size='large'>{lang=='en'?'Registering...':'Registrerer ...'}</Loader>
+					</Dimmer>
+				</Segment>
 
-							<Grid textAlign='center' verticalAlign='middle' className='login-page register' >
-								<Grid.Column className="login-responsive">
-									<div className='login_title'>
-										<h2>{translate('register.create-account')}</h2>
-										<Link to='/login' replace><h3>{translate('register.login-account')}</h3></Link>
+				<Grid textAlign='center' verticalAlign='middle' className='login-page register' >
+					<Grid.Column className="login-responsive">
+						<div className='login_title'>
+							<h2>{lang == 'en' ? 'Create a FantasyLab account' : 'Opprett en FantasyLab-konto'}</h2>
+							<Link to='/login' replace>
+								<h3>{lang == 'en' ? 'or sign in into your account' : 'eller logg deg på kontoen din'}</h3>
+							</Link>
+						</div>
+						{this.state.responseError.isError && <Message negative>
+							<Message.Content>
+								{this.state.responseError.text}
+							</Message.Content>
+						</Message>}
+						{this.state.isSuccess && <Message positive>
+							<Message.Content>
+								{lang=='en'?'Registered Successfully!':'Registrert vellykket!'}<Link to='/login' replace>{translate('navigation.login')}</Link> {lang=='en'?'here':'her'}
+							</Message.Content>
+						</Message>}
+						<Form size='large' className='login-form register'>
+							<Segment stacked>
+								<Form.Input
+									fluid
+									label={lang=='en'?'Name':'Navn'}
+									name='name'
+									placeholder={lang=='en'?'Your name here':'Navnet ditt her'}
+									onChange={this.handleChange}
+									error={errors.has('name')}
+								/>
+								{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
+									{errors.first('name')?lang=='en'?'The name is required.':'Navnet er påkrevd.':''}
+								</Header>}
+								<Form.Input
+									fluid
+									label={lang=='en'?'Email':'E-post'}
+									name='email'
+									placeholder={lang=='en'?'Your email here':'Din e-post her'}
+									onChange={this.handleChange}
+									error={errors.has('email')}
+								/>
+								{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
+									{errors.first('email')?lang=='en'?'The email is required.':'E-postadressen er påkrevd.':''}
+								</Header>}
+								<div className="form-group phone field">
+									<label>{lang=='en'?'Phone':'Telefon'}</label>
+									<IntlTelInput
+										ref={this.myRef}
+										defaultCountry={'no'}
+										preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
+										onPhoneNumberChange={this.handler}
+										onPhoneNumberBlur={this.onBlur}
+									/>
+									{ errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
+									{ !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
+								</div>
+								<Form.Input
+									fluid
+									label={lang=='en'?'Password':'Passord'}
+									name='password'
+									placeholder={lang=='en'?'Enter password':'Oppgi passord'}
+									type='password'
+									onChange={this.handleChange}
+									error={errors.has('password')}
+								/>
+								{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
+								{errors.first('password')?lang=='en'?'The password is required.':'Passordet er påkrevd.':''}
+								</Header>}
+								<Form.Input
+									fluid
+									label={lang=='en'?'Confirm password':'Bekreft passord'}
+									name='password_confirmation'
+									placeholder={lang=='en'?'Enter confirm password':'Angi bekreft passord'}
+									type='password'
+									onChange={this.handleChange}
+									error={errors.has('password_confirmation')}
+								/>
+								{errors.has('password_confirmation') &&
+									<Header size='tiny' className='custom-error' color='red'>
+										{errors.first('password_confirmation')?lang=='en'?'The confirmation password is required.':'Bekreftelsespassordet er påkrevd.':''}
+									</Header>}
+								<Form.Input
+									fluid
+									label={lang=='en'?'Team name':'Lag navn'}
+									name='team'
+									placeholder={lang=='en'?'Enter your team name here':'Hidden inn teamnavnet ditt her'}
+									type='text'
+									onChange={this.handleChange}
+									error={errors.has('team')}
+								/>
+								{errors.has('team') &&
+									<Header size='tiny' className='custom-error' color='red'>
+										{errors.first('team')?lang=='en'?'The team name is required.':'Lagnavnet kreves.':''}
+									</Header>}
+								<div className={checkbox_border ? 'privacy-section' : 'privacy-section checkbox_border'}>
+									<Checkbox onClick={this.handleCheckBoxClick} label={lang=='en'?'By creating an account, I agree to our ':'Ved å opprette en konto, godtar jeg vår '} />
+									<div className='terms-section'>
+										<Link to='/terms-service' replace>{lang=='en'?'Terms':'Vilkår'}</Link> <span>{lang=='en'?'and':'og'}</span> <Link to='/privacy-policy' replace>{lang=='en'?'Privacy':'Personvern'}</Link>
 									</div>
-									{this.state.responseError.isError && <Message negative>
-										<Message.Content>
-											{this.state.responseError.text}
-										</Message.Content>
-									</Message>}
-									{this.state.isSuccess && <Message positive>
-										<Message.Content>
-											{translate('alert.register-success')}<Link to='/login' replace>{translate('navigation.login')}</Link> {translate('register.here')}
-										</Message.Content>
-									</Message>}
-									<Form size='large' className='login-form register'>
-										<Segment stacked>
-											<Form.Input
-												fluid
-												label={translate('contact.name')}
-												name='name'
-												placeholder={translate('contact.name')}
-												onChange={this.handleChange}
-												error={errors.has('name')}
-											/>
-											{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('name')?lang=='en'?'The name is required.':'Navnet er påkrevd.':''}
-											</Header>}
-											<Form.Input
-												fluid
-												label={translate('contact.email-address')}
-												name='email'
-												placeholder={translate('contact.email-address')}
-												onChange={this.handleChange}
-												error={errors.has('email')}
-											/>
-											{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('email')?lang=='en'?'The email is required.':'E-postadressen er påkrevd.':''}
-											</Header>}
-											<div className="form-group phone field">
-												<label>{translate('contact.phone')}</label>
-												<IntlTelInput
-													ref={this.myRef}
-													defaultCountry={'no'}
-													preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
-													onPhoneNumberChange={this.handler}
-													onPhoneNumberBlur={this.onBlur}
-												/>
-												{ errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
-												{ !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
-											</div>
-											<Form.Input
-												fluid
-												label={translate('login.password')}
-												name='password'
-												placeholder={translate('login.password')}
-												type='password'
-												onChange={this.handleChange}
-												error={errors.has('password')}
-											/>
-											{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('password')?lang=='en'?'The password is required.':'Passordet er påkrevd.':''}
-											</Header>}
-											<Form.Input
-												fluid
-												label={translate('register.confirm-password')}
-												name='password_confirmation'
-												placeholder={translate('register.confirm-password')}
-												type='password'
-												onChange={this.handleChange}
-												error={errors.has('password_confirmation')}
-											/>
-											{errors.has('password_confirmation') &&
-												<Header size='tiny' className='custom-error' color='red'>
-													{errors.first('password_confirmation')?lang=='en'?'The confirmation password is required.':'Bekreftelsespassordet er påkrevd.':''}
-												</Header>}
-											<Form.Input
-												fluid
-												label={translate('register.team-name')}
-												name='team'
-												placeholder={translate('register.team-placeholder')}
-												type='text'
-												onChange={this.handleChange}
-												error={errors.has('team')}
-											/>
-											{errors.has('team') &&
-												<Header size='tiny' className='custom-error' color='red'>
-													{errors.first('team')?lang=='en'?'The team name is required.':'Lagnavnet kreves.':''}
-												</Header>}
-											<div className={checkbox_border ? 'privacy-section' : 'privacy-section checkbox_border'}>
-												<Checkbox onClick={this.handleCheckBoxClick} label={translate('register.clicking-agree')} />
-												<div className='terms-section'>
-													<Link to='/terms-service' replace>{translate('register.terms')}</Link> <span>{translate('register.and')}</span> <Link to='/privacy-policy' replace>{translate('register.privacy')}</Link>
-												</div>
-											</div>
-											<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('register.btn-create-account')}</Button>
-											<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-												<img src='/images/google.png' /> {translate('register.signup-google')}
-											</Button>
-										</Segment>
-									</Form>
-								</Grid.Column>
-							</Grid>
-						</React.Fragment>
-					)}
-				</Translate>
+								</div>
+								<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{lang=='en'?'Create account':'Opprett konto'}</Button>
+								<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
+									<img src='/images/google.png' /> {lang=='en'?'Sign up with Google':'Registrer deg med Google'}
+								</Button>
+							</Segment>
+						</Form>
+					</Grid.Column>
+				</Grid>
 			</React.Fragment>
 		);
 	}

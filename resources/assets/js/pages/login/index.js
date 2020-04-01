@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Dimmer, Form, Grid, Header, Icon, Loader, Message, Segment } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
-import { Translate, withLocalize } from "react-localize-redux"
+import { Link, Redirect, withRouter } from 'react-router-dom'
+import { withLocalize } from "react-localize-redux"
 import ReeValidate from 'ree-validate'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http';
@@ -142,70 +142,64 @@ class Page extends React.Component {
 		return (
 			<React.Fragment>
 				<PageMetaTag meta_title="Login to Access Loyalty" meta_description="" />
-				<Translate>
-					{({ translate }) => (
-						<React.Fragment>
-							<Segment className='page-loader' style={{ display: this.state.isLoaded ? 'block' : 'none' }}>
-								<Dimmer active inverted>
-									<Loader size='large'>{translate('alert.authenticate')}</Loader>
-								</Dimmer>
+				<Segment className='page-loader' style={{ display: this.state.isLoaded ? 'block' : 'none' }}>
+					<Dimmer active inverted>
+						<Loader size='large'>{lang=='en'?'Authenticating...':'Godkjenner ...'}</Loader>
+					</Dimmer>
+				</Segment>
+				<Grid textAlign='center' verticalAlign='middle' className='login-page'>
+					<Grid.Column className="login-responsive">
+						<div className='login_title'>
+							<h2>{lang=='en'?'Sign into FantasyLab':'Logg deg på FantasyLab'}</h2>
+							<Link to='/register' replace><h3>{lang=='en'?'or create a free FantasyLab account':'eller opprett en gratis FantasyLab-konto'}</h3></Link>
+						</div>
+						{this.state.responseError.isError && <Message negative>
+							<Message.Content>
+								{this.state.responseError.text}
+							</Message.Content>
+						</Message>}
+						<Form size='large' className='login-form'>
+							<Segment stacked>
+								<Form.Input
+									fluid
+									label={lang=='en'?'Email':'E-post'}
+									name='email'
+									placeholder={lang=='en'?'Your email here':'Din e-post her'}
+									className='input-form'
+									onChange={this.handleChange}
+									error={errors.has('email')}
+								/>
+								{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
+								{errors.first('email')}
+								</Header>}
+								<Form.Input
+									fluid
+									label={lang=='en'?'Password':'Passord'}
+									name='password'
+									placeholder={lang=='en'?'Enter password':'Oppgi passord'}
+									className='input-form'
+									type='password'
+									onChange={this.handleChange}
+									error={errors.has('password')}
+								/>
+								{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
+									{errors.first('password')}
+								</Header>}
+								<div className='remember-section'>
+									<Checkbox label={lang=='en'?'Remember me':'Husk meg'} />
+									<Link to='/forgot-password' replace><Icon name='lock' />{lang=='en'?'Forgot password?':'Glemt passord?'}</Link>
+								</div>
+								<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{lang=='en'?'Login':'Logg Inn'}</Button>
+								<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
+									<img src='/images/google.png' /> {lang=='en'?'Login with Google':'Logg inn med Google'}
+								</Button>
 							</Segment>
-							<Grid textAlign='center' verticalAlign='middle' className='login-page'>
-								<Grid.Column className="login-responsive">
-									<div className='login_title'>
-										<h2>{translate('login.welcome-message')}</h2>
-										<Link to='/register' replace><h3>{translate('login.create-account')}</h3></Link>
-									</div>
-									{this.state.responseError.isError && <Message negative>
-										<Message.Content>
-											{this.state.responseError.text}
-										</Message.Content>
-									</Message>}
-									<Form size='large' className='login-form'>
-										<Segment stacked>
-											<Form.Input
-												fluid
-												label={translate('contact.email-address')}
-												name='email'
-												placeholder={translate('contact.email-address')}
-												className='input-form'
-												onChange={this.handleChange}
-												error={errors.has('email')}
-											/>
-											{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('email')}
-											</Header>}
-											<Form.Input
-												fluid
-												label={translate('login.password')}
-												name='password'
-												placeholder={translate('login.password')}
-												className='input-form'
-												type='password'
-												onChange={this.handleChange}
-												error={errors.has('password')}
-											/>
-											{errors.has('password') && <Header size='tiny' className='custom-error' color='red'>
-												{errors.first('password')}
-											</Header>}
-											<div className='remember-section'>
-												<Checkbox label={translate('login.remember-me')} />
-												<Link to='/forgot-password' replace><Icon name='lock' />{translate('login.forgot-password')}</Link>
-											</div>
-											<Button fluid size='large' className='primary-button' onClick={this.handleSubmit}>{translate('login.login')}</Button>
-											<Button onClick={this.onSocialClick.bind(this)} service='google' className='ui google icon button google-button'>
-												<img src='/images/google.png' /> {translate('login.login-google')}
-											</Button>
-										</Segment>
-									</Form>
-								</Grid.Column>
-							</Grid>
-						</React.Fragment>
-					)}
-				</Translate>
+						</Form>
+					</Grid.Column>
+				</Grid>
 			</React.Fragment>
 		);
 	}
 }
 
-export default withLocalize(Page);
+export default withLocalize(withRouter(Page));
