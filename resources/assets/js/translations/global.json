@@ -6,13 +6,13 @@
         "mobile-development": ["Mobile Development", "Mobilutvikling"],
         "mobile-development-des":["Powerful, effective and practical phone apps", "Kraftige, effektive og praktiske telefonapper"],
         "ui-design": ["UI & UX Design", "UI & UX Design"],
-        "ui-design-des": ["Awesome end-user interfaces & experience", "Fantastiske sluttbrukergrensesnitt og opplevelse"],
+        "ui-design-des": ["Awesome end-user interfaces & experience", "Nydelig brukergrensesnitt og brukeropplevelse"],
         "branding": ["Branding", "Merkevarebygging"],
         "branding-des": ["Creativity, purpose, knowledge & business", "Kreativitet, formål, kunnskap og virksomhet"],
         "illustration": ["Illustration", "Illustrasjon"],
         "illustration-des": ["Visual storytelling, iconography & digital art", "Visuell historiefortelling, ikonografi og digital kunst"],
         "marketing-material": ["Marketing Material", "Markedsføringsmateriell"],
-        "marketing-material-des": ["Optimized- & brand consistent messages", "Optimaliserte & merkekonsistente meldinger"],
+        "marketing-material-des": ["Optimized- & brand consistent messages", "Optimalisert og «merkevare konsistent» budskap"],
         "portfolio": ["Portfolio", "Portefølje"],
         "products": ["Products", "Produkter"],
         "managed-hosting": ["Managed Hosting", "Administrert Hosting"],
@@ -70,35 +70,9 @@
         "clicking-agree": ["By clicking 'Send message', I agree to FantasyLab's ", "Ved å klikke 'Send melding', godkjenner du Fantasylab's"],
         "privacy-policy": ["Privacy Policy", "personvern"]
     },
-    "login": {
-        "welcome-message": ["Sign into FantasyLab", "Logg deg på FantasyLab"],
-        "create-account": ["or create a free FantasyLab account", "eller opprett en gratis FantasyLab-konto"],
-        "password": ["Password", "Passord"],
-        "remember-me": ["Remember me", "Husk meg"],
-        "forgot-password": ["Forgot password?", "Glemt passord?"],
-        "login": ["Login", "Logg Inn"],
-        "login-google": ["Login with Google", "Logg inn med Google"]
-    },
-    "register": {
-        "create-account": ["Create a FantasyLab account", "Opprett en FantasyLab-konto"],
-        "login-account": ["or sign in into your account", "eller logg deg på kontoen din"],
-        "confirm-password": ["Confirm password", "Bekreft passord"],
-        "team-name": ["Team name", "Lag navn"],
-        "team-placeholder": ["e.g.'FantasyLab' or FantasyLab Finance", "f.eks. 'FantasyLab' eller FantasyLab Finance"],
-        "clicking-agree": ["By creating an account, I agree to our ", "Ved å opprette en konto, godtar jeg vår "],
-        "terms": ["Terms", "Vilkår"],
-        "and": ["and", "og"],
-        "here": ["here", "her"],
-        "privacy": ["Privacy", "Personvern"],
-        "btn-create-account": ["Create account", "Opprett konto"],
-        "signup-google": ["Sign up with Google", "Registrer deg med Google"]
-    },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
-        "loading": ["Loading...", "Laster ..."],
-        "authenticate": ["Authenticating...", "Godkjenner ..."],
-        "registering": ["Registering...", "Registrerer ..."],
-        "register-success" : ["Registered Successfully!", "Registrert vellykket!"]
+        "loading": ["Loading...", "Laster ..."]
     },
     "card": {
         "header-section": ["Header Section", "Overskrift Seksjon"],
