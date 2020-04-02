@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { renderToStaticMarkup } from "react-dom/server"
-import { withLocalize, Translate } from "react-localize-redux"
+import { withLocalize, Translate, getActiveLanguage } from "react-localize-redux"
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import Switch from "react-switch";
 import { isMobileOnly, isMobile } from 'react-device-detect'
@@ -48,12 +48,13 @@ class Main extends React.Component {
   
   setActiveLanguage(code) {
     localStorage.setItem('locale', code);
+    this.setState({lang: code});
     if (!this.props.location.pathname.includes('admin')) {
       if (this.props.location.pathname.includes('no')) {
         this.props.setActiveLanguage(code);
         var next_url = this.props.location.pathname.replace('/no', '');
-        if (next_url.includes('/portfolio/')) {
-          next_url = next_url.replace('/portfolio/', '');
+        if (next_url.includes('/portefolje/')) {
+          next_url = next_url.replace('/portefolje/', '');
           this.props.history.push(`/portfolio/${next_url}`);
         } else {
           switch(next_url) {
@@ -84,7 +85,7 @@ class Main extends React.Component {
             case '/administrert-hosting':
               this.props.history.push('/managed-hosting');
               break;
-            case '/portfolio':
+            case '/portefolje':
               this.props.history.push('/portfolio');
               break;
             case '/funksjoner':
@@ -120,6 +121,7 @@ class Main extends React.Component {
         this.props.setActiveLanguage(code);
         var next_url = this.props.location.pathname;
         if (next_url.includes('/portfolio/')) {
+          next_url = next_url.replace('portfolio', 'portefolje');
           this.props.history.push(`/no${next_url}`);
         } else {
           switch(next_url) {
@@ -151,7 +153,7 @@ class Main extends React.Component {
               this.props.history.push('/no/administrert-hosting');
               break;
             case '/portfolio':
-              this.props.history.push('/no/portfolio');
+              this.props.history.push('/no/portefolje');
               break;
             case '/features':
               this.props.history.push('/no/funksjoner');
@@ -306,8 +308,8 @@ class Main extends React.Component {
       is_footer = false;
     }
     const { isAdmin, isAuthenticated } = this.props;
-    const { isDetail, stateTab, stateType, is_functional, is_statistical, is_marketing, today, cookie_neccessary, cookie_statistical } = this.state;
-    
+    const { lang, isDetail, stateTab, stateType, is_functional, is_statistical, is_marketing, today, cookie_neccessary, cookie_statistical } = this.state;
+    console.log(lang)
     return (
       <Translate>
         {({ translate }) => (
@@ -324,12 +326,12 @@ class Main extends React.Component {
               <CookieConsent
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses="btn success-btn"
+                buttonClasses={lang == 'en' ? "btn success-btn" : "btn success-btn no"}
                 buttonText="OK"
               > 
               <div className="cookie-title">
                 <div className="btn-group">
-                  <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                  <button className={lang == 'en' ? "button success-btn": "button success-btn no"} onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
                   {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
                   {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
                 </div>

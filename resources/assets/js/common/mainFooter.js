@@ -94,8 +94,8 @@ class Footer extends React.Component {
 									<div className='footer-item'>
 										<Link to={lang=='en'?'/features':'/no/funksjoner'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.creatives')}</Link>
 										<Link to={lang=='en'?'/features':'/no/funksjoner'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('navigation.features')}</Link>
-										<Link to={lang=='en'?'/portfolio':'/no/portfolio'} className='item-link'>{translate('navigation.portfolio')}</Link>
-										<Link to={lang=='en'?'/portfolio':'/no/portfolio'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.pricing')}</Link>
+										<Link to={lang=='en'?'/portfolio':'/no/portefolje'} className='item-link'>{translate('navigation.portfolio')}</Link>
+										<Link to={lang=='en'?'/portfolio':'/no/portefolje'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.pricing')}</Link>
 									</div>
 								</Grid.Column>
 								<Grid.Column mobile={16} tablet={3} computer={3}>

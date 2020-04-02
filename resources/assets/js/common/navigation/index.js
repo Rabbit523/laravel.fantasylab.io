@@ -183,7 +183,7 @@ class Page extends React.Component {
 																</Segment>
 															</Dropdown.Menu>
 														</Dropdown> */}
-														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} text={translate('navigation.portfolio')} />
+														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portefolje'} text={translate('navigation.portfolio')} />
 														{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} text={translate('navigation.about')} />
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/blog':'/no/blogg'} text={translate('navigation.blog')} />
@@ -352,7 +352,7 @@ class Page extends React.Component {
 													</div>
 												</Dropdown.Menu>
 											</Dropdown> */}
-											<Menu.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portfolio'} className='nav-color portfolio'>{translate("navigation.portfolio")}</Menu.Item>
+											<Menu.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portefolje'} className='nav-color portfolio'>{translate("navigation.portfolio")}</Menu.Item>
 											{/* <Menu.Item as={NavLink} to='/features' className='nav-color features'>{translate("navigation.features")}</Menu.Item> */}
 											<Menu.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} className='nav-color about'>{translate("navigation.about")}</Menu.Item>
 											<Menu.Item as={NavLink} to={lang=='en'?'/blog':'/no/blogg'} className='nav-color blog'>{translate("navigation.blog")}</Menu.Item>
