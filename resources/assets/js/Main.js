@@ -309,7 +309,7 @@ class Main extends React.Component {
     }
     const { isAdmin, isAuthenticated } = this.props;
     const { lang, isDetail, stateTab, stateType, is_functional, is_statistical, is_marketing, today, cookie_neccessary, cookie_statistical } = this.state;
-    console.log(lang)
+    
     return (
       <Translate>
         {({ translate }) => (
@@ -328,17 +328,25 @@ class Main extends React.Component {
                 contentClasses="cookie-consent"
                 buttonClasses={lang == 'en' ? "btn success-btn" : "btn success-btn no"}
                 buttonText="OK"
+                onAccept={() => {console.log("yay!")}}
               > 
               <div className="cookie-title">
-                <div className="btn-group">
-                  <button className={lang == 'en' ? "button success-btn": "button success-btn no"} onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                  {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                  {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                </div>
+                {!isMobileOnly &&
+                  <div className="btn-group">
+                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                  </div>}
                 <div className="title">
                   <p>{translate('cookie.title')}</p>
                   {translate('cookie.des')}
                 </div>
+                {isMobileOnly &&
+                  <div className="btn-group">
+                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                  </div>}
               </div>
               
               {isDetail && <div className="cookie-des">
@@ -451,26 +459,27 @@ class Main extends React.Component {
               <CookieConsent 
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses="btn success-btn"
+                buttonClasses={lang == 'en' ? "btn success-btn" : "btn success-btn no"}
                 buttonText="OK"
                 onAccept={() => {console.log("yay!")}}
-
               > 
                 <div className="cookie-title">
-                  {!isMobileOnly && <div className="btn-group">
-                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                  </div>}
+                  {!isMobileOnly &&
+                    <div className="btn-group">
+                      <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                      {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                      {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                    </div>}
                   <div className="title">
                     <p>{translate('cookie.title')}</p>
                     {translate('cookie.des')}
                   </div>
-                  {isMobileOnly && <div className="btn-group">
-                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                  </div>}
+                  {isMobileOnly &&
+                    <div className="btn-group">
+                      <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                      {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                      {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                    </div>}
                 </div>
                 
                 {isDetail && <div className="cookie-des">

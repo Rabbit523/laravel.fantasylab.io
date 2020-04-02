@@ -3323,9 +3323,9 @@ body {
           .menu.transition {
             background: #070e29 !important;
             position: absolute;
-            top: 48px;
+            top: 45px;
             width: 320px;
-            left: -238px;
+            left: -210px;
             z-index: 299;
             overflow: visible;
             text-align: left;
@@ -3973,6 +3973,7 @@ body {
         flex-direction: column;
         .btn-group {
           width: 100%;
+          flex-direction: row;
         }
         .title {
           padding-top: 30px;
@@ -3988,7 +3989,7 @@ body {
       }
     }
     .btn {
-      left: 95px;
+      left: 17px;
       top: 197px;
     }
   }
@@ -4001,7 +4002,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 360px;
-            left: -275px;
+            left: -240px;
           }
         }
       }
@@ -4102,7 +4103,7 @@ body {
       }
     }
     .btn {
-      left: 113px;
+      left: 29px;
     }
   }
 }
@@ -4114,7 +4115,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 375px;
-            left: -290px;
+            left: -255px;
           }
         }
       }
@@ -4179,8 +4180,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 121px;
-      top: 149px;
+      left: 39px;
     }
   }
 }
@@ -4192,7 +4192,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 384px;
-            left: -300px;
+            left: -263px;
           }
         }
       }
@@ -4231,14 +4231,26 @@ body {
       }
     }
     .btn {
-      left: 126px;
+      left: 46px;
     }
   }
 }
 @media (min-width: 411px) {
+  .segment.mobile-navbar {
+    .menu {
+      .right.menu {
+        .item:last-child {
+          .menu.transition {
+            width: 411px;
+            left: -290px;
+          }
+        }
+      }
+    }
+  }
   .cookieConsent {
     .btn {
-      left: 139px;
+      left: 59px;
     }
   }
 }
@@ -4250,7 +4262,6 @@ body {
           &:last-child {
             .menu.transition {
               width: 412px;
-              left: -328px;
             }
           }
         }
@@ -4259,7 +4270,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 138px;
+      left: 60px;
     }
   }
 }
@@ -4270,7 +4281,7 @@ body {
         .item:last-child {
           .menu.transition {
             width: 414px;
-            left: -329px;
+            left: -293px;
           }
         }
       }
@@ -4358,7 +4369,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 141px;
+      left: 62px;
     }
   }
 }
@@ -4646,6 +4657,7 @@ body {
         .btn-group {
           width: 25%;
           padding: 30px 35px;
+          flex-direction: column;
           .button {
             &.detail-btn {
               padding: 10px 0px;
@@ -4829,7 +4841,7 @@ body {
       }
     }
     .btn {
-      left: 60px;
+      left: 65px;
     }
   }
 }
@@ -5461,7 +5473,7 @@ body {
       }
     }
     .btn {
-      left: 100px;
+      left: 83px;
     }
   }
 }
@@ -5802,7 +5814,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 110px;
+      left: 103px;
     }
   }
 }
@@ -5838,7 +5850,7 @@ body {
       }
     }
     .btn {
-      left: 166px;
+      left: 114px;
     }
   }
 }
