@@ -1421,6 +1421,8 @@ class PagesController extends Controller
         $data = [
             "title" => $request_data['title'],
             "description" => $request_data['description'],
+            "no_title" => $request_data['no_title'],
+            "no_description" => $request_data['no_description'],
             "type" => $request_data['type'],
             "url" => $request_data['url'],
             "avatar" => $request_data['avatar'],
