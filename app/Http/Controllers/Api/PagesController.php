@@ -1974,6 +1974,7 @@ class PagesController extends Controller
 		$review->no_description = $request->data['no_description'];
         $review->name = $request->data['name'];
         $review->job = $request->data['job'];
+        $review->no_job = $request->data['no_job'];
 
         $uploads_dir = "./assets/uploads/";
         if ($review->avatar != $request->data['avatar']) {
@@ -2041,6 +2042,7 @@ class PagesController extends Controller
 				$item->no_description = $review->no_description;
                 $item->name = $review->name;
                 $item->job = $review->job;
+                $item->no_job = $review->no_job;
                 $item->avatar = $review->avatar;
                 $item->logo_url = $review->logo_url;
             }
@@ -2057,6 +2059,7 @@ class PagesController extends Controller
 				$data->reviews[0]->no_description = $review->no_description;
                 $data->reviews[0]->name = $review->name;
                 $data->reviews[0]->job = $review->job;
+                $data->reviews[0]->no_job = $review->no_job;
                 $data->reviews[0]->avatar = $review->avatar;
                 $data->reviews[0]->logo_url = $review->logo_url;
                 $portfolio->data = json_encode($data);

@@ -19,9 +19,9 @@ class Gallery extends React.Component {
 					</div>
 					<div className='review-text-section'>
 						<p className="name">{i.name}</p>
-						<h3>{i.description}</h3>
+						<h3>{this.props.lang == 'en' ? i.description : i.no_description}</h3>
 						<hr />
-						<p>{i.job}</p>
+						<p>{this.props.lang == 'en' ? i.job : i.no_job}</p>
 					</div>
 				</div>)
 			),
