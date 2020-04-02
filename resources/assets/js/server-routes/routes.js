@@ -172,7 +172,7 @@ const routes = [
         component: PortfolioServer
     },
     {
-        path: '/no/portfolio',
+        path: '/no/portefolje',
         exact: true,
         auth: false,
         component: PortfolioServer
@@ -388,7 +388,7 @@ const routes = [
         component: SinglePortfolioServer
     },
     {
-        path: '/no/portfolio/:type',
+        path: '/no/portefolje/:type',
         exact: true,
         auth: false,
         component: SinglePortfolioServer

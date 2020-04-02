@@ -143,7 +143,7 @@ class Page extends React.Component {
 											</div>
 											<div className="review-personal">
 												<p className='name'>{data.reviews[0].name}</p>
-												<p>{data.reviews[0].job}</p>
+												<p>{lang =='en' ? data.reviews[0].job : data.reviews[0].no_job}</p>
 											</div>
 										</div>
 									</Container>

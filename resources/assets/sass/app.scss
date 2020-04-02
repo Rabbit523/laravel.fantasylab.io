@@ -3989,7 +3989,7 @@ body {
     }
     .btn {
       left: 95px;
-      top: 169px;
+      top: 197px;
     }
   }
 }
@@ -4103,7 +4103,6 @@ body {
     }
     .btn {
       left: 113px;
-      top: 168px;
     }
   }
 }
@@ -4233,6 +4232,13 @@ body {
     }
     .btn {
       left: 126px;
+    }
+  }
+}
+@media (min-width: 411px) {
+  .cookieConsent {
+    .btn {
+      left: 139px;
     }
   }
 }
