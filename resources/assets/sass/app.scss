@@ -2884,6 +2884,16 @@ body {
               display: flex;
               justify-content: space-between;
               flex-direction: row;
+              &.radio-group {
+                justify-content: flex-start;
+                padding: 15px 0;
+                .radio {
+                  &:last-child {
+                    padding-left: 20px;
+                  }
+                  margin: 0;
+                }
+              }
               .input-form {
                 flex: 1;
                 margin-right: 10px;

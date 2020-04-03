@@ -46,8 +46,6 @@
         "confidentiality": ["Confidentiality", "Konfidensialitet"]
     },
     "home": {
-        "login-to-fantasylab": ["Log in to FantasyLab", "Logg deg på FantasyLab"],
-        "existing-user": ["Existing user?", "Eksisterende bruker?"],
         "estimation-delivery": ["Estimation. Proposal. Delivery", "Anslag. Forslag. Leveranse"],
         "get-quote": ["Don't get a goat. Get a quote", "Ikke skaff deg en geit. Få et tilbud"],
         "the-platform": ["The Platform", "Plattformen"],
@@ -91,6 +89,7 @@
         "btn-name": ["Button name", "Knappenavn"],
         "link": ["Link", "Lenke"],
         "link-name": ["Link name", "Lenke navn"],
+        "link-des": ["Link Description", "Link beskrivelse"],
         "footer-img": ["Footer Image", "Bunntekstbilde"],
         "service-section": ["Service Section", "Serviceseksjonen"],
         "badge-section": ["Badge Section", "Merkeseksjon"],

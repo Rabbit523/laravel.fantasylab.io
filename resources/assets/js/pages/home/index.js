@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import { Link, Redirect } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
+import { isMobileOnly } from 'react-device-detect'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageFooter from '../../common/pageFooter'
@@ -12,6 +12,7 @@ import Gallery from '../../common/carousel'
 import NewsCard from '../../common/newsCard'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
+import ReactHtmlParser from 'react-html-parser'
 
 const customStyles = {
   content: {
@@ -66,7 +67,7 @@ class Page extends React.Component {
   }
 
   render() {
-    const { isLoaded, isTablet, isOpen, data } = this.state;
+    const { isLoaded, isOpen, data } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
     Modal.setAppElement('#app')
     if (lang=='nb' && !window.location.pathname.includes('no')) {
@@ -94,27 +95,40 @@ class Page extends React.Component {
                     <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
-                <div className='homepage-header' style={{ backgroundImage: `url(${isMobile && !isTablet ? data.header.mobile_header : data.header.header_url})` }}>
+                <div className='homepage-header' style={{ backgroundImage: `url(${isMobileOnly ? data.header.mobile_header_url : data.header.header_url})` }}>
                   <Container className='custom-col-6'>
                     <div className='homepage-header-description'>
-                      <h1>{lang == 'en' ? data.header.header_title : data.header.no_header_title}</h1>
-                      <p className='title'>{lang == 'en' ? data.header.header_description_title : data.header.no_header_description_title}</p>
-                      {
-                        lang == 'en' ? data.header.header_description.split('\n').map((item, i) => {
-                          return (
-                            <p key={i} className='normal'>{item}</p>
-                          )
-                        }) : data.header.no_header_description.split('\n').map((item, i) => {
-                          return (
-                            <p key={i} className='normal'>{item}</p>
-                          )
-                        })
+                      {!isMobileOnly && 
+                        <React.Fragment>
+                          <h1>{lang == 'en' ? data.header.header_title : data.header.no_header_title}</h1>
+                          <p className='title'>{lang == 'en' ? data.header.header_description_title : data.header.no_header_description_title}</p>
+                          {
+                            lang == 'en' ? data.header.header_description.split('\n').map((item, i) => {
+                              return (
+                                <p key={i} className='normal'>{item}</p>
+                              )
+                            }) : data.header.no_header_description.split('\n').map((item, i) => {
+                              return (
+                                <p key={i} className='normal'>{item}</p>
+                              )
+                            })
+                          }
+                          <div className='homepage-header-buttons'>
+                            {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
+                            <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.btn_name:data.header.no_btn_name}</Button>
+                            <p>{lang =='en'?data.header.link_des:data.header.no_link_des}<Link to={lang=='en'?data.header.link:data.header.no_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.link_name:data.header.no_link_name}</Link></p>
+                          </div>
+                        </React.Fragment>
                       }
-                      <div className='homepage-header-buttons'>
-                        {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
-                        <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
-                        <p>{translate('home.existing-user')} <Link to='/logginn' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link></p>
-                      </div>
+                      {isMobileOnly && 
+                        <React.Fragment>
+                          {lang =='en' ? ReactHtmlParser(data.header.mobile_header) : ReactHtmlParser(data.header.no_mobile_header)}
+                          <div className='homepage-header-buttons'>
+                            {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
+                            <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.mobile_btn_name:data.header.no_mobile_btn_name}</Button>
+                            <p>{lang =='en'?data.header.mobile_link_des:data.header.no_mobile_link_des}<Link to={lang=='en'?data.header.mobile_link:data.header.no_mobile_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.mobile_link_name:data.header.no_mobile_link_name}</Link></p>
+                          </div>
+                        </React.Fragment>}
                     </div>
                   </Container>
                 </div>

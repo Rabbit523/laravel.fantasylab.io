@@ -116,11 +116,11 @@ class PagesController extends Controller
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
                     $request_data['header_url'] = $path;
                 } 
-                if ($data->header->mobile_header != $request_data['mobile_header']) {
-                    if (strpos($request_data['mobile_header'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['mobile_header']);
+                if ($data->header->mobile_header != $request_data['mobile_header_url']) {
+                    if (strpos($request_data['mobile_header_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['mobile_header_url']);
                     } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['mobile_header']);
+                        $img = str_replace('data:image/png;base64,', '', $request_data['mobile_header_url']);
                     }
                     $base_code = base64_decode($img);
                     $name = $request->name .'_mobile_header.png';
@@ -132,7 +132,7 @@ class PagesController extends Controller
                     $url = url("/assets/uploads") ."/" . $name;
                     $arr = explode("/", $url);
                     $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['mobile_header'] = $path;
+                    $request_data['mobile_header_url'] = $path;
                 }                
                 $data->header = $request_data;
                 $page->data = json_encode($data);

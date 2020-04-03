@@ -3396,6 +3396,19 @@ body {
   flex-direction: row;
 }
 
+.page .main .admin-page .ui.card .content .flex-form.radio-group {
+  justify-content: flex-start;
+  padding: 15px 0;
+}
+
+.page .main .admin-page .ui.card .content .flex-form.radio-group .radio {
+  margin: 0;
+}
+
+.page .main .admin-page .ui.card .content .flex-form.radio-group .radio:last-child {
+  padding-left: 20px;
+}
+
 .page .main .admin-page .ui.card .content .flex-form .input-form {
   flex: 1;
   margin-right: 10px;
