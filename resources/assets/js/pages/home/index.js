@@ -120,7 +120,7 @@ class Page extends React.Component {
                           <div className='homepage-header-buttons'>
                             {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
                             <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.btn_name:data.header.no_btn_name}</Button>
-                            <p>{lang =='en'?data.header.link_des:data.header.no_link_des}<Link to={lang=='en'?data.header.link:data.header.no_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.link_name:data.header.no_link_name}</Link></p>
+                            <p>{lang =='en'?data.header.link_des:data.header.no_link_des}&nbsp;<Link to={lang=='en'?data.header.link:data.header.no_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.link_name:data.header.no_link_name}</Link></p>
                           </div>
                         </React.Fragment>
                       }

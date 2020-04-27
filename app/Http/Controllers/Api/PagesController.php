@@ -1892,7 +1892,7 @@ class PagesController extends Controller
         $page->data = json_encode($json_page);
         $page->save();
         return response()->json($portfolios);
-    }    
+    }
 
     public function getReviews() {
         $reviews = Review::get();

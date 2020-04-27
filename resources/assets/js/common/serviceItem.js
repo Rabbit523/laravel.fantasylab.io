@@ -13,6 +13,8 @@ class ServiceItem extends React.Component {
             },
             avatar_hover: {
                 borderColor: this.props.color,
+                boxShadow: '0 0 10px ' + this.props.color,
+                textShadow: '0 0 10px ' + this.props.color,
                 color: this.props.color
             },
             arrow_color : {
@@ -25,8 +27,11 @@ class ServiceItem extends React.Component {
         const item_hover = {
             backgroundImage: this.props.backimage?`linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url(${ this.props.backimage})`:'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
             backgroundSize: 'cover',
-            borderBottom: '2px solid ' + this.props.color,
-            cursor: 'pointer'
+            border: '2px solid ' + this.props.color,
+            cursor: 'pointer',
+            color: this.props.color,
+            boxShadow: '0 0 10px ' + this.props.color,
+            textShadow: '0 0 10px ' + this.props.color
         };
         const { des_hover, avatar_hover, arrow_color } = this.state;
         return (

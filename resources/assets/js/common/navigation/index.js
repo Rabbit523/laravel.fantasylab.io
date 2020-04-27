@@ -27,7 +27,8 @@ class Page extends React.Component {
 			isOpen: false,
 			user: null,
 			isAuthenticated: false,
-			isAdmin: false
+			isAdmin: false,
+			visible: false
 		};
 		this.closeModal = this.closeModal.bind(this);
 		this.triggerModal = this.triggerModal.bind(this);
