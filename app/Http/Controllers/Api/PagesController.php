@@ -1880,12 +1880,12 @@ class PagesController extends Controller
             'from' => $request->from,
             'title' => $request->data['title'],
             'description' => $request->data['description'],
+            'no_title' => $request->data['no_title'],
+            'no_description' => $request->data['no_description'],
             'url' => $request->data['url'],
-            'back_url' => $request->data['back_url']
+            'back_url' => $request->data['back_url'],
+            'icon_url' => $request->data['avatar']
         ];
-        if ($request->from == "home") {
-            $data['icon_url'] = $request->data['avatar'];            
-        }
         $array = json_decode(json_encode($portfolios), true);
         $portfolios = array($type => $data) + $array;
         $json_page->portfolios = $portfolios;
