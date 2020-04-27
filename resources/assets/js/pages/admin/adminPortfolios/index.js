@@ -222,8 +222,7 @@ class Page extends React.Component {
 																		{portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> {translate('card.delete')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>}
-																		{!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.create-cms')} </Label>}
-																		{portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
+																		{portfolios[key].created_at && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
 																	</div>
 																</Panel>
 															))}
@@ -250,8 +249,7 @@ class Page extends React.Component {
 																		{portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> {translate('card.delete')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>}
-																		{!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.create-cms')} </Label>}
-																		{portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
+																		{portfolios[key].created_at && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
 																	</div>
 																</Panel>
 															))}
