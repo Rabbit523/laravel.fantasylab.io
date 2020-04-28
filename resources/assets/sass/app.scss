@@ -980,9 +980,6 @@ body {
       background-position: center center;
       background-repeat: no-repeat;
       border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
       transition: .5s;
       &::before {
         content: '';
@@ -1005,12 +1002,14 @@ body {
         }
       }
       .portfolio {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
+        width: 100%;
         height: 100%;
+        position: relative;
         .avatar {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
           img {
             width: auto;
             height: auto;
@@ -1022,6 +1021,8 @@ body {
         }
         .hover-texts {
           width: 100%;
+          position: absolute;
+          bottom: 0;
           i {
             position: absolute;
             top: 20px;

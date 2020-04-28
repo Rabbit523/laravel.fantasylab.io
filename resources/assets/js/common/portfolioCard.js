@@ -19,15 +19,14 @@ class PortfolioCard extends React.Component {
 			cursor: 'pointer'
 		};
 		const item_normal = {
-            border: '2px solid transparent'
-        };
+			border: '2px solid transparent'
+		};
 		return (
 			<ReactHoverObserver className='portfolio-item-observer'>
 				{({ isHovering }) => (
 					<div className='portfolio-item' style={isMobile ? item_hover : isHovering ? item_hover : item_normal}>
 						{isHovering ?
 							<div className='portfolio'>
-								<div className='hidden-tag'></div>
 								<div className='avatar'>
 									<img src={`${this.props.icon_url}`} />
 								</div>
@@ -39,19 +38,14 @@ class PortfolioCard extends React.Component {
 							</div>
 							:
 							<div className='portfolio'>
-								<div className='hidden-tag'></div>
 								<div className='avatar'>
 									<img src={`${this.props.icon_url}`} />
 								</div>
-								{isMobile ?
-									<div className="hover-texts">
-										<Icon name='arrow right' className='icon-right-arrow' />
-										<h3 className='hover-title'>{this.props.title}</h3>
-										<p className='hover-des'>{this.props.description}</p>
-									</div>
-									:
-									<div className='hidden-tag'></div>
-								}
+								{isMobile && <div className="hover-texts">
+									<Icon name='arrow right' className='icon-right-arrow' />
+									<h3 className='hover-title'>{this.props.title}</h3>
+									<p className='hover-des'>{this.props.description}</p>
+								</div>}
 							</div>}
 					</div>
 				)}

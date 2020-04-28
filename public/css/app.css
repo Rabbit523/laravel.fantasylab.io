@@ -1138,9 +1138,6 @@ body {
   background-position: center center;
   background-repeat: no-repeat;
   border-radius: 5px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   transition: 0.5s;
 }
 
@@ -1168,11 +1165,16 @@ body {
 }
 
 .page .main .portfolio-item .portfolio {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: column;
+  width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.page .main .portfolio-item .portfolio .avatar {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .page .main .portfolio-item .portfolio .avatar img {
@@ -1187,6 +1189,8 @@ body {
 
 .page .main .portfolio-item .portfolio .hover-texts {
   width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 .page .main .portfolio-item .portfolio .hover-texts i {
