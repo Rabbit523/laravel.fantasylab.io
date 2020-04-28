@@ -4742,6 +4742,11 @@ body {
     left: 17px;
     top: 169px;
   }
+
+  .cookieConsent .btn.no {
+    left: 15px;
+    top: 216px;
+  }
 }
 
 @media (min-width: 360px) {
@@ -4804,6 +4809,11 @@ body {
 
   .cookieConsent .btn {
     left: 39px;
+  }
+
+  .cookieConsent .btn.no {
+    left: 35px;
+    top: 197px;
   }
 }
 

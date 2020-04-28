@@ -4102,6 +4102,10 @@ body {
     .btn {
       left: 17px;
       top: 169px;
+      &.no {
+        left: 15px;
+        top: 216px;
+      }
     }
   }
 }
@@ -4215,6 +4219,10 @@ body {
     }
     .btn {
       left: 39px;
+      &.no {
+        left: 35px;
+        top: 197px;
+      }
     }
   }
 }
