@@ -33,11 +33,14 @@ class ServiceItem extends React.Component {
             boxShadow: '0 0 10px ' + this.props.color,
             textShadow: '0 0 10px ' + this.props.color
         };
+        const item_normal = {
+            border: '2px solid transparent'
+        };
         const { des_hover, avatar_hover, arrow_color } = this.state;
         return (
             <ReactHoverObserver className='service-item-observer'>
                 {({ isHovering }) => (
-                    <div className={this.props.type?'service-item service-item-quater':'service-item'} style={isMobile?item_hover:isHovering?item_hover:{}}>
+                    <div className={this.props.type?'service-item service-item-quater':'service-item'} style={isMobile?item_hover:isHovering?item_hover:item_normal}>
                         {isHovering?this.props.from?<Icon name='arrow right' className='icon-right-arrow' style={arrow_color}/>:'':''}
                         <div className='avatar-item' style={isMobile?avatar_hover:isHovering?avatar_hover:{}}>
                             <img src={`${ this.props.avatar}`} />

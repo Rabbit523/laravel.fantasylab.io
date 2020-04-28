@@ -1,9 +1,9 @@
 {
     "navigation": {
         "services": ["Services", "Tjenester"],
-        "web-development": ["Web Development", "Webutvikling"],
+        "web-development": ["Web", "Web"],
         "web-development-des":["High traffic websites, ecommerce & web apps", "Nettsteder med høy trafikk, e-handel og webapper"],
-        "mobile-development": ["Mobile Development", "Mobilutvikling"],
+        "mobile-development": ["Mobile", "Mobil"],
         "mobile-development-des":["Powerful, effective and practical phone apps", "Kraftige, effektive og praktiske telefonapper"],
         "ui-design": ["UI & UX Design", "UI & UX Design"],
         "ui-design-des": ["Awesome end-user interfaces & experience", "Nydelig brukergrensesnitt og brukeropplevelse"],
