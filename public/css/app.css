@@ -1182,22 +1182,17 @@ body {
   height: auto;
 }
 
-.page .main .portfolio-item .portfolio .hidden-tag {
-  opacity: 0;
-  height: 60px;
+.page .main .portfolio-item .portfolio .icon-right-arrow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #8341ff;
 }
 
 .page .main .portfolio-item .portfolio .hover-texts {
   width: 100%;
   position: absolute;
   bottom: 0;
-}
-
-.page .main .portfolio-item .portfolio .hover-texts i {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  color: #8341ff;
 }
 
 .page .main .portfolio-item .portfolio .hover-texts .hover-title {

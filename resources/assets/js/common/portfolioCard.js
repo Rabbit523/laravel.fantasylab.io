@@ -30,8 +30,8 @@ class PortfolioCard extends React.Component {
 								<div className='avatar'>
 									<img src={`${this.props.icon_url}`} />
 								</div>
+								<Icon name='arrow right' className='icon-right-arrow' />
 								<div className="hover-texts">
-									<Icon name='arrow right' className='icon-right-arrow' />
 									<h3 className='hover-title'>{this.props.title}</h3>
 									<p className='hover-des'>{this.props.description}</p>
 								</div>
@@ -41,11 +41,13 @@ class PortfolioCard extends React.Component {
 								<div className='avatar'>
 									<img src={`${this.props.icon_url}`} />
 								</div>
-								{isMobile && <div className="hover-texts">
-									<Icon name='arrow right' className='icon-right-arrow' />
-									<h3 className='hover-title'>{this.props.title}</h3>
-									<p className='hover-des'>{this.props.description}</p>
-								</div>}
+								{isMobile && <React.Fragment>
+										<Icon name='arrow right' className='icon-right-arrow' />
+										<div className="hover-texts">
+											<h3 className='hover-title'>{this.props.title}</h3>
+											<p className='hover-des'>{this.props.description}</p>
+										</div>
+									</React.Fragment>}
 							</div>}
 					</div>
 				)}

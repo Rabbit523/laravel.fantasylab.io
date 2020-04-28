@@ -1015,20 +1015,16 @@ body {
             height: auto;
           } 
         }
-        .hidden-tag {
-          opacity: 0;
-          height: 60px;
+        .icon-right-arrow {
+          position: absolute;
+          top: 0;
+          right: 0;
+          color: #8341ff;
         }
         .hover-texts {
           width: 100%;
           position: absolute;
           bottom: 0;
-          i {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            color: #8341ff;
-          }
           .hover-title{
             text-align: center;
             font-family: "Gotham Bold";
