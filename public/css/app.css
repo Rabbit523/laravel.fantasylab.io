@@ -4916,6 +4916,10 @@ body {
   .cookieConsent .btn {
     left: 63px;
   }
+
+  .cookieConsent .btn.no {
+    left: 59px;
+  }
 }
 
 @media (min-width: 414px) {

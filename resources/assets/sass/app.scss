@@ -4392,6 +4392,9 @@ body {
   .cookieConsent {
     .btn {
       left: 63px;
+      &.no {
+        left: 59px;
+      }
     }
   }
 }
