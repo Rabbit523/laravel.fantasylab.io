@@ -4072,6 +4072,9 @@ body {
     .dropdown {
       font-size: 10px;
     }
+    .footer-lang {
+      justify-content: flex-start;
+    }
   }
   .cookieConsent {
     max-height: 450px;
@@ -4756,6 +4759,9 @@ body {
     }
     h5 {
       margin: 0px 10px 0px 10px;
+    }
+    .footer-lang {
+      justify-content: flex-end;
     }
   }
   .cookieConsent {

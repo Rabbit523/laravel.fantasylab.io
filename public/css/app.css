@@ -4709,6 +4709,10 @@ body {
     font-size: 10px;
   }
 
+  .footer .footer-lang {
+    justify-content: flex-start;
+  }
+
   .cookieConsent {
     max-height: 450px;
     overflow-y: scroll;
@@ -5232,6 +5236,10 @@ body {
 
   .footer h5 {
     margin: 0px 10px 0px 10px;
+  }
+
+  .footer .footer-lang {
+    justify-content: flex-end;
   }
 
   .cookieConsent {
