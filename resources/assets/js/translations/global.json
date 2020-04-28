@@ -55,7 +55,8 @@
     },
     "portfolio": {
         "case-studio": ["Case Studies", "Casestudier"],
-        "scope-project": ["Scope of the project", "Prosjektets omfang"]
+        "scope-project": ["Scope of the project", "Prosjektets omfang"],
+        "no-review-description": ["Review coming soon...", "Anmeldelse kommer snart ..."]
     },
     "contact": {
         "name": ["Name", "Navn"],

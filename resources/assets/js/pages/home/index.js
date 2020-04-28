@@ -198,16 +198,16 @@ class Page extends React.Component {
                     </Grid>
                   </Container>
                 </section>
-                <section className='home-section'>
+                {data.carousels.length > 0 && <section className='home-section'>
                   <Container className='custom-col-6 home-review'>
                     <h2>{lang == 'en' ? data.translate_titles.excellence : data.translate_titles.no_excellence}</h2>
                     <p>{lang == 'en' ? data.translate_titles.excellence_des : data.translate_titles.no_excellence_des}</p>
                   </Container>
-                  <Container>
+                  <Container className='custom-col-6'>
                     <Gallery type="review" items={data.carousels} lang={lang} />
                   </Container>
-                </section>
-                <section className='home-section'>
+                </section>}
+                {data.news.length > 0 && <section className='home-section'>
                   <Container className='custom-col-6'>
                     <h2>{lang == 'en' ? data.translate_titles.news : data.translate_titles.no_news}</h2>
                     <Grid columns={3}>
@@ -223,7 +223,7 @@ class Page extends React.Component {
                       </Grid.Column>
                     </Grid>
                   </Container>
-                </section>
+                </section>}
                 <PageFooter lang={lang} title={lang == 'en' ? data.footer.title : data.footer.no_title} description={lang == 'en' ? data.footer.description : data.footer.no_description} button={lang == 'en' ? data.footer.button : data.footer.no_button} link={lang == 'en' ? data.footer.link : data.footer.no_link} linkName={lang == 'en' ? data.footer.link_name : data.footer.no_link_name} url={data.footer.url} />
                 <section className='divide'></section>
               </React.Fragment>

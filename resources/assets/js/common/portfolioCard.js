@@ -13,7 +13,7 @@ class PortfolioCard extends React.Component {
 		const item_hover = {
 			backgroundImage: this.props.back_url ? `linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url(${this.props.back_url})` : 'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
 			backgroundSize: 'cover',
-			borderBottom: '2px solid #8341ff ',
+			borderBottom: '2px solid #8341ff',
 			cursor: 'pointer'
 		};
 		return (

@@ -13,7 +13,7 @@ class NewsCard extends React.Component {
 				{({ isHovering }) => (
 					<div className='news-item'>
 						<div className='figure'>
-							<img src={`${this.props.url}`} />
+							<img src={this.props.url ? `${this.props.url}` : '/images/default-profile-image.png'} />
 						</div>
 						<div className='news-content'>
 							<h3>{this.props.title}</h3>

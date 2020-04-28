@@ -132,11 +132,12 @@ class Page extends React.Component {
 										<div className="review-item">
 											<div className="review-text-section">
 												<img src={`${data.reviews[0].logo_url}`} />
-												<div className='description'>{lang == 'en' ? data.reviews[0].description : data.reviews[0].no_description}</div>
+												{data.reviews[0].description && <div className='description'>{lang == 'en' ? data.reviews[0].description : data.reviews[0].no_description}</div>}
+												{!data.reviews[0].description && <div className='description'>{translate('portfolio.no-review-description')}</div>}
 												<hr />
 											</div>
 											<div className="review-avatar">
-												<img src={data.reviews[0].avatar ? `${data.reviews[0].avatar}` : '/images/default-user.png'} />
+												<img src={data.reviews[0].avatar ? `${data.reviews[0].avatar}` : '/images/default-profile-image.png'} />
 												<div className='icon-quote-right'>
 													<Icon name='quote right' />
 												</div>
@@ -148,7 +149,7 @@ class Page extends React.Component {
 										</div>
 									</Container>
 								</section>}
-								<section className='portfolio-section scope'>
+								{data.services.length > 0 && <section className='portfolio-section scope'>
 									<Container className='custom-col-6 service'>
 										<h2>{translate('portfolio.scope-project')}</h2>
 										<Grid columns={3}>
@@ -164,7 +165,7 @@ class Page extends React.Component {
 											))}
 										</Grid>
 									</Container>
-								</section>
+								</section>}
 								{data.footer_url && (<PageFooter lang={lang} title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />)}
 								<div className='divide'></div>
 							</React.Fragment>
