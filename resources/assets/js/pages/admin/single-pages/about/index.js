@@ -305,7 +305,7 @@ class Page extends React.Component {
 					var sub_key = type.split('_')[1];
 					var id = type.split('_')[2];
 					if (type.includes('service')) {
-						services[id][sub_key] = e.target.result;
+						services['data'][id][sub_key] = e.target.result;
 						ref.setState({ services });
 					}
 				}
@@ -457,7 +457,6 @@ class Page extends React.Component {
 				list[key] = services;
 			}
 		});
-		console.log(services.data[0]);
 		this.setState({ isLoaded: false });
 		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services_data', id: type })
 			.then(
