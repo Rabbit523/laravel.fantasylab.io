@@ -4106,9 +4106,17 @@ body {
     .btn {
       left: 23px;
       top: 169px;
+      &.is-detail {
+        left: 31px;
+        top: 179px;
+      }
       &.no {
         left: 19px;
         top: 217px;
+        &.is-detail {
+          left: 19px;
+          top: 227px;
+        }
       }
     }
   }
@@ -4224,9 +4232,17 @@ body {
     .btn {
       left: 43px;
       top: 149px;
+      &.is-detail {
+        left: 31px;
+        top: 159px;
+      }
       &.no {
         left: 39px;
         top: 197px;
+        &.is-detail {
+          left: 31px;
+          top: 209px;
+        }
       }
     }
   }
@@ -4306,8 +4322,16 @@ body {
     .btn {
       left: 50px;
       top: 149px;
+      &.is-detail {
+        left: 31px;
+        top: 159px;
+      }
       &.no {
         left: 46px;
+        &.is-detail {
+          left: 31px;
+          top: 207px;
+        }
       }
     }
   }
@@ -4360,8 +4384,17 @@ body {
     }
     .btn {
       left: 55px;
+      &.is-detail {
+        left: 35px;
+        top: 148px;
+      }
       &.no{
         left: 51px;
+        top: 196px;
+        &.is-detail {
+          left: 31px;
+          top: 207px;
+        }
       }
     }
   }
@@ -4382,9 +4415,17 @@ body {
   .cookieConsent {
     .btn {
       left: 68px;
+      &.is-detail {
+        left: 48px;
+        top: 148px;
+      }
       &.no {
         left: 64px;
         top: 177px;
+        &.is-detail {
+          left: 44px;
+          top: 177px;
+        }
       }
     }
   }
@@ -4406,8 +4447,14 @@ body {
   .cookieConsent {
     .btn {
       left: 69px;
+      &.is-detail {
+        left: 49px;
+      }
       &.no {
         left: 65px;
+        &.is-detail {
+          left: 44px;
+        }
       }
     }
   }
@@ -4508,8 +4555,14 @@ body {
   .cookieConsent {
     .btn {
       left: 70px;
+      &.is-detail {
+        left: 50px;
+      }
       &.no {
         left: 66px;
+        &.is-detail {
+          left: 45px;
+        }
       }
     }
   }

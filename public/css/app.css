@@ -4749,9 +4749,19 @@ body {
     top: 169px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 31px;
+    top: 179px;
+  }
+
   .cookieConsent .btn.no {
     left: 19px;
     top: 217px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 19px;
+    top: 227px;
   }
 }
 
@@ -4818,9 +4828,19 @@ body {
     top: 149px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 31px;
+    top: 159px;
+  }
+
   .cookieConsent .btn.no {
     left: 39px;
     top: 197px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 31px;
+    top: 209px;
   }
 }
 
@@ -4876,8 +4896,18 @@ body {
     top: 149px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 31px;
+    top: 159px;
+  }
+
   .cookieConsent .btn.no {
     left: 46px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 31px;
+    top: 207px;
   }
 }
 
@@ -4903,8 +4933,19 @@ body {
     left: 55px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 35px;
+    top: 148px;
+  }
+
   .cookieConsent .btn.no {
     left: 51px;
+    top: 196px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 31px;
+    top: 207px;
   }
 }
 
@@ -4918,8 +4959,18 @@ body {
     left: 68px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 48px;
+    top: 148px;
+  }
+
   .cookieConsent .btn.no {
     left: 64px;
+    top: 177px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 44px;
     top: 177px;
   }
 }
@@ -4933,8 +4984,16 @@ body {
     left: 69px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 49px;
+  }
+
   .cookieConsent .btn.no {
     left: 65px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 44px;
   }
 }
 
@@ -5001,8 +5060,16 @@ body {
     left: 70px;
   }
 
+  .cookieConsent .btn.is-detail {
+    left: 50px;
+  }
+
   .cookieConsent .btn.no {
     left: 66px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 45px;
   }
 }
 

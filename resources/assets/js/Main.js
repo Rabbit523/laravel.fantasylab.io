@@ -326,7 +326,9 @@ class Main extends React.Component {
               <CookieConsent
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses={lang == 'en' ? "btn success-btn" : "btn success-btn no"}
+                buttonClasses={lang == 'en' 
+                                    ? (isDetail ? "btn success-btn is-detail" : "btn success-btn")
+                                    : (lang == 'nb' ? (isDetail ? "btn success-btn no is-detail" : "btn success-btn no") : '')}
                 buttonText="OK"
                 onAccept={() => {console.log("yay!")}}
               > 
@@ -459,7 +461,9 @@ class Main extends React.Component {
               <CookieConsent 
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses={lang == 'en' ? "btn success-btn" : "btn success-btn no"}
+                buttonClasses={lang == 'en' 
+                                    ? (isDetail ? "btn success-btn is-detail" : "btn success-btn")
+                                    : (lang == 'nb' ? (isDetail ? "btn success-btn no is-detail" : "btn success-btn no") : '')}
                 buttonText="OK"
                 onAccept={() => {console.log("yay!")}}
               > 
