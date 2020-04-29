@@ -538,7 +538,7 @@ body {
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item {
   padding: 10px 10px 20px 10px;
   background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-  height: 100%;
+  height: 170px;
   display: flex;
   flex-direction: column;
   border-radius: 5px;
@@ -5487,6 +5487,10 @@ body {
     padding: 0.78571429em 0.7em 0.78571429em !important;
   }
 
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 14px;
+  }
+
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
     font-size: 9px;
   }
@@ -6113,11 +6117,7 @@ body {
 
 @media (min-width: 1366px) {
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
-    font-size: 12px;
-  }
-
-  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
-    font-size: 9px;
+    font-size: 15px;
   }
 
   .page .main .divide {
@@ -6427,6 +6427,10 @@ body {
 }
 
 @media (min-width: 1440px) {
+  .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
+    font-size: 16px;
+  }
+
   .page .main .main-footer {
     min-height: 410px;
   }
@@ -6466,7 +6470,7 @@ body {
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item {
-    margin-bottom: 100px;
+    margin-bottom: 70px;
   }
 
   .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
