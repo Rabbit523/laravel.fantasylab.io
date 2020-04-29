@@ -13,6 +13,7 @@ import NewsCard from '../../common/newsCard'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
 import ReactHtmlParser from 'react-html-parser'
+import { animateScroll as scroll } from 'react-scroll'
 
 const customStyles = {
   content: {
@@ -40,6 +41,7 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
+    scroll.scrollToTop();
     if (!window.location.origin) {
       window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
