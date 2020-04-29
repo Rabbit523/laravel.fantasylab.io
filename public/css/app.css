@@ -566,6 +566,7 @@ body {
   width: 40px;
   height: 40px;
   margin-bottom: 40px;
+  transition: 0.5s;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .avatar-item .icon-right-arrow {
@@ -588,6 +589,7 @@ body {
   display: flex;
   align-items: flex-end;
   flex: 1;
+  transition: 0.5s;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .text-item p {
@@ -600,6 +602,7 @@ body {
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description {
   display: none;
   padding-top: 5px;
+  transition: 0.5s;
 }
 
 .segment.navbar .menu .custom-row .custom-dropdown .custom-dropdown-item .description p {
@@ -914,6 +917,7 @@ body {
   height: 50px;
   margin-bottom: 100px;
   position: absolute;
+  transition: 0.5s;
 }
 
 @media (min-width: 320px) {
@@ -1168,6 +1172,7 @@ body {
   width: 100%;
   height: 100%;
   position: relative;
+  transition: 0.5s;
 }
 
 .page .main .portfolio-item .portfolio .avatar {
@@ -1175,6 +1180,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  transition: 0.5s;
 }
 
 .page .main .portfolio-item .portfolio .avatar img {
@@ -1193,6 +1199,7 @@ body {
   width: 100%;
   position: absolute;
   bottom: 0;
+  transition: 0.5s;
 }
 
 .page .main .portfolio-item .portfolio .hover-texts .hover-title {

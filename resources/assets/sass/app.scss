@@ -497,6 +497,7 @@ body {
             width: 40px;
             height: 40px;
             margin-bottom: 40px;
+            transition: 0.5s;
             .icon-right-arrow {
               position: absolute;
               right: 5px;
@@ -516,6 +517,7 @@ body {
             display: flex;
             align-items: flex-end;
             flex: 1;
+            transition: 0.5s;
             p {
               font-size: 16px;
               font-family: "Gotham Bold";
@@ -526,6 +528,7 @@ body {
           .description {
             display: none;
             padding-top: 5px;
+            transition: 0.5s;
             p {
               font-size: 13px;
               font-family: "Gotham Book";
@@ -791,6 +794,7 @@ body {
         height: 50px;
         margin-bottom: 100px;
         position: absolute;
+        transition: 0.5s;
         @media (min-width: 320px) {
           margin-bottom: 65px;
         }
@@ -1005,11 +1009,13 @@ body {
         width: 100%;
         height: 100%;
         position: relative;
+        transition: 0.5s;
         .avatar {
           position: absolute;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);
+          transition: 0.5s;
           img {
             width: auto;
             height: auto;
@@ -1025,6 +1031,7 @@ body {
           width: 100%;
           position: absolute;
           bottom: 0;
+          transition: 0.5s;
           .hover-title{
             text-align: center;
             font-family: "Gotham Bold";
