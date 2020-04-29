@@ -79,8 +79,8 @@ class Footer extends React.Component {
 										<h4>{translate('navigation.services')}</h4>
 									</div>
 									<div className='footer-item'>
-										<Link to={lang=='en'?'/web-development':'/no/webutvikling'} className='item-link'>{translate('navigation.web-development')}</Link>
-										<Link to={lang=='en'?'/mobile-development':'/no/mobilutvikling'} className='item-link'>{translate('navigation.mobile-development')}</Link>
+										<Link to={lang=='en'?'/web-development':'/no/webutvikling'} className='item-link'>{translate('footer.web-development')}</Link>
+										<Link to={lang=='en'?'/mobile-development':'/no/mobilutvikling'} className='item-link'>{translate('footer.mobile-development')}</Link>
 										<Link to={lang=='en'?'/ui-ux-design':'/no/ui-ux-design'} className='item-link'>{translate('navigation.ui-design')}</Link>
 										<Link to={lang=='en'?'/branding':'/no/merkevarebygging'} className='item-link'>{translate('navigation.branding')}</Link>
 										<Link to={lang=='en'?'/illustration':'/no/illustrasjon'} className='item-link'>{translate('navigation.illustration')}</Link>

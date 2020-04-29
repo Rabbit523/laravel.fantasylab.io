@@ -47,6 +47,11 @@ class Page extends React.Component {
 			return (
 				<Redirect to={`/no${this.props.location.pathname}`} />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			const redirect = window.location.pathname.replace('/no/portefolje/', '');
+			return (
+				<Redirect to={`/portfolio/${redirect}`} />
+			)
 		}
 		return (
 			<Translate>
