@@ -66,6 +66,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/mobilutvikling' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			return (
+				<Redirect to='/mobile-development' />
+			)
 		}
 		return (
 			<Translate>

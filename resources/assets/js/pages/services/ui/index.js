@@ -65,6 +65,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/ui-ux-design' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			return (
+				<Redirect to='/ui-ux-design' />
+			)
 		}
 		return (
 			<Translate>

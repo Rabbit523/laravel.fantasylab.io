@@ -65,6 +65,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/merkevarebygging' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='/branding' />
+			)
 		}
 		return (
 			<Translate>

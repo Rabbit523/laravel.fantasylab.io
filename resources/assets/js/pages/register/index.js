@@ -219,6 +219,12 @@ class Page extends React.Component {
 			if (!window.location.pathname.includes('no')) {
 				return (<Redirect to='/no/start-prosjekt' />);
 			}
+		} else if (lang == 'en' && typeof window != 'undefined') {
+			if (window.location.pathname.includes('no')) {
+				return (
+					<Redirect to='/login' />
+				)
+			}
 		}
 
 		const { errors, checkbox_border, phone_error } = this.state;

@@ -86,13 +86,24 @@ class Page extends React.Component {
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
 			switch(window.location.pathname) {
 				case '/privacy':
-					return <Redirect to='no/personvern' />
+					return <Redirect to='/no/personvern' />
 				case '/data-processor':
-					return <Redirect to='no/databehandler' />
+					return <Redirect to='/no/databehandler' />
 				case '/terms':
-					return <Redirect to='no/vilkar' />
+					return <Redirect to='/no/vilkar' />
 				case '/confidentiality':
-					return <Redirect to='no/konfidensialitet' />
+					return <Redirect to='/no/konfidensialitet' />
+			}
+		}  else if (lang == 'en' && window.location.pathname.includes('no')){
+			switch(window.location.pathname) {
+				case '/no/personvern':
+					return <Redirect to='/privacy' />
+				case '/no/databehandler':
+					return <Redirect to='/data-processor' />
+				case '/no/vilkar':
+					return <Redirect to='/terms' />
+				case '/no/konfidensialitet':
+					return <Redirect to='/confidentiality' />
 			}
 		}
 		return (

@@ -136,6 +136,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/logginn' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			return (
+				<Redirect to='/login' />
+			)
 		}
 
 		const { errors } = this.state;

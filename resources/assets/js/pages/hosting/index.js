@@ -97,6 +97,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/administrert-hosting' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			return (
+				<Redirect to='/managed-hosting' />
+			)
 		}
 		return (
 			<Translate>

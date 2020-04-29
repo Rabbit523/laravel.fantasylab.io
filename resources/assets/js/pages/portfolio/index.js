@@ -35,7 +35,11 @@ class Page extends React.Component {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
 			return (
-				<Redirect to='no/portfolio' />
+				<Redirect to='no/portefolje' />
+			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			return (
+				<Redirect to='/portfolio' />
 			)
 		}
 		return (

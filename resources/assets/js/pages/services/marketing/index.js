@@ -66,6 +66,10 @@ class Page extends React.Component {
 			return (
 				<Redirect to='no/markedsføringsmateriell' />
 			)
+		} else if (lang == 'en' && window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='/marketing-material' />
+			)
 		}
 		return (
 			<Translate>
