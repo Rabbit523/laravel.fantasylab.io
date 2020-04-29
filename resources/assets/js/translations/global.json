@@ -43,7 +43,9 @@
         "privacy": ["Privacy", "Personvern"],
         "data-processor": ["Data Processor", "Databehandler"],
         "terms": ["Terms", "Vilkår"],
-        "confidentiality": ["Confidentiality", "Konfidensialitet"]
+        "confidentiality": ["Confidentiality", "Konfidensialitet"],
+        "web-development": ["Web Development", "Webutvikling"],
+        "mobile-development": ["Mobile Development", "Mobil utvikling"]
     },
     "home": {
         "estimation-delivery": ["Estimation. Proposal. Delivery", "Anslag. Forslag. Leveranse"],
