@@ -472,7 +472,7 @@ body {
         .custom-dropdown-item {
           padding: 10px 10px 20px 10px;
           background: linear-gradient(to bottom, #09133a 0%, #070e28 100%) !important;
-          height: 100%;
+          height: 170px;
           display: flex;
           flex-direction: column;
           border-radius: 5px;
@@ -5019,6 +5019,11 @@ body {
       .custom-row {
         .custom-dropdown {
           .custom-dropdown-item {
+            .text-item {
+              p {
+                font-size: 14px;
+              }
+            }
             .description {
               p {
                 font-size: 9px;
@@ -5633,12 +5638,7 @@ body {
           .custom-dropdown-item {
             .text-item {
               p {
-                font-size: 12px;
-              }
-            }
-            .description {
-              p {
-                font-size: 9px;
+                font-size: 15px;
               }
             }
           }
@@ -5967,6 +5967,21 @@ body {
 }
 
 @media (min-width: 1440px) {
+  .segment.navbar {
+    .menu {
+      .custom-row {
+        .custom-dropdown {
+          .custom-dropdown-item {
+            .text-item {
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   .page {
     .main {
       .main-footer {
@@ -6021,7 +6036,7 @@ body {
         .custom-dropdown {
           .custom-dropdown-item {
             .avatar-item {
-              margin-bottom: 100px;
+              margin-bottom: 70px;
             }
             .text-item {
               p {
@@ -6116,7 +6131,7 @@ body {
           .alice-carousel {
             margin-left: 0px;
             .alice-carousel__stage-item {
-              width: 372px !important;
+              width: 371px !important;
             }
           }
           .alice-carousel_prev_btn, .alice-carousel_next_btn {
