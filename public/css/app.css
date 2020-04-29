@@ -4714,7 +4714,7 @@ body {
 
   .cookieConsent {
     max-height: 450px;
-    overflow-y: scroll;
+    overflow-y: overlay;
   }
 
   .cookieConsent .cookie-consent .cookie-title {
@@ -4738,13 +4738,13 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 17px;
+    left: 23px;
     top: 169px;
   }
 
   .cookieConsent .btn.no {
-    left: 13px;
-    top: 216px;
+    left: 19px;
+    top: 217px;
   }
 }
 
@@ -4807,11 +4807,12 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 39px;
+    left: 43px;
+    top: 149px;
   }
 
   .cookieConsent .btn.no {
-    left: 35px;
+    left: 39px;
     top: 197px;
   }
 }
@@ -4864,8 +4865,12 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 44px;
+    left: 50px;
     top: 149px;
+  }
+
+  .cookieConsent .btn.no {
+    left: 46px;
   }
 }
 
@@ -4888,7 +4893,11 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 49px;
+    left: 55px;
+  }
+
+  .cookieConsent .btn.no {
+    left: 51px;
   }
 }
 
@@ -4899,7 +4908,12 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 62px;
+    left: 68px;
+  }
+
+  .cookieConsent .btn.no {
+    left: 64px;
+    top: 177px;
   }
 }
 
@@ -4909,11 +4923,11 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 63px;
+    left: 69px;
   }
 
   .cookieConsent .btn.no {
-    left: 59px;
+    left: 65px;
   }
 }
 
@@ -4977,7 +4991,11 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 62px;
+    left: 70px;
+  }
+
+  .cookieConsent .btn.no {
+    left: 66px;
   }
 }
 

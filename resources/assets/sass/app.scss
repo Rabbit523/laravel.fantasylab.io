@@ -4075,7 +4075,7 @@ body {
   }
   .cookieConsent {
     max-height: 450px;
-    overflow-y: scroll;
+    overflow-y: overlay;
     .cookie-consent {
       .cookie-title {
         flex-direction: column;
@@ -4097,11 +4097,11 @@ body {
       }
     }
     .btn {
-      left: 17px;
+      left: 23px;
       top: 169px;
       &.no {
-        left: 13px;
-        top: 216px;
+        left: 19px;
+        top: 217px;
       }
     }
   }
@@ -4215,9 +4215,10 @@ body {
       }
     }
     .btn {
-      left: 39px;
+      left: 43px;
+      top: 149px;
       &.no {
-        left: 35px;
+        left: 39px;
         top: 197px;
       }
     }
@@ -4296,8 +4297,11 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 44px;
+      left: 50px;
       top: 149px;
+      &.no {
+        left: 46px;
+      }
     }
   }
 }
@@ -4348,7 +4352,10 @@ body {
       }
     }
     .btn {
-      left: 49px;
+      left: 55px;
+      &.no{
+        left: 51px;
+      }
     }
   }
 }
@@ -4367,7 +4374,11 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 62px;
+      left: 68px;
+      &.no {
+        left: 64px;
+        top: 177px;
+      }
     }
   }
 }
@@ -4387,9 +4398,9 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 63px;
+      left: 69px;
       &.no {
-        left: 59px;
+        left: 65px;
       }
     }
   }
@@ -4489,7 +4500,10 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 62px;
+      left: 70px;
+      &.no {
+        left: 66px;
+      }
     }
   }
 }
