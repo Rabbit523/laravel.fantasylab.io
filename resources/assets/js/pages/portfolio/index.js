@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import PageMetaTag from '../../common/pageMetaTag'
 import PageFooter from '../../common/pageFooter'
 import PortfolioCard from '../../common/portfolioCard'
@@ -34,13 +34,9 @@ class Page extends React.Component {
 		const { isLoaded, data } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
-			return (
-				<Redirect to='no/portefolje' />
-			)
+			this.props.setActiveLanguage('en');
 		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			return (
-				<Redirect to='/portfolio' />
-			)
+			this.props.setActiveLanguage('nb');
 		}
 		return (
 			<Translate>

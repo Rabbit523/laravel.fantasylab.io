@@ -94,14 +94,10 @@ class Page extends React.Component {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
-			return (
-				<Redirect to='no/administrert-hosting' />
-			)
+			this.props.setActiveLanguage('en');
 		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			return (
-				<Redirect to='/managed-hosting' />
-			)
-		}
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (

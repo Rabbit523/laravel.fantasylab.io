@@ -215,15 +215,14 @@ class Page extends React.Component {
 
 		if (isAuthenticated == 'true') {
 			return (<Redirect to='/' />);
-		} else if (lang == 'nb' && typeof window != 'undefined') {
+		}
+		if (lang == 'nb' && typeof window != 'undefined') {
 			if (!window.location.pathname.includes('no')) {
-				return (<Redirect to='/no/start-prosjekt' />);
+				this.props.setActiveLanguage('en');
 			}
 		} else if (lang == 'en' && typeof window != 'undefined') {
 			if (window.location.pathname.includes('no')) {
-				return (
-					<Redirect to='/login' />
-				)
+				this.props.setActiveLanguage('nb');
 			}
 		}
 

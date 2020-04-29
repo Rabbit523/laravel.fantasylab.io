@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Segment, Dimmer, Loader, Icon } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
 import ReactHtmlParser from 'react-html-parser'
 import PageMetaTag from '../../common/pageMetaTag'
@@ -84,28 +84,10 @@ class Page extends React.Component {
 		const { isLoaded, data, isPrivacy, isSecurity, isTerms, isConfident } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
-			switch(window.location.pathname) {
-				case '/privacy':
-					return <Redirect to='/no/personvern' />
-				case '/data-processor':
-					return <Redirect to='/no/databehandler' />
-				case '/terms':
-					return <Redirect to='/no/vilkar' />
-				case '/confidentiality':
-					return <Redirect to='/no/konfidensialitet' />
-			}
-		}  else if (lang == 'en' && window.location.pathname.includes('no')){
-			switch(window.location.pathname) {
-				case '/no/personvern':
-					return <Redirect to='/privacy' />
-				case '/no/databehandler':
-					return <Redirect to='/data-processor' />
-				case '/no/vilkar':
-					return <Redirect to='/terms' />
-				case '/no/konfidensialitet':
-					return <Redirect to='/confidentiality' />
-			}
-		}
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (

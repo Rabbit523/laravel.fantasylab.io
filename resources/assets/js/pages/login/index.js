@@ -132,15 +132,12 @@ class Page extends React.Component {
 			return (
 				<Redirect to={from} />
 			)
-		} else if (lang=='nb' && !window.location.pathname.includes('no')) {
-			return (
-				<Redirect to='no/logginn' />
-			)
-		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			return (
-				<Redirect to='/login' />
-			)
 		}
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    	}
 
 		const { errors } = this.state;
 		return (

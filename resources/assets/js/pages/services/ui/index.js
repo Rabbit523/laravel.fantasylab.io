@@ -1,6 +1,6 @@
 import React from 'react'
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Modal from 'react-modal';
 import { Translate, withLocalize } from "react-localize-redux"
 import PageMetaTag from '../../../common/pageMetaTag'
@@ -62,14 +62,10 @@ class Page extends React.Component {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
-			return (
-				<Redirect to='no/ui-ux-design' />
-			)
+			this.props.setActiveLanguage('en');
 		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			return (
-				<Redirect to='/ui-ux-design' />
-			)
-		}
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (

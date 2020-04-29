@@ -1,6 +1,6 @@
 import React from 'react'
 import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header, Label } from 'semantic-ui-react'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import IntlTelInput from 'react-intl-tel-input';
@@ -195,14 +195,10 @@ class Page extends React.Component {
     const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone_error, checkbox_border } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
     if (lang=='nb' && !window.location.pathname.includes('no')) {
-			return (
-				<Redirect to='no/kontakt' />
-			)
+			this.props.setActiveLanguage('en');
 		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			return (
-				<Redirect to='/contact' />
-			)
-		}
+			this.props.setActiveLanguage('nb');
+    }
     return (
       <Translate>
         {({ translate }) => (
