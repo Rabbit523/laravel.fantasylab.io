@@ -8,3 +8,4 @@ find /var/www/vhosts/fantasylab.io/storage -type d -exec sudo chmod 2775 {} \;
 find /var/www/vhosts/fantasylab.io/storage -type f -exec sudo chmod 664 {} \;
 chgrp -R www-data storage bootstrap/cache
 chmod -R ug+rwx storage bootstrap/cache
+ln -s /var/www/vhosts/dont_delete/uploads/ /var/www/vhosts/fantasylab.io/public/assets/
