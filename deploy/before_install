@@ -1,2 +1,3 @@
 rm -rf /var/www/vhosts/fantasylab.io
 mkdir -p /var/www/vhosts/fantasylab.io
+ufw allow from 103.21.232.75
