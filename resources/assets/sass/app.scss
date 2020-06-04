@@ -3148,6 +3148,9 @@ body {
           border: none;
           padding: 10px 50px;
           font-family: "Gotham Bold";
+          &:focus {
+            outline: none;
+          }
           &.success-btn {
             background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
           }
@@ -4882,6 +4885,16 @@ body {
     .btn {
       left: 35px;
       top: 30px;
+      &.is-detail {
+        left: 35px;
+        top: 30px;
+      }
+      &.no {
+        &.is-detail {
+          left: 35px;
+          top: 30px;
+        }
+      }
     }
   }
 }
@@ -5039,6 +5052,14 @@ body {
     }
     .btn {
       left: 65px;
+      &.is-detail {
+        left: 67px;
+      }
+      &.no {
+        &.is-detail {
+          left: 67px;
+        }
+      }
     }
   }
 }
@@ -5679,6 +5700,14 @@ body {
     }
     .btn {
       left: 95px;
+      &.is-detail {
+        left: 97px;
+      }
+      &.no {
+        &.is-detail {
+          left: 97px;
+        }
+      }
     }
   }
 }
@@ -6015,6 +6044,14 @@ body {
   .cookieConsent {
     .btn {
       left: 108px;
+      &.is-detail {
+        left: 107px;
+      }
+      &.no {
+        &.is-detail {
+          left: 107px;
+        }
+      }
     }
   }
 }
@@ -6066,6 +6103,14 @@ body {
     }
     .btn {
       left: 114px;
+      &.is-detail {
+        left: 117px;
+      }
+      &.no {
+        &.is-detail {
+          left: 117px;
+        }
+      }
     }
   }
 }
@@ -6614,6 +6659,14 @@ body {
     }
     .btn {
       left: 175px;
+      &.is-detail {
+        left: 177px;
+      }
+      &.no {
+        &.is-detail {
+          left: 177px;
+        }
+      }
     }
   }
 }

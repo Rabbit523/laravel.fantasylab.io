@@ -3708,6 +3708,10 @@ body {
   font-family: "Gotham Bold";
 }
 
+.cookieConsent .cookie-consent .cookie-title .btn-group .button:focus {
+  outline: none;
+}
+
 .cookieConsent .cookie-consent .cookie-title .btn-group .button.success-btn {
   background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%);
 }
@@ -5384,6 +5388,16 @@ body {
     left: 35px;
     top: 30px;
   }
+
+  .cookieConsent .btn.is-detail {
+    left: 35px;
+    top: 30px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 35px;
+    top: 30px;
+  }
 }
 
 @media (min-width: 1024px) {
@@ -5526,6 +5540,14 @@ body {
 
   .cookieConsent .btn {
     left: 65px;
+  }
+
+  .cookieConsent .btn.is-detail {
+    left: 67px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 67px;
   }
 }
 
@@ -6180,6 +6202,14 @@ body {
   .cookieConsent .btn {
     left: 95px;
   }
+
+  .cookieConsent .btn.is-detail {
+    left: 97px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 97px;
+  }
 }
 
 @media (min-width: 1366px) {
@@ -6491,6 +6521,14 @@ body {
   .cookieConsent .btn {
     left: 108px;
   }
+
+  .cookieConsent .btn.is-detail {
+    left: 107px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 107px;
+  }
 }
 
 @media (min-width: 1440px) {
@@ -6516,6 +6554,14 @@ body {
 
   .cookieConsent .btn {
     left: 114px;
+  }
+
+  .cookieConsent .btn.is-detail {
+    left: 117px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 117px;
   }
 }
 
@@ -7064,6 +7110,14 @@ body {
 
   .cookieConsent .btn {
     left: 175px;
+  }
+
+  .cookieConsent .btn.is-detail {
+    left: 177px;
+  }
+
+  .cookieConsent .btn.no.is-detail {
+    left: 177px;
   }
 }
 
