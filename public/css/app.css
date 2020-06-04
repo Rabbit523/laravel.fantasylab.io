@@ -5394,6 +5394,11 @@ body {
     top: 30px;
   }
 
+  .cookieConsent .btn.no {
+    left: 35px;
+    top: 30px;
+  }
+
   .cookieConsent .btn.no.is-detail {
     left: 35px;
     top: 30px;
@@ -5543,6 +5548,10 @@ body {
   }
 
   .cookieConsent .btn.is-detail {
+    left: 67px;
+  }
+
+  .cookieConsent .btn.no {
     left: 67px;
   }
 
@@ -6207,6 +6216,10 @@ body {
     left: 97px;
   }
 
+  .cookieConsent .btn.no {
+    left: 97px;
+  }
+
   .cookieConsent .btn.no.is-detail {
     left: 97px;
   }
@@ -6526,6 +6539,10 @@ body {
     left: 107px;
   }
 
+  .cookieConsent .btn.no {
+    left: 107px;
+  }
+
   .cookieConsent .btn.no.is-detail {
     left: 107px;
   }
@@ -6557,6 +6574,10 @@ body {
   }
 
   .cookieConsent .btn.is-detail {
+    left: 117px;
+  }
+
+  .cookieConsent .btn.no {
     left: 117px;
   }
 
@@ -7113,6 +7134,10 @@ body {
   }
 
   .cookieConsent .btn.is-detail {
+    left: 177px;
+  }
+
+  .cookieConsent .btn.no {
     left: 177px;
   }
 
