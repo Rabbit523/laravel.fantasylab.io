@@ -82,9 +82,6 @@ class Main extends React.Component {
             case '/markedsføringsmateriell':
               this.props.history.push('/marketing-material');
               break;
-            case '/administrert-hosting':
-              this.props.history.push('/managed-hosting');
-              break;
             case '/portefolje':
               this.props.history.push('/portfolio');
               break;
@@ -187,6 +184,9 @@ class Main extends React.Component {
       }
     } else {
       this.props.setActiveLanguage(code);
+      if (this.props.location.pathname.includes('administrert')) {
+        this.props.history.push('/managed-hosting');
+      }
     }
   }
 

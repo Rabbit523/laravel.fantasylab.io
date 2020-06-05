@@ -1006,6 +1006,12 @@ body {
   top: -2px;
 }
 
+.page .main .plan-item .avatar-item.wp img {
+  width: 40px;
+  left: 3px;
+  top: 3px;
+}
+
 .page .main .plan-item .text-item h3 {
   color: #fff;
   margin-bottom: 0;
@@ -1062,6 +1068,26 @@ body {
   margin-right: 20px;
 }
 
+.page .main .plan-item .options .item.wp {
+  flex-direction: column;
+  text-align: left;
+}
+
+.page .main .plan-item .options .item.wp p {
+  color: #fff;
+  margin-right: 0;
+  font-size: 15px;
+}
+
+.page .main .plan-item .options .item.wp .sub-item {
+  display: flex;
+}
+
+.page .main .plan-item .options .item.wp .sub-item p {
+  color: #9da6c7;
+  margin-right: 20px;
+}
+
 .page .main .plan-item hr {
   border-color: #202c5a;
   width: 100px;
@@ -1075,6 +1101,68 @@ body {
   .page .main .plan-item .description h3 span {
     font-size: 16px;
   }
+}
+
+.page .main .alert-item {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid #8341ff;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
+  padding: 25px;
+}
+
+.page .main .alert-item .text-item {
+  display: flex;
+  align-items: center;
+}
+
+.page .main .alert-item .text-item p {
+  color: #fff !important;
+  margin: 0;
+}
+
+.page .main .alert-item .text-item .img-id {
+  background: #8341ff;
+  color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  font-size: 18px;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page .main .alert-item .description {
+  color: #9da6c7;
+  text-align: left;
+  padding-top: 15px;
+}
+
+.page .main .alert-item .options {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.page .main .alert-item .options .title {
+  color: #fff !important;
+}
+
+.page .main .alert-item .options .item {
+  display: flex;
+  align-items: center;
+  padding: 5px 0;
+}
+
+.page .main .alert-item .options .item img {
+  width: 20px;
+}
+
+.page .main .alert-item .options .item p {
+  color: #9da6c7;
+  padding-left: 5px;
 }
 
 .page .main .badge-item {
@@ -1696,7 +1784,7 @@ body {
   padding: 30px;
   height: 100%;
   display: flex;
-  background: none;
+  background: linear-gradient(to bottom, #09133a 0%, #070e28 100%);
 }
 
 .page .main .text-card.hosting .title h3 {
@@ -3151,6 +3239,553 @@ body {
 }
 
 .page .main .hosting-page .hosting-section .alice-carousel__dots {
+  display: block;
+  text-align: center !important;
+}
+
+.page .main .wpservice-page {
+  min-height: 100vh;
+  background: #03051b;
+}
+
+.page .main .wpservice-page .wpservice-header {
+  min-height: 550px;
+  height: auto;
+  width: 100%;
+  background-size: cover;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient {
+  width: 100%;
+  height: 885px;
+  background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .header-description {
+  text-align: center;
+  color: #fff;
+  padding-top: 150px;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
+  padding-bottom: 50px;
+  padding-left: 210px;
+  padding-right: 210px;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text p {
+  color: #9da6c7;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .figures {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
+  padding-left: 30px;
+  padding-right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
+  width: 50px;
+  height: 50px;
+}
+
+.page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+  font-size: 18px;
+  color: #fff;
+  padding-top: 20px;
+  font-family: "Gotham Bold";
+}
+
+.page .main .wpservice-page .wpservice-section {
+  padding: 100px 0px;
+  text-align: center;
+}
+
+.page .main .wpservice-page .wpservice-section h2 {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section p {
+  color: #9da6c7;
+}
+
+.page .main .wpservice-page .wpservice-section.starter-group {
+  margin-top: -100px;
+}
+
+.page .main .wpservice-page .wpservice-section.alert {
+  background: #070a2c;
+}
+
+.page .main .wpservice-page .wpservice-section.alert .alert-item-observer {
+  padding-top: 25px;
+}
+
+.page .main .wpservice-page .wpservice-section.consider .custom-col-8 {
+  padding-top: 25px;
+}
+
+.page .main .wpservice-page .wpservice-section.consider .figure .title {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.plan {
+  background: #070a2c;
+}
+
+.page .main .wpservice-page .wpservice-section.questions .item {
+  display: flex;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
+  border: 1px solid #202c5a;
+  background: #070e29;
+  padding: 10px;
+  margin-right: 15px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 100px;
+}
+
+.page .main .wpservice-page .wpservice-section.questions .item .avatar-item img {
+  width: 40px;
+  height: 40px;
+}
+
+.page .main .wpservice-page .wpservice-section.questions .item .text-item {
+  text-align: left;
+}
+
+.page .main .wpservice-page .wpservice-section.questions .item .text-item .title {
+  color: #fff;
+  margin: 0;
+}
+
+.page .main .wpservice-page .wpservice-section.contact {
+  background: #070a2c;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form {
+  padding: 20px;
+  border-radius: 5px;
+  margin: 25px 0;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex {
+  display: flex;
+  justify-content: space-around;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex.one .form-group:first-child {
+  margin-right: 0;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  flex: 1;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone label {
+  text-align: left;
+  padding-bottom: 13px;
+  margin: 0;
+  font-family: "Gotham Bold";
+  color: #656c8b !important;
+  background: transparent;
+}
+
+@media (min-width: 320px) {
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone label {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone label {
+    font-size: 16px;
+  }
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone input {
+  padding-left: 60px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group.phone .custom-error {
+  bottom: 20px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group:first-child {
+  margin-right: 15px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .ui.header {
+  margin: 0;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .field {
+  flex: 1;
+  margin-bottom: 25px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form {
+  text-align: left;
+  margin-bottom: 10px;
+  margin-left: 20px;
+  margin-right: 0px;
+  flex: 1;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form svg {
+  color: #8341ff;
+  width: 20px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input.success .react-phone-number-input__phone {
+  border-color: #94d544 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone {
+  background: #050a20 !important;
+  border: 2px solid #202c5a;
+  padding: 12px;
+  color: #fff !important;
+  margin-top: 10px;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:hover {
+  border-color: #465489 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:focus,
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__phone:active {
+  border-color: #8341ff !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__error {
+  font-family: "Gotham Bold";
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__input--invalid {
+  border-color: #e71f1f;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .phone-form .react-phone-number-input__country-select-arrow {
+  margin-left: 1.3em;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group .custom-error {
+  position: absolute;
+  bottom: 5px;
+  padding: 0;
+  font-family: "Gotham Bold";
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form label {
+  color: #656c8b !important;
+  font-family: "Gotham Bold";
+  font-size: 16px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field.error label:after {
+  content: "*";
+  color: #e71f1f;
+  padding-left: 3px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field.error input,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field.error textarea,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field.error .ui.dropdown {
+  border-color: #a71f1f !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field.error .ui.dropdown .text {
+  background: transparent;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field label {
+  text-align: left;
+  padding-bottom: 10px;
+  font-family: "Gotham Bold";
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input {
+  background: #050a20 !important;
+  border: 2px solid #202c5a;
+  padding: 12px;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input.success {
+  border-color: #94d544 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input:hover {
+  border-color: #465489 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input:focus,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input:active {
+  border-color: #8341ff !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field input:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection {
+  background: #050a20 !important;
+  border: 2px solid #202c5a;
+  padding: 12px;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .text:not(.default) {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .menu {
+  border: 2px solid #202c5a;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .menu .item {
+  padding: 15px !important;
+  background: #050a20;
+  border: none;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .menu .item.active,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .menu .item:hover,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.visible.dropdown .menu .item:focus {
+  background: #070a2c;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection.success {
+  border-color: #94d544 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection:hover {
+  border-color: #465489 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection:focus,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .selection:active {
+  border-color: #8341ff !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .ui.dropdown.selected,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field .ui.dropdown .menu .selected.item {
+  background: #050a20;
+  color: rgba(0, 0, 0, 0.95);
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea {
+  background: #050a20 !important;
+  border: 2px solid #202c5a;
+  padding: 12px;
+  color: #fff;
+  font-size: 16px;
+  font-family: "Gotham Bold";
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea.success {
+  border-color: #94d544 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea:hover {
+  border-color: #465489 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea:focus,
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea:active {
+  border-color: #8341ff !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .field textarea:focus::-webkit-input-placeholder {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section {
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section.error .checkbox label:before {
+  border-color: red;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .checkbox:hover label:before {
+  border-color: #465489 !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .checkbox label {
+  padding-top: 5px;
+  padding-left: 40px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .checkbox label:before {
+  background: #050a20 !important;
+  border: 2px solid #202c5a;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .checkbox label:after {
+  background: #8341ff !important;
+  color: #fff;
+  font-size: 17px;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+  padding-top: 5px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section {
+  padding-left: 5px;
+  padding-top: 12px;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section span {
+  color: #9aa2bf !important;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section a {
+  color: #3e75db;
+  font-weight: bold;
+  font-family: "Gotham Bold";
+  font-size: 16px;
+  display: inline-block;
+}
+
+.page .main .wpservice-page .wpservice-section.contact .message-form .primary-button {
+  width: 50%;
+}
+
+.page .main .wpservice-page .wpservice-section.queue {
+  margin-bottom: 50px;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group {
+  padding: 50px 0;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item.active {
+  background: #7839ee;
+  padding: 15px 0;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item.active .question-tag p {
+  color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item.active .answer-tag {
+  display: block;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag p {
+  margin: 0;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag button {
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 20px;
+  padding: 15px;
+  margin: 0;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item .answer-tag {
+  text-align: left;
+  display: none;
+  color: #f7f3fe;
+  padding-right: 50px;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel {
+  margin-left: 0;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel__stage-item {
+  width: 100% !important;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel_prev_btn {
+  position: absolute;
+  top: 135px;
+  left: 110px;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: none;
+  cursor: pointer;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel_prev_btn i {
+  color: #7436e9;
+  padding-left: 3px;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel_next_btn {
+  position: absolute;
+  top: 175px;
+  left: 110px;
+  border-radius: 50%;
+  border: none;
+  width: 30px;
+  height: 30px;
+  display: none;
+  cursor: pointer;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel_next_btn i {
+  color: #7436e9;
+  padding-left: 3px;
+}
+
+.page .main .wpservice-page .wpservice-section .alice-carousel__dots {
   display: block;
   text-align: center !important;
 }
@@ -4612,6 +5247,55 @@ body {
     padding: 40px 10px 20px 10px;
   }
 
+  .page .main .wpservice-page .wpservice-header {
+    min-height: 290px;
+    height: 290px;
+    width: 100%;
+    background-size: cover;
+    max-width: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 300px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6,
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-8 {
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
+    padding: 50px 0px 0px 0px;
+    width: 300px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
+    padding: 0;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures {
+    padding-top: 50px;
+    align-items: flex-start;
+    width: 300px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+    font-size: 16px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group {
+    margin-top: 160px;
+  }
+
   .page .main .login-page.register {
     padding-top: 50px !important;
   }
@@ -4800,6 +5484,14 @@ body {
   }
 
   .page .main .hosting-page .hosting-header .header-gradient .figures {
+    width: auto;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
+    width: auto;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures {
     width: auto;
   }
 
@@ -5270,6 +5962,26 @@ body {
     margin-top: 150px;
   }
 
+  .page .main .wpservice-page .wpservice-header {
+    height: 450px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 450px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .text-group {
+    padding: 100px 150px 30px 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .text-group .header-description {
+    width: auto;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
+    margin-top: 150px;
+  }
+
   .page .main .about-page .about-header {
     height: 450px;
   }
@@ -5500,6 +6212,18 @@ body {
   }
 
   .page .main .hosting-page .hosting-header .header-gradient .starter-group {
+    margin-top: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header {
+    height: 450px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 450px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
     margin-top: 150px;
   }
 
@@ -6136,6 +6860,71 @@ body {
     font-size: 16px;
   }
 
+  .page .main .wpservice-page .wpservice-header {
+    height: 650px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 650px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6.text-group {
+    padding: 0;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
+    width: 60% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-8 {
+    width: 80% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
+    padding-top: 100px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group {
+    margin-top: -180px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.server-group .header {
+    align-items: unset;
+  }
+
+  .page .main .wpservice-page .wpservice-section.server-group .header p {
+    font-size: 18px;
+    text-align: unset;
+    padding: 0px 20px 10px 20px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.server-group .server-item p {
+    font-size: 18px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.server-group .server-item .server-cards.custom {
+    flex-direction: column;
+  }
+
   .page .main .login-page.register {
     min-height: 102vh;
   }
@@ -6519,6 +7308,53 @@ body {
     font-size: 13px;
   }
 
+  .page .main .wpservice-page .wpservice-header {
+    height: 660px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 700px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
+    width: 60% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-8 {
+    width: 80% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group h3 {
+    text-align: center;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .starter-group .plan-item .plan-item p {
+    font-size: 13px;
+  }
+
   .page .main .login-page.register .login-responsive {
     max-width: 460px;
   }
@@ -6563,6 +7399,14 @@ body {
 
   .page .main .service-page .service-section.review .service-review {
     padding-top: 180px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group h2 {
+    padding: 50px 250px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
+    padding: 0px 250px;
   }
 
   .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
@@ -7065,6 +7909,70 @@ body {
 
   .page .main .hosting-page .hosting-section.starter-group {
     margin-top: -320px;
+  }
+
+  .page .main .wpservice-page .wpservice-header {
+    height: 885px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient {
+    height: 885px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
+    width: 60% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-8 {
+    width: 80% !important;
+    margin: inherit !important;
+    padding: inherit;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
+    padding-top: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
+    padding-left: 150px;
+    padding-right: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text p {
+    padding: 0 250px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group .third-button {
+    font-size: 18px;
+    padding: 20px 70px 20px 70px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .figures .figure {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient.mobile .starter-group {
+    margin-top: 70px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group {
+    margin-top: -320px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group h2 {
+    padding: 50px 250px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
+    padding: 0px 250px;
   }
 
   .page .main .login-page {

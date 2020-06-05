@@ -11,6 +11,7 @@ import ServiceBrandingServer from '../pages/services/branding/server'
 import ServiceIllustrationServer from '../pages/services/illustration/server'
 import ServiceMarketingServer from '../pages/services/marketing/server'
 import HostingServer from '../pages/hosting/server'
+import WPServiceServer from '../pages/hosting/server'
 import PortfolioServer from '../pages/portfolio/server'
 import SinglePortfolioServer from '../pages/singlePortfolio/server'
 import FeaturesServer from '../pages/features/server'
@@ -24,6 +25,7 @@ import AdminPortfolio from '../pages/admin/single-pages/portfolio/server'
 import AdminAbout from '../pages/admin/single-pages/about/server'
 import AdminContact from '../pages/admin/single-pages/contact/server'
 import AdminHosting from '../pages/admin/single-pages/hosting/server'
+import AdminWPService from '../pages/admin/single-pages/wp-service/server'
 import AdminServicePage from '../pages/admin/single-pages/servicePage/server'
 import AdminBlog from '../pages/admin/adminBlog/server'
 import AdminPrivacy from '../pages/admin/single-pages/privacy/server'
@@ -164,6 +166,18 @@ const routes = [
         exact: true,
         auth: false,
         component: HostingServer
+    },
+    {
+        path: '/wordpress-service-agreement',
+        exact: true,
+        auth: false,
+        component: WPServiceServer
+    },
+    {
+        path: '/no/wordpress-serviceavtale',
+        exact: true,
+        auth: false,
+        component: WPServiceServer
     },
     {
         path: '/portfolio',
@@ -374,6 +388,12 @@ const routes = [
         exact: true,
         admin: true,
         component: AdminHosting
+    },
+    {
+        path: '/admin/single-page/wp-service',
+        exact: true,
+        admin: true,
+        component: AdminWPService
     },
     {
         path: '/admin/legal',

@@ -96,23 +96,23 @@ class Page extends React.Component {
     var { message } = this.state;
 
     this.validator.validate(name, value)
-    .then(() => {
-      if (errors.items.length == 0) {
-        this.setState({ errors })
-        
-        $('input[name=' + type + ']').addClass('success');
-        if (type == "message") {
-          $('textarea[name=' + type + ']').addClass('success');
-        }
+      .then(() => {
+        if (errors.items.length == 0) {
+          this.setState({ errors })
 
-      } else {
-        this.setState({ errors })
-        $('input[name=' + type + ']').removeClass('success');
-        if (type == "message") {
-          $('textarea[name=' + type + ']').removeClass('success');
+          $('input[name=' + type + ']').addClass('success');
+          if (type == "message") {
+            $('textarea[name=' + type + ']').addClass('success');
+          }
+
+        } else {
+          this.setState({ errors })
+          $('input[name=' + type + ']').removeClass('success');
+          if (type == "message") {
+            $('textarea[name=' + type + ']').removeClass('success');
+          }
         }
-      }
-    });
+      });
     switch (type) {
       case 'name':
         message.name = event.target.value;
@@ -179,13 +179,15 @@ class Page extends React.Component {
     Http.post('/api/send-message', { data: data })
       .then(
         res => {
-          this.setState({ isLoaded: true, isOpen: true, isLoading: false, message: {
-            name: '',
-            email: '',
-            message: '',
-            phone: '',
-            company: ''
-          }, checked: false });
+          this.setState({
+            isLoaded: true, isOpen: true, isLoading: false, message: {
+              name: '',
+              email: '',
+              message: '',
+              phone: '',
+              company: ''
+            }, checked: false
+          });
         }
       ).catch(err => {
         console.error(err);
@@ -194,10 +196,10 @@ class Page extends React.Component {
   render() {
     const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone_error, checkbox_border } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
-    if (lang=='nb' && !window.location.pathname.includes('no')) {
-			this.props.setActiveLanguage('en');
-		} else if (lang == 'en' && window.location.pathname.includes('no')){
-			this.props.setActiveLanguage('nb');
+    if (lang == 'nb' && !window.location.pathname.includes('no')) {
+      this.props.setActiveLanguage('en');
+    } else if (lang == 'en' && window.location.pathname.includes('no')) {
+      this.props.setActiveLanguage('nb');
     }
     return (
       <Translate>
@@ -213,7 +215,7 @@ class Page extends React.Component {
                   className="notice-modal"
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'visionary.' : 'visjonær.' }</h2>
+                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'visionary.' : 'visjonær.'}</h2>
                   <p>{lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
                   <div className="button-group">
                     <Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
@@ -244,17 +246,17 @@ class Page extends React.Component {
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
-                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name is required.':'Navnet er påkrevd.':''}</Header>}
+                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name') ? lang == 'en' ? 'The name is required.' : 'Navnet er påkrevd.' : ''}</Header>}
                         </div>
                         <div className="form-group">
-                          <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')}/>
-                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company')?lang=='en'?'The company is required.':'Selskapet er påkrevd.':''}</Header>}
+                          <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')} />
+                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company') ? lang == 'en' ? 'The company is required.' : 'Selskapet er påkrevd.' : ''}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
-                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email is required.':'E-postadressen er påkrevd.':''}</Header>}
+                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email') ? lang == 'en' ? 'The email is required.' : 'E-postadressen er påkrevd.' : ''}</Header>}
                         </div>
                         <div className="form-group phone field">
                           <label>{translate('contact.phone')}</label>
@@ -265,14 +267,14 @@ class Page extends React.Component {
                             onPhoneNumberChange={this.handler}
                             onPhoneNumberBlur={this.onBlur}
                           />
-                          { errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
-                          { !errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang=='en'?'The phone number is invalid.':'Telefonnummeret er ugyldig.'}</Header>}
+                          {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone') ? lang == 'en' ? 'The phone number is required.' : 'Telefonnummeret er påkrevd.' : ''}</Header>}
+                          {!errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'The phone number is invalid.' : 'Telefonnummeret er ugyldig.'}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
-                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message is required.':'Meldingen er påkrevd.':''}</Header>}
+                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message') ? lang == 'en' ? 'The message is required.' : 'Meldingen er påkrevd.' : ''}</Header>}
                         </div>
                       </div>
                       <div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>

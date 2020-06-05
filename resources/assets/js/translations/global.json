@@ -63,13 +63,15 @@
     "contact": {
         "name": ["Name", "Navn"],
         "company-name": ["Company Name", "Selskapsnavn"],
-        "email-address": ["E-mail address", "E-post"],
+        "email": ["E-mail", "E-post"],
         "phone": ["Phone", "Telefon"],
         "write-message": ["Write your message", "Skriv melding"],
         "message": ["What can we help you with?", "Hva kan vi hjelpe deg med?"],
         "send-message": ["Send message", "Send melding"],
+        "send-request": ["Send request", "Send forespørsel"],
         "clicking-agree": ["By clicking 'Send message', I agree to FantasyLab's ", "Ved å klikke 'Send melding', godkjenner du Fantasylab's"],
-        "privacy-policy": ["Privacy Policy", "personvern"]
+        "privacy-policy": ["Privacy Policy", "personvern"],
+        "select-agreement": ["Select desired agreement", "Velg ønsket avtale"]
     },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
