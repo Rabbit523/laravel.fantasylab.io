@@ -3509,7 +3509,7 @@ body {
     }
     .admin-page {
       min-height: 110vh;
-      padding-left: 30px;
+      padding: 30px;
       &.home {
         min-height: 150vh;
         .ui {
@@ -5650,6 +5650,9 @@ body {
             }
           }
         }
+      }
+      .login-page {
+        margin: 100px auto;
       }
     }
   }

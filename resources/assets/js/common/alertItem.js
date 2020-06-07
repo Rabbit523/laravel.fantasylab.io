@@ -67,8 +67,8 @@ class AlertItem extends React.Component {
 						</div>
 						<hr />
 						<div className="options">
-							<p className="title">{this.props.lang == 'en' ? this.props.data.consequence.title : this.props.data.consequence.no_title}:</p>
-							{this.props.data.consequence.items.map((item, i) => (
+							<p className="title">{this.props.lang == 'en' ? "Consequences" : "Konsekvenser"}:</p>
+							{this.props.data.items.map((item, i) => (
 								<div className="item" key={i}>
 									<img src="/images/minus-icon.svg" />
 									<p>{this.props.lang == 'en' ? item.text : item.no_text}</p>

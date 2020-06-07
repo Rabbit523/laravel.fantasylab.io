@@ -145,7 +145,18 @@
         "privacy-meta": ["Privacy Meta Section", "Meta seksjon om personvern"],
         "security-meta": ["Security Meta Section", "Meta seksjon om Security"],
         "terms-meta": ["Terms Meta Section", "Meta seksjon om Vilkår"],
-        "confident-meta": ["Confidentiality Meta Section", "Meta seksjon om konfidensialitet"]
+        "confident-meta": ["Confidentiality Meta Section", "Meta seksjon om konfidensialitet"],
+        "check-items": ["Check Items", "Kontroller elementer"],
+        "service-categories": ["Service Categories", "Tjenestekategorier"],
+        "btn_link": ["Button Link", "Knappelink"],
+        "btn_name": ["Button Name", "Knappenavn"],
+        "options": ["Options", "Alternativer"],
+        "items": ["Items", "Elementer"],
+        "alert-section": ["Alert Section", "Varselseksjon"],
+        "consider-section": ["Consider Section", "Vurder seksjon"],
+        "question-section": ["Question Section", "Spørsmål Avsnitt"],
+        "contact-section": ["Contact Section", "Kontakt Seksjon"],
+        "queue-section": ["Queue Section", "Køavsnitt"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],
@@ -207,5 +218,5 @@
     },
     "service": {
         "case-study": ["Case Study", "Casestudie"]
-    }
+    }    
 }

@@ -730,6 +730,119 @@ class PagesController extends Controller
                 $page->data = json_encode($data);
                 $page->save();
             }
+        } else if ($request->name == 'wp-service') {
+            if ($request->type == 'header') {
+                if ($data->header->back_url != $request_data['header']['back_url']) {
+                    if (strpos($request_data['header']['back_url'], 'data:image/jpeg;base64') !== false) {
+                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['header']['back_url']);
+                    } else {
+                        $img = str_replace('data:image/png;base64,', '', $request_data['header']['back_url']);
+                    }
+                    $base_code = base64_decode($img);
+                    $name = $request->name .'-header.png';
+                    $file = $uploads_dir . $name;
+                    if(File::exists($file)) {
+                        File::delete($file);
+                    }
+                    file_put_contents($file, $base_code); // create image file into $upload_dir
+                    $url = url("/assets/uploads") ."/" . $name;
+                    $arr = explode("/", $url);
+                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                    $request_data['header']['back_url'] = $path;
+                }
+                $data->meta_title = $request_data['meta_title'];
+                $data->meta_description = $request_data['meta_description'];
+                $data->no_meta_title = $request_data['no_meta_title'];
+                $data->no_meta_description = $request_data['no_meta_description'];
+                $data->header = $request_data['header'];
+                $page->data = json_encode($data);
+                $page->save();
+            } else if($request->type == 'alert') {
+                $data->alert = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'consider') {
+                foreach ($request_data['items'] as $key => $item) {
+                    if ($data->consider->items[$key]->url != $item['url']) {
+                        if (strpos($item['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $item['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $item['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request->name .'-consider'.$key.'.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $item['url'] = $path;
+                    }
+                }
+                $data->consider = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'plans') {
+                foreach ($request_data['items'] as $key => $item) {
+                    if ($data->plans->items[$key]->url != $item['url']) {
+                        if (strpos($item['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $item['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $item['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request->name .'-plan'.$key.'.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $item['url'] = $path;
+                    }
+                }
+                $data->plans = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'questions') {
+                foreach ($request_data['items'] as $key => $item) {
+                    if ($data->questions->items[$key]->url != $item['url']) {
+                        if (strpos($item['url'], 'data:image/jpeg;base64') !== false) {
+                            $img = str_replace('data:image/jpeg;base64,', '', $item['url']);
+                        } else {
+                            $img = str_replace('data:image/png;base64,', '', $item['url']);
+                        }
+                        $base_code = base64_decode($img);
+                        $name = $request->name .'-question'.$key.'.png';
+                        $file = $uploads_dir . $name;
+                        if(File::exists($file)) {
+                            File::delete($file);
+                        }
+                        file_put_contents($file, $base_code); // create image file into $upload_dir
+                        $url = url("/assets/uploads") ."/" . $name;
+                        $arr = explode("/", $url);
+                        $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
+                        $item['url'] = $path;
+                    }
+                }
+                $data->questions = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'contact') {
+                $data->contact = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            } else if ($request->type == 'queue') {
+                $data->queue = $request_data;
+                $page->data = json_encode($data);
+                $page->save();
+            }
+            return response()->json('update success');
         } else if (strpos($request->name, "service")!== false) {
             $service_type = $request->type;
             if ($service_type == "header") {

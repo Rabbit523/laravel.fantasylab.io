@@ -4116,7 +4116,7 @@ body {
 
 .page .main .admin-page {
   min-height: 110vh;
-  padding-left: 30px;
+  padding: 30px;
 }
 
 .page .main .admin-page.home {
@@ -6233,6 +6233,10 @@ body {
 
   .page .main .singlePortfolio-page .portfolio-section .main_description .sub_descriptions p {
     width: 86%;
+  }
+
+  .page .main .login-page {
+    margin: 100px auto;
   }
 
   .footer {
