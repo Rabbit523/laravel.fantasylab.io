@@ -68,6 +68,11 @@ class Page extends React.Component {
   render() {
     const { isLoaded, isTablet, isOpen, data } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+    if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    }
     return (
       <Translate>
         {({ translate }) => (
@@ -81,7 +86,7 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
                   <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
                     <Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
@@ -148,11 +153,11 @@ class Page extends React.Component {
                         {data.services.data.map((item, i) => (
                           <React.Fragment key={i}>
                             {i < 2 &&
-                              <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={item.url}>
+                              <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang == 'en' ? `/${item.url}` : `/no/${item.no_url}`}>
                                 <ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
                               </Grid.Column>}
                             {i >= 2 &&
-                              <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={item.url}>
+                              <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang == 'en' ? `/${item.url}` : `/no/${item.no_url}`}>
                                 <ServiceItem type="about_quater" avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
                               </Grid.Column>}
                           </React.Fragment>
@@ -182,7 +187,7 @@ class Page extends React.Component {
                       <Grid columns={3}>
                         {data.news.data.map((item, i) => (
                           <Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-                            <NewsCard url={item.url} author={item.author} type={item.type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
+                            <NewsCard lang={lang} url={item.url} author={item.author} type={item.type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
                           </Grid.Column>
                         ))}
                       </Grid>

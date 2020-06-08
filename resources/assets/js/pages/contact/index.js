@@ -1,12 +1,11 @@
 import React from 'react'
-import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header } from 'semantic-ui-react'
+import { Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Button, Header, Label } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
-import PhoneInput, { formatPhoneNumber, isValidPhoneNumber } from 'react-phone-number-input'
+import IntlTelInput from 'react-intl-tel-input';
+import 'react-intl-tel-input/dist/main.css';
 import ReeValidate from 'ree-validate'
-import 'react-phone-number-input/style.css'
-import flags from 'react-phone-number-input/flags'
 import PageMetaTag from '../../common/pageMetaTag'
 import HeadquaterItem from '../../common/headQuaterItem'
 import Http from '../../Http'
@@ -36,7 +35,7 @@ class Page extends React.Component {
       isLoading: false,
       isTablet: false,
       errors: this.validator.errors,
-      phoneError: true,
+      phone_error: false,
       message: {
         name: '',
         email: '',
@@ -47,12 +46,15 @@ class Page extends React.Component {
       phone: '',
       checked: false,
       checkbox_border: true,
-      isOpen: false
+      isOpen: false,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handler = this.handler.bind(this);
+    this.onBlur = this.onBlur.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.myRef = React.createRef();
   }
 
   componentDidMount() {
@@ -74,6 +76,19 @@ class Page extends React.Component {
       });
   }
 
+  handler() {
+    var { message } = this.state;
+    message.phone = this.myRef.current.formatFullNumber(event.target.value);
+    this.setState({ message });
+  }
+
+  onBlur() {
+    var { message } = this.state;
+    if (this.myRef.current.isValidNumber(message.phone)) {
+      this.setState({ phone_error: false });
+    }
+  }
+
   handleChange(e, type) {
     const name = event.target.name;
     const value = event.target.value;
@@ -81,46 +96,37 @@ class Page extends React.Component {
     var { message } = this.state;
 
     this.validator.validate(name, value)
-    .then(() => {
-      if (errors.items.length == 0) {
-        this.setState({ errors })
+      .then(() => {
+        if (errors.items.length == 0) {
+          this.setState({ errors })
 
-        if (type == 'phone') {
-          if (!isValidPhoneNumber(event.target.value)) {
-            this.setState({ phone: event.target.value, phoneError: true });
+          $('input[name=' + type + ']').addClass('success');
+          if (type == "message") {
+            $('textarea[name=' + type + ']').addClass('success');
+          }
+
+        } else {
+          this.setState({ errors })
+          $('input[name=' + type + ']').removeClass('success');
+          if (type == "message") {
+            $('textarea[name=' + type + ']').removeClass('success');
           }
         }
-        
-        $('input[name=' + type + ']').addClass('success');
-        if (type == "message") {
-          $('textarea[name=' + type + ']').addClass('success');
-        }
-
-        switch (type) {
-          case 'name':
-            message.name = event.target.value;
-            return this.setState({ message });
-          case 'company':
-            message.company = event.target.value;
-            return this.setState({ message });
-          case 'email':
-            message.email = event.target.value;
-            return this.setState({ message });
-          case 'message':
-            message.message = event.target.value;
-            return this.setState({ message });
-          case 'phone':
-            message.phone = event.target.value;
-            return this.setState({ message });
-        }
-      } else {
-        this.setState({ errors })
-        $('input[name=' + type + ']').removeClass('success');
-        if (type == "message") {
-          $('textarea[name=' + type + ']').removeClass('success');
-        }
-      }
-    });
+      });
+    switch (type) {
+      case 'name':
+        message.name = event.target.value;
+        return this.setState({ message });
+      case 'company':
+        message.company = event.target.value;
+        return this.setState({ message });
+      case 'email':
+        message.email = event.target.value;
+        return this.setState({ message });
+      case 'message':
+        message.message = event.target.value;
+        return this.setState({ message });
+    }
   }
 
   handleCheckBoxClick() {
@@ -129,26 +135,35 @@ class Page extends React.Component {
 
   handleSubmit(event) {
     const { message, checked } = this.state;
+    const { errors } = this.validator;
+
     this.validator.validateAll(message)
       .then(success => {
         if (success) {
-          if (!checked) {
-            this.setState({ checkbox_border: !this.state.checkbox_border });
+          if (!checked || !this.myRef.current.isValidNumber(message.phone)) {
+            if (!checked) {
+              this.setState({ checkbox_border: !this.state.checkbox_border });
+            } else {
+              this.setState({ phone_error: true });
+            }
           } else {
             this.submit(message);
           }
         } else {
-          const { errors } = this.validator;
           const ref = this;
           if (!checked) {
             this.setState({ checkbox_border: !this.state.checkbox_border });
           }
           Object.keys(message).map((key, item) => {
-            if (key != 'phone' && key != 'company') {
+            if (key != 'phone') {
               ref.validator.validate(key, message[key])
                 .then(() => {
                   ref.setState({ errors })
                 });
+            } else {
+              if (!this.myRef.current.isValidNumber(message.phone)) {
+                ref.setState({ phone_error: true });
+              }
             }
           });
         }
@@ -164,21 +179,28 @@ class Page extends React.Component {
     Http.post('/api/send-message', { data: data })
       .then(
         res => {
-          this.setState({ isLoaded: true, isOpen: true, isLoading: false, message: {
-            name: '',
-            email: '',
-            message: '',
-            phone: '',
-            company: ''
-          }, checked: false });
+          this.setState({
+            isLoaded: true, isOpen: true, isLoading: false, message: {
+              name: '',
+              email: '',
+              message: '',
+              phone: '',
+              company: ''
+            }, checked: false
+          });
         }
       ).catch(err => {
         console.error(err);
       });
   }
   render() {
-    const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone, phoneError, checkbox_border } = this.state;
+    const { isLoaded, isLoading, isOpen, isTablet, data, errors, phone_error, checkbox_border } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+    if (lang == 'nb' && !window.location.pathname.includes('no')) {
+      this.props.setActiveLanguage('en');
+    } else if (lang == 'en' && window.location.pathname.includes('no')) {
+      this.props.setActiveLanguage('nb');
+    }
     return (
       <Translate>
         {({ translate }) => (
@@ -193,7 +215,7 @@ class Page extends React.Component {
                   className="notice-modal"
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
+                  <h2>{lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{lang == 'en' ? 'visionary.' : 'visjonær.'}</h2>
                   <p>{lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
                   <div className="button-group">
                     <Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
@@ -224,27 +246,35 @@ class Page extends React.Component {
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
-                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name')?lang=='en'?'The name field is required.':'Navnfeltet er påkrevd.':''}</Header>}
+                          {errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name') ? lang == 'en' ? 'The name is required.' : 'Navnet er påkrevd.' : ''}</Header>}
                         </div>
                         <div className="form-group">
-                          <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')}/>
-                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company')?lang=='en'?'The company field is required.':'Selskap er påkrevd.':''}</Header>}
+                          <Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')} />
+                          {errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company') ? lang == 'en' ? 'The company is required.' : 'Selskapet er påkrevd.' : ''}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
-                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email')?lang=='en'?'The email field is required.':'E-postfeltet er påkrevd.':''}</Header>}
+                          {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email') ? lang == 'en' ? 'The email is required.' : 'E-postadressen er påkrevd.' : ''}</Header>}
                         </div>
-                        <div className="form-group">
-                          <Form.Input label={translate('contact.phone')} name='phone' placeholder={translate('contact.phone')} className='input-form' onChange={(val) => this.handleChange(val, 'phone')} error={errors.has('phone')} />
-                          {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone')?lang=='en'?'The phone number is required.':'Telefonnummeret er påkrevd.':''}</Header>}
+                        <div className="form-group phone field">
+                          <label>{translate('contact.phone')}</label>
+                          <IntlTelInput
+                            ref={this.myRef}
+                            defaultCountry={'no'}
+                            preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
+                            onPhoneNumberChange={this.handler}
+                            onPhoneNumberBlur={this.onBlur}
+                          />
+                          {errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone') ? lang == 'en' ? 'The phone number is required.' : 'Telefonnummeret er påkrevd.' : ''}</Header>}
+                          {!errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'The phone number is invalid.' : 'Telefonnummeret er ugyldig.'}</Header>}
                         </div>
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
                           <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
-                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message')?lang=='en'?'The message field is required.':'Meldingsfeltet er påkrevd.':''}</Header>}
+                          {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message') ? lang == 'en' ? 'The message is required.' : 'Meldingen er påkrevd.' : ''}</Header>}
                         </div>
                       </div>
                       <div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>

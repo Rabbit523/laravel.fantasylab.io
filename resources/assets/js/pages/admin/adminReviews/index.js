@@ -38,7 +38,7 @@ class Page extends React.Component {
 		reviews.map((item, index) => {
 			var key = type.split('_')[0];
 			if (item.id == key) {
-				if (type.includes('description')) {
+				if (type.includes('description') || type.includes('job')) {
 					if (ref.props.activeLanguage.code == 'en') {
 						var k = type.split('_')[1];
 						item[k] = event.target.value;
@@ -139,6 +139,7 @@ class Page extends React.Component {
 			no_description: "",
 			name: "",
 			job: "",
+			no_job: "",
 			avatar: null,
 			logo_url: null,
 			back_url: null,
@@ -168,7 +169,7 @@ class Page extends React.Component {
 				});
 		}
 	}
-	
+
 	render() {
 		const { isLoaded, reviews, activeKey, accordion } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
@@ -197,7 +198,8 @@ class Page extends React.Component {
 																	{lang == 'en' && <Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={reviews[key].description} onChange={(val) => ref.handleChange(val, reviews[key].id + '_description')} />}
 																	{lang == 'nb' && <Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={reviews[key].no_description} onChange={(val) => ref.handleChange(val, reviews[key].id + '_no_description')} />}
 																	<Form.Input fluid label={translate('card.name')} name='name' placeholder={translate('card.name')} className='input-form' value={reviews[key].name} onChange={(val) => ref.handleChange(val, reviews[key].id + '_name')} />
-																	<Form.Input fluid label={translate('card.job')} name='job' placeholder={translate('card.job')} className='input-form' value={reviews[key].job} onChange={(val) => ref.handleChange(val, reviews[key].id + '_job')} />
+																	{lang == 'en' && <Form.Input fluid label={translate('card.job')} name='job' placeholder={translate('card.job')} className='input-form' value={reviews[key].job} onChange={(val) => ref.handleChange(val, reviews[key].id + '_job')} />}
+																	{lang == 'nb' && <Form.Input fluid label={translate('card.job')} name='job' placeholder={translate('card.job')} className='input-form' value={reviews[key].no_job} onChange={(val) => ref.handleChange(val, reviews[key].id + '_no_job')} />}
 																	<div style={{ display: 'flex' }}>
 																		<Form style={{ width: '100%' }}>
 																			<label>{translate('card.logo-img')}</label>
@@ -218,12 +220,14 @@ class Page extends React.Component {
 																			<input accept='image/*' type='file' id='input-file' className="back-file" onChange={(e) => ref.onAvatarChange(i + '_back', e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
-																		{reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, i)}> {translate('card.save')} </label>}
-																		{reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, i)}> {translate('card.delete')} </label>}
-																		{!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>}
-																		{!reviews[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>}
-																	</div>
+																	{reviews[key].created_at && <div style={{ display: 'flex' }}>
+																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdate(e, i)}> {translate('card.save')} </label>
+																		<label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, i)}> {translate('card.delete')} </label>
+																	</div>}
+																	{!reviews[key].created_at && <div style={{ display: 'flex' }}>
+																		<label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>
+																		<label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>
+																	</div>}
 																</Panel>
 															))}
 														</Collapse>

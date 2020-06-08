@@ -1,7 +1,7 @@
 import React from 'react'
-import { Button, Container, Grid, Dimmer, Segment, Loader, Icon } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
-import { isMobile } from 'react-device-detect'
+import { isMobileOnly } from 'react-device-detect'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageFooter from '../../common/pageFooter'
@@ -12,6 +12,8 @@ import Gallery from '../../common/carousel'
 import NewsCard from '../../common/newsCard'
 import PageMetaTag from '../../common/pageMetaTag'
 import Http from '../../Http'
+import ReactHtmlParser from 'react-html-parser'
+import { animateScroll as scroll } from 'react-scroll'
 
 const customStyles = {
   content: {
@@ -39,6 +41,7 @@ class Page extends React.Component {
   }
 
   componentDidMount() {
+    scroll.scrollToTop();
     if (!window.location.origin) {
       window.location.origin = window.location.protocol + "//" + window.location.hostname + (window.location.port ? ':' + window.location.port : '');
     }
@@ -66,9 +69,14 @@ class Page extends React.Component {
   }
 
   render() {
-    const { isLoaded, isTablet, isOpen, data } = this.state;
+    const { isLoaded, isOpen, data } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
     Modal.setAppElement('#app')
+    if (lang=='nb' && !window.location.pathname.includes('no')) {
+      this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+      this.props.setActiveLanguage('nb');
+    }
     return (
       <Translate>
         {({ translate }) => (
@@ -82,34 +90,47 @@ class Page extends React.Component {
                   style={customStyles}
                 >
                   <Button icon='close' onClick={this.closeModal} />
-                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+                  <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
                   <p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
                   <div className="button-group">
                     <Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
                     <Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
                   </div>
                 </Modal>
-                <div className='homepage-header' style={{ backgroundImage: `url(${isMobile && !isTablet ? data.header.mobile_header : data.header.header_url})` }}>
+                <div className='homepage-header' style={{ backgroundImage: `url(${isMobileOnly ? data.header.mobile_header_url : data.header.header_url})` }}>
                   <Container className='custom-col-6'>
                     <div className='homepage-header-description'>
-                      <h1>{lang == 'en' ? data.header.header_title : data.header.no_header_title}</h1>
-                      <p className='title'>{lang == 'en' ? data.header.header_description_title : data.header.no_header_description_title}</p>
-                      {
-                        lang == 'en' ? data.header.header_description.split('\n').map((item, i) => {
-                          return (
-                            <p key={i} className='normal'>{item}</p>
-                          )
-                        }) : data.header.no_header_description.split('\n').map((item, i) => {
-                          return (
-                            <p key={i} className='normal'>{item}</p>
-                          )
-                        })
+                      {!isMobileOnly && 
+                        <React.Fragment>
+                          <h1>{lang == 'en' ? data.header.header_title : data.header.no_header_title}</h1>
+                          <p className='title'>{lang == 'en' ? data.header.header_description_title : data.header.no_header_description_title}</p>
+                          {
+                            lang == 'en' ? data.header.header_description.split('\n').map((item, i) => {
+                              return (
+                                <p key={i} className='normal'>{item}</p>
+                              )
+                            }) : data.header.no_header_description.split('\n').map((item, i) => {
+                              return (
+                                <p key={i} className='normal'>{item}</p>
+                              )
+                            })
+                          }
+                          <div className='homepage-header-buttons'>
+                            {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
+                            <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.btn_name:data.header.no_btn_name}</Button>
+                            <p>{lang =='en'?data.header.link_des:data.header.no_link_des}&nbsp;<Link to={lang=='en'?data.header.link:data.header.no_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.link_name:data.header.no_link_name}</Link></p>
+                          </div>
+                        </React.Fragment>
                       }
-                      <div className='homepage-header-buttons'>
-                        {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
-                        <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{translate('navigation.craft-enterprise')}</Button>
-                        <p>{translate('home.existing-user')} <Link to='/logginn' className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('home.login-to-fantasylab')}</Link></p>
-                      </div>
+                      {isMobileOnly && 
+                        <React.Fragment>
+                          {lang =='en' ? ReactHtmlParser(data.header.mobile_header) : ReactHtmlParser(data.header.no_mobile_header)}
+                          <div className='homepage-header-buttons'>
+                            {/* <Button as={Link} to='/register' className='register primary-button'>Craft Enterprise</Button> */}
+                            <Button className='register primary-button' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.mobile_btn_name:data.header.no_mobile_btn_name}</Button>
+                            <p>{lang =='en'?data.header.mobile_link_des:data.header.no_mobile_link_des}<Link to={lang=='en'?data.header.mobile_link:data.header.no_mobile_link} className='item-link' onClick={(event) => this.triggerModal(event)}>{lang=='en'?data.header.mobile_link_name:data.header.no_mobile_link_name}</Link></p>
+                          </div>
+                        </React.Fragment>}
                     </div>
                   </Container>
                 </div>
@@ -120,11 +141,11 @@ class Page extends React.Component {
                       {Object.keys(data.services).map((key, index) => (
                         <React.Fragment key={index}>
                           {index < 2 &&
-                            <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang == 'en' ? data.services[key].url : data.services[key].no_url}>
+                            <Grid.Column mobile={16} tablet={8} computer={8} as={Link} to={lang == 'en' ? `/${data.services[key].url}` : `/no/${data.services[key].no_url}`}>
                               <ServiceItem avatar={data.services[key].avatar} title={lang == 'en' ? data.services[key].title : data.services[key].no_title} color={data.services[key].color} description={lang == 'en' ? data.services[key].description : data.services[key].no_description} backimage={data.services[key].backimage} />
                             </Grid.Column>}
                           {index >= 2 &&
-                            <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang == 'en' ? data.services[key].url : data.services[key].no_url}>
+                            <Grid.Column mobile={16} tablet={8} computer={4} as={Link} to={lang == 'en' ? `/${data.services[key].url}` : `/no/${data.services[key].no_url}`}>
                               <ServiceItem type="home_quater" avatar={data.services[key].avatar} title={lang == 'en' ? data.services[key].title : data.services[key].no_title} color={data.services[key].color} description={lang == 'en' ? data.services[key].description : data.services[key].no_description} backimage={data.services[key].backimage} />
                             </Grid.Column>}
                         </React.Fragment>
@@ -164,10 +185,10 @@ class Page extends React.Component {
                     <Grid columns={3}>
                       {Object.keys(data.portfolios).map((key, index) => (
                         <React.Fragment key={index}>
-                          <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
+                          <Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portefolje/${data.portfolios[key].url}`, state: { pagename: key } }}>
                             <PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
                           </Grid.Column>
-                          <Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}`, state: { pagename: key } }}>
+                          <Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portefolje/${data.portfolios[key].url}`, state: { pagename: key } }}>
                             <PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
                           </Grid.Column>
                         </React.Fragment>
@@ -175,16 +196,16 @@ class Page extends React.Component {
                     </Grid>
                   </Container>
                 </section>
-                <section className='home-section'>
+                {data.carousels.length > 0 && <section className='home-section'>
                   <Container className='custom-col-6 home-review'>
                     <h2>{lang == 'en' ? data.translate_titles.excellence : data.translate_titles.no_excellence}</h2>
                     <p>{lang == 'en' ? data.translate_titles.excellence_des : data.translate_titles.no_excellence_des}</p>
                   </Container>
-                  <Container>
+                  <Container className='custom-col-6'>
                     <Gallery type="review" items={data.carousels} lang={lang} />
                   </Container>
-                </section>
-                <section className='home-section'>
+                </section>}
+                {data.news.length > 0 && <section className='home-section'>
                   <Container className='custom-col-6'>
                     <h2>{lang == 'en' ? data.translate_titles.news : data.translate_titles.no_news}</h2>
                     <Grid columns={3}>
@@ -200,7 +221,7 @@ class Page extends React.Component {
                       </Grid.Column>
                     </Grid>
                   </Container>
-                </section>
+                </section>}
                 <PageFooter lang={lang} title={lang == 'en' ? data.footer.title : data.footer.no_title} description={lang == 'en' ? data.footer.description : data.footer.no_description} button={lang == 'en' ? data.footer.button : data.footer.no_button} link={lang == 'en' ? data.footer.link : data.footer.no_link} linkName={lang == 'en' ? data.footer.link_name : data.footer.no_link_name} url={data.footer.url} />
                 <section className='divide'></section>
               </React.Fragment>

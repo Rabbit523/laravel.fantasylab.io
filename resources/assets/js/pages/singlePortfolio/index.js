@@ -43,6 +43,11 @@ class Page extends React.Component {
 	render() {
 		const { isLoaded, isExisted, data, page } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (
@@ -70,7 +75,7 @@ class Page extends React.Component {
 									<Container className='custom-col-6'>
 										<Grid columns={3}>
 											{data.main_description.map((item, index) => (
-												<React.Fragment key={index}>
+												item.title != null && <React.Fragment key={index}>
 													<Grid.Column mobile={16} tablet={16} only="mobile" className="main_description">
 														<h3 className="sub_title">{lang == 'en' ? item.title : item.no_title}</h3>
 														<p className="sub_text">{lang == 'en' ? item.text : item.no_text}</p>
@@ -94,9 +99,8 @@ class Page extends React.Component {
 																	</div>)
 																)
 															})}
-														</React.Fragment>
-														}
-														{lang == 'no' && <React.Fragment>
+															</React.Fragment>}
+														{lang == 'nb' && <React.Fragment>
 															{Object.keys(item.sub).map((key, i) => {
 																return (
 																	(0 < index < 4) && key.includes("no") &&
@@ -106,8 +110,7 @@ class Page extends React.Component {
 																	</div>)
 																)
 															})}
-														</React.Fragment>
-														}
+															</React.Fragment>}
 													</Grid.Column>
 												</React.Fragment>
 											))}
@@ -129,39 +132,40 @@ class Page extends React.Component {
 										<div className="review-item">
 											<div className="review-text-section">
 												<img src={`${data.reviews[0].logo_url}`} />
-												<div className='description'>{lang == 'en' ? data.reviews[0].description : data.reviews[0].no_description}</div>
+												{data.reviews[0].description && <div className='description'>{lang == 'en' ? data.reviews[0].description : data.reviews[0].no_description}</div>}
+												{!data.reviews[0].description && <div className='description'>{translate('portfolio.no-review-description')}</div>}
 												<hr />
 											</div>
 											<div className="review-avatar">
-												<img src={data.reviews[0].avatar ? `${data.reviews[0].avatar}` : '/images/default-user.png'} />
+												<img src={data.reviews[0].avatar ? `${data.reviews[0].avatar}` : '/images/default-profile-image.png'} />
 												<div className='icon-quote-right'>
 													<Icon name='quote right' />
 												</div>
 											</div>
 											<div className="review-personal">
 												<p className='name'>{data.reviews[0].name}</p>
-												<p>{data.reviews[0].job}</p>
+												<p>{lang =='en' ? data.reviews[0].job : data.reviews[0].no_job}</p>
 											</div>
 										</div>
 									</Container>
 								</section>}
-								<section className='portfolio-section scope'>
+								{data.services.length > 0 && <section className='portfolio-section scope'>
 									<Container className='custom-col-6 service'>
 										<h2>{translate('portfolio.scope-project')}</h2>
 										<Grid columns={3}>
 											{data.services.map((item, index) => (
 												<React.Fragment key={index}>
-													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
+													<Grid.Column mobile={16} tablet={8} only="mobile" as={Link} to={{ pathname: lang=='en'?`/${item.url}` : `/no/${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
-													<Grid.Column only="computer" as={Link} to={{ pathname: lang=='en'?`/${item.url}`:`${item.no_url}` }}>
+													<Grid.Column only="computer" as={Link} to={{ pathname: lang=='en'?`/${item.url}` : `/no/${item.no_url}` }}>
 														<ServiceItem avatar={item.avatar} title={lang == 'en' ? item.title : item.no_title} color={item.color} description={lang == 'en' ? item.description : item.no_description} backimage={item.backimage} />
 													</Grid.Column>
 												</React.Fragment>
 											))}
 										</Grid>
 									</Container>
-								</section>
+								</section>}
 								{data.footer_url && (<PageFooter lang={lang} title={lang == 'en' ? data.footer_title : data.no_footer_title} description={lang == 'en' ? data.footer_description : data.no_footer_description} button={lang == 'en' ? data.footer_button : data.no_footer_button} link={lang == 'en' ? data.footer_link : data.no_footer_link} linkName={lang == 'en' ? data.footer_link_name : data.no_footer_link_name} url={data.footer_url} />)}
 								<div className='divide'></div>
 							</React.Fragment>

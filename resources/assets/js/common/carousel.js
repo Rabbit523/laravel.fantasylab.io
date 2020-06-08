@@ -19,9 +19,9 @@ class Gallery extends React.Component {
 					</div>
 					<div className='review-text-section'>
 						<p className="name">{i.name}</p>
-						<h3>{i.description}</h3>
+						<h3>{this.props.lang == 'en' ? i.description : i.no_description}</h3>
 						<hr />
-						<p>{i.job}</p>
+						<p>{this.props.lang == 'en' ? i.job : i.no_job}</p>
 					</div>
 				</div>)
 			),
@@ -48,7 +48,12 @@ class Gallery extends React.Component {
 				0: { items: 3 }
 			},
 			currentIndex: 0
-		}
+		};
+		this.onSlideChanged = this.onSlideChanged.bind(this);
+	}
+
+	onSlideChanged(e) {		
+		this.setState({ currentIndex: e.item })
 	}
 
 	slideNext() {
@@ -68,13 +73,14 @@ class Gallery extends React.Component {
 					responsive={isMobileOnly ? responsive_mobile : isTablet ? responsive_tablet : responsive_browser}
 					autoPlayInterval={2000}
 					autoPlayDirection='rtl'
-					autoPlay={false}
+					autoPlay={isMobileOnly ? true : false}
 					fadeOutAnimation={true}
 					mouseDragEnabled={true}
 					playButtonEnabled={false}
 					disableAutoPlayOnAction={true}
 					slideToIndex={currentIndex}
 					dotsDisabled={isMobileOnly ? true : false}
+					onSlideChanged={this.onSlideChanged}
 				/>
 				<button className='alice-carousel_prev_btn' onClick={() => this.slidePrev()}><Icon name='arrow left' /></button>
 				<button className='alice-carousel_next_btn' onClick={() => this.slideNext()}><Icon name='arrow right' /></button>

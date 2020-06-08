@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { Translate, withLocalize } from "react-localize-redux"
 import Collapse, { Panel } from 'rc-collapse'
 import 'rc-collapse/assets/index.css';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css';
 import Http from '../../../Http'
 
 class Page extends React.Component {
@@ -39,8 +41,13 @@ class Page extends React.Component {
 		if (lang == 'en') {
 			portfolios[type.split('_')[0]][type.split('_')[1]] = event.target.value;
 		} else {
-			var key = type.split('_')[1] + "_" + type.split('_')[2];
-			portfolios[type.split('_')[0]][key] = event.target.value;
+			if (type.includes('no')) {
+				var key = type.split('_')[1] + "_" + type.split('_')[2];
+				portfolios[type.split('_')[0]][key] = event.target.value;
+			} else {
+				portfolios[type.split('_')[0]][type.split('_')[1]] = event.target.value;
+			}
+			
 		}
 		this.setState({ portfolios });
 	}
@@ -109,7 +116,7 @@ class Page extends React.Component {
 	// Create a portfolio
 	onCreate(e, type) {
 		const { portfolios } = this.state;
-		if (portfolios[type].title.trim() != "" && portfolios[type].description.trim() != "" && portfolios[type].type.trim() != "" && portfolios[type].avatar.trim() != "") {
+		if (portfolios[type].title.trim() != "" || portfolios[type].description.trim() != "" || portfolios[type].type.trim() != "" || portfolios[type].no_title.trim() != "" || portfolios[type].no_description.trim() != "") {
 			this.setState({ isLoaded: false });
 			Http.post('/api/admin/create-portfolio', { data: portfolios[type], id: type })
 				.then(
@@ -129,8 +136,9 @@ class Page extends React.Component {
 			no_title: "",
 			description: "",
 			no_description: "",
-			type: "",
+			type: "new",
 			avatar: null,
+			back_url: null,
 			url: '',
 			id: portfolios.length + 1
 		};
@@ -145,17 +153,30 @@ class Page extends React.Component {
 	}
 	// Delete a portfolio
 	onDelete(e, type) {
-		if (confirm("Are you sure to remove this portfolio?")) {
-			this.setState({ isLoaded: false });
-			Http.post('/api/admin/delete-portfolio', { id: type })
-				.then(
-					res => {
-						this.setState({ isLoaded: true, portfolios: res.data });
+		confirmAlert({
+      title: 'Are you sure?',
+      message: 'You want to remove this portfolio?',
+      buttons: [
+        {
+          label: 'Yes',
+          onClick: () => {
+						this.setState({ isLoaded: false });
+						Http.post('/api/admin/delete-portfolio', { id: type })
+							.then(
+								res => {
+									this.setState({ isLoaded: true, portfolios: res.data });
+								}
+							).catch(err => {
+								console.error(err);
+							});
 					}
-				).catch(err => {
-					console.error(err);
-				});
-		}
+        },
+        {
+          label: 'No',
+          onClick: () => console.log('Click No')
+        }
+      ]
+    });
 	}
 	render() {
 		const { isLoaded, portfolios, activeKey, accordion } = this.state;
@@ -201,8 +222,7 @@ class Page extends React.Component {
 																		{portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> {translate('card.delete')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>}
-																		{!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.create-cms')} </Label>}
-																		{portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
+																		{portfolios[key].created_at && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
 																	</div>
 																</Panel>
 															))}
@@ -229,8 +249,7 @@ class Page extends React.Component {
 																		{portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onDelete(e, portfolios[key].id)}> {translate('card.delete')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCreate(e, i)}> {translate('card.create')} </label>}
 																		{!portfolios[key].created_at && <label className='ui floated button save-btn' onClick={(e) => ref.onCancel(e, i)}> {translate('card.cancel')} </label>}
-																		{!portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.create-cms')} </Label>}
-																		{portfolios[key].data && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
+																		{portfolios[key].created_at && <Label className='ui floated button save-btn' as={Link} to={{ pathname: '/admin/single-page/single_portfolio', state: { page: `${portfolios[key].type}` } }}> {translate('card.edit-cms')} </Label>}
 																	</div>
 																</Panel>
 															))}

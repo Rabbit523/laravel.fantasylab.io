@@ -2,7 +2,7 @@ import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from 'react-modal'
 import PageMetaTag from '../../common/pageMetaTag'
 import PlanItem from '../../common/planItem'
@@ -93,6 +93,11 @@ class Page extends React.Component {
 		const { isLoaded, isOpen, isDistribution, isClickApp, isCustom, data, active_manage_type, active_scale_type } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (
@@ -106,7 +111,7 @@ class Page extends React.Component {
 									style={customStyles}
 								>
 									<Button icon='close' onClick={this.closeModal} />
-									<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+									<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
 									<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 									<div className="button-group">
 										<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
@@ -143,10 +148,10 @@ class Page extends React.Component {
 												{data.plans.data.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -324,10 +329,10 @@ class Page extends React.Component {
 												{data.servers.data.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
 														</Grid.Column>
 													</React.Fragment>
 												))}

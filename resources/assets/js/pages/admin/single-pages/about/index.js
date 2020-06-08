@@ -18,17 +18,17 @@ class Page extends React.Component {
 			news: {},
 			isLoaded: false,
 			accordion: false,
-			service_title: "",
-			no_service_title: "",
 			guide_activeKey: [],
 			values_activeKey: [],
 			service_activeKey: [],
-			headquater_activeKey: []
+			headquater_activeKey: [],
+			news_activeKey: []
 		}
 		this.onGuideCollapseChange = this.onGuideCollapseChange.bind(this);
 		this.onValueCollapseChange = this.onValueCollapseChange.bind(this);
 		this.onServiceCollapseChange = this.onServiceCollapseChange.bind(this);
 		this.onHeadquaterCollapseChange = this.onHeadquaterCollapseChange.bind(this);
+		this.onNewsCollapseChange = this.onNewsCollapseChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -41,23 +41,21 @@ class Page extends React.Component {
 						if (key == "values") {
 							values = list[key];
 						} else if (key == "services") {
-							services = list[key].data;
-							service_title = list[key].title;
-							no_service_title = list[key].no_title;
+							services = list[key];
 						} else if (key == "headquarters") {
 							headquarters = list[key];
 						} else if (key == "guides") {
 							guides = list[key];
 						} else if (key == "counters") {
 							counters = list[key];
+						} else if (key == "news") {
+							news = list[key];
 						}
 					});
 					this.setState({
 						isLoaded: true,
 						list,
 						services,
-						service_title,
-						no_service_title,
 						values,
 						headquarters,
 						guides,
@@ -72,7 +70,7 @@ class Page extends React.Component {
 
 	// handle input text
 	handleChange(event, type) {
-		var { list, counters, guides, values, services, service_title, no_service_title, headquarters } = this.state;
+		var { list, counters, guides, values, services, headquarters, news } = this.state;
 		var ref = this;
 
 		switch (type) {
@@ -95,8 +93,8 @@ class Page extends React.Component {
 				headquarters.description = event.target.value;
 				return this.setState({ headquarters });
 			case 'service_main_title':
-				service_title = event.target.value;
-				return this.setState({ service_title });
+				services.title = event.target.value;
+				return this.setState({ services });
 			case 'no_meta_title':
 				list.no_meta_title = event.target.value;
 				return this.setState({ list });
@@ -116,8 +114,14 @@ class Page extends React.Component {
 				headquarters.no_description = event.target.value;
 				return this.setState({ headquarters });
 			case 'no_service_main_title':
-				no_service_title = event.target.value;
-				return this.setState({ no_service_title });
+				services.no_title = event.target.value;
+					return this.setState({ services });
+			case 'news_main_title':
+				news.title = event.target.value;
+				return this.setState({ news });
+			case 'news_main_no_title':
+				news.no_title = event.target.value;
+				return this.setState({ news });
 		}
 
 		counters.map(function (item, i) {
@@ -185,7 +189,7 @@ class Page extends React.Component {
 				}
 			}
 		});
-
+		
 		if (type.includes('service')) {
 			var key = type.split('_')[0];
 			if (type.includes('color')) {
@@ -194,10 +198,10 @@ class Page extends React.Component {
 			} else {
 				if (this.props.activeLanguage.code == 'en') {
 					var sub_key = type.split('_')[2];
-					services[key][sub_key] = event.target.value;
+					services['data'][key][sub_key] = event.target.value;
 				} else {
 					var sub_key = type.split('_')[1] + "_" + type.split('_')[3];
-					services[key][sub_key] = event.target.value;
+					services['data'][key][sub_key] = event.target.value;
 				}
 			}
 			this.setState({ services });
@@ -229,11 +233,43 @@ class Page extends React.Component {
 				}
 			}
 		});
+
+		news.data.map(function (item, i) {
+			if (type.includes('news') && type.includes(i)) {
+				if (type.includes('title')) {
+					if (ref.props.activeLanguage.code == 'en') {
+						item.title = event.target.value;
+					} else {
+						item.no_title = event.target.value;
+					}
+					return ref.setState({ news });
+				} else if (type.includes('description')) {
+					if (ref.props.activeLanguage.code == 'en') {
+						item.description = event.target.value;
+					} else {
+						item.no_description = event.target.value;
+					}
+					return ref.setState({ news });
+				} else if (type.includes('author')) {
+					item.author = event.target.value;
+					return ref.setState({ news });
+				}  else if (type.includes('type')) {
+					item.type = event.target.value;
+					return ref.setState({ news });
+				}  else if (type.includes('read')) {
+					item.read = event.target.value;
+					return ref.setState({ news });
+				}  else if (type.includes('time')) {
+					item.time = event.target.value;
+					return ref.setState({ news });
+				}
+			}
+		});
 	}
 
 	// handle image upload 
 	onAvatarChange(type, e) {
-		var { list, guides, services, headquarters } = this.state;
+		var { list, guides, services, headquarters, news} = this.state;
 		var ref = this;
 
 		var infile = document.getElementById("input-file");
@@ -269,7 +305,7 @@ class Page extends React.Component {
 					var sub_key = type.split('_')[1];
 					var id = type.split('_')[2];
 					if (type.includes('service')) {
-						services[id][sub_key] = e.target.result;
+						services['data'][id][sub_key] = e.target.result;
 						ref.setState({ services });
 					}
 				}
@@ -297,6 +333,22 @@ class Page extends React.Component {
 				reader.readAsDataURL(headquater_files[index].files[0]);
 			}
 		});
+		
+		var news_files = document.getElementsByClassName("news_avatar");
+		Object.keys(news_files).map((key, index) => {
+			if (news_files[index].files && news_files[index].files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					news.data.map((item, i) => {
+						if (type.includes(i)) {
+							item.url = e.target.result;
+							ref.setState({ news });
+						}
+					});
+				}
+				reader.readAsDataURL(news_files[index].files[0]);
+			}
+		});
 	}
 
 	// handle collapse show/hide item
@@ -312,7 +364,9 @@ class Page extends React.Component {
 	onHeadquaterCollapseChange(headquater_activeKey) {
 		this.setState({ headquater_activeKey });
 	}
-
+	onNewsCollapseChange(news_activeKey) {
+		this.setState({ news_activeKey });
+	}
 	// Update header section
 	updateHeader() {
 		var { list } = this.state;
@@ -380,8 +434,14 @@ class Page extends React.Component {
 		this.setState({ services });
 	}
 	onUpdateServiceTitle(e) {
-		const { services, service_title, no_service_title } = this.state;
-		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), title: service_title, no_title: no_service_title, type: 'services_title' })
+		var { services, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'services') {
+				list[key] = services;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(services), type: 'services_title' })
 			.then(
 				res => {
 					this.setState({ isLoaded: true });
@@ -455,8 +515,46 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
+
+	// Update news
+	onUpdateNewsTitle(e) {
+		var { news, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'news') {
+				list[key] = news;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(news), type: 'news_title' })
+			.then(
+				res => {
+					this.setState({ isLoaded: true });
+				}
+			).catch(err => {
+				console.error(err);
+			});
+	}
+	// Update headquater items
+	onUpdateNewsItem(e, type) {
+		var { news, list } = this.state;
+		Object.keys(list).map((key, index) => {
+			if (key == 'news') {
+				list[key] = news;
+			}
+		});
+		this.setState({ isLoaded: false });
+		Http.post('/api/admin/update-page', { name: 'about', data: JSON.stringify(news), type: 'news_item', id: type })
+			.then(
+				res => {
+					this.setState({ isLoaded: true });
+				}
+			).catch(err => {
+				console.error(err);
+			});
+	}
+	
 	render() {
-		const { isLoaded, list, services, service_title, no_service_title, values, headquarters, guides, counters, guide_activeKey, value_activeKey, service_activeKey, headquater_activeKey, accordion } = this.state;
+		const { isLoaded, list, services, values, headquarters, guides, counters, news, guide_activeKey, value_activeKey, service_activeKey, headquater_activeKey, news_activeKey, accordion } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		const ref = this;
 		return (
@@ -523,7 +621,7 @@ class Page extends React.Component {
 																			<input accept='image/*' type='file' className='guide_avatar' onChange={(e) => ref.onAvatarChange(index + '_avatar', e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateGuideItem(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteGuideItem(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -534,7 +632,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.value-items')}</Card.Header>
@@ -547,7 +645,7 @@ class Page extends React.Component {
 																<Panel header={item.title} key={index}>
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, index + '_value_title')} />
 																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, index + '_value_description')} />
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateValueItem(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteValueItem(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -558,7 +656,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.service-section')}</Card.Header>
@@ -566,10 +664,10 @@ class Page extends React.Component {
 												</Card.Content>
 												<Card.Content>
 													<Card.Description>
-														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={service_title} onChange={(val) => this.handleChange(val, 'service_main_title')} />
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={services.title} onChange={(val) => this.handleChange(val, 'service_main_title')} />
 														<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceTitle(e)}> {translate('card.save')} </label>
 														<Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
-															{services.map((item, index) => (
+															{services.data.map((item, index) => (
 																<Panel header={item.title} key={index}>
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, index + '_service_title')} />
 																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, index + '_service_description')} />
@@ -587,7 +685,7 @@ class Page extends React.Component {
 																			<input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("service_backimage_" + index, e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteService(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -598,7 +696,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.headquarter-items')}</Card.Header>
@@ -626,10 +724,42 @@ class Page extends React.Component {
 																			<input accept="image/*" type="file" className="headquater-file" onChange={(e) => this.onAvatarChange("headquater_avatar" + index, e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquaterItem(e, index)}> {translate('card.save')} </label>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteHeadquaterItem(e, index)}> {translate('card.delete')} </label>
+																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquaterItem(e, index)}> {translate('card.save')} </label>
+																</Panel>
+															))}
+														</Collapse>
+													</Card.Description>
+												</Card.Content>
+											</Card>
+										</Grid.Column>
+										<Grid.Column computer={8}>
+											<Card>
+												<Card.Content>
+													<Card.Header>{translate('card.news-section')}</Card.Header>
+												</Card.Content>
+												<Card.Content>
+													<Card.Description>
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={news.title} onChange={(val) => this.handleChange(val, 'news_main_title')} />
+														<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsTitle(e)}> {translate('card.save')} </label>
+														<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
+															{news.data.map((item, index) => (
+																<Panel header={item.title} key={index}>
+																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, 'news_title' + index)} />
+																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, 'news_description' + index)} />
+																	<div className="flex-form">
+																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'news_author' + index)} />
+																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'news_type' + index)} />
 																	</div>
+																	<div className="flex-form">
+																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'news_read' + index)} />
+																		<Form>
+																			<label>{translate('card.image-upload')}</label>
+																			<Form.Field>
+																				<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
+																			</Form.Field>
+																		</Form>
+																	</div>
+																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsItem(e, index)}> {translate('card.save')} </label>
 																</Panel>
 															))}
 														</Collapse>
@@ -695,7 +825,7 @@ class Page extends React.Component {
 																			<input accept='image/*' type='file' className='guide_avatar' onChange={(e) => ref.onAvatarChange(index + '_avatar', e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateGuideItem(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteGuideItem(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -706,7 +836,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.value-items')}</Card.Header>
@@ -719,7 +849,7 @@ class Page extends React.Component {
 																<Panel header={item.no_title} key={index}>
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.handleChange(val, index + '_no_value_title')} />
 																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.handleChange(val, index + '_no_value_description')} />
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateValueItem(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteValueItem(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -730,7 +860,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.service-section')}</Card.Header>
@@ -738,10 +868,10 @@ class Page extends React.Component {
 												</Card.Content>
 												<Card.Content>
 													<Card.Description>
-														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={no_service_title} onChange={(val) => this.handleChange(val, 'no_service_main_title')} />
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={services.no_title} onChange={(val) => this.handleChange(val, 'no_service_main_title')} />
 														<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServiceTitle(e)}> {translate('card.save')} </label>
 														<Collapse accordion={accordion} onChange={this.onServiceCollapseChange} activeKey={service_activeKey}>
-															{services.map((item, index) => (
+															{services.data.map((item, index) => (
 																<Panel header={item.no_title} key={index}>
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.handleChange(val, index + '_no_service_title')} />
 																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.handleChange(val, index + '_no_service_description')} />
@@ -759,7 +889,7 @@ class Page extends React.Component {
 																			<input accept="image/*" type="file" className="service-file" onChange={(e) => this.onAvatarChange("service_backimage_" + index, e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
+																	<div className="flex-form">
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateService(e, index)}> {translate('card.save')} </label>
 																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteService(e, index)}> {translate('card.delete')} </label>
 																	</div>
@@ -770,7 +900,7 @@ class Page extends React.Component {
 												</Card.Content>
 											</Card>
 										</Grid.Column>
-										<Grid.Column computer={5}>
+										<Grid.Column computer={8}>
 											<Card>
 												<Card.Content>
 													<Card.Header>{translate('card.headquarter-items')}</Card.Header>
@@ -798,10 +928,42 @@ class Page extends React.Component {
 																			<input accept="image/*" type="file" className="headquater-file" onChange={(e) => this.onAvatarChange("headquater_avatar" + index, e)} />
 																		</Form.Field>
 																	</Form>
-																	<div style={{ display: 'flex' }}>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquaterItem(e, index)}> {translate('card.save')} </label>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onDeleteHeadquaterItem(e, index)}> {translate('card.delete')} </label>
+																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateHeadquaterItem(e, index)}> {translate('card.save')} </label>
+																</Panel>
+															))}
+														</Collapse>
+													</Card.Description>
+												</Card.Content>
+											</Card>
+										</Grid.Column>
+										<Grid.Column computer={8}>
+											<Card>
+												<Card.Content>
+													<Card.Header>{translate('card.news-section')}</Card.Header>
+												</Card.Content>
+												<Card.Content>
+													<Card.Description>
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={news.no_title} onChange={(val) => this.handleChange(val, 'news_main_no_title')} />
+														<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsTitle(e)}> {translate('card.save')} </label>
+														<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
+															{news.data.map((item, index) => (
+																<Panel header={item.title} key={index}>
+																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.handleChange(val, 'news_no_title' + index)} />
+																	<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.handleChange(val, 'news_no_description' + index)} />
+																	<div className="flex-form">
+																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'news_author' + index)} />
+																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'news_type' + index)} />
 																	</div>
+																	<div className="flex-form">
+																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'news_read' + index)} />
+																		<Form>
+																			<label>{translate('card.image-upload')}</label>
+																			<Form.Field>
+																				<input accept='image/*' type='file' className='news_avatar' onChange={(e) => ref.onAvatarChange(index + "_avatar", e)} />
+																			</Form.Field>
+																		</Form>
+																	</div>
+																	<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNewsItem(e, index)}> {translate('card.save')} </label>
 																</Panel>
 															))}
 														</Collapse>

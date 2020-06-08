@@ -1,6 +1,6 @@
 import React from 'react'
 import { Header, Segment, Dimmer, Loader, Button } from 'semantic-ui-react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import Modal from 'react-modal'
 import { Translate, withLocalize } from "react-localize-redux"
 import PageMetaTag from '../../common/pageMetaTag'
@@ -46,17 +46,18 @@ class Page extends React.Component {
 
   closeModal() {
     this.setState({ isOpen: false });
-    if (this.props.lang === 'en') {
-      this.props.history.push('/')
-    } else {
-      this.props.history.push('/no')
-    }
+    this.props.history.go(-1);
   }
 
   render() {
     const { isLoaded, isOpen, data } = this.state;
     const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
     Modal.setAppElement('#app')
+    if (lang=='nb' && !window.location.pathname.includes('no')) {
+			return (
+				<Redirect to='no/blogg' />
+			)
+		}
     return (
       <Translate>
         {({ translate }) => (
@@ -67,7 +68,7 @@ class Page extends React.Component {
               style={customStyles}
             >
               <Button icon='close' onClick={this.closeModal} />
-              <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+              <h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
 							<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 							<div className="button-group">
 								<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>

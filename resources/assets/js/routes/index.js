@@ -10,7 +10,7 @@ import PrivateRoute from './Private'
 import AdminRoute from './Admin'
 
 const Routes = () => (
-	<Router>
+	<Router onUpdate={() => window.scrollTo(0, 0)}>
 		<Switch>
 			{routes.map((route, i) => {
 				if (route.admin) {

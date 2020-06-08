@@ -1,7 +1,7 @@
 import React from 'react'
 import { withRouter } from 'react-router-dom'
 import { renderToStaticMarkup } from "react-dom/server"
-import { withLocalize, Translate } from "react-localize-redux"
+import { withLocalize, Translate, getActiveLanguage } from "react-localize-redux"
 import CookieConsent, { Cookies } from "react-cookie-consent";
 import Switch from "react-switch";
 import { isMobileOnly, isMobile } from 'react-device-detect'
@@ -48,12 +48,13 @@ class Main extends React.Component {
   
   setActiveLanguage(code) {
     localStorage.setItem('locale', code);
+    this.setState({lang: code});
     if (!this.props.location.pathname.includes('admin')) {
       if (this.props.location.pathname.includes('no')) {
         this.props.setActiveLanguage(code);
         var next_url = this.props.location.pathname.replace('/no', '');
-        if (next_url.includes('/portfolio/')) {
-          next_url = next_url.replace('/portfolio/', '');
+        if (next_url.includes('/portefolje/')) {
+          next_url = next_url.replace('/portefolje/', '');
           this.props.history.push(`/portfolio/${next_url}`);
         } else {
           switch(next_url) {
@@ -81,10 +82,7 @@ class Main extends React.Component {
             case '/markedsføringsmateriell':
               this.props.history.push('/marketing-material');
               break;
-            case '/administrert-hosting':
-              this.props.history.push('/managed-hosting');
-              break;
-            case '/portfolio':
+            case '/portefolje':
               this.props.history.push('/portfolio');
               break;
             case '/funksjoner':
@@ -102,13 +100,13 @@ class Main extends React.Component {
             case '/personvern':
               this.props.history.push('/privacy');
               break;
-            case '/sikkerhet':
-              this.props.history.push('/security');
+            case '/databehandler':
+              this.props.history.push('/data-processor');
               break;
-            case '/avsnitt':
+            case '/vilkar':
               this.props.history.push('/terms');
               break;
-            case '/sikker':
+            case '/konfidensialitet':
               this.props.history.push('/confidentiality');
               break;
             default:
@@ -120,6 +118,7 @@ class Main extends React.Component {
         this.props.setActiveLanguage(code);
         var next_url = this.props.location.pathname;
         if (next_url.includes('/portfolio/')) {
+          next_url = next_url.replace('portfolio', 'portefolje');
           this.props.history.push(`/no${next_url}`);
         } else {
           switch(next_url) {
@@ -151,7 +150,7 @@ class Main extends React.Component {
               this.props.history.push('/no/administrert-hosting');
               break;
             case '/portfolio':
-              this.props.history.push('/no/portfolio');
+              this.props.history.push('/no/portefolje');
               break;
             case '/features':
               this.props.history.push('/no/funksjoner');
@@ -168,14 +167,14 @@ class Main extends React.Component {
             case '/privacy':
               this.props.history.push('/no/personvern');
               break;
-            case '/secruity':
-              this.props.history.push('/no/sikkerhet');
+            case '/data-processor':
+              this.props.history.push('/no/databehandler');
               break;
             case '/terms':
-              this.props.history.push('/no/avsnitt');
+              this.props.history.push('/no/vilkar');
               break;
             case '/confidentiality':
-              this.props.history.push('/no/sikker');
+              this.props.history.push('/no/konfidensialitet');
               break;
             default:
               this.props.history.push('/no');
@@ -185,6 +184,9 @@ class Main extends React.Component {
       }
     } else {
       this.props.setActiveLanguage(code);
+      if (this.props.location.pathname.includes('administrert')) {
+        this.props.history.push('/managed-hosting');
+      }
     }
   }
 
@@ -306,7 +308,7 @@ class Main extends React.Component {
       is_footer = false;
     }
     const { isAdmin, isAuthenticated } = this.props;
-    const { isDetail, stateTab, stateType, is_functional, is_statistical, is_marketing, today, cookie_neccessary, cookie_statistical } = this.state;
+    const { lang, isDetail, stateTab, stateType, is_functional, is_statistical, is_marketing, today, cookie_neccessary, cookie_statistical } = this.state;
     
     return (
       <Translate>
@@ -324,19 +326,29 @@ class Main extends React.Component {
               <CookieConsent
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses="btn success-btn"
+                buttonClasses={lang == 'en' 
+                                    ? (isDetail ? "btn success-btn is-detail" : "btn success-btn")
+                                    : (lang == 'nb' ? (isDetail ? "btn success-btn no is-detail" : "btn success-btn no") : '')}
                 buttonText="OK"
+                onAccept={() => {console.log("yay!")}}
               > 
               <div className="cookie-title">
-                <div className="btn-group">
-                  <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                  {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                  {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                </div>
+                {!isMobileOnly &&
+                  <div className="btn-group">
+                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                  </div>}
                 <div className="title">
                   <p>{translate('cookie.title')}</p>
                   {translate('cookie.des')}
                 </div>
+                {isMobileOnly &&
+                  <div className="btn-group">
+                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                  </div>}
               </div>
               
               {isDetail && <div className="cookie-des">
@@ -449,26 +461,29 @@ class Main extends React.Component {
               <CookieConsent 
                 ref={ref => this.cookie = ref} 
                 contentClasses="cookie-consent"
-                buttonClasses="btn success-btn"
+                buttonClasses={lang == 'en' 
+                                    ? (isDetail ? "btn success-btn is-detail" : "btn success-btn")
+                                    : (lang == 'nb' ? (isDetail ? "btn success-btn no is-detail" : "btn success-btn no") : '')}
                 buttonText="OK"
                 onAccept={() => {console.log("yay!")}}
-
               > 
                 <div className="cookie-title">
-                  {!isMobileOnly && <div className="btn-group">
-                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                  </div>}
+                  {!isMobileOnly &&
+                    <div className="btn-group">
+                      <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                      {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                      {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                    </div>}
                   <div className="title">
                     <p>{translate('cookie.title')}</p>
                     {translate('cookie.des')}
                   </div>
-                  {isMobileOnly && <div className="btn-group">
-                    <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
-                    {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
-                    {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
-                  </div>}
+                  {isMobileOnly &&
+                    <div className="btn-group">
+                      <button className="button success-btn" onClick={() => { console.log('cookie consents are allowed.'); }}>OK</button>
+                      {!isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.details')}</button>}
+                      {isDetail && <button className="button detail-btn" onClick={(event) => this.onDetails(event)}>{translate('cookie.hide_details')}</button>}
+                    </div>}
                 </div>
                 
                 {isDetail && <div className="cookie-des">

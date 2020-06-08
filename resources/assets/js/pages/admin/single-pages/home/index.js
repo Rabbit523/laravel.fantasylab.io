@@ -1,10 +1,13 @@
 import React from 'react'
-import { Icon, Container, Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Button } from 'semantic-ui-react'
+import { Icon, Radio, Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Button } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
 import { Translate, withLocalize } from "react-localize-redux"
 import 'rc-collapse/assets/index.css'
 import Http from '../../../../Http'
 import Modal from 'react-modal'
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css';
+import 'react-summernote/lang/summernote-nb-NO';
 
 const customStyles = {
 	content: {
@@ -35,6 +38,7 @@ class Page extends React.Component {
 			rest_reviews: [],
 			news: [],
 			translate_titles: {},
+			header_type: "desktop",
 			isLoaded: false,
 			isOpen: false,
 			isPortfolio: false,
@@ -115,6 +119,30 @@ class Page extends React.Component {
 				return this.setState({ header });
 			case 'header_description':
 				header.header_description = event.target.value;
+				return this.setState({ header });
+			case 'header_btn_name':
+				header.btn_name = event.target.value;
+				return this.setState({ header });
+			case 'header_link_des':
+				header.link_des = event.target.value;
+				return this.setState({ header });	
+			case 'header_link':
+				header.link = event.target.value;
+			return this.setState({ header });	
+			case 'header_link_name':
+				header.link_name = event.target.value;
+				return this.setState({ header });
+			case 'header_mobile_btn_name':
+				header.mobile_btn_name = event.target.value;
+				return this.setState({ header });
+			case 'header_mobile_link_des':
+				header.mobile_link_des = event.target.value;
+				return this.setState({ header });	
+			case 'header_mobile_link':
+				header.mobile_link = event.target.value;
+				return this.setState({ header });	
+			case 'header_mobile_link_name':
+				header.mobile_link_name = event.target.value;
 				return this.setState({ header });
 			case 'footer_title':
 				footer.title = event.target.value;
@@ -203,6 +231,30 @@ class Page extends React.Component {
 			case 'no_excellence_des':
 				translate_titles.no_excellence_des = event.target.value;
 				return this.setState({ translate_titles });
+			case 'header_no_btn_name':
+				header.no_btn_name = event.target.value;
+				return this.setState({ header });
+			case 'header_no_link_des':
+				header.no_link_des = event.target.value;
+				return this.setState({ header });	
+			case 'header_no_link':
+				header.no_link = event.target.value;
+			return this.setState({ header });	
+			case 'header_no_link_name':
+				header.no_link_name = event.target.value;
+				return this.setState({ header });
+			case 'header_no_mobile_btn_name':
+				header.no_mobile_btn_name = event.target.value;
+				return this.setState({ header });
+			case 'header_no_mobile_link_des':
+				header.no_mobile_link_des = event.target.value;
+				return this.setState({ header });	
+			case 'header_no_mobile_link':
+				header.no_mobile_link = event.target.value;
+				return this.setState({ header });	
+			case 'header_no_mobile_link_name':
+				header.no_mobile_link_name = event.target.value;
+				return this.setState({ header });
 
 		}
 		if (type.includes('service')) {
@@ -284,7 +336,7 @@ class Page extends React.Component {
 		if (mobilefile.files && mobilefile.files[0]) {
 			var reader = new FileReader();
 			reader.onload = function (e) {
-				header.mobile_header = e.target.result;
+				header.mobile_header_url = e.target.result;
 				ref.setState({ header });
 			}
 			reader.readAsDataURL(mobilefile.files[0]);
@@ -669,9 +721,24 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
+	
+	handleTypeChange(e, header_type) {
+		this.setState({ header_type });
+	}
+
+	onMobileHeaderChange(content) {
+		var { header } = this.state;
+		header.mobile_header = content;
+		this.setState({ header });
+	}
+	onNbMobileHeaderChange(content) {
+		var { header } = this.state;
+		header.no_mobile_header = content;
+		this.setState({ header });
+	}
 
 	render() {
-		const { isLoaded, isOpen, isPortfolio, isReview, header, footer, services, badges, portfolios, rest_items, carousels, rest_reviews, news, translate_titles, service_activeKey, accordion, badge_activeKey, news_activeKey } = this.state;
+		const { isLoaded, isOpen, isPortfolio, isReview, header, footer, header_type, services, badges, portfolios, rest_items, carousels, rest_reviews, news, translate_titles, service_activeKey, accordion, badge_activeKey, news_activeKey } = this.state;
 		const ref = this;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		return (
@@ -717,16 +784,78 @@ class Page extends React.Component {
 												<Card.Description>
 													<Form.Input fluid label={translate('card.meta-title')} name='meta_title' placeholder={translate('card.meta-title')} className='input-form' value={header.meta_title} onChange={(val) => this.handleChange(val, 'meta_title')} />
 													<Form.Input fluid label={translate('card.meta-description')} name='meta_description' placeholder={translate('card.meta-description')} className='input-form' value={header.meta_description} onChange={(val) => this.handleChange(val, 'meta_description')} />
-													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={header.header_title} onChange={(val) => this.handleChange(val, 'header_title')} />
-													<Form.Input fluid label={translate('card.description-title')} name='description_title' placeholder={translate('card.des-title-place')} className='input-form' value={header.header_description_title} onChange={(val) => this.handleChange(val, 'header_description_title')} />
-													<Form>
-														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
-															value={header.header_description}
-															onChange={(val) => this.handleChange(val, 'header_description')}
+													<div className="flex-form radio-group">
+														<Radio
+															label='Desktop Setting'
+															checked={header_type === 'desktop'}
+															onChange={(val) => this.handleTypeChange(val, 'desktop')}
 														/>
-													</Form>
+														<Radio
+															label='Mobile Setting'
+															checked={header_type === 'mobile'}
+															onChange={(val) => this.handleTypeChange(val, 'mobile')}
+														/>
+													</div>
+													{header_type == 'desktop' && <React.Fragment>
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={header.header_title} onChange={(val) => this.handleChange(val, 'header_title')} />
+														<Form.Input fluid label={translate('card.description-title')} name='description_title' placeholder={translate('card.des-title-place')} className='input-form' value={header.header_description_title} onChange={(val) => this.handleChange(val, 'header_description_title')} />
+														<Form>
+															<label>{translate('card.description')}</label>
+															<TextArea
+																placeholder={translate('card.description-place')}
+																value={header.header_description}
+																onChange={(val) => this.handleChange(val, 'header_description')}
+															/>
+														</Form>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.btn-name')} placeholder={translate('card.btn-name')} className='input-form' value={header.btn_name} onChange={(val) => this.handleChange(val, 'header_btn_name')} />
+															<Form.Input fluid label={translate('card.link-des')} placeholder={translate('card.link-des')} className='input-form' value={header.link_des} onChange={(val) => this.handleChange(val, 'header_link_des')} />
+														</div>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.link')} placeholder={translate('card.link')} className='input-form' value={header.link} onChange={(val) => this.handleChange(val, 'header_link')} />
+															<Form.Input fluid label={translate('card.link-name')} placeholder={translate('card.link-name')} className='input-form' value={header.link_name} onChange={(val) => this.handleChange(val, 'header_link_name')} />
+														</div>
+													</React.Fragment>}
+													{header_type == 'mobile' && <React.Fragment>
+														<ReactSummernote
+															value={header.mobile_header}
+															options={{
+																lang: 'en-EN',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={(val) => this.onMobileHeaderChange(val)}
+														/>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.btn-name')} placeholder={translate('card.btn-name')} className='input-form' value={header.mobile_btn_name} onChange={(val) => this.handleChange(val, 'header_mobile_btn_name')} />
+															<Form.Input fluid label={translate('card.link-des')} placeholder={translate('card.link-des')} className='input-form' value={header.mobile_link_des} onChange={(val) => this.handleChange(val, 'header_mobile_link_des')} />
+														</div>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.link')} placeholder={translate('card.link')} className='input-form' value={header.mobile_link} onChange={(val) => this.handleChange(val, 'header_mobile_link')} />
+															<Form.Input fluid label={translate('card.link-name')} placeholder={translate('card.link-name')} className='input-form' value={header.mobile_link_name} onChange={(val) => this.handleChange(val, 'header_mobile_link_name')} />
+														</div>
+														</React.Fragment>}
 													<Form>
 														<label>{translate('card.header-img')}</label>
 														<Form.Field>
@@ -893,16 +1022,20 @@ class Page extends React.Component {
 														{news.map((item, i) => (
 															<Panel header={item.title} key={i}>
 																<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.handleChange(val, 'title' + i)} />
-																<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
-																<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'type' + i)} />
 																<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.handleChange(val, 'description' + i)} />
-																<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
-																<Form>
-																	<label>{translate('card.image-upload')}</label>
-																	<Form.Field>
-																		<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
-																	</Form.Field>
-																</Form>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
+																	<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.handleChange(val, 'type' + i)} />
+																</div>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
+																	<Form>
+																		<label>{translate('card.image-upload')}</label>
+																		<Form.Field>
+																			<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
+																		</Form.Field>
+																	</Form>
+																</div>
 																<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
 															</Panel>
 														))}
@@ -922,16 +1055,79 @@ class Page extends React.Component {
 												<Card.Description>
 													<Form.Input fluid label={translate('card.meta-title')} name='meta_title' placeholder={translate('card.meta-title')} className='input-form' value={header.no_meta_title} onChange={(val) => this.handleChange(val, 'no_meta_title')} />
 													<Form.Input fluid label={translate('card.meta-description')} name='meta_description' placeholder={translate('card.meta-description')} className='input-form' value={header.no_meta_description} onChange={(val) => this.handleChange(val, 'no_meta_description')} />
-													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={header.no_header_title} onChange={(val) => this.handleChange(val, 'no_header_title')} />
-													<Form.Input fluid label={translate('card.description-title')} name='description_title' placeholder={translate('card.des-title-place')} className='input-form' value={header.no_header_description_title} onChange={(val) => this.handleChange(val, 'no_header_description_title')} />
-													<Form>
-														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
-															value={header.no_header_description}
-															onChange={(val) => this.handleChange(val, 'no_header_description')}
+													<div className="flex-form radio-group">
+														<Radio
+															label='Desktop Setting'
+															checked={header_type === 'desktop'}
+															onChange={(val) => this.handleTypeChange(val, 'desktop')}
 														/>
-													</Form>
+														<Radio
+															label='Mobile Setting'
+															checked={header_type === 'mobile'}
+															onChange={(val) => this.handleTypeChange(val, 'mobile')}
+														/>
+													</div>
+													{header_type == 'desktop' && <React.Fragment>
+														<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={header.no_header_title} onChange={(val) => this.handleChange(val, 'no_header_title')} />
+														<Form.Input fluid label={translate('card.description-title')} name='description_title' placeholder={translate('card.des-title-place')} className='input-form' value={header.no_header_description_title} onChange={(val) => this.handleChange(val, 'no_header_description_title')} />
+														<Form>
+															<label>{translate('card.description')}</label>
+															<TextArea
+																placeholder={translate('card.description-place')}
+																value={header.no_header_description}
+																onChange={(val) => this.handleChange(val, 'no_header_description')}
+															/>
+														</Form>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.btn-name')} placeholder={translate('card.btn-name')} className='input-form' value={header.no_btn_name} onChange={(val) => this.handleChange(val, 'header_no_btn_name')} />
+															<Form.Input fluid label={translate('card.link-des')} placeholder={translate('card.link-des')} className='input-form' value={header.no_link_des} onChange={(val) => this.handleChange(val, 'header_no_link_des')} />
+														</div>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.link')} placeholder={translate('card.link')} className='input-form' value={header.no_link} onChange={(val) => this.handleChange(val, 'header_no_link')} />
+															<Form.Input fluid label={translate('card.link-name')} placeholder={translate('card.link-name')} className='input-form' value={header.no_link_name} onChange={(val) => this.handleChange(val, 'header_no_link_name')} />
+														</div>
+													</React.Fragment>}
+													{header_type == 'mobile' && <React.Fragment>
+														<ReactSummernote
+															value={header.no_mobile_header}
+															options={{
+																lang: 'nb-NO',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={(val) => this.onNbMobileHeaderChange(val)}
+														/>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.btn-name')} placeholder={translate('card.btn-name')} className='input-form' value={header.no_mobile_btn_name} onChange={(val) => this.handleChange(val, 'header_no_mobile_btn_name')} />
+															<Form.Input fluid label={translate('card.link-des')} placeholder={translate('card.link-des')} className='input-form' value={header.no_mobile_link_des} onChange={(val) => this.handleChange(val, 'header_no_mobile_link_des')} />
+														</div>
+														<div className="flex-form">
+															<Form.Input fluid label={translate('card.link')} placeholder={translate('card.link')} className='input-form' value={header.no_mobile_link} onChange={(val) => this.handleChange(val, 'header_no_mobile_link')} />
+															<Form.Input fluid label={translate('card.link-name')} placeholder={translate('card.link-name')} className='input-form' value={header.no_mobile_link_name} onChange={(val) => this.handleChange(val, 'header_no_mobile_link_name')} />
+														</div>
+													</React.Fragment>
+													}
 													<Form>
 														<label>{translate('card.header-img')}</label>
 														<Form.Field>
@@ -1098,16 +1294,20 @@ class Page extends React.Component {
 														{news.map((item, i) => (
 															<Panel header={item.no_title} key={i}>
 																<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.handleChange(val, 'no_title' + i)} />
-																<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
-																<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.handleChange(val, 'no_type' + i)} />
 																<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.handleChange(val, 'no_description' + i)} />
-																<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
-																<Form>
-																	<label>{translate('card.image-upload')}</label>
-																	<Form.Field>
-																		<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
-																	</Form.Field>
-																</Form>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.handleChange(val, 'author' + i)} />
+																	<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.handleChange(val, 'no_type' + i)} />
+																</div>
+																<div className="flex-form">
+																	<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.handleChange(val, 'read' + i)} />
+																	<Form>
+																		<label>{translate('card.image-upload')}</label>
+																		<Form.Field>
+																			<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onAvatarChange(i, e)} />
+																		</Form.Field>
+																	</Form>
+																</div>
 																<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
 															</Panel>
 														))}

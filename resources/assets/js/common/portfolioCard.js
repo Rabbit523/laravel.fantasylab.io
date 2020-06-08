@@ -13,25 +13,42 @@ class PortfolioCard extends React.Component {
 		const item_hover = {
 			backgroundImage: this.props.back_url ? `linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)),url(${this.props.back_url})` : 'linear-gradient(to bottom, #09133a 0%, #070e28 100%)',
 			backgroundSize: 'cover',
-			borderBottom: '2px solid #8341ff ',
+			border: '2px solid #8341ff',
+			boxShadow: '0 0 10px #8341ff',
+			textShadow: '0 0 10px #8341ff',
 			cursor: 'pointer'
+		};
+		const item_normal = {
+			border: '2px solid transparent'
 		};
 		return (
 			<ReactHoverObserver className='portfolio-item-observer'>
 				{({ isHovering }) => (
-					<div className='portfolio-item' style={isMobile ? item_hover : isHovering ? item_hover : {}}>
-						<div className='portfolio'>
-							<div className="avatar">
-								<img src={`${this.props.icon_url}`} />
-							</div>
-							{(isMobile || isHovering) &&
+					<div className='portfolio-item' style={isMobile ? item_hover : isHovering ? item_hover : item_normal}>
+						{isHovering ?
+							<div className='portfolio'>
+								<div className='avatar'>
+									<img src={`${this.props.icon_url}`} />
+								</div>
+								<Icon name='arrow right' className='icon-right-arrow' />
 								<div className="hover-texts">
-									<Icon name='arrow right' className='icon-right-arrow' />
 									<h3 className='hover-title'>{this.props.title}</h3>
 									<p className='hover-des'>{this.props.description}</p>
 								</div>
-							}
-						</div>
+							</div>
+							:
+							<div className='portfolio'>
+								<div className='avatar'>
+									<img src={`${this.props.icon_url}`} />
+								</div>
+								{isMobile && <React.Fragment>
+										<Icon name='arrow right' className='icon-right-arrow' />
+										<div className="hover-texts">
+											<h3 className='hover-title'>{this.props.title}</h3>
+											<p className='hover-des'>{this.props.description}</p>
+										</div>
+									</React.Fragment>}
+							</div>}
 					</div>
 				)}
 			</ReactHoverObserver>

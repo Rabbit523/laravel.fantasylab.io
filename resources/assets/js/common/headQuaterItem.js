@@ -48,7 +48,7 @@ class HeadquaterItem extends React.Component {
 					style={customStyles}
 				>
 					<Button icon='close' onClick={this.closeModal} />
-					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{this.props.lang == 'en' ? 'Visionary.' : 'Visjonær.' }</h2>
+					<h2>{this.props.lang == 'en' ? 'Thank you,' : 'Takk,'} <br />{this.props.lang == 'en' ? 'visionary.' : 'visjonær.' }</h2>
                   	<p>{this.props.lang == 'en' ? 'We have received your request. We will get in touch within 24 hours.' : 'Vi har mottatt forespørselen din. Vi tar kontakt innen 24 timer.'}</p>
 					<div className="button-group">
 						<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact us' : 'kontakt oss'}</Button>

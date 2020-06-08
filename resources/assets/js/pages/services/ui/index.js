@@ -61,6 +61,11 @@ class Page extends React.Component {
 		const { isLoaded, isOpen, data } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+    	}
 		return (
 			<Translate>
 				{({ translate }) => (
@@ -74,7 +79,7 @@ class Page extends React.Component {
 									style={customStyles}
 								>
 									<Button icon='close' onClick={this.closeModal} />
-									<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+									<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
 									<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 									<div className="button-group">
 										<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
@@ -131,7 +136,7 @@ class Page extends React.Component {
 												<p className="description">'{lang == 'en' ? data.study.description : data.study.no_description}'</p>
 												<div className='avatar'><img src={`${data.study.avatar}`} /></div>
 												<p>{data.study.job}</p>
-												{data.study.path && <Link to={{ pathname: lang=='en' ? `/portfolio/${data.study.path}` : `/no/portfolio/${data.study.path}` }} className='third-button'>{lang == 'en' ? data.study.btn_en : data.study.btn_no}</Link>}
+												{data.study.path && <Link to={{ pathname: lang=='en' ? `/portfolio/${data.study.path}` : `/no/portefolje/${data.study.path}` }} className='third-button'>{lang == 'en' ? data.study.btn_en : data.study.btn_no}</Link>}
 											</div>
 										</Container>
 									</Container>

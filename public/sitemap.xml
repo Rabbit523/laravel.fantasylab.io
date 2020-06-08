@@ -1,110 +1,273 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://fantasylab.io/</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/web-development</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/mobile-development</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/ui-ux-design</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/branding</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/illustration</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/marketing-material</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/about</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/contact</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/avollon</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/digilan</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/attitude</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/proguiden</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/maroa</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/portfolio/maforsikring</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/privacy</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/security</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/terms</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://fantasylab.io/confidentiality</loc>
-  <lastmod>2019-10-28T20:06:04+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://fantasylab.io/data-processor</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/features</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/illustration</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/managed-hosting</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/administrert-hosting</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/blogg</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/databehandler</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/funksjoner</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/illustrasjon</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/konfidensialitet</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/kontakt</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/logginn</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/markedsføringsmateriell</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/merkevarebygging</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/mobilutvikling</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/om-oss</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/personvern</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/portefolje</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/portefolje/attitude</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/portefolje/maforsikring</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/portefolje/maroa</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/portefolje/sysaker</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/start-prosjekt</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/ui-ux-design</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/vilkar</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/no/webutvikling</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/web-development</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/</loc>
+        <lastmod>2020-04-08T06:33:53+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/blog</loc>
+        <lastmod>2020-04-08T06:34:00+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/branding</loc>
+        <lastmod>2020-04-08T06:34:01+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/confidentiality</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/contact</loc>
+        <lastmod>2020-04-08T06:34:01+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/login</loc>
+        <lastmod>2020-04-08T06:34:04+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/marketing-material</loc>
+        <lastmod>2020-04-08T06:34:01+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/mobile-development</loc>
+        <lastmod>2020-04-08T06:33:58+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/portfolio</loc>
+        <lastmod>2020-04-08T06:33:58+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/portfolio/attitude</loc>
+        <lastmod>2020-04-08T06:34:05+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/portfolio/maforsikring</loc>
+        <lastmod>2020-04-08T06:34:06+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/portfolio/maroa</loc>
+        <lastmod>2020-04-08T06:34:04+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/portfolio/sysaker</loc>
+        <lastmod>2020-04-08T06:34:05+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/privacy</loc>
+        <lastmod>2020-04-08T06:34:07+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/register</loc>
+        <lastmod>2020-04-08T06:33:54+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/terms</loc>
+        <lastmod>2020-04-08T06:34:11+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://fantasylab.io/ui-ux-design</loc>
+        <lastmod>2020-04-08T06:33:57+00:00</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>0.8</priority>
+    </url>
 </urlset>

@@ -65,7 +65,7 @@ class Footer extends React.Component {
 							style={customStyles}
 						>
 							<Button icon='close' onClick={this.closeModal} />
-							<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'Visionary.':'Visjonær.'}</h2>
+							<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
 							<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
 							<div className="button-group">
 								<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
@@ -79,8 +79,8 @@ class Footer extends React.Component {
 										<h4>{translate('navigation.services')}</h4>
 									</div>
 									<div className='footer-item'>
-										<Link to={lang=='en'?'/web-development':'/no/webutvikling'} className='item-link'>{translate('navigation.web-development')}</Link>
-										<Link to={lang=='en'?'/mobile-development':'/no/mobilutvikling'} className='item-link'>{translate('navigation.mobile-development')}</Link>
+										<Link to={lang=='en'?'/web-development':'/no/webutvikling'} className='item-link'>{translate('footer.web-development')}</Link>
+										<Link to={lang=='en'?'/mobile-development':'/no/mobilutvikling'} className='item-link'>{translate('footer.mobile-development')}</Link>
 										<Link to={lang=='en'?'/ui-ux-design':'/no/ui-ux-design'} className='item-link'>{translate('navigation.ui-design')}</Link>
 										<Link to={lang=='en'?'/branding':'/no/merkevarebygging'} className='item-link'>{translate('navigation.branding')}</Link>
 										<Link to={lang=='en'?'/illustration':'/no/illustrasjon'} className='item-link'>{translate('navigation.illustration')}</Link>
@@ -94,8 +94,8 @@ class Footer extends React.Component {
 									<div className='footer-item'>
 										<Link to={lang=='en'?'/features':'/no/funksjoner'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.creatives')}</Link>
 										<Link to={lang=='en'?'/features':'/no/funksjoner'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('navigation.features')}</Link>
-										<Link to={lang=='en'?'/portfolio':'/no/portfolio'} className='item-link'>{translate('navigation.portfolio')}</Link>
-										<Link to={lang=='en'?'/portfolio':'/no/portfolio'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.pricing')}</Link>
+										<Link to={lang=='en'?'/portfolio':'/no/portefolje'} className='item-link'>{translate('navigation.portfolio')}</Link>
+										<Link to={lang=='en'?'/portfolio':'/no/portefolje'} className='item-link' onClick={(event) => this.triggerModal(event)}>{translate('footer.pricing')}</Link>
 									</div>
 								</Grid.Column>
 								<Grid.Column mobile={16} tablet={3} computer={3}>
@@ -128,23 +128,23 @@ class Footer extends React.Component {
 									</div>
 									<div className='footer-item'>
 										<Link to={{ pathname: lang=='en'?'/privacy':'/no/personvern', state: { pagename: 'privacy' } }} className='item-link'>{translate('footer.privacy')}</Link>
-										<Link to={{ pathname: lang=='en'?'/security':'/no/sikkerhet', state: { pagename: 'security' } }} className='item-link'>{translate('footer.data-processor')}</Link>
-										<Link to={{ pathname: lang=='en'?'/terms':'/no/avsnitt', state: { pagename: 'terms' } }} className='item-link'>{translate('footer.terms')}</Link>
-										<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/sikker', state: { pagename: 'confidentiality' } }} className='item-link'>{translate('footer.confidentiality')}</Link>
+										<Link to={{ pathname: lang=='en'?'/data-processor':'/no/databehandler', state: { pagename: 'data-processor' } }} className='item-link'>{translate('footer.data-processor')}</Link>
+										<Link to={{ pathname: lang=='en'?'/terms':'/no/vilkar', state: { pagename: 'terms' } }} className='item-link'>{translate('footer.terms')}</Link>
+										<Link to={{ pathname: lang=='en'?'/confidentiality':'/no/konfidensialitet', state: { pagename: 'confidentiality' } }} className='item-link'>{translate('footer.confidentiality')}</Link>
 									</div>
 								</Grid.Column>
 							</Grid>
 							<Grid columns={2} style={{ margin: 0, padding: 0 }}>
 								<Grid.Column mobile={16} tablet={12} computer={12} style={{ display: 'flex', alignItems: 'center', padding: '10px 0px' }}>
-									<img src={isMobileOnly ? require('../../images/theme/logo.png') : require('../../images/theme/fantasy-logo.png')} />
+									<img src={isMobileOnly ? require('../../images/theme/logo.png') : require('../../images/theme/fantasylab-logo.svg')} />
 									<h5>© + TM 2020 FantasyLab AS, NO 922 982 376 MVA</h5>
 								</Grid.Column>
-								<Grid.Column mobile={16} tablet={4} computer={4} className="footer-lang" style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end', padding: '10px 0px' }}>
+								<Grid.Column mobile={16} tablet={4} computer={4} className="footer-lang" style={{ display: 'flex', alignItems: 'center', padding: '10px 0px' }}>
 									<h5>{translate('footer.language')} </h5>
 									<Dropdown text={lang == 'en' ? 'English' : 'Norsk'}>
 										<Dropdown.Menu>
 											{lang == 'en' ? 
-												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("nb")} /> 
+												<Dropdown.Item text= 'Norsk' onClick={(event) => this.changeLang("nb")} />
 												:<Dropdown.Item text='English' onClick={(event) => this.changeLang("en")} /> }
 										</Dropdown.Menu>
 									</Dropdown>

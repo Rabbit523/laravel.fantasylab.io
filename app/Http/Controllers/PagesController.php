@@ -149,6 +149,19 @@ class PagesController extends Controller
         }
         return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
     }
+    public function wpService() {
+        $page_data = Page::where('id', 15)->first();
+        $page = json_decode($page_data->data);
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+    }
     public function features() {
         $page_data = Page::where('id', 9)->first();
         $page = json_decode($page_data->data);
@@ -238,7 +251,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->privacy_meta_title, 'description' => $page->privacy_meta_description]);
     }
     public function security() {
         $page_data = Page::where('id', 13)->first();
@@ -251,7 +264,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->security_meta_title, 'description' => $page->security_meta_description]);
     }
     public function terms() {
         $page_data = Page::where('id', 13)->first();
@@ -264,7 +277,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->terms_meta_title, 'description' => $page->terms_meta_description]);
     }
     public function confidentiality() {
         $page_data = Page::where('id', 13)->first();
@@ -277,7 +290,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->meta_title, 'description' => $page->meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->confident_meta_title, 'description' => $page->confident_meta_description]);
     }
 
     public function no_index() {
@@ -411,6 +424,19 @@ class PagesController extends Controller
         }
         return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
     }
+    public function no_wpService() {
+        $page_data = Page::where('id', 15)->first();
+        $page = json_decode($page_data->data);
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+    }
     public function no_features() {
         $page_data = Page::where('id', 9)->first();
         $page = json_decode($page_data->data);
@@ -500,7 +526,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->privacy_no_meta_title, 'description' => $page->privacy_no_meta_description]);
     }
     public function no_security() {
         $page_data = Page::where('id', 13)->first();
@@ -513,7 +539,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->security_no_meta_title, 'description' => $page->security_no_meta_description]);
     }
     public function no_terms() {
         $page_data = Page::where('id', 13)->first();
@@ -526,7 +552,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->terms_no_meta_title, 'description' => $page->terms_no_meta_description]);
     }
     public function no_confidentiality() {
         $page_data = Page::where('id', 13)->first();
@@ -539,7 +565,7 @@ class PagesController extends Controller
         if (Auth::user() != null) {
             $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
         }
-        return view('home', compact('page', 'status'), ['title' => $page->no_meta_title, 'description' => $page->no_meta_description]);
+        return view('home', compact('page', 'status'), ['title' => $page->confident_no_meta_title, 'description' => $page->confident_no_meta_description]);
     }
     
     public function adminPages() {
@@ -752,6 +778,19 @@ class PagesController extends Controller
 
     public function adminHostingPage() {
         $page = Page::where('id', 14)->first();
+        $status = [
+            'isAuthenticated' => Auth::user()?true:false,
+            'isAdmin'=> false,
+            'isFooter' => true
+        ];
+        if (Auth::user() != null) {
+            $status['isAdmin'] = Auth::user()->role == 0 ? true : false;
+        }
+        return view('home', compact('page', 'status'), ['title' => 'Admin', 'description' => '']);
+    }
+
+    public function adminWPServicePage() {
+        $page = Page::where('id', 15)->first();
         $status = [
             'isAuthenticated' => Auth::user()?true:false,
             'isAdmin'=> false,

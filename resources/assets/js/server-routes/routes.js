@@ -1,6 +1,6 @@
 import HomeServer from '../pages/home/server'
-import LoginServer from '../pages/login'
-import RegisterServer from '../pages/register'
+import LoginServer from '../pages/login/server'
+import RegisterServer from '../pages/register/server'
 import ForgotPasswordServer from '../pages/forgotPassword'
 import ResetPasswordServer from '../pages/resetPassword'
 import NoMatch from '../pages/noMatch'
@@ -11,6 +11,7 @@ import ServiceBrandingServer from '../pages/services/branding/server'
 import ServiceIllustrationServer from '../pages/services/illustration/server'
 import ServiceMarketingServer from '../pages/services/marketing/server'
 import HostingServer from '../pages/hosting/server'
+import WPServiceServer from '../pages/hosting/server'
 import PortfolioServer from '../pages/portfolio/server'
 import SinglePortfolioServer from '../pages/singlePortfolio/server'
 import FeaturesServer from '../pages/features/server'
@@ -24,6 +25,7 @@ import AdminPortfolio from '../pages/admin/single-pages/portfolio/server'
 import AdminAbout from '../pages/admin/single-pages/about/server'
 import AdminContact from '../pages/admin/single-pages/contact/server'
 import AdminHosting from '../pages/admin/single-pages/hosting/server'
+import AdminWPService from '../pages/admin/single-pages/wp-service/server'
 import AdminServicePage from '../pages/admin/single-pages/servicePage/server'
 import AdminBlog from '../pages/admin/adminBlog/server'
 import AdminPrivacy from '../pages/admin/single-pages/privacy/server'
@@ -166,13 +168,25 @@ const routes = [
         component: HostingServer
     },
     {
+        path: '/wordpress-service-agreement',
+        exact: true,
+        auth: false,
+        component: WPServiceServer
+    },
+    {
+        path: '/no/wordpress-serviceavtale',
+        exact: true,
+        auth: false,
+        component: WPServiceServer
+    },
+    {
         path: '/portfolio',
         exact: true,
         auth: false,
         component: PortfolioServer
     },
     {
-        path: '/no/portfolio',
+        path: '/no/portefolje',
         exact: true,
         auth: false,
         component: PortfolioServer
@@ -376,6 +390,12 @@ const routes = [
         component: AdminHosting
     },
     {
+        path: '/admin/single-page/wp-service',
+        exact: true,
+        admin: true,
+        component: AdminWPService
+    },
+    {
         path: '/admin/legal',
         exact: true,
         admin: true,
@@ -388,7 +408,7 @@ const routes = [
         component: SinglePortfolioServer
     },
     {
-        path: '/no/portfolio/:type',
+        path: '/no/portefolje/:type',
         exact: true,
         auth: false,
         component: SinglePortfolioServer

@@ -33,6 +33,11 @@ class Page extends React.Component {
 	render() {
 		const { isLoaded, data } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
+		if (lang=='nb' && !window.location.pathname.includes('no')) {
+			this.props.setActiveLanguage('en');
+		} else if (lang == 'en' && window.location.pathname.includes('no')){
+			this.props.setActiveLanguage('nb');
+		}
 		return (
 			<Translate>
 				{({ translate }) => (
@@ -66,10 +71,10 @@ class Page extends React.Component {
 										<Grid columns={3}>
 											{Object.keys(data.portfolios).map((key, index) => (
 												<React.Fragment key={index}>
-													<Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}` }}>
+													<Grid.Column mobile={16} tablet={8} only="mobile tablet" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portefolje/${data.portfolios[key].url}` }}>
 														<PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
 													</Grid.Column>
-													<Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portfolio/${data.portfolios[key].url}` }}>
+													<Grid.Column only="computer" as={Link} to={{ pathname: lang == 'en' ? `/portfolio/${data.portfolios[key].url}` : `/no/portefolje/${data.portfolios[key].url}` }}>
 														<PortfolioCard icon_url={data.portfolios[key].icon_url} back_url={data.portfolios[key].back_url} title={lang=='en'?data.portfolios[key].title:data.portfolios[key].no_title} description={lang=='en'?data.portfolios[key].description:data.portfolios[key].no_description} />
 													</Grid.Column>
 												</React.Fragment>

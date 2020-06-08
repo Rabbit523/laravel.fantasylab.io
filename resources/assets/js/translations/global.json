@@ -1,18 +1,18 @@
 {
     "navigation": {
         "services": ["Services", "Tjenester"],
-        "web-development": ["Web Development", "Webutvikling"],
+        "web-development": ["Web", "Web"],
         "web-development-des":["High traffic websites, ecommerce & web apps", "Nettsteder med høy trafikk, e-handel og webapper"],
-        "mobile-development": ["Mobile Development", "Mobilutvikling"],
+        "mobile-development": ["Mobile", "Mobil"],
         "mobile-development-des":["Powerful, effective and practical phone apps", "Kraftige, effektive og praktiske telefonapper"],
         "ui-design": ["UI & UX Design", "UI & UX Design"],
-        "ui-design-des": ["Awesome end-user interfaces & experience", "Fantastiske sluttbrukergrensesnitt og opplevelse"],
+        "ui-design-des": ["Awesome end-user interfaces & experience", "Nydelig brukergrensesnitt og brukeropplevelse"],
         "branding": ["Branding", "Merkevarebygging"],
         "branding-des": ["Creativity, purpose, knowledge & business", "Kreativitet, formål, kunnskap og virksomhet"],
         "illustration": ["Illustration", "Illustrasjon"],
         "illustration-des": ["Visual storytelling, iconography & digital art", "Visuell historiefortelling, ikonografi og digital kunst"],
-        "marketing-material": ["Marketing Material", "Markedsføringsmateriell"],
-        "marketing-material-des": ["Optimized- & brand consistent messages", "Optimaliserte & merkekonsistente meldinger"],
+        "marketing-material": ["Marketing Material", "Markedsføring Materiell"],
+        "marketing-material-des": ["Optimized- & brand consistent messages", "Optimalisert og «merkevare konsistent» budskap"],
         "portfolio": ["Portfolio", "Portefølje"],
         "products": ["Products", "Produkter"],
         "managed-hosting": ["Managed Hosting", "Administrert Hosting"],
@@ -29,7 +29,7 @@
     },
     "footer": {
         "language": ["Language:", "Språk:"],
-        "marketing": ["Marketing", "Markedsføringsmateriell"],
+        "marketing": ["Marketing Material", "Markedsføringsmateriell"],
         "platform": ["Platform", "Plattform"],
         "creatives": ["Creatives", "Kreatører"],
         "pricing": ["Pricing", "Priser"],
@@ -43,11 +43,11 @@
         "privacy": ["Privacy", "Personvern"],
         "data-processor": ["Data Processor", "Databehandler"],
         "terms": ["Terms", "Vilkår"],
-        "confidentiality": ["Confidentiality", "Konfidensialitet"]
+        "confidentiality": ["Confidentiality", "Konfidensialitet"],
+        "web-development": ["Web Development", "Webutvikling"],
+        "mobile-development": ["Mobile Development", "Mobil utvikling"]
     },
     "home": {
-        "login-to-fantasylab": ["Log in to FantasyLab", "Logg deg på FantasyLab"],
-        "existing-user": ["Existing user?", "Eksisterende bruker?"],
         "estimation-delivery": ["Estimation. Proposal. Delivery", "Anslag. Forslag. Leveranse"],
         "get-quote": ["Don't get a goat. Get a quote", "Ikke skaff deg en geit. Få et tilbud"],
         "the-platform": ["The Platform", "Plattformen"],
@@ -57,40 +57,21 @@
     },
     "portfolio": {
         "case-studio": ["Case Studies", "Casestudier"],
-        "scope-project": ["Scope of the project", "Prosjektets omfang"]
+        "scope-project": ["Scope of the project", "Prosjektets omfang"],
+        "no-review-description": ["Review coming soon...", "Anmeldelse kommer snart ..."]
     },
     "contact": {
         "name": ["Name", "Navn"],
         "company-name": ["Company Name", "Selskapsnavn"],
-        "email-address": ["E-mail address", "E-post"],
+        "email": ["E-mail", "E-post"],
         "phone": ["Phone", "Telefon"],
         "write-message": ["Write your message", "Skriv melding"],
         "message": ["What can we help you with?", "Hva kan vi hjelpe deg med?"],
         "send-message": ["Send message", "Send melding"],
+        "send-request": ["Send request", "Send forespørsel"],
         "clicking-agree": ["By clicking 'Send message', I agree to FantasyLab's ", "Ved å klikke 'Send melding', godkjenner du Fantasylab's"],
-        "privacy-policy": ["Privacy Policy", "personvern"]
-    },
-    "login": {
-        "welcome-message": ["Sign into FantasyLab", "Logg deg på FantasyLab"],
-        "create-account": ["or create a free FantasyLab account", "eller opprett en gratis FantasyLab-konto"],
-        "password": ["Password", "Passord"],
-        "remember-me": ["Remember me", "Husk meg"],
-        "forgot-password": ["Forgot password?", "Glemt passord?"],
-        "login": ["Login", "Logg Inn"],
-        "login-google": ["Login with Google", "Logg inn med Google"]
-    },
-    "register": {
-        "create-account": ["Create a FantasyLab account", "Opprett en FantasyLab-konto"],
-        "login-account": ["or sign in into your account", "eller logg deg på kontoen din"],
-        "confirm-password": ["Confirm password", "Bekreft passord"],
-        "team-name": ["Team name", "Lag navn"],
-        "team-placeholder": ["e.g.'FantasyLab' or FantasyLab Finance", "f.eks. 'FantasyLab' eller FantasyLab Finance"],
-        "clicking-agree": ["By creating an account, I agree to our ", "Ved å opprette en konto, godtar jeg vår "],
-        "terms": ["Terms", "Vilkår"],
-        "and": ["and", "og"],
-        "privacy": ["Privacy", "Personvern"],
-        "btn-create-account": ["Create account", "Opprett konto"],
-        "signup-google": ["Sign up with Google", "Registrer deg med Google"]
+        "privacy-policy": ["Privacy Policy", "personvern"],
+        "select-agreement": ["Select desired agreement", "Velg ønsket avtale"]
     },
     "alert": {
         "page-not-ready": ["Page is not ready yet.", "Siden er ikke klar ennå."],
@@ -98,7 +79,7 @@
     },
     "card": {
         "header-section": ["Header Section", "Overskrift Seksjon"],
-        "meta-title": ["Meta title", "Metatittel"],
+        "meta-title": ["Meta title", "Meta tittel"],
         "meta-description": ["Meta description", "Meta beskrivelse"],
         "title": ["Title", "Tittel"],
         "description-title": ["Description Title", "Beskrivelse Tittel"],
@@ -113,6 +94,7 @@
         "btn-name": ["Button name", "Knappenavn"],
         "link": ["Link", "Lenke"],
         "link-name": ["Link name", "Lenke navn"],
+        "link-des": ["Link Description", "Link beskrivelse"],
         "footer-img": ["Footer Image", "Bunntekstbilde"],
         "service-section": ["Service Section", "Serviceseksjonen"],
         "badge-section": ["Badge Section", "Merkeseksjon"],
@@ -121,6 +103,7 @@
         "news-section": ["News Section", "Nyhetsseksjonen"],
         "image-upload": ["Image Upload", "Bildeopplasting"],
         "read": ["Read", "Lese"],
+        "time": ["Time", "Tid"],
         "author": ["Author", "Forfatter"],
         "color": ["Color", "Farge"],
         "avatar-img": ["Avatar Image", "Avatar-bilde"],
@@ -158,7 +141,22 @@
         "scale-section": ["Scale Section", "Skala seksjonen"],
         "feature-section": ["Feature Section", "Funksjonsseksjon"],
         "server-section": ["Server Section", "Server seksjon"],
-        "button-text": ["Button Text", "Knappetekst"]
+        "button-text": ["Button Text", "Knappetekst"],
+        "privacy-meta": ["Privacy Meta Section", "Meta seksjon om personvern"],
+        "security-meta": ["Security Meta Section", "Meta seksjon om Security"],
+        "terms-meta": ["Terms Meta Section", "Meta seksjon om Vilkår"],
+        "confident-meta": ["Confidentiality Meta Section", "Meta seksjon om konfidensialitet"],
+        "check-items": ["Check Items", "Kontroller elementer"],
+        "service-categories": ["Service Categories", "Tjenestekategorier"],
+        "btn_link": ["Button Link", "Knappelink"],
+        "btn_name": ["Button Name", "Knappenavn"],
+        "options": ["Options", "Alternativer"],
+        "items": ["Items", "Elementer"],
+        "alert-section": ["Alert Section", "Varselseksjon"],
+        "consider-section": ["Consider Section", "Vurder seksjon"],
+        "question-section": ["Question Section", "Spørsmål Avsnitt"],
+        "contact-section": ["Contact Section", "Kontakt Seksjon"],
+        "queue-section": ["Queue Section", "Køavsnitt"]
     },
     "sidebar": {
         "pages": ["Pages", "Sider"],
@@ -166,7 +164,7 @@
     },
     "modal": {
         "greeting-hi": ["Hi", "Hei"],
-        "visionary": ["Visionary", "Visjonær"],
+        "visionary": ["visionary", "visjonær"],
         "description":["Our web app is under development.", "Nettappen vår er under utvikling."],
         "contact": ["Contact us", "Kontakt oss"],
         "close": ["Close", "Lukk"],
@@ -220,5 +218,5 @@
     },
     "service": {
         "case-study": ["Case Study", "Casestudie"]
-    }
+    }    
 }
