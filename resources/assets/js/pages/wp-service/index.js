@@ -443,7 +443,7 @@ class Page extends React.Component {
 													<Container className='custom-col-8'>
 														<div className="question-tag">
 															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
-															<Button onClick={() => this.questionHandler(item.id)}>+</Button>
+															<Button onClick={() => this.questionHandler(item.id)}>{que_key == item.id ? '-' : '+' }</Button>
 														</div>
 														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
 													</Container>
