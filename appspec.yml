@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: .
-    destination: /var/www/vhosts/fantasylab.io
+    destination: /var/www/vhosts/fantasy.fantasylab.io
 hooks:
   BeforeInstall:
     - location: deploy/before_install
