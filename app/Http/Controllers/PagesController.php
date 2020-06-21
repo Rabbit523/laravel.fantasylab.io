@@ -152,6 +152,7 @@ class PagesController extends Controller
     public function wpService() {
         $page_data = Page::where('id', 15)->first();
         $page = json_decode($page_data->data);
+        dd($page);
         $status = [
             'isAuthenticated' => Auth::user()?true:false,
             'isAdmin'=> false,
