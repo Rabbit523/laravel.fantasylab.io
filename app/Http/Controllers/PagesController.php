@@ -151,7 +151,7 @@ class PagesController extends Controller
     }
     public function wpService() {
         $page_data = Page::where('id', 15)->first();
-        dd("wpservice table testing + data from the database id = 15: ".$page_data);
+        dd("wpservice table testing + data from the database id = 15: ".$page_data->data);
         $page = json_decode($page_data->data);
         $status = [
             'isAuthenticated' => Auth::user()?true:false,
