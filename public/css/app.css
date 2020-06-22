@@ -6911,6 +6911,10 @@ body {
     margin-top: -180px;
   }
 
+  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
+    padding: 0px 40px;
+  }
+
   .page .main .wpservice-page .wpservice-section.server-group .header {
     align-items: unset;
   }
@@ -7410,7 +7414,11 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
-    padding: 0px 250px;
+    padding: 0px 130px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item-group {
+    padding: 0 100px 0 120px;
   }
 
   .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
@@ -7976,7 +7984,11 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
-    padding: 0px 250px;
+    padding: 0px 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item-group {
+    padding: 0 100px 0 140px;
   }
 
   .page .main .login-page {

@@ -359,7 +359,7 @@ class Page extends React.Component {
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.questions.title : data.questions.no_title}</h2>
 										<p>{lang == 'en' ? data.questions.des : data.questions.no_des}</p>
-										<Container className='custom-col-6'>
+										<div className="item-group">
 											{data.questions.items.map((item, i) => (
 												<div className="item" key={i}>
 													<div className="avatar-item">
@@ -371,7 +371,7 @@ class Page extends React.Component {
 													</div>
 												</div>
 											))}
-										</Container>
+										</div>
 									</Container>
 								</div>
 								<div className="wpservice-section contact">

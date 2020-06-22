@@ -6304,6 +6304,9 @@ body {
         .wpservice-section {
           &.starter-group {
             margin-top: -180px;
+            .custom-col-8 {
+              padding: 0px 40px;
+            }
           }
           &.server-group {
             .header {
@@ -6862,7 +6865,12 @@ body {
               padding: 50px 250px;
             }
             .custom-col-8 {
-              padding: 0px 250px;
+              padding: 0px 130px;
+            }
+          }
+          &.questions {
+            .item-group {
+              padding: 0 100px 0 120px;
             }
           }
         }
@@ -7421,7 +7429,12 @@ body {
               padding: 50px 250px;
             }
             .custom-col-8 {
-              padding: 0px 250px;
+              padding: 0px 150px;
+            }
+          }
+          &.questions {
+            .item-group {
+              padding: 0 100px 0 140px;
             }
           }
         }
