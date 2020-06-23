@@ -109,6 +109,9 @@ class Main extends React.Component {
             case '/konfidensialitet':
               this.props.history.push('/confidentiality');
               break;
+            case '/wordpress-serviceavtale':
+              this.props.history.push('/wordpress-service-agreement');
+              break;
             default:
               this.props.history.push('/');
               break;
@@ -148,6 +151,9 @@ class Main extends React.Component {
               break;
             case '/managed-hosting':
               this.props.history.push('/no/administrert-hosting');
+              break;
+            case '/wordpress-service-agreement':
+              this.props.history.push('/no/wordpress-serviceavtale');
               break;
             case '/portfolio':
               this.props.history.push('/no/portefolje');
@@ -301,7 +307,7 @@ class Main extends React.Component {
   render() {
     let is_dashboard = false;
     let is_footer = true;
-    if (typeof window != 'undefined' && window.location.href.indexOf('admin') > 0) {
+    if (typeof window != 'undefined' && window.location.href.indexOf('admin') > 0 && window.location.href.indexOf('administrert') < 0) {
       is_dashboard = true;
     }
     if (typeof window != 'undefined' && (window.location.href.indexOf("login") > 0 || window.location.href.indexOf("register") > 0)) {
