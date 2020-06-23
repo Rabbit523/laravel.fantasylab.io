@@ -174,16 +174,22 @@ class Page extends React.Component {
 																</Segment>
 															</Dropdown.Menu>
 														</Dropdown>
-														{/* <Dropdown text={translate('navigation.products')} className="services">
+														<Dropdown text={translate('navigation.products')} className="services">
 															<Dropdown.Menu className="sub-menu">
-																<Segment className='custom-dropdown-item' as={Link} to='/managed-hosting'>
-																	<div className='avatar-item desktop'>
-																		<img src={require('../../../images/theme/desktop.png')} />
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/managed-hosting':'/no/administrert-hosting'}>
+																	<div className='avatar-item hosting'>
+																		<img src={require('../../../images/theme/cloud-server-icon.svg')} />
 																	</div>
 																	<p>{translate('navigation.managed-hosting')}</p>
 																</Segment>
+																<Segment className='custom-dropdown-item' as={Link} to={lang=='en'?'/wordpress-service-agreement':'/no/wordpress-serviceavtale'}>
+																	<div className='avatar-item wordpress'>
+																		<img src={require('../../../images/theme/wp-icon.svg')} />
+																	</div>
+																	<p>{translate('navigation.wordpress-service')}</p>
+																</Segment>
 															</Dropdown.Menu>
-														</Dropdown> */}
+														</Dropdown>
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portefolje'} text={translate('navigation.portfolio')} />
 														{/* <Dropdown.Item as={NavLink} to='/features' text={translate('navigation.features')} /> */}
 														<Dropdown.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} text={translate('navigation.about')} />
@@ -327,7 +333,7 @@ class Page extends React.Component {
 													</div>
 												</Dropdown.Menu>
 											</Dropdown>
-											{/* <Dropdown text={translate('navigation.products')} className='collapsible-menu nav-color services'>
+											<Dropdown text={translate('navigation.products')} className='collapsible-menu nav-color services'>
 												<Dropdown.Menu>
 													<div className='custom-box'>
 														<Container className='custom-col-6'>
@@ -336,7 +342,7 @@ class Page extends React.Component {
 																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/managed-hosting':'/no/administrert-hosting'}>
 																		<div className='custom-dropdown-item hosting'>
 																			<div className='avatar-item hosting'>
-																				<img src={require('../../../images/theme/desktop.png')} />
+																				<img src={require('../../../images/theme/cloud-server-icon.svg')} />
 																				<Icon name='arrow right' className='icon-right-arrow' />
 																			</div>
 																			<div className='text-item'>
@@ -347,12 +353,26 @@ class Page extends React.Component {
 																			</div>
 																		</div>
 																	</Grid.Column>
+																	<Grid.Column className='custom-dropdown' as={Link} to={lang=='en'?'/wordpress-service-agreement':'/no/wordpress-serviceavtale'}>
+																		<div className='custom-dropdown-item wordpress'>
+																			<div className='avatar-item wordpress'>
+																				<img src={require('../../../images/theme/wp-icon.svg')} />
+																				<Icon name='arrow right' className='icon-right-arrow' />
+																			</div>
+																			<div className='text-item'>
+																				<p>{translate("navigation.wordpress-service")}</p>
+																			</div>
+																			<div className='description'>
+																				<p>{translate("navigation.wordpress-service-des")}</p>
+																			</div>
+																		</div>
+																	</Grid.Column>
 																</Grid.Row>
 															</Grid>
 														</Container>
 													</div>
 												</Dropdown.Menu>
-											</Dropdown> */}
+											</Dropdown>
 											<Menu.Item as={NavLink} to={lang=='en'?'/portfolio':'/no/portefolje'} className='nav-color portfolio'>{translate("navigation.portfolio")}</Menu.Item>
 											{/* <Menu.Item as={NavLink} to='/features' className='nav-color features'>{translate("navigation.features")}</Menu.Item> */}
 											<Menu.Item as={NavLink} to={lang=='en'?'/about':'/no/om-oss'} className='nav-color about'>{translate("navigation.about")}</Menu.Item>

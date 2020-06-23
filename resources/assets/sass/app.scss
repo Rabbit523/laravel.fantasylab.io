@@ -509,8 +509,8 @@ body {
               width: 23px;
               height: 23px;
               position: absolute;
-              margin-left: 6px;
-              margin-top: 8px;
+              margin-left: 7px;
+              margin-top: 7px;
             }
           }
           .text-item {
@@ -540,12 +540,23 @@ body {
           &:hover {
             cursor: pointer;
             &.hosting {
-              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/web-dropdown.jpg) !important;
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/server-box.jpg) !important;
               background-size: cover !important;
-              border: 2px solid #7436e9;
-              color: #7436e9;
-              box-shadow: 0 0 10px #7436e9;
-              text-shadow: 0 0 10px #7436e9;
+              border: 2px solid #8341FF;
+              color: #8341FF;
+              box-shadow: 0 0 10px #8341FF;
+              text-shadow: 0 0 10px #8341FF;
+              .avatar-item {
+                margin-bottom: 9px;
+              }
+            }
+            &.wordpress {
+              background-image: linear-gradient(to right bottom, rgba(20, 49, 144, 0.6), rgba(3, 5, 28, 0.7)), url(/images/wordpress-box.jpg) !important;
+              background-size: cover !important;
+              border: 2px solid #F84DB8;
+              color: #F84DB8;
+              box-shadow: 0 0 10px #F84DB8;
+              text-shadow: 0 0 10px #F84DB8;
               .avatar-item {
                 margin-bottom: 9px;
               }
@@ -612,11 +623,19 @@ body {
                 }
               }
               &.hosting {
-                border: 2px solid #7436e9;
-                box-shadow: 0 0 10px #7436e9;
-                color: #7436e9;
+                border: 2px solid #8341FF;
+                box-shadow: 0 0 10px #8341FF;
+                color: #8341FF;
                 i {
-                  color: #7436e9;
+                  color: #8341FF;
+                }
+              }
+              &.wordpress {
+                border: 2px solid #F84DB8;
+                box-shadow: 0 0 10px #F84DB8;
+                color: #F84DB8;
+                i {
+                  color: #F84DB8;
                 }
               }
               &.mobile {
@@ -3961,6 +3980,12 @@ body {
             &.desktop {
               border-color: #7436e9;
             }
+            &.hosting {
+              border-color: #8341FF;
+            }
+            &.wordpress {
+              border-color: #F84DB8;
+            }
             &.mobile {
               border-color: #f34cb5;
             }
@@ -4299,13 +4324,23 @@ body {
             label {
               font-size: 14px;
             }
-            .form-group {
+            .d-flex {
               flex-direction: column;
-              .phone-form {
-                margin-left: 0px;
-              }
-              .custom-error {
-                bottom: 96px;
+              .form-group {
+                &:first-child {
+                  margin-right: 0;
+                }
+                &.no-padding {
+                  &:first-child {
+                    margin-top: 30px;
+                  }
+                }
+                .phone-form {
+                  margin-left: 0px;
+                }
+                .custom-error {
+                  bottom: 96px;
+                }
               }
             }
             .privacy-section {
@@ -5449,6 +5484,21 @@ body {
         }
         .contact-section {
           margin-top: 725px;
+          .message-form {
+            .d-flex {
+              flex-direction: row;
+              .form-group {
+                &:first-child {
+                  margin-right: 15px;
+                }
+                &.no-padding {
+                  &:first-child {
+                    margin-top: 0px;
+                  }
+                }
+              }
+            }
+          }
         }
       }
       .login-page {
@@ -7202,9 +7252,6 @@ body {
               font-family: "Gotham Bold";
             }
             .form-group {
-              .field {
-                margin-right: 15px;
-              }
               .phone-form {
                 .react-phone-number-input__error {
                   padding-left: 15px;
