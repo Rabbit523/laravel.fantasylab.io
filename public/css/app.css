@@ -2426,6 +2426,10 @@ body {
   flex: 1;
 }
 
+.page .main .contact-page .contact-section .message-form .d-flex .form-group.no-padding:first-child {
+  margin-right: 0;
+}
+
 .page .main .contact-page .contact-section .message-form .d-flex .form-group.phone {
   flex-direction: column;
   justify-content: flex-start;

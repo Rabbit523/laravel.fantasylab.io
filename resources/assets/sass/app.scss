@@ -2028,6 +2028,11 @@ body {
               justify-content: space-between;
               position: relative;
               flex: 1;
+              &.no-padding {
+                &:first-child {
+                  margin-right: 0;
+                }
+              }
               &.phone {
                 flex-direction: column;
                 justify-content: flex-start;
