@@ -2897,6 +2897,14 @@ body {
   margin-top: -100px;
 }
 
+.page .main .hosting-page .hosting-section.starter-group .ui.grid {
+  justify-content: center;
+}
+
+.page .main .hosting-page .hosting-section.starter-group .ui.grid .computer.column {
+  width: 33.33%;
+}
+
 .page .main .hosting-page .hosting-section.starter-group h2 {
   color: #fff;
 }
@@ -3355,6 +3363,14 @@ body {
 
 .page .main .wpservice-page .wpservice-section.starter-group {
   margin-top: -100px;
+}
+
+.page .main .wpservice-page .wpservice-section.starter-group .ui.grid {
+  justify-content: center;
+}
+
+.page .main .wpservice-page .wpservice-section.starter-group .ui.grid .computer.column {
+  width: 33.33%;
 }
 
 .page .main .wpservice-page .wpservice-section.alert {
@@ -5259,6 +5275,11 @@ body {
     font-size: 16px;
   }
 
+  .page .main .hosting-page .hosting-section .custom-col-8 {
+    margin-right: 0 !important;
+    padding: 0;
+  }
+
   .page .main .hosting-page .hosting-section.starter-group {
     margin-top: 160px;
   }
@@ -6053,6 +6074,12 @@ body {
 
   .page .main .hosting-page .hosting-header .header-gradient .starter-group {
     margin-top: 150px;
+  }
+
+  .page .main .hosting-page .hosting-section .custom-col-8 {
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding: 0 15px;
   }
 
   .page .main .wpservice-page .wpservice-header {
@@ -7064,10 +7091,6 @@ body {
     margin-top: -180px;
   }
 
-  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
-    padding: 0px 40px;
-  }
-
   .page .main .wpservice-page .wpservice-section.server-group .header {
     align-items: unset;
   }
@@ -7564,10 +7587,6 @@ body {
 
   .page .main .wpservice-page .wpservice-section.starter-group h2 {
     padding: 50px 250px;
-  }
-
-  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
-    padding: 0px 130px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item-group {

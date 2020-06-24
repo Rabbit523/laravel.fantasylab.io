@@ -2441,6 +2441,12 @@ body {
         &.starter-group {
           text-align: center;
           margin-top: -100px;
+          .ui.grid {
+            justify-content: center;
+            .computer.column {
+              width: 33.33%;
+            }
+          }
           h2 {
             color: #fff;
           }
@@ -2828,6 +2834,12 @@ body {
         }
         &.starter-group {
           margin-top: -100px;
+          .ui.grid {
+            justify-content: center;
+            .computer.column {
+              width: 33.33%;
+            }
+          }
         }
         &.alert {
           background: #070a2c;
@@ -4516,6 +4528,10 @@ body {
           }
         }
         .hosting-section {
+          .custom-col-8 {
+            margin-right: 0 !important;
+            padding: 0;
+          }
           &.starter-group {
             margin-top: 160px;
           }
@@ -5469,6 +5485,13 @@ body {
             .starter-group {
               margin-top: 150px;
             }
+          }
+        }
+        .hosting-section {
+          .custom-col-8 {
+            margin-right: auto !important;
+            margin-left: auto !important;
+            padding: 0 15px;
           }
         }
       }
@@ -6462,9 +6485,6 @@ body {
           }
           &.starter-group {
             margin-top: -180px;
-            .custom-col-8 {
-              padding: 0px 40px;
-            }
           }
           &.server-group {
             .header {
@@ -7021,9 +7041,6 @@ body {
           &.starter-group {
             h2 {
               padding: 50px 250px;
-            }
-            .custom-col-8 {
-              padding: 0px 130px;
             }
           }
           &.questions {

@@ -144,7 +144,7 @@ class Page extends React.Component {
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.plans.title : data.plans.no_title}</h2>
 										<Container className='custom-col-8'>
-											<Grid columns={3}>
+											<Grid columns={1}>
 												{data.plans.data.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
