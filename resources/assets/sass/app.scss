@@ -3182,6 +3182,7 @@ body {
                 cursor: pointer;
                 p {
                   margin : 0;
+                  text-align: left;
                 }
                 button {
                   background: transparent;
@@ -4620,6 +4621,9 @@ body {
           &.questions {
             .item {
               flex-direction: column;
+              .text-item {
+                text-align: center;
+              }
               .avatar-item {
                 margin: 15px 0;
                 width: 90px;
@@ -5474,15 +5478,11 @@ body {
             height: 450px;
             .text-group {
               padding: 100px 150px 30px 150px;
-              .header-description {
-                width: 300px;
-              }
             }
             .starter-group {
               margin-top: 150px;
             }
             .figures {
-              width: 300px;
               .figure {
                 img {
                   width: 50px;
@@ -5497,15 +5497,19 @@ body {
         }
         .wpservice-section {
           .custom-col-8 {
-            margin: 1rem !important;
-            padding: 15px;
+            margin-right: auto !important;
+            margin-left: auto !important;
+            padding: 0 15px;
           }
           &.questions {
             .item {
               flex-direction: row;
+              .text-item {
+                text-align: left;
+              }
               .avatar-item {
                 margin: 0 15px 0 0;
-                width: 150px;
+                width: 120px;
               }
             }
           }

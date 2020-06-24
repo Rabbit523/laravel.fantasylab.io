@@ -3761,6 +3761,7 @@ body {
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag p {
   margin: 0;
+  text-align: left;
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag button {
@@ -5362,6 +5363,10 @@ body {
     flex-direction: column;
   }
 
+  .page .main .wpservice-page .wpservice-section.questions .item .text-item {
+    text-align: center;
+  }
+
   .page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
     margin: 15px 0;
     width: 90px;
@@ -6061,16 +6066,8 @@ body {
     padding: 100px 150px 30px 150px;
   }
 
-  .page .main .wpservice-page .wpservice-header .header-gradient .text-group .header-description {
-    width: 300px;
-  }
-
   .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
     margin-top: 150px;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .figures {
-    width: 300px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
@@ -6083,17 +6080,22 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section .custom-col-8 {
-    margin: 1rem !important;
-    padding: 15px;
+    margin-right: auto !important;
+    margin-left: auto !important;
+    padding: 0 15px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item {
     flex-direction: row;
   }
 
+  .page .main .wpservice-page .wpservice-section.questions .item .text-item {
+    text-align: left;
+  }
+
   .page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
     margin: 0 15px 0 0;
-    width: 150px;
+    width: 120px;
   }
 
   .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex {
