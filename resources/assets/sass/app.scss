@@ -942,6 +942,7 @@ body {
               color: #fff;
               margin-right: 0;
               font-size: 15px;
+              font-family: "Gotham Bold";
             }
             .sub-item {
               display: flex;
@@ -981,7 +982,7 @@ body {
       .text-item {
         display: flex;
         align-items: center;
-        p {
+        h3 {
           color: #fff !important;
           margin: 0;
         }
@@ -1009,6 +1010,7 @@ body {
         text-align: left;
         .title {
           color: #fff !important;
+          font-family: "Gotham Bold";
         }
         .item {
           display: flex;
@@ -2779,8 +2781,9 @@ body {
               padding-bottom: 50px;
               padding-left: 210px;
               padding-right: 210px;
-              p {
-                color: #9da6c7;
+              h5 {
+                color: #fff;
+                font-size: 15px;
               }
             }
           }
@@ -2814,6 +2817,10 @@ body {
         text-align: center;
         h2 {
           color: #fff;
+        }
+        h5 {
+          color: #9da6c7;
+          font-size: 15px;
         }
         p {
           color: #9da6c7;
@@ -3032,7 +3039,7 @@ body {
                 background: #050a20 !important;
                 border: 2px solid #202c5a;
                 padding: 12px;
-                font-size: 16px;
+                font-size: 15px;
                 font-family: "Gotham Bold";
                 color: #fff;
                 &.visible.dropdown {
@@ -3172,6 +3179,7 @@ body {
                 display: flex;
                 justify-content: space-between;
                 align-items: center;
+                cursor: pointer;
                 p {
                   margin : 0;
                 }
@@ -4586,20 +4594,55 @@ body {
             .figures {
               padding-top: 50px;
               align-items: flex-start;
-              width: 300px;
+              width: auto;
               .figure {
                 padding-left: 6px;
                 padding-right: 6px;
+                img {
+                  width: 30px;
+                  height: 30px;
+                }
                 p {
-                  font-size: 16px;
+                  font-size: 8px;
                 }
               }
             }
           }
         }
         .wpservice-section {
+          .custom-col-8 {
+            margin: 0 !important;
+            padding: 0;
+          }
           &.starter-group {
             margin-top: 160px;
+          }
+          &.questions {
+            .item {
+              flex-direction: column;
+              .avatar-item {
+                margin: 15px 0;
+                width: 90px;
+              }
+            }
+          }
+          &.contact {
+            .message-form {
+              .d-flex {
+                flex-direction: column;
+                .form-group {
+                  &:first-child {
+                    margin-right: 0px;
+                  }
+                }
+                &.one {
+                  margin-top: 30px;
+                }
+              }
+            }
+            .primary-button {
+              width: 100%;
+            }
           }
         }
       }
@@ -4828,7 +4871,11 @@ body {
               width: auto;
             }
             .figures {
-              width: auto;
+              .figure {
+                p {
+                  font-size: 10px;
+                }
+              }
             }
           }
         }
@@ -5428,11 +5475,56 @@ body {
             .text-group {
               padding: 100px 150px 30px 150px;
               .header-description {
-                width: auto;
+                width: 300px;
               }
             }
             .starter-group {
               margin-top: 150px;
+            }
+            .figures {
+              width: 300px;
+              .figure {
+                img {
+                  width: 50px;
+                  height: 50px;
+                }
+                p {
+                  font-size: 15px;
+                }
+              }
+            }
+          }
+        }
+        .wpservice-section {
+          .custom-col-8 {
+            margin: 1rem !important;
+            padding: 15px;
+          }
+          &.questions {
+            .item {
+              flex-direction: row;
+              .avatar-item {
+                margin: 0 15px 0 0;
+                width: 150px;
+              }
+            }
+          }
+          &.contact {
+            .message-form {
+              .d-flex {
+                flex-direction: row;
+                .form-group {
+                  &:first-child {
+                    margin-right: 15px;
+                  }
+                }
+                &.one {
+                  margin-top: 0px;
+                }
+              }
+            }
+            .primary-button {
+              width: 50%;
             }
           }
         }
@@ -6338,6 +6430,9 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
+                h5 {
+                  font-size: 18px;
+                }
               }
             }
             .figures {
@@ -6357,6 +6452,9 @@ body {
           }
         }
         .wpservice-section {
+          h5 {
+            font-size: 18px;
+          }
           &.starter-group {
             margin-top: -180px;
             .custom-col-8 {

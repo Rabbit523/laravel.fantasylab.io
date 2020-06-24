@@ -82,7 +82,11 @@ class PlanItem extends React.Component {
 							<hr />
 							<div className='description'>
 								<h3>kr {this.props.cost},- <span>/ {lang == 'en' ? 'monthly' : 'månedlig'}</span></h3>
-								<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact Sales' : 'Kontakt salg'} </Button>
+								{this.props.type == "hosting" ?
+									<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact Sales' : 'Kontakt salg'} </Button>
+									:
+									<Button className='primary-button'>{this.props.lang == 'en' ? 'Get Started' : 'Kom i gang'} </Button>
+								}
 							</div>
 							<hr />							
 							<div className="options">

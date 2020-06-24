@@ -60,7 +60,7 @@ class AlertItem extends React.Component {
 					<div className='alert-item'>
 						<div className='text-item'>
 							<div className="img-id">{this.props.id}</div>
-							<p>{lang == 'en' ? this.props.data.title : this.props.data.no_title}</p>
+							<h3>{lang == 'en' ? this.props.data.title : this.props.data.no_title}</h3>
 						</div>
 						<div className='description'>
 							<p>{lang == 'en' ? this.props.data.des : this.props.data.no_des}</p>

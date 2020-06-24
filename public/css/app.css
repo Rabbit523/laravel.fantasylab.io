@@ -1100,6 +1100,7 @@ body {
   color: #fff;
   margin-right: 0;
   font-size: 15px;
+  font-family: "Gotham Bold";
 }
 
 .page .main .plan-item .options .item.wp .sub-item {
@@ -1139,7 +1140,7 @@ body {
   align-items: center;
 }
 
-.page .main .alert-item .text-item p {
+.page .main .alert-item .text-item h3 {
   color: #fff !important;
   margin: 0;
 }
@@ -1171,6 +1172,7 @@ body {
 
 .page .main .alert-item .options .title {
   color: #fff !important;
+  font-family: "Gotham Bold";
 }
 
 .page .main .alert-item .options .item {
@@ -3300,8 +3302,9 @@ body {
   padding-right: 210px;
 }
 
-.page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text p {
-  color: #9da6c7;
+.page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text h5 {
+  color: #fff;
+  font-size: 15px;
 }
 
 .page .main .wpservice-page .wpservice-header .header-gradient .figures {
@@ -3338,6 +3341,11 @@ body {
 
 .page .main .wpservice-page .wpservice-section h2 {
   color: #fff;
+}
+
+.page .main .wpservice-page .wpservice-section h5 {
+  color: #9da6c7;
+  font-size: 15px;
 }
 
 .page .main .wpservice-page .wpservice-section p {
@@ -3593,7 +3601,7 @@ body {
   background: #050a20 !important;
   border: 2px solid #202c5a;
   padding: 12px;
-  font-size: 16px;
+  font-size: 15px;
   font-family: "Gotham Bold";
   color: #fff;
 }
@@ -3748,6 +3756,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  cursor: pointer;
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag p {
@@ -5323,7 +5332,7 @@ body {
   .page .main .wpservice-page .wpservice-header .header-gradient .figures {
     padding-top: 50px;
     align-items: flex-start;
-    width: 300px;
+    width: auto;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
@@ -5331,12 +5340,47 @@ body {
     padding-right: 6px;
   }
 
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
+    width: 30px;
+    height: 30px;
+  }
+
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
-    font-size: 16px;
+    font-size: 8px;
+  }
+
+  .page .main .wpservice-page .wpservice-section .custom-col-8 {
+    margin: 0 !important;
+    padding: 0;
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group {
     margin-top: 160px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item {
+    flex-direction: column;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
+    margin: 15px 0;
+    width: 90px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex {
+    flex-direction: column;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group:first-child {
+    margin-right: 0px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex.one {
+    margin-top: 30px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .primary-button {
+    width: 100%;
   }
 
   .page .main .login-page.register {
@@ -5534,8 +5578,8 @@ body {
     width: auto;
   }
 
-  .page .main .wpservice-page .wpservice-header .header-gradient .figures {
-    width: auto;
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+    font-size: 10px;
   }
 
   .page .main .singlePortfolio-page .singlePortfolio-header .header-gradient .image-group img {
@@ -6018,11 +6062,54 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .text-group .header-description {
-    width: auto;
+    width: 300px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
     margin-top: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures {
+    width: 300px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+    font-size: 15px;
+  }
+
+  .page .main .wpservice-page .wpservice-section .custom-col-8 {
+    margin: 1rem !important;
+    padding: 15px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item {
+    flex-direction: row;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
+    margin: 0 15px 0 0;
+    width: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex {
+    flex-direction: row;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex .form-group:first-child {
+    margin-right: 15px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex.one {
+    margin-top: 0px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .primary-button {
+    width: 50%;
   }
 
   .page .main .about-page .about-header {
@@ -6952,6 +7039,10 @@ body {
     padding-right: 150px;
   }
 
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text h5 {
+    font-size: 18px;
+  }
+
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
@@ -6960,6 +7051,10 @@ body {
   .page .main .wpservice-page .wpservice-header .header-gradient.mobile .figures .figure {
     padding-left: 10px;
     padding-right: 10px;
+  }
+
+  .page .main .wpservice-page .wpservice-section h5 {
+    font-size: 18px;
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group {

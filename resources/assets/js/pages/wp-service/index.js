@@ -24,8 +24,8 @@ const customStyles = {
 };
 
 const options = [
-	{ key: 'basic', text: 'WordPress Service Agreement, Basic', value: 'basic' },
-  { key: 'enterprise', text: 'WordPress Service Agreement, Enterprise', value: 'enterprise' }
+	{ key: 'basic', text: 'WordPress Service Agreement, BasicWordPress Service Agreement, Basic - NOK 499,- excl. VAT', value: 'basic' },
+  { key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT', value: 'enterprise' }
 ];
 
 class Page extends React.Component {
@@ -252,7 +252,7 @@ class Page extends React.Component {
 											<div className='header-description'>
 												<div className='header-text'>
 													<h1>{lang == 'en' ? data.header.title : data.header.no_title}</h1>
-													<p>{lang == 'en' ? data.header.description : data.header.no_description}</p>
+													<h5>{lang == 'en' ? data.header.description : data.header.no_description}</h5>
 												</div>
 											</div>
 											<Container className='custom-col-6'>
@@ -290,7 +290,7 @@ class Page extends React.Component {
 								<div className="wpservice-section alert">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.alert.title : data.alert.no_title}</h2>
-										<p>{lang == 'en' ? data.alert.des : data.alert.no_des}</p>
+										<h5>{lang == 'en' ? data.alert.des : data.alert.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={3}>
 												{data.alert.list.map((item, i) => (
@@ -310,7 +310,7 @@ class Page extends React.Component {
 								<div className="wpservice-section consider">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.consider.title : data.consider.no_title}</h2>
-										<p>{lang == 'en' ? data.consider.des : data.consider.no_des}</p>
+										<h5>{lang == 'en' ? data.consider.des : data.consider.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={4}>
 												{data.consider.items.map((item, i) => (
@@ -318,14 +318,14 @@ class Page extends React.Component {
 														<Grid.Column mobile={16} tablet={8} only="mobile">
 															<div className='figure' key={i}>
 																<img src={`${item.url}`} />
-																<p className="title">{lang == 'en' ? item.title : item.no_title}</p>
+																<h3 className="title">{lang == 'en' ? item.title : item.no_title}</h3>
 																<p className="des">{lang == 'en' ? item.des : item.no_des}</p>
 															</div>
 														</Grid.Column>
 														<Grid.Column only="computer">
 															<div className='figure' key={i}>
 																<img src={`${item.url}`} />
-																<p className="title">{lang == 'en' ? item.title : item.no_title}</p>
+																<h3 className="title">{lang == 'en' ? item.title : item.no_title}</h3>
 																<p className="des">{lang == 'en' ? item.des : item.no_des}</p>
 															</div>
 														</Grid.Column>
@@ -338,7 +338,7 @@ class Page extends React.Component {
 								<div className="wpservice-section plan">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.plans.title : data.plans.no_title}</h2>
-										<p>{lang == 'en' ? data.plans.des : data.plans.no_des}</p>
+										<h5>{lang == 'en' ? data.plans.des : data.plans.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={3}>
 												{data.plans.items.map((item, i) => (
@@ -358,7 +358,7 @@ class Page extends React.Component {
 								<div className="wpservice-section questions">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.questions.title : data.questions.no_title}</h2>
-										<p>{lang == 'en' ? data.questions.des : data.questions.no_des}</p>
+										<h5>{lang == 'en' ? data.questions.des : data.questions.no_des}</h5>
 										<div className="item-group">
 											{data.questions.items.map((item, i) => (
 												<div className="item" key={i}>
@@ -366,7 +366,7 @@ class Page extends React.Component {
 														<img src={`${item.url}`} />
 													</div>
 													<div className="text-item">
-														<p className="title">{i + 1}. {lang == 'en' ? item.title : item.no_title}</p>
+														<h3 className="title">{i + 1}. {lang == 'en' ? item.title : item.no_title}</h3>
 														<p className="description">{lang == 'en' ? item.des : item.no_des}</p>
 													</div>
 												</div>
@@ -377,7 +377,7 @@ class Page extends React.Component {
 								<div className="wpservice-section contact">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.contact.title : data.contact.no_title}</h2>
-										<p>{lang == 'en' ? data.contact.des : data.contact.no_des}</p>
+										<h5>{lang == 'en' ? data.contact.des : data.contact.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Form className='message-form'>
 												<div className="d-flex">
@@ -421,7 +421,7 @@ class Page extends React.Component {
 													</div>
 												</div>
 												<div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
-													<Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree')} />
+													<Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree-wp')} />
 													<div className='terms-section'>
 														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('contact.privacy-policy')}</Link>
 													</div>
@@ -434,7 +434,7 @@ class Page extends React.Component {
 								<div className="wpservice-section queue">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.queue.title : data.queue.no_title}</h2>
-										<p>{lang == 'en' ? data.queue.des : data.queue.no_des}</p>
+										<h5>{lang == 'en' ? data.queue.des : data.queue.no_des}</h5>
 									</Container>
 									<div className="item-group">
 										{data.queue.list.map((item, i) => (
@@ -442,7 +442,7 @@ class Page extends React.Component {
 												<Container className='custom-col-6'>
 													<Container className='custom-col-8'>
 														<div className="question-tag">
-															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
+															<p onClick={() => this.questionHandler(item.id)}>{ lang=='en' ? item.ques : item.no_ques }</p>
 															<Button onClick={() => this.questionHandler(item.id)}>{que_key == item.id ? '-' : '+' }</Button>
 														</div>
 														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
