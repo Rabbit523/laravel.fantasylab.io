@@ -3230,6 +3230,14 @@ body {
   text-align: center;
 }
 
+.page .main .hosting-page .hosting-section.servers .ui.grid {
+  justify-content: center;
+}
+
+.page .main .hosting-page .hosting-section.servers .ui.grid .computer.column {
+  width: 33.33%;
+}
+
 .page .main .hosting-page .hosting-section.servers h2 {
   color: #fff;
 }
@@ -3355,6 +3363,7 @@ body {
 .page .main .wpservice-page .wpservice-section h5 {
   color: #9da6c7;
   font-size: 15px;
+  font-family: "Gotham Bold";
 }
 
 .page .main .wpservice-page .wpservice-section p {
@@ -8149,10 +8158,6 @@ body {
 
   .page .main .wpservice-page .wpservice-section.starter-group h2 {
     padding: 50px 250px;
-  }
-
-  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-8 {
-    padding: 0px 150px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item-group {
