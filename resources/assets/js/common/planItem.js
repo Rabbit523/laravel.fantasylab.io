@@ -31,6 +31,7 @@ class PlanItem extends React.Component {
 
 		this.closeModal = this.closeModal.bind(this);
 		this.triggerModal = this.triggerModal.bind(this);
+		this.getStarted = this.getStarted.bind(this);
 	}
 
 	triggerModal(event) {
@@ -40,6 +41,10 @@ class PlanItem extends React.Component {
 
 	closeModal() {
 		this.setState({ isOpen: false });
+	}
+
+	getStarted() {
+		this.props.onScroll();
 	}
 
 	render() {
@@ -85,7 +90,7 @@ class PlanItem extends React.Component {
 								{this.props.type == "hosting" ?
 									<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact Sales' : 'Kontakt salg'} </Button>
 									:
-									<Button className='primary-button'>{this.props.lang == 'en' ? 'Get Started' : 'Kom i gang'} </Button>
+									<Button className='primary-button' onClick={this.getStarted}>{this.props.lang == 'en' ? 'Get Started' : 'Kom i gang'} </Button>
 								}
 							</div>
 							<hr />							

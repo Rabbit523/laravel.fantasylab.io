@@ -137,6 +137,7 @@
 
 body {
   background-color: #03051b !important;
+  scroll-behavior: smooth;
 }
 
 .login {

@@ -67,7 +67,9 @@ class Page extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
 		this.questionHandler = this.questionHandler.bind(this);
+		this.setScrollDown = this.setScrollDown.bind(this);
 		this.myRef = React.createRef();
+		this.contactRef = React.createRef();
 	}
 
 	componentDidMount() {
@@ -217,6 +219,10 @@ class Page extends React.Component {
 		this.setState({ que_key: val });
 	}
 
+	setScrollDown () {
+		window.scrollTo({top: this.contactRef.current.offsetTop, behavior: 'smooth'});
+	}
+
 	render() {
 		const { isLoaded, isLoading, isOpen, data, errors, phone_error, checkbox_border, que_key } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
@@ -229,7 +235,7 @@ class Page extends React.Component {
 		return (
 			<Translate>
 				{({ translate }) => (
-					<div className='wpservice-page'>
+					<div className='wpservice-page' ref={this.myRef}>
 						{isLoaded ?
 							<React.Fragment>
 								<PageMetaTag meta_title={lang == 'en' ? data.meta_title : data.no_meta_title} meta_description={lang == 'en' ? data.meta_description : data.no_meta_description} />
@@ -276,10 +282,10 @@ class Page extends React.Component {
 												{data.header.list.items.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp" />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp"  onScroll={this.setScrollDown}/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp" />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp"  onScroll={this.setScrollDown}/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -344,10 +350,10 @@ class Page extends React.Component {
 												{data.plans.items.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} />
+															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des}/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} />
+															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des}/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -374,7 +380,7 @@ class Page extends React.Component {
 										</div>
 									</Container>
 								</div>
-								<div className="wpservice-section contact">
+								<div className="wpservice-section contact" ref={this.contactRef}>
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.contact.title : data.contact.no_title}</h2>
 										<h5>{lang == 'en' ? data.contact.des : data.contact.no_des}</h5>
@@ -438,7 +444,7 @@ class Page extends React.Component {
 									</Container>
 									<div className="item-group">
 										{data.queue.list.map((item, i) => (
-											<div className={que_key == item.id ? "item active" : "item"}>
+											<div className={que_key == item.id ? "item active" : "item"} key={i}>
 												<Container className='custom-col-6'>
 													<Container className='custom-col-8'>
 														<div className="question-tag">
