@@ -93,6 +93,7 @@
         "header-sub-img": ["Header Sub Image", "Overskrift underbilde"],
         "header-mobile-img": ["Header Mobile Image", "Overskrift mobilbilde"],
         "save": ["Save", "Lagre"],
+        "add": ["Add", "Legg til"],
         "footer-section": ["Footer Section", "Bunntekst seksjon"],
         "btn-name": ["Button name", "Knappenavn"],
         "link": ["Link", "Lenke"],

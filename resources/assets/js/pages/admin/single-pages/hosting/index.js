@@ -1,7 +1,14 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, Card, Form, Icon } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css';
+import 'react-summernote/lang/summernote-nb-NO';
 import Http from '../../../../Http'
 
 class Page extends React.Component {
@@ -30,6 +37,8 @@ class Page extends React.Component {
 			accordion: false,
 		};
 		this.onImageUpload = this.onImageUpload.bind(this);
+		this.onDescriptionChange = this.onDescriptionChange.bind(this);
+		this.onNbDescriptionChange = this.onNbDescriptionChange.bind(this);
 		this.onPlanCollapseChange = this.onPlanCollapseChange.bind(this);
 		this.onDeployCollapseChange = this.onDeployCollapseChange.bind(this);
 		this.onManageCollapseChange = this.onManageCollapseChange.bind(this);
@@ -88,6 +97,17 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
+	// Header description change event
+	onDescriptionChange(content) {
+		const { data } = this.state;
+		data.description = content;
+		this.setState({ data });
+	}
+	onNbDescriptionChange(content) {
+		const { data } = this.state;
+		data.no_description = content;
+		this.setState({ data });
+	}
 	// Event for input fields change
 	onHandleChange(event, type) {
 		const { data, icons, plans, deploys, manage, scale, features, servers, news } = this.state;
@@ -101,9 +121,6 @@ class Page extends React.Component {
 				return this.setState({ data });
 			case 'header_title':
 				data.title = event.target.value;
-				return this.setState({ data });
-			case 'header_description':
-				data.description = event.target.value;
 				return this.setState({ data });
 			case 'plan_main_title':
 				plans.title = event.target.value;
@@ -137,9 +154,6 @@ class Page extends React.Component {
 				return this.setState({ data });
 			case 'no_header_title':
 				data.no_title = event.target.value;
-				return this.setState({ data });
-			case 'no_header_description':
-				data.no_description = event.target.value;
 				return this.setState({ data });
 			case 'no_plan_main_title':
 				plans.no_title = event.target.value;
@@ -523,6 +537,23 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
+	// Plan item event
+	onAddPlanItem(e, i) {
+		var { plans } = this.state;
+		var new_item = {
+			title: 'New Option',
+			no_title: 'Nytt alternativ',
+			info: '',
+			no_info: ''
+		};
+		plans.data[i].options.push(new_item);
+		this.setState({ plans });
+	}
+	onDeletePlanItem(e, i, index) {
+		var { plans } = this.state;
+		plans.data[i].options.splice(index, 1);
+		this.setState({ plans });
+	}
 	// Update plans
 	onUpdatePlan(e, index) {
 		var { data, plans } = this.state;
@@ -797,10 +828,35 @@ class Page extends React.Component {
 															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={data.title} onChange={(val) => this.onHandleChange(val, 'header_title')} />
 															<Form>
 																<label>{translate('card.description')}</label>
-																<TextArea
-																	placeholder={translate('card.description-place')}
+																<ReactSummernote
 																	value={data.description}
-																	onChange={(val) => this.onHandleChange(val, 'header_description')}
+																	options={{
+																		lang: 'en-EN',
+																		height: 350,
+																		dialogsInBody: true,
+																		insertTableMaxSize: {
+																			col: 20,
+																			row: 20
+																		},
+																		table: [
+																			['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																			['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																		],
+																		link: [
+																			['link', ['linkDialogShow', 'unlink']]
+																		],
+																		toolbar: [
+																			['style', ['style']],
+																			['font', ['bold', 'underline', 'clear']],
+																			['fontname', ['fontname']],
+																			['color', ['color']],
+																			['para', ['ul', 'ol', 'paragraph']],
+																			['table', ['table']],
+																			['insert', ['link', 'picture', 'video']],
+																			['view', ['fullscreen', 'codeview']]
+																		]
+																	}}
+																	onChange={this.onDescriptionChange}
 																/>
 															</Form>
 															<Form>
@@ -834,7 +890,7 @@ class Page extends React.Component {
 															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																<label className='ui floated button save-btn' onClick={this.onUpdatePlanHeader.bind(this)}> {translate('card.save')} </label>
 															</div>
-															<Collapse accordion={accordion} onChange={this.onPlanCollapseChange} activeKey={plan_activeKey}>
+															<Collapse accordion={accordion} onChange={this.onPlanCollapseChange} activeKey={plan_activeKey} >
 																{plans.data.map((item, i) => (
 																	<Panel header={item.title} key={i}>
 																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'plan_title_' + i)} />
@@ -852,10 +908,12 @@ class Page extends React.Component {
 																				<div className="flex-form" key={index}>
 																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.title} onChange={(val) => ref.onHandleChange(val, 'plan' + i + '_option_title_' + index)} />
 																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.info} onChange={(val) => ref.onHandleChange(val, 'plan' + i + '_option_info_' + index)} />
+																					<label className='ui floated button trash-btn' onClick={(e) => ref.onDeletePlanItem(e, i, index)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
 																				</div>
 																			))
 																		}
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																			<label className='ui floated button save-btn' onClick={(e) => ref.onAddPlanItem(e, i)}> {translate('card.add')} </label>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePlan(e, i)}> {translate('card.save')} </label>
 																		</div>
 																	</Panel>
@@ -1088,10 +1146,35 @@ class Page extends React.Component {
 															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={data.no_title} onChange={(val) => this.onHandleChange(val, 'no_header_title')} />
 															<Form>
 																<label>{translate('card.description')}</label>
-																<TextArea
-																	placeholder={translate('card.description-place')}
+																<ReactSummernote
 																	value={data.no_description}
-																	onChange={(val) => this.onHandleChange(val, 'no_header_description')}
+																	options={{
+																		lang: 'en-EN',
+																		height: 350,
+																		dialogsInBody: true,
+																		insertTableMaxSize: {
+																			col: 20,
+																			row: 20
+																		},
+																		table: [
+																			['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																			['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																		],
+																		link: [
+																			['link', ['linkDialogShow', 'unlink']]
+																		],
+																		toolbar: [
+																			['style', ['style']],
+																			['font', ['bold', 'underline', 'clear']],
+																			['fontname', ['fontname']],
+																			['color', ['color']],
+																			['para', ['ul', 'ol', 'paragraph']],
+																			['table', ['table']],
+																			['insert', ['link', 'picture', 'video']],
+																			['view', ['fullscreen', 'codeview']]
+																		]
+																	}}
+																	onChange={this.onNbDescriptionChange}
 																/>
 															</Form>
 															<Form>
@@ -1143,10 +1226,12 @@ class Page extends React.Component {
 																				<div className="flex-form" key={index}>
 																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.no_title} onChange={(val) => ref.onHandleChange(val, 'no_plan' + i + '_option_title_' + index)} />
 																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.no_info} onChange={(val) => ref.onHandleChange(val, 'no_plan' + i + '_option_info_' + index)} />
+																					<label className='ui floated button trash-btn' onClick={(e) => ref.onDeletePlanItem(e, i, index)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
 																				</div>
 																			))
 																		}
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																			<label className='ui floated button save-btn' onClick={(e) => ref.onAddPlanItem(e, i)}> {translate('card.add')} </label>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePlan(e, i)}> {translate('card.save')} </label>
 																		</div>
 																	</Panel>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Icon } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
 import Http from '../../../../Http'
 
@@ -445,6 +445,21 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
+	// Plan item in header list event
+	onAddListPlanItem(e, index, key) {
+		var { header } = this.state;
+		var new_item = {
+			title: 'New Option',
+			no_title: 'Nytt alternativ'
+		};
+		header.list.items[index].options[key].items.push(new_item);
+		this.setState({ header });
+	}
+	onDeleteListPlanItem(e, index, key, i) {
+		var { header } = this.state;
+		header.list.items[index].options[key].items.splice(i, 1);
+		this.setState({ header });
+	}
 	// Update Alert Section
 	updateAlert() {
 		var { data, alert } = this.state;
@@ -640,10 +655,14 @@ class Page extends React.Component {
 																			<Collapse accordion={accordion2} onChange={this.onHeaderListItemsCollapseChange} activeKey={headerListItem_activeKey}>
 																			{option.items.map((val, i) => (
 																				<Panel header={val.title} key={i}>
-																					<Form.Input fluid name='title' placeholder={translate('card.title')} className="input-form" value={val.title} onChange={(val) => this.onHandleChange(val, `header_list${index}_option${key}_item${i}_title`)} />
+																					<div className="flex-form">
+																						<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={val.title} onChange={(val) => this.onHandleChange(val, `header_list${index}_option${key}_item${i}_title`)} />
+																						<label className='ui floated button trash-btn' onClick={(e) => ref.onDeleteListPlanItem(e, index, key, i)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
+																					</div>
 																				</Panel>
 																			))}
 																			</Collapse>
+																			<label className="ui floated button save-btn" onClick={(e) => ref.onAddListPlanItem(e, index, key)}> {translate('card.add')} </label>
 																		</Panel>
 																	))}
 																	</Collapse>

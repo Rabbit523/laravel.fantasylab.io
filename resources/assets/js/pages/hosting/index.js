@@ -2,7 +2,8 @@ import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
 import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
-import { Link, Redirect } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import ReactHtmlParser from 'react-html-parser'
 import Modal from 'react-modal'
 import PageMetaTag from '../../common/pageMetaTag'
 import PlanItem from '../../common/planItem'
@@ -124,7 +125,7 @@ class Page extends React.Component {
 											<div className='header-description'>
 												<div className='header-text'>
 													<h1>{lang == 'en' ? data.title : data.no_title}</h1>
-													<p>{lang == 'en' ? data.description : data.no_description}</p>
+													{lang == 'en' ? ReactHtmlParser(data.description) : ReactHtmlParser(data.no_description)}
 												</div>
 											</div>
 											<Container className='custom-col-6'>
