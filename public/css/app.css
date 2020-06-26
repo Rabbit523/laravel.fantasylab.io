@@ -3765,7 +3765,7 @@ body {
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item.active .answer-tag {
-  display: block;
+  max-height: 40px;
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag {
@@ -3791,9 +3791,12 @@ body {
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .answer-tag {
   text-align: left;
-  display: none;
+  transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  max-height: 0;
+  overflow: hidden;
   color: #f7f3fe;
   padding-right: 50px;
+  font-family: "Gotham Book";
 }
 
 .page .main .wpservice-page .wpservice-section .alice-carousel {

@@ -8,8 +8,8 @@ import GuideCard from '../../common/guideCard'
 import PlanItem from '../../common/planItem'
 import AlertItem from '../../common/alertItem'
 import Http from '../../Http'
-import IntlTelInput from 'react-intl-tel-input';
-import 'react-intl-tel-input/dist/main.css';
+import IntlTelInput from 'react-intl-tel-input'
+import 'react-intl-tel-input/dist/main.css'
 import ReeValidate from 'ree-validate'
 
 const customStyles = {
@@ -447,9 +447,9 @@ class Page extends React.Component {
 											<div className={que_key == item.id ? "item active" : "item"} key={i}>
 												<Container className='custom-col-6'>
 													<Container className='custom-col-8'>
-														<div className="question-tag">
-															<p onClick={() => this.questionHandler(item.id)}>{ lang=='en' ? item.ques : item.no_ques }</p>
-															<Button onClick={() => this.questionHandler(item.id)}>{que_key == item.id ? '-' : '+' }</Button>
+														<div className="question-tag" onClick={() => this.questionHandler(item.id)}>
+															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
+															<Button>{que_key == item.id ? '-' : '+' }</Button>
 														</div>
 														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
 													</Container>
