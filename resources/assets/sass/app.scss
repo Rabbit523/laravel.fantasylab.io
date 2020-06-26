@@ -3004,7 +3004,7 @@ body {
                 }
               }
             }
-            label {
+            label, span {
               color: #656c8b !important;
               font-family: "Gotham Bold";
               font-size: 16px;
@@ -3154,11 +3154,9 @@ body {
                 }
               }
               .terms-section {
-                padding-left: 5px;
+                padding-left: 20px;
                 padding-top: 12px;
-                span {
-                  color: #9aa2bf !important
-                }
+                text-align: left;
                 a {
                   color: #3e75db;
                   font-weight: bold;

@@ -3559,7 +3559,8 @@ body {
   font-family: "Gotham Bold";
 }
 
-.page .main .wpservice-page .wpservice-section.contact .message-form label {
+.page .main .wpservice-page .wpservice-section.contact .message-form label,
+.page .main .wpservice-page .wpservice-section.contact .message-form span {
   color: #656c8b !important;
   font-family: "Gotham Bold";
   font-size: 16px;
@@ -3727,12 +3728,9 @@ body {
 }
 
 .page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section {
-  padding-left: 5px;
+  padding-left: 20px;
   padding-top: 12px;
-}
-
-.page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section span {
-  color: #9aa2bf !important;
+  text-align: left;
 }
 
 .page .main .wpservice-page .wpservice-section.contact .message-form .privacy-section .terms-section a {

@@ -427,9 +427,13 @@ class Page extends React.Component {
 													</div>
 												</div>
 												<div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
-													<Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree-wp')} />
+													<Checkbox onClick={this.handleCheckBoxClick} />
 													<div className='terms-section'>
-														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('contact.privacy-policy')}</Link>
+														<span>{translate('contact.clicking-agree-wp')}</span>
+														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('footer.privacy')}</Link>
+														<span>{translate('footer.and')}</span>
+														<Link to={{ pathname: '/terms', state: { pagename: 'terms' } }} target="_blank" className='item-link'>{translate('footer.terms')}.</Link>
+														<span>&nbsp;{translate('contact.wp-extend-des')}</span>
 													</div>
 												</div>
 												<Button fluid size='large' className={isLoading ? 'primary-button loading' : 'primary-button'} onClick={this.handleSubmit}>{translate('contact.send-request')}</Button>
