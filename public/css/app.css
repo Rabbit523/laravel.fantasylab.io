@@ -1087,6 +1087,10 @@ body {
   fill: #fff;
 }
 
+.page .main .plan-item .options .item .popup-content {
+  text-align: left;
+}
+
 .page .main .plan-item .options .item p {
   color: #9da6c7;
   margin-right: 20px;
@@ -1111,6 +1115,7 @@ body {
 .page .main .plan-item .options .item.wp .sub-item p {
   color: #9da6c7;
   margin-right: 20px;
+  font-family: "Gotham Book";
 }
 
 .page .main .plan-item hr {
@@ -2877,8 +2882,8 @@ body {
 }
 
 .page .main .hosting-page .hosting-header .header-gradient .figures .figure img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
 .page .main .hosting-page .hosting-header .header-gradient .figures .figure p {
@@ -3340,8 +3345,8 @@ body {
 }
 
 .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
 }
 
 .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
@@ -4239,6 +4244,16 @@ body {
 
 .page .main .admin-page .ui.card .content .flex-form .flex-item {
   margin-top: 5px;
+}
+
+.page .main .admin-page .ui.card .content .flex-form .trash-btn {
+  width: 50px;
+  background: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 12px;
+  font-size: 20px;
 }
 
 .page .main .admin-page .ui.card .content .admin-form-group {
@@ -5372,11 +5387,6 @@ body {
     padding-right: 6px;
   }
 
-  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
-    width: 30px;
-    height: 30px;
-  }
-
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
     font-size: 8px;
   }
@@ -6105,11 +6115,6 @@ body {
 
   .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
     margin-top: 150px;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure img {
-    width: 50px;
-    height: 50px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {

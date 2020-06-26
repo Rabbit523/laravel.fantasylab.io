@@ -932,6 +932,9 @@ body {
               fill: #fff;
             }
           }
+          .popup-content {
+            text-align: left;
+          }
           p {
             color: #9da6c7;
             margin-right: 20px;
@@ -950,6 +953,7 @@ body {
               p {
                 color: #9da6c7;
                 margin-right: 20px;
+                font-family: "Gotham Book";
               }
             }
           }
@@ -2423,8 +2427,8 @@ body {
               align-items: center;
               text-align: center;
               img {
-                width: 50px;
-                height: 50px;
+                width: 35px;
+                height: 35px;
               }
               p {
                 font-size: 18px;
@@ -2812,8 +2816,8 @@ body {
               align-items: center;
               text-align: center;
               img {
-                width: 50px;
-                height: 50px;
+                width: 35px;
+                height: 35px;
               }
               p {
                 font-size: 18px;
@@ -3607,6 +3611,15 @@ body {
               }
               .flex-item {
                 margin-top: 5px;
+              }
+              .trash-btn {
+                width: 50px;
+                background: none;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                margin-top: 12px;
+                font-size: 20px;
               }
             }
             .admin-form-group {
@@ -4623,10 +4636,6 @@ body {
               .figure {
                 padding-left: 6px;
                 padding-right: 6px;
-                img {
-                  width: 30px;
-                  height: 30px;
-                }
                 p {
                   font-size: 8px;
                 }
@@ -5515,10 +5524,6 @@ body {
             }
             .figures {
               .figure {
-                img {
-                  width: 50px;
-                  height: 50px;
-                }
                 p {
                   font-size: 15px;
                 }
