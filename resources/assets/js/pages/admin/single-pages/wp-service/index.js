@@ -2,6 +2,13 @@ import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
 import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Icon } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css';
+import 'react-summernote/lang/summernote-nb-NO';
 import Http from '../../../../Http'
 
 class Page extends React.Component {
@@ -32,6 +39,8 @@ class Page extends React.Component {
 			accordion1: false,
 			accordion2: false,
 		};
+		this.onDescriptionChange = this.onDescriptionChange.bind(this);
+		this.onNbDescriptionChange = this.onNbDescriptionChange.bind(this);
 		this.onImageUpload = this.onImageUpload.bind(this);
 		this.onHeaderItemCollapseChange = this.onHeaderItemCollapseChange.bind(this);
 		this.onHeaderListCollapseChange = this.onHeaderListCollapseChange.bind(this);
@@ -86,6 +95,17 @@ class Page extends React.Component {
 		).catch(err => {
 			console.error(err);
 		});
+	}
+	// Header description change event
+	onDescriptionChange(content) {
+		const { header } = this.state;
+		header.description = content;
+		this.setState({ header });
+	}
+	onNbDescriptionChange(content) {
+		const { header } = this.state;
+		header.no_description = content;
+		this.setState({ header });
 	}
 	// Collapse Event for header items
 	onHeaderItemCollapseChange(headerItem_activeKey) {
@@ -603,10 +623,35 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={header.title} onChange={(val) => this.onHandleChange(val, 'header_title')} />
 													<Form>
 														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
+														<ReactSummernote
 															value={header.description}
-															onChange={(val) => this.onHandleChange(val, 'header_description')}
+															options={{
+																lang: 'en-EN',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={this.onDescriptionChange}
 														/>
 													</Form>
 													<Form>
@@ -931,10 +976,35 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={header.no_title} onChange={(val) => this.onHandleChange(val, 'header_no_title')} />
 													<Form>
 														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
+														<ReactSummernote
 															value={header.no_description}
-															onChange={(val) => this.onHandleChange(val, 'header_no_description')}
+															options={{
+																lang: 'en-EN',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={this.onNbDescriptionChange}
 														/>
 													</Form>
 													<Form>

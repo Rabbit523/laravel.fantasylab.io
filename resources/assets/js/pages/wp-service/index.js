@@ -11,6 +11,7 @@ import Http from '../../Http'
 import IntlTelInput from 'react-intl-tel-input'
 import 'react-intl-tel-input/dist/main.css'
 import ReeValidate from 'ree-validate'
+import ReactHtmlParser from 'react-html-parser'
 
 const customStyles = {
 	content: {
@@ -24,7 +25,7 @@ const customStyles = {
 };
 
 const options = [
-	{ key: 'basic', text: 'WordPress Service Agreement, BasicWordPress Service Agreement, Basic - NOK 499,- excl. VAT', value: 'basic' },
+  { key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT', value: 'basic' },
   { key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT', value: 'enterprise' }
 ];
 
@@ -258,7 +259,7 @@ class Page extends React.Component {
 											<div className='header-description'>
 												<div className='header-text'>
 													<h1>{lang == 'en' ? data.header.title : data.header.no_title}</h1>
-													<h5>{lang == 'en' ? data.header.description : data.header.no_description}</h5>
+													{lang == 'en' ? ReactHtmlParser(data.header.description) : ReactHtmlParser(data.header.no_description)}
 												</div>
 											</div>
 											<Container className='custom-col-6'>
