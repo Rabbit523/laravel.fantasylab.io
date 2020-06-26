@@ -2782,22 +2782,13 @@ body {
       min-height: 100vh;
       background: #03051b;
       .wpservice-header {
-        min-height: 550px;
-        height: auto;
-        width: 100%;
-        background-size: cover;
         .header-gradient {
           width: 100%;
-          height: 885px;
           background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), rgba(3, 5, 28, 1)) !important;
           .header-description {
             text-align: center;
             color: #fff;
-            padding-top: 150px;
             .header-text {
-              padding-bottom: 50px;
-              padding-left: 210px;
-              padding-right: 210px;
               h5 {
                 color: #fff;
                 font-size: 15px;
@@ -4624,7 +4615,6 @@ body {
             }
             .header-description {
               padding: 50px 0px 0px 0px;
-              width: 300px;
               .header-text {
                 padding: 0;
               }
@@ -4649,7 +4639,7 @@ body {
             padding: 0;
           }
           &.starter-group {
-            margin-top: 160px;
+            margin-top: 50px;
           }
           &.questions {
             .item {
@@ -5517,15 +5507,12 @@ body {
           .header-gradient {
             height: 450px;
             .text-group {
-              padding: 100px 150px 30px 150px;
-            }
-            .starter-group {
-              margin-top: 150px;
+              padding: 100px 60px 30px 60px;
             }
             .figures {
               .figure {
                 p {
-                  font-size: 15px;
+                  font-size: 12px;
                 }
               }
             }
@@ -5537,6 +5524,37 @@ body {
             margin-left: auto !important;
             padding: 0 15px;
           }
+          &.alert {
+            .custom-col-6 {
+              .custom-col-8 {
+                width: 100% !important;
+              }
+            }
+          }
+          &.consider {
+            .custom-col-6 {
+              .custom-col-8 {
+                width: 100% !important;
+              }
+            }
+          }
+          &.queue {
+            .item-group {
+              .custom-col-6 {
+                .custom-col-8 {
+                  width: 100% !important;
+                }
+              }
+            }
+          }
+          &.starter-group {
+            margin-top: 150px;
+            .custom-col-6 {
+              .custom-col-8 {
+                width: 100% !important;
+              }
+            }
+          }
           &.questions {
             .item {
               flex-direction: row;
@@ -5545,11 +5563,16 @@ body {
               }
               .avatar-item {
                 margin: 0 15px 0 0;
-                width: 120px;
+                width: 180px;
               }
             }
           }
           &.contact {
+            .custom-col-6 {
+              .custom-col-8 {
+                width: 100% !important;
+              }
+            }
             .message-form {
               .d-flex {
                 flex-direction: row;
@@ -5818,8 +5841,25 @@ body {
           height: 450px;
           .header-gradient {
             height: 450px;
-            .starter-group {
-              margin-top: 150px;
+            .text-group {
+              padding: 100px 150px 30px 150px;
+            }
+            .figures {
+              .figure {
+                p {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+        .wpservice-section {
+          &.starter-group {
+            margin-top: 50px;
+          }
+          &.questions {
+            .avatar-item {
+              width: 140px;
             }
           }
         }
@@ -6455,7 +6495,7 @@ body {
                 padding: 0;
               }
               .custom-col-6 {
-                width: 60% !important;
+                width: 76% !important;
                 margin: inherit !important;
                 padding: inherit;
               } 
@@ -6468,8 +6508,6 @@ body {
             .header-description {
               padding-top: 100px;
               .header-text {
-                padding-left: 150px;
-                padding-right: 150px;
                 h5 {
                   font-size: 18px;
                 }
@@ -6496,7 +6534,7 @@ body {
             font-size: 18px;
           }
           &.starter-group {
-            margin-top: -180px;
+            margin-top: -120px;
           }
           &.server-group {
             .header {
@@ -6938,7 +6976,7 @@ body {
             height: 700px;
             .custom-col-6 {
               .custom-col-6 {
-                width: 60% !important;
+                width: 70% !important;
                 margin: inherit !important;
                 padding: inherit;
               } 
@@ -6946,12 +6984,6 @@ body {
                 width: 80% !important;
                 margin: inherit !important;
                 padding: inherit;
-              }
-            }
-            .header-description {
-              .header-text {
-                padding-left: 150px;
-                padding-right: 150px;
               }
             }
             .starter-group {
@@ -7052,12 +7084,17 @@ body {
         .wpservice-section {
           &.starter-group {
             h2 {
-              padding: 50px 250px;
+              padding: 50px 150px;
             }
           }
           &.questions {
             .item-group {
-              padding: 0 100px 0 120px;
+              padding: 0 30px 0 110px;
+              .item {
+                .avatar-item {
+                  width: 150px;
+                }
+              }
             }
           }
         }
@@ -7573,13 +7610,6 @@ body {
             }
             .header-description {
               padding-top: 150px;
-              .header-text {
-                padding-left: 150px;
-                padding-right: 150px;
-                p {
-                  padding: 0 250px;
-                }
-              }
             }
             .figures {
               .figure {
@@ -7615,7 +7645,12 @@ body {
           }
           &.questions {
             .item-group {
-              padding: 0 100px 0 140px;
+              padding: 0 80px 0 140px;
+              .item {
+                .avatar-item {
+                  width: 150px;
+                }
+              }
             }
           }
         }

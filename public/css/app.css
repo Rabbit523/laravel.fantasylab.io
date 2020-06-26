@@ -3299,29 +3299,14 @@ body {
   background: #03051b;
 }
 
-.page .main .wpservice-page .wpservice-header {
-  min-height: 550px;
-  height: auto;
-  width: 100%;
-  background-size: cover;
-}
-
 .page .main .wpservice-page .wpservice-header .header-gradient {
   width: 100%;
-  height: 885px;
   background: linear-gradient(to right bottom, rgba(3, 5, 28, 0.5), #03051c) !important;
 }
 
 .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
   text-align: center;
   color: #fff;
-  padding-top: 150px;
-}
-
-.page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
-  padding-bottom: 50px;
-  padding-left: 210px;
-  padding-right: 210px;
 }
 
 .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text h5 {
@@ -5369,7 +5354,6 @@ body {
 
   .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
     padding: 50px 0px 0px 0px;
-    width: 300px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
@@ -5397,7 +5381,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group {
-    margin-top: 160px;
+    margin-top: 50px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item {
@@ -6110,21 +6094,37 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .text-group {
-    padding: 100px 150px 30px 150px;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
-    margin-top: 150px;
+    padding: 100px 60px 30px 60px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .page .main .wpservice-page .wpservice-section .custom-col-8 {
     margin-right: auto !important;
     margin-left: auto !important;
     padding: 0 15px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.alert .custom-col-6 .custom-col-8 {
+    width: 100% !important;
+  }
+
+  .page .main .wpservice-page .wpservice-section.consider .custom-col-6 .custom-col-8 {
+    width: 100% !important;
+  }
+
+  .page .main .wpservice-page .wpservice-section.queue .item-group .custom-col-6 .custom-col-8 {
+    width: 100% !important;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group {
+    margin-top: 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group .custom-col-6 .custom-col-8 {
+    width: 100% !important;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item {
@@ -6137,7 +6137,11 @@ body {
 
   .page .main .wpservice-page .wpservice-section.questions .item .avatar-item {
     margin: 0 15px 0 0;
-    width: 120px;
+    width: 180px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.contact .custom-col-6 .custom-col-8 {
+    width: 100% !important;
   }
 
   .page .main .wpservice-page .wpservice-section.contact .message-form .d-flex {
@@ -6409,8 +6413,20 @@ body {
     height: 450px;
   }
 
-  .page .main .wpservice-page .wpservice-header .header-gradient .starter-group {
-    margin-top: 150px;
+  .page .main .wpservice-page .wpservice-header .header-gradient .text-group {
+    padding: 100px 150px 30px 150px;
+  }
+
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+    font-size: 12px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.starter-group {
+    margin-top: 50px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .avatar-item {
+    width: 140px;
   }
 
   .page .main .singlePortfolio-page .portfolio-section:nth-of-type(1) {
@@ -7063,7 +7079,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
-    width: 60% !important;
+    width: 76% !important;
     margin: inherit !important;
     padding: inherit;
   }
@@ -7076,11 +7092,6 @@ body {
 
   .page .main .wpservice-page .wpservice-header .header-gradient .header-description {
     padding-top: 100px;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text h5 {
@@ -7102,7 +7113,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group {
-    margin-top: -180px;
+    margin-top: -120px;
   }
 
   .page .main .wpservice-page .wpservice-section.server-group .header {
@@ -7515,7 +7526,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
-    width: 60% !important;
+    width: 70% !important;
     margin: inherit !important;
     padding: inherit;
   }
@@ -7524,11 +7535,6 @@ body {
     width: 80% !important;
     margin: inherit !important;
     padding: inherit;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .starter-group h3 {
@@ -7600,11 +7606,15 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group h2 {
-    padding: 50px 250px;
+    padding: 50px 150px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item-group {
-    padding: 0 100px 0 120px;
+    padding: 0 30px 0 110px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item-group .item .avatar-item {
+    width: 150px;
   }
 
   .cookieConsent .cookie-consent .cookie-des .cookie-options .cookie-consent-banner .banner-indicator {
@@ -8129,15 +8139,6 @@ body {
     padding-top: 150px;
   }
 
-  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text {
-    padding-left: 150px;
-    padding-right: 150px;
-  }
-
-  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text p {
-    padding: 0 250px;
-  }
-
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
@@ -8166,7 +8167,11 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item-group {
-    padding: 0 100px 0 140px;
+    padding: 0 80px 0 140px;
+  }
+
+  .page .main .wpservice-page .wpservice-section.questions .item-group .item .avatar-item {
+    width: 150px;
   }
 
   .page .main .login-page {
