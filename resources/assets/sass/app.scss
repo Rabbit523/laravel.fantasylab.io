@@ -2410,8 +2410,8 @@ body {
               padding-bottom: 50px;
               padding-left: 210px;
               padding-right: 210px;
-              p {
-                color: #9da6c7;
+              h5 {
+                color: #fff;
               }
             }
           }
@@ -4523,6 +4523,9 @@ body {
               width: 300px;
               .header-text {
                 padding: 0;
+                h5 {
+                  font-size: 15px;
+                }
               }
             }
             .figures {
@@ -4667,9 +4670,9 @@ body {
                   margin-top: 30px;
                 }
               }
-            }
-            .primary-button {
-              width: 100%;
+              .primary-button {
+                width: 100%;
+              }
             }
           }
         }
@@ -5488,6 +5491,13 @@ body {
             height: 450px;
             .text-group {
               padding: 100px 150px 30px 150px;
+              .header-description {
+                .header-text {
+                  h5 {
+                    font-size: 18px;
+                  }
+                }
+              }
             }
             .starter-group {
               margin-top: 150px;
@@ -5586,9 +5596,9 @@ body {
                   margin-top: 0px;
                 }
               }
-            }
-            .primary-button {
-              width: 50%;
+              .primary-button {
+                width: 50%;
+              }
             }
           }
         }
@@ -6977,7 +6987,7 @@ body {
             height: 700px;
             .custom-col-6 {
               .custom-col-6 {
-                width: 70% !important;
+                width: 72% !important;
                 margin: inherit !important;
                 padding: inherit;
               } 
@@ -7559,6 +7569,9 @@ body {
               .header-text {
                 padding-left: 150px;
                 padding-right: 150px;
+                p {
+                  font-size: 18px;
+                }
               }
             }
             .figures {
@@ -7599,7 +7612,7 @@ body {
             height: 885px;
             .custom-col-6 {
               .custom-col-6 {
-                width: 60% !important;
+                width: 65% !important;
                 margin: inherit !important;
                 padding: inherit;
               } 

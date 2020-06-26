@@ -2862,8 +2862,8 @@ body {
   padding-right: 210px;
 }
 
-.page .main .hosting-page .hosting-header .header-gradient .header-description .header-text p {
-  color: #9da6c7;
+.page .main .hosting-page .hosting-header .header-gradient .header-description .header-text h5 {
+  color: #fff;
 }
 
 .page .main .hosting-page .hosting-header .header-gradient .figures {
@@ -5270,6 +5270,10 @@ body {
     padding: 0;
   }
 
+  .page .main .hosting-page .hosting-header .header-gradient .header-description .header-text h5 {
+    font-size: 15px;
+  }
+
   .page .main .hosting-page .hosting-header .header-gradient .figures {
     padding-top: 50px;
     align-items: flex-start;
@@ -5410,7 +5414,7 @@ body {
     margin-top: 30px;
   }
 
-  .page .main .wpservice-page .wpservice-section.contact .primary-button {
+  .page .main .wpservice-page .wpservice-section.contact .message-form .primary-button {
     width: 100%;
   }
 
@@ -6076,6 +6080,10 @@ body {
     padding: 100px 150px 30px 150px;
   }
 
+  .page .main .hosting-page .hosting-header .header-gradient .text-group .header-description .header-text h5 {
+    font-size: 18px;
+  }
+
   .page .main .hosting-page .hosting-header .header-gradient .starter-group {
     margin-top: 150px;
   }
@@ -6157,7 +6165,7 @@ body {
     margin-top: 0px;
   }
 
-  .page .main .wpservice-page .wpservice-section.contact .primary-button {
+  .page .main .wpservice-page .wpservice-section.contact .message-form .primary-button {
     width: 50%;
   }
 
@@ -7527,7 +7535,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
-    width: 70% !important;
+    width: 72% !important;
     margin: inherit !important;
     padding: inherit;
   }
@@ -8093,6 +8101,10 @@ body {
     padding-right: 150px;
   }
 
+  .page .main .hosting-page .hosting-header .header-gradient .header-description .header-text p {
+    font-size: 18px;
+  }
+
   .page .main .hosting-page .hosting-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;
@@ -8125,7 +8137,7 @@ body {
   }
 
   .page .main .wpservice-page .wpservice-header .header-gradient .custom-col-6 .custom-col-6 {
-    width: 60% !important;
+    width: 65% !important;
     margin: inherit !important;
     padding: inherit;
   }
