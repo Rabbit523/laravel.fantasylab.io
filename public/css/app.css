@@ -7112,6 +7112,10 @@ body {
     padding-right: 16px;
   }
 
+  .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure p {
+    font-size: 15px;
+  }
+
   .page .main .wpservice-page .wpservice-header .header-gradient.mobile .figures .figure {
     padding-left: 10px;
     padding-right: 10px;
