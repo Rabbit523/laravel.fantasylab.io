@@ -1,6 +1,6 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Grid, Dimmer, Segment, Loader, Card, Form, Icon } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, Card, Form, Icon, TextArea } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
 import 'bootstrap/js/modal';
 import 'bootstrap/js/dropdown';
@@ -25,16 +25,15 @@ class Page extends React.Component {
 			manage: {},
 			scale: {},
 			features: {},
-			servers: {},
-			news: [],
+			contact: {},
+			queue: {},
 			plan_activeKey: [],
 			deploy_activeKey: [],
 			deploy_sub_activeKey: [],
 			manage_activeKey: [],
 			scale_activeKey: [],
 			feature_activeKey: [],
-			server_activeKey: [],
-			news_activeKey: [],
+			queue_activeKey: [],
 			accordion: false,
 		};
 		this.onImageUpload = this.onImageUpload.bind(this);
@@ -46,8 +45,7 @@ class Page extends React.Component {
 		this.onManageCollapseChange = this.onManageCollapseChange.bind(this);
 		this.onScaleCollapseChange = this.onScaleCollapseChange.bind(this);
 		this.onFeatureCollapseChange = this.onFeatureCollapseChange.bind(this);
-		this.onServerCollapseChange = this.onServerCollapseChange.bind(this);
-		this.onNewsCollapseChange = this.onNewsCollapseChange.bind(this);
+		this.onQueueCollapseChange = this.onQueueCollapseChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -56,7 +54,7 @@ class Page extends React.Component {
 		}
 		Http.post(`${window.location.origin}/api/front/get-page`, { name: 'hosting' }).then(
 			res => {
-				var icons = [], plans = {}, deploys = {}, manage = {}, scale = {}, features = {}, servers = {}, news = [];
+				var icons = [], plans = {}, deploys = {}, manage = {}, scale = {}, features = {}, contact = {}, queue = {};
 				var data = JSON.parse(res.data.data);
 				Object.keys(data).map((key, index) => {
 					if (key == 'icons') {
@@ -75,10 +73,10 @@ class Page extends React.Component {
 						scale = data[key];
 					} else if (key == 'features') {
 						features = data[key];
-					} else if (key == 'servers') {
-						servers = data[key];
-					} else if (key == 'news') {
-						news = data[key];
+					} else if (key == 'contact') {
+						contact = data[key];
+					} else if (key == 'queue') {
+						queue = data[key];
 					}
 				});
 				this.setState({
@@ -90,8 +88,8 @@ class Page extends React.Component {
 					deploys,
 					scale,
 					features,
-					servers,
-					news
+					contact,
+					queue
 				});
 				window.scrollTo(0, 0);
 			}
@@ -112,7 +110,7 @@ class Page extends React.Component {
 	}
 	// Event for input fields change
 	onHandleChange(event, type) {
-		const { data, icons, plans, deploys, manage, scale, features, servers, news } = this.state;
+		const { data, icons, plans, deploys, manage, scale, features, contact, queue } = this.state;
 
 		switch (type) {
 			case 'meta_title':
@@ -145,9 +143,6 @@ class Page extends React.Component {
 			case 'feature_main_description':
 				features.description = event.target.value;
 				return this.setState({ features });
-			case 'server_main_title':
-				servers.title = event.target.value;
-				return this.setState({ servers });
 			case 'no_meta_title':
 				data.no_meta_title = event.target.value;
 				return this.setState({ data });
@@ -178,9 +173,18 @@ class Page extends React.Component {
 			case 'no_feature_main_description':
 				features.no_description = event.target.value;
 				return this.setState({ features });
-			case 'no_server_main_title':
-				servers.no_title = event.target.value;
-				return this.setState({ servers });
+			case 'contact_title':
+				contact.title = event.target.value;
+				return this.setState({ contact });
+			case 'contact_no_title':
+				contact.no_title = event.target.value;
+				return this.setState({ contact });
+			case 'contact_des':
+				contact.des = event.target.value;
+				return this.setState({ contact });
+			case 'contact_no_des':
+				contact.no_des = event.target.value;
+				return this.setState({ contact });
 		}
 
 		if (type.includes('icon')) {
@@ -321,54 +325,33 @@ class Page extends React.Component {
 			}
 		}
 
-		if (type.includes('server') && !type.includes('main')) {
+		if (type.includes('queue')) {
+			const arr = type.split("_");
 			if (type.includes('no')) {
-				if (!type.includes('option')) {
-					var index = type.split('_')[3];
-					var key = "no_" + type.split('_')[2];
-					servers.data[index][key] = event.target.value;
-					this.setState({ servers });
+				if (type.includes('item')) {
+					var index = arr[1].split('item')[1];
+					var key = arr[2] + "_" + arr[3];
+					queue.list[index][key] = event.target.value;
 				} else {
-					var temp = type.split('_')[1];
-					var index = temp.split('server')[1];
-					var sub_index = type.split('_')[4];
-					var key = "no_" + type.split('_')[3];
-					servers.data[index]['options'][sub_index][key] = event.target.value;
-					this.setState({ servers });
+					var key = arr[1] + "_" + arr[2];
+					queue[key] = event.target.value;
 				}
 			} else {
-				if (!type.includes('option')) {
-					var index = type.split('_')[2];
-					var key = type.split('_')[1];
-					servers.data[index][key] = event.target.value;
-					this.setState({ servers });
+				if (type.includes('item')) {
+					var index = arr[1].split('item')[1];
+					var key = arr[2];
+					queue.list[index][key] = event.target.value;
 				} else {
-					var temp = type.split('_')[0];
-					var index = temp.split('server')[1];
-					var sub_index = type.split('_')[3];
-					var key = type.split('_')[2];
-					servers.data[index]['options'][sub_index][key] = event.target.value;
-					this.setState({ servers });
+					var key = arr[1];
+					queue[key] = event.target.value;
 				}
 			}
-		}
-
-		if (type.includes('news')) {
-			if (type.includes('no')) {
-				var index = type.split("_")[3];
-				var key = "no_" + type.split("_")[2];
-				news[index][key] = event.target.value;
-			} else {
-				var index = type.split("_")[2];
-				var key = type.split("_")[1];
-				news[index][key] = event.target.value;
-			}
-			this.setState({ news });
+			this.setState({ queue });
 		}
 	}
 	// Event for image upload
 	onImageUpload(type, e) {
-		const { data, icons, plans, deploys, manage, scale, servers, news } = this.state;
+		const { data, icons, plans, deploys, manage, scale } = this.state;
 		const ref = this;
 
 		// Upload header background image
@@ -466,40 +449,6 @@ class Page extends React.Component {
 					ref.setState({ scale });
 				}
 				reader.readAsDataURL(Scalefiles[index].files[0]);
-			}
-		});
-		// Upload server image
-		var Serverfiles = document.getElementsByClassName('server-file');
-		Object.keys(Serverfiles).map((key, index) => {
-			if (Serverfiles[index].files && Serverfiles[index].files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					if (type.includes('server_avatar')) {
-						var index = type.split('_')[2];
-						servers.data[index].url = e.target.result;
-						ref.setState({ servers });
-					} else {
-						console.log("it's not server file");
-					}
-				}
-				reader.readAsDataURL(Serverfiles[index].files[0]);
-			}
-		});
-		// Upload news image
-		var Newsfiles = document.getElementsByClassName('news_avatar');
-		Object.keys(Newsfiles).map((key, index) => {
-			if (Newsfiles[index].files && Newsfiles[index].files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					if (type.includes('news_avatar')) {
-						var index = type.split('_')[2];
-						news[index].url = e.target.result;
-						ref.setState({ news });
-					} else {
-						console.log("it's not news file");
-					}
-				}
-				reader.readAsDataURL(Newsfiles[index].files[0]);
 			}
 		});
 	}
@@ -751,64 +700,42 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
-	// Collapse Event for server items
-	onServerCollapseChange(server_activeKey) {
-		this.setState({ server_activeKey });
-	}
-	// Update servers
-	onUpdateServerHeader() {
-		var { data, servers } = this.state;
+
+	// Update Contact Section
+	updateContact() {
+		var { data, contact } = this.state;
 		const ref = this;
 		Object.keys(data).map((key, index) => {
-			if (key == 'servers') {
-				data[key] = servers;
+			if (key == 'contact') {
+				data[key] = contact;
 				ref.setState({ data });
 			}
 		});
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(data), type: 'server_header' })
-		.then(
-			res => {
-				this.setState({ isLoaded: true });
-			}
-		).catch(err => {
-			console.error(err);
-		});
+		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(contact), type: 'contact' })
+			.then(
+				res => {
+					this.setState({ isLoaded: true });
+				}
+			).catch(err => {
+				console.error(err);
+			});
 	}
-	// Update servers
-	onUpdateServer(e, type) {
-		var { data, servers } = this.state;
+	onQueueCollapseChange(queue_activeKey) {
+		this.setState({ queue_activeKey });
+	}
+	// Update Queue Section
+	updateQueue() {
+		var { data, queue } = this.state;
 		const ref = this;
 		Object.keys(data).map((key, index) => {
-			if (key == 'servers') {
-				data[key] = servers;
+			if (key == 'queue') {
+				data[key] = queue;
 				ref.setState({ data });
 			}
 		});
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(data), type: 'server_item', index: type })
-		.then(
-			res => {
-				this.setState({ isLoaded: true });
-			}
-		).catch(err => {
-			console.error(err);
-		});
-	}
-	// Collapse Event for news items
-	onNewsCollapseChange(news_activeKey) {
-		this.setState({ news_activeKey });
-	}
-	// Update blog section
-	onUpdateNews(e, type) {
-		var { news, data } = this.state;
-		Object.keys(data).map((key, index) => {
-			if (key == 'news') {
-				data[key] = news;
-			}
-		});
-		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(news), type: 'news', service_type: type })
+		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(queue), type: 'queue' })
 			.then(
 				res => {
 					this.setState({ isLoaded: true });
@@ -819,7 +746,7 @@ class Page extends React.Component {
 	}
 	render() {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
-		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, deploy_sub_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, servers, server_activeKey, news, news_activeKey } = this.state;
+		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, deploy_sub_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, contact, queue, queue_activeKey } = this.state;
 		const ref = this;
 		return (
 			<Translate>
@@ -1077,72 +1004,61 @@ class Page extends React.Component {
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.server-section')}</Card.Header>
+														<Card.Header>{translate('card.contact-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={servers.title} onChange={(val) => ref.onHandleChange(val, 'server_main_title')} />
-															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																<label className='ui floated button save-btn' onClick={ref.onUpdateServerHeader.bind(this)}> {translate('card.save')} </label>
-															</div>
-															<Collapse accordion={accordion} onChange={this.onServerCollapseChange} activeKey={server_activeKey}>
-																{servers.data.map((item, i) => (
-																	<Panel header={item.title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'server_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'server_description_' + i)} />
-																		<Form.Input fluid label={translate('card.cost')} name='cost' placeholder={translate('card.cost')} className='input-form' value={item.cost} onChange={(val) => ref.onHandleChange(val, 'server_cost_' + i)} />
-																		<Form.Input fluid label={translate('card.color')} name='color' placeholder={translate('card.color')} className='input-form' value={item.color} onChange={(val) => ref.onHandleChange(val, 'server_color_' + i)} />
-																		<Form>
-																			<label>{translate('card.avatar-img')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' className='server-file' onChange={(e) => ref.onImageUpload('server_avatar_' + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		{
-																			item.options.map((option, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.title} onChange={(val) => ref.onHandleChange(val, 'server' + i + '_option_title_' + index)} />
-																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.info} onChange={(val) => ref.onHandleChange(val, 'server' + i + '_option_info_' + index)} />
-																				</div>
-																			))
-																		}
-																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServer(e, i)}> {translate('card.save')} </label>
-																		</div>
-																	</Panel>
-																))}
-															</Collapse>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={contact.title} onChange={(val) => this.onHandleChange(val, 'contact_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={contact.des}
+																	onChange={(val) => this.onHandleChange(val, 'contact_des')}
+																/>
+															</Form>
+															<label className="ui floated button save-btn" onClick={this.updateContact.bind(this)}> {translate('card.save')} </label>
 														</Card.Description>
 													</Card.Content>
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.news-section')}</Card.Header>
+														<Card.Header>{translate('card.queue-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
-																{news.map((item, i) => (
-																	<Panel header={item.title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'news_title_' + i)} />
-																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.onHandleChange(val, 'news_author_' + i)} />
-																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.onHandleChange(val, 'news_type_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'news_description_' + i)} />
-																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.onHandleChange(val, 'news_read_' + i)} />
-																		<Form>
-																			<label>{translate('card.image-upload')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onImageUpload("news_avatar_" + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={queue.title} onChange={(val) => this.onHandleChange(val, 'queue_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={queue.des}
+																	onChange={(val) => this.onHandleChange(val, 'queue_des')}
+																/>
+															</Form>
+															<label>{translate('card.items')}</label>
+															<Collapse accordion={accordion} onChange={this.onQueueCollapseChange} activeKey={queue_activeKey}>
+																{queue.list.map((item, index) => (
+																	<Panel header={item.ques} key={index}>
+																		<div className="admin-form-group">
+																			<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_ques`)} />
+																			<Form>
+																				<label>{translate('card.description')}</label>
+																				<TextArea
+																					placeholder={translate('card.description-place')}
+																					value={item.answ}
+																					onChange={(val) => this.onHandleChange(val, `queue_item${index}_answ`)}
+																				/>
+																			</Form>
+																		</div>
 																	</Panel>
 																))}
 															</Collapse>
+															<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
 														</Card.Description>
 													</Card.Content>
 												</Card>
@@ -1397,72 +1313,61 @@ class Page extends React.Component {
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+										<Card>
+											<Card.Content>
+												<Card.Header>{translate('card.contact-section')}</Card.Header>
+											</Card.Content>
+											<Card.Content>
+												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={contact.no_title} onChange={(val) => this.onHandleChange(val, 'contact_no_title')} />
+													<Form>
+														<label>{translate('card.description')}</label>
+														<TextArea
+															placeholder={translate('card.description-place')}
+															value={contact.no_des}
+															onChange={(val) => this.onHandleChange(val, 'contact_no_des')}
+														/>
+													</Form>
+													<label className="ui floated button save-btn" onClick={this.updateContact.bind(this)}> {translate('card.save')} </label>
+												</Card.Description>
+											</Card.Content>
+										</Card>
+									</Grid.Column>
+											<Grid.Column computer={8}>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.server-section')}</Card.Header>
+														<Card.Header>{translate('card.queue-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={servers.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server_main_title')} />
-															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																<label className='ui floated button save-btn' onClick={this.onUpdateServerHeader.bind(this)}> {translate('card.save')} </label>
-															</div>
-															<Collapse accordion={accordion} onChange={this.onServerCollapseChange} activeKey={server_activeKey}>
-																{servers.data.map((item, i) => (
-																	<Panel header={item.no_title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'no_server_description_' + i)} />
-																		<Form.Input fluid label={translate('card.cost')} name='cost' placeholder={translate('card.cost')} className='input-form' value={item.cost} onChange={(val) => ref.onHandleChange(val, 'server_cost_' + i)} />
-																		<Form.Input fluid label={translate('card.color')} name='color' placeholder={translate('card.color')} className='input-form' value={item.color} onChange={(val) => ref.onHandleChange(val, 'server_color_' + i)} />
-																		<Form>
-																			<label>{translate('card.avatar-img')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' className='server-file' onChange={(e) => ref.onImageUpload('server_avatar_' + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		{
-																			item.options.map((option, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server' + i + '_option_title_' + index)} />
-																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.no_info} onChange={(val) => ref.onHandleChange(val, 'no_server' + i + '_option_info_' + index)} />
-																				</div>
-																			))
-																		}
-																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServer(e, i)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={queue.no_title} onChange={(val) => this.onHandleChange(val, 'queue_no_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={queue.no_des}
+																	onChange={(val) => this.onHandleChange(val, 'queue_no_des')}
+																/>
+															</Form>
+															<label>{translate('card.items')}</label>
+															<Collapse accordion={accordion} onChange={this.onQueueCollapseChange} activeKey={queue_activeKey}>
+																{queue.list.map((item, index) => (
+																	<Panel header={item.no_ques} key={index}>
+																		<div className="admin-form-group">
+																			<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.no_ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_no_ques`)} />
+																			<Form>
+																				<label>{translate('card.description')}</label>
+																				<TextArea
+																					placeholder={translate('card.description-place')}
+																					value={item.no_answ}
+																					onChange={(val) => this.onHandleChange(val, `queue_item${index}_no_answ`)}
+																				/>
+																			</Form>
 																		</div>
 																	</Panel>
 																))}
 															</Collapse>
-														</Card.Description>
-													</Card.Content>
-												</Card>
-											</Grid.Column>
-											<Grid.Column computer={8}>
-												<Card className='header-section'>
-													<Card.Content>
-														<Card.Header>{translate('card.news-section')}</Card.Header>
-													</Card.Content>
-													<Card.Content>
-														<Card.Description>
-															<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
-																{news.map((item, i) => (
-																	<Panel header={item.no_title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'no_news_title_' + i)} />
-																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.onHandleChange(val, 'news_author_' + i)} />
-																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.onHandleChange(val, 'no_news_type_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'no_news_description_' + i)} />
-																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.onHandleChange(val, 'news_read_' + i)} />
-																		<Form>
-																			<label>{translate('card.image-upload')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' id='input-file' className='news-file' onChange={(e) => ref.onImageUpload("news_avatar_" + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
-																	</Panel>
-																))}
-															</Collapse>
+															<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
 														</Card.Description>
 													</Card.Content>
 												</Card>
