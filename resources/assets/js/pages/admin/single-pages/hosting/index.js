@@ -29,6 +29,7 @@ class Page extends React.Component {
 			news: [],
 			plan_activeKey: [],
 			deploy_activeKey: [],
+			deploy_sub_activeKey: [],
 			manage_activeKey: [],
 			scale_activeKey: [],
 			feature_activeKey: [],
@@ -41,6 +42,7 @@ class Page extends React.Component {
 		this.onNbDescriptionChange = this.onNbDescriptionChange.bind(this);
 		this.onPlanCollapseChange = this.onPlanCollapseChange.bind(this);
 		this.onDeployCollapseChange = this.onDeployCollapseChange.bind(this);
+		this.onDeploySubCollapseChange = this.onDeploySubCollapseChange.bind(this);
 		this.onManageCollapseChange = this.onManageCollapseChange.bind(this);
 		this.onScaleCollapseChange = this.onScaleCollapseChange.bind(this);
 		this.onFeatureCollapseChange = this.onFeatureCollapseChange.bind(this);
@@ -224,7 +226,7 @@ class Page extends React.Component {
 				}
 			}
 		}
-
+		
 		if (type.includes('deploy')) {
 			Object.keys(deploys).map((key, index) => {
 				if (type.includes('main')) {
@@ -242,7 +244,15 @@ class Page extends React.Component {
 				} else {
 					var temp = type.split("_")[0];
 					if (index == temp.split("deploy")[1]) {
-						deploys[key].items[type.split("_")[2]].title = event.target.value;
+						if (type.includes('no')) {
+							var sub_index = type.split("_")[3];
+							var key_val = "no_" + type.split("_")[2];
+							deploys[key].items[sub_index][key_val] = event.target.value;
+						} else {
+							var sub_index = type.split("_")[2];
+							var key_val = type.split("_")[1];
+							deploys[key].items[sub_index][key_val] = event.target.value;
+						}
 						this.setState({ deploys });
 					}
 				}
@@ -578,6 +588,10 @@ class Page extends React.Component {
 	onDeployCollapseChange(deploy_activeKey) {
 		this.setState({ deploy_activeKey });
 	}
+	// Collapse Event for deploy sub items
+	onDeploySubCollapseChange(deploy_sub_activeKey) {
+		this.setState({ deploy_sub_activeKey });
+	}
 	// Update deploys
 	onUpdateDeploy(e, index) {
 		var { data, deploys } = this.state;
@@ -805,7 +819,7 @@ class Page extends React.Component {
 	}
 	render() {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
-		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, servers, server_activeKey, news, news_activeKey } = this.state;
+		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, deploy_sub_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, servers, server_activeKey, news, news_activeKey } = this.state;
 		const ref = this;
 		return (
 			<Translate>
@@ -933,19 +947,20 @@ class Page extends React.Component {
 															<Collapse accordion={accordion} onChange={this.onDeployCollapseChange} activeKey={deploy_activeKey}>
 																{Object.keys(deploys).map((key, i) => (
 																	<Panel header={deploys[key].title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={deploys[key].title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={deploys[key].description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_description_' + i)} />
-																		{
-																			deploys[key].items.map((item, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
-																					<Form.Field className="flex-item">
-																						<label>{translate('card.image')}</label>
-																						<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
-																					</Form.Field>
-																				</div>
-																			))
-																		}
+																		<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={deploys[key].title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_title_' + i)} />
+																		<Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={deploys[key].description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_description_' + i)} />
+																		<Collapse accordion={accordion} onChange={this.onDeploySubCollapseChange} activeKey={deploy_sub_activeKey}>
+																		{ deploys[key].items.map((item, index) => (																				
+																			<Panel header={item.title} key={index}>
+																				<Form.Field className="flex-item">
+																					<label>{translate('card.image')}</label>
+																					<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
+																				</Form.Field>
+																				<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
+																				{i == 2 && <Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_description_' + index)} />}
+																			</Panel>
+																		))}
+																		</Collapse>
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateDeploy(e, i)}> {translate('card.save')} </label>
 																		</div>
@@ -1253,17 +1268,19 @@ class Page extends React.Component {
 																	<Panel header={deploys[key].no_title} key={i}>
 																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={deploys[key].no_title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_no_title_' + i)} />
 																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={deploys[key].no_description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_no_description_' + i)} />
-																		{
-																			deploys[key].items.map((item, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
-																					<Form.Field className="flex-item">
-																						<label>{translate('card.image')}</label>
-																						<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
-																					</Form.Field>
-																				</div>
-																			))
-																		}
+																		<Collapse accordion={accordion} onChange={this.onDeploySubCollapseChange} activeKey={deploy_sub_activeKey}>
+																		{ deploys[key].items.map((item, index) => (
+																			<Panel header={i == 2 ? item.no_title : item.title} key={index}>
+																				<Form.Field className="flex-item">
+																					<label>{translate('card.image')}</label>
+																					<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
+																				</Form.Field>
+																				{i != 2 && <Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />}
+																				{i == 2 && <Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_no_title_' + index)} />}
+																				{i == 2 && <Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_no_description_' + index)} />}
+																			</Panel>
+																		))}
+																		</Collapse>
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateDeploy(e, i)}> {translate('card.save')} </label>
 																		</div>
