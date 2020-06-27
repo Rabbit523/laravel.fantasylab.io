@@ -91,7 +91,7 @@ class Page extends React.Component {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		const register_text = lang == 'en' ? 'Craft Enterprise' : 'Start prosjekt';
 		let is_dashboard = false;
-		if (typeof window !== 'undefined' && window.location.href.indexOf('admin') > 0) {
+		if (typeof window !== 'undefined' && window.location.href.indexOf('admin') > 0 && window.location.href.indexOf('administrert') < 0) {
 			is_dashboard = true;
 		}
 		const { isOpen, user, isAuthenticated, isAdmin } = this.state;

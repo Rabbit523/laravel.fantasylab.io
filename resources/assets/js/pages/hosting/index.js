@@ -1,6 +1,6 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Button, Container, Grid, Dimmer, Segment, Loader } from 'semantic-ui-react'
+import { Button, Container, Grid, Dimmer, Segment, Loader, Form, Checkbox, Header, Select } from 'semantic-ui-react'
 import { isMobile } from 'react-device-detect'
 import { Link } from 'react-router-dom'
 import ReactHtmlParser from 'react-html-parser'
@@ -9,8 +9,9 @@ import PageMetaTag from '../../common/pageMetaTag'
 import PlanItem from '../../common/planItem'
 import GuideCard from '../../common/guideCard'
 import TextCard from '../../common/textCard'
-import Gallery from '../../common/carousel'
-import NewsCard from '../../common/newsCard'
+import IntlTelInput from 'react-intl-tel-input'
+import 'react-intl-tel-input/dist/main.css'
+import ReeValidate from 'ree-validate'
 import Http from '../../Http'
 
 const customStyles = {
@@ -23,11 +24,21 @@ const customStyles = {
 		transform: 'translate(-50%, -50%)'
 	}
 };
-
+const options = [
+	{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT', value: 'basic' },
+	{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT', value: 'enterprise' }
+];
 class Page extends React.Component {
 	constructor(props) {
 		super(props);
-
+		this.validator = new ReeValidate({
+			name: 'required|min:2',
+			email: 'required|email',
+			message: 'required',
+			company: 'required',
+			phone: 'required',
+			agreement: 'required'
+		});
 		this.state = {
 			isLoaded: false,
 			isOpen: false,
@@ -36,13 +47,36 @@ class Page extends React.Component {
 			isCustom: false,
 			active_manage_type: '',
 			active_scale_type: '',
-			data: []
+			data: [],
+			errors: this.validator.errors,
+			phone_error: false,
+			que_key: "",
+			message: {
+				name: '',
+				email: '',
+				message: '',
+				phone: '',
+				company: '',
+				agreement: ''
+			},
+			phone: '',
+			checked: false,
+			checkbox_border: true
 		};
 		this.closeModal = this.closeModal.bind(this);
 		this.triggerModal = this.triggerModal.bind(this);
 		this.onSelectChoice = this.onSelectChoice.bind(this);
 		this.manageActiveType = this.manageActiveType.bind(this);
 		this.scaleActiveType = this.scaleActiveType.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handler = this.handler.bind(this);
+		this.onBlur = this.onBlur.bind(this);
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
+		this.questionHandler = this.questionHandler.bind(this);
+		this.setScrollDown = this.setScrollDown.bind(this);
+		this.myRef = React.createRef();
+		this.contactRef = React.createRef();
 	}
 
 	componentDidMount() {
@@ -90,8 +124,136 @@ class Page extends React.Component {
 		this.setState({ active_scale_type: active });
 	}
 
+	handler() {
+		var { message } = this.state;
+		message.phone = this.myRef.current.formatFullNumber(event.target.value);
+		this.setState({ message });
+	}
+
+	onBlur() {
+		var { message } = this.state;
+		if (this.myRef.current.isValidNumber(message.phone)) {
+			this.setState({ phone_error: false });
+		}
+	}
+
+	handleChange(e, type) {
+		const name = type == 'agreement' ? type : event.target.name;
+		const value = type == 'agreement' ? e : event.target.value;
+		const { errors } = this.validator;
+		var { message } = this.state;
+		
+		this.validator.validate(name, value)
+			.then(() => {
+				if (errors.items.length == 0) {
+					this.setState({ errors })
+					$('input[name=' + type + ']').addClass('success');
+					if (type == "message") {
+						$('textarea[name=' + type + ']').addClass('success');
+					} else if (type == 'agreement') {
+						$('.selection.dropdown').addClass('success');
+					}
+				} else {
+					this.setState({ errors })
+					$('input[name=' + type + ']').removeClass('success');
+					if (type == "message") {
+						$('textarea[name=' + type + ']').removeClass('success');
+					} else if (type == 'agreement') {
+						$('.selection.dropdown').removeClass('success');
+					}
+				}
+			});
+		switch (type) {
+			case 'name':
+				message.name = event.target.value;
+				return this.setState({ message });
+			case 'company':
+				message.company = event.target.value;
+				return this.setState({ message });
+			case 'email':
+				message.email = event.target.value;
+				return this.setState({ message });
+			case 'message':
+				message.message = event.target.value;
+				return this.setState({ message });
+			case 'agreement':
+				message.agreement = value;
+				return this.setState({ message });
+		}
+	}
+
+	handleCheckBoxClick() {
+		this.setState({ checked: !this.state.checked, checkbox_border: !this.state.checked });
+	}
+
+	handleSubmit(event) {
+		const { message, checked } = this.state;
+		const { errors } = this.validator;
+
+		this.validator.validateAll(message)
+			.then(success => {
+				if (success) {
+					if (!checked || !this.myRef.current.isValidNumber(message.phone)) {
+						if (!checked) {
+							this.setState({ checkbox_border: !this.state.checkbox_border });
+						} else {
+							this.setState({ phone_error: true });
+						}
+					} else {
+						this.submit(message);
+					}
+				} else {
+					const ref = this;
+					if (!checked) {
+						this.setState({ checkbox_border: !this.state.checkbox_border });
+					}
+					Object.keys(message).map((key, item) => {
+						if (key != 'phone') {
+							ref.validator.validate(key, message[key])
+								.then(() => {
+									ref.setState({ errors })
+								});
+						} else {
+							if (!this.myRef.current.isValidNumber(message.phone)) {
+								ref.setState({ phone_error: true });
+							}
+						}
+					});
+				}
+			});
+	}
+
+	submit(data) {
+		this.setState({ isLoaded: false, isLoading: true });
+		Http.post('/api/send-message', { data: data })
+		  .then(
+		    res => {
+		      this.setState({
+		        isLoaded: true, isOpen: true, isLoading: false, message: {
+		          name: '',
+		          email: '',
+		          message: '',
+		          phone: '',
+							company: '',
+							agreement: '',
+		        }, checked: false
+		      });
+		    }
+		  ).catch(err => {
+		    console.error(err);
+		  });
+	}
+
+	questionHandler(val) {
+		this.setState({ que_key: val });
+	}
+
+	setScrollDown () {
+		window.scrollTo({top: this.contactRef.current.offsetTop, behavior: 'smooth'});
+	}
+
 	render() {
-		const { isLoaded, isOpen, isDistribution, isClickApp, isCustom, data, active_manage_type, active_scale_type } = this.state;
+		const { isLoaded, isLoading, isOpen, isDistribution, isClickApp, isCustom, data, active_manage_type, active_scale_type, errors, phone_error, checkbox_border, que_key } = this.state;
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
 		Modal.setAppElement('#app')
 		if (lang=='nb' && !window.location.pathname.includes('no')) {
@@ -321,41 +483,87 @@ class Page extends React.Component {
 										</Grid>
 									</Container>
 								</div>
-								<div className='hosting-section servers'>
+								<div className="hosting-section contact" ref={this.contactRef}>
 									<Container className='custom-col-6'>
-										<h2>{lang == 'en' ? data.servers.title : data.servers.no_title}</h2>
+										<h2>{lang == 'en' ? data.contact.title : data.contact.no_title}</h2>
+										<h5>{lang == 'en' ? data.contact.des : data.contact.no_des}</h5>
 										<Container className='custom-col-8'>
-											<Grid columns={3}>
-												{data.servers.data.map((item, i) => (
-													<React.Fragment key={i}>
-														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
-														</Grid.Column>
-														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
-														</Grid.Column>
-													</React.Fragment>
-												))}
-											</Grid>
+											<Form className='message-form'>
+												<div className="d-flex">
+													<div className="form-group">
+														<Form.Input label={translate('contact.name')} name='name' placeholder={translate('contact.name')} onChange={(val) => this.handleChange(val, 'name')} error={errors.has('name')} />
+														{errors.has('name') && <Header size='tiny' className='custom-error' color='red'>{errors.first('name') ? lang == 'en' ? 'The name is required.' : 'Navnet er påkrevd.' : ''}</Header>}
+													</div>
+													<div className="form-group">
+														<Form.Input label={translate('contact.company-name')} name='company' placeholder={translate('contact.company-name')} onChange={(val) => this.handleChange(val, 'company')} error={errors.has('company')} />
+														{errors.has('company') && <Header size='tiny' className='custom-error' color='red'>{errors.first('company') ? lang == 'en' ? 'The company is required.' : 'Selskapet er påkrevd.' : ''}</Header>}
+													</div>
+												</div>
+												<div className="d-flex">
+													<div className="form-group">
+														<Form.Input label={translate('contact.email')} name='email' placeholder={translate('contact.email')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
+														{errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email') ? lang == 'en' ? 'The email is required.' : 'E-postadressen er påkrevd.' : ''}</Header>}
+													</div>
+													<div className="form-group phone field">
+														<label>{translate('contact.phone')}</label>
+														<IntlTelInput
+															ref={this.myRef}
+															defaultCountry={'no'}
+															preferredCountries={['us', 'gb', 'fr', 'de', 'nl', 'se', 'no', 'ch', 'dk', 'fi', 'pl', 'it']}
+															onPhoneNumberChange={this.handler}
+															onPhoneNumberBlur={this.onBlur}
+														/>
+														{errors.has('phone') && <Header size='tiny' className='custom-error' color='red'>{errors.first('phone') ? lang == 'en' ? 'The phone number is required.' : 'Telefonnummeret er påkrevd.' : ''}</Header>}
+														{!errors.has('phone') && phone_error && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'The phone number is invalid.' : 'Telefonnummeret er ugyldig.'}</Header>}
+													</div>
+												</div>
+												<div className="d-flex one">
+													<div className="form-group">
+														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={options} error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
+														{errors.has('agreement') && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'Select the agreement options.' : 'Velg avtalealternativer.'}</Header>}
+													</div>
+												</div>
+												<div className="d-flex one">
+													<div className="form-group">
+														<Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
+														{errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message') ? lang == 'en' ? 'The message is required.' : 'Meldingen er påkrevd.' : ''}</Header>}
+													</div>
+												</div>
+												<div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
+													<Checkbox onClick={this.handleCheckBoxClick} />
+													<div className='terms-section'>
+														<span>{translate('contact.clicking-agree-wp')}</span>
+														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('footer.privacy')}</Link>
+														<span>{translate('footer.and')}</span>
+														<Link to={{ pathname: '/terms', state: { pagename: 'terms' } }} target="_blank" className='item-link'>{translate('footer.terms')}.</Link>
+														<span>&nbsp;{translate('contact.wp-extend-des')}</span>
+													</div>
+												</div>
+												<Button fluid size='large' className={isLoading ? 'primary-button loading' : 'primary-button'} onClick={this.handleSubmit}>{translate('contact.send-request')}</Button>
+											</Form>
 										</Container>
 									</Container>
 								</div>
-								<div className='hosting-section servers'>
-									<Container className="custom-col-6">
-										<h2>{translate('hosting.news')}</h2>
-										<Grid columns={3}>
-											{data.news.map((item, i) => (
-												<Grid.Column key={i} only="computer" onClick={(event) => this.triggerModal(event)}>
-													<NewsCard url={item.url} author={item.author} type={lang == 'en' ? item.type : item.no_type} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} time={item.time} read={item.read} />
-												</Grid.Column>
-											))}
-										</Grid>
-										<Grid>
-											<Grid.Column only="tablet mobile" onClick={(event) => this.triggerModal(event)}>
-												<Gallery type="news" items={data.news} lang={lang} />
-											</Grid.Column>
-										</Grid>
+								<div className="hosting-section queue">
+									<Container className='custom-col-6'>
+										<h2>{lang == 'en' ? data.queue.title : data.queue.no_title}</h2>
+										<h5>{lang == 'en' ? data.queue.des : data.queue.no_des}</h5>
 									</Container>
+									<div className="item-group">
+										{data.queue.list.map((item, i) => (
+											<div className={que_key == item.id ? "item active" : "item"} key={i}>
+												<Container className='custom-col-6'>
+													<Container className='custom-col-8'>
+														<div className="question-tag" onClick={() => this.questionHandler(item.id)}>
+															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
+															<Button>{que_key == item.id ? '-' : '+' }</Button>
+														</div>
+														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
+													</Container>
+												</Container>
+											</div>
+										))}
+									</div>
 								</div>
 							</React.Fragment>
 							:
