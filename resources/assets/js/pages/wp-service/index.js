@@ -259,7 +259,7 @@ class Page extends React.Component {
 											<div className='header-description'>
 												<div className='header-text'>
 													<h1>{lang == 'en' ? data.header.title : data.header.no_title}</h1>
-													{lang == 'en' ? ReactHtmlParser(data.header.description) : ReactHtmlParser(data.header.no_description)}
+													<h5>{lang == 'en' ? ReactHtmlParser(data.header.description) : ReactHtmlParser(data.header.no_description)}</h5>
 												</div>
 											</div>
 											<Container className='custom-col-6'>
