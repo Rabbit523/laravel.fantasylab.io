@@ -25,8 +25,7 @@ const customStyles = {
 	}
 };
 const options = [
-	{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT', value: 'basic' },
-	{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT', value: 'enterprise' }
+	{ key: 'plan', text: 'Enterprise Managed Hosting, kr 3 600,-excl. VAT pr.month,', no_text: 'Enterprise Managed Hosting, kr 3 600,- excl. MVA. pr. måned', value: '3600' }
 ];
 class Page extends React.Component {
 	constructor(props) {
@@ -230,12 +229,12 @@ class Page extends React.Component {
 		    res => {
 		      this.setState({
 		        isLoaded: true, isOpen: true, isLoading: false, message: {
-		          name: '',
-		          email: '',
-		          message: '',
-		          phone: '',
-							company: '',
-							agreement: '',
+					name: '',
+					email: '',
+					message: '',
+					phone: '',
+					company: '',
+					agreement: '',
 		        }, checked: false
 		      });
 		    }
