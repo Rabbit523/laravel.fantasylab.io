@@ -225,7 +225,7 @@ class Page extends React.Component {
 
 	submit(data) {
 		this.setState({ isLoaded: false, isLoading: true });
-		Http.post('/api/send-message', { data: data })
+		Http.post('/api/send-order-request', { data: data })
 		  .then(
 		    res => {
 		      this.setState({
@@ -311,10 +311,10 @@ class Page extends React.Component {
 												{data.plans.data.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} onScroll={this.setScrollDown} type="hosting"/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} type="hosting"/>
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.description : item.no_description} onScroll={this.setScrollDown} type="hosting"/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -536,7 +536,7 @@ class Page extends React.Component {
 														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('footer.privacy')}</Link>
 														<span>{translate('footer.and')}</span>
 														<Link to={{ pathname: '/terms', state: { pagename: 'terms' } }} target="_blank" className='item-link'>{translate('footer.terms')}.</Link>
-														<span>&nbsp;{translate('contact.wp-extend-des')}</span>
+														<span>&nbsp;{translate('contact.hosting-extend-des')}</span>
 													</div>
 												</div>
 												<Button fluid size='large' className={isLoading ? 'primary-button loading' : 'primary-button'} onClick={this.handleSubmit}>{translate('contact.send-request')}</Button>

@@ -283,10 +283,10 @@ class Page extends React.Component {
 												{data.header.list.items.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp"  onScroll={this.setScrollDown}/>
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} onScroll={this.setScrollDown} type="wp"/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp"  onScroll={this.setScrollDown}/>
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} onScroll={this.setScrollDown} type="wp"/>
 														</Grid.Column>
 													</React.Fragment>
 												))}

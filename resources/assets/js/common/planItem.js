@@ -87,11 +87,7 @@ class PlanItem extends React.Component {
 							<hr />
 							<div className='description'>
 								<h3>kr {this.props.cost},- <span>/ {lang == 'en' ? 'monthly' : 'månedlig'}</span></h3>
-								{this.props.type == "hosting" ?
-									<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{this.props.lang == 'en' ? 'Contact Sales' : 'Kontakt salg'} </Button>
-									:
-									<Button className='primary-button' onClick={this.getStarted}>{this.props.lang == 'en' ? 'Get Started' : 'Kom i gang'} </Button>
-								}
+								<Button className='primary-button' onClick={this.getStarted}>{this.props.lang == 'en' ? 'Get Started' : 'Kom i gang'} </Button>
 							</div>
 							<hr />							
 							<div className="options">
@@ -133,8 +129,7 @@ PlanItem.propTypes = {
 	color: PropTypes.string,
 	title: PropTypes.string,
 	description: PropTypes.string,
-	options: PropTypes.array,
-	type: PropTypes.string
+	options: PropTypes.array
 };
 
 export default PlanItem;
