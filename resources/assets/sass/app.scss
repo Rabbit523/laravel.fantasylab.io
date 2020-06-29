@@ -3037,7 +3037,7 @@ body {
                   }
                 }
                 .answer-tag {
-                  max-height: 40px;
+                  max-height: 500px;
                 }
               }
               .question-tag {
@@ -3063,9 +3063,13 @@ body {
                 transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
                 max-height: 0;
                 overflow: hidden;
-                color: #f7f3fe;
                 padding-right: 50px;
+                color: #f7f3fe;
                 font-family: "Gotham Book";
+                p {
+                  color: #f7f3fe;
+                  font-family: "Gotham Book";
+                }
               }
             }
           }
@@ -3519,7 +3523,7 @@ body {
                   }
                 }
                 .answer-tag {
-                  max-height: 40px;
+                  max-height: 500px;
                 }
               }
               .question-tag {
@@ -3545,9 +3549,13 @@ body {
                 transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
                 max-height: 0;
                 overflow: hidden;
-                color: #f7f3fe;
                 padding-right: 50px;
                 font-family: "Gotham Book";
+                color: #f7f3fe;
+                p {
+                  font-family: "Gotham Book";
+                  color: #f7f3fe;
+                }
               }
             }
           }
@@ -6876,6 +6884,16 @@ body {
                   }
                 }
               }
+            }
+          }
+          &.contact {
+            h5 {
+              font-size: 18px;
+            }
+          }
+          &.queue {
+            h5 {
+              font-size: 18px;
             }
           }
         }

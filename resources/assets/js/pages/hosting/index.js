@@ -244,7 +244,12 @@ class Page extends React.Component {
 	}
 
 	questionHandler(val) {
-		this.setState({ que_key: val });
+		const { que_key } = this.state;
+		if (que_key != val) {
+			this.setState({ que_key: val })
+		} else {
+			this.setState({ que_key: "" })
+		}
 	}
 
 	setScrollDown () {
@@ -557,7 +562,7 @@ class Page extends React.Component {
 															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
 															<Button>{que_key == item.id ? '-' : '+' }</Button>
 														</div>
-														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
+														<div className="answer-tag">{lang == 'en' ? ReactHtmlParser(item.answ) : ReactHtmlParser(item.no_answ)}</div>
 													</Container>
 												</Container>
 											</div>

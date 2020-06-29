@@ -3594,7 +3594,7 @@ body {
 }
 
 .page .main .hosting-page .hosting-section.queue .item-group .item.active .answer-tag {
-  max-height: 40px;
+  max-height: 500px;
 }
 
 .page .main .hosting-page .hosting-section.queue .item-group .item .question-tag {
@@ -3623,8 +3623,13 @@ body {
   transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
   max-height: 0;
   overflow: hidden;
-  color: #f7f3fe;
   padding-right: 50px;
+  color: #f7f3fe;
+  font-family: "Gotham Book";
+}
+
+.page .main .hosting-page .hosting-section.queue .item-group .item .answer-tag p {
+  color: #f7f3fe;
   font-family: "Gotham Book";
 }
 
@@ -4144,7 +4149,7 @@ body {
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item.active .answer-tag {
-  max-height: 40px;
+  max-height: 500px;
 }
 
 .page .main .wpservice-page .wpservice-section.queue .item-group .item .question-tag {
@@ -4173,9 +4178,14 @@ body {
   transition: max-height 280ms cubic-bezier(0.4, 0, 0.2, 1);
   max-height: 0;
   overflow: hidden;
-  color: #f7f3fe;
   padding-right: 50px;
   font-family: "Gotham Book";
+  color: #f7f3fe;
+}
+
+.page .main .wpservice-page .wpservice-section.queue .item-group .item .answer-tag p {
+  font-family: "Gotham Book";
+  color: #f7f3fe;
 }
 
 .page .main .wpservice-page .wpservice-section .alice-carousel {
@@ -7494,6 +7504,14 @@ body {
 
   .page .main .hosting-page .hosting-section.scale .body .item .text p {
     font-size: 16px;
+  }
+
+  .page .main .hosting-page .hosting-section.contact h5 {
+    font-size: 18px;
+  }
+
+  .page .main .hosting-page .hosting-section.queue h5 {
+    font-size: 18px;
   }
 
   .page .main .wpservice-page .wpservice-header {
