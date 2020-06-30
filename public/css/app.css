@@ -3742,7 +3742,8 @@ body {
   font-family: "Gotham Book";
 }
 
-.page .main .wpservice-page .wpservice-section p {
+.page .main .wpservice-page .wpservice-section p,
+.page .main .wpservice-page .wpservice-section span {
   color: #9da6c7;
 }
 
@@ -5790,6 +5791,11 @@ body {
   .page .main .wpservice-page .wpservice-section .custom-col-8 {
     margin: 0 !important;
     padding: 0;
+  }
+
+  .page .main .wpservice-page .wpservice-section p,
+  .page .main .wpservice-page .wpservice-section span {
+    font-size: 16px;
   }
 
   .page .main .wpservice-page .wpservice-section.starter-group {
