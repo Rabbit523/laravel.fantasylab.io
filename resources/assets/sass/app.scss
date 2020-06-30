@@ -4272,10 +4272,13 @@ body {
     background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%)!important;
     color: #fff !important;
     border: none !important;
-    padding: 10px 50px !important;
+    padding: 9px 50px !important;
     margin: 0 !important;
     top: 30px;
     font-family: "Gotham Bold";
+    &:focus {
+      outline: none;
+    }
   }
 }
 
@@ -5178,9 +5181,9 @@ body {
     }
     .btn {
       left: 23px;
-      top: 169px;
+      top: 168px;
       &.is-detail {
-        left: 31px;
+        left: 23px;
         top: 179px;
       }
       &.no {
@@ -5188,7 +5191,7 @@ body {
         top: 217px;
         &.is-detail {
           left: 19px;
-          top: 227px;
+          top: 229px;
         }
       }
     }
@@ -5323,10 +5326,10 @@ body {
       top: 149px;
       &.is-detail {
         left: 31px;
-        top: 159px;
+        top: 160px;
       }
       &.no {
-        left: 39px;
+        left: 47px;
         top: 197px;
         &.is-detail {
           left: 31px;
@@ -5410,17 +5413,12 @@ body {
   .cookieConsent {
     .btn {
       left: 50px;
-      top: 149px;
       &.is-detail {
         left: 31px;
-        top: 159px;
+        top: 160px;
       }
       &.no {
-        left: 46px;
-        &.is-detail {
-          left: 31px;
-          top: 207px;
-        }
+        left: 48px;
       }
     }
   }
@@ -5475,15 +5473,10 @@ body {
       left: 55px;
       &.is-detail {
         left: 35px;
-        top: 148px;
+        top: 149px;
       }
       &.no{
         left: 51px;
-        top: 196px;
-        &.is-detail {
-          left: 31px;
-          top: 207px;
-        }
       }
     }
   }
@@ -5506,7 +5499,6 @@ body {
       left: 68px;
       &.is-detail {
         left: 48px;
-        top: 148px;
       }
       &.no {
         left: 64px;
@@ -7057,7 +7049,7 @@ body {
       }
     }
     .btn {
-      left: 95px;
+      left: 97px;
       &.is-detail {
         left: 97px;
       }
@@ -7451,7 +7443,7 @@ body {
   }
   .cookieConsent {
     .btn {
-      left: 108px;
+      left: 107px;
       &.is-detail {
         left: 107px;
       }
@@ -7530,7 +7522,7 @@ body {
       }
     }
     .btn {
-      left: 114px;
+      left: 117px;
       &.is-detail {
         left: 117px;
       }
@@ -8151,7 +8143,7 @@ body {
       }
     }
     .btn {
-      left: 175px;
+      left: 177px;
       &.is-detail {
         left: 177px;
       }

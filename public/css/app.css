@@ -3742,8 +3742,7 @@ body {
   font-family: "Gotham Book";
 }
 
-.page .main .wpservice-page .wpservice-section p,
-.page .main .wpservice-page .wpservice-section span {
+.page .main .wpservice-page .wpservice-section p {
   color: #9da6c7;
 }
 
@@ -4993,10 +4992,14 @@ body {
   background: linear-gradient(to bottom, #7d3ef5 0%, #7126fe 100%) !important;
   color: #fff !important;
   border: none !important;
-  padding: 10px 50px !important;
+  padding: 9px 50px !important;
   margin: 0 !important;
   top: 30px;
   font-family: "Gotham Bold";
+}
+
+.cookieConsent .btn:focus {
+  outline: none;
 }
 
 @media (min-width: 320px) {
@@ -5793,13 +5796,8 @@ body {
     padding: 0;
   }
 
-  .page .main .wpservice-page .wpservice-section p,
-  .page .main .wpservice-page .wpservice-section span {
-    font-size: 16px;
-  }
-
   .page .main .wpservice-page .wpservice-section.starter-group {
-    margin-top: 50px;
+    margin-top: 150px;
   }
 
   .page .main .wpservice-page .wpservice-section.questions .item {
@@ -5969,11 +5967,11 @@ body {
 
   .cookieConsent .btn {
     left: 23px;
-    top: 169px;
+    top: 168px;
   }
 
   .cookieConsent .btn.is-detail {
-    left: 31px;
+    left: 23px;
     top: 179px;
   }
 
@@ -5984,7 +5982,7 @@ body {
 
   .cookieConsent .btn.no.is-detail {
     left: 19px;
-    top: 227px;
+    top: 229px;
   }
 }
 
@@ -6061,11 +6059,11 @@ body {
 
   .cookieConsent .btn.is-detail {
     left: 31px;
-    top: 159px;
+    top: 160px;
   }
 
   .cookieConsent .btn.no {
-    left: 39px;
+    left: 47px;
     top: 197px;
   }
 
@@ -6124,21 +6122,15 @@ body {
 
   .cookieConsent .btn {
     left: 50px;
-    top: 149px;
   }
 
   .cookieConsent .btn.is-detail {
     left: 31px;
-    top: 159px;
+    top: 160px;
   }
 
   .cookieConsent .btn.no {
-    left: 46px;
-  }
-
-  .cookieConsent .btn.no.is-detail {
-    left: 31px;
-    top: 207px;
+    left: 48px;
   }
 }
 
@@ -6166,17 +6158,11 @@ body {
 
   .cookieConsent .btn.is-detail {
     left: 35px;
-    top: 148px;
+    top: 149px;
   }
 
   .cookieConsent .btn.no {
     left: 51px;
-    top: 196px;
-  }
-
-  .cookieConsent .btn.no.is-detail {
-    left: 31px;
-    top: 207px;
   }
 }
 
@@ -6192,7 +6178,6 @@ body {
 
   .cookieConsent .btn.is-detail {
     left: 48px;
-    top: 148px;
   }
 
   .cookieConsent .btn.no {
@@ -7665,7 +7650,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 95px;
+    left: 97px;
   }
 
   .cookieConsent .btn.is-detail {
@@ -8030,7 +8015,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 108px;
+    left: 107px;
   }
 
   .cookieConsent .btn.is-detail {
@@ -8080,7 +8065,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 114px;
+    left: 117px;
   }
 
   .cookieConsent .btn.is-detail {
@@ -8699,7 +8684,7 @@ body {
   }
 
   .cookieConsent .btn {
-    left: 175px;
+    left: 177px;
   }
 
   .cookieConsent .btn.is-detail {
