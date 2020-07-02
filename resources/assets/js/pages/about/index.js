@@ -49,7 +49,6 @@ class Page extends React.Component {
         } else {
           this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.data) });
         }
-        window.scrollTo(0, 0);
       }
     ).catch(err => {
       console.error(err);

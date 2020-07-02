@@ -91,7 +91,6 @@ class Page extends React.Component {
 					contact,
 					queue
 				});
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);

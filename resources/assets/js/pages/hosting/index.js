@@ -85,7 +85,6 @@ class Page extends React.Component {
 		Http.post(`${window.location.origin}/api/front/get-page`, { name: 'hosting' }).then(
 			res => {
 				this.setState({ isLoaded: true, data: JSON.parse(res.data.data), active_manage_type: 'Monitoring', active_scale_type: 'Load Balancers' });
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);

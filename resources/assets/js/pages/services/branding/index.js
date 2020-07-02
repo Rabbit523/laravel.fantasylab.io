@@ -41,7 +41,6 @@ class Page extends React.Component {
 		Http.post(`${window.location.origin}/api/front/get-page`, { name: 'service-branding' }).then(
 			res => {
 				this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);
