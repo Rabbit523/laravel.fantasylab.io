@@ -306,7 +306,7 @@ body {
 //define navbar
 .segment.navbar {
   background: $primary-color-transparent !important;
-  z-index: +1;
+  z-index: 102;
   position: fixed;
   top: 0;
   width: 100%;
@@ -713,6 +713,7 @@ body {
     background: #070a2b !important;
     width: 190px !important;
     height: auto !important;
+    z-index: 101 !important;
     .item {
       font-size: 18px;
     }
@@ -3867,7 +3868,7 @@ body {
       }
     }
     .admin-pages {
-      min-height: 110vh;
+      min-height: 50vh;
       .list {
         .item {
           text-decoration: none;

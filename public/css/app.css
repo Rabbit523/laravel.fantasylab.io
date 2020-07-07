@@ -344,7 +344,7 @@ body {
 
 .segment.navbar {
   background: #000 !important;
-  z-index: 1;
+  z-index: 102;
   position: fixed;
   top: 0;
   width: 100%;
@@ -818,6 +818,7 @@ body {
   background: #070a2b !important;
   width: 190px !important;
   height: auto !important;
+  z-index: 101 !important;
 }
 
 .page .admin-sidebar .item {
@@ -4528,7 +4529,7 @@ body {
 }
 
 .page .main .admin-pages {
-  min-height: 110vh;
+  min-height: 50vh;
 }
 
 .page .main .admin-pages .list .item {
