@@ -21,7 +21,7 @@ class OrderMail extends Mailable
     {
         $this->name = $data['data']['name'];
         $this->email = $data['data']['email'];
-        $this->message = $data['data']['message'];
+        $this->description = $data['data']['message'];
         $this->phone = $data['data']['phone'];
         $this->company = $data['data']['company'];
         $this->agreement = $data['data']['agreement'];
