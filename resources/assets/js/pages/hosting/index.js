@@ -24,9 +24,14 @@ const customStyles = {
 		transform: 'translate(-50%, -50%)'
 	}
 };
-const options = [
-	{ key: 'plan', text: 'Enterprise Managed Hosting, kr 3 600,-excl. VAT pr.month,', no_text: 'Enterprise Managed Hosting, kr 3 600,- excl. MVA. pr. måned', value: '3600' }
-];
+const options = {
+	en: [
+		{ key: 'plan', text: 'Enterprise Managed Hosting, NOK 3 600,- excl. VAT /pr. month', value: '3600' }
+	],
+	no: [
+		{ key: 'plan', text: 'Enterprise Managed Hosting, NOK 3 600,- ekskl. MVA. /pr. måned', value: '3600' }
+	]
+};
 class Page extends React.Component {
 	constructor(props) {
 		super(props);
@@ -56,7 +61,8 @@ class Page extends React.Component {
 				message: '',
 				phone: '',
 				company: '',
-				agreement: ''
+				agreement: '',
+				type: 'hosting'
 			},
 			phone: '',
 			checked: false,
@@ -278,7 +284,7 @@ class Page extends React.Component {
 								>
 									<Button icon='close' onClick={this.closeModal} />
 									<h2>{lang=='en' ? 'Hi,' : 'Hei,'}<br />{lang=='en'?'visionary.':'visjonær.'}</h2>
-									<p>{lang=='en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
+									<p>{lang == 'en' ? 'Our team will get in touch with you shortly.' : 'Vårt team vil ta kontakt med deg snart.'}</p>
 									<div className="button-group">
 										<Button as={Link} to={lang=='en'?'/contact':'/no/kontakt'} className='primary-button'>{lang=='en'?'Contact us':'Kontakt oss'}</Button>
 										<Button className='secondary-button' onClick={this.closeModal}>{lang=='en'?'Close':'Lukk'}</Button>
@@ -522,7 +528,7 @@ class Page extends React.Component {
 												</div>
 												<div className="d-flex one">
 													<div className="form-group">
-														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={options} error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
+														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={ lang == 'en' ? options.en : options.no } error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
 														{errors.has('agreement') && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'Select the agreement options.' : 'Velg avtalealternativer.'}</Header>}
 													</div>
 												</div>

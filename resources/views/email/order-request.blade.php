@@ -1,5 +1,9 @@
 <html>
-<p>A new contact request by {{$name}}. Here are the details:<br></p>
+@if($type == 'hosting')
+<p>A new order for Managed Hosting by {{$name}}.</p>
+@else
+<p>A new order for WP Service Agreement by {{$name}}.</p>
+@endif
 <p><b>Name:</b>&nbsp;{{$name}}</p>
 <p><b>Company:</b>&nbsp;{{$company}}</p>
 <p><b>Email:</b>&nbsp;{{$email}}</p>

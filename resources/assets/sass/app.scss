@@ -8022,6 +8022,11 @@ body {
             }
             .header-description {
               padding-top: 150px;
+              .header-text {
+                p {
+                  font-size: 18px;
+                }
+              }
             }
             .figures {
               .figure {

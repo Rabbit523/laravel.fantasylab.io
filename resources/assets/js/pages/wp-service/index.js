@@ -24,10 +24,16 @@ const customStyles = {
 	}
 };
 
-const options = [
-  { key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT pr.month,', value: 'basic' },
-  { key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT pr.month,', value: 'enterprise' }
-];
+const options = {
+	en: [
+		{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT /pr.month,', value: 'basic' },
+		{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT pr.month,', value: 'enterprise' }
+	],
+	no: [
+		{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- ekskl. MVA. /pr. måned', value: 'basic' },
+		{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- ekskl. MVA. /pr. måned', value: 'enterprise' }
+	]
+};
 
 class Page extends React.Component {
 	constructor(props) {
@@ -54,7 +60,8 @@ class Page extends React.Component {
 				message: '',
 				phone: '',
 				company: '',
-				agreement: ''
+				agreement: '',
+				type: 'wp'
 			},
 			phone: '',
 			checked: false,
@@ -196,7 +203,7 @@ class Page extends React.Component {
 
 	submit(data) {
 		this.setState({ isLoaded: false, isLoading: true });
-		Http.post('/api/send-message', { data: data })
+		Http.post('/api/send-message', { data })
 		  .then(
 		    res => {
 		      this.setState({
@@ -251,7 +258,7 @@ class Page extends React.Component {
 								>
 									<Button icon='close' onClick={this.closeModal} />
 									<h2>{lang == 'en' ? 'Hi,' : 'Hei,'}<br />{lang == 'en' ? 'visionary.' : 'visjonær.'}</h2>
-									<p>{lang == 'en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
+									<p>{lang == 'en' ? 'Our team will get in touch with you shortly.' : 'Vårt team vil ta kontakt med deg snart.'}</p>
 									<div className="button-group">
 										<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{lang == 'en' ? 'Contact us' : 'Kontakt oss'}</Button>
 										<Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
@@ -421,7 +428,7 @@ class Page extends React.Component {
 												</div>
 												<div className="d-flex one">
 													<div className="form-group">
-														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={options} error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
+														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={ lang == 'en' ? options.en : options.no } error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
 														{errors.has('agreement') && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'Select the agreement options.' : 'Velg avtalealternativer.'}</Header>}
 													</div>
 												</div>

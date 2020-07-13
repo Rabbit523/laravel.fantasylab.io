@@ -8587,6 +8587,10 @@ body {
     padding-top: 150px;
   }
 
+  .page .main .wpservice-page .wpservice-header .header-gradient .header-description .header-text p {
+    font-size: 18px;
+  }
+
   .page .main .wpservice-page .wpservice-header .header-gradient .figures .figure {
     padding-left: 16px;
     padding-right: 16px;

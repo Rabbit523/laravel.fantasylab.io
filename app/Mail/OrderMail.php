@@ -11,7 +11,7 @@ class OrderMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $name, $email, $description, $phone, $company, $agreement;
+    public $name, $email, $description, $phone, $company, $agreement, $type;
     /**
      * Create a new message instance.
      *
@@ -25,6 +25,7 @@ class OrderMail extends Mailable
         $this->phone = $data['data']['phone'];
         $this->company = $data['data']['company'];
         $this->agreement = $data['data']['agreement'];
+        $this->type = $data['data']['type'];
     }
 
     /**
@@ -33,9 +34,14 @@ class OrderMail extends Mailable
      * @return $this
      */
     public function build()
-    {   
-        return $this->view('email.order-request', compact('name', 'email', 'description', 'phone', 'company', 'agreement'))
+    {   $subject = '';
+        if ($type == 'hosting') {
+            $subject = 'A new order for Managed Hosting by '.$this->name;
+        } else {
+            $subject = 'A new order for WP Service Agreement by '.$this->name;
+        }
+        return $this->view('email.order-request', compact('name', 'email', 'description', 'phone', 'company', 'agreement', 'type'))
         ->from("no-reply@fantasylab.io", "FantasyLab")
-        ->subject('A new contact request by '.$this->name);
+        ->subject($this->subject);
     }
 }
