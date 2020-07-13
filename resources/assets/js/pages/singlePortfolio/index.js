@@ -32,7 +32,6 @@ class Page extends React.Component {
 					} else {
 						this.setState({ isLoaded: true, isExisted: false });
 					}
-					window.scrollTo(0, 0);
 				}
 			).catch(err => {
 				console.error(err);

@@ -69,7 +69,6 @@ class Page extends React.Component {
           } else {
             this.setState({ isLoaded: true, isTablet: false, data: JSON.parse(res.data.data) });
           }
-          window.scrollTo(0, 0);
         }
       ).catch(err => {
         console.error(err);
@@ -255,7 +254,7 @@ class Page extends React.Component {
                       </div>
                       <div className="d-flex">
                         <div className="form-group">
-                          <Form.Input label={translate('contact.email-address')} name='email' placeholder={translate('contact.email-address')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
+                          <Form.Input label={translate('contact.email')} name='email' placeholder={translate('contact.email')} className='input-form' onChange={(val) => this.handleChange(val, 'email')} error={errors.has('email')} />
                           {errors.has('email') && <Header size='tiny' className='custom-error' color='red'>{errors.first('email') ? lang == 'en' ? 'The email is required.' : 'E-postadressen er påkrevd.' : ''}</Header>}
                         </div>
                         <div className="form-group phone field">
@@ -272,7 +271,7 @@ class Page extends React.Component {
                         </div>
                       </div>
                       <div className="d-flex">
-                        <div className="form-group">
+                        <div className="form-group no-padding">
                           <Form.Field label={translate('contact.message')} name='message' placeholder={translate('contact.write-message')} control='textarea' rows='5' error={errors.has('message')} onChange={(val) => this.handleChange(val, 'message')} />
                           {errors.has('message') && <Header size='tiny' className='custom-error' color='red'>{errors.first('message') ? lang == 'en' ? 'The message is required.' : 'Meldingen er påkrevd.' : ''}</Header>}
                         </div>

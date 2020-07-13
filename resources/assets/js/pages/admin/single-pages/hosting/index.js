@@ -1,7 +1,14 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, Card, Form, Icon, TextArea } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css';
+import 'react-summernote/lang/summernote-nb-NO';
 import Http from '../../../../Http'
 
 class Page extends React.Component {
@@ -18,25 +25,27 @@ class Page extends React.Component {
 			manage: {},
 			scale: {},
 			features: {},
-			servers: {},
-			news: [],
+			contact: {},
+			queue: {},
 			plan_activeKey: [],
 			deploy_activeKey: [],
+			deploy_sub_activeKey: [],
 			manage_activeKey: [],
 			scale_activeKey: [],
 			feature_activeKey: [],
-			server_activeKey: [],
-			news_activeKey: [],
+			queue_activeKey: [],
 			accordion: false,
 		};
 		this.onImageUpload = this.onImageUpload.bind(this);
+		this.onDescriptionChange = this.onDescriptionChange.bind(this);
+		this.onNbDescriptionChange = this.onNbDescriptionChange.bind(this);
 		this.onPlanCollapseChange = this.onPlanCollapseChange.bind(this);
 		this.onDeployCollapseChange = this.onDeployCollapseChange.bind(this);
+		this.onDeploySubCollapseChange = this.onDeploySubCollapseChange.bind(this);
 		this.onManageCollapseChange = this.onManageCollapseChange.bind(this);
 		this.onScaleCollapseChange = this.onScaleCollapseChange.bind(this);
 		this.onFeatureCollapseChange = this.onFeatureCollapseChange.bind(this);
-		this.onServerCollapseChange = this.onServerCollapseChange.bind(this);
-		this.onNewsCollapseChange = this.onNewsCollapseChange.bind(this);
+		this.onQueueCollapseChange = this.onQueueCollapseChange.bind(this);
 	}
 
 	componentDidMount() {
@@ -45,7 +54,7 @@ class Page extends React.Component {
 		}
 		Http.post(`${window.location.origin}/api/front/get-page`, { name: 'hosting' }).then(
 			res => {
-				var icons = [], plans = {}, deploys = {}, manage = {}, scale = {}, features = {}, servers = {}, news = [];
+				var icons = [], plans = {}, deploys = {}, manage = {}, scale = {}, features = {}, contact = {}, queue = {};
 				var data = JSON.parse(res.data.data);
 				Object.keys(data).map((key, index) => {
 					if (key == 'icons') {
@@ -64,10 +73,10 @@ class Page extends React.Component {
 						scale = data[key];
 					} else if (key == 'features') {
 						features = data[key];
-					} else if (key == 'servers') {
-						servers = data[key];
-					} else if (key == 'news') {
-						news = data[key];
+					} else if (key == 'contact') {
+						contact = data[key];
+					} else if (key == 'queue') {
+						queue = data[key];
 					}
 				});
 				this.setState({
@@ -79,18 +88,28 @@ class Page extends React.Component {
 					deploys,
 					scale,
 					features,
-					servers,
-					news
+					contact,
+					queue
 				});
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);
 		});
 	}
+	// Header description change event
+	onDescriptionChange(content) {
+		const { data } = this.state;
+		data.description = content;
+		this.setState({ data });
+	}
+	onNbDescriptionChange(content) {
+		const { data } = this.state;
+		data.no_description = content;
+		this.setState({ data });
+	}
 	// Event for input fields change
 	onHandleChange(event, type) {
-		const { data, icons, plans, deploys, manage, scale, features, servers, news } = this.state;
+		const { data, icons, plans, deploys, manage, scale, features, contact, queue } = this.state;
 
 		switch (type) {
 			case 'meta_title':
@@ -101,9 +120,6 @@ class Page extends React.Component {
 				return this.setState({ data });
 			case 'header_title':
 				data.title = event.target.value;
-				return this.setState({ data });
-			case 'header_description':
-				data.description = event.target.value;
 				return this.setState({ data });
 			case 'plan_main_title':
 				plans.title = event.target.value;
@@ -126,9 +142,6 @@ class Page extends React.Component {
 			case 'feature_main_description':
 				features.description = event.target.value;
 				return this.setState({ features });
-			case 'server_main_title':
-				servers.title = event.target.value;
-				return this.setState({ servers });
 			case 'no_meta_title':
 				data.no_meta_title = event.target.value;
 				return this.setState({ data });
@@ -137,9 +150,6 @@ class Page extends React.Component {
 				return this.setState({ data });
 			case 'no_header_title':
 				data.no_title = event.target.value;
-				return this.setState({ data });
-			case 'no_header_description':
-				data.no_description = event.target.value;
 				return this.setState({ data });
 			case 'no_plan_main_title':
 				plans.no_title = event.target.value;
@@ -162,9 +172,18 @@ class Page extends React.Component {
 			case 'no_feature_main_description':
 				features.no_description = event.target.value;
 				return this.setState({ features });
-			case 'no_server_main_title':
-				servers.no_title = event.target.value;
-				return this.setState({ servers });
+			case 'contact_title':
+				contact.title = event.target.value;
+				return this.setState({ contact });
+			case 'contact_no_title':
+				contact.no_title = event.target.value;
+				return this.setState({ contact });
+			case 'contact_des':
+				contact.des = event.target.value;
+				return this.setState({ contact });
+			case 'contact_no_des':
+				contact.no_des = event.target.value;
+				return this.setState({ contact });
 		}
 
 		if (type.includes('icon')) {
@@ -210,7 +229,7 @@ class Page extends React.Component {
 				}
 			}
 		}
-
+		
 		if (type.includes('deploy')) {
 			Object.keys(deploys).map((key, index) => {
 				if (type.includes('main')) {
@@ -228,7 +247,15 @@ class Page extends React.Component {
 				} else {
 					var temp = type.split("_")[0];
 					if (index == temp.split("deploy")[1]) {
-						deploys[key].items[type.split("_")[2]].title = event.target.value;
+						if (type.includes('no')) {
+							var sub_index = type.split("_")[3];
+							var key_val = "no_" + type.split("_")[2];
+							deploys[key].items[sub_index][key_val] = event.target.value;
+						} else {
+							var sub_index = type.split("_")[2];
+							var key_val = type.split("_")[1];
+							deploys[key].items[sub_index][key_val] = event.target.value;
+						}
 						this.setState({ deploys });
 					}
 				}
@@ -297,54 +324,33 @@ class Page extends React.Component {
 			}
 		}
 
-		if (type.includes('server') && !type.includes('main')) {
+		if (type.includes('queue')) {
+			const arr = type.split("_");
 			if (type.includes('no')) {
-				if (!type.includes('option')) {
-					var index = type.split('_')[3];
-					var key = "no_" + type.split('_')[2];
-					servers.data[index][key] = event.target.value;
-					this.setState({ servers });
+				if (type.includes('item')) {
+					var index = arr[1].split('item')[1];
+					var key = arr[2] + "_" + arr[3];
+					queue.list[index][key] = event.target.value;
 				} else {
-					var temp = type.split('_')[1];
-					var index = temp.split('server')[1];
-					var sub_index = type.split('_')[4];
-					var key = "no_" + type.split('_')[3];
-					servers.data[index]['options'][sub_index][key] = event.target.value;
-					this.setState({ servers });
+					var key = arr[1] + "_" + arr[2];
+					queue[key] = event.target.value;
 				}
 			} else {
-				if (!type.includes('option')) {
-					var index = type.split('_')[2];
-					var key = type.split('_')[1];
-					servers.data[index][key] = event.target.value;
-					this.setState({ servers });
+				if (type.includes('item')) {
+					var index = arr[1].split('item')[1];
+					var key = arr[2];
+					queue.list[index][key] = event.target.value;
 				} else {
-					var temp = type.split('_')[0];
-					var index = temp.split('server')[1];
-					var sub_index = type.split('_')[3];
-					var key = type.split('_')[2];
-					servers.data[index]['options'][sub_index][key] = event.target.value;
-					this.setState({ servers });
+					var key = arr[1];
+					queue[key] = event.target.value;
 				}
 			}
-		}
-
-		if (type.includes('news')) {
-			if (type.includes('no')) {
-				var index = type.split("_")[3];
-				var key = "no_" + type.split("_")[2];
-				news[index][key] = event.target.value;
-			} else {
-				var index = type.split("_")[2];
-				var key = type.split("_")[1];
-				news[index][key] = event.target.value;
-			}
-			this.setState({ news });
+			this.setState({ queue });
 		}
 	}
 	// Event for image upload
 	onImageUpload(type, e) {
-		const { data, icons, plans, deploys, manage, scale, servers, news } = this.state;
+		const { data, icons, plans, deploys, manage, scale } = this.state;
 		const ref = this;
 
 		// Upload header background image
@@ -444,40 +450,6 @@ class Page extends React.Component {
 				reader.readAsDataURL(Scalefiles[index].files[0]);
 			}
 		});
-		// Upload server image
-		var Serverfiles = document.getElementsByClassName('server-file');
-		Object.keys(Serverfiles).map((key, index) => {
-			if (Serverfiles[index].files && Serverfiles[index].files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					if (type.includes('server_avatar')) {
-						var index = type.split('_')[2];
-						servers.data[index].url = e.target.result;
-						ref.setState({ servers });
-					} else {
-						console.log("it's not server file");
-					}
-				}
-				reader.readAsDataURL(Serverfiles[index].files[0]);
-			}
-		});
-		// Upload news image
-		var Newsfiles = document.getElementsByClassName('news_avatar');
-		Object.keys(Newsfiles).map((key, index) => {
-			if (Newsfiles[index].files && Newsfiles[index].files[0]) {
-				var reader = new FileReader();
-				reader.onload = function (e) {
-					if (type.includes('news_avatar')) {
-						var index = type.split('_')[2];
-						news[index].url = e.target.result;
-						ref.setState({ news });
-					} else {
-						console.log("it's not news file");
-					}
-				}
-				reader.readAsDataURL(Newsfiles[index].files[0]);
-			}
-		});
 	}
 	// Collapse Event for plan items
 	onPlanCollapseChange(plan_activeKey) {
@@ -523,6 +495,23 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
+	// Plan item event
+	onAddPlanItem(e, i) {
+		var { plans } = this.state;
+		var new_item = {
+			title: 'New Option',
+			no_title: 'Nytt alternativ',
+			info: '',
+			no_info: ''
+		};
+		plans.data[i].options.push(new_item);
+		this.setState({ plans });
+	}
+	onDeletePlanItem(e, i, index) {
+		var { plans } = this.state;
+		plans.data[i].options.splice(index, 1);
+		this.setState({ plans });
+	}
 	// Update plans
 	onUpdatePlan(e, index) {
 		var { data, plans } = this.state;
@@ -546,6 +535,10 @@ class Page extends React.Component {
 	// Collapse Event for deploy items
 	onDeployCollapseChange(deploy_activeKey) {
 		this.setState({ deploy_activeKey });
+	}
+	// Collapse Event for deploy sub items
+	onDeploySubCollapseChange(deploy_sub_activeKey) {
+		this.setState({ deploy_sub_activeKey });
 	}
 	// Update deploys
 	onUpdateDeploy(e, index) {
@@ -706,64 +699,69 @@ class Page extends React.Component {
 			console.error(err);
 		});
 	}
-	// Collapse Event for server items
-	onServerCollapseChange(server_activeKey) {
-		this.setState({ server_activeKey });
-	}
-	// Update servers
-	onUpdateServerHeader() {
-		var { data, servers } = this.state;
+
+	// Update Contact Section
+	updateContact() {
+		var { data, contact } = this.state;
 		const ref = this;
 		Object.keys(data).map((key, index) => {
-			if (key == 'servers') {
-				data[key] = servers;
+			if (key == 'contact') {
+				data[key] = contact;
 				ref.setState({ data });
 			}
 		});
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(data), type: 'server_header' })
-		.then(
-			res => {
-				this.setState({ isLoaded: true });
-			}
-		).catch(err => {
-			console.error(err);
-		});
+		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(contact), type: 'contact' })
+			.then(
+				res => {
+					this.setState({ isLoaded: true });
+				}
+			).catch(err => {
+				console.error(err);
+			});
 	}
-	// Update servers
-	onUpdateServer(e, type) {
-		var { data, servers } = this.state;
+	onQueueCollapseChange(queue_activeKey) {
+		this.setState({ queue_activeKey });
+	}
+	// Update Queue Section
+	addQueue() {
+		var { queue } = this.state;
+		const index = queue.list.length - 1;
+		const new_item = {
+			id: queue.list[index].id + 1,
+			ques: "New question",
+			no_ques: "Nytt spørsmål",
+			answ: "",
+			no_answ: ""
+		};
+		queue.list.push(new_item);
+		this.setState({ queue });
+	}
+	deleteQueueItem(e, key) {
+		var { queue } = this.state;
+		queue.list.splice(key, 1);
+		this.setState({ queue });
+	}
+	onAnswerChange(content, index, type) {
+		const { queue } = this.state;
+		if (type.includes('no')) {
+			queue.list[index]['no_answ'] = content;
+		} else {
+			queue.list[index]['answ'] = content;
+		}
+		this.setState({ queue });
+	}
+	updateQueue() {
+		var { data, queue } = this.state;
 		const ref = this;
 		Object.keys(data).map((key, index) => {
-			if (key == 'servers') {
-				data[key] = servers;
+			if (key == 'queue') {
+				data[key] = queue;
 				ref.setState({ data });
 			}
 		});
 		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(data), type: 'server_item', index: type })
-		.then(
-			res => {
-				this.setState({ isLoaded: true });
-			}
-		).catch(err => {
-			console.error(err);
-		});
-	}
-	// Collapse Event for news items
-	onNewsCollapseChange(news_activeKey) {
-		this.setState({ news_activeKey });
-	}
-	// Update blog section
-	onUpdateNews(e, type) {
-		var { news, data } = this.state;
-		Object.keys(data).map((key, index) => {
-			if (key == 'news') {
-				data[key] = news;
-			}
-		});
-		this.setState({ isLoaded: false });
-		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(news), type: 'news', service_type: type })
+		Http.post('/api/admin/update-page', { name: 'hosting', data: JSON.stringify(queue), type: 'queue' })
 			.then(
 				res => {
 					this.setState({ isLoaded: true });
@@ -774,7 +772,7 @@ class Page extends React.Component {
 	}
 	render() {
 		const lang = this.props.activeLanguage ? this.props.activeLanguage.code : 'en';
-		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, servers, server_activeKey, news, news_activeKey } = this.state;
+		const { isLoaded, accordion, data, icons, plans, plan_activeKey, deploys, deploy_activeKey, deploy_sub_activeKey, manage, manage_activeKey, scale, scale_activeKey, features, feature_activeKey, contact, queue, queue_activeKey } = this.state;
 		const ref = this;
 		return (
 			<Translate>
@@ -797,10 +795,35 @@ class Page extends React.Component {
 															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={data.title} onChange={(val) => this.onHandleChange(val, 'header_title')} />
 															<Form>
 																<label>{translate('card.description')}</label>
-																<TextArea
-																	placeholder={translate('card.description-place')}
+																<ReactSummernote
 																	value={data.description}
-																	onChange={(val) => this.onHandleChange(val, 'header_description')}
+																	options={{
+																		lang: 'en-EN',
+																		height: 350,
+																		dialogsInBody: true,
+																		insertTableMaxSize: {
+																			col: 20,
+																			row: 20
+																		},
+																		table: [
+																			['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																			['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																		],
+																		link: [
+																			['link', ['linkDialogShow', 'unlink']]
+																		],
+																		toolbar: [
+																			['style', ['style']],
+																			['font', ['bold', 'underline', 'clear']],
+																			['fontname', ['fontname']],
+																			['color', ['color']],
+																			['para', ['ul', 'ol', 'paragraph']],
+																			['table', ['table']],
+																			['insert', ['link', 'picture', 'video']],
+																			['view', ['fullscreen', 'codeview']]
+																		]
+																	}}
+																	onChange={this.onDescriptionChange}
 																/>
 															</Form>
 															<Form>
@@ -834,7 +857,7 @@ class Page extends React.Component {
 															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																<label className='ui floated button save-btn' onClick={this.onUpdatePlanHeader.bind(this)}> {translate('card.save')} </label>
 															</div>
-															<Collapse accordion={accordion} onChange={this.onPlanCollapseChange} activeKey={plan_activeKey}>
+															<Collapse accordion={accordion} onChange={this.onPlanCollapseChange} activeKey={plan_activeKey} >
 																{plans.data.map((item, i) => (
 																	<Panel header={item.title} key={i}>
 																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'plan_title_' + i)} />
@@ -852,10 +875,12 @@ class Page extends React.Component {
 																				<div className="flex-form" key={index}>
 																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.title} onChange={(val) => ref.onHandleChange(val, 'plan' + i + '_option_title_' + index)} />
 																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.info} onChange={(val) => ref.onHandleChange(val, 'plan' + i + '_option_info_' + index)} />
+																					<label className='ui floated button trash-btn' onClick={(e) => ref.onDeletePlanItem(e, i, index)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
 																				</div>
 																			))
 																		}
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																			<label className='ui floated button save-btn' onClick={(e) => ref.onAddPlanItem(e, i)}> {translate('card.add')} </label>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePlan(e, i)}> {translate('card.save')} </label>
 																		</div>
 																	</Panel>
@@ -875,19 +900,20 @@ class Page extends React.Component {
 															<Collapse accordion={accordion} onChange={this.onDeployCollapseChange} activeKey={deploy_activeKey}>
 																{Object.keys(deploys).map((key, i) => (
 																	<Panel header={deploys[key].title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={deploys[key].title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={deploys[key].description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_description_' + i)} />
-																		{
-																			deploys[key].items.map((item, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
-																					<Form.Field className="flex-item">
-																						<label>{translate('card.image')}</label>
-																						<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
-																					</Form.Field>
-																				</div>
-																			))
-																		}
+																		<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={deploys[key].title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_title_' + i)} />
+																		<Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={deploys[key].description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_description_' + i)} />
+																		<Collapse accordion={accordion} onChange={this.onDeploySubCollapseChange} activeKey={deploy_sub_activeKey}>
+																		{ deploys[key].items.map((item, index) => (																				
+																			<Panel header={item.title} key={index}>
+																				<Form.Field className="flex-item">
+																					<label>{translate('card.image')}</label>
+																					<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
+																				</Form.Field>
+																				<Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
+																				{i == 2 && <Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_description_' + index)} />}
+																			</Panel>
+																		))}
+																		</Collapse>
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateDeploy(e, i)}> {translate('card.save')} </label>
 																		</div>
@@ -1004,72 +1030,87 @@ class Page extends React.Component {
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.server-section')}</Card.Header>
+														<Card.Header>{translate('card.contact-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={servers.title} onChange={(val) => ref.onHandleChange(val, 'server_main_title')} />
-															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																<label className='ui floated button save-btn' onClick={ref.onUpdateServerHeader.bind(this)}> {translate('card.save')} </label>
-															</div>
-															<Collapse accordion={accordion} onChange={this.onServerCollapseChange} activeKey={server_activeKey}>
-																{servers.data.map((item, i) => (
-																	<Panel header={item.title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'server_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'server_description_' + i)} />
-																		<Form.Input fluid label={translate('card.cost')} name='cost' placeholder={translate('card.cost')} className='input-form' value={item.cost} onChange={(val) => ref.onHandleChange(val, 'server_cost_' + i)} />
-																		<Form.Input fluid label={translate('card.color')} name='color' placeholder={translate('card.color')} className='input-form' value={item.color} onChange={(val) => ref.onHandleChange(val, 'server_color_' + i)} />
-																		<Form>
-																			<label>{translate('card.avatar-img')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' className='server-file' onChange={(e) => ref.onImageUpload('server_avatar_' + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		{
-																			item.options.map((option, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.title} onChange={(val) => ref.onHandleChange(val, 'server' + i + '_option_title_' + index)} />
-																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.info} onChange={(val) => ref.onHandleChange(val, 'server' + i + '_option_info_' + index)} />
-																				</div>
-																			))
-																		}
-																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServer(e, i)}> {translate('card.save')} </label>
-																		</div>
-																	</Panel>
-																))}
-															</Collapse>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={contact.title} onChange={(val) => this.onHandleChange(val, 'contact_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={contact.des}
+																	onChange={(val) => this.onHandleChange(val, 'contact_des')}
+																/>
+															</Form>
+															<label className="ui floated button save-btn" onClick={this.updateContact.bind(this)}> {translate('card.save')} </label>
 														</Card.Description>
 													</Card.Content>
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.news-section')}</Card.Header>
+														<Card.Header>{translate('card.queue-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
-																{news.map((item, i) => (
-																	<Panel header={item.title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'news_title_' + i)} />
-																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.onHandleChange(val, 'news_author_' + i)} />
-																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.type} onChange={(val) => ref.onHandleChange(val, 'news_type_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.description} onChange={(val) => ref.onHandleChange(val, 'news_description_' + i)} />
-																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.onHandleChange(val, 'news_read_' + i)} />
-																		<Form>
-																			<label>{translate('card.image-upload')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' id='input-file' className='news_avatar' onChange={(e) => ref.onImageUpload("news_avatar_" + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={queue.title} onChange={(val) => this.onHandleChange(val, 'queue_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={queue.des}
+																	onChange={(val) => this.onHandleChange(val, 'queue_des')}
+																/>
+															</Form>
+															<label>{translate('card.items')}</label>
+															<Collapse accordion={accordion} onChange={this.onQueueCollapseChange} activeKey={queue_activeKey}>
+																{queue.list.map((item, index) => (
+																	<Panel header={item.ques} key={index}>
+																		<div className="admin-form-group">
+																			<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_ques`)} />
+																			<ReactSummernote
+																				value={item.answ}
+																				options={{
+																					lang: 'en-EN',
+																					height: 350,
+																					dialogsInBody: true,
+																					insertTableMaxSize: {
+																						col: 20,
+																						row: 20
+																					},
+																					table: [
+																						['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																						['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																					],
+																					link: [
+																						['link', ['linkDialogShow', 'unlink']]
+																					],
+																					toolbar: [
+																						['style', ['style']],
+																						['font', ['bold', 'underline', 'clear']],
+																						['fontname', ['fontname']],
+																						['color', ['color']],
+																						['para', ['ul', 'ol', 'paragraph']],
+																						['table', ['table']],
+																						['insert', ['link', 'picture', 'video']],
+																						['view', ['fullscreen', 'codeview']]
+																					]
+																				}}
+																				onChange={(val) => this.onAnswerChange(val, index, 'en')}
+																			/>
+																			<label className="ui floated button save-btn" onClick={(e) => ref.deleteQueueItem(e, index)}> {translate('card.delete')} </label>
+																		</div>
 																	</Panel>
 																))}
 															</Collapse>
+															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																<label className="ui floated button save-btn" onClick={this.addQueue.bind(this)}> {translate('card.add')} </label>
+																<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+															</div>
 														</Card.Description>
 													</Card.Content>
 												</Card>
@@ -1088,10 +1129,35 @@ class Page extends React.Component {
 															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={data.no_title} onChange={(val) => this.onHandleChange(val, 'no_header_title')} />
 															<Form>
 																<label>{translate('card.description')}</label>
-																<TextArea
-																	placeholder={translate('card.description-place')}
+																<ReactSummernote
 																	value={data.no_description}
-																	onChange={(val) => this.onHandleChange(val, 'no_header_description')}
+																	options={{
+																		lang: 'nb-NO',
+																		height: 350,
+																		dialogsInBody: true,
+																		insertTableMaxSize: {
+																			col: 20,
+																			row: 20
+																		},
+																		table: [
+																			['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																			['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																		],
+																		link: [
+																			['link', ['linkDialogShow', 'unlink']]
+																		],
+																		toolbar: [
+																			['style', ['style']],
+																			['font', ['bold', 'underline', 'clear']],
+																			['fontname', ['fontname']],
+																			['color', ['color']],
+																			['para', ['ul', 'ol', 'paragraph']],
+																			['table', ['table']],
+																			['insert', ['link', 'picture', 'video']],
+																			['view', ['fullscreen', 'codeview']]
+																		]
+																	}}
+																	onChange={this.onNbDescriptionChange}
 																/>
 															</Form>
 															<Form>
@@ -1143,10 +1209,12 @@ class Page extends React.Component {
 																				<div className="flex-form" key={index}>
 																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.no_title} onChange={(val) => ref.onHandleChange(val, 'no_plan' + i + '_option_title_' + index)} />
 																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.no_info} onChange={(val) => ref.onHandleChange(val, 'no_plan' + i + '_option_info_' + index)} />
+																					<label className='ui floated button trash-btn' onClick={(e) => ref.onDeletePlanItem(e, i, index)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
 																				</div>
 																			))
 																		}
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																			<label className='ui floated button save-btn' onClick={(e) => ref.onAddPlanItem(e, i)}> {translate('card.add')} </label>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdatePlan(e, i)}> {translate('card.save')} </label>
 																		</div>
 																	</Panel>
@@ -1168,17 +1236,19 @@ class Page extends React.Component {
 																	<Panel header={deploys[key].no_title} key={i}>
 																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={deploys[key].no_title} onChange={(val) => ref.onHandleChange(val, 'deploy_main_no_title_' + i)} />
 																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={deploys[key].no_description} onChange={(val) => ref.onHandleChange(val, 'deploy_main_no_description_' + i)} />
-																		{
-																			deploys[key].items.map((item, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />
-																					<Form.Field className="flex-item">
-																						<label>{translate('card.image')}</label>
-																						<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
-																					</Form.Field>
-																				</div>
-																			))
-																		}
+																		<Collapse accordion={accordion} onChange={this.onDeploySubCollapseChange} activeKey={deploy_sub_activeKey}>
+																		{ deploys[key].items.map((item, index) => (
+																			<Panel header={i == 2 ? item.no_title : item.title} key={index}>
+																				<Form.Field className="flex-item">
+																					<label>{translate('card.image')}</label>
+																					<input accept='image/*' type='file' className='deploy-file' onChange={(e) => ref.onImageUpload('deploy' + i + '_' + index, e)} />
+																				</Form.Field>
+																				{i != 2 && <Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_title_' + index)} />}
+																				{i == 2 && <Form.Input fluid label={translate('card.title')} placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_no_title_' + index)} />}
+																				{i == 2 && <Form.Input fluid label={translate('card.description')} placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'deploy' + i + '_no_description_' + index)} />}
+																			</Panel>
+																		))}
+																		</Collapse>
 																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
 																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateDeploy(e, i)}> {translate('card.save')} </label>
 																		</div>
@@ -1295,72 +1365,87 @@ class Page extends React.Component {
 												</Card>
 											</Grid.Column>
 											<Grid.Column computer={8}>
-												<Card className='header-section'>
+										<Card>
+											<Card.Content>
+												<Card.Header>{translate('card.contact-section')}</Card.Header>
+											</Card.Content>
+											<Card.Content>
+												<Card.Description>
+													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={contact.no_title} onChange={(val) => this.onHandleChange(val, 'contact_no_title')} />
+													<Form>
+														<label>{translate('card.description')}</label>
+														<TextArea
+															placeholder={translate('card.description-place')}
+															value={contact.no_des}
+															onChange={(val) => this.onHandleChange(val, 'contact_no_des')}
+														/>
+													</Form>
+													<label className="ui floated button save-btn" onClick={this.updateContact.bind(this)}> {translate('card.save')} </label>
+												</Card.Description>
+											</Card.Content>
+										</Card>
+									</Grid.Column>
+											<Grid.Column computer={8}>
+												<Card>
 													<Card.Content>
-														<Card.Header>{translate('card.server-section')}</Card.Header>
+														<Card.Header>{translate('card.queue-section')}</Card.Header>
 													</Card.Content>
 													<Card.Content>
 														<Card.Description>
-															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={servers.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server_main_title')} />
-															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																<label className='ui floated button save-btn' onClick={this.onUpdateServerHeader.bind(this)}> {translate('card.save')} </label>
-															</div>
-															<Collapse accordion={accordion} onChange={this.onServerCollapseChange} activeKey={server_activeKey}>
-																{servers.data.map((item, i) => (
-																	<Panel header={item.no_title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server_title_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'no_server_description_' + i)} />
-																		<Form.Input fluid label={translate('card.cost')} name='cost' placeholder={translate('card.cost')} className='input-form' value={item.cost} onChange={(val) => ref.onHandleChange(val, 'server_cost_' + i)} />
-																		<Form.Input fluid label={translate('card.color')} name='color' placeholder={translate('card.color')} className='input-form' value={item.color} onChange={(val) => ref.onHandleChange(val, 'server_color_' + i)} />
-																		<Form>
-																			<label>{translate('card.avatar-img')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' className='server-file' onChange={(e) => ref.onImageUpload('server_avatar_' + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		{
-																			item.options.map((option, index) => (
-																				<div className="flex-form" key={index}>
-																					<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={option.no_title} onChange={(val) => ref.onHandleChange(val, 'no_server' + i + '_option_title_' + index)} />
-																					<Form.Input fluid label={translate('card.info')} name='info' placeholder={translate('card.info')} className='input-form' value={option.no_info} onChange={(val) => ref.onHandleChange(val, 'no_server' + i + '_option_info_' + index)} />
-																				</div>
-																			))
-																		}
-																		<div style={{ display: 'flex', justifyContent: 'space-between' }}>
-																			<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateServer(e, i)}> {translate('card.save')} </label>
+															<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={queue.no_title} onChange={(val) => this.onHandleChange(val, 'queue_no_title')} />
+															<Form>
+																<label>{translate('card.description')}</label>
+																<TextArea
+																	placeholder={translate('card.description-place')}
+																	value={queue.no_des}
+																	onChange={(val) => this.onHandleChange(val, 'queue_no_des')}
+																/>
+															</Form>
+															<label>{translate('card.items')}</label>
+															<Collapse accordion={accordion} onChange={this.onQueueCollapseChange} activeKey={queue_activeKey}>
+																{queue.list.map((item, index) => (
+																	<Panel header={item.no_ques} key={index}>
+																		<div className="admin-form-group">
+																			<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.no_ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_no_ques`)} />
+																			<ReactSummernote
+																				value={item.no_answ}
+																				options={{
+																					lang: 'nb-NO',
+																					height: 350,
+																					dialogsInBody: true,
+																					insertTableMaxSize: {
+																						col: 20,
+																						row: 20
+																					},
+																					table: [
+																						['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																						['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																					],
+																					link: [
+																						['link', ['linkDialogShow', 'unlink']]
+																					],
+																					toolbar: [
+																						['style', ['style']],
+																						['font', ['bold', 'underline', 'clear']],
+																						['fontname', ['fontname']],
+																						['color', ['color']],
+																						['para', ['ul', 'ol', 'paragraph']],
+																						['table', ['table']],
+																						['insert', ['link', 'picture', 'video']],
+																						['view', ['fullscreen', 'codeview']]
+																					]
+																				}}
+																				onChange={(val) => this.onAnswerChange(val, index, 'no')}
+																			/>
+																			<label className="ui floated button save-btn" onClick={(e) => ref.deleteQueueItem(e, index)}> {translate('card.delete')} </label>
 																		</div>
 																	</Panel>
 																))}
 															</Collapse>
-														</Card.Description>
-													</Card.Content>
-												</Card>
-											</Grid.Column>
-											<Grid.Column computer={8}>
-												<Card className='header-section'>
-													<Card.Content>
-														<Card.Header>{translate('card.news-section')}</Card.Header>
-													</Card.Content>
-													<Card.Content>
-														<Card.Description>
-															<Collapse accordion={accordion} onChange={this.onNewsCollapseChange} activeKey={news_activeKey}>
-																{news.map((item, i) => (
-																	<Panel header={item.no_title} key={i}>
-																		<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className='input-form' value={item.no_title} onChange={(val) => ref.onHandleChange(val, 'no_news_title_' + i)} />
-																		<Form.Input fluid label={translate('card.author')} name='author' placeholder={translate('card.author')} className='input-form' value={item.author} onChange={(val) => ref.onHandleChange(val, 'news_author_' + i)} />
-																		<Form.Input fluid label='Type' name='type' placeholder='type' className='input-form' value={item.no_type} onChange={(val) => ref.onHandleChange(val, 'no_news_type_' + i)} />
-																		<Form.Input fluid label={translate('card.description')} name='description' placeholder={translate('card.description')} className='input-form' value={item.no_description} onChange={(val) => ref.onHandleChange(val, 'no_news_description_' + i)} />
-																		<Form.Input fluid label={translate('card.read')} name='read' placeholder={translate('card.read')} className='input-form' value={item.read} onChange={(val) => ref.onHandleChange(val, 'news_read_' + i)} />
-																		<Form>
-																			<label>{translate('card.image-upload')}</label>
-																			<Form.Field>
-																				<input accept='image/*' type='file' id='input-file' className='news-file' onChange={(e) => ref.onImageUpload("news_avatar_" + i, e)} />
-																			</Form.Field>
-																		</Form>
-																		<label className='ui floated button save-btn' onClick={(e) => ref.onUpdateNews(e, i)}> {translate('card.save')} </label>
-																	</Panel>
-																))}
-															</Collapse>
+															<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+																<label className="ui floated button save-btn" onClick={this.addQueue.bind(this)}> {translate('card.add')} </label>
+																<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+															</div>
 														</Card.Description>
 													</Card.Content>
 												</Card>

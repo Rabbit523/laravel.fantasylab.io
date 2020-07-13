@@ -1,7 +1,14 @@
 import React from 'react'
 import { Translate, withLocalize } from "react-localize-redux"
-import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea } from 'semantic-ui-react'
+import { Grid, Dimmer, Segment, Loader, Card, Form, TextArea, Icon } from 'semantic-ui-react'
 import Collapse, { Panel } from 'rc-collapse'
+import 'bootstrap/js/modal';
+import 'bootstrap/js/dropdown';
+import 'bootstrap/js/tooltip';
+import 'bootstrap/dist/css/bootstrap.css';
+import ReactSummernote from 'react-summernote';
+import 'react-summernote/dist/react-summernote.css';
+import 'react-summernote/lang/summernote-nb-NO';
 import Http from '../../../../Http'
 
 class Page extends React.Component {
@@ -32,6 +39,8 @@ class Page extends React.Component {
 			accordion1: false,
 			accordion2: false,
 		};
+		this.onDescriptionChange = this.onDescriptionChange.bind(this);
+		this.onNbDescriptionChange = this.onNbDescriptionChange.bind(this);
 		this.onImageUpload = this.onImageUpload.bind(this);
 		this.onHeaderItemCollapseChange = this.onHeaderItemCollapseChange.bind(this);
 		this.onHeaderListCollapseChange = this.onHeaderListCollapseChange.bind(this);
@@ -81,11 +90,21 @@ class Page extends React.Component {
 					contact,
 					queue
 				});
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);
 		});
+	}
+	// Header description change event
+	onDescriptionChange(content) {
+		const { header } = this.state;
+		header.description = content;
+		this.setState({ header });
+	}
+	onNbDescriptionChange(content) {
+		const { header } = this.state;
+		header.no_description = content;
+		this.setState({ header });
 	}
 	// Collapse Event for header items
 	onHeaderItemCollapseChange(headerItem_activeKey) {
@@ -445,6 +464,21 @@ class Page extends React.Component {
 				console.error(err);
 			});
 	}
+	// Plan item in header list event
+	onAddListPlanItem(e, index, key) {
+		var { header } = this.state;
+		var new_item = {
+			title: 'New Option',
+			no_title: 'Nytt alternativ'
+		};
+		header.list.items[index].options[key].items.push(new_item);
+		this.setState({ header });
+	}
+	onDeleteListPlanItem(e, index, key, i) {
+		var { header } = this.state;
+		header.list.items[index].options[key].items.splice(i, 1);
+		this.setState({ header });
+	}
 	// Update Alert Section
 	updateAlert() {
 		var { data, alert } = this.state;
@@ -546,6 +580,33 @@ class Page extends React.Component {
 			});
 	}
 	// Update Queue Section
+	addQueue() {
+		var { queue } = this.state;
+		const index = queue.list.length - 1;
+		const new_item = {
+			id: queue.list[index].id + 1,
+			ques: "New question",
+			no_ques: "Nytt spørsmål",
+			answ: "",
+			no_answ: ""
+		};
+		queue.list.push(new_item);
+		this.setState({ queue });
+	}
+	deleteQueueItem(e, key) {
+		var { queue } = this.state;
+		queue.list.splice(key, 1);
+		this.setState({ queue });
+	}
+	onAnswerChange(content, index, type) {
+		const { queue } = this.state;
+		if (type.includes('no')) {
+			queue.list[index]['no_answ'] = content;
+		} else {
+			queue.list[index]['answ'] = content;
+		}
+		this.setState({ queue });
+	}
 	updateQueue() {
 		var { data, queue } = this.state;
 		const ref = this;
@@ -588,10 +649,35 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={header.title} onChange={(val) => this.onHandleChange(val, 'header_title')} />
 													<Form>
 														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
+														<ReactSummernote
 															value={header.description}
-															onChange={(val) => this.onHandleChange(val, 'header_description')}
+															options={{
+																lang: 'en-EN',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={this.onDescriptionChange}
 														/>
 													</Form>
 													<Form>
@@ -640,10 +726,14 @@ class Page extends React.Component {
 																			<Collapse accordion={accordion2} onChange={this.onHeaderListItemsCollapseChange} activeKey={headerListItem_activeKey}>
 																			{option.items.map((val, i) => (
 																				<Panel header={val.title} key={i}>
-																					<Form.Input fluid name='title' placeholder={translate('card.title')} className="input-form" value={val.title} onChange={(val) => this.onHandleChange(val, `header_list${index}_option${key}_item${i}_title`)} />
+																					<div className="flex-form">
+																						<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={val.title} onChange={(val) => this.onHandleChange(val, `header_list${index}_option${key}_item${i}_title`)} />
+																						<label className='ui floated button trash-btn' onClick={(e) => ref.onDeleteListPlanItem(e, index, key, i)}> <Icon name='trash outline' style={{ cursor: 'pointer' }}></Icon> </label>
+																					</div>
 																				</Panel>
 																			))}
 																			</Collapse>
+																			<label className="ui floated button save-btn" onClick={(e) => ref.onAddListPlanItem(e, index, key)}> {translate('card.add')} </label>
 																		</Panel>
 																	))}
 																	</Collapse>
@@ -881,19 +971,45 @@ class Page extends React.Component {
 															<Panel header={item.ques} key={index}>
 																<div className="admin-form-group">
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_ques`)} />
-																	<Form>
-																		<label>{translate('card.description')}</label>
-																		<TextArea
-																			placeholder={translate('card.description-place')}
-																			value={item.answ}
-																			onChange={(val) => this.onHandleChange(val, `queue_item${index}_answ`)}
-																		/>
-																	</Form>
+																	<ReactSummernote
+																		value={item.answ}
+																		options={{
+																			lang: 'en-EN',
+																			height: 350,
+																			dialogsInBody: true,
+																			insertTableMaxSize: {
+																				col: 20,
+																				row: 20
+																			},
+																			table: [
+																				['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																				['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																			],
+																			link: [
+																				['link', ['linkDialogShow', 'unlink']]
+																			],
+																			toolbar: [
+																				['style', ['style']],
+																				['font', ['bold', 'underline', 'clear']],
+																				['fontname', ['fontname']],
+																				['color', ['color']],
+																				['para', ['ul', 'ol', 'paragraph']],
+																				['table', ['table']],
+																				['insert', ['link', 'picture', 'video']],
+																				['view', ['fullscreen', 'codeview']]
+																			]
+																		}}
+																		onChange={(val) => this.onAnswerChange(val, index, 'en')}
+																	/>
+																	<label className="ui floated button save-btn" onClick={(e) => ref.deleteQueueItem(e, index)}> {translate('card.delete')} </label>
 																</div>
 															</Panel>
 														))}
 													</Collapse>
-													<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+													<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+														<label className="ui floated button save-btn" onClick={this.addQueue.bind(this)}> {translate('card.add')} </label>
+														<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+													</div>
 												</Card.Description>
 											</Card.Content>
 										</Card>
@@ -912,10 +1028,35 @@ class Page extends React.Component {
 													<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={header.no_title} onChange={(val) => this.onHandleChange(val, 'header_no_title')} />
 													<Form>
 														<label>{translate('card.description')}</label>
-														<TextArea
-															placeholder={translate('card.description-place')}
+														<ReactSummernote
 															value={header.no_description}
-															onChange={(val) => this.onHandleChange(val, 'header_no_description')}
+															options={{
+																lang: 'nb-NO',
+																height: 350,
+																dialogsInBody: true,
+																insertTableMaxSize: {
+																	col: 20,
+																	row: 20
+																},
+																table: [
+																	['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																	['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																],
+																link: [
+																	['link', ['linkDialogShow', 'unlink']]
+																],
+																toolbar: [
+																	['style', ['style']],
+																	['font', ['bold', 'underline', 'clear']],
+																	['fontname', ['fontname']],
+																	['color', ['color']],
+																	['para', ['ul', 'ol', 'paragraph']],
+																	['table', ['table']],
+																	['insert', ['link', 'picture', 'video']],
+																	['view', ['fullscreen', 'codeview']]
+																]
+															}}
+															onChange={this.onNbDescriptionChange}
 														/>
 													</Form>
 													<Form>
@@ -1205,19 +1346,45 @@ class Page extends React.Component {
 															<Panel header={item.no_ques} key={index}>
 																<div className="admin-form-group">
 																	<Form.Input fluid label={translate('card.title')} name='title' placeholder={translate('card.title')} className="input-form" value={item.no_ques} onChange={(val) => this.onHandleChange(val, `queue_item${index}_no_ques`)} />
-																	<Form>
-																		<label>{translate('card.description')}</label>
-																		<TextArea
-																			placeholder={translate('card.description-place')}
-																			value={item.no_answ}
-																			onChange={(val) => this.onHandleChange(val, `queue_item${index}_no_answ`)}
-																		/>
-																	</Form>
+																	<ReactSummernote
+																		value={item.no_answ}
+																		options={{
+																			lang: 'nb-NO',
+																			height: 350,
+																			dialogsInBody: true,
+																			insertTableMaxSize: {
+																				col: 20,
+																				row: 20
+																			},
+																			table: [
+																				['add', ['addRowDown', 'addRowUp', 'addColLeft', 'addColRight']],
+																				['delete', ['deleteRow', 'deleteCol', 'deleteTable']],
+																			],
+																			link: [
+																				['link', ['linkDialogShow', 'unlink']]
+																			],
+																			toolbar: [
+																				['style', ['style']],
+																				['font', ['bold', 'underline', 'clear']],
+																				['fontname', ['fontname']],
+																				['color', ['color']],
+																				['para', ['ul', 'ol', 'paragraph']],
+																				['table', ['table']],
+																				['insert', ['link', 'picture', 'video']],
+																				['view', ['fullscreen', 'codeview']]
+																			]
+																		}}
+																		onChange={(val) => this.onAnswerChange(val, index, 'no')}
+																	/>
+																	<label className="ui floated button save-btn" onClick={(e) => ref.deleteQueueItem(e, index)}> {translate('card.delete')} </label>
 																</div>
 															</Panel>
 														))}
 													</Collapse>
-													<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+													<div style={{ display: 'flex', justifyContent: 'space-between' }}>
+														<label className="ui floated button save-btn" onClick={this.addQueue.bind(this)}> {translate('card.add')} </label>
+														<label className="ui floated button save-btn" onClick={this.updateQueue.bind(this)}> {translate('card.save')} </label>
+													</div>
 												</Card.Description>
 											</Card.Content>
 										</Card>

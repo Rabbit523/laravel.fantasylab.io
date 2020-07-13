@@ -39,7 +39,6 @@ class Page extends React.Component {
 						} else {
 							this.setState({ isLoaded: true, isPrivacy: true, data: JSON.parse(res.data.data) });
 						}
-						window.scrollTo(0, 0);
 					}
 				).catch(err => {
 					console.error(err);
@@ -59,7 +58,6 @@ class Page extends React.Component {
 					} else if (path == 'confidentiality' || path == 'konfidensialitet') {
 						this.setState({ isLoaded: true, isConfident: true, data: JSON.parse(res.data.data) });
 					}
-					window.scrollTo(0, 0);
 				}
 			).catch(err => {
 				console.error(err);

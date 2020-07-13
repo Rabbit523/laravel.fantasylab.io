@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Mail;
 use App\Http\Controllers\Controller;
 
 use App\Mail\ContactMail;
+use App\Mail\OrderMail;
 use App;
 
 class ApiController extends Controller
@@ -30,6 +31,11 @@ class ApiController extends Controller
 
 	public function sendMessage(Request $request) {
 		Mail::to("support@fantasylab.io")->send(new ContactMail($request->all()));
+		return "success";
+	}
+
+	public function sendOrderRequest(Request $request) {
+		Mail::to("order@fantasylab.io")->send(new OrderMail($request->all()));
 		return "success";
 	}
 }

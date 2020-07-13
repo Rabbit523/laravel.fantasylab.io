@@ -51,7 +51,7 @@ Route::get('/no/merkevarebygging', 'PagesController@no_branding');
 Route::get('/no/illustrasjon', 'PagesController@no_illustration');
 Route::get('/no/markedsføringsmateriell', 'PagesController@no_marketingMaterial');
 Route::get('/no/administrert-hosting', 'PagesController@no_managedHosting');
-Route::get('/wordpress-serviceavtale', 'PagesController@no_wpService');
+Route::get('/no/wordpress-serviceavtale', 'PagesController@no_wpService');
 Route::get('/no/funksjoner', 'PagesController@no_features');
 Route::get('/no/om-oss', 'PagesController@no_about');
 Route::get('/no/blogg', 'PagesController@no_blog');

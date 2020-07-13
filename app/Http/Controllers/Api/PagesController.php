@@ -1456,56 +1456,12 @@ class PagesController extends Controller
                 $data->features->items = $request_data['features']['items'];
                 $page->data = json_encode($data);
                 $page->save();
-            } else if ($request->type == 'server_header') {
-                $data->servers->title = $request_data['servers']['title'];
-                $data->servers->no_title = $request_data['servers']['no_title'];
+            } else if ($request->type == 'contact') {
+                $data->contact = $request_data;
                 $page->data = json_encode($data);
                 $page->save();
-            } else if ($request->type == 'server_item') {
-                $index = $request->index;
-                if ($data->servers->data[$index]->url != $request_data['servers']['data'][$index]['url']) {
-                    if (strpos($request_data['servers']['data'][$index]['url'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data['servers']['data'][$index]['url']);
-                    } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data['servers']['data'][$index]['url']);
-                    }
-                    $base_code = base64_decode($img);
-                    $name = 'hosting-server-avatar'.$index.'.png';
-                    $file = $uploads_dir . $name;
-                    if(File::exists($file)) {
-                        File::delete($file);
-                    }
-                    file_put_contents($file, $base_code); // create image file into $upload_dir
-                    $url = url("/assets/uploads") ."/" . $name;
-                    $arr = explode("/", $url);
-                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data['servers']['data'][$index]['url'] = $path;
-                }
-                $data->servers->data[$index] = $request_data['servers']['data'][$index];
-                $page->data = json_encode($data);
-                $page->save();
-            } else if ($request->type == "news") {
-                $service_type = $request->service_type;
-                if ($data->news[$service_type]->url != $request_data[$service_type]['url']) {
-                    if (strpos($request_data[$service_type]['url'], 'data:image/jpeg;base64') !== false) {
-                        $img = str_replace('data:image/jpeg;base64,', '', $request_data[$service_type]['url']);
-                    } else {
-                        $img = str_replace('data:image/png;base64,', '', $request_data[$service_type]['url']);
-                    }
-                    $base_code = base64_decode($img);
-                    $name = 'hosting-'.$request_data[$service_type]['author'] .'.png';
-                    $file = $uploads_dir . $name;
-                    if(File::exists($file)) {
-                        File::delete($file);
-                    }
-                    file_put_contents($file, $base_code); // create image file into $upload_dir
-                    $url = url("/assets/uploads") ."/" . $name;
-                    $arr = explode("/", $url);
-                    $path = "/".$arr[3]."/".$arr[4]."/".$arr[5];
-                    $request_data[$service_type]['url'] = $path;
-                }
-                $request_data[$service_type]['time'] = date("d.m").".".substr(date("Y"), 2, 3);
-                $data->news = $request_data;
+            } else if ($request->type == 'queue') {
+                $data->queue = $request_data;
                 $page->data = json_encode($data);
                 $page->save();
             }

@@ -8,9 +8,10 @@ import GuideCard from '../../common/guideCard'
 import PlanItem from '../../common/planItem'
 import AlertItem from '../../common/alertItem'
 import Http from '../../Http'
-import IntlTelInput from 'react-intl-tel-input';
-import 'react-intl-tel-input/dist/main.css';
+import IntlTelInput from 'react-intl-tel-input'
+import 'react-intl-tel-input/dist/main.css'
 import ReeValidate from 'ree-validate'
+import ReactHtmlParser from 'react-html-parser'
 
 const customStyles = {
 	content: {
@@ -23,10 +24,16 @@ const customStyles = {
 	}
 };
 
-const options = [
-	{ key: 'basic', text: 'WordPress Service Agreement, Basic', value: 'basic' },
-  { key: 'enterprise', text: 'WordPress Service Agreement, Enterprise', value: 'enterprise' }
-];
+const options = {
+	en: [
+		{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- excl. VAT /pr.month,', value: 'basic' },
+		{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- excl. VAT pr.month,', value: 'enterprise' }
+	],
+	no: [
+		{ key: 'basic', text: 'WordPress Service Agreement, Basic - NOK 499,- ekskl. MVA. /pr. måned', value: 'basic' },
+		{ key: 'enterprise', text: 'WordPress Service Agreement, Enterprise - NOK 999,- ekskl. MVA. /pr. måned', value: 'enterprise' }
+	]
+};
 
 class Page extends React.Component {
 	constructor(props) {
@@ -53,7 +60,8 @@ class Page extends React.Component {
 				message: '',
 				phone: '',
 				company: '',
-				agreement: ''
+				agreement: '',
+				type: 'wp'
 			},
 			phone: '',
 			checked: false,
@@ -67,7 +75,9 @@ class Page extends React.Component {
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
 		this.questionHandler = this.questionHandler.bind(this);
+		this.setScrollDown = this.setScrollDown.bind(this);
 		this.myRef = React.createRef();
+		this.contactRef = React.createRef();
 	}
 
 	componentDidMount() {
@@ -77,7 +87,6 @@ class Page extends React.Component {
 		Http.post(`${window.location.origin}/api/front/get-page`, { name: 'wp-service' }).then(
 			res => {
 				this.setState({ isLoaded: true, data: JSON.parse(res.data.data) });
-				window.scrollTo(0, 0);
 			}
 		).catch(err => {
 			console.error(err);
@@ -194,7 +203,7 @@ class Page extends React.Component {
 
 	submit(data) {
 		this.setState({ isLoaded: false, isLoading: true });
-		Http.post('/api/send-message', { data: data })
+		Http.post('/api/send-message', { data })
 		  .then(
 		    res => {
 		      this.setState({
@@ -214,7 +223,16 @@ class Page extends React.Component {
 	}
 
 	questionHandler(val) {
-		this.setState({ que_key: val });
+		const { que_key } = this.state;
+		if (que_key != val) {
+			this.setState({ que_key: val })
+		} else {
+			this.setState({ que_key: "" })
+		}
+	}
+
+	setScrollDown () {
+		window.scrollTo({top: this.contactRef.current.offsetTop, behavior: 'smooth'});
 	}
 
 	render() {
@@ -229,7 +247,7 @@ class Page extends React.Component {
 		return (
 			<Translate>
 				{({ translate }) => (
-					<div className='wpservice-page'>
+					<div className='wpservice-page' ref={this.myRef}>
 						{isLoaded ?
 							<React.Fragment>
 								<PageMetaTag meta_title={lang == 'en' ? data.meta_title : data.no_meta_title} meta_description={lang == 'en' ? data.meta_description : data.no_meta_description} />
@@ -240,7 +258,7 @@ class Page extends React.Component {
 								>
 									<Button icon='close' onClick={this.closeModal} />
 									<h2>{lang == 'en' ? 'Hi,' : 'Hei,'}<br />{lang == 'en' ? 'visionary.' : 'visjonær.'}</h2>
-									<p>{lang == 'en' ? 'Our web app is under development.' : 'Vår web app er under utvikling.'}</p>
+									<p>{lang == 'en' ? 'Our team will get in touch with you shortly.' : 'Vårt team vil ta kontakt med deg snart.'}</p>
 									<div className="button-group">
 										<Button as={Link} to={lang == 'en' ? '/contact' : '/no/kontakt'} className='primary-button'>{lang == 'en' ? 'Contact us' : 'Kontakt oss'}</Button>
 										<Button className='secondary-button' onClick={this.closeModal}>{lang == 'en' ? 'Close' : 'Lukk'}</Button>
@@ -252,7 +270,7 @@ class Page extends React.Component {
 											<div className='header-description'>
 												<div className='header-text'>
 													<h1>{lang == 'en' ? data.header.title : data.header.no_title}</h1>
-													<p>{lang == 'en' ? data.header.description : data.header.no_description}</p>
+													<h5>{lang == 'en' ? ReactHtmlParser(data.header.description) : ReactHtmlParser(data.header.no_description)}</h5>
 												</div>
 											</div>
 											<Container className='custom-col-6'>
@@ -272,14 +290,14 @@ class Page extends React.Component {
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.header.list.title : data.header.list.no_title}</h2>
 										<Container className='custom-col-8'>
-											<Grid columns={2}>
+											<Grid columns={3}>
 												{data.header.list.items.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp" />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} onScroll={this.setScrollDown} type="wp"/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} type="wp" />
+															<PlanItem lang={lang} avatar={item.url} cost={item.cost} color={item.color} options={item.options} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} onScroll={this.setScrollDown} type="wp"/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -290,7 +308,7 @@ class Page extends React.Component {
 								<div className="wpservice-section alert">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.alert.title : data.alert.no_title}</h2>
-										<p>{lang == 'en' ? data.alert.des : data.alert.no_des}</p>
+										<h5>{lang == 'en' ? data.alert.des : data.alert.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={3}>
 												{data.alert.list.map((item, i) => (
@@ -310,7 +328,7 @@ class Page extends React.Component {
 								<div className="wpservice-section consider">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.consider.title : data.consider.no_title}</h2>
-										<p>{lang == 'en' ? data.consider.des : data.consider.no_des}</p>
+										<h5>{lang == 'en' ? data.consider.des : data.consider.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={4}>
 												{data.consider.items.map((item, i) => (
@@ -318,14 +336,14 @@ class Page extends React.Component {
 														<Grid.Column mobile={16} tablet={8} only="mobile">
 															<div className='figure' key={i}>
 																<img src={`${item.url}`} />
-																<p className="title">{lang == 'en' ? item.title : item.no_title}</p>
+																<h3 className="title">{lang == 'en' ? item.title : item.no_title}</h3>
 																<p className="des">{lang == 'en' ? item.des : item.no_des}</p>
 															</div>
 														</Grid.Column>
 														<Grid.Column only="computer">
 															<div className='figure' key={i}>
 																<img src={`${item.url}`} />
-																<p className="title">{lang == 'en' ? item.title : item.no_title}</p>
+																<h3 className="title">{lang == 'en' ? item.title : item.no_title}</h3>
 																<p className="des">{lang == 'en' ? item.des : item.no_des}</p>
 															</div>
 														</Grid.Column>
@@ -338,16 +356,16 @@ class Page extends React.Component {
 								<div className="wpservice-section plan">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.plans.title : data.plans.no_title}</h2>
-										<p>{lang == 'en' ? data.plans.des : data.plans.no_des}</p>
+										<h5>{lang == 'en' ? data.plans.des : data.plans.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Grid columns={3}>
 												{data.plans.items.map((item, i) => (
 													<React.Fragment key={i}>
 														<Grid.Column mobile={16} tablet={8} only="mobile">
-															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} />
+															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des}/>
 														</Grid.Column>
 														<Grid.Column only="computer">
-															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des} />
+															<GuideCard avatar={item.url} title={lang == 'en' ? item.title : item.no_title} description={lang == 'en' ? item.des : item.no_des}/>
 														</Grid.Column>
 													</React.Fragment>
 												))}
@@ -358,26 +376,26 @@ class Page extends React.Component {
 								<div className="wpservice-section questions">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.questions.title : data.questions.no_title}</h2>
-										<p>{lang == 'en' ? data.questions.des : data.questions.no_des}</p>
-										<Container className='custom-col-6'>
+										<h5>{lang == 'en' ? data.questions.des : data.questions.no_des}</h5>
+										<div className="item-group">
 											{data.questions.items.map((item, i) => (
 												<div className="item" key={i}>
 													<div className="avatar-item">
 														<img src={`${item.url}`} />
 													</div>
 													<div className="text-item">
-														<p className="title">{i + 1}. {lang == 'en' ? item.title : item.no_title}</p>
+														<h3 className="title">{i + 1}. {lang == 'en' ? item.title : item.no_title}</h3>
 														<p className="description">{lang == 'en' ? item.des : item.no_des}</p>
 													</div>
 												</div>
 											))}
-										</Container>
+										</div>
 									</Container>
 								</div>
-								<div className="wpservice-section contact">
+								<div className="wpservice-section contact" ref={this.contactRef}>
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.contact.title : data.contact.no_title}</h2>
-										<p>{lang == 'en' ? data.contact.des : data.contact.no_des}</p>
+										<h5>{lang == 'en' ? data.contact.des : data.contact.no_des}</h5>
 										<Container className='custom-col-8'>
 											<Form className='message-form'>
 												<div className="d-flex">
@@ -410,7 +428,7 @@ class Page extends React.Component {
 												</div>
 												<div className="d-flex one">
 													<div className="form-group">
-														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={options} error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
+														<Form.Select control={Select} label={translate('contact.select-agreement')} name="agreement" placeholder={translate('contact.select-agreement')} options={ lang == 'en' ? options.en : options.no } error={errors.has('agreement')} onChange={(e, { value }) => this.handleChange(value, 'agreement')} />
 														{errors.has('agreement') && <Header size='tiny' className='custom-error' color='red'>{lang == 'en' ? 'Select the agreement options.' : 'Velg avtalealternativer.'}</Header>}
 													</div>
 												</div>
@@ -421,9 +439,13 @@ class Page extends React.Component {
 													</div>
 												</div>
 												<div className={checkbox_border ? 'privacy-section' : 'privacy-section error'}>
-													<Checkbox onClick={this.handleCheckBoxClick} label={translate('contact.clicking-agree')} />
+													<Checkbox onClick={this.handleCheckBoxClick} />
 													<div className='terms-section'>
-														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('contact.privacy-policy')}</Link>
+														<span>{translate('contact.clicking-agree-wp')}</span>
+														<Link to={{ pathname: '/privacy', state: { pagename: 'privacy' } }} target="_blank" className='item-link'>{translate('footer.privacy')}</Link>
+														<span>{translate('footer.and')}</span>
+														<Link to={{ pathname: '/terms', state: { pagename: 'terms' } }} target="_blank" className='item-link'>{translate('footer.terms')}.</Link>
+														<span>&nbsp;{translate('contact.wp-extend-des')}</span>
 													</div>
 												</div>
 												<Button fluid size='large' className={isLoading ? 'primary-button loading' : 'primary-button'} onClick={this.handleSubmit}>{translate('contact.send-request')}</Button>
@@ -434,18 +456,18 @@ class Page extends React.Component {
 								<div className="wpservice-section queue">
 									<Container className='custom-col-6'>
 										<h2>{lang == 'en' ? data.queue.title : data.queue.no_title}</h2>
-										<p>{lang == 'en' ? data.queue.des : data.queue.no_des}</p>
+										<h5>{lang == 'en' ? data.queue.des : data.queue.no_des}</h5>
 									</Container>
 									<div className="item-group">
 										{data.queue.list.map((item, i) => (
-											<div className={que_key == item.id ? "item active" : "item"}>
+											<div className={que_key == item.id ? "item active" : "item"} key={i}>
 												<Container className='custom-col-6'>
 													<Container className='custom-col-8'>
-														<div className="question-tag">
+														<div className="question-tag" onClick={() => this.questionHandler(item.id)}>
 															<p>{ lang=='en' ? item.ques : item.no_ques }</p>
-															<Button onClick={() => this.questionHandler(item.id)}>+</Button>
+															<Button>{que_key == item.id ? '-' : '+' }</Button>
 														</div>
-														<div className="answer-tag">{ lang == 'en' ? item.answ : item.no_answ }</div>
+														<div className="answer-tag">{lang == 'en' ? ReactHtmlParser(item.answ) : ReactHtmlParser(item.no_answ)}</div>
 													</Container>
 												</Container>
 											</div>

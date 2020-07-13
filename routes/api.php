@@ -57,5 +57,6 @@ Route::middleware(['prefix'=> 'api'])->group(function(){
 	
 		// APIS
 		Route::post('/send-message', 'Api\ApiController@sendMessage');
+		Route::post('/send-order-request', 'Api\ApiController@sendOrderRequest');
 	});
 });
