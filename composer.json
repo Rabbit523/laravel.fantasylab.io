@@ -9,7 +9,7 @@
         "clarification/sendgrid-laravel-driver": "^2.0",
         "fideloper/proxy": "^4.0",
         "laravel/framework": "5.8.*",
-        "laravel/socialite": "^3.0",
+        "laravel/socialite": "^4.4",
         "laravel/tinker": "~1.0",
         "phpmailer/phpmailer": "^6.0",
         "spatie/laravel-server-side-rendering": "^1.1",
