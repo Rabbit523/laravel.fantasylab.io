@@ -33,7 +33,7 @@
     "jquery": "^3.4.1",
     "laravel-mix-polyfill": "^1.1.0",
     "prop-types": "^15.6.0",
-    "rc-collapse": "^1.11.3",
+    "rc-collapse": "^3.1.0",
     "react-alice-carousel": "^1.15.2",
     "react-confirm-alert": "^2.6.1",
     "react-cookie-consent": "^2.5.0",
