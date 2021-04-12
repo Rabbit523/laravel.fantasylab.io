@@ -36,7 +36,7 @@
     "rc-collapse": "^1.11.3",
     "react-alice-carousel": "^1.15.2",
     "react-confirm-alert": "^2.6.1",
-    "react-cookie-consent": "^2.5.0",
+    "react-cookie-consent": "^6.2.3",
     "react-device-detect": "^1.7.5",
     "react-dropzone": "^10.1.6",
     "react-hover-observer": "^2.1.1",
