@@ -38,7 +38,7 @@
     "react-confirm-alert": "^2.6.1",
     "react-cookie-consent": "^2.5.0",
     "react-device-detect": "^1.7.5",
-    "react-dropzone": "^10.1.6",
+    "react-dropzone": "^11.3.2",
     "react-hover-observer": "^2.1.1",
     "react-html-parser": "^2.0.2",
     "react-intl-tel-input": "^8.0.2",
