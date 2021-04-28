@@ -1,0 +1,19 @@
+version: 2
+updates:
+- package-ecosystem: composer
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: laravel-mix
+    versions:
+    - 6.0.16
+  - dependency-name: react-alice-carousel
+    versions:
+    - 2.4.0
