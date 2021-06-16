@@ -14,7 +14,7 @@
     "bootstrap": "^3.3.6",
     "bootstrap-sass": "^3.3.7",
     "cross-env": "^5.1",
-    "laravel-mix": "^4.0.0",
+    "laravel-mix": "^6.0.20",
     "lodash": "^4.17.4",
     "react": "^16.0.0",
     "react-dom": "^16.2.0",
